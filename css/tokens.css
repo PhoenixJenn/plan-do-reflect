@@ -1,0 +1,110 @@
+/* ============================================================
+   Plan-Do-Reflect — design tokens
+   Every page/component should read colors and type from these
+   custom properties, never hardcode a hex value or font name.
+   To add a new style direction: copy a [data-theme="x"] block,
+   rename it, adjust values, add a swatch button in index.html.
+
+   Command Blue was dropped and the remaining three relettered/
+   reordered: A = Kinetic Signal (default), B = Studio Ledger,
+   C = Bright Margin.
+   ============================================================ */
+
+:root {
+  /* fallback (theme A = Kinetic Signal) so nothing is unstyled before data-theme resolves */
+  --font-heading: 'Sora', sans-serif;
+  --font-body: 'Work Sans', sans-serif;
+}
+
+/* ---------- Direction A — Kinetic Signal (gray / black / bright yellow) — default ---------- */
+[data-theme="a"] {
+  --bg-page: #ebebe6;
+  --bg-nav: #111215;
+  --bg-sidebar: #f4f4f1;
+  --bg-content: #ffffff;
+  --border: #e0e0da;
+
+  --text-nav: #a8a9ac;
+  --text-nav-active: #ffffff;
+  --text-heading: #111215;
+  --text-body: #45464a;
+  --text-caption: #6b6c70;
+
+  --logo-color: #facc15;
+  --accent: #facc15;
+  --accent-strong: #2b2200;
+
+  --sidebar-text: #45464a;
+  --sidebar-active-bg: #facc15;
+  --sidebar-active-text: #111215;
+
+  --tag-primary-bg: #facc15;
+  --tag-primary-text: #2b2200;
+  --tag-secondary-bg: #e7e7e2;
+  --tag-secondary-text: #55565a;
+
+  --font-heading: 'Sora', sans-serif;
+  --font-body: 'Work Sans', sans-serif;
+}
+
+/* ---------- Direction B — Studio Ledger (dusty rose / gray / white) ---------- */
+[data-theme="b"] {
+  --bg-page: #fdfbfa;
+  --bg-nav: #ffffff;
+  --bg-sidebar: #faf5f4;
+  --bg-content: #ffffff;
+  --border: #eee0de;
+
+  --text-nav: #4a4340;
+  --text-nav-active: #b06b76;
+  --text-heading: #33302d;
+  --text-body: #33302d;
+  --text-caption: #6b6460;
+
+  --logo-color: #c98a93;
+  --accent: #c98a93;
+  --accent-strong: #8a4753;
+
+  --sidebar-text: #6b6460;
+  --sidebar-active-bg: #f1e3e1;
+  --sidebar-active-text: #8a4753;
+
+  --tag-primary-bg: #f1e3e1;
+  --tag-primary-text: #8a4753;
+  --tag-secondary-bg: #eeece9;
+  --tag-secondary-text: #6b6460;
+
+  --font-heading: 'Space Grotesk', sans-serif;
+  --font-body: 'Work Sans', sans-serif;
+}
+
+/* ---------- Direction C — Bright Margin (white / gray / lime) ---------- */
+[data-theme="c"] {
+  --bg-page: #f2f2ef;
+  --bg-nav: #111214;
+  --bg-sidebar: #fafafa;
+  --bg-content: #ffffff;
+  --border: #e6e6e3;
+
+  --text-nav: #b8b9bc;
+  --text-nav-active: #ffffff;
+  --text-heading: #111214;
+  --text-body: #45464a;
+  --text-caption: #6b6c70;
+
+  --logo-color: #d7ff4b;
+  --accent: #d7ff4b;
+  --accent-strong: #1c2400;
+
+  --sidebar-text: #4a4b4d;
+  --sidebar-active-bg: #111214;
+  --sidebar-active-text: #d7ff4b;
+
+  --tag-primary-bg: #d7ff4b;
+  --tag-primary-text: #1c2400;
+  --tag-secondary-bg: #ececea;
+  --tag-secondary-text: #55565a;
+
+  --font-heading: 'Sora', sans-serif;
+  --font-body: 'Plus Jakarta Sans', sans-serif;
+}

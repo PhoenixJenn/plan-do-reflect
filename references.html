@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="a">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>References &amp; Further Reading · Plan · Do · Reflect</title>
+
+<!-- Applied before CSS loads, so the saved theme / title-font choice doesn't flash to the default on reload -->
+<script>
+(function () {
+  try {
+    var savedTheme = localStorage.getItem('pdr-theme');
+    if (['a', 'b', 'c'].indexOf(savedTheme) > -1) {
+      document.documentElement.setAttribute('data-theme', savedTheme);
+    }
+    /* No saved choice yet means a first-time visitor — default them to Golos
+       Text rather than the theme's own heading font. Explicitly picking
+       "Theme default" in the picker stores the literal string 'default',
+       which is the one value that clears the override below. */
+    var savedTitleFont = localStorage.getItem('pdr-title-font');
+    var titleFont = savedTitleFont === null ? 'golos-text' : savedTitleFont;
+    if (titleFont !== 'default') {
+      document.documentElement.setAttribute('data-title-font', titleFont);
+    }
+  } catch (e) {}
+})();
+</script>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=Work+Sans:wght@400;500;600&family=Sora:wght@600;700;800&family=Plus+Jakarta+Sans:wght@500;600;700&display=swap" rel="stylesheet">
+
+<!-- Title-font brainstorm candidates — temporary, for the .title-font-picker toggle only.
+     Remove this link once a title font is chosen and folded into tokens.css. -->
+<link href="https://fonts.googleapis.com/css2?family=Gabarito:wght@800&family=Chivo:wght@800&family=Golos+Text:wght@800&display=swap" rel="stylesheet">
+
+<link rel="stylesheet" href="css/tokens.css">
+<link rel="stylesheet" href="css/main.css">
+</head>
+<body>
+
+<header class="topnav">
+  <a class="logo" href="index.html">Plan·Do·Reflect</a>
+  <nav class="topnav-items">
+    <a class="item" href="#">Self-Management</a>
+    <a class="item" href="#">Leading</a>
+    <a class="item" href="#">Managing</a>
+    <a class="item" href="#">Strategic Planning</a>
+    <a class="item" href="#">Role-Specific</a>
+    <a class="item" href="#">Processes</a>
+    <a class="item" href="#">Business Acumen</a>
+  </nav>
+</header>
+
+<main class="references">
+  <h1 class="page-title">References &amp; Further Reading</h1>
+  <p class="references-intro">The ideas behind this site aren't new. They're pulled together from research and writing on reflection, learning, and sustained growth. Here's where to go deeper, organized by the homepage section each set of ideas supports.</p>
+
+  <section class="ref-section">
+    <h2>Why it matters</h2>
+    <div class="ref-group">
+      <h3>References</h3>
+      <ul class="ref-list">
+        <li><a href="https://hbr.org/2014/05/the-power-of-reflection-at-work" target="_blank" rel="noopener">Di Stefano, Gino, Pisano &amp; Staats, "The Power of Reflection at Work," Harvard Business Review (2014)</a></li>
+      </ul>
+    </div>
+    <div class="ref-group">
+      <h3>Further reading</h3>
+      <ul class="ref-list">
+        <li>John Dewey, <em>Experience and Education</em> (1938). The foundational case that we don't learn from experience alone, we learn from reflecting on it.</li>
+        <li>Donald A. Schön, <em>The Reflective Practitioner: How Professionals Think in Action</em> (1983). A classic on reflection-in-action across professions.</li>
+      </ul>
+    </div>
+  </section>
+
+  <section class="ref-section">
+    <h2>What it is</h2>
+    <div class="ref-group">
+      <h3>References</h3>
+      <ul class="ref-list">
+        <li><a href="https://www.jimcollins.com/concepts/the-flywheel.html" target="_blank" rel="noopener">Jim Collins, "The Flywheel Effect," jimcollins.com</a></li>
+        <li><a href="https://www.simplypsychology.org/learning-kolb.html" target="_blank" rel="noopener">"Kolb's Learning Styles &amp; Experiential Learning Cycle," Simply Psychology</a></li>
+      </ul>
+    </div>
+    <div class="ref-group">
+      <h3>Further reading</h3>
+      <ul class="ref-list">
+        <li>Jim Collins, <em>Good to Great: Why Some Companies Make the Leap and Others Don't</em> (2001). Where the flywheel concept comes from.</li>
+        <li>David A. Kolb, <em>Experiential Learning: Experience as the Source of Learning and Development</em> (1984). The source for the four-stage learning cycle this framework echoes.</li>
+      </ul>
+    </div>
+  </section>
+
+  <section class="ref-section">
+    <h2>How this site supports it</h2>
+    <div class="ref-group">
+      <h3>Further reading</h3>
+      <ul class="ref-list">
+        <li>Tiago Forte, <em>Building a Second Brain</em> (2022). Organizing what you learn so it compounds instead of evaporating.</li>
+        <li>James Clear, <em>Atomic Habits</em> (2018). Small systems and cues that make a practice stick.</li>
+      </ul>
+    </div>
+  </section>
+
+  <section class="ref-section">
+    <h2>When to use it</h2>
+    <div class="ref-group">
+      <h3>Further reading</h3>
+      <ul class="ref-list">
+        <li>Dan Sullivan &amp; Dr. Benjamin Hardy, <em>The Gap and the Gain</em> (2021). Measuring progress by looking back at how far you've come, not just at how far you have to go.</li>
+        <li>Bill Burnett &amp; Dave Evans, <em>Designing Your Life</em> (2016). Treating your career and life as something you periodically redesign, not something you set once.</li>
+      </ul>
+    </div>
+  </section>
+</main>
+
+<footer class="site-footer">
+  <p>&copy; 2026 Plan-Do-Reflect. <a href="references.html">References &amp; further reading</a></p>
+</footer>
+
+<div class="theme-switch" role="group" aria-label="Style direction">
+  <button data-theme="a" title="Kinetic Signal — black &amp; yellow"></button>
+  <button data-theme="b" title="Studio Ledger — dusty rose"></button>
+  <button data-theme="c" title="Bright Margin — lime"></button>
+</div>
+
+<!-- Temporary brainstorm control — only restyles the main h1 (.content h1 / .hero-title / .page-title). Remove alongside
+     the "title-font experiment" CSS block and the extra Google Fonts link once
+     a title font is picked. -->
+<div class="title-font-picker">
+  <label for="title-font-select">Title font</label>
+  <button type="button" id="title-font-prev" class="title-font-nav" aria-label="Previous title font">‹</button>
+  <select id="title-font-select">
+    <optgroup label="Round 1 — headline character">
+      <option value="gabarito">Gabarito</option>
+      <option value="chivo">Chivo</option>
+    </optgroup>
+    <optgroup label="Round 2 — Calibri-adjacent">
+      <option value="golos-text">Golos Text</option>
+    </optgroup>
+    <option value="default">Theme default</option>
+  </select>
+  <button type="button" id="title-font-next" class="title-font-nav" aria-label="Next title font">›</button>
+</div>
+
+<script src="js/theme-toggle.js" defer></script>
+<script src="js/title-font-toggle.js" defer></script>
+</body>
+</html>

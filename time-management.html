@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="a">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Time Management · Plan · Do · Reflect</title>
+
+<!-- Applied before CSS loads, so the saved theme / title-font choice doesn't flash to the default on reload -->
+<script>
+(function () {
+  try {
+    var savedTheme = localStorage.getItem('pdr-theme');
+    if (['a', 'b', 'c'].indexOf(savedTheme) > -1) {
+      document.documentElement.setAttribute('data-theme', savedTheme);
+    }
+    var savedTitleFont = localStorage.getItem('pdr-title-font');
+    var titleFont = savedTitleFont === null ? 'golos-text' : savedTitleFont;
+    if (titleFont !== 'default') {
+      document.documentElement.setAttribute('data-title-font', titleFont);
+    }
+  } catch (e) {}
+})();
+</script>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=Work+Sans:wght@400;500;600&family=Sora:wght@600;700;800&family=Plus+Jakarta+Sans:wght@500;600;700&display=swap" rel="stylesheet">
+
+<!-- Title-font brainstorm candidates — temporary, for the .title-font-picker toggle only.
+     Remove this link once a title font is chosen and folded into tokens.css. -->
+<link href="https://fonts.googleapis.com/css2?family=Gabarito:wght@800&family=Chivo:wght@800&family=Golos+Text:wght@800&display=swap" rel="stylesheet">
+
+<link rel="stylesheet" href="css/tokens.css">
+<link rel="stylesheet" href="css/main.css">
+</head>
+<body>
+
+<header class="topnav">
+  <a class="logo" href="index.html">Plan·Do·Reflect</a>
+  <nav class="topnav-items">
+    <a class="item active" href="self-management.html">Self-Management</a>
+    <a class="item" href="#">Leading</a>
+    <a class="item" href="#">Managing</a>
+    <a class="item" href="#">Strategic Planning</a>
+    <a class="item" href="#">Role-Specific</a>
+    <a class="item" href="#">Processes</a>
+    <a class="item" href="#">Business Acumen</a>
+  </nav>
+</header>
+
+<div class="layout">
+  <aside class="sidebar">
+    <div class="sec-title">Self-Management</div>
+    <a class="sub-item" href="self-management.html">Overview</a>
+    <a class="sub-item" href="reflection-practice.html">Reflection Practice</a>
+    <a class="sub-item" href="#">Focus &amp; Deep Work</a>
+
+    <div class="sub-item-group">
+      <a class="sub-item active" href="time-management.html">Time Management</a>
+      <div class="sub-sub-list">
+        <a class="sub-sub-item" href="#eighty-twenty">The 80/20 Rule</a>
+        <a class="sub-sub-item" href="#pomodoro">Pomodoro Technique</a>
+        <a class="sub-sub-item" href="#two-minute-rule">The 2-Minute Rule</a>
+        <a class="sub-sub-item" href="#time-blocking">Time Blocking</a>
+        <a class="sub-sub-item" href="#boundaries">Boundaries &amp; Saying No</a>
+      </div>
+    </div>
+
+    <a class="sub-item" href="#">Habit-Building</a>
+    <a class="sub-item" href="#">Motivation</a>
+    <a class="sub-item" href="#">Communication</a>
+    <a class="sub-item" href="#">AI Fundamentals</a>
+  </aside>
+
+  <main class="content">
+    <div class="page-hero">
+      <h1>Time Management</h1>
+      <p class="lede">Protecting the time you already decided mattered. A small toolkit of frameworks, not a productivity personality.</p>
+      <div class="tag-row" style="margin-top: 14px; margin-bottom: 0;">
+        <span class="tag primary">Self-Management</span>
+        <span class="tag secondary">5 frameworks</span>
+      </div>
+    </div>
+
+    <div class="section-block">
+      <h2>Why It Matters</h2>
+      <p>You can have the clearest plan in the world and still lose the day to whatever shows up loudest. Time management isn't about cramming more in — it's about protecting space for the work that actually moves things forward, so Planning and Reflecting have somewhere to land. Without it, the Plan-Do-Reflect cycle has no "Do" to speak of: just a plan that never got a turn and a reflection with nothing to look back on. Master a handful of reliable frameworks and time management stops being a personality trait and starts being a system you can run on a bad day, not just a good one.</p>
+    </div>
+
+    <div class="section-block" style="max-width: 640px;">
+      <h2>Frameworks We Cover</h2>
+      <p style="margin-bottom: 18px;">Pulled from a "best of" pass across 28 source pins on this topic — these 5 are the ones with real depth behind them; everything else recurred only as a line item inside someone else's roundup.</p>
+    </div>
+
+    <div class="framework-list">
+      <div class="framework-item" id="eighty-twenty">
+        <div class="fw-num">1</div>
+        <div>
+          <h3>The 80/20 Rule</h3>
+          <p>Roughly 20% of your effort drives 80% of your results. The skill isn't working harder — it's finding your vital 20% and giving it your full attention.</p>
+        </div>
+      </div>
+      <div class="framework-item" id="pomodoro">
+        <div class="fw-num">2</div>
+        <div>
+          <h3>Pomodoro Technique</h3>
+          <p>Work in focused 25-minute sprints with 5-minute breaks. Simple enough to start today, structured enough to actually stick.</p>
+        </div>
+      </div>
+      <div class="framework-item" id="two-minute-rule">
+        <div class="fw-num">3</div>
+        <div>
+          <h3>The 2-Minute Rule</h3>
+          <p>If it takes less than two minutes, do it now — don't let it become a line on tomorrow's to-do list.</p>
+        </div>
+      </div>
+      <div class="framework-item" id="time-blocking">
+        <div class="fw-num">4</div>
+        <div>
+          <h3>Time Blocking</h3>
+          <p>Protect your calendar the way you'd protect a meeting with your most important client. Deep work needs a scheduled home, not just an intention.</p>
+        </div>
+      </div>
+      <div class="framework-item" id="boundaries">
+        <div class="fw-num">5</div>
+        <div>
+          <h3>Boundaries &amp; Saying No</h3>
+          <p>Techniques don't help if work has no edges. The actual phrases to use when you're at capacity — not just the idea that you should have limits.</p>
+        </div>
+      </div>
+    </div>
+  </main>
+</div>
+
+<footer class="site-footer">
+  <p>&copy; 2026 Plan-Do-Reflect. <a href="references.html">References &amp; further reading</a></p>
+</footer>
+
+<div class="theme-switch" role="group" aria-label="Style direction">
+  <button data-theme="a" title="Kinetic Signal — black &amp; yellow"></button>
+  <button data-theme="b" title="Studio Ledger — dusty rose"></button>
+  <button data-theme="c" title="Bright Margin — lime"></button>
+</div>
+
+<!-- Temporary brainstorm control — only restyles .content h1. Remove alongside
+     the "title-font experiment" CSS block and the extra Google Fonts link once
+     a title font is picked. -->
+<div class="title-font-picker">
+  <label for="title-font-select">Title font</label>
+  <button type="button" id="title-font-prev" class="title-font-nav" aria-label="Previous title font">‹</button>
+  <select id="title-font-select">
+    <optgroup label="Round 1 — headline character">
+      <option value="gabarito">Gabarito</option>
+      <option value="chivo">Chivo</option>
+    </optgroup>
+    <optgroup label="Round 2 — Calibri-adjacent">
+      <option value="golos-text">Golos Text</option>
+    </optgroup>
+    <option value="default">Theme default</option>
+  </select>
+  <button type="button" id="title-font-next" class="title-font-nav" aria-label="Next title font">›</button>
+</div>
+
+<script src="js/theme-toggle.js" defer></script>
+<script src="js/title-font-toggle.js" defer></script>
+</body>
+</html>

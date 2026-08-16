@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="a">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Self-Management · Plan · Do · Reflect</title>
+
+<!-- Applied before CSS loads, so the saved theme / title-font choice doesn't flash to the default on reload -->
+<script>
+(function () {
+  try {
+    var savedTheme = localStorage.getItem('pdr-theme');
+    if (['a', 'b', 'c'].indexOf(savedTheme) > -1) {
+      document.documentElement.setAttribute('data-theme', savedTheme);
+    }
+    var savedTitleFont = localStorage.getItem('pdr-title-font');
+    var titleFont = savedTitleFont === null ? 'golos-text' : savedTitleFont;
+    if (titleFont !== 'default') {
+      document.documentElement.setAttribute('data-title-font', titleFont);
+    }
+  } catch (e) {}
+})();
+</script>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=Work+Sans:wght@400;500;600&family=Sora:wght@600;700;800&family=Plus+Jakarta+Sans:wght@500;600;700&display=swap" rel="stylesheet">
+
+<!-- Title-font brainstorm candidates — temporary, for the .title-font-picker toggle only.
+     Remove this link once a title font is chosen and folded into tokens.css. -->
+<link href="https://fonts.googleapis.com/css2?family=Gabarito:wght@800&family=Chivo:wght@800&family=Golos+Text:wght@800&display=swap" rel="stylesheet">
+
+<link rel="stylesheet" href="css/tokens.css">
+<link rel="stylesheet" href="css/main.css">
+</head>
+<body>
+
+<header class="topnav">
+  <a class="logo" href="index.html">Plan·Do·Reflect</a>
+  <nav class="topnav-items">
+    <a class="item active" href="self-management.html">Self-Management</a>
+    <a class="item" href="#">Leading</a>
+    <a class="item" href="#">Managing</a>
+    <a class="item" href="#">Strategic Planning</a>
+    <a class="item" href="#">Role-Specific</a>
+    <a class="item" href="#">Processes</a>
+    <a class="item" href="#">Business Acumen</a>
+  </nav>
+</header>
+
+<div class="layout">
+  <aside class="sidebar">
+    <div class="sec-title">Self-Management</div>
+    <a class="sub-item active" href="self-management.html">Overview</a>
+    <a class="sub-item" href="reflection-practice.html">Reflection Practice</a>
+    <a class="sub-item" href="#">Focus &amp; Deep Work</a>
+    <a class="sub-item" href="time-management.html">Time Management</a>
+    <a class="sub-item" href="#">Habit-Building</a>
+    <a class="sub-item" href="#">Motivation</a>
+    <a class="sub-item" href="#">Communication</a>
+    <a class="sub-item" href="#">AI Fundamentals</a>
+  </aside>
+
+  <main class="content">
+    <h1>Self-Management</h1>
+    <p class="lede">The part of the cycle nobody assigns to you — how you run yourself before you try to run anything else.</p>
+
+    <div class="tag-row">
+      <span class="tag primary">Root category</span>
+      <span class="tag secondary">7 areas</span>
+    </div>
+
+    <div class="subcat-grid">
+      <a class="subcat-card" href="reflection-practice.html">
+        <h3>Reflection Practice</h3>
+        <p>The starting point of the cycle — and the theme of this whole site. Know where you are before you decide what to change.</p>
+      </a>
+      <a class="subcat-card" href="#">
+        <h3>Focus &amp; Deep Work</h3>
+        <p>Decide what matters enough to protect, before you decide how to spend it.</p>
+      </a>
+      <a class="subcat-card" href="time-management.html">
+        <h3>Time Management</h3>
+        <p>Turn protected time into an actual system — a small toolkit of frameworks, not a personality trait.</p>
+      </a>
+      <a class="subcat-card" href="#">
+        <h3>Habit-Building</h3>
+        <p>Make the system stick without relying on daily willpower.</p>
+      </a>
+      <a class="subcat-card" href="#">
+        <h3>Motivation</h3>
+        <p>What to do when the system breaks down anyway — and how that feeds back into Reflection.</p>
+      </a>
+      <a class="subcat-card" href="#">
+        <h3>Communication</h3>
+        <p>How what's in your head gets to everyone else — from a written update to the hardest conversation.</p>
+      </a>
+      <a class="subcat-card" href="#">
+        <h3>AI Fundamentals</h3>
+        <p>Understand it, use it responsibly, and make it part of how you actually work.</p>
+      </a>
+    </div>
+
+    <div class="section-block" style="margin-top: 32px;">
+      <h2>Why this root comes first</h2>
+      <p>Every other area on this site — Leading, Managing, Strategic Planning — assumes you've already got a handle on running yourself. This is that handle. It's also the only root that's genuinely cyclical: Reflection feeds Focus, Focus feeds Time Management, Time Management makes Habits possible, and when the whole system wobbles, Motivation is what gets you back to Reflection to start again.</p>
+    </div>
+  </main>
+</div>
+
+<footer class="site-footer">
+  <p>&copy; 2026 Plan-Do-Reflect. <a href="references.html">References &amp; further reading</a></p>
+</footer>
+
+<div class="theme-switch" role="group" aria-label="Style direction">
+  <button data-theme="a" title="Kinetic Signal — black &amp; yellow"></button>
+  <button data-theme="b" title="Studio Ledger — dusty rose"></button>
+  <button data-theme="c" title="Bright Margin — lime"></button>
+</div>
+
+<!-- Temporary brainstorm control — only restyles .content h1. Remove alongside
+     the "title-font experiment" CSS block and the extra Google Fonts link once
+     a title font is picked. -->
+<div class="title-font-picker">
+  <label for="title-font-select">Title font</label>
+  <button type="button" id="title-font-prev" class="title-font-nav" aria-label="Previous title font">‹</button>
+  <select id="title-font-select">
+    <optgroup label="Round 1 — headline character">
+      <option value="gabarito">Gabarito</option>
+      <option value="chivo">Chivo</option>
+    </optgroup>
+    <optgroup label="Round 2 — Calibri-adjacent">
+      <option value="golos-text">Golos Text</option>
+    </optgroup>
+    <option value="default">Theme default</option>
+  </select>
+  <button type="button" id="title-font-next" class="title-font-nav" aria-label="Next title font">›</button>
+</div>
+
+<script src="js/theme-toggle.js" defer></script>
+<script src="js/title-font-toggle.js" defer></script>
+</body>
+</html>

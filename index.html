@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="a">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Plan · Do · Reflect</title>
+
+<!-- Applied before CSS loads, so the saved theme / title-font choice doesn't flash to the default on reload -->
+<script>
+(function () {
+  try {
+    var savedTheme = localStorage.getItem('pdr-theme');
+    if (['a', 'b', 'c'].indexOf(savedTheme) > -1) {
+      document.documentElement.setAttribute('data-theme', savedTheme);
+    }
+    /* No saved choice yet means a first-time visitor — default them to Golos
+       Text rather than the theme's own heading font. Explicitly picking
+       "Theme default" in the picker stores the literal string 'default',
+       which is the one value that clears the override below. */
+    var savedTitleFont = localStorage.getItem('pdr-title-font');
+    var titleFont = savedTitleFont === null ? 'golos-text' : savedTitleFont;
+    if (titleFont !== 'default') {
+      document.documentElement.setAttribute('data-title-font', titleFont);
+    }
+  } catch (e) {}
+})();
+</script>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=Work+Sans:wght@400;500;600&family=Sora:wght@600;700;800&family=Plus+Jakarta+Sans:wght@500;600;700&display=swap" rel="stylesheet">
+
+<!-- Title-font brainstorm candidates — temporary, for the .title-font-picker toggle only.
+     Remove this link once a title font is chosen and folded into tokens.css. -->
+<link href="https://fonts.googleapis.com/css2?family=Gabarito:wght@800&family=Chivo:wght@800&family=Golos+Text:wght@800&display=swap" rel="stylesheet">
+
+<link rel="stylesheet" href="css/tokens.css">
+<link rel="stylesheet" href="css/main.css">
+</head>
+<body>
+
+<header class="topnav">
+  <a class="logo" href="index.html">Plan·Do·Reflect</a>
+  <nav class="topnav-items">
+    <a class="item" href="#">Self-Management</a>
+    <a class="item" href="#">Leading</a>
+    <a class="item" href="#">Managing</a>
+    <a class="item" href="#">Strategic Planning</a>
+    <a class="item" href="#">Role-Specific</a>
+    <a class="item" href="#">Processes</a>
+    <a class="item" href="#">Business Acumen</a>
+  </nav>
+</header>
+
+<main class="home">
+
+  <section class="hero">
+    <p class="hero-eyebrow">The framework behind this site</p>
+    <h1 class="hero-title">Plan · Do · Reflect</h1>
+    <p class="hero-sub">Most advice gives you more to do. This gives you a way to get better at doing it: a simple, repeating cycle that turns raw experience into real progress instead of just letting it pass by.</p>
+    <a class="hero-cta" href="reflection-practice.html">Start with Reflection →</a>
+
+    <div class="flywheel-interactive">
+      <div class="flywheel-block">
+        <!-- Direction A — Kinetic Signal — bold yellow/black wedge flywheel.
+             Each stage is wrapped in a [data-stage] group so js/flywheel.js can
+             dim/highlight it, and .fw-comet is a small dot that orbits the ring
+             forever via native SVG animateTransform (no JS needed for that part). -->
+        <div class="fw fw-a">
+          <svg width="120" height="120" viewBox="0 0 120 120">
+            <g data-stage="plan" class="fw-wedge">
+              <path d="M60 60 L60 14 A46 46 0 0 1 100 84 Z" fill="#facc15"/>
+              <text x="60" y="8" text-anchor="middle" font-size="8" font-weight="700" fill="#111215">PLAN</text>
+            </g>
+            <g data-stage="do" class="fw-wedge">
+              <path d="M60 60 L100 84 A46 46 0 0 1 32 102 Z" fill="#111215"/>
+              <text x="108" y="88" text-anchor="middle" font-size="8" font-weight="700" fill="#ffffff">DO</text>
+            </g>
+            <g data-stage="reflect" class="fw-wedge">
+              <path d="M60 60 L32 102 A46 46 0 0 1 60 14 Z" fill="#c7c7c1"/>
+              <text x="20" y="106" text-anchor="middle" font-size="8" font-weight="700" fill="#111215">REFLECT</text>
+            </g>
+            <circle cx="60" cy="60" r="9" fill="#ebebe6" stroke="#111215" stroke-width="1.5"/>
+            <g class="fw-comet">
+              <circle cx="60" cy="11" r="4" fill="#facc15" style="filter: drop-shadow(0 0 4px #facc15);"/>
+              <animateTransform attributeName="transform" type="rotate" from="0 60 60" to="360 60 60" dur="6s" repeatCount="indefinite"/>
+            </g>
+          </svg>
+        </div>
+
+        <!-- Direction B — Studio Ledger — soft monoline flywheel -->
+        <div class="fw fw-b">
+          <svg width="120" height="120" viewBox="0 0 120 120">
+            <circle cx="60" cy="60" r="42" fill="none" stroke="#eee0de" stroke-width="2"/>
+            <g data-stage="plan" class="fw-wedge">
+              <path d="M60 18 A42 42 0 0 1 96 78" fill="none" stroke="#c98a93" stroke-width="2.5" stroke-linecap="round"/>
+              <circle cx="60" cy="18" r="3.5" fill="#c98a93"/>
+              <text x="60" y="14" text-anchor="middle" font-size="8" fill="#8a4753">Plan</text>
+            </g>
+            <g data-stage="do" class="fw-wedge">
+              <path d="M96 78 A42 42 0 0 1 40 98" fill="none" stroke="#b06b76" stroke-width="2.5" stroke-linecap="round"/>
+              <circle cx="96" cy="78" r="3.5" fill="#b06b76"/>
+              <text x="106" y="82" text-anchor="middle" font-size="8" fill="#8a4753">Do</text>
+            </g>
+            <g data-stage="reflect" class="fw-wedge">
+              <path d="M40 98 A42 42 0 0 1 60 18" fill="none" stroke="#8a4753" stroke-width="2.5" stroke-linecap="round"/>
+              <circle cx="40" cy="98" r="3.5" fill="#8a4753"/>
+              <text x="32" y="102" text-anchor="middle" font-size="8" fill="#8a4753">Reflect</text>
+            </g>
+            <g class="fw-comet">
+              <circle cx="60" cy="18" r="4" fill="#8a4753" style="filter: drop-shadow(0 0 4px #8a4753);"/>
+              <animateTransform attributeName="transform" type="rotate" from="0 60 60" to="360 60 60" dur="6s" repeatCount="indefinite"/>
+            </g>
+          </svg>
+        </div>
+
+        <!-- Direction C — Bright Margin — flat lime wedge flywheel -->
+        <div class="fw fw-c">
+          <svg width="120" height="120" viewBox="0 0 120 120">
+            <g data-stage="plan" class="fw-wedge">
+              <path d="M60 60 L60 16 A44 44 0 0 1 98 82 Z" fill="#111214"/>
+              <text x="60" y="10" text-anchor="middle" font-size="8" font-weight="700" fill="#111214">PLAN</text>
+            </g>
+            <g data-stage="do" class="fw-wedge">
+              <path d="M60 60 L98 82 A44 44 0 0 1 34 100 Z" fill="#d7ff4b"/>
+              <text x="106" y="86" text-anchor="middle" font-size="8" font-weight="700" fill="#111214">DO</text>
+            </g>
+            <g data-stage="reflect" class="fw-wedge">
+              <path d="M60 60 L34 100 A44 44 0 0 1 60 16 Z" fill="#e9e9e6"/>
+              <text x="22" y="104" text-anchor="middle" font-size="8" font-weight="700" fill="#111214">REFLECT</text>
+            </g>
+            <circle cx="60" cy="60" r="10" fill="#ffffff"/>
+            <g class="fw-comet">
+              <circle cx="60" cy="12" r="4" fill="#d7ff4b" style="filter: drop-shadow(0 0 4px #d7ff4b);"/>
+              <animateTransform attributeName="transform" type="rotate" from="0 60 60" to="360 60 60" dur="6s" repeatCount="indefinite"/>
+            </g>
+          </svg>
+        </div>
+      </div>
+
+      <div class="flywheel-stages" role="group" aria-label="Plan, do, and reflect">
+        <button class="flywheel-stage is-active" type="button" data-stage="plan" aria-pressed="true">Plan</button>
+        <button class="flywheel-stage" type="button" data-stage="do" aria-pressed="false">Do</button>
+        <button class="flywheel-stage" type="button" data-stage="reflect" aria-pressed="false">Reflect</button>
+      </div>
+
+      <p class="flywheel-stage-caption" id="flywheel-caption">Set your direction and define what success looks like before you start.</p>
+    </div>
+  </section>
+
+  <section class="home-explainer">
+    <div class="explainer-tabs" role="tablist" aria-label="Why, what, how, and when">
+      <button class="explainer-tab is-active" type="button" role="tab" id="tab-why" aria-controls="panel-why" aria-selected="true" tabindex="0">Why it matters</button>
+      <button class="explainer-tab" type="button" role="tab" id="tab-what" aria-controls="panel-what" aria-selected="false" tabindex="-1">What it is</button>
+      <button class="explainer-tab" type="button" role="tab" id="tab-how" aria-controls="panel-how" aria-selected="false" tabindex="-1">How this site supports it</button>
+      <button class="explainer-tab" type="button" role="tab" id="tab-when" aria-controls="panel-when" aria-selected="false" tabindex="-1">When to use it</button>
+    </div>
+
+    <div class="explainer-panels">
+      <div class="explainer-panel" role="tabpanel" id="panel-why" aria-labelledby="tab-why">
+        <h2>Why it matters</h2>
+        <p>Experience alone doesn't make you better. You can spend ten years doing the same one year of work if you never stop to look at it. Researchers who study workplace learning keep finding the same thing: people who pause to think about what they just did outperform people who just keep doing. Reflection is what turns effort into growth. It's the difference between racking up hours and racking up wisdom.</p>
+      </div>
+      <div class="explainer-panel" role="tabpanel" id="panel-what" aria-labelledby="tab-what" hidden>
+        <h2>What it is</h2>
+        <p>Plan-Do-Reflect works as a flywheel, not a checklist: three moves that feed each other in a loop.</p>
+        <ul class="explainer-list">
+          <li><strong>Plan</strong>: decide what you're aiming for, and why, before you start.</li>
+          <li><strong>Do</strong>: do the actual work, on purpose, not on autopilot.</li>
+          <li><strong>Reflect</strong>: stop and ask what happened, what worked, and what to change.</li>
+        </ul>
+        <p>Each turn makes the next one easier. Small, consistent rotations build more momentum than one heroic push ever will.</p>
+      </div>
+      <div class="explainer-panel" role="tabpanel" id="panel-how" aria-labelledby="tab-how" hidden>
+        <h2>How this site supports it</h2>
+        <p>Most resources only help with the Do part. This one is built around all three stages. Browse a growing catalog of frameworks and tools organized by where you are in the cycle and what you're working on, from leading and managing to strategic planning. Get a Tip of the Day worth trying today. Build a Learning Plan that strings the right pieces together for whatever you're actually trying to get better at.</p>
+      </div>
+      <div class="explainer-panel" role="tabpanel" id="panel-when" aria-labelledby="tab-when" hidden>
+        <h2>When to use it</h2>
+        <p>The cycle works at any scale: daily, in a two-minute end-of-day check-in; weekly, in a proper review of what moved and what didn't; and at the big turning points, after a launch, a hard conversation, a promotion, or a setback. You don't need a special occasion to start. The best time to run your first cycle is whatever you're doing right now.</p>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<footer class="site-footer">
+  <p>&copy; 2026 Plan-Do-Reflect. <a href="references.html">References &amp; further reading</a></p>
+</footer>
+
+<div class="theme-switch" role="group" aria-label="Style direction">
+  <button data-theme="a" title="Kinetic Signal — black &amp; yellow"></button>
+  <button data-theme="b" title="Studio Ledger — dusty rose"></button>
+  <button data-theme="c" title="Bright Margin — lime"></button>
+</div>
+
+<!-- Temporary brainstorm control — only restyles the main h1 (.content h1 / .hero-title). Remove alongside
+     the "title-font experiment" CSS block and the extra Google Fonts link once
+     a title font is picked. -->
+<div class="title-font-picker">
+  <label for="title-font-select">Title font</label>
+  <button type="button" id="title-font-prev" class="title-font-nav" aria-label="Previous title font">‹</button>
+  <select id="title-font-select">
+    <optgroup label="Round 1 — headline character">
+      <option value="gabarito">Gabarito</option>
+      <option value="chivo">Chivo</option>
+    </optgroup>
+    <optgroup label="Round 2 — Calibri-adjacent">
+      <option value="golos-text">Golos Text</option>
+    </optgroup>
+    <option value="default">Theme default</option>
+  </select>
+  <button type="button" id="title-font-next" class="title-font-nav" aria-label="Next title font">›</button>
+</div>
+
+<script src="js/theme-toggle.js" defer></script>
+<script src="js/title-font-toggle.js" defer></script>
+<script src="js/explainer-tabs.js" defer></script>
+<script src="js/flywheel.js" defer></script>
+</body>
+</html>

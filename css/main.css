@@ -1,0 +1,576 @@
+/* ============================================================
+   Plan-Do-Reflect — layout & components
+   Everything below reads colors/fonts from tokens.css variables.
+   No hex values or font-family literals should appear here except
+   inside two deliberate, clearly-labeled exceptions:
+   1. .theme-switch — fixed reference swatches for each direction,
+      shown regardless of the currently active theme.
+   2. The "title-font experiment" block near the bottom — a temporary
+      toggle for brainstorming the main h1's font, independent of the
+      theme system. Remove it once a title font is chosen and folded
+      into tokens.css as --font-heading properly.
+   ============================================================ */
+
+* { box-sizing: border-box; margin: 0; padding: 0; }
+
+body {
+  font-family: var(--font-body);
+  background: var(--bg-page);
+  color: var(--text-body);
+  transition: background 0.2s ease;
+}
+
+/* ---------- Top nav ---------- */
+.topnav {
+  display: flex;
+  align-items: center;
+  gap: 26px;
+  padding: 0 28px;
+  height: 58px;
+  background: var(--bg-nav);
+  border-bottom: 1px solid var(--border);
+  position: sticky;
+  top: 0;
+  z-index: 10;
+}
+
+.topnav .logo {
+  font-family: var(--font-heading);
+  font-weight: 700;
+  font-size: 1rem;
+  color: var(--logo-color);
+  margin-right: 14px;
+  white-space: nowrap;
+  text-decoration: none;
+}
+
+.topnav-items {
+  display: flex;
+  gap: 24px;
+  flex-wrap: wrap;
+}
+
+.topnav .item {
+  font-size: 0.84rem;
+  font-weight: 600;
+  color: var(--text-nav);
+  text-decoration: none;
+  white-space: nowrap;
+}
+
+.topnav .item.active {
+  color: var(--text-nav-active);
+}
+
+/* ---------- Layout: sidebar + content ---------- */
+.layout {
+  display: grid;
+  grid-template-columns: 220px 1fr;
+  min-height: calc(100vh - 58px);
+}
+
+.sidebar {
+  background: var(--bg-sidebar);
+  border-right: 1px solid var(--border);
+  padding: 24px 16px;
+}
+
+.sidebar .sec-title {
+  font-size: 0.7rem;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  opacity: 0.6;
+  margin-bottom: 12px;
+  font-weight: 600;
+  color: var(--text-caption);
+}
+
+.sidebar .sub-item {
+  display: block;
+  padding: 8px 12px;
+  border-radius: 8px;
+  margin-bottom: 4px;
+  font-size: 0.85rem;
+  font-weight: 500;
+  color: var(--sidebar-text);
+  text-decoration: none;
+}
+
+.sidebar .sub-item.active {
+  background: var(--sidebar-active-bg);
+  color: var(--sidebar-active-text);
+  font-weight: 700;
+}
+
+/* ---------- Content ---------- */
+.content {
+  background: var(--bg-content);
+  padding: 40px 44px;
+}
+
+.content h1 {
+  font-family: var(--font-heading);
+  font-weight: 700;
+  font-size: 2rem;
+  color: var(--text-heading);
+  margin-bottom: 10px;
+}
+
+.content .lede {
+  font-size: 0.98rem;
+  line-height: 1.6;
+  max-width: 520px;
+  color: var(--text-body);
+  opacity: 0.88;
+  margin-bottom: 22px;
+}
+
+.tag-row {
+  display: flex;
+  gap: 8px;
+  margin-bottom: 30px;
+}
+
+.tag {
+  font-size: 0.68rem;
+  font-weight: 700;
+  letter-spacing: 0.02em;
+  padding: 4px 11px;
+  border-radius: 20px;
+}
+
+.tag.primary { background: var(--tag-primary-bg); color: var(--tag-primary-text); }
+.tag.secondary { background: var(--tag-secondary-bg); color: var(--tag-secondary-text); }
+
+.flywheel-block {
+  display: flex;
+  align-items: center;
+  gap: 26px;
+}
+
+.fw { display: none; align-items: center; gap: 26px; }
+[data-theme="a"] .fw-a { display: flex; }
+[data-theme="b"] .fw-b { display: flex; }
+[data-theme="c"] .fw-c { display: flex; }
+
+.flywheel-caption {
+  font-size: 0.82rem;
+  line-height: 1.5;
+  color: var(--text-caption);
+  max-width: 240px;
+}
+
+/* ---------- Theme switcher (meta-control, intentionally fixed colors) ---------- */
+.theme-switch {
+  position: fixed;
+  bottom: 22px;
+  right: 22px;
+  display: flex;
+  gap: 8px;
+  background: rgba(255,255,255,0.9);
+  backdrop-filter: blur(6px);
+  border: 1px solid rgba(0,0,0,0.08);
+  border-radius: 30px;
+  padding: 8px;
+  box-shadow: 0 4px 16px rgba(0,0,0,0.14);
+  z-index: 100;
+}
+
+.theme-switch button {
+  width: 28px;
+  height: 28px;
+  border-radius: 50%;
+  border: 2px solid transparent;
+  cursor: pointer;
+  padding: 0;
+}
+
+.theme-switch button[data-theme="a"] { background: #facc15; }
+.theme-switch button[data-theme="b"] { background: #c98a93; }
+.theme-switch button[data-theme="c"] { background: #d7ff4b; }
+
+.theme-switch button.is-active {
+  border-color: #111214;
+  box-shadow: 0 0 0 2px #ffffff, 0 0 0 4px #111214;
+}
+
+@media (max-width: 720px) {
+  .layout { grid-template-columns: 1fr; }
+  .sidebar { border-right: none; border-bottom: 1px solid var(--border); }
+}
+
+/* ---------- Homepage (root index.html) ---------- */
+.home {
+  max-width: 840px;
+  margin: 0 auto;
+  padding: 64px 24px 80px;
+}
+
+.hero {
+  text-align: center;
+  margin-bottom: 56px;
+}
+
+.hero-eyebrow {
+  font-size: 0.78rem;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--text-caption);
+  margin-bottom: 10px;
+}
+
+.hero-title {
+  font-family: var(--font-heading);
+  font-weight: 700;
+  font-size: clamp(2.4rem, 5vw, 3.4rem);
+  color: var(--text-heading);
+  margin-bottom: 16px;
+}
+
+.hero-sub {
+  font-size: 1.02rem;
+  line-height: 1.6;
+  max-width: 480px;
+  margin: 0 auto;
+  color: var(--text-body);
+}
+
+.hero-cta {
+  display: inline-block;
+  margin-top: 22px;
+  padding: 10px 22px;
+  border-radius: 30px;
+  background: var(--accent);
+  color: var(--accent-strong);
+  font-weight: 700;
+  font-size: 0.92rem;
+  text-decoration: none;
+}
+
+.hero-cta:hover {
+  opacity: 0.88;
+}
+
+.flywheel-interactive {
+  margin-top: 36px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.hero .flywheel-block {
+  justify-content: center;
+}
+
+/* Wedges/arcs inside the flywheel SVGs, each tagged [data-stage]. Full
+   opacity until JS marks the container ready, so a script failure never
+   leaves everything stuck half-dimmed with nothing highlighted. */
+.fw-wedge {
+  transition: opacity 0.25s ease;
+}
+
+.flywheel-interactive.is-ready .fw-wedge {
+  opacity: 0.5;
+}
+
+.flywheel-interactive.is-ready .fw-wedge.is-highlighted {
+  opacity: 1;
+}
+
+/* Small dot that orbits the ring forever (native SVG animateTransform) to
+   read as constant momentum. Hidden for users who'd rather not see it. */
+@media (prefers-reduced-motion: reduce) {
+  .fw-comet {
+    display: none;
+  }
+}
+
+.flywheel-stages {
+  display: flex;
+  gap: 8px;
+  margin-top: 18px;
+}
+
+.flywheel-stage {
+  font-family: var(--font-body);
+  font-size: 0.82rem;
+  font-weight: 600;
+  padding: 7px 16px;
+  border-radius: 20px;
+  border: 1px solid var(--border);
+  background: var(--bg-content);
+  color: var(--text-body);
+  cursor: pointer;
+}
+
+.flywheel-stage:hover {
+  border-color: var(--accent);
+}
+
+.flywheel-stage.is-active {
+  background: var(--accent);
+  border-color: var(--accent);
+  color: var(--accent-strong);
+}
+
+.flywheel-stage-caption {
+  margin-top: 14px;
+  font-size: 0.9rem;
+  line-height: 1.5;
+  color: var(--text-body);
+  max-width: 380px;
+  min-height: 2.7em;
+  text-align: center;
+}
+
+.explainer-tabs {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-bottom: 18px;
+}
+
+.explainer-tab {
+  font-family: var(--font-body);
+  font-size: 0.86rem;
+  font-weight: 600;
+  padding: 9px 16px;
+  border-radius: 20px;
+  border: 1px solid var(--border);
+  background: var(--bg-content);
+  color: var(--text-body);
+  cursor: pointer;
+}
+
+.explainer-tab:hover {
+  border-color: var(--accent);
+}
+
+.explainer-tab.is-active {
+  background: var(--accent);
+  border-color: var(--accent);
+  color: var(--accent-strong);
+}
+
+.explainer-panels {
+  background: var(--bg-content);
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  padding: 26px 24px;
+  min-height: 170px;
+}
+
+.explainer-panel[hidden] {
+  display: none;
+}
+
+.explainer-panel h2 {
+  font-family: var(--font-heading);
+  font-size: 1.05rem;
+  font-weight: 700;
+  color: var(--text-heading);
+  margin-bottom: 10px;
+}
+
+.explainer-panel p {
+  font-size: 0.92rem;
+  line-height: 1.6;
+  color: var(--text-body);
+}
+
+.explainer-panel p + p {
+  margin-top: 10px;
+}
+
+.explainer-list {
+  list-style: none;
+  padding: 0;
+  margin: 12px 0;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.explainer-list li {
+  font-size: 0.92rem;
+  line-height: 1.5;
+  color: var(--text-body);
+}
+
+.explainer-list strong {
+  color: var(--text-heading);
+}
+
+@media (max-width: 720px) {
+  .explainer-tabs { gap: 6px; }
+  .explainer-tab { font-size: 0.8rem; padding: 8px 12px; }
+}
+
+/* ---------- Site footer (all pages) ---------- */
+.site-footer {
+  text-align: center;
+  padding: 28px 24px 110px;
+  font-size: 0.82rem;
+  color: var(--text-caption);
+}
+
+.site-footer a {
+  color: var(--text-caption);
+  text-decoration: underline;
+}
+
+.site-footer a:hover {
+  color: var(--text-heading);
+}
+
+/* ---------- References page ---------- */
+.page-title {
+  font-family: var(--font-heading);
+  font-weight: 700;
+  font-size: 2rem;
+  color: var(--text-heading);
+  margin-bottom: 10px;
+}
+
+.references {
+  max-width: 720px;
+  margin: 0 auto;
+  padding: 56px 24px 40px;
+}
+
+.references-intro {
+  font-size: 1rem;
+  line-height: 1.6;
+  color: var(--text-body);
+  margin-bottom: 40px;
+  max-width: 560px;
+}
+
+.ref-section {
+  margin-bottom: 40px;
+  padding-bottom: 32px;
+  border-bottom: 1px solid var(--border);
+}
+
+.ref-section:last-child {
+  border-bottom: none;
+}
+
+.ref-section h2 {
+  font-family: var(--font-heading);
+  font-size: 1.15rem;
+  font-weight: 700;
+  color: var(--text-heading);
+  margin-bottom: 16px;
+}
+
+.ref-group {
+  margin-bottom: 16px;
+}
+
+.ref-group h3 {
+  font-size: 0.72rem;
+  font-weight: 600;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--text-caption);
+  margin-bottom: 8px;
+}
+
+.ref-list {
+  list-style: none;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.ref-list li {
+  font-size: 0.92rem;
+  line-height: 1.55;
+  color: var(--text-body);
+}
+
+.ref-list a {
+  color: var(--accent-strong);
+  text-decoration: underline;
+}
+
+.ref-list a:hover {
+  opacity: 0.8;
+}
+
+/* ---------- Title-font experiment (temporary — see header comment) ----------
+   Swaps only .content h1, independent of the theme direction. Selecting
+   "Theme default" in the picker removes data-title-font from <html> and
+   h1 falls back to var(--font-heading) as normal. */
+[data-title-font="gabarito"] .content h1,
+[data-title-font="gabarito"] .hero-title,
+[data-title-font="gabarito"] .page-title { font-family: 'Gabarito', sans-serif; font-weight: 800; }
+[data-title-font="chivo"] .content h1,
+[data-title-font="chivo"] .hero-title,
+[data-title-font="chivo"] .page-title { font-family: 'Chivo', sans-serif; font-weight: 800; }
+[data-title-font="golos-text"] .content h1,
+[data-title-font="golos-text"] .hero-title,
+[data-title-font="golos-text"] .page-title { font-family: 'Golos Text', sans-serif; font-weight: 800; }
+
+/* ---------- Title-font picker (meta-control, same fixed-chrome exception as .theme-switch) ---------- */
+.title-font-picker {
+  position: fixed;
+  bottom: 22px;
+  left: 22px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  background: rgba(255,255,255,0.9);
+  backdrop-filter: blur(6px);
+  border: 1px solid rgba(0,0,0,0.08);
+  border-radius: 30px;
+  padding: 8px 14px;
+  box-shadow: 0 4px 16px rgba(0,0,0,0.14);
+  z-index: 100;
+  font-family: 'Work Sans', sans-serif;
+}
+
+.title-font-picker label {
+  font-size: 0.72rem;
+  font-weight: 600;
+  color: #45464a;
+  white-space: nowrap;
+}
+
+.title-font-picker select {
+  font-size: 0.8rem;
+  padding: 4px 8px;
+  border-radius: 14px;
+  border: 1px solid rgba(0,0,0,0.15);
+  background: #ffffff;
+  color: #111215;
+  max-width: 190px;
+}
+
+.title-font-picker .title-font-nav {
+  flex: 0 0 auto;
+  width: 26px;
+  height: 26px;
+  border-radius: 50%;
+  border: 1px solid rgba(0,0,0,0.15);
+  background: #ffffff;
+  color: #111215;
+  font-size: 1rem;
+  line-height: 1;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0;
+}
+
+.title-font-picker .title-font-nav:hover { background: #f4f4f1; }
+.title-font-picker .title-font-nav:active { transform: scale(0.94); }
+
+@media (max-width: 720px) {
+  .title-font-picker { left: 12px; right: 12px; bottom: 12px; }
+  .title-font-picker select { max-width: none; flex: 1; }
+}
