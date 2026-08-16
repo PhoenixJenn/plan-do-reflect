@@ -396,12 +396,19 @@ body {
   display: flex;
   align-items: center;
   gap: 6px;
-  font-size: 0.66rem;
-  font-weight: 700;
+  font-size: 0.7rem;
+  font-weight: 800;
   letter-spacing: 0.06em;
   text-transform: uppercase;
-  color: var(--text-caption);
+  color: var(--text-heading);
   margin: 4px 12px 6px;
+}
+
+/* Indent so the link text lines up under the first letter of the group
+   label above it (dot width + gap = 13px past the label's own edge). */
+.sidebar-group > .sub-item,
+.sidebar-group > .sub-item-group {
+  margin-left: 13px;
 }
 
 .sidebar .group-label .stage-dot {
