@@ -334,6 +334,84 @@ body {
   color: var(--text-body);
 }
 
+/* ---------- Stage groups (Plan/Do/Reflect groupings on root landing pages) ----------
+   --stage-color is set inline per group (var(--stage-plan) etc. from tokens.css)
+   so this stays a single reusable block instead of three near-duplicate ones. */
+.stage-group {
+  margin-bottom: 36px;
+}
+
+.stage-group-header {
+  display: flex;
+  align-items: baseline;
+  gap: 10px;
+  margin-bottom: 6px;
+}
+
+.stage-group-header .stage-dot {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background: var(--stage-color, var(--text-caption));
+  flex-shrink: 0;
+}
+
+.stage-group-header h2 {
+  font-family: var(--font-heading);
+  font-size: 1.25rem;
+  font-weight: 700;
+  color: var(--text-heading);
+}
+
+.stage-group-intro {
+  font-size: 0.9rem;
+  line-height: 1.55;
+  color: var(--text-body);
+  margin-bottom: 16px;
+  max-width: 560px;
+}
+
+/* Placeholder card for a known content gap — not yet built */
+.subcat-card.is-gap {
+  border-style: dashed;
+  opacity: 0.75;
+}
+
+.subcat-card .card-flag {
+  display: inline-block;
+  margin-top: 8px;
+  font-size: 0.66rem;
+  font-weight: 700;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  color: var(--text-caption);
+}
+
+/* ---------- Sidebar: Plan/Do/Reflect groupings (mirrors .stage-group above) ---------- */
+.sidebar-group {
+  margin-bottom: 16px;
+}
+
+.sidebar .group-label {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 0.66rem;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--text-caption);
+  margin: 4px 12px 6px;
+}
+
+.sidebar .group-label .stage-dot {
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background: var(--stage-color, var(--text-caption));
+  flex-shrink: 0;
+}
+
 @media (max-width: 720px) {
   .subcat-grid { grid-template-columns: 1fr; }
   .framework-item { flex-direction: column; }
