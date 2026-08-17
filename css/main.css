@@ -273,6 +273,7 @@ body {
   font-weight: 700;
   color: var(--text-heading);
   margin: 6px 0 -2px;
+  scroll-margin-top: 80px;
 }
 
 .framework-group-label:first-child {
