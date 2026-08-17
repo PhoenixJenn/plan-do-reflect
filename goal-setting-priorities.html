@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Time Management · Plan · Do · Reflect</title>
+<title>Goal Setting &amp; Priorities · Plan · Do · Reflect</title>
 
 <!-- Applied before CSS loads, so the saved theme / title-font choice doesn't flash to the default on reload -->
 <script>
@@ -54,21 +54,22 @@
 
     <div class="sidebar-group">
       <div class="group-label"><span class="stage-dot" style="--stage-color: var(--stage-plan)"></span>Plan</div>
-      <a class="sub-item" href="goal-setting-priorities.html">Goal Setting &amp; Priorities</a>
+      <div class="sub-item-group">
+        <a class="sub-item active" href="goal-setting-priorities.html">Goal Setting &amp; Priorities</a>
+        <div class="sub-sub-list">
+          <a class="sub-sub-item" href="#eighty-twenty">The 80/20 Rule</a>
+          <a class="sub-sub-item" href="#eisenhower-matrix">Eisenhower Matrix</a>
+          <a class="sub-sub-item" href="#mits">Most Important Things</a>
+          <a class="sub-sub-item" href="#smart-goals">SMART Goals</a>
+          <a class="sub-sub-item" href="#weekly-planning">Weekly Planning Ritual</a>
+        </div>
+      </div>
     </div>
 
     <div class="sidebar-group">
       <div class="group-label"><span class="stage-dot" style="--stage-color: var(--stage-do)"></span>Do</div>
       <a class="sub-item" href="#">Focus &amp; Deep Work</a>
-      <div class="sub-item-group">
-        <a class="sub-item active" href="time-management.html">Time Management</a>
-        <div class="sub-sub-list">
-          <a class="sub-sub-item" href="#pomodoro">Pomodoro Technique</a>
-          <a class="sub-sub-item" href="#two-minute-rule">The 2-Minute Rule</a>
-          <a class="sub-sub-item" href="#time-blocking">Time Blocking</a>
-          <a class="sub-sub-item" href="#boundaries">Boundaries &amp; Saying No</a>
-        </div>
-      </div>
+      <a class="sub-item" href="time-management.html">Time Management</a>
       <a class="sub-item" href="#">Habit-Building</a>
     </div>
 
@@ -87,58 +88,60 @@
 
   <main class="content">
     <div class="page-hero">
-      <h1>Time Management</h1>
-      <p class="lede">Protecting the time you already decided mattered. A small toolkit of frameworks, not a productivity personality.</p>
+      <h1>Goal Setting &amp; Priorities</h1>
+      <p class="lede">Time management tells you how to spend your hours. This is what decides which hours are worth spending at all.</p>
       <div class="tag-row" style="margin-top: 14px; margin-bottom: 0;">
         <span class="tag primary">The Framework</span>
-        <span class="tag secondary">4 frameworks</span>
+        <span class="tag secondary">5 frameworks</span>
       </div>
     </div>
 
     <div class="section-block">
       <h2>Why It Matters</h2>
-      <p>You can have the clearest plan in the world and still lose the day to whatever shows up loudest. Time management isn't about cramming more in — it's about protecting space for the work that actually moves things forward, so Planning and Reflecting have somewhere to land. Without it, the Plan-Do-Reflect cycle has no "Do" to speak of: just a plan that never got a turn and a reflection with nothing to look back on. Master a handful of reliable frameworks and time management stops being a personality trait and starts being a system you can run on a bad day, not just a good one.</p>
+      <p>Skip this step and even a perfectly organized calendar just executes the wrong things efficiently. This is the Plan half of the cycle — decide what you're actually aiming for, and which few things matter most, before you start protecting time for any of it. Do it well and Time Management has something worth defending; skip it and the best productivity system in the world just helps you do more of whatever showed up first.</p>
     </div>
 
     <div class="section-block" style="max-width: 640px;">
       <h2>Frameworks We Cover</h2>
-      <p style="margin-bottom: 18px;">Pulled from a "best of" pass across 28 source pins on this topic — these 4 are the ones with real depth behind them once prioritization content moved to <a href="goal-setting-priorities.html">Goal Setting &amp; Priorities</a>. Everything else recurred only as a line item inside someone else's roundup.</p>
+      <p style="margin-bottom: 18px;">Pulled from the same "best of" pass across the Time Management source pins — these are the ones that are really about deciding what matters, not about executing once you've decided. A few more prioritization/decision frameworks recur across the source material without enough depth for their own entry: Pickle Jar Theory, the MoSCoW Method, RICE Scoring, the Kano Model, OKRs, and the 1-3-5 Method.</p>
     </div>
 
     <div class="framework-list">
-      <div class="framework-item" id="pomodoro">
+      <div class="framework-item" id="eighty-twenty">
         <div class="fw-num">1</div>
         <div>
-          <h3>Pomodoro Technique</h3>
-          <p>Created by Francesco Cirillo in the late 1980s, named after the tomato-shaped kitchen timer he used. Work in focused 25-minute sprints, take a 5-minute break, repeat 4 times, then take a longer break. Simple enough to start today, structured enough to actually stick — and it scales past solo work: teams can sync Pomodoros for collaborative bursts, and it's a good way to protect time for clearing an inbox without letting email eat the rest of the day.</p>
+          <h3>The 80/20 Rule (Pareto Principle)</h3>
+          <p>Roughly 20% of your effort drives 80% of your results — named after economist Vilfredo Pareto, and it shows up everywhere: resources, time, customers, projects. For individuals, it means auditing your week and doubling down on the few activities that actually move things forward. For teams and companies, it's the same logic applied to which customers, products, or initiatives get the attention. The habit underneath it: simplify your goals to fewer priorities, pursue them with clarity and consistency, and cut the energy drains — extra meetings, low-value tasks, draining people — that don't earn their place in the 20%.</p>
         </div>
       </div>
-      <div class="framework-item" id="two-minute-rule">
+      <div class="framework-item" id="eisenhower-matrix">
         <div class="fw-num">2</div>
         <div>
-          <h3>The 2-Minute Rule</h3>
-          <p>Created by David Allen in 2001. If a task takes less than two minutes, do it right away — don't let it pile onto tomorrow's to-do list. Longer than two minutes: delegate it, defer it, or break it into pieces that fit the rule. Works well for email, quick calls, stretching, water breaks, or reaching out to a colleague to keep a relationship alive. A nice variant: use the odd filler gaps between back-to-back meetings as built-in "two-minute time" instead of losing them to nothing.</p>
+          <h3>Eisenhower Matrix</h3>
+          <p>Sort everything into four boxes: urgent + important (do it now), important but not urgent (schedule it), urgent but not important (delegate it), neither (delete it). The line worth remembering: what's important is rarely urgent, and what's urgent is rarely important — which is exactly why this matrix exists instead of just working off whatever's loudest.</p>
         </div>
       </div>
-      <div class="framework-item" id="time-blocking">
+      <div class="framework-item" id="mits">
         <div class="fw-num">3</div>
         <div>
-          <h3>Time Blocking</h3>
-          <p>Protect your calendar the way you'd protect a meeting with your most important client. Deep work needs a scheduled home, not just an intention. Pairs well with batching — grouping similar small tasks (emails, quick calls, approvals) into one block instead of letting them interrupt focus time throughout the day.</p>
+          <h3>Most Important Things (MITs)</h3>
+          <p>Pick your 3 most important tasks for the week and get them done — everything else is negotiable, these aren't. A simple constraint that keeps a long list from quietly replacing an actual priority.</p>
         </div>
       </div>
-      <div class="framework-item" id="boundaries">
+      <div class="framework-item" id="smart-goals">
         <div class="fw-num">4</div>
         <div>
-          <h3>Boundaries &amp; Saying No</h3>
-          <p>Techniques don't help if work has no edges. Set clear work hours and don't respond to non-urgent messages after them — an email footer noting your hours does some of this work for you. When an after-hours request comes in, or a meeting invite threatens to eat a day that doesn't have room for it, the goal isn't a hard no, it's a specific one: <em>"I can't take this on right now, but let's connect next week to see if I can help then."</em> The harder version is upward: telling your manager you're at capacity and asking what should come off your plate — <em>"I'm at capacity. To deliver my best, what should I deprioritize?"</em> — rather than quietly absorbing one more thing.</p>
+          <h3>SMART Goals</h3>
+          <p>Specific, Measurable, Achievable, Relevant, Time-bound. Less a framework than a filter — run a goal through it before committing time to it, and vague intentions ("get better at this") turn into something you can actually plan around and know when you've hit.</p>
         </div>
       </div>
-    </div>
-
-    <div class="section-block" style="margin-top: 32px;">
-      <h2>Closing the Loop</h2>
-      <p>None of this sticks without checking in on it. A short daily and weekly review — what got protected, what didn't, what to adjust — is what turns a technique into a system. That's not a separate Time Management skill; it's <a href="reflection-practice.html">Reflection Practice</a> applied specifically to how you spent your time.</p>
+      <div class="framework-item" id="weekly-planning">
+        <div class="fw-num">5</div>
+        <div>
+          <h3>Weekly Planning Ritual</h3>
+          <p>30 minutes on a Sunday night can save 10 hours in the week ahead. Sit down before Monday starts and decide what matters, so the week doesn't decide it for you — the same idea shows up in how senior leaders describe planning their own weeks, just applied at whatever scale your work runs at.</p>
+        </div>
+      </div>
     </div>
   </main>
 </div>
