@@ -142,24 +142,6 @@ body {
 .tag.primary { background: var(--tag-primary-bg); color: var(--tag-primary-text); }
 .tag.secondary { background: var(--tag-secondary-bg); color: var(--tag-secondary-text); }
 
-.flywheel-block {
-  display: flex;
-  align-items: center;
-  gap: 26px;
-}
-
-.fw { display: none; align-items: center; gap: 26px; }
-[data-theme="a"] .fw-a { display: flex; }
-[data-theme="b"] .fw-b { display: flex; }
-[data-theme="c"] .fw-c { display: flex; }
-
-.flywheel-caption {
-  font-size: 0.82rem;
-  line-height: 1.5;
-  color: var(--text-caption);
-  max-width: 240px;
-}
-
 /* ---------- Theme switcher (meta-control, intentionally fixed colors) ---------- */
 .theme-switch {
   position: fixed;
@@ -570,6 +552,108 @@ body {
   .smart-cards { grid-template-columns: repeat(3, 1fr); }
 }
 
+/* ---------- Habit-Building: 3-Level System cards ---------- */
+.level-cards {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 10px;
+  max-width: 520px;
+  margin: 14px 0 4px;
+}
+
+.level-card {
+  padding: 14px 12px;
+  border-radius: 10px;
+  text-align: center;
+  border: 1px solid var(--border);
+  background: var(--bg-content);
+}
+
+.level-card.is-primary {
+  background: var(--accent);
+  border-color: var(--accent);
+}
+
+.level-pct {
+  display: block;
+  font-family: var(--font-heading);
+  font-weight: 800;
+  font-size: 1.2rem;
+  color: var(--text-heading);
+}
+
+.level-card.is-primary .level-pct { color: var(--accent-strong); }
+
+.level-label {
+  display: block;
+  font-size: 0.78rem;
+  font-weight: 700;
+  margin: 4px 0 6px;
+  color: var(--text-heading);
+}
+
+.level-card.is-primary .level-label { color: var(--accent-strong); }
+
+.level-desc {
+  font-size: 0.76rem;
+  line-height: 1.4;
+  color: var(--text-body);
+}
+
+.level-card.is-primary .level-desc { color: var(--accent-strong); }
+
+@media (max-width: 720px) {
+  .level-cards { grid-template-columns: 1fr; }
+}
+
+/* ---------- Habit-Building: 4 Laws of Behavior Change ---------- */
+.laws-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 10px;
+  margin: 14px 0 4px;
+}
+
+.law-card {
+  padding: 14px 12px;
+  border-radius: 10px;
+  border: 1px solid var(--border);
+  background: var(--bg-content);
+}
+
+.law-num {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 26px;
+  height: 26px;
+  border-radius: 50%;
+  font-family: var(--font-heading);
+  font-weight: 800;
+  font-size: 1rem;
+  color: var(--accent-strong);
+  background: var(--accent);
+  margin-bottom: 8px;
+}
+
+.law-card h4 {
+  font-family: var(--font-heading);
+  font-weight: 700;
+  font-size: 0.9rem;
+  color: var(--text-heading);
+  margin-bottom: 4px;
+}
+
+.law-card p {
+  font-size: 0.78rem;
+  line-height: 1.4;
+  color: var(--text-body);
+}
+
+@media (max-width: 720px) {
+  .laws-grid { grid-template-columns: repeat(2, 1fr); }
+}
+
 /* ---------- OKR tree (Objective branching into Key Results) ---------- */
 .okr-tree {
   display: flex;
@@ -763,6 +847,16 @@ body {
   color: var(--text-caption);
 }
 
+.stage-box-caption {
+  font-size: 0.8rem;
+  font-style: italic;
+  line-height: 1.45;
+  color: var(--text-caption);
+  margin-top: 14px;
+  padding-top: 14px;
+  border-top: 1px solid var(--border);
+}
+
 .stage-box-skills {
   margin-bottom: 16px;
 }
@@ -885,6 +979,58 @@ body {
   font-size: 0.82rem;
   font-weight: 600;
   color: var(--text-caption);
+}
+
+.reflect-index {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-bottom: 20px;
+}
+
+.reflect-index-item {
+  font-family: var(--font-body);
+  font-size: 0.82rem;
+  font-weight: 600;
+  padding: 7px 14px;
+  border-radius: 20px;
+  border: 1px solid var(--border);
+  background: var(--bg-content);
+  color: var(--text-body);
+  text-decoration: none;
+}
+
+.reflect-index-item:hover {
+  border-color: var(--accent);
+  color: var(--accent-strong);
+}
+
+.reflect-callout {
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+  margin-top: 14px;
+  padding: 12px 14px;
+  background: var(--bg-sidebar);
+  border-left: 3px solid var(--stage-plan);
+  border-radius: 6px;
+}
+
+.reflect-callout-icon {
+  flex-shrink: 0;
+  margin-top: 2px;
+}
+
+.reflect-callout p {
+  font-size: 0.88rem;
+  line-height: 1.5;
+  color: var(--text-body);
+  margin: 0;
+}
+
+.reflect-callout a {
+  color: var(--accent-strong);
+  font-weight: 600;
 }
 
 .framework-item {
@@ -1081,15 +1227,32 @@ body {
   font-weight: 700;
   font-size: clamp(2.4rem, 5vw, 3.4rem);
   color: var(--text-heading);
-  margin-bottom: 16px;
+  margin-bottom: 4px;
+}
+
+.hero-title-arrow {
+  display: inline-block;
+  padding: 0 8px;
+  color: var(--text-caption);
+  font-weight: 400;
+}
+
+.hero-title-rule {
+  width: 60%;
+  max-width: 480px;
+  height: 4px;
+  background: var(--accent);
+  border-radius: 2px;
+  margin: 0 auto 20px;
 }
 
 .hero-sub {
   font-size: 1.02rem;
   line-height: 1.6;
-  max-width: 480px;
+  max-width: 620px;
   margin: 0 auto;
   color: var(--text-body);
+  text-align: left;
 }
 
 .hero-cta {
@@ -1106,78 +1269,6 @@ body {
 
 .hero-cta:hover {
   opacity: 0.88;
-}
-
-.flywheel-interactive {
-  margin-top: 36px;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-}
-
-.hero .flywheel-block {
-  justify-content: center;
-}
-
-/* Wedges/arcs inside the flywheel SVGs, each tagged [data-stage]. Full
-   opacity until JS marks the container ready, so a script failure never
-   leaves everything stuck half-dimmed with nothing highlighted. */
-.fw-wedge {
-  transition: opacity 0.25s ease;
-}
-
-.flywheel-interactive.is-ready .fw-wedge {
-  opacity: 0.5;
-}
-
-.flywheel-interactive.is-ready .fw-wedge.is-highlighted {
-  opacity: 1;
-}
-
-/* Small dot that orbits the ring forever (native SVG animateTransform) to
-   read as constant momentum. Hidden for users who'd rather not see it. */
-@media (prefers-reduced-motion: reduce) {
-  .fw-comet {
-    display: none;
-  }
-}
-
-.flywheel-stages {
-  display: flex;
-  gap: 8px;
-  margin-top: 18px;
-}
-
-.flywheel-stage {
-  font-family: var(--font-body);
-  font-size: 0.82rem;
-  font-weight: 600;
-  padding: 7px 16px;
-  border-radius: 20px;
-  border: 1px solid var(--border);
-  background: var(--bg-content);
-  color: var(--text-body);
-  cursor: pointer;
-}
-
-.flywheel-stage:hover {
-  border-color: var(--accent);
-}
-
-.flywheel-stage.is-active {
-  background: var(--accent);
-  border-color: var(--accent);
-  color: var(--accent-strong);
-}
-
-.flywheel-stage-caption {
-  margin-top: 14px;
-  font-size: 0.9rem;
-  line-height: 1.5;
-  color: var(--text-body);
-  max-width: 380px;
-  min-height: 2.7em;
-  text-align: center;
 }
 
 .explainer-tabs {
@@ -1448,6 +1539,30 @@ body {
   background: var(--bg-content);
   max-width: 640px;
   margin-top: 32px;
+  scroll-margin-top: 80px;
+}
+
+.try-it-quicklink {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font-family: var(--font-body);
+  font-size: 0.82rem;
+  font-weight: 700;
+  padding: 7px 14px;
+  border-radius: 20px;
+  border: 1px solid var(--accent);
+  background: var(--accent);
+  color: var(--accent-strong);
+  text-decoration: none;
+}
+
+.try-it-quicklink:hover {
+  opacity: 0.88;
+}
+
+.try-it-quicklink svg {
+  flex-shrink: 0;
 }
 
 .try-it-header {

@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="a">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Focus &amp; Deep Work · Plan · Do · Reflect</title>
+
+<!-- Applied before CSS loads, so the saved theme / title-font choice doesn't flash to the default on reload -->
+<script>
+(function () {
+  try {
+    var savedTheme = localStorage.getItem('pdr-theme');
+    if (['a', 'b', 'c'].indexOf(savedTheme) > -1) {
+      document.documentElement.setAttribute('data-theme', savedTheme);
+    }
+    var savedTitleFont = localStorage.getItem('pdr-title-font');
+    var titleFont = savedTitleFont === null ? 'golos-text' : savedTitleFont;
+    if (titleFont !== 'default') {
+      document.documentElement.setAttribute('data-title-font', titleFont);
+    }
+  } catch (e) {}
+})();
+</script>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=Work+Sans:wght@400;500;600&family=Sora:wght@600;700;800&family=Plus+Jakarta+Sans:wght@500;600;700&family=Patrick+Hand&display=swap" rel="stylesheet">
+
+<!-- Title-font brainstorm candidates — temporary, for the .title-font-picker toggle only.
+     Remove this link once a title font is chosen and folded into tokens.css. -->
+<link href="https://fonts.googleapis.com/css2?family=Gabarito:wght@800&family=Chivo:wght@800&family=Golos+Text:wght@800&display=swap" rel="stylesheet">
+
+<link rel="stylesheet" href="css/tokens.css">
+<link rel="stylesheet" href="css/main.css">
+</head>
+<body>
+
+<header class="topnav">
+  <a class="logo" href="index.html">Plan·Do·Reflect</a>
+  <nav class="topnav-items">
+    <a class="item active" href="self-management.html">The Framework</a>
+    <a class="item" href="#">Leading</a>
+    <a class="item" href="#">Managing</a>
+    <a class="item" href="#">Strategic Planning</a>
+    <a class="item" href="#">Role-Specific</a>
+    <a class="item" href="#">Processes</a>
+    <a class="item" href="#">Business Acumen</a>
+  </nav>
+</header>
+
+<div class="layout">
+  <aside class="sidebar">
+    <div class="sec-title">The Framework</div>
+    <a class="sub-item" href="self-management.html">Overview</a>
+
+    <div class="sidebar-group">
+      <div class="group-label"><span class="stage-dot" style="--stage-color: var(--stage-plan)"></span>Plan</div>
+      <a class="sub-item" href="goal-setting-priorities.html">Goal Setting &amp; Priorities</a>
+    </div>
+
+    <div class="sidebar-group">
+      <div class="group-label"><span class="stage-dot" style="--stage-color: var(--stage-do)"></span>Do</div>
+      <div class="sub-item-group">
+        <a class="sub-item active" href="focus-deep-work.html">Focus &amp; Deep Work</a>
+        <div class="sub-sub-list">
+          <a class="sub-sub-item" href="#four-rules">The 4 Rules of Deep Work</a>
+          <a class="sub-sub-item" href="#shutdown-ritual">The Shutdown Ritual</a>
+        </div>
+      </div>
+      <a class="sub-item" href="time-management.html">Time Management</a>
+      <a class="sub-item" href="habit-building.html">Habit-Building</a>
+      <a class="sub-item" href="motivation-procrastination.html">Motivation &amp; Procrastination</a>
+    </div>
+
+    <div class="sidebar-group">
+      <div class="group-label"><span class="stage-dot" style="--stage-color: var(--stage-reflect)"></span>Reflect</div>
+      <a class="sub-item" href="reflection-practice.html">Reflection Practice</a>
+    </div>
+
+    <div class="sidebar-group">
+      <div class="group-label">Core Skills</div>
+      <a class="sub-item" href="#">Communication</a>
+      <a class="sub-item" href="#">AI Fundamentals</a>
+    </div>
+  </aside>
+
+  <main class="content">
+    <div class="page-hero">
+      <h1>Focus &amp; Deep Work</h1>
+      <p class="lede">Decide what matters enough to protect, before you decide how to spend it.</p>
+      <div class="tag-row" style="margin-top: 14px; margin-bottom: 0;">
+        <span class="tag primary">The Framework</span>
+        <span class="tag secondary">2 frameworks</span>
+        <a class="try-it-quicklink" href="#try-it">
+          <svg width="14" height="14" viewBox="0 0 24 24" aria-hidden="true">
+            <path d="M12 2 L14.2 9 L21 11 L14.2 13 L12 20 L9.8 13 L3 11 L9.8 9 Z" fill="currentColor"/>
+          </svg>
+          Try It
+        </a>
+      </div>
+    </div>
+
+    <div class="section-block">
+      <h2>Why It Matters</h2>
+      <p>Time Management protects a block on the calendar. This is the step before that — deciding which kind of work actually deserves a block in the first place. Without it, Time Management just protects your attention for shallow work more efficiently, which isn't the point.</p>
+    </div>
+
+    <blockquote class="pull-quote">
+      <p>"Human beings, it seems, are at their best when immersed deeply in something challenging."</p>
+      <cite>— Cal Newport, <em>Deep Work</em></cite>
+    </blockquote>
+
+    <div class="section-block" style="max-width: 640px;">
+      <h2>Frameworks We Cover</h2>
+      <p style="margin-bottom: 18px;">How to get into the work that matters, and how to close it out cleanly at the end of the day.</p>
+    </div>
+
+    <div class="framework-list">
+      <div class="framework-item" id="four-rules">
+        <div class="fw-num">1</div>
+        <div>
+          <h3>The 4 Rules of Deep Work</h3>
+          <p>From Cal Newport's <em>Deep Work</em>: the ability to focus without distraction on cognitively demanding work is increasingly rare and increasingly valuable — and it's a trained skill, not a personality trait.</p>
+          <div class="laws-grid">
+            <div class="law-card">
+              <div class="law-num">1</div>
+              <h4>Work Deeply</h4>
+              <p>Build routines and rituals around your focus sessions instead of relying on willpower each time.</p>
+            </div>
+            <div class="law-card">
+              <div class="law-num">2</div>
+              <h4>Embrace Boredom</h4>
+              <p>Train your attention span deliberately — the same way constant stimulation erodes it, boredom without a phone rebuilds it.</p>
+            </div>
+            <div class="law-card">
+              <div class="law-num">3</div>
+              <h4>Quit Social Media</h4>
+              <p>Not necessarily forever — evaluate each tool by whether its benefit actually outweighs its cost to your attention.</p>
+            </div>
+            <div class="law-card">
+              <div class="law-num">4</div>
+              <h4>Drain the Shallows</h4>
+              <p>Shallow work isn't the enemy, but it expands to fill the day if you let it. Cap it, don't let it cap you.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="framework-item" id="shutdown-ritual">
+        <div class="fw-num">2</div>
+        <div>
+          <h3>The Shutdown Ritual</h3>
+          <p>Also from <em>Deep Work</em>: a fixed routine for ending the workday on purpose, so unfinished tasks stop quietly running in the background of your evening. The ritual itself matters less than doing the same one every time — it's the signal, not the specific steps, that lets your brain actually let go.</p>
+          <ul class="explainer-list">
+            <li><strong>Review</strong> — scan today's tasks and calendar for anything still open.</li>
+            <li><strong>Capture</strong> — for anything unfinished, write down the next concrete step so it's not relying on memory.</li>
+            <li><strong>Confirm</strong> — check tomorrow's calendar so nothing's a surprise.</li>
+            <li><strong>Close</strong> — say a fixed phrase to yourself — Newport uses "schedule shutdown, complete" — as a deliberate signal that work is done for the day.</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <div class="try-it-box" id="try-it">
+      <div class="try-it-header">
+        <svg width="24" height="24" viewBox="0 0 24 24" aria-hidden="true">
+          <path d="M12 2 L14.2 9 L21 11 L14.2 13 L12 20 L9.8 13 L3 11 L9.8 9 Z" fill="var(--accent)"/>
+        </svg>
+        <h2>Try It</h2>
+      </div>
+      <p>Paste this into ChatGPT, Claude, or whatever AI tool you use:</p>
+      <div class="try-it-prompt" id="try-it-prompt">I want to protect time for deep, focused work instead of letting my day fill up with shallow tasks. Ask me about my current calendar and where the interruptions usually come from, then help me design one deep work block for tomorrow using the 4 Rules of Deep Work, plus a short Shutdown Ritual I can use to close out each work day.</div>
+      <button class="try-it-copy" type="button" data-copy-target="try-it-prompt">Copy prompt</button>
+    </div>
+  </main>
+</div>
+
+<footer class="site-footer">
+  <p>&copy; 2026 Plan-Do-Reflect. <a href="references.html">References &amp; further reading</a></p>
+</footer>
+
+<div class="theme-switch" role="group" aria-label="Style direction">
+  <button data-theme="a" title="Kinetic Signal — black &amp; yellow"></button>
+  <button data-theme="b" title="Studio Ledger — dusty rose"></button>
+  <button data-theme="c" title="Bright Margin — lime"></button>
+</div>
+
+<!-- Temporary brainstorm control — only restyles .content h1. Remove alongside
+     the "title-font experiment" CSS block and the extra Google Fonts link once
+     a title font is picked. -->
+<div class="title-font-picker">
+  <label for="title-font-select">Title font</label>
+  <button type="button" id="title-font-prev" class="title-font-nav" aria-label="Previous title font">‹</button>
+  <select id="title-font-select">
+    <optgroup label="Round 1 — headline character">
+      <option value="gabarito">Gabarito</option>
+      <option value="chivo">Chivo</option>
+    </optgroup>
+    <optgroup label="Round 2 — Calibri-adjacent">
+      <option value="golos-text">Golos Text</option>
+    </optgroup>
+    <option value="default">Theme default</option>
+  </select>
+  <button type="button" id="title-font-next" class="title-font-nav" aria-label="Next title font">›</button>
+</div>
+
+<script src="js/theme-toggle.js" defer></script>
+<script src="js/title-font-toggle.js" defer></script>
+<script src="js/try-it.js" defer></script>
+</body>
+</html>

@@ -1,0 +1,226 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="a">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Habit-Building · Plan · Do · Reflect</title>
+
+<!-- Applied before CSS loads, so the saved theme / title-font choice doesn't flash to the default on reload -->
+<script>
+(function () {
+  try {
+    var savedTheme = localStorage.getItem('pdr-theme');
+    if (['a', 'b', 'c'].indexOf(savedTheme) > -1) {
+      document.documentElement.setAttribute('data-theme', savedTheme);
+    }
+    var savedTitleFont = localStorage.getItem('pdr-title-font');
+    var titleFont = savedTitleFont === null ? 'golos-text' : savedTitleFont;
+    if (titleFont !== 'default') {
+      document.documentElement.setAttribute('data-title-font', titleFont);
+    }
+  } catch (e) {}
+})();
+</script>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=Work+Sans:wght@400;500;600&family=Sora:wght@600;700;800&family=Plus+Jakarta+Sans:wght@500;600;700&family=Patrick+Hand&display=swap" rel="stylesheet">
+
+<!-- Title-font brainstorm candidates — temporary, for the .title-font-picker toggle only.
+     Remove this link once a title font is chosen and folded into tokens.css. -->
+<link href="https://fonts.googleapis.com/css2?family=Gabarito:wght@800&family=Chivo:wght@800&family=Golos+Text:wght@800&display=swap" rel="stylesheet">
+
+<link rel="stylesheet" href="css/tokens.css">
+<link rel="stylesheet" href="css/main.css">
+</head>
+<body>
+
+<header class="topnav">
+  <a class="logo" href="index.html">Plan·Do·Reflect</a>
+  <nav class="topnav-items">
+    <a class="item active" href="self-management.html">The Framework</a>
+    <a class="item" href="#">Leading</a>
+    <a class="item" href="#">Managing</a>
+    <a class="item" href="#">Strategic Planning</a>
+    <a class="item" href="#">Role-Specific</a>
+    <a class="item" href="#">Processes</a>
+    <a class="item" href="#">Business Acumen</a>
+  </nav>
+</header>
+
+<div class="layout">
+  <aside class="sidebar">
+    <div class="sec-title">The Framework</div>
+    <a class="sub-item" href="self-management.html">Overview</a>
+
+    <div class="sidebar-group">
+      <div class="group-label"><span class="stage-dot" style="--stage-color: var(--stage-plan)"></span>Plan</div>
+      <a class="sub-item" href="goal-setting-priorities.html">Goal Setting &amp; Priorities</a>
+    </div>
+
+    <div class="sidebar-group">
+      <div class="group-label"><span class="stage-dot" style="--stage-color: var(--stage-do)"></span>Do</div>
+      <a class="sub-item" href="focus-deep-work.html">Focus &amp; Deep Work</a>
+      <a class="sub-item" href="time-management.html">Time Management</a>
+      <div class="sub-item-group">
+        <a class="sub-item active" href="habit-building.html">Habit-Building</a>
+        <div class="sub-sub-list">
+          <a class="sub-sub-item" href="#systems-over-motivation">Systems Over Motivation</a>
+          <a class="sub-sub-item" href="#four-laws">The 4 Laws of Behavior Change</a>
+        </div>
+      </div>
+      <a class="sub-item" href="motivation-procrastination.html">Motivation &amp; Procrastination</a>
+    </div>
+
+    <div class="sidebar-group">
+      <div class="group-label"><span class="stage-dot" style="--stage-color: var(--stage-reflect)"></span>Reflect</div>
+      <a class="sub-item" href="reflection-practice.html">Reflection Practice</a>
+    </div>
+
+    <div class="sidebar-group">
+      <div class="group-label">Core Skills</div>
+      <a class="sub-item" href="#">Communication</a>
+      <a class="sub-item" href="#">AI Fundamentals</a>
+    </div>
+  </aside>
+
+  <main class="content">
+    <div class="page-hero">
+      <h1>Habit-Building</h1>
+      <p class="lede">Turning a plan into something you don't have to force every day.</p>
+      <div class="tag-row" style="margin-top: 14px; margin-bottom: 0;">
+        <span class="tag primary">The Framework</span>
+        <span class="tag secondary">2 frameworks</span>
+        <a class="try-it-quicklink" href="#try-it">
+          <svg width="14" height="14" viewBox="0 0 24 24" aria-hidden="true">
+            <path d="M12 2 L14.2 9 L21 11 L14.2 13 L12 20 L9.8 13 L3 11 L9.8 9 Z" fill="currentColor"/>
+          </svg>
+          Try It
+        </a>
+      </div>
+    </div>
+
+    <div class="section-block">
+      <h2>Why It Matters</h2>
+      <p>Time Management protects a block of hours; Habit-Building is what makes you actually show up for it without relying on willpower every single day. Motivation is unreliable — it shows up when things feel easy and disappears exactly when you need it most. Systems don't care how you feel. They just run.</p>
+    </div>
+
+    <blockquote class="pull-quote">
+      <p>"You do not rise to the level of your goals, you fall to the level of your systems."</p>
+      <cite>— James Clear, <em>Atomic Habits</em></cite>
+    </blockquote>
+
+    <div class="section-block" style="max-width: 640px;">
+      <h2>Frameworks We Cover</h2>
+      <p style="margin-bottom: 18px;">Two ideas do most of the work: stop counting on motivation, and make the habit itself easier to start than to skip.</p>
+    </div>
+
+    <div class="framework-list">
+      <div class="framework-item" id="systems-over-motivation">
+        <div class="fw-num">1</div>
+        <div>
+          <h3>Systems Over Motivation</h3>
+          <p>Motivation is a feeling, and feelings are unreliable — great on a good day, gone on a bad one. A system doesn't ask how you feel; it just tells you what to do next. The goal isn't to feel like doing the thing. It's to make doing the thing not require a feeling at all.</p>
+          <div class="level-cards">
+            <div class="level-card is-primary">
+              <span class="level-pct">100%</span>
+              <span class="level-label">Great Day</span>
+              <span class="level-desc">The full version of the habit.</span>
+            </div>
+            <div class="level-card">
+              <span class="level-pct">~50%</span>
+              <span class="level-label">Normal Day</span>
+              <span class="level-desc">The standard version — good enough.</span>
+            </div>
+            <div class="level-card">
+              <span class="level-pct">Min.</span>
+              <span class="level-label">Low-Energy Day</span>
+              <span class="level-desc">The smallest version that still counts.</span>
+            </div>
+          </div>
+          <p style="margin-top: 10px;">The point isn't which level you hit — it's that you never hit zero. A habit that survives a bad day is worth more than one that only shows up on a good one.</p>
+        </div>
+      </div>
+      <div class="framework-item" id="four-laws">
+        <div class="fw-num">2</div>
+        <div>
+          <h3>The 4 Laws of Behavior Change</h3>
+          <p>From <em>Atomic Habits</em>: every habit runs on the same loop — cue, craving, response, reward. Make each stage work for you, and the habit gets easier. Reverse all four, and you can break a bad one just as reliably.</p>
+          <div class="laws-grid">
+            <div class="law-card">
+              <div class="law-num">1</div>
+              <h4>Make It Obvious</h4>
+              <p>Put the cue where you can't miss it — running shoes by the door, not in the closet.</p>
+            </div>
+            <div class="law-card">
+              <div class="law-num">2</div>
+              <h4>Make It Attractive</h4>
+              <p>Pair the habit with something you already enjoy, so you want to start it.</p>
+            </div>
+            <div class="law-card">
+              <div class="law-num">3</div>
+              <h4>Make It Easy</h4>
+              <p>Cut the steps between you and starting. Friction kills habits faster than lack of willpower.</p>
+            </div>
+            <div class="law-card">
+              <div class="law-num">4</div>
+              <h4>Make It Satisfying</h4>
+              <p>Give yourself an immediate, visible win — a check mark, a streak, something you can feel.</p>
+            </div>
+          </div>
+          <blockquote class="pull-quote" id="habit-stacking" style="margin-top: 16px;">
+            <p class="quote-label">Tip — Habit Stacking</p>
+            <p>Anchor a new habit to one you already have: <em>"After [current habit], I will [new habit]."</em> The existing habit becomes the cue — you don't have to remember it, you just have to notice you finished the first one.</p>
+          </blockquote>
+          <p style="margin-top: 14px;">The deepest version of this isn't about the habit at all — it's about who you're becoming. The goal isn't to read a book, it's to become a reader. Every time you follow through, you're voting for that identity.</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="try-it-box" id="try-it">
+      <div class="try-it-header">
+        <svg width="24" height="24" viewBox="0 0 24 24" aria-hidden="true">
+          <path d="M12 2 L14.2 9 L21 11 L14.2 13 L12 20 L9.8 13 L3 11 L9.8 9 Z" fill="var(--accent)"/>
+        </svg>
+        <h2>Try It</h2>
+      </div>
+      <p>Paste this into ChatGPT, Claude, or whatever AI tool you use:</p>
+      <div class="try-it-prompt" id="try-it-prompt">I want to build a new habit that actually sticks. Ask me what habit I'm trying to build, then help me design it using the 4 Laws of Behavior Change — make it obvious, attractive, easy, and satisfying — and suggest a specific habit stack: an existing habit I can anchor it to. Also help me define a low-energy-day version so I never fully skip it.</div>
+      <button class="try-it-copy" type="button" data-copy-target="try-it-prompt">Copy prompt</button>
+    </div>
+  </main>
+</div>
+
+<footer class="site-footer">
+  <p>&copy; 2026 Plan-Do-Reflect. <a href="references.html">References &amp; further reading</a></p>
+</footer>
+
+<div class="theme-switch" role="group" aria-label="Style direction">
+  <button data-theme="a" title="Kinetic Signal — black &amp; yellow"></button>
+  <button data-theme="b" title="Studio Ledger — dusty rose"></button>
+  <button data-theme="c" title="Bright Margin — lime"></button>
+</div>
+
+<!-- Temporary brainstorm control — only restyles .content h1. Remove alongside
+     the "title-font experiment" CSS block and the extra Google Fonts link once
+     a title font is picked. -->
+<div class="title-font-picker">
+  <label for="title-font-select">Title font</label>
+  <button type="button" id="title-font-prev" class="title-font-nav" aria-label="Previous title font">‹</button>
+  <select id="title-font-select">
+    <optgroup label="Round 1 — headline character">
+      <option value="gabarito">Gabarito</option>
+      <option value="chivo">Chivo</option>
+    </optgroup>
+    <optgroup label="Round 2 — Calibri-adjacent">
+      <option value="golos-text">Golos Text</option>
+    </optgroup>
+    <option value="default">Theme default</option>
+  </select>
+  <button type="button" id="title-font-next" class="title-font-nav" aria-label="Next title font">›</button>
+</div>
+
+<script src="js/theme-toggle.js" defer></script>
+<script src="js/title-font-toggle.js" defer></script>
+<script src="js/try-it.js" defer></script>
+</body>
+</html>

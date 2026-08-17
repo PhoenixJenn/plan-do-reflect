@@ -55,96 +55,10 @@
 
   <section class="hero">
     <p class="hero-eyebrow">The framework behind this site</p>
-    <h1 class="hero-title">Plan · Do · Reflect</h1>
+    <h1 class="hero-title">Plan <span class="hero-title-arrow">·</span> Do <span class="hero-title-arrow">·</span> Reflect</h1>
+    <div class="hero-title-rule"></div>
     <p class="hero-sub">Most advice gives you more to do. This gives you a way to get better at doing it: a simple, repeating cycle that turns raw experience into real progress instead of just letting it pass by.</p>
     <a class="hero-cta" href="reflection-practice.html">Start with Reflection →</a>
-
-    <div class="flywheel-interactive">
-      <div class="flywheel-block">
-        <!-- Direction A — Kinetic Signal — bold yellow/black wedge flywheel.
-             Each stage is wrapped in a [data-stage] group so js/flywheel.js can
-             dim/highlight it, and .fw-comet is a small dot that orbits the ring
-             forever via native SVG animateTransform (no JS needed for that part). -->
-        <div class="fw fw-a">
-          <svg width="120" height="120" viewBox="0 0 120 120">
-            <g data-stage="plan" class="fw-wedge">
-              <path d="M60 60 L60 14 A46 46 0 0 1 100 84 Z" fill="#facc15"/>
-              <text x="60" y="8" text-anchor="middle" font-size="8" font-weight="700" fill="#111215">PLAN</text>
-            </g>
-            <g data-stage="do" class="fw-wedge">
-              <path d="M60 60 L100 84 A46 46 0 0 1 32 102 Z" fill="#111215"/>
-              <text x="108" y="88" text-anchor="middle" font-size="8" font-weight="700" fill="#ffffff">DO</text>
-            </g>
-            <g data-stage="reflect" class="fw-wedge">
-              <path d="M60 60 L32 102 A46 46 0 0 1 60 14 Z" fill="#c7c7c1"/>
-              <text x="20" y="106" text-anchor="middle" font-size="8" font-weight="700" fill="#111215">REFLECT</text>
-            </g>
-            <circle cx="60" cy="60" r="9" fill="#ebebe6" stroke="#111215" stroke-width="1.5"/>
-            <g class="fw-comet">
-              <circle cx="60" cy="11" r="4" fill="#facc15" style="filter: drop-shadow(0 0 4px #facc15);"/>
-              <animateTransform attributeName="transform" type="rotate" from="0 60 60" to="360 60 60" dur="6s" repeatCount="indefinite"/>
-            </g>
-          </svg>
-        </div>
-
-        <!-- Direction B — Studio Ledger — soft monoline flywheel -->
-        <div class="fw fw-b">
-          <svg width="120" height="120" viewBox="0 0 120 120">
-            <circle cx="60" cy="60" r="42" fill="none" stroke="#eee0de" stroke-width="2"/>
-            <g data-stage="plan" class="fw-wedge">
-              <path d="M60 18 A42 42 0 0 1 96 78" fill="none" stroke="#c98a93" stroke-width="2.5" stroke-linecap="round"/>
-              <circle cx="60" cy="18" r="3.5" fill="#c98a93"/>
-              <text x="60" y="14" text-anchor="middle" font-size="8" fill="#8a4753">Plan</text>
-            </g>
-            <g data-stage="do" class="fw-wedge">
-              <path d="M96 78 A42 42 0 0 1 40 98" fill="none" stroke="#b06b76" stroke-width="2.5" stroke-linecap="round"/>
-              <circle cx="96" cy="78" r="3.5" fill="#b06b76"/>
-              <text x="106" y="82" text-anchor="middle" font-size="8" fill="#8a4753">Do</text>
-            </g>
-            <g data-stage="reflect" class="fw-wedge">
-              <path d="M40 98 A42 42 0 0 1 60 18" fill="none" stroke="#8a4753" stroke-width="2.5" stroke-linecap="round"/>
-              <circle cx="40" cy="98" r="3.5" fill="#8a4753"/>
-              <text x="32" y="102" text-anchor="middle" font-size="8" fill="#8a4753">Reflect</text>
-            </g>
-            <g class="fw-comet">
-              <circle cx="60" cy="18" r="4" fill="#8a4753" style="filter: drop-shadow(0 0 4px #8a4753);"/>
-              <animateTransform attributeName="transform" type="rotate" from="0 60 60" to="360 60 60" dur="6s" repeatCount="indefinite"/>
-            </g>
-          </svg>
-        </div>
-
-        <!-- Direction C — Bright Margin — flat lime wedge flywheel -->
-        <div class="fw fw-c">
-          <svg width="120" height="120" viewBox="0 0 120 120">
-            <g data-stage="plan" class="fw-wedge">
-              <path d="M60 60 L60 16 A44 44 0 0 1 98 82 Z" fill="#111214"/>
-              <text x="60" y="10" text-anchor="middle" font-size="8" font-weight="700" fill="#111214">PLAN</text>
-            </g>
-            <g data-stage="do" class="fw-wedge">
-              <path d="M60 60 L98 82 A44 44 0 0 1 34 100 Z" fill="#d7ff4b"/>
-              <text x="106" y="86" text-anchor="middle" font-size="8" font-weight="700" fill="#111214">DO</text>
-            </g>
-            <g data-stage="reflect" class="fw-wedge">
-              <path d="M60 60 L34 100 A44 44 0 0 1 60 16 Z" fill="#e9e9e6"/>
-              <text x="22" y="104" text-anchor="middle" font-size="8" font-weight="700" fill="#111214">REFLECT</text>
-            </g>
-            <circle cx="60" cy="60" r="10" fill="#ffffff"/>
-            <g class="fw-comet">
-              <circle cx="60" cy="12" r="4" fill="#d7ff4b" style="filter: drop-shadow(0 0 4px #d7ff4b);"/>
-              <animateTransform attributeName="transform" type="rotate" from="0 60 60" to="360 60 60" dur="6s" repeatCount="indefinite"/>
-            </g>
-          </svg>
-        </div>
-      </div>
-
-      <div class="flywheel-stages" role="group" aria-label="Plan, do, and reflect">
-        <button class="flywheel-stage is-active" type="button" data-stage="plan" aria-pressed="true">Plan</button>
-        <button class="flywheel-stage" type="button" data-stage="do" aria-pressed="false">Do</button>
-        <button class="flywheel-stage" type="button" data-stage="reflect" aria-pressed="false">Reflect</button>
-      </div>
-
-      <p class="flywheel-stage-caption" id="flywheel-caption">Set your direction and define what success looks like before you start.</p>
-    </div>
   </section>
 
   <section class="home-explainer">
@@ -215,6 +129,5 @@
 <script src="js/theme-toggle.js" defer></script>
 <script src="js/title-font-toggle.js" defer></script>
 <script src="js/explainer-tabs.js" defer></script>
-<script src="js/flywheel.js" defer></script>
 </body>
 </html>

@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="a">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Motivation &amp; Procrastination · Plan · Do · Reflect</title>
+
+<!-- Applied before CSS loads, so the saved theme / title-font choice doesn't flash to the default on reload -->
+<script>
+(function () {
+  try {
+    var savedTheme = localStorage.getItem('pdr-theme');
+    if (['a', 'b', 'c'].indexOf(savedTheme) > -1) {
+      document.documentElement.setAttribute('data-theme', savedTheme);
+    }
+    var savedTitleFont = localStorage.getItem('pdr-title-font');
+    var titleFont = savedTitleFont === null ? 'golos-text' : savedTitleFont;
+    if (titleFont !== 'default') {
+      document.documentElement.setAttribute('data-title-font', titleFont);
+    }
+  } catch (e) {}
+})();
+</script>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=Work+Sans:wght@400;500;600&family=Sora:wght@600;700;800&family=Plus+Jakarta+Sans:wght@500;600;700&family=Patrick+Hand&display=swap" rel="stylesheet">
+
+<!-- Title-font brainstorm candidates — temporary, for the .title-font-picker toggle only.
+     Remove this link once a title font is chosen and folded into tokens.css. -->
+<link href="https://fonts.googleapis.com/css2?family=Gabarito:wght@800&family=Chivo:wght@800&family=Golos+Text:wght@800&display=swap" rel="stylesheet">
+
+<link rel="stylesheet" href="css/tokens.css">
+<link rel="stylesheet" href="css/main.css">
+</head>
+<body>
+
+<header class="topnav">
+  <a class="logo" href="index.html">Plan·Do·Reflect</a>
+  <nav class="topnav-items">
+    <a class="item active" href="self-management.html">The Framework</a>
+    <a class="item" href="#">Leading</a>
+    <a class="item" href="#">Managing</a>
+    <a class="item" href="#">Strategic Planning</a>
+    <a class="item" href="#">Role-Specific</a>
+    <a class="item" href="#">Processes</a>
+    <a class="item" href="#">Business Acumen</a>
+  </nav>
+</header>
+
+<div class="layout">
+  <aside class="sidebar">
+    <div class="sec-title">The Framework</div>
+    <a class="sub-item" href="self-management.html">Overview</a>
+
+    <div class="sidebar-group">
+      <div class="group-label"><span class="stage-dot" style="--stage-color: var(--stage-plan)"></span>Plan</div>
+      <a class="sub-item" href="goal-setting-priorities.html">Goal Setting &amp; Priorities</a>
+    </div>
+
+    <div class="sidebar-group">
+      <div class="group-label"><span class="stage-dot" style="--stage-color: var(--stage-do)"></span>Do</div>
+      <a class="sub-item" href="focus-deep-work.html">Focus &amp; Deep Work</a>
+      <a class="sub-item" href="time-management.html">Time Management</a>
+      <a class="sub-item" href="habit-building.html">Habit-Building</a>
+      <div class="sub-item-group">
+        <a class="sub-item active" href="motivation-procrastination.html">Motivation &amp; Procrastination</a>
+        <div class="sub-sub-list">
+          <a class="sub-sub-item" href="#woop-method">WOOP Method</a>
+        </div>
+      </div>
+    </div>
+
+    <div class="sidebar-group">
+      <div class="group-label"><span class="stage-dot" style="--stage-color: var(--stage-reflect)"></span>Reflect</div>
+      <a class="sub-item" href="reflection-practice.html">Reflection Practice</a>
+    </div>
+
+    <div class="sidebar-group">
+      <div class="group-label">Core Skills</div>
+      <a class="sub-item" href="#">Communication</a>
+      <a class="sub-item" href="#">AI Fundamentals</a>
+    </div>
+  </aside>
+
+  <main class="content">
+    <div class="page-hero">
+      <h1>Motivation &amp; Procrastination</h1>
+      <p class="lede">For the days the system alone isn't enough — stuck on a specific goal, a specific task, or a specific excuse.</p>
+      <div class="tag-row" style="margin-top: 14px; margin-bottom: 0;">
+        <span class="tag primary">The Framework</span>
+        <span class="tag secondary">1 framework</span>
+        <a class="try-it-quicklink" href="#try-it">
+          <svg width="14" height="14" viewBox="0 0 24 24" aria-hidden="true">
+            <path d="M12 2 L14.2 9 L21 11 L14.2 13 L12 20 L9.8 13 L3 11 L9.8 9 Z" fill="currentColor"/>
+          </svg>
+          Try It
+        </a>
+      </div>
+    </div>
+
+    <div class="section-block">
+      <h2>Why It Matters</h2>
+      <p><a href="habit-building.html">Habit-Building</a> covers the system that makes discipline unnecessary most days. This page is for the days the system alone isn't enough — motivation isn't showing up, and you're stuck on something specific rather than everything at once.</p>
+    </div>
+
+    <blockquote class="pull-quote">
+      <p>"Procrastination isn't a time-management problem. It's an emotion-regulation problem."</p>
+      <cite>— procrastination research, Dr. Timothy Pychyl</cite>
+    </blockquote>
+    <p class="stage-group-intro" style="margin: -10px 0 20px 20px;">You're usually not procrastinating because you can't plan your day — you're avoiding the uncomfortable feeling attached to the task. Fix the feeling, or work around it, and the time-management problem mostly disappears on its own.</p>
+
+    <div class="section-block" style="max-width: 640px;">
+      <h2>Frameworks We Cover</h2>
+      <p style="margin-bottom: 18px;">One tool for the obstacle you can see coming before you even start.</p>
+    </div>
+
+    <div class="framework-list">
+      <div class="framework-item" id="woop-method">
+        <div class="fw-num">1</div>
+        <div>
+          <h3>The WOOP Method</h3>
+          <p>Developed by psychologist Gabriele Oettingen: positive thinking alone doesn't get you there — it takes picturing the outcome <em>and</em> naming the obstacle in advance, so you already have a plan when it shows up instead of getting derailed by it in the moment.</p>
+          <div class="laws-grid">
+            <div class="law-card">
+              <div class="law-num">W</div>
+              <h4>Wish</h4>
+              <p>Pick a goal you genuinely care about — specific and challenging, but doable.</p>
+            </div>
+            <div class="law-card">
+              <div class="law-num">O</div>
+              <h4>Outcome</h4>
+              <p>Picture what success actually looks and feels like.</p>
+            </div>
+            <div class="law-card">
+              <div class="law-num">O</div>
+              <h4>Obstacle</h4>
+              <p>Name the real thing most likely to get in your way — usually something in you, not the world.</p>
+            </div>
+            <div class="law-card">
+              <div class="law-num">P</div>
+              <h4>Plan</h4>
+              <p>Decide now: "If [obstacle], then I will [action]."</p>
+            </div>
+          </div>
+          <div class="annotation-list" style="margin-top: 10px;">
+            <div class="annotation annotation-sm">W: run a 10K this spring</div>
+            <div class="annotation annotation-sm">O: cross the finish line, feel proud</div>
+            <div class="annotation annotation-sm">O: I skip runs when work runs late</div>
+            <div class="annotation annotation-sm">P: if I miss one, I run at lunch instead</div>
+          </div>
+        </div>
+      </div>
+      <blockquote class="pull-quote" id="motivation-killers">
+        <p class="quote-label">Tip — Common Motivation Killers</p>
+        <p>No Clear Goal. Fear of Failure. Comparison to Others. Perfectionism. Negative Self-Talk. Different root causes, same result — notice which one is actually running the show before you try to fix it with more willpower.</p>
+      </blockquote>
+    </div>
+
+    <div class="try-it-box" id="try-it">
+      <div class="try-it-header">
+        <svg width="24" height="24" viewBox="0 0 24 24" aria-hidden="true">
+          <path d="M12 2 L14.2 9 L21 11 L14.2 13 L12 20 L9.8 13 L3 11 L9.8 9 Z" fill="var(--accent)"/>
+        </svg>
+        <h2>Try It</h2>
+      </div>
+      <p>Paste this into ChatGPT, Claude, or whatever AI tool you use:</p>
+      <div class="try-it-prompt" id="try-it-prompt">I'm stuck on something and my motivation isn't showing up. Ask me what I'm avoiding and why, then help me run it through the WOOP method — Wish, Outcome, Obstacle, Plan — to build a specific if-then plan for the obstacle.</div>
+      <button class="try-it-copy" type="button" data-copy-target="try-it-prompt">Copy prompt</button>
+    </div>
+  </main>
+</div>
+
+<footer class="site-footer">
+  <p>&copy; 2026 Plan-Do-Reflect. <a href="references.html">References &amp; further reading</a></p>
+</footer>
+
+<div class="theme-switch" role="group" aria-label="Style direction">
+  <button data-theme="a" title="Kinetic Signal — black &amp; yellow"></button>
+  <button data-theme="b" title="Studio Ledger — dusty rose"></button>
+  <button data-theme="c" title="Bright Margin — lime"></button>
+</div>
+
+<!-- Temporary brainstorm control — only restyles .content h1. Remove alongside
+     the "title-font experiment" CSS block and the extra Google Fonts link once
+     a title font is picked. -->
+<div class="title-font-picker">
+  <label for="title-font-select">Title font</label>
+  <button type="button" id="title-font-prev" class="title-font-nav" aria-label="Previous title font">‹</button>
+  <select id="title-font-select">
+    <optgroup label="Round 1 — headline character">
+      <option value="gabarito">Gabarito</option>
+      <option value="chivo">Chivo</option>
+    </optgroup>
+    <optgroup label="Round 2 — Calibri-adjacent">
+      <option value="golos-text">Golos Text</option>
+    </optgroup>
+    <option value="default">Theme default</option>
+  </select>
+  <button type="button" id="title-font-next" class="title-font-nav" aria-label="Next title font">›</button>
+</div>
+
+<script src="js/theme-toggle.js" defer></script>
+<script src="js/title-font-toggle.js" defer></script>
+<script src="js/try-it.js" defer></script>
+</body>
+</html>
