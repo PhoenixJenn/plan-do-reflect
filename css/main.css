@@ -612,8 +612,62 @@ body {
 
 /* ---------- Pomodoro icon (tomato-shaped timer, per the technique's own
    naming — a clock face doubles as the tomato body) ---------- */
-.pomodoro-icon {
+.pomodoro-row {
+  display: flex;
+  align-items: center;
+  gap: 22px;
+  flex-wrap: wrap;
   margin: 12px 0 4px;
+}
+
+.pomodoro-icon {
+  flex-shrink: 0;
+}
+
+.pomodoro-cycle {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+}
+
+.cycle-seg {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 34px;
+  border-radius: 6px;
+  font-family: var(--font-heading);
+  font-weight: 700;
+  font-size: 0.68rem;
+}
+
+.cycle-seg.is-work {
+  width: 36px;
+  background: var(--accent);
+  color: var(--accent-strong);
+}
+
+.cycle-seg.is-break {
+  width: 16px;
+  background: var(--bg-sidebar);
+  border: 1px solid var(--border);
+  color: var(--text-caption);
+  font-size: 0.6rem;
+}
+
+.cycle-seg.is-longbreak {
+  width: 52px;
+  background: var(--bg-sidebar);
+  border: 2px solid var(--accent);
+  color: var(--text-heading);
+}
+
+.pomodoro-legend {
+  display: flex;
+  gap: 14px;
+  margin-top: 8px;
+  font-size: 0.72rem;
+  color: var(--text-caption);
 }
 
 /* ---------- Handwritten annotation (occasional accent inside a visual,

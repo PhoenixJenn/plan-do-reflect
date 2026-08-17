@@ -166,16 +166,34 @@
         <div>
           <h3>Pomodoro Technique</h3>
           <p>Created by Francesco Cirillo in the late 1980s, named after the tomato-shaped kitchen timer he used. Work in focused 25-minute sprints, take a 5-minute break, repeat 4 times, then take a longer break. Simple enough to start today, structured enough to actually stick — and it scales past solo work: teams can sync Pomodoros for collaborative bursts, and it's a good way to protect time for clearing an inbox without letting email eat the rest of the day.</p>
-          <svg class="pomodoro-icon" width="90" height="90" viewBox="0 0 100 100" aria-hidden="true">
-            <path d="M50 22 C40 10, 25 10, 20 20 C30 24, 40 24, 50 22 Z" fill="var(--accent-strong)"/>
-            <path d="M50 22 C60 10, 75 10, 80 20 C70 24, 60 24, 50 22 Z" fill="var(--accent-strong)"/>
-            <path d="M50 24 C44 14, 50 6, 50 6 C50 6, 56 14, 50 24 Z" fill="var(--accent-strong)"/>
-            <rect x="46" y="28" width="8" height="8" rx="2" fill="var(--accent-strong)"/>
-            <circle cx="50" cy="62" r="34" fill="var(--accent)"/>
-            <line x1="50" y1="62" x2="50" y2="46" stroke="var(--accent-strong)" stroke-width="3" stroke-linecap="round"/>
-            <line x1="50" y1="62" x2="62" y2="62" stroke="var(--accent-strong)" stroke-width="3" stroke-linecap="round"/>
-            <circle cx="50" cy="62" r="3" fill="var(--accent-strong)"/>
-          </svg>
+          <div class="pomodoro-row">
+            <svg class="pomodoro-icon" width="90" height="90" viewBox="0 0 100 100" aria-hidden="true">
+              <path d="M50 22 C40 10, 25 10, 20 20 C30 24, 40 24, 50 22 Z" fill="var(--accent-strong)"/>
+              <path d="M50 22 C60 10, 75 10, 80 20 C70 24, 60 24, 50 22 Z" fill="var(--accent-strong)"/>
+              <path d="M50 24 C44 14, 50 6, 50 6 C50 6, 56 14, 50 24 Z" fill="var(--accent-strong)"/>
+              <rect x="46" y="28" width="8" height="8" rx="2" fill="var(--accent-strong)"/>
+              <circle cx="50" cy="62" r="34" fill="var(--accent)"/>
+              <line x1="50" y1="62" x2="50" y2="46" stroke="var(--accent-strong)" stroke-width="3" stroke-linecap="round"/>
+              <line x1="50" y1="62" x2="62" y2="62" stroke="var(--accent-strong)" stroke-width="3" stroke-linecap="round"/>
+              <circle cx="50" cy="62" r="3" fill="var(--accent-strong)"/>
+            </svg>
+            <div>
+              <div class="pomodoro-cycle">
+                <div class="cycle-seg is-work">25</div>
+                <div class="cycle-seg is-break">5</div>
+                <div class="cycle-seg is-work">25</div>
+                <div class="cycle-seg is-break">5</div>
+                <div class="cycle-seg is-work">25</div>
+                <div class="cycle-seg is-break">5</div>
+                <div class="cycle-seg is-work">25</div>
+                <div class="cycle-seg is-longbreak">20</div>
+              </div>
+              <div class="pomodoro-legend">
+                <span class="pareto-legend-item"><span class="pareto-dot is-vital"></span>work (min)</span>
+                <span class="pareto-legend-item"><span class="pareto-dot is-rest"></span>break (min)</span>
+              </div>
+            </div>
+          </div>
         </div>
       </div>
       <div class="framework-item" id="two-minute-rule">
