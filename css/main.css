@@ -393,54 +393,70 @@ body {
   .matrix-diagram { grid-template-columns: 56px repeat(2, 1fr); }
 }
 
-/* ---------- Leverage bars (80/20 Rule: small effort, big results) ---------- */
-.leverage-bars {
-  display: flex;
-  flex-direction: column;
-  gap: 10px;
+/* ---------- Pareto diagram (80/20 Rule) — ONE bar, not two.
+   20% and 80% are the same slice measured two ways (share of effort vs.
+   share of results it produces), not independent quantities to compare
+   side by side — two separate bars implied a false comparison. */
+.pareto-diagram {
   max-width: 420px;
   margin: 14px 0 4px;
 }
 
-.leverage-row {
-  display: grid;
-  grid-template-columns: 62px 1fr 44px;
-  align-items: center;
-  gap: 10px;
+.pareto-bar {
+  display: flex;
+  height: 30px;
+  border-radius: 8px;
+  overflow: hidden;
+  border: 1px solid var(--border);
 }
 
-.leverage-label {
-  font-size: 0.72rem;
+.pareto-seg {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: var(--font-heading);
   font-weight: 700;
-  letter-spacing: 0.04em;
-  text-transform: uppercase;
+  font-size: 0.8rem;
+}
+
+.pareto-seg.is-vital {
+  background: var(--accent);
+  color: var(--accent-strong);
+}
+
+.pareto-seg.is-rest {
+  background: var(--bg-sidebar);
   color: var(--text-caption);
 }
 
-.leverage-track {
-  height: 14px;
-  border-radius: 7px;
-  background: var(--bg-sidebar);
-  border: 1px solid var(--border);
-  overflow: hidden;
+.annotation-vital {
+  margin: 4px 0 0 2px;
 }
 
-.leverage-fill {
-  height: 100%;
-  background: var(--text-caption);
-  border-radius: 6px 0 0 6px;
+.pareto-stats {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  margin-top: 10px;
 }
 
-.leverage-fill.is-big {
-  background: var(--accent);
+.pareto-stat {
+  font-size: 0.82rem;
+  color: var(--text-body);
 }
 
-.leverage-value {
+.pareto-stat strong {
   font-family: var(--font-heading);
-  font-weight: 700;
-  font-size: 0.85rem;
   color: var(--text-heading);
-  text-align: right;
+}
+
+.pareto-stat.is-vital strong {
+  color: var(--accent-strong);
+}
+
+.pareto-arrow {
+  color: var(--text-caption);
+  margin: 0 2px;
 }
 
 /* ---------- MIT slots (Most Important Things: exactly 3, nothing else) ---------- */
@@ -512,10 +528,6 @@ body {
   transform: rotate(-2deg);
 }
 
-.annotation-end {
-  align-self: flex-end;
-  margin-top: 2px;
-}
 
 .pull-quote cite {
   display: block;
