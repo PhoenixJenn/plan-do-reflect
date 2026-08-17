@@ -685,6 +685,104 @@ body {
   margin-top: 6px;
 }
 
+/* ---------- Stage boxes (self-management.html overview) — one bounding
+   box per stage, plain divided rows inside instead of individually
+   bordered cards. --stage-color set inline per box (var(--stage-plan)
+   etc.), same tokens the homepage flywheel and sidebar dots use. ---------- */
+.stage-boxes {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 16px;
+  margin-bottom: 16px;
+}
+
+.stage-box {
+  border: 1px solid var(--border);
+  border-radius: 14px;
+  padding: 20px;
+  background: var(--bg-content);
+}
+
+.stage-box-header {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 6px;
+}
+
+.stage-box-header .stage-dot {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background: var(--stage-color, var(--text-caption));
+  flex-shrink: 0;
+}
+
+.stage-box-header h2 {
+  font-family: var(--font-heading);
+  font-size: 1.1rem;
+  font-weight: 700;
+  color: var(--text-heading);
+}
+
+.stage-box-intro {
+  font-size: 0.85rem;
+  line-height: 1.5;
+  color: var(--text-body);
+  margin-bottom: 14px;
+}
+
+.stage-box-list {
+  display: flex;
+  flex-direction: column;
+}
+
+.stage-box-item {
+  display: block;
+  padding: 10px 0;
+  border-top: 1px solid var(--border);
+  text-decoration: none;
+}
+
+.stage-box-item:first-child {
+  border-top: none;
+  padding-top: 0;
+}
+
+.stage-box-item h3 {
+  font-family: var(--font-heading);
+  font-weight: 700;
+  font-size: 0.92rem;
+  color: var(--text-heading);
+  margin-bottom: 3px;
+}
+
+.stage-box-item p {
+  font-size: 0.8rem;
+  line-height: 1.45;
+  color: var(--text-caption);
+}
+
+.stage-box-skills {
+  margin-bottom: 16px;
+}
+
+.stage-box-skills .stage-box-list {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 0 24px;
+}
+
+.stage-box-skills .stage-box-item {
+  border-top: none;
+  padding: 6px 0;
+}
+
+@media (max-width: 900px) {
+  .stage-boxes { grid-template-columns: 1fr; }
+  .stage-box-skills .stage-box-list { grid-template-columns: 1fr; }
+}
+
 /* ---------- Pomodoro icon (tomato-shaped timer, per the technique's own
    naming — a clock face doubles as the tomato body) ---------- */
 .pomodoro-row {
