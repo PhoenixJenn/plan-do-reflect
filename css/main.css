@@ -1438,3 +1438,66 @@ body {
   .title-font-picker { left: 12px; right: 12px; bottom: 12px; }
   .title-font-picker select { max-width: none; flex: 1; }
 }
+
+/* ---------- Try It (one per page, bottom of content — a copyable prompt
+   for the user's AI tool of choice, not a real embedded agent) ---------- */
+.try-it-box {
+  border: 1px solid var(--accent);
+  border-radius: 14px;
+  padding: 20px 22px;
+  background: var(--bg-content);
+  max-width: 640px;
+  margin-top: 32px;
+}
+
+.try-it-header {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 8px;
+}
+
+.try-it-header h2 {
+  font-family: var(--font-heading);
+  font-weight: 700;
+  font-size: 1.1rem;
+  color: var(--text-heading);
+}
+
+.try-it-box > p {
+  font-size: 0.88rem;
+  color: var(--text-body);
+  margin-bottom: 12px;
+}
+
+.try-it-prompt {
+  background: var(--bg-sidebar);
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  padding: 14px 16px;
+  font-size: 0.86rem;
+  line-height: 1.55;
+  color: var(--text-heading);
+  margin-bottom: 12px;
+}
+
+.try-it-copy {
+  font-family: var(--font-body);
+  font-weight: 700;
+  font-size: 0.82rem;
+  padding: 9px 18px;
+  border-radius: 8px;
+  border: none;
+  background: var(--accent);
+  color: var(--accent-strong);
+  cursor: pointer;
+}
+
+.try-it-copy:hover {
+  opacity: 0.9;
+}
+
+.try-it-copy.is-copied {
+  background: var(--bg-sidebar);
+  color: var(--text-caption);
+}
