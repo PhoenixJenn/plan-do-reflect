@@ -286,6 +286,32 @@ body {
   color: var(--text-caption);
 }
 
+/* ---------- Pull quote (stylized book/source quotes, reusable anywhere) ---------- */
+.pull-quote {
+  border-left: 4px solid var(--accent);
+  margin: 24px 0;
+  padding: 2px 0 2px 20px;
+  max-width: 560px;
+}
+
+.pull-quote p {
+  font-family: var(--font-heading);
+  font-size: 1.15rem;
+  font-weight: 700;
+  line-height: 1.4;
+  color: var(--text-heading);
+}
+
+.pull-quote cite {
+  display: block;
+  margin-top: 8px;
+  font-family: var(--font-body);
+  font-style: normal;
+  font-size: 0.82rem;
+  font-weight: 600;
+  color: var(--text-caption);
+}
+
 .framework-item {
   display: flex;
   gap: 16px;
