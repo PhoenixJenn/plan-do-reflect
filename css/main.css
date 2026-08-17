@@ -531,6 +531,85 @@ body {
   font-style: italic;
 }
 
+/* ---------- SMART Goals strip (5 letter cards) ---------- */
+.smart-cards {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  gap: 8px;
+  max-width: 480px;
+  margin: 14px 0 4px;
+}
+
+.smart-card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  gap: 6px;
+  padding: 12px 4px;
+  border-radius: 10px;
+  background: var(--accent);
+}
+
+.smart-letter {
+  font-family: var(--font-heading);
+  font-weight: 800;
+  font-size: 1.3rem;
+  color: var(--accent-strong);
+}
+
+.smart-label {
+  font-size: 0.62rem;
+  font-weight: 700;
+  letter-spacing: 0.02em;
+  text-transform: uppercase;
+  color: var(--accent-strong);
+}
+
+@media (max-width: 720px) {
+  .smart-cards { grid-template-columns: repeat(3, 1fr); }
+}
+
+/* ---------- OKR tree (Objective branching into Key Results) ---------- */
+.okr-tree {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  max-width: 340px;
+  margin: 14px 0 4px;
+}
+
+.okr-node {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  padding: 8px 16px;
+  border-radius: 999px;
+  font-family: var(--font-heading);
+  font-weight: 700;
+  font-size: 0.8rem;
+  white-space: nowrap;
+}
+
+.okr-objective {
+  background: var(--accent);
+  color: var(--accent-strong);
+}
+
+.okr-results {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+}
+
+.okr-result {
+  background: var(--bg-content);
+  border: 1px solid var(--border);
+  color: var(--text-heading);
+  font-size: 0.72rem;
+  padding: 7px 10px;
+}
+
 /* ---------- Handwritten annotation (occasional accent inside a visual,
    never real content — see --font-hand in tokens.css). Kept in normal
    document flow (no absolute positioning) so it can't overflow its
