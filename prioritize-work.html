@@ -29,6 +29,10 @@
      Remove this link once a title font is chosen and folded into tokens.css. -->
 <link href="https://fonts.googleapis.com/css2?family=Gabarito:wght@800&family=Chivo:wght@800&family=Golos+Text:wght@800&display=swap" rel="stylesheet">
 
+<!-- Handwritten-annotation font — only loaded here since this is the only
+     page using .annotation so far. Move to the shared link if that changes. -->
+<link href="https://fonts.googleapis.com/css2?family=Patrick+Hand&display=swap" rel="stylesheet">
+
 <link rel="stylesheet" href="css/tokens.css">
 <link rel="stylesheet" href="css/main.css">
 </head>
@@ -137,6 +141,19 @@
         <div>
           <h3>The 80/20 Rule (Pareto Principle)</h3>
           <p>Roughly 20% of your effort drives 80% of your results — named after economist Vilfredo Pareto, and it shows up everywhere: resources, time, customers, projects. For individuals, it means auditing your week and doubling down on the few activities that actually move things forward. For teams and companies, it's the same logic applied to which customers, products, or initiatives get the attention. The habit underneath it: simplify your goals to fewer priorities, pursue them with clarity and consistency, and cut the energy drains — extra meetings, low-value tasks, draining people — that don't earn their place in the 20%.</p>
+          <div class="leverage-bars">
+            <div class="leverage-row">
+              <div class="leverage-label">Effort</div>
+              <div class="leverage-track"><div class="leverage-fill" style="width: 20%;"></div></div>
+              <div class="leverage-value">20%</div>
+            </div>
+            <div class="leverage-row">
+              <div class="leverage-label">Results</div>
+              <div class="leverage-track"><div class="leverage-fill is-big" style="width: 80%;"></div></div>
+              <div class="leverage-value">80%</div>
+            </div>
+            <div class="annotation annotation-end">↑ the magic few</div>
+          </div>
         </div>
       </div>
       <div class="framework-item" id="mits">
@@ -144,6 +161,12 @@
         <div>
           <h3>Most Important Things (MITs)</h3>
           <p>Pick your 3 most important tasks for the week and get them done — everything else is negotiable, these aren't. A simple constraint that keeps a long list from quietly replacing an actual priority.</p>
+          <div class="mit-slots">
+            <div class="mit-slot"><span class="mit-num">1</span><span class="mit-line"></span></div>
+            <div class="mit-slot"><span class="mit-num">2</span><span class="mit-line"></span></div>
+            <div class="mit-slot"><span class="mit-num">3</span><span class="mit-line"></span></div>
+            <div class="mit-slot is-blocked"><span class="mit-num">✕</span><span class="mit-note">everything else waits</span></div>
+          </div>
         </div>
       </div>
       <blockquote class="pull-quote" id="weekly-planning">

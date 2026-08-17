@@ -14,6 +14,15 @@
   /* fallback (theme A = Kinetic Signal) so nothing is unstyled before data-theme resolves */
   --font-heading: 'Sora', sans-serif;
   --font-body: 'Work Sans', sans-serif;
+
+  /* For occasional handwritten-style annotations inside visuals only —
+     never for real content/body copy. Print-style handwriting, not
+     cursive/calligraphy — disconnected letters, stays legible at small
+     sizes. Not a serif, so it doesn't conflict with the "no serif fonts"
+     rule. Only loaded (via Google Fonts <link>) on pages that actually
+     use an .annotation — falls back to generic cursive elsewhere rather
+     than silently failing. */
+  --font-hand: 'Patrick Hand', cursive;
 }
 
 /* ---------- Direction A — Kinetic Signal (gray / black / bright yellow) — default ---------- */

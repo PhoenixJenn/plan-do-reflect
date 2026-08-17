@@ -393,6 +393,130 @@ body {
   .matrix-diagram { grid-template-columns: 56px repeat(2, 1fr); }
 }
 
+/* ---------- Leverage bars (80/20 Rule: small effort, big results) ---------- */
+.leverage-bars {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  max-width: 420px;
+  margin: 14px 0 4px;
+}
+
+.leverage-row {
+  display: grid;
+  grid-template-columns: 62px 1fr 44px;
+  align-items: center;
+  gap: 10px;
+}
+
+.leverage-label {
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  color: var(--text-caption);
+}
+
+.leverage-track {
+  height: 14px;
+  border-radius: 7px;
+  background: var(--bg-sidebar);
+  border: 1px solid var(--border);
+  overflow: hidden;
+}
+
+.leverage-fill {
+  height: 100%;
+  background: var(--text-caption);
+  border-radius: 6px 0 0 6px;
+}
+
+.leverage-fill.is-big {
+  background: var(--accent);
+}
+
+.leverage-value {
+  font-family: var(--font-heading);
+  font-weight: 700;
+  font-size: 0.85rem;
+  color: var(--text-heading);
+  text-align: right;
+}
+
+/* ---------- MIT slots (Most Important Things: exactly 3, nothing else) ---------- */
+.mit-slots {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  max-width: 360px;
+  margin: 14px 0 4px;
+}
+
+.mit-slot {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 9px 12px;
+  border-radius: 8px;
+  background: var(--bg-content);
+  border: 1px solid var(--border);
+}
+
+.mit-num {
+  width: 22px;
+  height: 22px;
+  border-radius: 50%;
+  background: var(--accent);
+  color: var(--accent-strong);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: var(--font-heading);
+  font-weight: 700;
+  font-size: 0.78rem;
+  flex-shrink: 0;
+}
+
+.mit-line {
+  flex: 1;
+  height: 1px;
+  background: var(--border);
+}
+
+.mit-slot.is-blocked {
+  background: var(--bg-sidebar);
+}
+
+.mit-slot.is-blocked .mit-num {
+  background: transparent;
+  border: 1px solid var(--border);
+  color: var(--text-caption);
+}
+
+.mit-note {
+  flex: 1;
+  font-size: 0.78rem;
+  font-style: italic;
+  color: var(--text-caption);
+}
+
+/* ---------- Handwritten annotation (occasional accent inside a visual,
+   never real content — see --font-hand in tokens.css). Kept in normal
+   document flow (no absolute positioning) so it can't overflow its
+   container at narrow widths. */
+.annotation {
+  font-family: var(--font-hand);
+  font-size: 1.3rem;
+  color: var(--accent-strong);
+  line-height: 1;
+  transform: rotate(-2deg);
+}
+
+.annotation-end {
+  align-self: flex-end;
+  margin-top: 2px;
+}
+
 .pull-quote cite {
   display: block;
   margin-top: 8px;
