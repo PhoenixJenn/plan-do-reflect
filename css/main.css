@@ -393,70 +393,43 @@ body {
   .matrix-diagram { grid-template-columns: 56px repeat(2, 1fr); }
 }
 
-/* ---------- Pareto diagram (80/20 Rule) — ONE bar, not two.
-   20% and 80% are the same slice measured two ways (share of effort vs.
-   share of results it produces), not independent quantities to compare
-   side by side — two separate bars implied a false comparison. */
-.pareto-diagram {
+/* ---------- Pareto circles (80/20 Rule) — size shows magnitude, color
+   ties corresponding circles across Effort/Result, arrows make the
+   mapping explicit. Inline SVG so it themes via var(--...) directly,
+   same approach as the homepage flywheel graphics. */
+.pareto-circles {
   max-width: 420px;
   margin: 14px 0 4px;
 }
 
-.pareto-bar {
+.pareto-legend {
   display: flex;
-  height: 30px;
-  border-radius: 8px;
-  overflow: hidden;
-  border: 1px solid var(--border);
+  gap: 18px;
+  margin-top: 2px;
+  font-size: 0.78rem;
+  color: var(--text-caption);
 }
 
-.pareto-seg {
+.pareto-legend-item {
   display: flex;
   align-items: center;
-  justify-content: center;
-  font-family: var(--font-heading);
-  font-weight: 700;
-  font-size: 0.8rem;
-}
-
-.pareto-seg.is-vital {
-  background: var(--accent);
-  color: var(--accent-strong);
-}
-
-.pareto-seg.is-rest {
-  background: var(--bg-sidebar);
-  color: var(--text-caption);
-}
-
-.annotation-vital {
-  margin: 4px 0 0 2px;
-}
-
-.pareto-stats {
-  display: flex;
-  flex-direction: column;
   gap: 6px;
-  margin-top: 10px;
 }
 
-.pareto-stat {
-  font-size: 0.82rem;
-  color: var(--text-body);
+.pareto-dot {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  display: inline-block;
 }
 
-.pareto-stat strong {
-  font-family: var(--font-heading);
-  color: var(--text-heading);
+.pareto-dot.is-vital {
+  background: var(--accent);
 }
 
-.pareto-stat.is-vital strong {
-  color: var(--accent-strong);
-}
-
-.pareto-arrow {
-  color: var(--text-caption);
-  margin: 0 2px;
+.pareto-dot.is-rest {
+  background: var(--bg-sidebar);
+  border: 1px solid var(--border);
 }
 
 /* ---------- MIT slots (Most Important Things: exactly 3, nothing else) ---------- */

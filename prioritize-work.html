@@ -141,16 +141,37 @@
         <div>
           <h3>The 80/20 Rule (Pareto Principle)</h3>
           <p>Roughly 20% of your effort drives 80% of your results — named after economist Vilfredo Pareto, and it shows up everywhere: resources, time, customers, projects. For individuals, it means auditing your week and doubling down on the few activities that actually move things forward. For teams and companies, it's the same logic applied to which customers, products, or initiatives get the attention. The habit underneath it: simplify your goals to fewer priorities, pursue them with clarity and consistency, and cut the energy drains — extra meetings, low-value tasks, draining people — that don't earn their place in the 20%.</p>
-          <div class="pareto-diagram">
-            <div class="pareto-bar">
-              <div class="pareto-seg is-vital" style="width: 20%;">20%</div>
-              <div class="pareto-seg is-rest" style="width: 80%;">80%</div>
+          <div class="pareto-circles">
+            <svg viewBox="0 0 380 235" width="100%" style="max-width: 380px;">
+              <defs>
+                <marker id="pareto-arrowhead" markerWidth="8" markerHeight="8" refX="6" refY="4" orient="auto">
+                  <path d="M0,0 L8,4 L0,8 Z" fill="var(--text-heading)"/>
+                </marker>
+              </defs>
+
+              <text x="95" y="22" text-anchor="middle" font-family="var(--font-hand)" font-size="20" fill="var(--text-heading)">Effort</text>
+              <text x="285" y="22" text-anchor="middle" font-family="var(--font-hand)" font-size="20" fill="var(--text-heading)">Result</text>
+
+              <path d="M150,75 Q220,35 262,90" fill="none" stroke="var(--text-heading)" stroke-width="2" marker-end="url(#pareto-arrowhead)"/>
+              <path d="M105,195 Q175,222 222,195" fill="none" stroke="var(--text-heading)" stroke-width="2" marker-end="url(#pareto-arrowhead)"/>
+
+              <circle cx="95" cy="140" r="65" fill="var(--bg-sidebar)" stroke="var(--border)" stroke-width="1"/>
+              <circle cx="132" cy="88" r="28" fill="var(--accent)"/>
+              <text x="80" y="182" font-family="var(--font-heading)" font-weight="700" font-size="18" fill="var(--text-caption)">80%</text>
+              <text x="132" y="93" text-anchor="middle" font-family="var(--font-heading)" font-weight="700" font-size="14" fill="var(--accent-strong)">20%</text>
+
+              <circle cx="285" cy="140" r="65" fill="var(--accent)"/>
+              <circle cx="248" cy="190" r="28" fill="var(--bg-sidebar)" stroke="var(--border)" stroke-width="1"/>
+              <text x="285" y="118" text-anchor="middle" font-family="var(--font-heading)" font-weight="700" font-size="20" fill="var(--accent-strong)">80%</text>
+              <text x="248" y="195" text-anchor="middle" font-family="var(--font-heading)" font-weight="700" font-size="13" fill="var(--text-caption)">20%</text>
+            </svg>
+
+            <div class="pareto-legend">
+              <span class="pareto-legend-item"><span class="pareto-dot is-vital"></span>important</span>
+              <span class="pareto-legend-item"><span class="pareto-dot is-rest"></span>not important</span>
             </div>
-            <div class="annotation annotation-vital">↑ the magic few</div>
-            <div class="pareto-stats">
-              <div class="pareto-stat is-vital"><strong>20%</strong> of effort <span class="pareto-arrow">→</span> <strong>80%</strong> of results</div>
-              <div class="pareto-stat is-rest"><strong>80%</strong> of effort <span class="pareto-arrow">→</span> <strong>20%</strong> of results</div>
-            </div>
+
+            <div class="annotation">80% of results come from 20% of effort</div>
           </div>
         </div>
       </div>
