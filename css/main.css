@@ -225,6 +225,12 @@ body {
   color: var(--sidebar-text);
 }
 
+.sidebar .sub-sub-item.active {
+  background: var(--sidebar-active-bg);
+  color: var(--sidebar-active-text);
+  font-weight: 700;
+}
+
 /* ---------- Sub-page thin hero (lighter than the homepage .hero) ---------- */
 .page-hero {
   margin-bottom: 28px;
