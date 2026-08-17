@@ -19,9 +19,11 @@
      never for real content/body copy. Print-style handwriting, not
      cursive/calligraphy — disconnected letters, stays legible at small
      sizes. Not a serif, so it doesn't conflict with the "no serif fonts"
-     rule. Only loaded (via Google Fonts <link>) on pages that actually
-     use an .annotation — falls back to generic cursive elsewhere rather
-     than silently failing. */
+     rule. Loaded in the shared Google Fonts <link> on every page (not
+     conditionally per-page) — a page using .annotation without the font
+     loaded silently falls back to the browser's generic 'cursive' keyword,
+     which renders as real calligraphy on most systems. That's exactly
+     what happened once already; load it everywhere so it can't recur. */
   --font-hand: 'Patrick Hand', cursive;
 }
 
