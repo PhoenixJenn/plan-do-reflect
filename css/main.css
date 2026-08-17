@@ -654,6 +654,37 @@ body {
   line-height: 1.5;
 }
 
+/* ---------- Example callout (worked example inside a framework-item) ----------
+   Dashed border deliberately distinguishes it from solid-border structural
+   cards (.boundary-group, .mit-slot, etc.) — this is a sample, not a step. */
+.example-box {
+  margin-top: 14px;
+  padding: 12px 14px;
+  border-radius: 10px;
+  background: var(--bg-content);
+  border: 1px dashed var(--border);
+  max-width: 480px;
+}
+
+.example-label {
+  font-size: 0.66rem;
+  font-weight: 700;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  color: var(--text-caption);
+  margin-bottom: 5px;
+}
+
+.example-box p {
+  font-size: 0.85rem;
+  line-height: 1.5;
+  color: var(--text-body);
+}
+
+.example-box p + p {
+  margin-top: 6px;
+}
+
 /* ---------- Pomodoro icon (tomato-shaped timer, per the technique's own
    naming — a clock face doubles as the tomato body) ---------- */
 .pomodoro-row {
