@@ -610,6 +610,12 @@ body {
   padding: 7px 10px;
 }
 
+/* ---------- Pomodoro icon (tomato-shaped timer, per the technique's own
+   naming — a clock face doubles as the tomato body) ---------- */
+.pomodoro-icon {
+  margin: 12px 0 4px;
+}
+
 /* ---------- Handwritten annotation (occasional accent inside a visual,
    never real content — see --font-hand in tokens.css). Kept in normal
    document flow (no absolute positioning) so it can't overflow its
