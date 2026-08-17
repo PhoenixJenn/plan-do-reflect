@@ -489,6 +489,48 @@ body {
   color: var(--text-caption);
 }
 
+/* ---------- Boundary groups (Boundaries & Saying No: 3 icon-led cards) ---------- */
+.boundary-groups {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  margin-top: 14px;
+}
+
+.boundary-group {
+  display: flex;
+  gap: 14px;
+  align-items: flex-start;
+  padding: 12px 14px;
+  border-radius: 10px;
+  background: var(--bg-content);
+  border: 1px solid var(--border);
+}
+
+.boundary-icon {
+  flex-shrink: 0;
+  margin-top: 1px;
+}
+
+.boundary-group h4 {
+  font-family: var(--font-heading);
+  font-weight: 700;
+  font-size: 0.88rem;
+  color: var(--text-heading);
+  margin-bottom: 3px;
+}
+
+.boundary-group p {
+  font-size: 0.85rem;
+  line-height: 1.5;
+  color: var(--text-body);
+}
+
+.boundary-group em {
+  color: var(--text-heading);
+  font-style: italic;
+}
+
 /* ---------- Handwritten annotation (occasional accent inside a visual,
    never real content — see --font-hand in tokens.css). Kept in normal
    document flow (no absolute positioning) so it can't overflow its
