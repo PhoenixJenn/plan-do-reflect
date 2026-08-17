@@ -610,6 +610,50 @@ body {
   padding: 7px 10px;
 }
 
+/* ---------- Comparison table (SMART Goals vs. OKRs) ---------- */
+.compare-table-wrap {
+  overflow-x: auto;
+  max-width: 640px;
+}
+
+.compare-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 0.84rem;
+}
+
+.compare-table th,
+.compare-table td {
+  text-align: left;
+  padding: 10px 12px;
+  border: 1px solid var(--border);
+  vertical-align: top;
+}
+
+.compare-table thead th {
+  font-family: var(--font-heading);
+  font-weight: 700;
+  color: var(--accent-strong);
+  background: var(--accent);
+}
+
+.compare-table thead th:first-child {
+  background: var(--bg-content);
+  color: var(--text-caption);
+}
+
+.compare-table tbody th {
+  font-weight: 700;
+  color: var(--text-heading);
+  background: var(--bg-sidebar);
+  white-space: nowrap;
+}
+
+.compare-table td {
+  color: var(--text-body);
+  line-height: 1.5;
+}
+
 /* ---------- Pomodoro icon (tomato-shaped timer, per the technique's own
    naming — a clock face doubles as the tomato body) ---------- */
 .pomodoro-row {
