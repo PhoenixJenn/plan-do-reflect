@@ -264,6 +264,28 @@ body {
   max-width: 640px;
 }
 
+/* Divider between clusters within one framework-list (e.g. "Set Goals" vs.
+   "Prioritize Work") — lighter than a full .stage-group-header, no color dot,
+   since it's a sub-grouping within one page rather than a new stage. */
+.framework-group-label {
+  font-family: var(--font-heading);
+  font-size: 1rem;
+  font-weight: 700;
+  color: var(--text-heading);
+  margin: 6px 0 -2px;
+}
+
+.framework-group-label:first-child {
+  margin-top: 0;
+}
+
+.framework-group-sub {
+  font-family: var(--font-body);
+  font-weight: 400;
+  font-size: 0.82rem;
+  color: var(--text-caption);
+}
+
 .framework-item {
   display: flex;
   gap: 16px;
