@@ -1,0 +1,470 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="a">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Project &amp; Program Management · Plan · Do · Reflect</title>
+
+<!-- Applied before CSS loads, so the saved theme / title-font choice doesn't flash to the default on reload -->
+<script>
+(function () {
+  try {
+    var savedTheme = localStorage.getItem('pdr-theme');
+    if (['a', 'b', 'c'].indexOf(savedTheme) > -1) {
+      document.documentElement.setAttribute('data-theme', savedTheme);
+    }
+    var savedTitleFont = localStorage.getItem('pdr-title-font');
+    var titleFont = savedTitleFont === null ? 'golos-text' : savedTitleFont;
+    if (titleFont !== 'default') {
+      document.documentElement.setAttribute('data-title-font', titleFont);
+    }
+  } catch (e) {}
+})();
+</script>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=Work+Sans:wght@400;500;600&family=Sora:wght@600;700;800&family=Plus+Jakarta+Sans:wght@500;600;700&family=Patrick+Hand&display=swap" rel="stylesheet">
+
+<!-- Title-font brainstorm candidates — temporary, for the .title-font-picker toggle only.
+     Remove this link once a title font is chosen and folded into tokens.css. -->
+<link href="https://fonts.googleapis.com/css2?family=Gabarito:wght@800&family=Chivo:wght@800&family=Golos+Text:wght@800&display=swap" rel="stylesheet">
+
+<link rel="stylesheet" href="css/tokens.css">
+<link rel="stylesheet" href="css/main.css">
+</head>
+<body>
+
+<header class="topnav">
+  <a class="logo" href="index.html">Plan·Do·Reflect</a>
+  <nav class="topnav-items">
+    <a class="item" href="self-management.html">The Framework</a>
+    <a class="item" href="processes.html">Processes</a>
+    <a class="item" href="core-skills.html">Core Skills</a>
+  </nav>
+</header>
+
+<div class="layout">
+  <aside class="sidebar">
+    <div class="sec-title">Processes</div>
+    <a class="sub-item" href="processes.html">Overview</a>
+
+    <div class="sidebar-group">
+      <div class="group-label">Initiative Lifecycle</div>
+      <a class="sub-item" href="#">Team Operating Rhythm &amp; Cadence</a>
+      <div class="sub-item-group">
+        <a class="sub-item active" href="project-program-management.html">Project &amp; Program Management</a>
+        <div class="sub-sub-list">
+          <a class="sub-sub-item" href="#project-charter">Project Charter</a>
+          <a class="sub-sub-item" href="#strategy-vs-plan">Strategy vs. Plan</a>
+          <a class="sub-sub-item" href="#scope-to-execution">Scope to Execution</a>
+          <a class="sub-sub-item" href="#raci-daci">RACI / DACI</a>
+          <a class="sub-sub-item" href="#capacity-gotchas">Capacity Gotchas</a>
+          <a class="sub-sub-item" href="#critical-path">Critical Path Method</a>
+          <a class="sub-sub-item" href="#risk-management">Risk Management</a>
+          <a class="sub-sub-item" href="#status-report">Status Report</a>
+          <a class="sub-sub-item" href="#project-handoffs">Project Handoffs</a>
+        </div>
+      </div>
+      <a class="sub-item" href="#">Agile / Delivery Process</a>
+      <a class="sub-item" href="#">Technical / Engineering Process</a>
+      <a class="sub-item" href="#">Quality &amp; Problem-Solving</a>
+    </div>
+
+    <div class="sidebar-group">
+      <div class="group-label">Standing Functions</div>
+      <a class="sub-item" href="#">Operational Process</a>
+    </div>
+  </aside>
+
+  <main class="content">
+    <div class="page-hero">
+      <h1>Project &amp; Program Management</h1>
+      <p class="lede">Planning a specific initiative before you run it — from a fuzzy idea to a chartered, resourced, trackable piece of work.</p>
+      <div class="tag-row" style="margin-top: 14px; margin-bottom: 0;">
+        <span class="tag primary">Processes</span>
+        <span class="tag secondary">9 frameworks</span>
+        <a class="try-it-quicklink" href="#try-it">
+          <svg width="14" height="14" viewBox="0 0 24 24" aria-hidden="true">
+            <path d="M12 2 L14.2 9 L21 11 L14.2 13 L12 20 L9.8 13 L3 11 L9.8 9 Z" fill="currentColor"/>
+          </svg>
+          Try It
+        </a>
+      </div>
+    </div>
+
+    <p class="accordion-hint">
+      <svg width="14" height="14" viewBox="0 0 20 20" aria-hidden="true">
+        <path d="M5 7.5 L10 12.5 L15 7.5" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+      </svg>
+      Click a section below to expand or collapse it.
+    </p>
+
+    <div class="framework-list">
+      <div class="framework-item is-accordion is-open" id="project-charter">
+        <button class="fw-toggle" type="button" aria-expanded="true" aria-controls="project-charter-body">
+          <div class="fw-num">1</div>
+          <div class="fw-toggle-text">
+            <h3>Project Charter</h3>
+            <p class="fw-teaser">Align the team before the work begins — the nine fields to fill in before kickoff.</p>
+          </div>
+          <svg class="fw-chevron" width="18" height="18" viewBox="0 0 20 20" aria-hidden="true">
+            <path d="M5 7.5 L10 12.5 L15 7.5" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+        </button>
+        <div class="fw-body" id="project-charter-body">
+          <p>A good charter prevents a fuzzy project. Fill in these nine fields before work begins, and revisit it throughout the project for scope checks and trade-off decisions — not just once at kickoff:</p>
+          <ul class="explainer-list is-bulleted" style="margin-top: 10px;">
+            <li><strong>Problem Statement</strong> — what's actually wrong, in one sentence.</li>
+            <li><strong>Goal</strong> — specific, measurable, achievable, relevant, time-bound.</li>
+            <li><strong>Business Case</strong> — why this is worth doing.</li>
+            <li><strong>Scope</strong> — what's in, and just as important, what's out.</li>
+            <li><strong>Tenets</strong> — short, memorable principles for how the team should decide when the charter doesn't spell it out. "Unless you know better ones" keeps them a guide, not a law.</li>
+            <li><strong>Team</strong> — sponsor, team lead, process owner, stakeholders.</li>
+            <li><strong>Timeline</strong> — the major milestones, not a full schedule.</li>
+            <li><strong>Metrics</strong> — how you'll know it worked.</li>
+            <li><strong>Risks</strong> — what could derail it.</li>
+          </ul>
+          <p style="margin-top: 10px;">Vague problem statements and weak sponsor alignment are the two most common ways a charter fails — a charter without a clearly accountable sponsor tends to stall the moment the project hits its first blocker.</p>
+          <div class="doodle-note">
+            <div class="doodle-row">
+              <svg width="30" height="30" viewBox="0 0 26 26" aria-hidden="true">
+                <circle cx="13" cy="13" r="11" fill="none" stroke="var(--accent)" stroke-width="2.5"/>
+                <circle cx="13" cy="13" r="6.5" fill="none" stroke="var(--accent)" stroke-width="2.5"/>
+                <circle cx="13" cy="13" r="2.5" fill="var(--accent-strong)"/>
+              </svg>
+              <p><strong>Sample Goal:</strong> Reduce invoice approval cycle time from 10 days to 4 days within 90 days.</p>
+            </div>
+            <div class="doodle-row">
+              <svg width="30" height="30" viewBox="0 0 26 26" aria-hidden="true">
+                <rect x="1" y="1" width="6" height="6" rx="1.3" fill="var(--accent)"/>
+                <path d="M2.2 4 L3.4 5.2 L5.6 2.3" stroke="var(--accent-strong)" stroke-width="1.2" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+                <line x1="11" y1="4" x2="25" y2="4" stroke="var(--border)" stroke-width="2" stroke-linecap="round"/>
+                <rect x="1" y="10" width="6" height="6" rx="1.3" fill="var(--accent)"/>
+                <path d="M2.2 13 L3.4 14.2 L5.6 11.3" stroke="var(--accent-strong)" stroke-width="1.2" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+                <line x1="11" y1="13" x2="25" y2="13" stroke="var(--border)" stroke-width="2" stroke-linecap="round"/>
+                <rect x="1" y="19" width="6" height="6" rx="1.3" fill="none" stroke="var(--border)" stroke-width="1.4"/>
+                <line x1="11" y1="22" x2="25" y2="22" stroke="var(--border)" stroke-width="2" stroke-linecap="round"/>
+              </svg>
+              <p><strong>Sample Tenets</strong> (unless you know better ones):<br>1. "Default to self-service over a manual approval step."<br>2. "When speed and polish conflict before launch, speed wins."</p>
+            </div>
+          </div>
+          <button class="try-it-inline-toggle" type="button" aria-expanded="false" aria-controls="charter-try-it-collapse">
+            <svg width="16" height="16" viewBox="0 0 24 24" aria-hidden="true">
+              <path d="M12 2 L14.2 9 L21 11 L14.2 13 L12 20 L9.8 13 L3 11 L9.8 9 Z" fill="var(--accent)"/>
+            </svg>
+            Try It
+            <svg class="fw-chevron" width="14" height="14" viewBox="0 0 20 20" aria-hidden="true">
+              <path d="M5 7.5 L10 12.5 L15 7.5" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+          </button>
+          <div class="try-it-collapse" id="charter-try-it-collapse">
+            <div class="try-it-box" id="charter-try-it">
+              <p>Paste this into ChatGPT, Claude, or whatever AI tool you use:</p>
+              <div class="try-it-prompt" id="charter-try-it-prompt">I'm kicking off a new project. Ask me about the problem I'm trying to solve, then walk me through drafting a Project Charter one field at a time — Problem Statement, Goal, Business Case, Scope, Tenets, Team, Timeline, Metrics, and Risks. Push back if any of my answers are too vague.</div>
+              <button class="try-it-copy" type="button" data-copy-target="charter-try-it-prompt">Copy prompt</button>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="framework-item is-accordion" id="strategy-vs-plan">
+        <button class="fw-toggle" type="button" aria-expanded="false" aria-controls="strategy-vs-plan-body">
+          <div class="fw-num">2</div>
+          <div class="fw-toggle-text">
+            <h3>Project Strategy vs. Project Plan</h3>
+            <p class="fw-teaser">The critical difference most project leaders miss.</p>
+          </div>
+          <svg class="fw-chevron" width="18" height="18" viewBox="0 0 20 20" aria-hidden="true">
+            <path d="M5 7.5 L10 12.5 L15 7.5" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+        </button>
+        <div class="fw-body" id="strategy-vs-plan-body">
+          <p>A project plan is not project management strategy — the critical difference most project leaders miss. Strategy is the <strong>why</strong>: the operating logic for how the project creates value. Plan is the <strong>how</strong>: the execution roadmap that converts strategy into activities, owners, and milestones.</p>
+          <div class="compare-table-wrap">
+            <table class="compare-table">
+              <thead>
+                <tr><th></th><th>Strategy</th><th>Plan</th></tr>
+              </thead>
+              <tbody>
+                <tr><th scope="row">What it is</th><td>How the project creates value, aligns stakeholders, and adapts under uncertainty</td><td>The roadmap that converts strategy into activities, owners, milestones, and controls</td></tr>
+                <tr><th scope="row">Time horizon</th><td>Project lifecycle through benefits realization; reset at major stage gates</td><td>Short-term execution cycles — updated continuously by stage, sprint, or milestone</td></tr>
+                <tr><th scope="row">Flexibility</th><td>Stable direction with tailored delivery options</td><td>Changes frequently as execution conditions shift</td></tr>
+                <tr><th scope="row">When to use</th><td>Define outcomes, select a delivery approach, align sponsors and governance</td><td>Run phases and sprints, coordinate assignments, track scope/budget/risk</td></tr>
+                <tr><th scope="row">Common mistake</th><td>Treating the schedule as the strategy</td><td>Over-detailing tasks too early, tracking activity instead of outcomes</td></tr>
+              </tbody>
+            </table>
+          </div>
+          <blockquote class="pull-quote" style="margin: 20px 0 10px;">
+            <p>"People don't buy what you do, they buy why you do it."</p>
+            <cite>— Simon Sinek, <em>Start with Why</em></cite>
+          </blockquote>
+          <p><em>Start with Why</em> is where the Strategy-is-the-why framing comes from — the same idea applies inside a project team, not just to customers. People don't follow the plan, they follow the reason behind it: a team that understands why a project matters can improvise its way through a plan that's wrong; a team that only has the plan is stuck the moment reality doesn't match it.</p>
+          <p style="margin-top: 10px;">If "strategy" still feels slippery after that, Richard Rumelt's <em>Good Strategy Bad Strategy</em> is the sharpest explanation of why: most things called strategy are really just goals or vision statements in disguise. Real strategy, in his framing, is a diagnosis of the actual problem, a guiding policy for dealing with it, and a set of coherent actions that carry it out — worth reading before writing this section's Strategy column for real.</p>
+          <button class="try-it-inline-toggle" type="button" aria-expanded="false" aria-controls="strategy-try-it-collapse">
+            <svg width="16" height="16" viewBox="0 0 24 24" aria-hidden="true">
+              <path d="M12 2 L14.2 9 L21 11 L14.2 13 L12 20 L9.8 13 L3 11 L9.8 9 Z" fill="var(--accent)"/>
+            </svg>
+            Try It
+            <svg class="fw-chevron" width="14" height="14" viewBox="0 0 20 20" aria-hidden="true">
+              <path d="M5 7.5 L10 12.5 L15 7.5" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+          </button>
+          <div class="try-it-collapse" id="strategy-try-it-collapse">
+            <div class="try-it-box" id="strategy-try-it">
+              <p>Paste this into ChatGPT, Claude, or whatever AI tool you use:</p>
+              <div class="try-it-prompt" id="strategy-try-it-prompt">I need to define the Strategy for a project, not just write a plan for it. Ask me what problem I'm actually trying to solve — the real diagnosis, not a goal in disguise — then push me to name the why behind it before we touch any how. Once that's solid, help me write a guiding policy: the overall approach I'm choosing and why it beats the alternatives. Only then, sketch the first few coherent actions that follow from it, and call out anything that's really just a task list or a vision statement wearing a strategy costume.</div>
+              <button class="try-it-copy" type="button" data-copy-target="strategy-try-it-prompt">Copy prompt</button>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="framework-item is-accordion" id="scope-to-execution">
+        <button class="fw-toggle" type="button" aria-expanded="false" aria-controls="scope-to-execution-body">
+          <div class="fw-num">3</div>
+          <div class="fw-toggle-text">
+            <h3>Scope to Execution Framework</h3>
+            <p class="fw-teaser">Plan the logic before you commit to the dates.</p>
+          </div>
+          <svg class="fw-chevron" width="18" height="18" viewBox="0 0 20 20" aria-hidden="true">
+            <path d="M5 7.5 L10 12.5 L15 7.5" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+        </button>
+        <div class="fw-body" id="scope-to-execution-body">
+          <p>Plan the logic before you commit to the dates. A complete decomposition stack — break outcomes into owned, testable work without losing the business intent:</p>
+          <ul class="explainer-list is-bulleted" style="margin-top: 10px;">
+            <li><strong>The 100% Rule</strong> — the decomposed work must add up to exactly the full scope, no more, no less.</li>
+            <li><strong>Business Outcome</strong> — the result that justifies doing the work at all.</li>
+            <li><strong>Deliverables &amp; Definition of Done</strong> — what gets produced, and the sizing rule for when it's actually finished. For a first release, scope to an <strong>MLP (Minimum Lovable Product)</strong> rather than a bare MVP — the smallest version people actually want to use, not just the smallest version that technically works.</li>
+            <li><strong>Work Packages</strong> — the deliverable broken into ownable chunks.</li>
+            <li><strong>Owner Test</strong> — if a work package doesn't have one clear owner, it's not decomposed enough yet.</li>
+            <li><strong>Tasks</strong> — the individual, assignable units of work.</li>
+            <li><strong>Dependencies &amp; Handover</strong> — what blocks what, and who's waiting on whom.</li>
+          </ul>
+          <p style="margin-top: 10px;"><strong>Common failure modes:</strong> scope creep, splitting stories past the point they're still useful, and dependent owners left unclear until it's too late to matter.</p>
+          <div class="doodle-note">
+            <div class="doodle-row" style="align-items: center;">
+              <svg width="30" height="30" viewBox="0 0 40 40" aria-hidden="true">
+                <path d="M20 33 C9 24, 4 17, 4 11 C4 6, 8 3, 12 3 C16 3, 19 6, 20 10 C21 6, 24 3, 28 3 C32 3, 36 6, 36 11 C36 17, 31 24, 20 33 Z" fill="none" stroke="var(--accent-strong)" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+              </svg>
+              <div class="annotation">MVP vs. MLP</div>
+            </div>
+            <p>An MVP asks "does it work?" An MLP asks "does it work, and would someone actually choose to use it?" Same discipline of cutting scope down to the smallest testable release — just with the delivery bar set a notch higher than bare functionality.</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="framework-item is-accordion" id="raci-daci">
+        <button class="fw-toggle" type="button" aria-expanded="false" aria-controls="raci-daci-body">
+          <div class="fw-num">4</div>
+          <div class="fw-toggle-text">
+            <h3>RACI &amp; DACI</h3>
+            <p class="fw-teaser">Who's responsible for what, and who makes the call.</p>
+          </div>
+          <svg class="fw-chevron" width="18" height="18" viewBox="0 0 20 20" aria-hidden="true">
+            <path d="M5 7.5 L10 12.5 L15 7.5" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+        </button>
+        <div class="fw-body" id="raci-daci-body">
+          <p>Two role-clarity frameworks that answer different questions — RACI answers "who is responsible for what," DACI answers "who makes the call." Build the matrix at project kickoff, not after confusion has already set in.</p>
+          <div class="compare-table-wrap">
+            <table class="compare-table">
+              <thead>
+                <tr><th></th><th>RACI</th><th>DACI</th></tr>
+              </thead>
+              <tbody>
+                <tr><th scope="row">What it is</th><td>Responsibility Assignment Matrix — clearly assigns roles across tasks</td><td>Decision-making framework — structures who decides and how</td></tr>
+                <tr><th scope="row">Roles</th><td><strong>R</strong>esponsible (does the work)<br><strong>A</strong>ccountable (owns the outcome)<br><strong>C</strong>onsulted (gives input)<br><strong>I</strong>nformed (kept in the loop)</td><td><strong>D</strong>river (moves it forward)<br><strong>A</strong>pprover (makes the call)<br><strong>C</strong>ontributor (gives expertise)<br><strong>I</strong>nformed (notified after)</td></tr>
+                <tr><th scope="row">When to use</th><td>Project management, team onboarding, recurring processes, cross-functional tasks</td><td>Strategic decisions, product roadmaps, budget approvals, resolving conflicts</td></tr>
+                <tr><th scope="row">Best practice</th><td>Only one Accountable per task — never two. Multiple Responsible is fine.</td><td>Only one Approver — shared approval stalls decisions. Limit Contributors to 3–5.</td></tr>
+              </tbody>
+            </table>
+          </div>
+          <div class="example-box">
+            <div class="example-label">Example — Launching a New Product</div>
+            <p><strong>R:</strong> Product Manager writes specs and coordinates development.<br><strong>A:</strong> Head of Product is accountable for launch success.<br><strong>C:</strong> Design, Engineering, and Legal review and give feedback.<br><strong>I:</strong> Sales and Support are notified when it goes live.</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="framework-item is-accordion" id="capacity-gotchas">
+        <button class="fw-toggle" type="button" aria-expanded="false" aria-controls="capacity-gotchas-body">
+          <div class="fw-num">5</div>
+          <div class="fw-toggle-text">
+            <h3>Capacity &amp; Resource Planning Gotchas</h3>
+            <p class="fw-teaser">The planning mistakes that quietly blow up a schedule.</p>
+          </div>
+          <svg class="fw-chevron" width="18" height="18" viewBox="0 0 20 20" aria-hidden="true">
+            <path d="M5 7.5 L10 12.5 L15 7.5" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+        </button>
+        <div class="fw-body" id="capacity-gotchas-body">
+          <p>Smarter resource management starts with accurate assumptions and disciplined planning. The most common mistakes, and the fix for each:</p>
+          <ul class="explainer-list is-bulleted" style="margin-top: 10px;">
+            <li><strong>Planning at 100% capacity</strong> — leaves no room for interruptions. Fix: plan for 70–80% utilization instead.</li>
+            <li><strong>Ignoring recurring meetings</strong> — overestimates available hours. Fix: account for standing meetings and reporting commitments.</li>
+            <li><strong>Assuming all specialists are interchangeable</strong> — leads to skill gaps. Fix: plan by role and proficiency, not just headcount.</li>
+            <li><strong>Missing vacation calendars</strong> — creates preventable schedule surprises. Fix: integrate time-off and holiday calendars into planning.</li>
+            <li><strong>Not separating project work from BAU/KTLO</strong> — hides how much time is really available. Fix: track project work and business-as-usual work separately.</li>
+            <li><strong>Overlooking key specialists</strong> — single points of failure go unnoticed. Fix: identify and calendar-block your bottleneck skill sets first.</li>
+          </ul>
+          <p style="margin-top: 10px;"><strong>Principles of effective capacity management:</strong> transparency, built-in buffers, realistic estimates, and a weekly review cadence.</p>
+        </div>
+      </div>
+
+      <div class="framework-item is-accordion" id="critical-path">
+        <button class="fw-toggle" type="button" aria-expanded="false" aria-controls="critical-path-body">
+          <div class="fw-num">6</div>
+          <div class="fw-toggle-text">
+            <h3>Critical Path Method</h3>
+            <p class="fw-teaser">Five ways to compress your timeline without losing quality.</p>
+          </div>
+          <svg class="fw-chevron" width="18" height="18" viewBox="0 0 20 20" aria-hidden="true">
+            <path d="M5 7.5 L10 12.5 L15 7.5" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+        </button>
+        <div class="fw-body" id="critical-path-body">
+          <p>The critical path is the longest chain of dependent tasks in a project — the sequence that determines the earliest possible finish date. Lose control of it, and the whole project slips with it. Five ways to compress it without losing quality:</p>
+          <ul class="explainer-list is-bulleted" style="margin-top: 10px;">
+            <li><strong>Re-sequence tasks</strong> — adjust the order of dependent tasks to eliminate unnecessary waiting.</li>
+            <li><strong>Overlap work carefully</strong> — start successor tasks before predecessors fully finish, without compromising quality.</li>
+            <li><strong>Add resources selectively</strong> — assign another skilled contributor to the longest-pole tasks specifically.</li>
+            <li><strong>Reduce scope where possible</strong> — cut or simplify non-essential features that sit on the critical path.</li>
+            <li><strong>Remove approval delays</strong> — streamline review and approval steps that are blocking movement, not adding value.</li>
+          </ul>
+          <p style="margin-top: 10px; font-style: italic;">Do not compress work blindly — quality and dependency logic still matter.</p>
+        </div>
+      </div>
+
+      <div class="framework-item is-accordion" id="risk-management">
+        <button class="fw-toggle" type="button" aria-expanded="false" aria-controls="risk-management-body">
+          <div class="fw-num">7</div>
+          <div class="fw-toggle-text">
+            <h3>Risk Management</h3>
+            <p class="fw-teaser">Five lenses for the risks that could derail the plan.</p>
+          </div>
+          <svg class="fw-chevron" width="18" height="18" viewBox="0 0 20 20" aria-hidden="true">
+            <path d="M5 7.5 L10 12.5 L15 7.5" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+        </button>
+        <div class="fw-body" id="risk-management-body">
+          <p>The decision discipline that protects objectives, value, resilience, and accountability when uncertainty changes the plan. Five lenses to view project risk through:</p>
+          <ul class="explainer-list is-bulleted" style="margin-top: 10px;">
+            <li><strong>Strategic Risk</strong> — threats to growth, market position, and long-term direction. Best for board and executive decisions.</li>
+            <li><strong>Operational Resilience</strong> — disruption risk across processes, people, systems, and facilities. Best for continuity and service reliability.</li>
+            <li><strong>Cyber &amp; Data Risk</strong> — digital exposure from attacks, data loss, and technology failure. Best for security and control focus.</li>
+            <li><strong>Third-Party Dependency</strong> — risk created by vendors, platforms, and critical partners. Best for supplier and ecosystem oversight.</li>
+            <li><strong>AI &amp; Model Risk</strong> — uncertainty from automated decisions and weak governance. Best for AI adoption and assurance.</li>
+          </ul>
+          <p style="margin-top: 10px;">Run it as a cycle, not a one-time exercise: <strong>Sense signals → Assess exposure → Choose a response → Track treatment → Report assurance.</strong> The most common failure mode isn't missing a risk — it's recording it and then never managing it.</p>
+        </div>
+      </div>
+
+      <div class="framework-item is-accordion" id="status-report">
+        <button class="fw-toggle" type="button" aria-expanded="false" aria-controls="status-report-body">
+          <div class="fw-num">8</div>
+          <div class="fw-toggle-text">
+            <h3>Project Status Report Template</h3>
+            <p class="fw-teaser">A status report that actually gets read.</p>
+          </div>
+          <svg class="fw-chevron" width="18" height="18" viewBox="0 0 20 20" aria-hidden="true">
+            <path d="M5 7.5 L10 12.5 L15 7.5" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+        </button>
+        <div class="fw-body" id="status-report-body">
+          <p>Overview, track, communicate, succeed. A status report that actually gets read has the same shape every time:</p>
+          <ul class="explainer-list is-bulleted" style="margin-top: 10px;">
+            <li><strong>Project Overview</strong> — name, lead, reporting period, overall status.</li>
+            <li><strong>Health Summary</strong> — scope, schedule, and budget, each flagged on track / at risk / off track, plus an overall progress percentage.</li>
+            <li><strong>Milestone Status</strong> — planned date, actual date, and comments per milestone.</li>
+            <li><strong>Task Progress Summary</strong> — % complete, % at risk, % not started.</li>
+            <li><strong>Budget Summary</strong> — total budget, spend to date, remaining, utilization.</li>
+            <li><strong>Key Achievements</strong> — what actually got done this period.</li>
+            <li><strong>Key Risks &amp; Issues</strong> — what's threatening the plan right now.</li>
+            <li><strong>Next Steps</strong> — action, owner, due date.</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="framework-item is-accordion" id="project-handoffs">
+        <button class="fw-toggle" type="button" aria-expanded="false" aria-controls="project-handoffs-body">
+          <div class="fw-num">9</div>
+          <div class="fw-toggle-text">
+            <h3>End-to-End Project Handoffs</h3>
+            <p class="fw-teaser">Where work quietly falls through the cracks.</p>
+          </div>
+          <svg class="fw-chevron" width="18" height="18" viewBox="0 0 20 20" aria-hidden="true">
+            <path d="M5 7.5 L10 12.5 L15 7.5" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+        </button>
+        <div class="fw-body" id="project-handoffs-body">
+          <p>Breaking down silos, delivering value. Most projects pass through four handoffs — Strategy → Product → Engineering → Customer Success — and each one is a place work quietly falls through the cracks. What every handoff must include:</p>
+          <ul class="explainer-list is-bulleted" style="margin-top: 10px;">
+            <li><strong>Context</strong> — why this work exists, in plain language.</li>
+            <li><strong>Requirements</strong> — what "done" actually means to the receiving team.</li>
+            <li><strong>Status</strong> — exactly where things stand right now, no rounding up.</li>
+            <li><strong>Owner</strong> — a named person, not a team name.</li>
+            <li><strong>Next Steps</strong> — the very next action, and who's taking it.</li>
+          </ul>
+          <p style="margin-top: 10px; font-style: italic;">One team. One flow. One outcome.</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="try-it-box" id="try-it">
+      <div class="try-it-header">
+        <svg width="24" height="24" viewBox="0 0 24 24" aria-hidden="true">
+          <path d="M12 2 L14.2 9 L21 11 L14.2 13 L12 20 L9.8 13 L3 11 L9.8 9 Z" fill="var(--accent)"/>
+        </svg>
+        <h2>Try It</h2>
+      </div>
+      <p>Paste this into ChatGPT, Claude, or whatever AI tool you use:</p>
+      <div class="try-it-prompt" id="try-it-prompt">I'm kicking off a new project. Ask me about the problem I'm trying to solve, then help me draft a Project Charter — problem statement, goal, scope, team, timeline, metrics, and risks. Once that's done, help me build a simple RACI so everyone knows who owns what.</div>
+      <button class="try-it-copy" type="button" data-copy-target="try-it-prompt">Copy prompt</button>
+    </div>
+  </main>
+</div>
+
+<footer class="site-footer">
+  <p>&copy; 2026 Plan-Do-Reflect. <a href="references.html">References &amp; further reading</a></p>
+</footer>
+
+<div class="theme-switch" role="group" aria-label="Style direction">
+  <button data-theme="a" title="Kinetic Signal — black &amp; yellow"></button>
+  <button data-theme="b" title="Studio Ledger — dusty rose"></button>
+  <button data-theme="c" title="Bright Margin — lime"></button>
+  <a class="icon-lib-link" href="icon-library.html" title="Icon Library (internal reference)">
+    <svg width="14" height="14" viewBox="0 0 14 14" aria-hidden="true">
+      <rect x="1" y="1" width="5" height="5" rx="1" fill="currentColor"/>
+      <rect x="8" y="1" width="5" height="5" rx="1" fill="currentColor"/>
+      <rect x="1" y="8" width="5" height="5" rx="1" fill="currentColor"/>
+      <rect x="8" y="8" width="5" height="5" rx="1" fill="currentColor"/>
+    </svg>
+  </a>
+</div>
+
+<!-- Temporary brainstorm control — only restyles .content h1. Remove alongside
+     the "title-font experiment" CSS block and the extra Google Fonts link once
+     a title font is picked. -->
+<div class="title-font-picker">
+  <label for="title-font-select">Title font</label>
+  <button type="button" id="title-font-prev" class="title-font-nav" aria-label="Previous title font">‹</button>
+  <select id="title-font-select">
+    <optgroup label="Round 1 — headline character">
+      <option value="gabarito">Gabarito</option>
+      <option value="chivo">Chivo</option>
+    </optgroup>
+    <optgroup label="Round 2 — Calibri-adjacent">
+      <option value="golos-text">Golos Text</option>
+    </optgroup>
+    <option value="default">Theme default</option>
+  </select>
+  <button type="button" id="title-font-next" class="title-font-nav" aria-label="Next title font">›</button>
+</div>
+
+<script src="js/theme-toggle.js" defer></script>
+<script src="js/title-font-toggle.js" defer></script>
+<script src="js/try-it.js" defer></script>
+<script src="js/framework-accordion.js" defer></script>
+</body>
+</html>

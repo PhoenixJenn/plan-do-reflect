@@ -1,0 +1,269 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="a">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Icon Library (internal reference) · Plan · Do · Reflect</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=Work+Sans:wght@400;500;600&family=Sora:wght@600;700;800&family=Plus+Jakarta+Sans:wght@500;600;700&family=Patrick+Hand&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/tokens.css">
+<link rel="stylesheet" href="css/main.css">
+<style>
+  /* Internal reference page only — not part of the site's IA, not linked from nav. */
+  body { padding: 32px 40px; max-width: 1100px; margin: 0 auto; background: var(--bg-page); }
+  .lib-h1 { font-family: var(--font-heading); font-size: 1.8rem; font-weight: 800; color: var(--text-heading); margin-bottom: 8px; }
+  .lib-intro { color: var(--text-body); max-width: 680px; margin-bottom: 28px; line-height: 1.6; }
+  .lib-group-title { font-family: var(--font-heading); font-size: 1.05rem; font-weight: 700; color: var(--text-heading); margin: 32px 0 4px; }
+  .lib-group-note { font-size: 0.82rem; color: var(--text-caption); margin-bottom: 14px; }
+  .lib-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(150px, 1fr)); gap: 14px; }
+  .lib-card { background: var(--bg-content); border: 1px solid var(--border); border-radius: 12px; padding: 16px; display: flex; flex-direction: column; align-items: center; text-align: center; gap: 8px; }
+  .lib-icon-box { width: 64px; height: 64px; display: flex; align-items: center; justify-content: center; }
+  .lib-label { font-size: 0.78rem; font-weight: 600; color: var(--text-heading); }
+  .lib-source { font-size: 0.68rem; color: var(--text-caption); }
+  .lib-verdict { font-size: 0.68rem; font-weight: 700; padding: 2px 8px; border-radius: 20px; margin-top: 2px; }
+  .lib-verdict.playful { background: var(--accent); color: var(--accent-strong); }
+  .lib-verdict.flat { background: var(--bg-sidebar); color: var(--text-caption); border: 1px solid var(--border); }
+  .theme-switch { position: static; margin-top: 40px; }
+</style>
+</head>
+<body>
+
+  <h1 class="lib-h1">Icon Library — internal reference</h1>
+  <p class="lib-intro">Every custom inline-SVG icon currently in use across the site, pulled verbatim from source, at a consistent size so they're actually comparable. Not part of the site's nav or IA — a working doc for the "are these all equally playful?" question. Switch the theme swatch at the bottom to check consistency across style directions too.</p>
+
+  <div class="lib-group-title">Goal / target icons</div>
+  <div class="lib-group-note">Three separate places draw the same "concentric circles" bullseye. Consistent with each other, but flat/geometric — the least hand-drawn shape in the set.</div>
+  <div class="lib-grid">
+    <div class="lib-card">
+      <div class="lib-icon-box">
+        <svg width="40" height="40" viewBox="0 0 22 22" aria-hidden="true">
+          <circle cx="11" cy="11" r="9" fill="none" stroke="var(--accent-strong)" stroke-width="2"/>
+          <circle cx="11" cy="11" r="5" fill="none" stroke="var(--accent-strong)" stroke-width="2"/>
+          <circle cx="11" cy="11" r="1.8" fill="var(--accent-strong)"/>
+        </svg>
+      </div>
+      <div class="lib-label">SMART "S" (Specific)</div>
+      <div class="lib-source">set-goals.html</div>
+      <span class="lib-verdict flat">flat / geometric</span>
+    </div>
+    <div class="lib-card">
+      <div class="lib-icon-box">
+        <svg width="40" height="40" viewBox="0 0 26 26" aria-hidden="true">
+          <circle cx="13" cy="13" r="11" fill="none" stroke="var(--accent)" stroke-width="2.5"/>
+          <circle cx="13" cy="13" r="6.5" fill="none" stroke="var(--accent)" stroke-width="2.5"/>
+          <circle cx="13" cy="13" r="2.5" fill="var(--accent-strong)"/>
+        </svg>
+      </div>
+      <div class="lib-label">Set Goals card + Doodle Note "Sample Goal"</div>
+      <div class="lib-source">goal-setting-priorities.html, project-program-management.html</div>
+      <span class="lib-verdict flat">flat / geometric</span>
+    </div>
+  </div>
+
+  <div class="lib-group-title">Checklist / list icon</div>
+  <div class="lib-group-note">Same flat-geometric family as the bullseyes — thin rounded rects, no illustrative character.</div>
+  <div class="lib-grid">
+    <div class="lib-card">
+      <div class="lib-icon-box">
+        <svg width="40" height="40" viewBox="0 0 26 26" aria-hidden="true">
+          <rect x="1" y="1" width="6" height="6" rx="1.3" fill="var(--accent)"/>
+          <path d="M2.2 4 L3.4 5.2 L5.6 2.3" stroke="var(--accent-strong)" stroke-width="1.2" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+          <line x1="11" y1="4" x2="25" y2="4" stroke="var(--border)" stroke-width="2" stroke-linecap="round"/>
+          <rect x="1" y="10" width="6" height="6" rx="1.3" fill="var(--accent)"/>
+          <path d="M2.2 13 L3.4 14.2 L5.6 11.3" stroke="var(--accent-strong)" stroke-width="1.2" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+          <line x1="11" y1="13" x2="25" y2="13" stroke="var(--border)" stroke-width="2" stroke-linecap="round"/>
+          <rect x="1" y="19" width="6" height="6" rx="1.3" fill="none" stroke="var(--border)" stroke-width="1.4"/>
+          <line x1="11" y1="22" x2="25" y2="22" stroke="var(--border)" stroke-width="2" stroke-linecap="round"/>
+        </svg>
+      </div>
+      <div class="lib-label">Prioritize Work card + Doodle Note "Sample Tenets"</div>
+      <div class="lib-source">goal-setting-priorities.html, project-program-management.html</div>
+      <span class="lib-verdict flat">flat / geometric</span>
+    </div>
+  </div>
+
+  <div class="lib-group-title">SMART Goals letter strip (M, A, R, T)</div>
+  <div class="lib-group-note">These read as generic dashboard/UI icons (bar chart, checkmark badge) rather than illustrated concepts — the weakest match to the "playful" bar the rest of the set sets.</div>
+  <div class="lib-grid">
+    <div class="lib-card">
+      <div class="lib-icon-box">
+        <svg width="40" height="40" viewBox="0 0 22 22" aria-hidden="true">
+          <rect x="2" y="14" width="4" height="6" fill="var(--accent-strong)"/>
+          <rect x="9" y="9" width="4" height="11" fill="var(--accent-strong)"/>
+          <rect x="16" y="4" width="4" height="16" fill="var(--accent-strong)"/>
+        </svg>
+      </div>
+      <div class="lib-label">M (Measurable)</div>
+      <div class="lib-source">set-goals.html</div>
+      <span class="lib-verdict flat">generic UI icon</span>
+    </div>
+    <div class="lib-card">
+      <div class="lib-icon-box">
+        <svg width="40" height="40" viewBox="0 0 22 22" aria-hidden="true">
+          <path d="M2 20 H8 V15 H13 V10 H18 V5" fill="none" stroke="var(--accent-strong)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+          <circle cx="18" cy="3" r="2" fill="var(--accent-strong)"/>
+        </svg>
+      </div>
+      <div class="lib-label">A (Achievable)</div>
+      <div class="lib-source">set-goals.html</div>
+      <span class="lib-verdict playful">has some character</span>
+    </div>
+    <div class="lib-card">
+      <div class="lib-icon-box">
+        <svg width="40" height="40" viewBox="0 0 22 22" aria-hidden="true">
+          <rect x="4" y="3" width="14" height="17" rx="1.5" fill="none" stroke="var(--accent-strong)" stroke-width="1.8"/>
+          <rect x="8" y="1" width="6" height="3" rx="1" fill="var(--accent-strong)"/>
+          <path d="M7 12 L10 15 L15 8" stroke="var(--accent-strong)" stroke-width="1.8" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
+      </div>
+      <div class="lib-label">R (Relevant)</div>
+      <div class="lib-source">set-goals.html</div>
+      <span class="lib-verdict flat">generic UI icon</span>
+    </div>
+    <div class="lib-card">
+      <div class="lib-icon-box">
+        <svg width="40" height="40" viewBox="0 0 22 22" aria-hidden="true">
+          <circle cx="11" cy="12" r="8" fill="none" stroke="var(--accent-strong)" stroke-width="2"/>
+          <path d="M11 7 V12 L14.5 14" stroke="var(--accent-strong)" stroke-width="1.8" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+          <path d="M15 2 L18 2 L18 5" stroke="var(--accent-strong)" stroke-width="1.6" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
+      </div>
+      <div class="lib-label">T (Time-bound)</div>
+      <div class="lib-source">set-goals.html</div>
+      <span class="lib-verdict flat">generic UI icon</span>
+    </div>
+  </div>
+
+  <div class="lib-group-title">Time &amp; boundaries icons</div>
+  <div class="lib-group-note">Hand-friendly line weight, rounded caps, no fill blocks — this trio plus the 2-Minute clock are the most consistent "playful sketch" family on the site.</div>
+  <div class="lib-grid">
+    <div class="lib-card">
+      <div class="lib-icon-box">
+        <svg width="40" height="40" viewBox="0 0 28 28" aria-hidden="true">
+          <circle cx="14" cy="14" r="12" fill="none" stroke="var(--accent)" stroke-width="2.5"/>
+          <path d="M14 7 V14 L19 17" stroke="var(--accent-strong)" stroke-width="2.2" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
+      </div>
+      <div class="lib-label">After Hours (clock)</div>
+      <div class="lib-source">time-management.html</div>
+      <span class="lib-verdict playful">playful / sketch</span>
+    </div>
+    <div class="lib-card">
+      <div class="lib-icon-box">
+        <svg width="40" height="40" viewBox="0 0 28 28" aria-hidden="true">
+          <path d="M14 3 V17 M9 12 L14 17 L19 12" stroke="var(--accent)" stroke-width="2.2" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+          <path d="M4 17 L4 23 Q4 25 6 25 L22 25 Q24 25 24 23 L24 17" stroke="var(--border)" stroke-width="2" fill="none" stroke-linecap="round"/>
+        </svg>
+      </div>
+      <div class="lib-label">New Requests (inbox)</div>
+      <div class="lib-source">time-management.html</div>
+      <span class="lib-verdict playful">playful / sketch</span>
+    </div>
+    <div class="lib-card">
+      <div class="lib-icon-box">
+        <svg width="40" height="40" viewBox="0 0 28 28" aria-hidden="true">
+          <path d="M4 20 A10 10 0 0 1 24 20" fill="none" stroke="var(--border)" stroke-width="2.5" stroke-linecap="round"/>
+          <path d="M4 20 A10 10 0 0 1 20 6" fill="none" stroke="var(--accent)" stroke-width="2.5" stroke-linecap="round"/>
+          <line x1="14" y1="20" x2="19" y2="9" stroke="var(--accent-strong)" stroke-width="2.2" stroke-linecap="round"/>
+          <circle cx="14" cy="20" r="2" fill="var(--accent-strong)"/>
+        </svg>
+      </div>
+      <div class="lib-label">Capacity (gauge)</div>
+      <div class="lib-source">time-management.html</div>
+      <span class="lib-verdict playful">playful / sketch</span>
+    </div>
+    <div class="lib-card">
+      <div class="lib-icon-box">
+        <svg width="40" height="40" viewBox="0 0 100 100" aria-hidden="true">
+          <path d="M59,15 A36,36 0 1 1 41,15" fill="none" stroke="var(--accent-strong)" stroke-width="5" stroke-linecap="round"/>
+          <path d="M50,8 L61,12 L52,20 Z" fill="var(--accent-strong)"/>
+          <text x="50" y="58" text-anchor="middle" font-family="var(--font-heading)" font-weight="800" font-size="30" fill="var(--accent-strong)">2</text>
+          <text x="50" y="74" text-anchor="middle" font-family="var(--font-heading)" font-weight="700" font-size="12" letter-spacing="1" fill="var(--text-caption)">MIN</text>
+        </svg>
+      </div>
+      <div class="lib-label">2-Minute Rule clock</div>
+      <div class="lib-source">time-management.html</div>
+      <span class="lib-verdict playful">playful / sketch</span>
+    </div>
+  </div>
+
+  <div class="lib-group-title">Fully illustrated icons</div>
+  <div class="lib-group-note">The two most "drawn" pieces on the site — filled organic shapes rather than line icons. This is the high end of the playfulness range; nothing else on the site has this much personality yet.</div>
+  <div class="lib-grid">
+    <div class="lib-card">
+      <div class="lib-icon-box">
+        <svg width="56" height="56" viewBox="0 0 100 100" aria-hidden="true">
+          <path d="M50 22 C40 10, 25 10, 20 20 C30 24, 40 24, 50 22 Z" fill="var(--accent-strong)"/>
+          <path d="M50 22 C60 10, 75 10, 80 20 C70 24, 60 24, 50 22 Z" fill="var(--accent-strong)"/>
+          <path d="M50 24 C44 14, 50 6, 50 6 C50 6, 56 14, 50 24 Z" fill="var(--accent-strong)"/>
+          <rect x="46" y="28" width="8" height="8" rx="2" fill="var(--accent-strong)"/>
+          <circle cx="50" cy="62" r="34" fill="var(--accent)"/>
+          <line x1="50" y1="62" x2="50" y2="46" stroke="var(--accent-strong)" stroke-width="3" stroke-linecap="round"/>
+          <line x1="50" y1="62" x2="62" y2="62" stroke="var(--accent-strong)" stroke-width="3" stroke-linecap="round"/>
+          <circle cx="50" cy="62" r="3" fill="var(--accent-strong)"/>
+        </svg>
+      </div>
+      <div class="lib-label">Pomodoro tomato</div>
+      <div class="lib-source">time-management.html</div>
+      <span class="lib-verdict playful">most illustrated</span>
+    </div>
+    <div class="lib-card">
+      <div class="lib-icon-box">
+        <svg width="40" height="40" viewBox="0 0 40 40" aria-hidden="true">
+          <path d="M20 33 C9 24, 4 17, 4 11 C4 6, 8 3, 12 3 C16 3, 19 6, 20 10 C21 6, 24 3, 28 3 C32 3, 36 6, 36 11 C36 17, 31 24, 20 33 Z" fill="none" stroke="var(--accent-strong)" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
+      </div>
+      <div class="lib-label">Doodle Note heart (MLP)</div>
+      <div class="lib-source">project-program-management.html</div>
+      <span class="lib-verdict playful">hand-drawn</span>
+    </div>
+  </div>
+
+  <div class="lib-group-title">Reflection / callout icon</div>
+  <div class="lib-group-note">Small, clean, rounded — reads more "functional" than "playful," but it's used at small size inside dense callout boxes, so the plainness is probably fine there.</div>
+  <div class="lib-grid">
+    <div class="lib-card">
+      <div class="lib-icon-box">
+        <svg width="34" height="34" viewBox="0 0 20 20" aria-hidden="true">
+          <path d="M15 6 L15 10 Q15 13 12 13 L6 13" stroke="var(--stage-plan)" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+          <path d="M9 10 L6 13 L9 16" stroke="var(--stage-plan)" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
+      </div>
+      <div class="lib-label">"Carry forward" arrow</div>
+      <div class="lib-source">reflection-practice.html (×4)</div>
+      <span class="lib-verdict flat">functional, low character</span>
+    </div>
+  </div>
+
+  <div class="lib-group-title">UI chrome (not content icons — for reference only)</div>
+  <div class="lib-group-note">These aren't "concept" icons, they're interface elements. Included for completeness, not part of the playfulness question.</div>
+  <div class="lib-grid">
+    <div class="lib-card">
+      <div class="lib-icon-box">
+        <svg width="28" height="28" viewBox="0 0 24 24" aria-hidden="true">
+          <path d="M12 2 L14.2 9 L21 11 L14.2 13 L12 20 L9.8 13 L3 11 L9.8 9 Z" fill="var(--accent)"/>
+        </svg>
+      </div>
+      <div class="lib-label">Try It sparkle</div>
+      <div class="lib-source">every page</div>
+    </div>
+    <div class="lib-card">
+      <div class="lib-icon-box">
+        <svg width="24" height="24" viewBox="0 0 20 20" aria-hidden="true">
+          <path d="M5 7.5 L10 12.5 L15 7.5" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
+      </div>
+      <div class="lib-label">Accordion chevron</div>
+      <div class="lib-source">project-program-management.html</div>
+    </div>
+  </div>
+
+  <div class="theme-switch" role="group" aria-label="Style direction">
+    <button data-theme="a" title="Kinetic Signal — black &amp; yellow"></button>
+    <button data-theme="b" title="Studio Ledger — dusty rose"></button>
+    <button data-theme="c" title="Bright Margin — lime"></button>
+  </div>
+
+<script src="js/theme-toggle.js" defer></script>
+</body>
+</html>

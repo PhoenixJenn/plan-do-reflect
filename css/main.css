@@ -176,6 +176,19 @@ body {
   box-shadow: 0 0 0 2px #ffffff, 0 0 0 4px #111214;
 }
 
+.icon-lib-link {
+  width: 28px;
+  height: 28px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: #ffffff;
+  border: 2px solid #111214;
+  color: #111214;
+  text-decoration: none;
+}
+
 @media (max-width: 720px) {
   .layout { grid-template-columns: 1fr; }
   .sidebar { border-right: none; border-bottom: 1px solid var(--border); }
@@ -1008,6 +1021,42 @@ body {
   line-height: 1;
 }
 
+/* ---------- Doodle Note — named, reusable treatment: one or more small
+   hand-drawn icons paired with regular-weight text, inside a single
+   continuous gold left border like .pull-quote. Text stays in the normal
+   body font — the icon + border are what make it stand out, not a
+   handwriting font applied to full sentences (that reads as too much).
+   First used for the MLP note and Sample Goal/Tenets on Scope to
+   Execution / Project Charter (project-program-management.html); reuse
+   anywhere a quick illustrated aside fits. A single .doodle-row inside is
+   the common case; stack more than one .doodle-row for related examples
+   so they share one border instead of each getting its own. ---------- */
+.doodle-note {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+  margin-top: 12px;
+  padding: 10px 0 10px 16px;
+  border-left: 4px solid var(--accent);
+}
+
+.doodle-row {
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+}
+
+.doodle-row svg {
+  flex-shrink: 0;
+}
+
+.doodle-row p {
+  font-size: 0.88rem;
+  line-height: 1.55;
+  color: var(--text-body);
+  margin: 0;
+}
+
 
 .pull-quote cite {
   display: block;
@@ -1108,6 +1157,85 @@ body {
   font-size: 0.88rem;
   line-height: 1.55;
   color: var(--text-body);
+}
+
+/* ---------- Framework accordion — modifier for content-dense pages (e.g.
+   project-program-management.html) where a full linear scroll of every
+   framework is too much. Collapsed by default; .is-open reveals .fw-body. ---------- */
+.framework-item.is-accordion {
+  display: block;
+  padding: 0;
+}
+
+.fw-toggle {
+  display: flex;
+  align-items: flex-start;
+  gap: 16px;
+  width: 100%;
+  padding: 18px 20px;
+  background: none;
+  border: none;
+  text-align: left;
+  cursor: pointer;
+  font: inherit;
+  color: inherit;
+}
+
+.fw-toggle-text {
+  flex: 1;
+  min-width: 0;
+}
+
+.fw-toggle-text h3 {
+  margin-bottom: 0;
+}
+
+.fw-teaser {
+  font-size: 0.85rem;
+  line-height: 1.5;
+  color: var(--text-caption);
+  margin-top: 4px;
+  transition: opacity 0.15s ease;
+}
+
+.is-accordion.is-open .fw-teaser {
+  display: none;
+}
+
+.fw-chevron {
+  flex-shrink: 0;
+  margin-top: 6px;
+  color: var(--text-caption);
+  transition: transform 0.2s ease;
+}
+
+.is-accordion.is-open .fw-chevron {
+  transform: rotate(180deg);
+}
+
+.fw-body {
+  max-height: 0;
+  overflow: hidden;
+  padding: 0 20px;
+  transition: max-height 0.3s ease, padding 0.3s ease;
+}
+
+.is-accordion.is-open .fw-body {
+  max-height: 3200px;
+  padding: 0 20px 20px;
+}
+
+.accordion-hint {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 0.8rem;
+  color: var(--text-caption);
+  margin-bottom: 12px;
+}
+
+.accordion-hint svg {
+  flex-shrink: 0;
 }
 
 /* ---------- Subcategory grid (root landing pages, e.g. self-management.html) ---------- */
@@ -1578,6 +1706,45 @@ body {
   max-width: 640px;
   margin-top: 32px;
   scroll-margin-top: 80px;
+}
+
+/* ---------- Try It, nested inside a framework-item (e.g. Project Charter
+   on project-program-management.html) — collapsed independently of the
+   section's own open/closed state, so an already-expanded section doesn't
+   dump the whole prompt box into view. Wired up in framework-accordion.js
+   alongside .fw-toggle, same collapse mechanics + chevron rotation. ---------- */
+.try-it-inline-toggle {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  margin-top: 14px;
+  padding: 7px 14px;
+  border-radius: 20px;
+  border: 1px solid var(--accent);
+  background: none;
+  font-family: var(--font-body);
+  font-size: 0.82rem;
+  font-weight: 700;
+  color: var(--text-heading);
+  cursor: pointer;
+}
+
+.try-it-inline-toggle .fw-chevron {
+  margin-top: 0;
+}
+
+.try-it-collapse {
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.3s ease;
+}
+
+.try-it-collapse.is-open {
+  max-height: 600px;
+}
+
+.try-it-collapse .try-it-box {
+  margin-top: 12px;
 }
 
 .try-it-quicklink {
