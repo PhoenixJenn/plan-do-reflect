@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="a">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Notes (working drafts) · Plan · Do · Reflect</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=Work+Sans:wght@400;500;600&family=Sora:wght@600;700;800&family=Plus+Jakarta+Sans:wght@500;600;700&family=Patrick+Hand&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/tokens.css">
+<link rel="stylesheet" href="css/main.css">
+<style>
+  /* Internal reference page only — not part of the site's IA, not linked from nav.
+     A scratch pad for draft copy before it lands on a real page, not a
+     polished deliverable itself. Switch the theme swatch at the bottom to
+     preview a draft's tone across style directions before it ships. */
+  body { padding: 32px 40px; max-width: 800px; margin: 0 auto; background: var(--bg-page); }
+  .notes-h1 { font-family: var(--font-heading); font-size: 1.8rem; font-weight: 800; color: var(--text-heading); margin-bottom: 8px; }
+  .notes-intro { color: var(--text-body); max-width: 680px; margin-bottom: 32px; line-height: 1.6; }
+
+  .note-entry { background: var(--bg-content); border: 1px solid var(--border); border-radius: 14px; padding: 24px 28px; margin-bottom: 28px; }
+  .note-entry-header { display: flex; justify-content: space-between; align-items: flex-start; gap: 12px; flex-wrap: wrap; margin-bottom: 6px; }
+  .note-entry-title { font-family: var(--font-heading); font-weight: 800; font-size: 1.1rem; color: var(--text-heading); }
+  .note-entry-dest { font-size: 0.68rem; font-weight: 700; letter-spacing: 0.02em; color: var(--text-caption); background: var(--bg-sidebar); border: 1px solid var(--border); padding: 4px 10px; border-radius: 20px; white-space: nowrap; }
+  .note-entry-date { font-size: 0.72rem; color: var(--text-caption); margin-bottom: 16px; }
+  .note-entry-body h3 { font-family: var(--font-heading); font-weight: 700; font-size: 1rem; color: var(--text-heading); margin-bottom: 10px; }
+  .note-entry-body p { font-size: 0.92rem; line-height: 1.65; color: var(--text-body); margin-bottom: 12px; }
+  .note-entry-body p:last-child { margin-bottom: 0; }
+  .note-remarks { margin-top: 18px; padding: 12px 14px; background: var(--bg-sidebar); border-radius: 10px; font-size: 0.8rem; line-height: 1.55; color: var(--text-caption); }
+  .note-remarks strong { color: var(--text-body); }
+
+  .theme-switch { position: static; margin-top: 40px; }
+</style>
+</head>
+<body>
+
+  <h1 class="notes-h1">Notes — working drafts</h1>
+  <p class="notes-intro">A scratch pad for content that's been drafted but doesn't have a home on a real page yet — narrative copy, framing ideas, anything worth keeping in the site's own visual system before it's polished enough to ship. Not part of the site's nav or IA. Once a draft lands on its real page, remove the entry here.</p>
+
+  <div class="note-entry">
+    <div class="note-entry-header">
+      <div class="note-entry-title">Homepage narrative — "One Cycle, Every Altitude"</div>
+      <span class="note-entry-dest">→ index.html</span>
+    </div>
+    <div class="note-entry-date">Drafted 2026-08-18</div>
+    <div class="note-entry-body">
+      <p>How the Plan-Do-Reflect framework scales from individual use up through team and corporate use — with the framing that at scale, Reflect becomes more of an Inspect.</p>
+
+      <h3>One Cycle, Every Altitude</h3>
+      <p>Plan-Do-Reflect starts small: one person decides what matters, does the work, then looks back and adjusts before doing it again. That's the whole cycle at its most honest — no committee, no dashboard, just a person and a notebook.</p>
+      <p>The same three motions don't disappear once other people get involved. They just get formal names and more people in the room. A team's Plan is a product roadmap or a Project Charter. Its Do is a sprint, a build, a release. And its Reflect is a retro, a post-mortem, a status report — the same "what actually happened, what do we do differently" question, just asked out loud in a meeting instead of in a journal.</p>
+      <p>Zoom out to the level of a whole company and the pattern holds again: Plan becomes the Annual Operating Plan. Do becomes a year of execution across every team. And Reflect becomes something slightly different — call it Inspect. The shift in name isn't decoration. Personal reflection is introspective: you're the only one deciding what it meant. A Monthly or Quarterly Business Review is not that. Nobody's journaling in an MBR — you're inspecting a shared set of numbers against a plan everyone in the room can also see, and the review itself is the mechanism, not a private habit. Same function, look back, be honest about the gap, decide what's next, just run as a scheduled, collective ritual instead of a solitary one.</p>
+      <p>That's the actual claim underneath this whole site: Plan-Do-Reflect isn't a personal productivity trick with a corporate coat of paint over it. It's the same operating logic at every altitude, from a Sunday planning session up to a board-level QBR. The only thing that changes at scale is who reflection answers to — at some point it stops being something you do alone, and starts being something you do in front of a room.</p>
+    </div>
+    <div class="note-remarks">
+      <strong>Notes on this draft:</strong> "Inspect" is introduced once and explained, not repeated in every paragraph. Ends on the "who reflection answers to" thesis line rather than re-summarizing the three stages. Deliberately avoids naming Team Operating Rhythm &amp; Cadence, People Management, or AOP/MBR/QBR by their exact sidebar labels, so a reader unfamiliar with the taxonomy can still follow it.
+    </div>
+  </div>
+
+  <div class="theme-switch" role="group" aria-label="Style direction">
+    <button data-theme="a" title="Kinetic Signal — black &amp; yellow"></button>
+    <button data-theme="b" title="Studio Ledger — dusty rose"></button>
+    <button data-theme="c" title="Bright Margin — lime"></button>
+  </div>
+
+<script src="js/theme-toggle.js" defer></script>
+</body>
+</html>
