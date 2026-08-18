@@ -3,16 +3,29 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Icon Library (internal reference) · Plan · Do · Reflect</title>
+<title>Style Guide (internal reference) · Plan · Do · Reflect</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=Work+Sans:wght@400;500;600&family=Sora:wght@600;700;800&family=Plus+Jakarta+Sans:wght@500;600;700&family=Patrick+Hand&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="css/tokens.css">
 <link rel="stylesheet" href="css/main.css">
 <style>
-  /* Internal reference page only — not part of the site's IA, not linked from nav. */
+  /* Internal reference page only — not part of the site's IA, not linked from nav.
+     Like .theme-switch on every other page, the theme-comparison swatches below
+     are a deliberate exception to the "no hardcoded hex" rule: the whole point
+     is showing all three directions at once, regardless of which is active. */
   body { padding: 32px 40px; max-width: 1100px; margin: 0 auto; background: var(--bg-page); }
   .lib-h1 { font-family: var(--font-heading); font-size: 1.8rem; font-weight: 800; color: var(--text-heading); margin-bottom: 8px; }
-  .lib-intro { color: var(--text-body); max-width: 680px; margin-bottom: 28px; line-height: 1.6; }
+  .lib-intro { color: var(--text-body); max-width: 680px; margin-bottom: 20px; line-height: 1.6; }
+
+  .lib-toc { display: flex; flex-wrap: wrap; gap: 8px; margin-bottom: 36px; }
+  .lib-toc a { font-family: var(--font-body); font-size: 0.78rem; font-weight: 600; padding: 6px 13px; border-radius: 20px; border: 1px solid var(--border); background: var(--bg-content); color: var(--text-body); text-decoration: none; }
+  .lib-toc a:hover { border-color: var(--accent); color: var(--text-heading); }
+
+  .lib-section { margin: 44px 0; padding-top: 36px; border-top: 1px solid var(--border); scroll-margin-top: 24px; }
+  .lib-section:first-of-type { padding-top: 0; border-top: none; }
+  .lib-section-h2 { font-family: var(--font-heading); font-size: 1.3rem; font-weight: 800; color: var(--text-heading); margin-bottom: 6px; }
+  .lib-section-sub { font-size: 0.86rem; color: var(--text-caption); max-width: 680px; margin-bottom: 20px; line-height: 1.55; }
+
   .lib-group-title { font-family: var(--font-heading); font-size: 1.05rem; font-weight: 700; color: var(--text-heading); margin: 32px 0 4px; }
   .lib-group-note { font-size: 0.82rem; color: var(--text-caption); margin-bottom: 14px; }
   .lib-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(150px, 1fr)); gap: 14px; }
@@ -23,13 +36,268 @@
   .lib-verdict { font-size: 0.68rem; font-weight: 700; padding: 2px 8px; border-radius: 20px; margin-top: 2px; }
   .lib-verdict.playful { background: var(--accent); color: var(--accent-strong); }
   .lib-verdict.flat { background: var(--bg-sidebar); color: var(--text-caption); border: 1px solid var(--border); }
+
+  /* Voice & Tone principles */
+  .lib-principles { display: flex; flex-direction: column; gap: 14px; max-width: 720px; }
+  .lib-principle { background: var(--bg-content); border: 1px solid var(--border); border-radius: 12px; padding: 14px 18px; }
+  .lib-principle-title { font-family: var(--font-heading); font-weight: 700; font-size: 0.94rem; color: var(--text-heading); margin-bottom: 4px; }
+  .lib-principle p { font-size: 0.84rem; line-height: 1.55; color: var(--text-body); }
+  .lib-principle-example { display: inline-block; margin-top: 8px; font-size: 0.78rem; font-style: italic; color: var(--text-caption); background: var(--bg-sidebar); border-radius: 8px; padding: 6px 10px; }
+
+  /* Typography */
+  .lib-type-table { display: flex; flex-direction: column; gap: 10px; max-width: 720px; }
+  .lib-type-row { display: flex; align-items: baseline; gap: 16px; background: var(--bg-content); border: 1px solid var(--border); border-radius: 10px; padding: 12px 16px; }
+  .lib-type-role { width: 130px; flex-shrink: 0; font-size: 0.7rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.04em; color: var(--text-caption); }
+  .lib-type-sample { font-weight: 700; font-size: 1.05rem; color: var(--text-heading); }
+  .lib-rule-box { max-width: 680px; margin-top: 16px; padding: 12px 16px; border-radius: 10px; background: var(--bg-sidebar); border-left: 3px solid var(--accent-strong); font-size: 0.84rem; line-height: 1.55; color: var(--text-body); }
+
+  /* Color & theme system */
+  .lib-theme-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 16px; max-width: 900px; }
+  .lib-theme-card { border-radius: 14px; border: 1px solid var(--border); overflow: hidden; }
+  .lib-theme-swatch { height: 56px; display: flex; align-items: flex-end; padding: 8px 12px; }
+  .lib-theme-name { font-family: 'Sora', sans-serif; font-weight: 800; font-size: 0.86rem; }
+  .lib-theme-body { background: var(--bg-content); padding: 12px 14px; font-size: 0.78rem; color: var(--text-caption); line-height: 1.5; }
+  .lib-theme-dots { display: flex; gap: 6px; margin-bottom: 8px; }
+  .lib-theme-dot { width: 16px; height: 16px; border-radius: 50%; border: 1px solid rgba(0,0,0,0.12); }
+
+  .lib-rag-row { display: flex; gap: 22px; flex-wrap: wrap; margin-top: 16px; }
+  .lib-rag-item { display: flex; align-items: center; gap: 8px; font-size: 0.84rem; color: var(--text-body); }
+  .lib-rag-dot { width: 14px; height: 14px; border-radius: 50%; }
+
+  /* Components */
+  .lib-component { background: var(--bg-content); border: 1px solid var(--border); border-radius: 14px; padding: 18px 20px; margin-bottom: 18px; max-width: 720px; }
+  .lib-component-name { font-family: var(--font-heading); font-weight: 700; font-size: 1rem; color: var(--text-heading); margin-bottom: 4px; }
+  .lib-component-desc { font-size: 0.84rem; line-height: 1.55; color: var(--text-body); margin-bottom: 12px; }
+  .lib-component-demo { margin-bottom: 10px; }
+  .lib-component-source { font-size: 0.68rem; color: var(--text-caption); }
+
   .theme-switch { position: static; margin-top: 40px; }
 </style>
 </head>
 <body>
 
-  <h1 class="lib-h1">Icon Library — internal reference</h1>
-  <p class="lib-intro">Every custom inline-SVG icon currently in use across the site, pulled verbatim from source, at a consistent size so they're actually comparable. Not part of the site's nav or IA — a working doc for the "are these all equally playful?" question. Switch the theme swatch at the bottom to check consistency across style directions too.</p>
+  <h1 class="lib-h1">Style Guide — internal reference</h1>
+  <p class="lib-intro">The design system in one place: voice, type, color, the reusable components established across the site, and every custom icon pulled verbatim from source so they're actually comparable. Not part of the site's nav or IA — a working doc for "does this fit," not a page for visitors. Switch the theme swatch at the bottom to check any of this across style directions.</p>
+
+  <nav class="lib-toc" aria-label="Section jump links">
+    <a href="#design-brief">Design Brief</a>
+    <a href="#voice-tone">Voice &amp; Tone</a>
+    <a href="#typography">Typography</a>
+    <a href="#color-themes">Color &amp; Themes</a>
+    <a href="#components">Components</a>
+    <a href="#icons">Icons</a>
+  </nav>
+
+  <section class="lib-section" id="design-brief">
+    <div class="lib-section-h2">Design Brief</div>
+    <p class="lib-section-sub">The brief this whole system is built to satisfy, given directly and worth preserving verbatim intent.</p>
+    <div class="lib-rule-box">"Executive whimsical" — serious but fun, approachable but authoritative.</div>
+    <p style="max-width: 680px; margin-top: 14px; font-size: 0.86rem; line-height: 1.6; color: var(--text-body);">Explicitly <strong>rejected</strong> as too sterile for this site: Masterclass, HBR, TED, FranklinCovey. The hand-drawn icons, Doodle Notes, and playful color pop exist specifically to avoid that register — but the content underneath still has to hold up like a real reference, not a novelty. Sans-serif only, no exceptions, in every one of the three style directions.</p>
+  </section>
+
+  <section class="lib-section" id="voice-tone">
+    <div class="lib-section-h2">Voice &amp; Tone</div>
+    <p class="lib-section-sub">How the writing on this site talks, distilled from what's actually shipped rather than written in the abstract.</p>
+    <div class="lib-principles">
+      <div class="lib-principle">
+        <div class="lib-principle-title">Direct and opinionated, not neutral</div>
+        <p>The site takes a stance instead of listing every option with equal weight. It's willing to say a common practice is overkill, or that a popular framework misses the point.</p>
+        <span class="lib-principle-example">"Most projects don't need a five-lens enterprise risk framework" — cut on sight once it read as hedging.</span>
+      </div>
+      <div class="lib-principle">
+        <div class="lib-principle-title">Concrete over abstract</div>
+        <p>Every framework earns a worked example, not just a definition — a Sample Goal, a Sample Tenet, a filled-in RACI, a status report with real-looking numbers. Abstract descriptions get a body; nothing stays purely conceptual.</p>
+      </div>
+      <div class="lib-principle">
+        <div class="lib-principle-title">Push back, don't just validate</div>
+        <p>Every Try It prompt explicitly instructs the AI to challenge a vague or too-easy answer instead of accepting whatever the user types first.</p>
+        <span class="lib-principle-example">"Push back if any of my answers are too vague." / "…don't round a flag up to Green just because I'd rather it looked that way."</span>
+      </div>
+      <div class="lib-principle">
+        <div class="lib-principle-title">Self-contained, never "as discussed above"</div>
+        <p>A Try It prompt, a paragraph, a doodle note — each should make sense on its own, copied out of context. No "if I have the earlier section, I'll paste it in": ask for what's needed directly instead of assuming the reader has the rest of the page.</p>
+      </div>
+      <div class="lib-principle">
+        <div class="lib-principle-title">Honest over polished</div>
+        <p>Where the content deals with status/communication, the throughline is that an honest red flag beats a comfortable green one. That bias toward honesty over spin runs through the writing generally, not just the Status Report section.</p>
+        <span class="lib-principle-example">"Bad news isn't wine. It doesn't improve with age." — Colin Powell</span>
+      </div>
+      <div class="lib-principle">
+        <div class="lib-principle-title">Epistemic humility on frameworks</div>
+        <p>Frameworks are offered as a default, not a law — the site explicitly invites a better answer over its own suggestion where one exists.</p>
+        <span class="lib-principle-example">"Sample Tenets (unless you know better ones)"</span>
+      </div>
+      <div class="lib-principle">
+        <div class="lib-principle-title">No corporate-speak</div>
+        <p>No "synergy," no "leverage" as a verb, no "circle back," no "let's dive in!" chirpiness. Jargon that is used (Epic, DACI, tracer bullet) gets defined in plain language the first time it appears, inline, not assumed.</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="lib-section" id="typography">
+    <div class="lib-section-h2">Typography</div>
+    <p class="lib-section-sub">Two working fonts per theme, plus one narrow-purpose third font. Nothing else.</p>
+    <div class="lib-type-table">
+      <div class="lib-type-row">
+        <div class="lib-type-role">Heading<br><span style="font-weight: 400; text-transform: none;">--font-heading</span></div>
+        <div class="lib-type-sample" style="font-family: var(--font-heading);">The quick brown fox</div>
+      </div>
+      <div class="lib-type-row">
+        <div class="lib-type-role">Body<br><span style="font-weight: 400; text-transform: none;">--font-body</span></div>
+        <div class="lib-type-sample" style="font-family: var(--font-body); font-weight: 500;">The quick brown fox</div>
+      </div>
+      <div class="lib-type-row">
+        <div class="lib-type-role">Handwriting<br><span style="font-weight: 400; text-transform: none;">--font-hand</span></div>
+        <div class="lib-type-sample" style="font-family: var(--font-hand); font-weight: 400;">The quick brown fox</div>
+      </div>
+    </div>
+    <div class="lib-rule-box"><strong>No serif fonts, anywhere, no exceptions</strong> — explicit, non-negotiable brief requirement.</div>
+    <div class="lib-rule-box" style="margin-top: 10px;"><strong>--font-hand is for short standalone labels only</strong> — a Doodle Note title, an annotation tag — never for full sentences or body copy. Established after direct feedback that handwriting applied to real content "was doing too much work" and became harder to read, not more charming.</div>
+  </section>
+
+  <section class="lib-section" id="color-themes">
+    <div class="lib-section-h2">Color &amp; Theme System</div>
+    <p class="lib-section-sub">Three interchangeable style directions, switchable live from the swatch control on every page. No style direction has been chosen as final yet.</p>
+    <div class="lib-theme-grid">
+      <div class="lib-theme-card">
+        <div class="lib-theme-swatch" style="background: #111215;">
+          <span class="lib-theme-name" style="color: #facc15;">A — Kinetic Signal</span>
+        </div>
+        <div class="lib-theme-body">
+          <div class="lib-theme-dots">
+            <span class="lib-theme-dot" style="background: #facc15;"></span>
+            <span class="lib-theme-dot" style="background: #111215;"></span>
+            <span class="lib-theme-dot" style="background: #ebebe6;"></span>
+          </div>
+          Gray / black / bright yellow. Sora + Work Sans. The default direction — highest contrast, most graphic.
+        </div>
+      </div>
+      <div class="lib-theme-card">
+        <div class="lib-theme-swatch" style="background: #8a4753;">
+          <span class="lib-theme-name" style="color: #fdfbfa;">B — Studio Ledger</span>
+        </div>
+        <div class="lib-theme-body">
+          <div class="lib-theme-dots">
+            <span class="lib-theme-dot" style="background: #c98a93;"></span>
+            <span class="lib-theme-dot" style="background: #8a4753;"></span>
+            <span class="lib-theme-dot" style="background: #faf5f4;"></span>
+          </div>
+          Dusty rose / gray / white. Space Grotesk + Work Sans. Softest, most editorial of the three.
+        </div>
+      </div>
+      <div class="lib-theme-card">
+        <div class="lib-theme-swatch" style="background: #111214;">
+          <span class="lib-theme-name" style="color: #d7ff4b;">C — Bright Margin</span>
+        </div>
+        <div class="lib-theme-body">
+          <div class="lib-theme-dots">
+            <span class="lib-theme-dot" style="background: #d7ff4b;"></span>
+            <span class="lib-theme-dot" style="background: #111214;"></span>
+            <span class="lib-theme-dot" style="background: #f2f2ef;"></span>
+          </div>
+          White / gray / lime. Sora + Plus Jakarta Sans. Sharpest, most tech-forward of the three.
+        </div>
+      </div>
+    </div>
+    <div class="lib-rule-box" style="margin-top: 18px;">Every page reads colors and fonts from <code>tokens.css</code> custom properties — never a hardcoded hex value or font name in <code>main.css</code> or page markup. The only documented exceptions are <code>.theme-switch</code> (has to show all three swatches regardless of which is active) and this page's own theme-comparison cards, for the same reason.</div>
+    <p style="margin-top: 18px; font-size: 0.86rem; color: var(--text-body); max-width: 680px;">One set of colors sits outside the theme system on purpose: Red/Amber/Green status. Green means on-track, Amber means at-risk, Red means off-track — that convention doesn't change with the brand direction, so these three are defined once in <code>:root</code> instead of redefined per theme.</p>
+    <div class="lib-rag-row">
+      <div class="lib-rag-item"><span class="lib-rag-dot" style="background: var(--status-green);"></span>--status-green</div>
+      <div class="lib-rag-item"><span class="lib-rag-dot" style="background: var(--status-amber);"></span>--status-amber</div>
+      <div class="lib-rag-item"><span class="lib-rag-dot" style="background: var(--status-red);"></span>--status-red</div>
+    </div>
+  </section>
+
+  <section class="lib-section" id="components">
+    <div class="lib-section-h2">Components</div>
+    <p class="lib-section-sub">Named, reusable patterns established over the course of building the site — reach for these instead of inventing a new one-off treatment.</p>
+
+    <div class="lib-component">
+      <div class="lib-component-name">Doodle Note</div>
+      <div class="lib-component-desc">One or more small hand-drawn icons paired with regular-weight body text, inside a single continuous gold left border. The icon + border carry the "playful" character — the text itself stays in the normal body font. Established after direct feedback that applying the handwriting font to full sentences was "doing too much work."</div>
+      <div class="lib-component-demo">
+        <div class="doodle-note" style="max-width: 480px;">
+          <div class="doodle-row" style="align-items: center;">
+            <svg width="26" height="26" viewBox="0 0 26 26" aria-hidden="true">
+              <circle cx="13" cy="13" r="11" fill="none" stroke="var(--accent)" stroke-width="2.5"/>
+              <circle cx="13" cy="13" r="6.5" fill="none" stroke="var(--accent)" stroke-width="2.5"/>
+              <circle cx="13" cy="13" r="2.5" fill="var(--accent-strong)"/>
+            </svg>
+            <div class="annotation">Sample Goal</div>
+          </div>
+          <p>Reduce invoice approval cycle time from 10 days to 4 days within 90 days.</p>
+        </div>
+      </div>
+      <div class="lib-component-source">.doodle-note / .doodle-row — project-program-management.html</div>
+    </div>
+
+    <div class="lib-component">
+      <div class="lib-component-name">Pull Quote</div>
+      <div class="lib-component-desc">A real, verifiable book or source quote, set off with a gold left border. Reserved for actual citations, not invented lines — every one links out to the book on the References page.</div>
+      <div class="lib-component-demo">
+        <blockquote class="pull-quote" style="margin: 8px 0;">
+          <p>"Bad news isn't wine. It doesn't improve with age."</p>
+          <cite>— Colin Powell, <em>It Worked for Me: In Life and Leadership</em></cite>
+        </blockquote>
+      </div>
+      <div class="lib-component-source">.pull-quote — used site-wide</div>
+    </div>
+
+    <div class="lib-component">
+      <div class="lib-component-name">Example Box</div>
+      <div class="lib-component-desc">A dashed border deliberately distinguishes a worked example from a solid-border structural card — this is a sample to look at, not a step to follow.</div>
+      <div class="lib-component-demo">
+        <div class="example-box" style="margin-top: 0;">
+          <div class="example-label">Example — Launching a New Product</div>
+          <p><strong>R:</strong> Product Manager writes specs and coordinates development.</p>
+        </div>
+      </div>
+      <div class="lib-component-source">.example-box / .example-label — used site-wide</div>
+    </div>
+
+    <div class="lib-component">
+      <div class="lib-component-name">Accordion + Try It</div>
+      <div class="lib-component-desc">For content-dense pages, each framework is a collapsible <code>.framework-item.is-accordion</code> section. A Try It prompt nests inside as its own independent toggle, collapsed regardless of the parent section's open state. Every Try It prompt must stand alone — see Voice &amp; Tone above — so it's still useful pasted anywhere, with no reference back to this page.</div>
+      <div class="lib-component-source">.framework-item.is-accordion, .fw-toggle, .try-it-inline-toggle / .try-it-collapse — project-program-management.html</div>
+    </div>
+
+    <div class="lib-component">
+      <div class="lib-component-name">Tags &amp; Pills</div>
+      <div class="lib-component-desc">Small rounded-pill labels for metadata (category tags, framework counts, RAG status). Always <code>inline-flex</code> with <code>align-items: center</code> — a plain inline span inside a flex row will stretch to match its tallest sibling and the text drifts off-center, which is exactly the bug this fixes.</div>
+      <div class="lib-component-demo">
+        <div class="tag-row" style="margin-bottom: 0;">
+          <span class="tag primary">Processes</span>
+          <span class="tag secondary">7 frameworks</span>
+        </div>
+      </div>
+      <div class="lib-component-source">.tag, .tag-row — used site-wide</div>
+    </div>
+
+    <div class="lib-component">
+      <div class="lib-component-name">RAG status dot</div>
+      <div class="lib-component-desc">A small solid circle in Green/Amber/Red, always paired with a text label — never color alone. Used for Health Summary indicators (Project Health, Health Trend, Scope/Schedule/Budget) on the Status Report mockup.</div>
+      <div class="lib-component-demo">
+        <div class="status-card-rag-row" style="margin-bottom: 0;">
+          <div class="status-card-rag-item"><span class="rag-dot is-amber"></span><strong>Project Health</strong><span>Amber</span></div>
+          <div class="status-card-rag-item"><span class="rag-dot is-green"></span><strong>Health Trend</strong><span>Improving</span></div>
+        </div>
+      </div>
+      <div class="lib-component-source">.rag-dot — project-program-management.html</div>
+    </div>
+
+    <div class="lib-component">
+      <div class="lib-component-name">Back to Top</div>
+      <div class="lib-component-desc">A subtle end-of-section link — gray "Top" text with a small accent-colored up arrow — so a long collapsible section doesn't force a manual scroll back to its own heading.</div>
+      <div class="lib-component-demo">
+        <a class="back-to-top" href="#" onclick="return false;" style="margin-left: 0;"><svg width="9" height="9" viewBox="0 0 12 12" aria-hidden="true"><path d="M6 10 L6 2 M2.5 5.5 L6 2 L9.5 5.5" stroke="var(--accent-strong)" stroke-width="1.8" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg>Top</a>
+      </div>
+      <div class="lib-component-source">.back-to-top — project-program-management.html</div>
+    </div>
+  </section>
+
+  <section class="lib-section" id="icons">
+    <div class="lib-section-h2">Icons</div>
+    <p class="lib-section-sub">Every custom inline-SVG icon currently in use across the site, pulled verbatim from source, at a consistent size so they're actually comparable — a working doc for the "are these all equally playful?" question.</p>
 
   <div class="lib-group-title">Goal / target icons</div>
   <div class="lib-group-note">Three separate places draw the same "concentric circles" bullseye. Consistent with each other, but flat/geometric — the least hand-drawn shape in the set.</div>
@@ -83,7 +351,7 @@
   </div>
 
   <div class="lib-group-title">SMART Goals letter strip (M, A, R, T)</div>
-  <div class="lib-group-note">These read as generic dashboard/UI icons (bar chart, checkmark badge) rather than illustrated concepts — the weakest match to the "playful" bar the rest of the set sets.</div>
+  <div class="lib-group-note">S is deliberately not repeated here — it's the same bullseye already shown above in "Goal / target icons." These four read as generic dashboard/UI icons (bar chart, checkmark badge) rather than illustrated concepts — the weakest match to the "playful" bar the rest of the set sets.</div>
   <div class="lib-grid">
     <div class="lib-card">
       <div class="lib-icon-box">
@@ -257,6 +525,7 @@
       <div class="lib-source">project-program-management.html</div>
     </div>
   </div>
+  </section>
 
   <div class="theme-switch" role="group" aria-label="Style direction">
     <button data-theme="a" title="Kinetic Signal — black &amp; yellow"></button>

@@ -53,10 +53,16 @@
       // Plan") rather than a framework-item itself — climb to the
       // nearest one so its parent section opens too.
       var item = target.classList.contains('framework-item') ? target : target.closest('.framework-item');
-      if (item) {
-        setOpen(item, true);
-        target.scrollIntoView();
+      if (item) setOpen(item, true);
+      // The hash target may also be a collapse itself (e.g. a page-level
+      // "Try It" quicklink pointing straight at #charter-try-it-collapse) —
+      // open it directly instead of leaving it collapsed under its toggle.
+      if (target.classList.contains('try-it-collapse') || target.classList.contains('inline-collapse')) {
+        target.classList.add('is-open');
+        var toggleBtn = document.querySelector('[aria-controls="' + target.id + '"]');
+        if (toggleBtn) toggleBtn.setAttribute('aria-expanded', 'true');
       }
+      target.scrollIntoView();
     }
 
     openFromHash();

@@ -51,6 +51,7 @@
     <div class="sidebar-group">
       <div class="group-label">Initiative Lifecycle</div>
       <a class="sub-item" href="#">Team Operating Rhythm &amp; Cadence</a>
+      <a class="sub-item" href="product-management.html">Product Management</a>
       <div class="sub-item-group">
         <a class="sub-item active" href="project-program-management.html">Project &amp; Program Management</a>
         <div class="sub-sub-list">
@@ -81,7 +82,7 @@
       <div class="tag-row" style="margin-top: 14px; margin-bottom: 0;">
         <span class="tag primary">Processes</span>
         <span class="tag secondary">7 frameworks</span>
-        <a class="try-it-quicklink" href="#try-it">
+        <a class="try-it-quicklink" href="#charter-try-it-collapse">
           <svg width="14" height="14" viewBox="0 0 24 24" aria-hidden="true">
             <path d="M12 2 L14.2 9 L21 11 L14.2 13 L12 20 L9.8 13 L3 11 L9.8 9 Z" fill="currentColor"/>
           </svg>
@@ -162,6 +163,7 @@
               <button class="try-it-copy" type="button" data-copy-target="charter-try-it-prompt">Copy prompt</button>
             </div>
           </div>
+          <a class="back-to-top" href="#project-charter"><svg width="9" height="9" viewBox="0 0 12 12" aria-hidden="true"><path d="M6 10 L6 2 M2.5 5.5 L6 2 L9.5 5.5" stroke="var(--accent-strong)" stroke-width="1.8" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg>Top</a>
         </div>
       </div>
 
@@ -195,6 +197,23 @@
             <div class="example-label">Example — Launching a New Product</div>
             <p><strong>R:</strong> Product Manager writes specs and coordinates development.<br><strong>A:</strong> Head of Product is accountable for launch success.<br><strong>C:</strong> Design, Engineering, and Legal review and give feedback.<br><strong>I:</strong> Sales and Support are notified when it goes live.</p>
           </div>
+          <button class="try-it-inline-toggle" type="button" aria-expanded="false" aria-controls="raci-try-it-collapse">
+            <svg width="16" height="16" viewBox="0 0 24 24" aria-hidden="true">
+              <path d="M12 2 L14.2 9 L21 11 L14.2 13 L12 20 L9.8 13 L3 11 L9.8 9 Z" fill="var(--accent)"/>
+            </svg>
+            Try It
+            <svg class="fw-chevron" width="14" height="14" viewBox="0 0 20 20" aria-hidden="true">
+              <path d="M5 7.5 L10 12.5 L15 7.5" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+          </button>
+          <div class="try-it-collapse" id="raci-try-it-collapse">
+            <div class="try-it-box" id="raci-try-it">
+              <p>Paste this into ChatGPT, Claude, or whatever AI tool you use:</p>
+              <div class="try-it-prompt" id="raci-try-it-prompt">I need to assign ownership for a project. Ask me for the project's major deliverables or decisions. For each one, walk me through who is Responsible, Accountable, Consulted, and Informed. If a deliverable is really a high-stakes, cross-functional decision rather than a piece of work, ask whether DACI (Driver, Approver, Contributors, Informed) fits better instead. Push back if the same person ends up Accountable for everything, or if anything has no clear owner at all.</div>
+              <button class="try-it-copy" type="button" data-copy-target="raci-try-it-prompt">Copy prompt</button>
+            </div>
+          </div>
+          <a class="back-to-top" href="#raci-daci"><svg width="9" height="9" viewBox="0 0 12 12" aria-hidden="true"><path d="M6 10 L6 2 M2.5 5.5 L6 2 L9.5 5.5" stroke="var(--accent-strong)" stroke-width="1.8" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg>Top</a>
         </div>
       </div>
 
@@ -243,10 +262,11 @@
           <div class="try-it-collapse" id="strategy-try-it-collapse">
             <div class="try-it-box" id="strategy-try-it">
               <p>Paste this into ChatGPT, Claude, or whatever AI tool you use:</p>
-              <div class="try-it-prompt" id="strategy-try-it-prompt">I need to define the Strategy for a project, not just write a plan for it. If I have a Project Charter from earlier, I'll paste it in — use the Problem Statement and Business Case as a starting point, but push past them to the real diagnosis, not a goal in disguise. Otherwise, ask me what problem I'm actually trying to solve, then push me to name the why behind it before we touch any how. Once that's solid, help me write a guiding policy: the overall approach I'm choosing and why it beats the alternatives. Only then, sketch the first few coherent actions that follow from it, and call out anything that's really just a task list or a vision statement wearing a strategy costume.</div>
+              <div class="try-it-prompt" id="strategy-try-it-prompt">I need to define the Strategy for a project, not just write a plan for it. Ask me what problem I'm actually trying to solve, then push me to name the why behind it before we touch any how — the real diagnosis, not a goal in disguise. Once that's solid, help me write a guiding policy: the overall approach I'm choosing and why it beats the alternatives. Only then, sketch the first few coherent actions that follow from it, and call out anything that's really just a task list or a vision statement wearing a strategy costume.</div>
               <button class="try-it-copy" type="button" data-copy-target="strategy-try-it-prompt">Copy prompt</button>
             </div>
           </div>
+          <a class="back-to-top" href="#strategy-vs-plan"><svg width="9" height="9" viewBox="0 0 12 12" aria-hidden="true"><path d="M6 10 L6 2 M2.5 5.5 L6 2 L9.5 5.5" stroke="var(--accent-strong)" stroke-width="1.8" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg>Top</a>
         </div>
       </div>
 
@@ -289,39 +309,52 @@
             </div>
           </div>
 
+          <div class="doodle-note">
+            <div class="doodle-row" style="align-items: center;">
+              <svg width="30" height="30" viewBox="0 0 28 28" aria-hidden="true">
+                <path d="M22 8 A10 10 0 1 1 17.5 3.3" fill="none" stroke="var(--accent)" stroke-width="2.2" stroke-linecap="round"/>
+                <path d="M22 3 L22 8 L17 7" stroke="var(--accent-strong)" stroke-width="2.2" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+              </svg>
+              <div class="annotation">Rinse &amp; Repeat</div>
+            </div>
+            <p>Launch doesn't have to be the end of the track — for most real projects it's one loop of several. Ship multiple MLP milestones instead of a single big-bang release: cycle back through First Increment, Checkpoint Review, and Launch again for the next slice of value. That way, if the project gets deprioritized or cut at any point along the way, the team has already shipped something real, not just spent the budget on the way to a finish line it never reached.</p>
+          </div>
+
           <h4 class="fw-subhead" id="critical-path">Critical Path Method</h4>
-          <p>The critical path is the longest chain of dependent tasks in a project — the sequence that determines the earliest possible finish date. It's not always the path with the biggest individual tasks; it's whichever path adds up to the most days total. Every other path has slack — room to slip a little without moving the finish date.</p>
+          <p>The critical path is the longest chain of dependent tasks in a project — the sequence that determines the earliest possible finish date. It's not always the path with the biggest individual tasks; it's whichever path adds up to the most days total. Every other path has slack — room to slip a little without moving the finish date. A simple example: launching a new checkout page.</p>
 
           <div class="critical-path-diagram">
-            <svg viewBox="0 0 420 170" width="100%" style="max-width: 420px;" aria-hidden="true">
-              <path d="M40,130 L150,130 L370,85" fill="none" stroke="var(--border)" stroke-width="2.5" stroke-dasharray="5 4" stroke-linecap="round" stroke-linejoin="round"/>
-              <path d="M40,50 L150,50 L260,50 L370,85" fill="none" stroke="var(--accent-strong)" stroke-width="3.5" fill-opacity="0" stroke-linecap="round" stroke-linejoin="round"/>
+            <svg viewBox="0 0 460 200" width="100%" style="max-width: 460px;" aria-hidden="true">
+              <path d="M40,100 L150,50 L260,50 L350,100" fill="none" stroke="var(--border)" stroke-width="2.5" stroke-dasharray="5 4" stroke-linecap="round" stroke-linejoin="round"/>
+              <path d="M40,100 L150,150 L350,100 L430,100" fill="none" stroke="var(--accent-strong)" stroke-width="3.5" fill-opacity="0" stroke-linecap="round" stroke-linejoin="round"/>
 
-              <circle cx="40" cy="50" r="14" fill="var(--accent)" stroke="var(--accent-strong)" stroke-width="2"/>
-              <text x="40" y="54" text-anchor="middle" font-family="var(--font-heading)" font-weight="700" font-size="9" fill="var(--accent-strong)">S</text>
+              <circle cx="40" cy="100" r="10" fill="var(--accent)" stroke="var(--accent-strong)" stroke-width="2"/>
+              <circle cx="150" cy="50" r="10" fill="var(--bg-content)" stroke="var(--border)" stroke-width="2"/>
+              <circle cx="260" cy="50" r="10" fill="var(--bg-content)" stroke="var(--border)" stroke-width="2"/>
+              <circle cx="150" cy="150" r="10" fill="var(--bg-content)" stroke="var(--accent-strong)" stroke-width="2.5"/>
+              <circle cx="350" cy="100" r="10" fill="var(--bg-content)" stroke="var(--accent-strong)" stroke-width="2.5"/>
+              <circle cx="430" cy="100" r="10" fill="var(--accent)" stroke="var(--accent-strong)" stroke-width="2"/>
 
-              <circle cx="150" cy="50" r="14" fill="var(--bg-content)" stroke="var(--accent-strong)" stroke-width="2.5"/>
-              <text x="150" y="54" text-anchor="middle" font-family="var(--font-heading)" font-weight="700" font-size="9" fill="var(--text-heading)">A</text>
+              <text x="40" y="126" text-anchor="middle" font-family="var(--font-body)" font-weight="600" font-size="8.5" fill="var(--text-body)">Kickoff</text>
+              <text x="150" y="28" text-anchor="middle" font-family="var(--font-body)" font-weight="600" font-size="8.5" fill="var(--text-caption)">Design</text>
+              <text x="260" y="28" text-anchor="middle" font-family="var(--font-body)" font-weight="600" font-size="8.5" fill="var(--text-caption)">Frontend</text>
+              <text x="150" y="176" text-anchor="middle" font-family="var(--font-body)" font-weight="700" font-size="8.5" fill="var(--text-heading)">Backend API</text>
+              <text x="350" y="126" text-anchor="middle" font-family="var(--font-body)" font-weight="700" font-size="8.5" fill="var(--text-heading)">Integration</text>
+              <text x="430" y="126" text-anchor="middle" font-family="var(--font-body)" font-weight="600" font-size="8.5" fill="var(--text-body)">Launch</text>
 
-              <circle cx="260" cy="50" r="14" fill="var(--bg-content)" stroke="var(--accent-strong)" stroke-width="2.5"/>
-              <text x="260" y="54" text-anchor="middle" font-family="var(--font-heading)" font-weight="700" font-size="9" fill="var(--text-heading)">B</text>
-
-              <circle cx="150" cy="130" r="14" fill="var(--bg-content)" stroke="var(--border)" stroke-width="2"/>
-              <text x="150" y="134" text-anchor="middle" font-family="var(--font-heading)" font-weight="700" font-size="9" fill="var(--text-caption)">C</text>
-
-              <circle cx="370" cy="85" r="14" fill="var(--accent)" stroke="var(--accent-strong)" stroke-width="2"/>
-              <text x="370" y="89" text-anchor="middle" font-family="var(--font-heading)" font-weight="700" font-size="9" fill="var(--accent-strong)">E</text>
-
-              <text x="95" y="42" text-anchor="middle" font-family="var(--font-body)" font-size="9" fill="var(--text-caption)">3d</text>
-              <text x="205" y="42" text-anchor="middle" font-family="var(--font-body)" font-size="9" fill="var(--text-caption)">5d</text>
-              <text x="95" y="146" text-anchor="middle" font-family="var(--font-body)" font-size="9" fill="var(--text-caption)">2d</text>
-              <text x="260" y="146" text-anchor="middle" font-family="var(--font-body)" font-size="9" fill="var(--text-caption)">4d</text>
+              <text x="95" y="68" text-anchor="middle" font-family="var(--font-body)" font-size="9" fill="var(--text-caption)">2d</text>
+              <text x="205" y="40" text-anchor="middle" font-family="var(--font-body)" font-size="9" fill="var(--text-caption)">4d</text>
+              <text x="305" y="66" text-anchor="middle" font-family="var(--font-body)" font-size="9" fill="var(--text-caption)">1d</text>
+              <text x="95" y="136" text-anchor="middle" font-family="var(--font-body)" font-weight="700" font-size="9" fill="var(--accent-strong)">8d</text>
+              <text x="390" y="90" text-anchor="middle" font-family="var(--font-body)" font-weight="700" font-size="9" fill="var(--accent-strong)">3d</text>
             </svg>
             <div class="critical-path-legend">
-              <span class="critical-path-legend-item"><span class="critical-path-swatch is-critical"></span>Critical path (S→A→B→E) — 8 days, zero slack</span>
-              <span class="critical-path-legend-item"><span class="critical-path-swatch is-slack"></span>Parallel path (S→C→E) — 6 days, 2 days of slack</span>
+              <span class="critical-path-legend-item"><span class="critical-path-swatch is-critical"></span>Critical path (Kickoff → Backend API → Integration → Launch) — 11 days, zero slack</span>
+              <span class="critical-path-legend-item"><span class="critical-path-swatch is-slack"></span>Parallel path (Kickoff → Design → Frontend → Integration) — 10 days, 1 day of slack</span>
             </div>
           </div>
+
+          <p style="margin-top: 12px;">Design (2d) and Frontend build (4d), plus a day to hand Frontend off into Integration, add up to 7 days — still faster than Backend API's 8 days on its own, even though it's two extra nodes to get there. But Integration can't start until <em>both</em> branches are done, so it's stuck waiting on Backend API regardless. Frontend finishing early doesn't buy the project much; it just sits on 1 day of slack. The finish date is set by whichever chain totals the most days end-to-end — not by which one has the fewest hops, and not by which one <em>looks</em> faster.</p>
 
           <p style="margin-top: 12px;">Those day counts have to come from somewhere. Most teams get them from <strong>Story Pointing</strong> — sizing each task's relative effort, often on a Fibonacci-ish scale (1, 2, 3, 5, 8, 13), then converting points to rough duration once the team's actual velocity is known. Get the points wrong and the whole critical path is fiction, however precise it looks on a chart.</p>
 
@@ -338,10 +371,11 @@
             <p>From <em>The Pragmatic Programmer</em>: before fully building out every task on the critical path, build a thin, working version that touches every node from Start to End — even if each piece is bare-bones. It proves the sequence and dependencies actually hold before real effort gets sunk into any one of them. Named for tracer ammunition: you see immediately whether you're aiming right, not just whether the gun fired.</p>
           </div>
 
-          <p style="margin-top: 12px;">Five ways to compress the critical path without losing quality:</p>
+          <p style="margin-top: 12px;">Six ways to compress the critical path without losing quality:</p>
           <ul class="explainer-list is-bulleted" style="margin-top: 10px;">
             <li><strong>Re-sequence tasks</strong> — adjust the order of dependent tasks to eliminate unnecessary waiting.</li>
-            <li><strong>Overlap work carefully</strong> — start successor tasks before predecessors fully finish, without compromising quality.</li>
+            <li><strong>Parallelize with a contract</strong> — split into workstreams that build side by side, like Frontend and Backend API above, but only works if you plan the seam first. Define the interface between them — the API handshake — and mock it out, so each side builds against the contract instead of waiting on the other to finish.</li>
+            <li><strong>Test in place, not just at the end</strong> — with parallel workstreams, QA doesn't have to wait for Integration. Testing each increment as it lands catches problems while they're still cheap to fix, instead of stacking all the quality risk onto one crunch at the merge point.</li>
             <li><strong>Add resources selectively</strong> — assign another skilled contributor to the longest-pole tasks specifically.</li>
             <li><strong>Reduce scope where possible</strong> — cut or simplify non-essential features that sit on the critical path.</li>
             <li><strong>Remove approval delays</strong> — streamline review and approval steps that are blocking movement, not adding value.</li>
@@ -407,7 +441,7 @@
           </div>
 
           <h4 class="fw-subhead" id="risk-management">Risk Management</h4>
-          <p>Most projects don't need a five-lens enterprise risk framework — just an honest register and a real response. For each risk that could derail the plan: how likely is it, how bad if it happens, and what are you actually going to do about it?</p>
+          <p>For each risk that could derail the plan: how likely is it, how bad if it happens, and what are you actually going to do about it?</p>
           <ul class="explainer-list is-bulleted" style="margin-top: 10px;">
             <li><strong>Avoid</strong> — change the plan so the risk can't happen at all.</li>
             <li><strong>Mitigate</strong> — reduce the likelihood, the impact, or both.</li>
@@ -434,6 +468,23 @@
               </ul>
             </div>
           </div>
+          <button class="try-it-inline-toggle" type="button" aria-expanded="false" aria-controls="projectplan-try-it-collapse">
+            <svg width="16" height="16" viewBox="0 0 24 24" aria-hidden="true">
+              <path d="M12 2 L14.2 9 L21 11 L14.2 13 L12 20 L9.8 13 L3 11 L9.8 9 Z" fill="var(--accent)"/>
+            </svg>
+            Try It
+            <svg class="fw-chevron" width="14" height="14" viewBox="0 0 20 20" aria-hidden="true">
+              <path d="M5 7.5 L10 12.5 L15 7.5" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+          </button>
+          <div class="try-it-collapse" id="projectplan-try-it-collapse">
+            <div class="try-it-box" id="projectplan-try-it">
+              <p>Paste this into ChatGPT, Claude, or whatever AI tool you use:</p>
+              <div class="try-it-prompt" id="projectplan-try-it-prompt">I need to turn a project's strategy into an actual plan. Ask me for the project's major deliverables and rough durations. Then help me build three things: 2-4 Milestones that each ship real, checkpoint-able value, not just internal progress; a Critical Path — ask me which tasks depend on which and how long each takes, then work out the longest dependent chain and flag which other tasks have slack; and a short Risk Register — for each top risk, ask likelihood, impact, and whether I'll Avoid, Mitigate, Transfer, or Accept it. Push back if a "milestone" is really just a date with nothing shippable behind it.</div>
+              <button class="try-it-copy" type="button" data-copy-target="projectplan-try-it-prompt">Copy prompt</button>
+            </div>
+          </div>
+          <a class="back-to-top" href="#the-project-plan"><svg width="9" height="9" viewBox="0 0 12 12" aria-hidden="true"><path d="M6 10 L6 2 M2.5 5.5 L6 2 L9.5 5.5" stroke="var(--accent-strong)" stroke-width="1.8" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg>Top</a>
         </div>
       </div>
 
@@ -575,10 +626,11 @@
           <div class="try-it-collapse" id="scope-try-it-collapse">
             <div class="try-it-box" id="scope-try-it">
               <p>Paste this into ChatGPT, Claude, or whatever AI tool you use:</p>
-              <div class="try-it-prompt" id="scope-try-it-prompt">I'm ready to break this project down into an execution hierarchy. If I have a Project Charter or Strategy from earlier, I'll paste it in — use it to ground the Business Outcome. Otherwise, ask me what the outcome is. Then walk me through Deliverables &amp; Definition of Done, and split those into Work Packages small enough that one person can own each one completely — if a piece doesn't have a clear owner, split it further. Then break the first Work Package into Tasks. Flag anything that fails the 100% Rule — gaps or overlap between levels — and call out any dependencies I should track before handoff.</div>
+              <div class="try-it-prompt" id="scope-try-it-prompt">I'm ready to break this project down into an execution hierarchy. Ask me what the Business Outcome is. Then walk me through Deliverables &amp; Definition of Done, and split those into Work Packages small enough that one person can own each one completely — if a piece doesn't have a clear owner, split it further. Then break the first Work Package into Tasks. Flag anything that fails the 100% Rule — gaps or overlap between levels — and call out any dependencies I should track before handoff.</div>
               <button class="try-it-copy" type="button" data-copy-target="scope-try-it-prompt">Copy prompt</button>
             </div>
           </div>
+          <a class="back-to-top" href="#scope-to-execution"><svg width="9" height="9" viewBox="0 0 12 12" aria-hidden="true"><path d="M6 10 L6 2 M2.5 5.5 L6 2 L9.5 5.5" stroke="var(--accent-strong)" stroke-width="1.8" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg>Top</a>
         </div>
       </div>
 
@@ -594,17 +646,188 @@
           </svg>
         </button>
         <div class="fw-body" id="status-report-body">
-          <p>Overview, track, communicate, succeed. A status report that actually gets read has the same shape every time:</p>
-          <ul class="explainer-list is-bulleted" style="margin-top: 10px;">
+          <p>Overview, track, communicate, succeed. A status report that actually gets read has the same shape every time — here's what the top of it looks like at a glance:</p>
+
+          <div class="status-card">
+            <div class="status-card-header">
+              <div class="status-card-title-group">
+                <span class="status-card-eyebrow">Project Status Report</span>
+                <span class="status-card-title">Q3 Platform Migration</span>
+                <span class="status-card-lead">
+                  <span class="status-card-lead-tag">Lead:</span>
+                  <svg width="60" height="9" viewBox="0 0 120 10" preserveAspectRatio="none" aria-hidden="true"><path d="M2,5 q6,-4 12,0 t12,0 t12,0 t12,0 t12,0 t12,0 t12,0 t12,0 t12,0" stroke="var(--border)" stroke-width="2" fill="none" stroke-linecap="round"/></svg>
+                </span>
+              </div>
+              <span class="status-card-period">Week 9 of 12</span>
+            </div>
+
+            <div class="status-card-section" style="margin-top: 10px; padding-top: 0; border-top: none;">
+              <div class="status-card-label">Health Summary</div>
+              <div class="status-card-rag-row">
+                <div class="status-card-rag-item"><span class="rag-dot is-amber"></span><strong>Project Health</strong><span>Amber</span></div>
+                <div class="status-card-rag-item"><span class="rag-dot is-green"></span><strong>Health Trend</strong><span>Improving</span></div>
+              </div>
+              <div class="status-card-health">
+                <span class="status-pill"><span class="rag-dot is-green"></span>Scope</span>
+                <span class="status-pill"><span class="rag-dot is-amber"></span>Schedule</span>
+                <span class="status-pill"><span class="rag-dot is-green"></span>Budget</span>
+              </div>
+            </div>
+
+            <div class="status-card-section">
+              <div class="status-card-label">Milestones &amp; Achievements</div>
+              <div class="status-card-columns">
+                <div class="status-card-column">
+                  <div class="status-card-sublabel">Milestones</div>
+                  <div class="status-card-list">
+                    <div class="status-card-list-row">
+                      <svg width="8" height="8" viewBox="0 0 8 8" aria-hidden="true"><circle cx="4" cy="4" r="4" fill="var(--accent-strong)"/></svg>
+                      <svg width="70" height="9" viewBox="0 0 120 10" preserveAspectRatio="none" aria-hidden="true"><path d="M2,5 q6,-4 12,0 t12,0 t12,0 t12,0 t12,0 t12,0 t12,0 t12,0 t12,0" stroke="var(--border)" stroke-width="2" fill="none" stroke-linecap="round"/></svg>
+                    </div>
+                    <div class="status-card-list-row">
+                      <svg width="8" height="8" viewBox="0 0 8 8" aria-hidden="true"><circle cx="4" cy="4" r="4" fill="none" stroke="var(--border)" stroke-width="1.5"/></svg>
+                      <svg width="55" height="9" viewBox="0 0 120 10" preserveAspectRatio="none" aria-hidden="true"><path d="M2,5 q6,-4 12,0 t12,0 t12,0 t12,0 t12,0 t12,0 t12,0 t12,0 t12,0" stroke="var(--border)" stroke-width="2" fill="none" stroke-linecap="round"/></svg>
+                    </div>
+                  </div>
+                </div>
+                <div class="status-card-column">
+                  <div class="status-card-sublabel">Achievements</div>
+                  <div class="status-card-list">
+                    <div class="status-card-list-row">
+                      <svg width="11" height="10" viewBox="0 0 13 11" aria-hidden="true"><path d="M1.5 6 L5 9.5 L11.5 1.5" stroke="var(--accent-strong)" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                      <svg width="100" height="9" viewBox="0 0 120 10" preserveAspectRatio="none" aria-hidden="true"><path d="M2,5 q6,-4 12,0 t12,0 t12,0 t12,0 t12,0 t12,0 t12,0 t12,0 t12,0" stroke="var(--border)" stroke-width="2" fill="none" stroke-linecap="round"/></svg>
+                    </div>
+                    <div class="status-card-list-row">
+                      <svg width="11" height="10" viewBox="0 0 13 11" aria-hidden="true"><path d="M1.5 6 L5 9.5 L11.5 1.5" stroke="var(--accent-strong)" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                      <svg width="75" height="9" viewBox="0 0 120 10" preserveAspectRatio="none" aria-hidden="true"><path d="M2,5 q6,-4 12,0 t12,0 t12,0 t12,0 t12,0 t12,0 t12,0 t12,0 t12,0" stroke="var(--border)" stroke-width="2" fill="none" stroke-linecap="round"/></svg>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="status-card-section">
+              <div class="status-card-columns">
+                <div class="status-card-column">
+                  <div class="status-card-label">Task Progress</div>
+                  <div class="donut-row">
+                    <svg width="68" height="68" viewBox="0 0 68 68" aria-hidden="true">
+                      <circle cx="34" cy="34" r="25" fill="none" stroke="var(--bg-sidebar)" stroke-width="9"/>
+                      <circle cx="34" cy="34" r="25" fill="none" stroke="var(--accent-strong)" stroke-width="9" stroke-dasharray="102.1 54.98" stroke-dashoffset="0" transform="rotate(-90 34 34)"/>
+                      <circle cx="34" cy="34" r="25" fill="none" stroke="var(--accent)" stroke-width="9" stroke-dasharray="15.71 141.37" stroke-dashoffset="-102.1" transform="rotate(-90 34 34)"/>
+                      <circle cx="34" cy="34" r="25" fill="none" stroke="var(--border)" stroke-width="9" stroke-dasharray="39.27 117.81" stroke-dashoffset="-117.81" transform="rotate(-90 34 34)"/>
+                      <text x="34" y="32" text-anchor="middle" font-family="var(--font-heading)" font-weight="700" font-size="13" fill="var(--text-heading)">65%</text>
+                      <text x="34" y="42" text-anchor="middle" font-family="var(--font-body)" font-size="6" fill="var(--text-caption)">Complete</text>
+                    </svg>
+                    <div class="donut-legend">
+                      <div class="donut-legend-item"><span class="donut-swatch is-complete"></span>Complete<strong>65%</strong></div>
+                      <div class="donut-legend-item"><span class="donut-swatch is-atrisk"></span>At Risk<strong>10%</strong></div>
+                      <div class="donut-legend-item"><span class="donut-swatch is-notstarted"></span>Not Started<strong>25%</strong></div>
+                    </div>
+                  </div>
+                </div>
+                <div class="status-card-column">
+                  <div class="status-card-label">Planned vs. Actual</div>
+                  <div class="compare-bars">
+                    <div class="compare-bar-row">
+                      <span class="compare-bar-tag">Planned</span>
+                      <div class="compare-bar-track"><div class="compare-bar-fill is-planned" style="width: 75%;"></div></div>
+                      <span class="compare-bar-value">75%</span>
+                    </div>
+                    <div class="compare-bar-row">
+                      <span class="compare-bar-tag">Actual</span>
+                      <div class="compare-bar-track"><div class="compare-bar-fill" style="width: 65%;"></div></div>
+                      <span class="compare-bar-value">65%</span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="status-card-section">
+              <div class="status-card-label">Budget Summary</div>
+              <div class="status-card-progress">
+                <div class="status-card-progress-label"><span>$184K of $220K spent</span><span>84% utilized</span></div>
+                <div class="status-card-progress-track"><div class="status-card-progress-fill" style="width: 84%;"></div></div>
+              </div>
+            </div>
+
+            <div class="status-card-section">
+              <div class="status-card-label">Key Risks &amp; Issues</div>
+              <div class="status-card-row" style="margin-top: 0; padding-top: 0; border-top: none; display: flex; align-items: flex-start; gap: 8px;">
+                <svg width="16" height="15" viewBox="0 0 16 15" aria-hidden="true" style="flex-shrink: 0; margin-top: 1px;">
+                  <path d="M8 1.5 L15 13.5 L1 13.5 Z" fill="var(--status-amber)" stroke="var(--status-amber)" stroke-width="1" stroke-linejoin="round"/>
+                  <line x1="8" y1="6" x2="8" y2="9.5" stroke="var(--text-heading)" stroke-width="1.6" stroke-linecap="round"/>
+                  <circle cx="8" cy="11.5" r="1" fill="var(--text-heading)"/>
+                </svg>
+                <span><strong>Key Risk —</strong> Vendor API delay could push Schedule a week. Mitigation in progress.</span>
+              </div>
+            </div>
+
+            <div class="status-card-section">
+              <div class="status-card-label">Next Steps</div>
+              <div class="status-card-list">
+                <div class="status-card-list-row">
+                  <svg width="11" height="9" viewBox="0 0 13 10" aria-hidden="true"><path d="M1 5 L11 5 M7 1 L11 5 L7 9" stroke="var(--accent-strong)" stroke-width="1.8" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                  <svg width="90" height="9" viewBox="0 0 120 10" preserveAspectRatio="none" aria-hidden="true"><path d="M2,5 q6,-4 12,0 t12,0 t12,0 t12,0 t12,0 t12,0 t12,0 t12,0 t12,0" stroke="var(--border)" stroke-width="2" fill="none" stroke-linecap="round"/></svg>
+                </div>
+                <div class="status-card-list-row">
+                  <svg width="11" height="9" viewBox="0 0 13 10" aria-hidden="true"><path d="M1 5 L11 5 M7 1 L11 5 L7 9" stroke="var(--accent-strong)" stroke-width="1.8" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                  <svg width="65" height="9" viewBox="0 0 120 10" preserveAspectRatio="none" aria-hidden="true"><path d="M2,5 q6,-4 12,0 t12,0 t12,0 t12,0 t12,0 t12,0 t12,0 t12,0 t12,0" stroke="var(--border)" stroke-width="2" fill="none" stroke-linecap="round"/></svg>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <ul class="explainer-list is-bulleted" style="margin-top: 16px;">
             <li><strong>Project Overview</strong> — name, lead, reporting period, overall status.</li>
-            <li><strong>Health Summary</strong> — scope, schedule, and budget, each flagged on track / at risk / off track, plus an overall progress percentage.</li>
-            <li><strong>Milestone Status</strong> — planned date, actual date, and comments per milestone.</li>
-            <li><strong>Task Progress Summary</strong> — % complete, % at risk, % not started.</li>
+            <li><strong>Health Summary</strong> — overall Project Health and Health Trend as Green / Amber / Red, plus scope, schedule, and budget flagged the same way.</li>
+            <li><strong>Milestones &amp; Achievements</strong> — planned date, actual date, and comments per milestone, alongside what actually got done this period.</li>
+            <li><strong>Task Progress Summary</strong> — % complete, % at risk, % not started, plus Planned vs. Actual against the schedule.</li>
             <li><strong>Budget Summary</strong> — total budget, spend to date, remaining, utilization.</li>
-            <li><strong>Key Achievements</strong> — what actually got done this period.</li>
             <li><strong>Key Risks &amp; Issues</strong> — what's threatening the plan right now.</li>
             <li><strong>Next Steps</strong> — action, owner, due date.</li>
           </ul>
+
+          <blockquote class="pull-quote" style="margin: 20px 0 10px;">
+            <p>"Bad news isn't wine. It doesn't improve with age."</p>
+            <cite>— Colin Powell, <em>It Worked for Me: In Life and Leadership</em></cite>
+          </blockquote>
+          <p>The whole template is really in service of that one line. A red Schedule flag reported in Week 9 is useful — a sponsor can still act on it. The same red flag discovered in Week 11, after two reports quietly said "on track," is a crisis with your name on it. The Health Summary only works if at risk and off track get used as often as they're actually true.</p>
+
+          <button class="try-it-inline-toggle" type="button" aria-expanded="false" aria-controls="status-try-it-collapse">
+            <svg width="16" height="16" viewBox="0 0 24 24" aria-hidden="true">
+              <path d="M12 2 L14.2 9 L21 11 L14.2 13 L12 20 L9.8 13 L3 11 L9.8 9 Z" fill="var(--accent)"/>
+            </svg>
+            Try It
+            <svg class="fw-chevron" width="14" height="14" viewBox="0 0 20 20" aria-hidden="true">
+              <path d="M5 7.5 L10 12.5 L15 7.5" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+          </button>
+          <div class="try-it-collapse" id="status-try-it-collapse">
+            <div class="try-it-box" id="status-try-it">
+              <p>Paste this into ChatGPT, Claude, or whatever AI tool you use:</p>
+              <div class="try-it-prompt" id="status-try-it-prompt">
+                <p>I need a Project Status Report built in this exact format: Project Overview (name, lead, reporting period), Health Summary (overall Project Health and Health Trend, each Green / Amber / Red, plus Scope, Schedule, and Budget flagged the same way), Milestones &amp; Achievements (planned date vs. actual date per milestone, plus what actually got done this period), Task Progress (% complete, % at risk, % not started, plus Planned vs. Actual against the schedule), Budget Summary (total budget, spend to date, remaining, utilization %), Key Risks &amp; Issues, and Next Steps (action, owner, due date).</p>
+                <p>Ask me for my project's name, lead, and reporting period, then walk me through each section one at a time — milestones, what got done, budget numbers, risks, and next steps — and assemble it into the report once you have it.</p>
+                <p>Build the final report as a single self-contained HTML card, not a markdown or chat-only reply — a rounded card container on a soft neutral background, generous padding, dashed hairline rules between sections, small-caps gray eyebrow labels above each section title. Specifically:</p>
+                <ul>
+                  <li><strong>Header:</strong> eyebrow "PROJECT STATUS REPORT", reporting period aligned top-right, project name as a bold headline, lead name and date range as a subtitle line.</li>
+                  <li><strong>Health Summary:</strong> a colored status dot + bold label + value for Project Health and Health Trend, plus Scope/Schedule/Budget shown as separate pill badges, each with its own status dot. Map Green/Amber/Red to a consistent muted color (not primary red/green/yellow) and never rely on color alone — always pair the dot with a text label.</li>
+                  <li><strong>Milestones &amp; Achievements:</strong> two columns — a Milestones list with a filled dot for completed and a hollow dot for pending/in-progress, each showing planned → actual date; and a "Completed this period" list with checkmarks.</li>
+                  <li><strong>Task Progress:</strong> a donut/ring chart with the % complete as the center number, segmented into complete / at risk / not started, with a small legend giving exact percentages under it.</li>
+                  <li><strong>Planned vs. Actual:</strong> two horizontal progress bars stacked (Planned shown with a lighter hatched or outlined fill, Actual as a solid fill), each labeled with its percentage.</li>
+                  <li><strong>Budget Summary:</strong> a spend line ("$X of $Y spent" plus "Z% utilized") over a single horizontal utilization bar.</li>
+                  <li><strong>Key Risks &amp; Issues:</strong> a warning-triangle icon beside each risk/issue, bolding the risk name, with a small severity tag.</li>
+                  <li><strong>Next Steps:</strong> an arrow icon beside each action, with owner and due date as a smaller line underneath.</li>
+                </ul>
+                <p>Push back if I hand you a vague status instead of a real one, and don't round a flag up to Green just because I'd rather it looked that way.</p>
+              </div>
+              <button class="try-it-copy" type="button" data-copy-target="status-try-it-prompt">Copy prompt</button>
+            </div>
+          </div>
+
+          <a class="back-to-top" href="#status-report"><svg width="9" height="9" viewBox="0 0 12 12" aria-hidden="true"><path d="M6 10 L6 2 M2.5 5.5 L6 2 L9.5 5.5" stroke="var(--accent-strong)" stroke-width="1.8" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg>Top</a>
         </div>
       </div>
 
@@ -624,25 +847,31 @@
           <ul class="explainer-list is-bulleted" style="margin-top: 10px;">
             <li><strong>Context</strong> — why this work exists, in plain language.</li>
             <li><strong>Requirements</strong> — what "done" actually means to the receiving team.</li>
+            <li><strong>Documentation</strong> — links to specs, decisions, and artifacts the receiving team needs, not tribal knowledge in someone's head.</li>
             <li><strong>Status</strong> — exactly where things stand right now, no rounding up.</li>
             <li><strong>Owner</strong> — a named person, not a team name.</li>
             <li><strong>Next Steps</strong> — the very next action, and who's taking it.</li>
           </ul>
           <p style="margin-top: 10px; font-style: italic;">One team. One flow. One outcome.</p>
+          <button class="try-it-inline-toggle" type="button" aria-expanded="false" aria-controls="handoffs-try-it-collapse">
+            <svg width="16" height="16" viewBox="0 0 24 24" aria-hidden="true">
+              <path d="M12 2 L14.2 9 L21 11 L14.2 13 L12 20 L9.8 13 L3 11 L9.8 9 Z" fill="var(--accent)"/>
+            </svg>
+            Try It
+            <svg class="fw-chevron" width="14" height="14" viewBox="0 0 20 20" aria-hidden="true">
+              <path d="M5 7.5 L10 12.5 L15 7.5" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+          </button>
+          <div class="try-it-collapse" id="handoffs-try-it-collapse">
+            <div class="try-it-box" id="handoffs-try-it">
+              <p>Paste this into ChatGPT, Claude, or whatever AI tool you use:</p>
+              <div class="try-it-prompt" id="handoffs-try-it-prompt">I'm handing this work off to another team. Walk me through what this handoff needs: Context (why this work exists, in plain language), Requirements (what "done" actually means to the receiving team), Documentation (links to specs, decisions, and artifacts they'll need — not tribal knowledge), Status (exactly where things stand right now, no rounding up), Owner (a named person, not a team name), and Next Steps (the very next action, and who's taking it). Push back if I leave Owner as a team name, or if Status is vaguer than "on track."</div>
+              <button class="try-it-copy" type="button" data-copy-target="handoffs-try-it-prompt">Copy prompt</button>
+            </div>
+          </div>
+          <a class="back-to-top" href="#project-handoffs"><svg width="9" height="9" viewBox="0 0 12 12" aria-hidden="true"><path d="M6 10 L6 2 M2.5 5.5 L6 2 L9.5 5.5" stroke="var(--accent-strong)" stroke-width="1.8" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg>Top</a>
         </div>
       </div>
-    </div>
-
-    <div class="try-it-box" id="try-it">
-      <div class="try-it-header">
-        <svg width="24" height="24" viewBox="0 0 24 24" aria-hidden="true">
-          <path d="M12 2 L14.2 9 L21 11 L14.2 13 L12 20 L9.8 13 L3 11 L9.8 9 Z" fill="var(--accent)"/>
-        </svg>
-        <h2>Try It</h2>
-      </div>
-      <p>Paste this into ChatGPT, Claude, or whatever AI tool you use:</p>
-      <div class="try-it-prompt" id="try-it-prompt">I'm kicking off a new project. Ask me about the problem I'm trying to solve, then help me draft a Project Charter — problem statement, goal, scope, team, timeline, metrics, and risks. Once that's done, help me build a simple RACI so everyone knows who owns what.</div>
-      <button class="try-it-copy" type="button" data-copy-target="try-it-prompt">Copy prompt</button>
     </div>
   </main>
 </div>
@@ -655,7 +884,7 @@
   <button data-theme="a" title="Kinetic Signal — black &amp; yellow"></button>
   <button data-theme="b" title="Studio Ledger — dusty rose"></button>
   <button data-theme="c" title="Bright Margin — lime"></button>
-  <a class="icon-lib-link" href="icon-library.html" title="Icon Library (internal reference)">
+  <a class="icon-lib-link" href="icon-library.html" title="Style Guide (internal reference)">
     <svg width="14" height="14" viewBox="0 0 14 14" aria-hidden="true">
       <rect x="1" y="1" width="5" height="5" rx="1" fill="currentColor"/>
       <rect x="8" y="1" width="5" height="5" rx="1" fill="currentColor"/>

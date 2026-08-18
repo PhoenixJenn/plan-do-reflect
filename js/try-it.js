@@ -1,5 +1,8 @@
 /* Copies the .try-it-prompt text into the clipboard when its .try-it-copy
-   button is clicked, with brief "Copied!" feedback on the button itself. */
+   button is clicked, with brief "Copied!" feedback on the button itself.
+   Uses innerText (not textContent) so a prompt built from <p>/<ul><li>
+   (e.g. the Status Report prompt's formatting spec) copies with its line
+   breaks intact instead of collapsing into one run-on line. */
 (function () {
   function showCopied(btn) {
     var original = btn.textContent;
@@ -28,7 +31,7 @@
         var targetId = btn.getAttribute('data-copy-target');
         var el = document.getElementById(targetId);
         if (!el) return;
-        var text = el.textContent.trim();
+        var text = (el.innerText || el.textContent).trim();
 
         if (navigator.clipboard && navigator.clipboard.writeText) {
           navigator.clipboard.writeText(text).then(function () {

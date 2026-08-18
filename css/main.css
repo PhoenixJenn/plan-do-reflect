@@ -13,6 +13,8 @@
 
 * { box-sizing: border-box; margin: 0; padding: 0; }
 
+html { scroll-behavior: smooth; }
+
 body {
   font-family: var(--font-body);
   background: var(--bg-page);
@@ -132,6 +134,8 @@ body {
 }
 
 .tag {
+  display: inline-flex;
+  align-items: center;
   font-size: 0.68rem;
   font-weight: 700;
   letter-spacing: 0.02em;
@@ -1342,6 +1346,8 @@ body {
 }
 
 .reflect-index-item {
+  display: inline-flex;
+  align-items: center;
   font-family: var(--font-body);
   font-size: 0.82rem;
   font-weight: 600;
@@ -1443,6 +1449,30 @@ body {
   margin-top: 4px;
   padding-top: 0;
   border-top: none;
+}
+
+/* ---------- Back to top — subtle link at the end of a long section's
+   content, jumping back to that section's own heading rather than the
+   page top. ---------- */
+.back-to-top {
+  display: flex;
+  width: fit-content;
+  margin-left: auto;
+  align-items: center;
+  gap: 4px;
+  margin-top: 20px;
+  font-size: 0.76rem;
+  font-weight: 600;
+  color: var(--text-caption);
+  text-decoration: none;
+}
+
+.back-to-top:hover {
+  color: var(--accent-strong);
+}
+
+.back-to-top svg {
+  flex-shrink: 0;
 }
 
 /* ---------- Framework accordion — modifier for content-dense pages (e.g.
@@ -1731,6 +1761,8 @@ body {
 }
 
 .explainer-tab {
+  display: inline-flex;
+  align-items: center;
   font-family: var(--font-body);
   font-size: 0.86rem;
   font-weight: 600;
@@ -2026,7 +2058,7 @@ body {
 }
 
 .try-it-collapse.is-open {
-  max-height: 600px;
+  max-height: 2000px;
 }
 
 .try-it-collapse .try-it-box {
@@ -2087,6 +2119,30 @@ body {
   margin-bottom: 12px;
 }
 
+/* Most Try It prompts are one flowing paragraph (plain text node). A few
+   longer ones (e.g. Status Report's formatting spec) are structured with
+   real <p>/<ul><li> instead, so the shape stays readable — copy behavior
+   for these relies on innerText, see try-it.js. */
+.try-it-prompt p {
+  margin-bottom: 10px;
+}
+
+.try-it-prompt p:last-child {
+  margin-bottom: 0;
+}
+
+.try-it-prompt ul {
+  margin: 2px 0 10px 20px;
+}
+
+.try-it-prompt li {
+  margin-bottom: 5px;
+}
+
+.try-it-prompt li:last-child {
+  margin-bottom: 0;
+}
+
 .try-it-copy {
   font-family: var(--font-body);
   font-weight: 700;
@@ -2106,4 +2162,297 @@ body {
 .try-it-copy.is-copied {
   background: var(--bg-sidebar);
   color: var(--text-caption);
+}
+
+/* ---------- Status card — mini "at a glance" mockup previewing the top
+   of an actual status report (Project Status Report Template). ---------- */
+.status-card {
+  margin-top: 16px;
+  max-width: 480px;
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  background: var(--bg-content);
+  padding: 14px 16px;
+}
+
+.status-card-header {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 10px;
+  padding-bottom: 10px;
+  border-bottom: 1px solid var(--border);
+  margin-bottom: 10px;
+}
+
+.status-card-eyebrow {
+  font-size: 0.62rem;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--text-caption);
+  margin-bottom: 2px;
+}
+
+.status-card-title {
+  font-family: var(--font-heading);
+  font-weight: 700;
+  font-size: 0.94rem;
+  color: var(--text-heading);
+}
+
+.status-card-period {
+  font-size: 0.7rem;
+  color: var(--text-caption);
+  white-space: nowrap;
+}
+
+.status-card-health {
+  display: flex;
+  gap: 8px;
+  flex-wrap: wrap;
+  margin-bottom: 12px;
+}
+
+.status-pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  padding: 4px 9px;
+  border-radius: 999px;
+  border: 1.5px solid var(--border);
+  font-size: 0.68rem;
+  font-weight: 700;
+  color: var(--text-caption);
+}
+
+.status-pill .rag-dot {
+  margin-right: 1px;
+}
+
+.status-card-progress-label {
+  display: flex;
+  justify-content: space-between;
+  font-size: 0.7rem;
+  font-weight: 600;
+  color: var(--text-caption);
+  margin-bottom: 5px;
+}
+
+.status-card-progress-track {
+  height: 7px;
+  border-radius: 999px;
+  background: var(--bg-sidebar);
+  overflow: hidden;
+}
+
+.status-card-progress-fill {
+  height: 100%;
+  border-radius: 999px;
+  background: var(--accent-strong);
+}
+
+.status-card-row {
+  margin-top: 12px;
+  padding-top: 10px;
+  border-top: 1px dashed var(--border);
+  font-size: 0.76rem;
+  line-height: 1.5;
+  color: var(--text-body);
+}
+
+/* ---------- Status card additions — header badge/lead, dashed section
+   dividers, skeleton "squiggle" placeholders for prose fields, donut
+   chart (Task Progress, 3 segments), and Planned vs. Actual mini bars. ---------- */
+.status-card-header {
+  align-items: flex-start;
+}
+
+.status-card-title-group {
+  display: flex;
+  flex-direction: column;
+  gap: 3px;
+}
+
+.status-card-lead {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.status-card-lead-tag {
+  font-size: 0.66rem;
+  color: var(--text-caption);
+}
+
+.status-card-section {
+  margin-top: 14px;
+  padding-top: 12px;
+  border-top: 1px dashed var(--border);
+}
+
+.status-card-label {
+  font-size: 0.63rem;
+  font-weight: 700;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  color: var(--text-caption);
+  margin-bottom: 9px;
+}
+
+.status-card-sublabel {
+  font-size: 0.66rem;
+  font-weight: 700;
+  color: var(--text-caption);
+  margin-bottom: 7px;
+}
+
+.status-card-list {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.status-card-list-row {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.status-card-list-row svg {
+  flex-shrink: 0;
+}
+
+.donut-row {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  flex-wrap: wrap;
+}
+
+.donut-legend {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.donut-legend-item {
+  display: flex;
+  align-items: center;
+  gap: 7px;
+  font-size: 0.74rem;
+  color: var(--text-body);
+}
+
+.donut-legend-item strong {
+  margin-left: auto;
+  padding-left: 14px;
+  color: var(--text-heading);
+}
+
+.donut-swatch {
+  width: 9px;
+  height: 9px;
+  border-radius: 50%;
+  flex-shrink: 0;
+}
+
+.donut-swatch.is-complete { background: var(--accent-strong); }
+.donut-swatch.is-atrisk { background: var(--accent); }
+.donut-swatch.is-notstarted { background: none; border: 1.5px solid var(--border); }
+
+.compare-bars {
+  display: flex;
+  flex-direction: column;
+  gap: 9px;
+}
+
+.compare-bar-row {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.compare-bar-tag {
+  width: 48px;
+  flex-shrink: 0;
+  font-size: 0.68rem;
+  font-weight: 600;
+  color: var(--text-caption);
+}
+
+.compare-bar-track {
+  flex: 1;
+  min-width: 90px;
+  height: 8px;
+  border-radius: 999px;
+  background: var(--bg-sidebar);
+  overflow: hidden;
+}
+
+.compare-bar-fill {
+  height: 100%;
+  border-radius: 999px;
+  background: var(--accent-strong);
+  box-sizing: border-box;
+}
+
+.compare-bar-fill.is-planned {
+  background: none;
+  border: 1.5px dashed var(--border);
+}
+
+.compare-bar-value {
+  width: 30px;
+  flex-shrink: 0;
+  text-align: right;
+  font-size: 0.7rem;
+  font-weight: 700;
+  color: var(--text-heading);
+}
+
+/* ---------- RAG (Red/Amber/Green) status dots — Health Summary. ---------- */
+.rag-dot {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  flex-shrink: 0;
+  display: inline-block;
+}
+
+.rag-dot.is-green { background: var(--status-green); }
+.rag-dot.is-amber { background: var(--status-amber); }
+.rag-dot.is-red { background: var(--status-red); }
+
+.status-card-rag-row {
+  display: flex;
+  gap: 18px;
+  flex-wrap: wrap;
+  margin-bottom: 10px;
+}
+
+.status-card-rag-item {
+  display: flex;
+  align-items: center;
+  gap: 7px;
+  font-size: 0.76rem;
+}
+
+.status-card-rag-item strong {
+  color: var(--text-heading);
+}
+
+.status-card-rag-item span:last-child {
+  color: var(--text-caption);
+}
+
+.status-card-columns {
+  display: flex;
+  gap: 22px;
+  flex-wrap: wrap;
+}
+
+.status-card-column {
+  flex: 1;
+  min-width: 150px;
 }

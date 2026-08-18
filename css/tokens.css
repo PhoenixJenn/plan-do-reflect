@@ -25,6 +25,13 @@
      which renders as real calligraphy on most systems. That's exactly
      what happened once already; load it everywhere so it can't recur. */
   --font-hand: 'Patrick Hand', cursive;
+
+  /* Red/Amber/Green status convention — universal traffic-light meaning,
+     so unlike --accent these stay fixed across all three theme directions
+     rather than being redefined per [data-theme]. */
+  --status-green: #16a34a;
+  --status-amber: #f59e0b;
+  --status-red: #dc2626;
 }
 
 /* ---------- Direction A — Kinetic Signal (gray / black / bright yellow) — default ---------- */
