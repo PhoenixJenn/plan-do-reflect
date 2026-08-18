@@ -1,10 +1,16 @@
 /* Wires up .framework-item.is-accordion sections (used on content-dense
    pages like project-program-management.html) — click a .fw-toggle to
    show/hide its .fw-body. Jumping straight to a section via URL hash or
-   a sidebar anchor auto-expands it, so the target isn't hidden collapsed.
+   a sidebar anchor auto-expands it, so the target isn't hidden collapsed —
+   including when the hash targets a sub-section anchor nested inside a
+   merged item (e.g. #critical-path inside "The Project Plan"), which
+   climbs to the nearest .framework-item ancestor before opening it.
    Also wires up standalone .try-it-inline-toggle buttons (a nested Try It
-   prompt inside a section, e.g. Project Charter) — collapsed independently
-   of the parent section's own open/closed state.
+   prompt inside a section, e.g. Project Charter) and the generic
+   .inline-toggle (any other optional/deeper content tucked away by
+   default, e.g. the enterprise risk framework inside Risk Management) —
+   both collapse independently of the parent section's own open/closed
+   state, sharing the same toggle handler.
    No-ops on pages without this markup. */
 (function () {
   document.addEventListener('DOMContentLoaded', function () {
@@ -25,8 +31,8 @@
       });
     });
 
-    var tryItToggles = Array.prototype.slice.call(document.querySelectorAll('.try-it-inline-toggle'));
-    tryItToggles.forEach(function (btn) {
+    var inlineToggles = Array.prototype.slice.call(document.querySelectorAll('.try-it-inline-toggle, .inline-toggle'));
+    inlineToggles.forEach(function (btn) {
       var collapse = document.getElementById(btn.getAttribute('aria-controls'));
       if (!collapse) return;
       btn.addEventListener('click', function () {
@@ -41,8 +47,14 @@
       if (!hash) return;
       var target;
       try { target = document.querySelector(hash); } catch (e) { return; }
-      if (target && target.classList.contains('framework-item')) {
-        setOpen(target, true);
+      if (!target) return;
+      // The hash target may be a sub-section anchor nested inside a
+      // merged framework-item (e.g. #critical-path inside "The Project
+      // Plan") rather than a framework-item itself — climb to the
+      // nearest one so its parent section opens too.
+      var item = target.classList.contains('framework-item') ? target : target.closest('.framework-item');
+      if (item) {
+        setOpen(item, true);
         target.scrollIntoView();
       }
     }

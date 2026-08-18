@@ -55,12 +55,10 @@
         <a class="sub-item active" href="project-program-management.html">Project &amp; Program Management</a>
         <div class="sub-sub-list">
           <a class="sub-sub-item" href="#project-charter">Project Charter</a>
-          <a class="sub-sub-item" href="#strategy-vs-plan">Strategy vs. Plan</a>
-          <a class="sub-sub-item" href="#scope-to-execution">Scope to Execution</a>
           <a class="sub-sub-item" href="#raci-daci">RACI / DACI</a>
-          <a class="sub-sub-item" href="#capacity-gotchas">Capacity Gotchas</a>
-          <a class="sub-sub-item" href="#critical-path">Critical Path Method</a>
-          <a class="sub-sub-item" href="#risk-management">Risk Management</a>
+          <a class="sub-sub-item" href="#strategy-vs-plan">Strategy vs. Plan</a>
+          <a class="sub-sub-item" href="#the-project-plan">The Project Plan</a>
+          <a class="sub-sub-item" href="#scope-to-execution">Scope to Execution</a>
           <a class="sub-sub-item" href="#status-report">Status Report</a>
           <a class="sub-sub-item" href="#project-handoffs">Project Handoffs</a>
         </div>
@@ -82,7 +80,7 @@
       <p class="lede">Planning a specific initiative before you run it — from a fuzzy idea to a chartered, resourced, trackable piece of work.</p>
       <div class="tag-row" style="margin-top: 14px; margin-bottom: 0;">
         <span class="tag primary">Processes</span>
-        <span class="tag secondary">9 frameworks</span>
+        <span class="tag secondary">7 frameworks</span>
         <a class="try-it-quicklink" href="#try-it">
           <svg width="14" height="14" viewBox="0 0 24 24" aria-hidden="true">
             <path d="M12 2 L14.2 9 L21 11 L14.2 13 L12 20 L9.8 13 L3 11 L9.8 9 Z" fill="currentColor"/>
@@ -160,16 +158,49 @@
           <div class="try-it-collapse" id="charter-try-it-collapse">
             <div class="try-it-box" id="charter-try-it">
               <p>Paste this into ChatGPT, Claude, or whatever AI tool you use:</p>
-              <div class="try-it-prompt" id="charter-try-it-prompt">I'm kicking off a new project. Ask me about the problem I'm trying to solve, then walk me through drafting a Project Charter one field at a time — Problem Statement, Goal, Business Case, Scope, Tenets, Team, Timeline, Metrics, and Risks. Push back if any of my answers are too vague.</div>
+              <div class="try-it-prompt" id="charter-try-it-prompt">I'm kicking off a new project. Ask me about the problem I'm trying to solve, then walk me through drafting a Project Charter one field at a time — Problem Statement, Goal, Business Case, Scope, Tenets (short guiding principles for decisions the charter doesn't spell out — "unless you know better ones"), Team, Timeline, Metrics, and Risks. Push back if any of my answers are too vague.</div>
               <button class="try-it-copy" type="button" data-copy-target="charter-try-it-prompt">Copy prompt</button>
             </div>
           </div>
         </div>
       </div>
 
+      <div class="framework-item is-accordion" id="raci-daci">
+        <button class="fw-toggle" type="button" aria-expanded="false" aria-controls="raci-daci-body">
+          <div class="fw-num">2</div>
+          <div class="fw-toggle-text">
+            <h3>RACI &amp; DACI</h3>
+            <p class="fw-teaser">Who's responsible for what, and who makes the call.</p>
+          </div>
+          <svg class="fw-chevron" width="18" height="18" viewBox="0 0 20 20" aria-hidden="true">
+            <path d="M5 7.5 L10 12.5 L15 7.5" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+        </button>
+        <div class="fw-body" id="raci-daci-body">
+          <p>Two role-clarity frameworks that answer different questions — RACI answers "who is responsible for what," DACI answers "who makes the call." Build the matrix at project kickoff, not after confusion has already set in — the same moment you're settling the Charter's Team field, just at full depth.</p>
+          <div class="compare-table-wrap">
+            <table class="compare-table">
+              <thead>
+                <tr><th></th><th>RACI</th><th>DACI</th></tr>
+              </thead>
+              <tbody>
+                <tr><th scope="row">What it is</th><td>Responsibility Assignment Matrix — clearly assigns roles across tasks</td><td>Decision-making framework — structures who decides and how</td></tr>
+                <tr><th scope="row">Roles</th><td><strong>R</strong>esponsible (does the work)<br><strong>A</strong>ccountable (owns the outcome)<br><strong>C</strong>onsulted (gives input)<br><strong>I</strong>nformed (kept in the loop)</td><td><strong>D</strong>river (moves it forward)<br><strong>A</strong>pprover (makes the call)<br><strong>C</strong>ontributor (gives expertise)<br><strong>I</strong>nformed (notified after)</td></tr>
+                <tr><th scope="row">When to use</th><td>Project management, team onboarding, recurring processes, cross-functional tasks</td><td>Strategic decisions, product roadmaps, budget approvals, resolving conflicts</td></tr>
+                <tr><th scope="row">Best practice</th><td>Only one Accountable per task — never two. Multiple Responsible is fine.</td><td>Only one Approver — shared approval stalls decisions. Limit Contributors to 3–5.</td></tr>
+              </tbody>
+            </table>
+          </div>
+          <div class="example-box">
+            <div class="example-label">Example — Launching a New Product</div>
+            <p><strong>R:</strong> Product Manager writes specs and coordinates development.<br><strong>A:</strong> Head of Product is accountable for launch success.<br><strong>C:</strong> Design, Engineering, and Legal review and give feedback.<br><strong>I:</strong> Sales and Support are notified when it goes live.</p>
+          </div>
+        </div>
+      </div>
+
       <div class="framework-item is-accordion" id="strategy-vs-plan">
         <button class="fw-toggle" type="button" aria-expanded="false" aria-controls="strategy-vs-plan-body">
-          <div class="fw-num">2</div>
+          <div class="fw-num">3</div>
           <div class="fw-toggle-text">
             <h3>Project Strategy vs. Project Plan</h3>
             <p class="fw-teaser">The critical difference most project leaders miss.</p>
@@ -212,8 +243,195 @@
           <div class="try-it-collapse" id="strategy-try-it-collapse">
             <div class="try-it-box" id="strategy-try-it">
               <p>Paste this into ChatGPT, Claude, or whatever AI tool you use:</p>
-              <div class="try-it-prompt" id="strategy-try-it-prompt">I need to define the Strategy for a project, not just write a plan for it. Ask me what problem I'm actually trying to solve — the real diagnosis, not a goal in disguise — then push me to name the why behind it before we touch any how. Once that's solid, help me write a guiding policy: the overall approach I'm choosing and why it beats the alternatives. Only then, sketch the first few coherent actions that follow from it, and call out anything that's really just a task list or a vision statement wearing a strategy costume.</div>
+              <div class="try-it-prompt" id="strategy-try-it-prompt">I need to define the Strategy for a project, not just write a plan for it. If I have a Project Charter from earlier, I'll paste it in — use the Problem Statement and Business Case as a starting point, but push past them to the real diagnosis, not a goal in disguise. Otherwise, ask me what problem I'm actually trying to solve, then push me to name the why behind it before we touch any how. Once that's solid, help me write a guiding policy: the overall approach I'm choosing and why it beats the alternatives. Only then, sketch the first few coherent actions that follow from it, and call out anything that's really just a task list or a vision statement wearing a strategy costume.</div>
               <button class="try-it-copy" type="button" data-copy-target="strategy-try-it-prompt">Copy prompt</button>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="framework-item is-accordion" id="the-project-plan">
+        <button class="fw-toggle" type="button" aria-expanded="false" aria-controls="the-project-plan-body">
+          <div class="fw-num">4</div>
+          <div class="fw-toggle-text">
+            <h3>The Project Plan</h3>
+            <p class="fw-teaser">Checkpoints, the schedule, the reality check, and what could go wrong.</p>
+          </div>
+          <svg class="fw-chevron" width="18" height="18" viewBox="0 0 20 20" aria-hidden="true">
+            <path d="M5 7.5 L10 12.5 L15 7.5" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+        </button>
+        <div class="fw-body" id="the-project-plan-body">
+          <p>Once Strategy has settled the why, this is where the how actually gets built: checkpoints along the way, a sequenced schedule between them, checked against real capacity, with a risk register for what could still break it.</p>
+
+          <h4 class="fw-subhead" id="milestones">Milestones &amp; Checkpoints <span class="decomp-agile-tag">Sprint Review / Increment</span></h4>
+          <p>A schedule tells you when things finish. Milestones tell you whether the project is actually working before it's too late to change course — checkpoints where you can show something real, not just report a status. The best ones deliver measurable value on their own, not just progress toward some future deliverable.</p>
+          <div class="milestone-track">
+            <div class="milestone-stop">
+              <div class="milestone-dot"></div>
+              <h5>Kickoff</h5>
+              <p>Charter signed, team staffed</p>
+            </div>
+            <div class="milestone-stop">
+              <div class="milestone-dot"></div>
+              <h5>First Increment</h5>
+              <p>Something a real user could actually touch</p>
+            </div>
+            <div class="milestone-stop">
+              <div class="milestone-dot"></div>
+              <h5>Checkpoint Review</h5>
+              <p>Compare against the plan, adjust if needed</p>
+            </div>
+            <div class="milestone-stop">
+              <div class="milestone-dot"></div>
+              <h5>Launch</h5>
+              <p>The outcome actually ships</p>
+            </div>
+          </div>
+
+          <h4 class="fw-subhead" id="critical-path">Critical Path Method</h4>
+          <p>The critical path is the longest chain of dependent tasks in a project — the sequence that determines the earliest possible finish date. It's not always the path with the biggest individual tasks; it's whichever path adds up to the most days total. Every other path has slack — room to slip a little without moving the finish date.</p>
+
+          <div class="critical-path-diagram">
+            <svg viewBox="0 0 420 170" width="100%" style="max-width: 420px;" aria-hidden="true">
+              <path d="M40,130 L150,130 L370,85" fill="none" stroke="var(--border)" stroke-width="2.5" stroke-dasharray="5 4" stroke-linecap="round" stroke-linejoin="round"/>
+              <path d="M40,50 L150,50 L260,50 L370,85" fill="none" stroke="var(--accent-strong)" stroke-width="3.5" fill-opacity="0" stroke-linecap="round" stroke-linejoin="round"/>
+
+              <circle cx="40" cy="50" r="14" fill="var(--accent)" stroke="var(--accent-strong)" stroke-width="2"/>
+              <text x="40" y="54" text-anchor="middle" font-family="var(--font-heading)" font-weight="700" font-size="9" fill="var(--accent-strong)">S</text>
+
+              <circle cx="150" cy="50" r="14" fill="var(--bg-content)" stroke="var(--accent-strong)" stroke-width="2.5"/>
+              <text x="150" y="54" text-anchor="middle" font-family="var(--font-heading)" font-weight="700" font-size="9" fill="var(--text-heading)">A</text>
+
+              <circle cx="260" cy="50" r="14" fill="var(--bg-content)" stroke="var(--accent-strong)" stroke-width="2.5"/>
+              <text x="260" y="54" text-anchor="middle" font-family="var(--font-heading)" font-weight="700" font-size="9" fill="var(--text-heading)">B</text>
+
+              <circle cx="150" cy="130" r="14" fill="var(--bg-content)" stroke="var(--border)" stroke-width="2"/>
+              <text x="150" y="134" text-anchor="middle" font-family="var(--font-heading)" font-weight="700" font-size="9" fill="var(--text-caption)">C</text>
+
+              <circle cx="370" cy="85" r="14" fill="var(--accent)" stroke="var(--accent-strong)" stroke-width="2"/>
+              <text x="370" y="89" text-anchor="middle" font-family="var(--font-heading)" font-weight="700" font-size="9" fill="var(--accent-strong)">E</text>
+
+              <text x="95" y="42" text-anchor="middle" font-family="var(--font-body)" font-size="9" fill="var(--text-caption)">3d</text>
+              <text x="205" y="42" text-anchor="middle" font-family="var(--font-body)" font-size="9" fill="var(--text-caption)">5d</text>
+              <text x="95" y="146" text-anchor="middle" font-family="var(--font-body)" font-size="9" fill="var(--text-caption)">2d</text>
+              <text x="260" y="146" text-anchor="middle" font-family="var(--font-body)" font-size="9" fill="var(--text-caption)">4d</text>
+            </svg>
+            <div class="critical-path-legend">
+              <span class="critical-path-legend-item"><span class="critical-path-swatch is-critical"></span>Critical path (S→A→B→E) — 8 days, zero slack</span>
+              <span class="critical-path-legend-item"><span class="critical-path-swatch is-slack"></span>Parallel path (S→C→E) — 6 days, 2 days of slack</span>
+            </div>
+          </div>
+
+          <p style="margin-top: 12px;">Those day counts have to come from somewhere. Most teams get them from <strong>Story Pointing</strong> — sizing each task's relative effort, often on a Fibonacci-ish scale (1, 2, 3, 5, 8, 13), then converting points to rough duration once the team's actual velocity is known. Get the points wrong and the whole critical path is fiction, however precise it looks on a chart.</p>
+
+          <div class="doodle-note">
+            <div class="doodle-row" style="align-items: center;">
+              <svg width="30" height="30" viewBox="0 0 28 28" aria-hidden="true">
+                <circle cx="22" cy="6" r="3.2" fill="none" stroke="var(--accent)" stroke-width="2"/>
+                <circle cx="22" cy="6" r="0.9" fill="var(--accent-strong)"/>
+                <path d="M5 23 L17 10" stroke="var(--accent-strong)" stroke-width="2.2" stroke-linecap="round" stroke-dasharray="1 3.4"/>
+                <path d="M14.5 12.5 L17 10 L18 13.2" stroke="var(--accent-strong)" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+              </svg>
+              <div class="annotation">Tracer Bullets</div>
+            </div>
+            <p>From <em>The Pragmatic Programmer</em>: before fully building out every task on the critical path, build a thin, working version that touches every node from Start to End — even if each piece is bare-bones. It proves the sequence and dependencies actually hold before real effort gets sunk into any one of them. Named for tracer ammunition: you see immediately whether you're aiming right, not just whether the gun fired.</p>
+          </div>
+
+          <p style="margin-top: 12px;">Five ways to compress the critical path without losing quality:</p>
+          <ul class="explainer-list is-bulleted" style="margin-top: 10px;">
+            <li><strong>Re-sequence tasks</strong> — adjust the order of dependent tasks to eliminate unnecessary waiting.</li>
+            <li><strong>Overlap work carefully</strong> — start successor tasks before predecessors fully finish, without compromising quality.</li>
+            <li><strong>Add resources selectively</strong> — assign another skilled contributor to the longest-pole tasks specifically.</li>
+            <li><strong>Reduce scope where possible</strong> — cut or simplify non-essential features that sit on the critical path.</li>
+            <li><strong>Remove approval delays</strong> — streamline review and approval steps that are blocking movement, not adding value.</li>
+          </ul>
+          <p style="margin-top: 10px; font-style: italic;">Do not compress work blindly — quality and dependency logic still matter.</p>
+
+          <div class="doodle-note" id="capacity-gotchas">
+            <div class="doodle-row" style="align-items: center;">
+              <div class="annotation">Reality Check</div>
+            </div>
+            <p><strong>Capacity &amp; Resource Planning Gotchas</strong> — not a step you complete once, a standing discipline you keep re-running against the schedule above. Revisit it weekly, not just at kickoff.</p>
+            <div class="gotcha-list">
+              <div class="gotcha-item">
+                <svg width="24" height="24" viewBox="0 0 24 24" aria-hidden="true">
+                  <path d="M6 8 L8 20 Q8 21 9 21 L15 21 Q16 21 16 20 L18 8" fill="none" stroke="var(--accent)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                  <path d="M4 8 H20" stroke="var(--accent)" stroke-width="2" stroke-linecap="round"/>
+                  <path d="M5 5 Q7 2 9 5 Q11 2 13 5 Q15 2 17 5 Q19 2 19 5" fill="none" stroke="var(--accent-strong)" stroke-width="1.8" stroke-linecap="round"/>
+                </svg>
+                <p><strong>Planning at 100% capacity</strong> — leaves no room for interruptions. Fix: plan for 70–80% utilization instead.</p>
+              </div>
+              <div class="gotcha-item">
+                <svg width="24" height="24" viewBox="0 0 24 24" aria-hidden="true">
+                  <rect x="4" y="5" width="16" height="15" rx="2" fill="none" stroke="var(--accent)" stroke-width="2"/>
+                  <path d="M4 9 H20" stroke="var(--accent)" stroke-width="2"/>
+                  <path d="M8 3 V6 M16 3 V6" stroke="var(--accent-strong)" stroke-width="2" stroke-linecap="round"/>
+                  <path d="M12.5 12 A2.7 2.7 0 1 1 12.4 12" stroke="var(--accent-strong)" stroke-width="1.5" fill="none" stroke-linecap="round"/>
+                  <path d="M12.5 10.5 L12.5 12 L13.8 12.6" stroke="var(--accent-strong)" stroke-width="1.5" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+                </svg>
+                <p><strong>Ignoring recurring meetings</strong> — overestimates available hours. Fix: account for standing meetings and reporting commitments.</p>
+              </div>
+              <div class="gotcha-item">
+                <svg width="24" height="24" viewBox="0 0 24 24" aria-hidden="true">
+                  <circle cx="8" cy="12" r="6" fill="var(--accent)"/>
+                  <rect x="13" y="6" width="9" height="9" rx="1.5" fill="none" stroke="var(--accent-strong)" stroke-width="2"/>
+                </svg>
+                <p><strong>Assuming all specialists are interchangeable</strong> — leads to skill gaps. Fix: plan by role and proficiency, not just headcount.</p>
+              </div>
+              <div class="gotcha-item">
+                <svg width="24" height="24" viewBox="0 0 24 24" aria-hidden="true">
+                  <path d="M12 22 V12" stroke="var(--accent-strong)" stroke-width="2" stroke-linecap="round"/>
+                  <path d="M12 12 Q6 10 4 4 Q10 6 12 12" fill="none" stroke="var(--accent)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                  <path d="M12 12 Q18 10 20 4 Q14 6 12 12" fill="none" stroke="var(--accent)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                </svg>
+                <p><strong>Missing vacation calendars</strong> — creates preventable schedule surprises. Fix: integrate time-off and holiday calendars into planning.</p>
+              </div>
+              <div class="gotcha-item">
+                <svg width="24" height="24" viewBox="0 0 24 24" aria-hidden="true">
+                  <rect x="3" y="13" width="10" height="7" rx="1.3" fill="none" stroke="var(--accent)" stroke-width="2"/>
+                  <rect x="11" y="5" width="10" height="7" rx="1.3" fill="var(--accent)" stroke="var(--accent-strong)" stroke-width="1.6"/>
+                </svg>
+                <p><strong>Not separating project work from BAU/KTLO</strong> — hides how much time is really available. Fix: track project work and business-as-usual work separately.</p>
+              </div>
+              <div class="gotcha-item">
+                <svg width="24" height="24" viewBox="0 0 24 24" aria-hidden="true">
+                  <circle cx="10" cy="8" r="4" fill="none" stroke="var(--accent)" stroke-width="2.2"/>
+                  <path d="M4 21 Q4 14 10 14 Q16 14 16 21" fill="none" stroke="var(--accent)" stroke-width="2.2" stroke-linecap="round"/>
+                  <path d="M18 4 L19 6.5 L21.5 6.8 L19.7 8.5 L20.2 11 L18 9.7 L15.8 11 L16.3 8.5 L14.5 6.8 L17 6.5 Z" fill="var(--accent-strong)"/>
+                </svg>
+                <p><strong>Overlooking key specialists</strong> — single points of failure go unnoticed. Fix: identify and calendar-block your bottleneck skill sets first.</p>
+              </div>
+            </div>
+            <p style="margin-top: 10px;"><strong>Principles of effective capacity management:</strong> transparency, built-in buffers, realistic estimates, and a weekly review cadence.</p>
+          </div>
+
+          <h4 class="fw-subhead" id="risk-management">Risk Management</h4>
+          <p>Most projects don't need a five-lens enterprise risk framework — just an honest register and a real response. For each risk that could derail the plan: how likely is it, how bad if it happens, and what are you actually going to do about it?</p>
+          <ul class="explainer-list is-bulleted" style="margin-top: 10px;">
+            <li><strong>Avoid</strong> — change the plan so the risk can't happen at all.</li>
+            <li><strong>Mitigate</strong> — reduce the likelihood, the impact, or both.</li>
+            <li><strong>Transfer</strong> — shift the risk elsewhere: a vendor contract, insurance, a more experienced team.</li>
+            <li><strong>Accept</strong> — acknowledge it and move on, when managing it would cost more than the risk itself.</li>
+          </ul>
+          <p style="margin-top: 10px;">Run it as a cycle, not a one-time exercise: identify → assess → respond → monitor. The most common failure mode isn't missing a risk — it's writing it down once and never looking at it again.</p>
+
+          <button class="inline-toggle" type="button" aria-expanded="false" aria-controls="risk-lenses-collapse">
+            Need more? See the 5-lens enterprise risk framework
+            <svg class="fw-chevron" width="14" height="14" viewBox="0 0 20 20" aria-hidden="true">
+              <path d="M5 7.5 L10 12.5 L15 7.5" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+          </button>
+          <div class="inline-collapse" id="risk-lenses-collapse">
+            <div class="section-block-inner">
+              <p style="font-size: 0.85rem; color: var(--text-caption); margin-bottom: 8px;">For programs and larger initiatives where a single register isn't enough — five lenses to view risk through instead of one flat list:</p>
+              <ul class="explainer-list is-bulleted">
+                <li><strong>Strategic Risk</strong> — threats to growth, market position, and long-term direction. Best for board and executive decisions.</li>
+                <li><strong>Operational Resilience</strong> — disruption risk across processes, people, systems, and facilities. Best for continuity and service reliability.</li>
+                <li><strong>Cyber &amp; Data Risk</strong> — digital exposure from attacks, data loss, and technology failure. Best for security and control focus.</li>
+                <li><strong>Third-Party Dependency</strong> — risk created by vendors, platforms, and critical partners. Best for supplier and ecosystem oversight.</li>
+                <li><strong>AI &amp; Model Risk</strong> — uncertainty from automated decisions and weak governance. Best for AI adoption and assurance.</li>
+              </ul>
             </div>
           </div>
         </div>
@@ -221,7 +439,7 @@
 
       <div class="framework-item is-accordion" id="scope-to-execution">
         <button class="fw-toggle" type="button" aria-expanded="false" aria-controls="scope-to-execution-body">
-          <div class="fw-num">3</div>
+          <div class="fw-num">5</div>
           <div class="fw-toggle-text">
             <h3>Scope to Execution Framework</h3>
             <p class="fw-teaser">Plan the logic before you commit to the dates.</p>
@@ -231,138 +449,142 @@
           </svg>
         </button>
         <div class="fw-body" id="scope-to-execution-body">
-          <p>Plan the logic before you commit to the dates. A complete decomposition stack — break outcomes into owned, testable work without losing the business intent:</p>
-          <ul class="explainer-list is-bulleted" style="margin-top: 10px;">
-            <li><strong>The 100% Rule</strong> — the decomposed work must add up to exactly the full scope, no more, no less.</li>
-            <li><strong>Business Outcome</strong> — the result that justifies doing the work at all.</li>
-            <li><strong>Deliverables &amp; Definition of Done</strong> — what gets produced, and the sizing rule for when it's actually finished. For a first release, scope to an <strong>MLP (Minimum Lovable Product)</strong> rather than a bare MVP — the smallest version people actually want to use, not just the smallest version that technically works.</li>
-            <li><strong>Work Packages</strong> — the deliverable broken into ownable chunks.</li>
-            <li><strong>Owner Test</strong> — if a work package doesn't have one clear owner, it's not decomposed enough yet.</li>
-            <li><strong>Tasks</strong> — the individual, assignable units of work.</li>
-            <li><strong>Dependencies &amp; Handover</strong> — what blocks what, and who's waiting on whom.</li>
-          </ul>
-          <p style="margin-top: 10px;"><strong>Common failure modes:</strong> scope creep, splitting stories past the point they're still useful, and dependent owners left unclear until it's too late to matter.</p>
+          <p>Plan the logic before you commit to the dates. This isn't a checklist — it's a hierarchy. Start with the outcome that justifies the work, then keep splitting it into smaller, ownable pieces until you hit assignable tasks. If your team runs Agile, you already know this hierarchy by other names — see the small tag under each rung.</p>
+
+          <div class="decomp-stack">
+            <div class="decomp-rung">
+              <div class="decomp-icon">
+                <svg width="28" height="28" viewBox="0 0 28 28" aria-hidden="true">
+                  <path d="M6 25 L14 8 L22 25 Z" fill="none" stroke="var(--accent)" stroke-width="2.2" stroke-linejoin="round"/>
+                  <path d="M14 8 V3" stroke="var(--accent-strong)" stroke-width="2" stroke-linecap="round"/>
+                  <path d="M14 3 L20 5 L14 7 Z" fill="var(--accent-strong)"/>
+                </svg>
+              </div>
+              <div>
+                <h4>Business Outcome <span class="decomp-agile-tag">Initiative / Theme</span></h4>
+                <p>The result that justifies doing the work at all — the top of the stack, and the thing everything below has to trace back to.</p>
+              </div>
+            </div>
+            <svg class="decomp-connector" width="18" height="18" viewBox="0 0 20 20" aria-hidden="true">
+              <path d="M10 3 V17 M4 11 L10 17 L16 11" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+
+            <div class="decomp-rung">
+              <div class="decomp-icon">
+                <svg width="28" height="28" viewBox="0 0 28 28" aria-hidden="true">
+                  <path d="M5 12 L23 12 L23 23 Q23 24 22 24 L6 24 Q5 24 5 23 Z" fill="none" stroke="var(--accent)" stroke-width="2.2" stroke-linejoin="round"/>
+                  <path d="M14 12 V24" stroke="var(--accent)" stroke-width="1.6"/>
+                  <path d="M9.5 8.5 Q14 4 14 8.5 Q14 4 18.5 8.5" fill="none" stroke="var(--accent)" stroke-width="2" stroke-linecap="round"/>
+                  <path d="M9.5 17.5 L12.5 20.5 L18.5 14" stroke="var(--accent-strong)" stroke-width="2.2" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+                </svg>
+              </div>
+              <div>
+                <h4>Deliverables &amp; Definition of Done <span class="decomp-agile-tag">Epic</span></h4>
+                <p>What gets produced, and the sizing rule for when it's actually finished. For a first release, scope to an <strong>MLP (Minimum Lovable Product)</strong> rather than a bare MVP — the smallest version people actually want to use, not just the smallest version that technically works.</p>
+              </div>
+            </div>
+            <svg class="decomp-connector" width="18" height="18" viewBox="0 0 20 20" aria-hidden="true">
+              <path d="M10 3 V17 M4 11 L10 17 L16 11" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+
+            <div class="decomp-rung">
+              <div class="decomp-icon">
+                <svg width="28" height="28" viewBox="0 0 28 28" aria-hidden="true">
+                  <rect x="9.5" y="3" width="9" height="9" rx="1.3" fill="var(--accent)" stroke="var(--accent-strong)" stroke-width="1.5"/>
+                  <rect x="3" y="16" width="9" height="9" rx="1.3" fill="none" stroke="var(--accent)" stroke-width="2"/>
+                  <rect x="16" y="16" width="9" height="9" rx="1.3" fill="none" stroke="var(--accent)" stroke-width="2"/>
+                </svg>
+              </div>
+              <div>
+                <h4>Work Packages <span class="decomp-agile-tag">User Story</span></h4>
+                <p>Each deliverable split into ownable chunks — small enough that one person or team can own the whole thing.</p>
+              </div>
+            </div>
+            <svg class="decomp-connector" width="18" height="18" viewBox="0 0 20 20" aria-hidden="true">
+              <path d="M10 3 V17 M4 11 L10 17 L16 11" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+
+            <div class="decomp-rung">
+              <div class="decomp-icon">
+                <svg width="28" height="28" viewBox="0 0 28 28" aria-hidden="true">
+                  <rect x="4" y="4" width="20" height="20" rx="4" fill="none" stroke="var(--accent)" stroke-width="2.2"/>
+                  <path d="M9 14 L13 18 L20 9" stroke="var(--accent-strong)" stroke-width="2.4" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+                </svg>
+              </div>
+              <div>
+                <h4>Tasks <span class="decomp-agile-tag">Task / Sub-task</span></h4>
+                <p>The individual, assignable units of work — the bottom of the stack, and the only level that actually shows up on someone's to-do list.</p>
+              </div>
+            </div>
+          </div>
+
+          <div class="decomp-checks">
+            <div class="decomp-check">
+              <div class="decomp-icon">
+                <div class="annotation" style="font-size: 1rem; color: var(--accent);">100%</div>
+              </div>
+              <div>
+                <strong>The 100% Rule</strong>
+                <span>Applies at every level — the pieces below must add up to exactly the whole above. No gaps, no overlap. Same instinct as a fully-groomed Epic backlog: every bit of scope has a Story, nothing's been quietly dropped.</span>
+              </div>
+            </div>
+            <div class="decomp-check">
+              <div class="decomp-icon">
+                <svg width="26" height="26" viewBox="0 0 28 28" aria-hidden="true">
+                  <circle cx="14" cy="8" r="4" fill="none" stroke="var(--accent)" stroke-width="2.2"/>
+                  <path d="M6 24 Q6 15 14 15 Q22 15 22 24" fill="none" stroke="var(--accent)" stroke-width="2.2" stroke-linecap="round"/>
+                  <circle cx="21" cy="21" r="5" fill="var(--accent)"/>
+                  <path d="M18.6 21 L20.2 22.6 L23.4 19.2" stroke="var(--accent-strong)" stroke-width="1.6" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+                </svg>
+              </div>
+              <div>
+                <strong>Owner Test</strong>
+                <span>Also applies at every level — if a piece doesn't have one clear owner, it's not decomposed enough yet. Keep splitting. Same discipline as a Story needing an assignee before it's "Ready."</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="doodle-note">
+            <div class="doodle-row" style="align-items: center;">
+              <svg width="30" height="30" viewBox="0 0 28 28" aria-hidden="true">
+                <ellipse cx="10" cy="14" rx="7" ry="4.5" fill="none" stroke="var(--accent)" stroke-width="2.2" transform="rotate(-30 10 14)"/>
+                <ellipse cx="18" cy="14" rx="7" ry="4.5" fill="none" stroke="var(--accent)" stroke-width="2.2" transform="rotate(-30 18 14)"/>
+              </svg>
+              <div class="annotation">Dependencies &amp; Handover</div>
+            </div>
+            <p>The connective tissue between Work Packages and Tasks, not another rung — what blocks what, and who's waiting on whom. Same thing as "blocked by" links on a Story board, or a handoff at an Epic boundary between teams. Common failure modes: scope creep, splitting stories past the point they're still useful, and dependent owners left unclear until it's too late to matter.</p>
+          </div>
           <div class="doodle-note">
             <div class="doodle-row" style="align-items: center;">
               <svg width="30" height="30" viewBox="0 0 40 40" aria-hidden="true">
-                <path d="M20 33 C9 24, 4 17, 4 11 C4 6, 8 3, 12 3 C16 3, 19 6, 20 10 C21 6, 24 3, 28 3 C32 3, 36 6, 36 11 C36 17, 31 24, 20 33 Z" fill="none" stroke="var(--accent-strong)" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+                <path d="M20 33 C9 24, 4 17, 4 11 C4 6, 8 3, 12 3 C16 3, 19 6, 20 10 C21 6, 24 3, 28 3 C32 3, 36 6, 36 11 C36 17, 31 24, 20 33 Z" fill="none" stroke="var(--accent)" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
               </svg>
               <div class="annotation">MVP vs. MLP</div>
             </div>
             <p>An MVP asks "does it work?" An MLP asks "does it work, and would someone actually choose to use it?" Same discipline of cutting scope down to the smallest testable release — just with the delivery bar set a notch higher than bare functionality.</p>
           </div>
-        </div>
-      </div>
-
-      <div class="framework-item is-accordion" id="raci-daci">
-        <button class="fw-toggle" type="button" aria-expanded="false" aria-controls="raci-daci-body">
-          <div class="fw-num">4</div>
-          <div class="fw-toggle-text">
-            <h3>RACI &amp; DACI</h3>
-            <p class="fw-teaser">Who's responsible for what, and who makes the call.</p>
+          <button class="try-it-inline-toggle" type="button" aria-expanded="false" aria-controls="scope-try-it-collapse">
+            <svg width="16" height="16" viewBox="0 0 24 24" aria-hidden="true">
+              <path d="M12 2 L14.2 9 L21 11 L14.2 13 L12 20 L9.8 13 L3 11 L9.8 9 Z" fill="var(--accent)"/>
+            </svg>
+            Try It
+            <svg class="fw-chevron" width="14" height="14" viewBox="0 0 20 20" aria-hidden="true">
+              <path d="M5 7.5 L10 12.5 L15 7.5" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+          </button>
+          <div class="try-it-collapse" id="scope-try-it-collapse">
+            <div class="try-it-box" id="scope-try-it">
+              <p>Paste this into ChatGPT, Claude, or whatever AI tool you use:</p>
+              <div class="try-it-prompt" id="scope-try-it-prompt">I'm ready to break this project down into an execution hierarchy. If I have a Project Charter or Strategy from earlier, I'll paste it in — use it to ground the Business Outcome. Otherwise, ask me what the outcome is. Then walk me through Deliverables &amp; Definition of Done, and split those into Work Packages small enough that one person can own each one completely — if a piece doesn't have a clear owner, split it further. Then break the first Work Package into Tasks. Flag anything that fails the 100% Rule — gaps or overlap between levels — and call out any dependencies I should track before handoff.</div>
+              <button class="try-it-copy" type="button" data-copy-target="scope-try-it-prompt">Copy prompt</button>
+            </div>
           </div>
-          <svg class="fw-chevron" width="18" height="18" viewBox="0 0 20 20" aria-hidden="true">
-            <path d="M5 7.5 L10 12.5 L15 7.5" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
-          </svg>
-        </button>
-        <div class="fw-body" id="raci-daci-body">
-          <p>Two role-clarity frameworks that answer different questions — RACI answers "who is responsible for what," DACI answers "who makes the call." Build the matrix at project kickoff, not after confusion has already set in.</p>
-          <div class="compare-table-wrap">
-            <table class="compare-table">
-              <thead>
-                <tr><th></th><th>RACI</th><th>DACI</th></tr>
-              </thead>
-              <tbody>
-                <tr><th scope="row">What it is</th><td>Responsibility Assignment Matrix — clearly assigns roles across tasks</td><td>Decision-making framework — structures who decides and how</td></tr>
-                <tr><th scope="row">Roles</th><td><strong>R</strong>esponsible (does the work)<br><strong>A</strong>ccountable (owns the outcome)<br><strong>C</strong>onsulted (gives input)<br><strong>I</strong>nformed (kept in the loop)</td><td><strong>D</strong>river (moves it forward)<br><strong>A</strong>pprover (makes the call)<br><strong>C</strong>ontributor (gives expertise)<br><strong>I</strong>nformed (notified after)</td></tr>
-                <tr><th scope="row">When to use</th><td>Project management, team onboarding, recurring processes, cross-functional tasks</td><td>Strategic decisions, product roadmaps, budget approvals, resolving conflicts</td></tr>
-                <tr><th scope="row">Best practice</th><td>Only one Accountable per task — never two. Multiple Responsible is fine.</td><td>Only one Approver — shared approval stalls decisions. Limit Contributors to 3–5.</td></tr>
-              </tbody>
-            </table>
-          </div>
-          <div class="example-box">
-            <div class="example-label">Example — Launching a New Product</div>
-            <p><strong>R:</strong> Product Manager writes specs and coordinates development.<br><strong>A:</strong> Head of Product is accountable for launch success.<br><strong>C:</strong> Design, Engineering, and Legal review and give feedback.<br><strong>I:</strong> Sales and Support are notified when it goes live.</p>
-          </div>
-        </div>
-      </div>
-
-      <div class="framework-item is-accordion" id="capacity-gotchas">
-        <button class="fw-toggle" type="button" aria-expanded="false" aria-controls="capacity-gotchas-body">
-          <div class="fw-num">5</div>
-          <div class="fw-toggle-text">
-            <h3>Capacity &amp; Resource Planning Gotchas</h3>
-            <p class="fw-teaser">The planning mistakes that quietly blow up a schedule.</p>
-          </div>
-          <svg class="fw-chevron" width="18" height="18" viewBox="0 0 20 20" aria-hidden="true">
-            <path d="M5 7.5 L10 12.5 L15 7.5" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
-          </svg>
-        </button>
-        <div class="fw-body" id="capacity-gotchas-body">
-          <p>Smarter resource management starts with accurate assumptions and disciplined planning. The most common mistakes, and the fix for each:</p>
-          <ul class="explainer-list is-bulleted" style="margin-top: 10px;">
-            <li><strong>Planning at 100% capacity</strong> — leaves no room for interruptions. Fix: plan for 70–80% utilization instead.</li>
-            <li><strong>Ignoring recurring meetings</strong> — overestimates available hours. Fix: account for standing meetings and reporting commitments.</li>
-            <li><strong>Assuming all specialists are interchangeable</strong> — leads to skill gaps. Fix: plan by role and proficiency, not just headcount.</li>
-            <li><strong>Missing vacation calendars</strong> — creates preventable schedule surprises. Fix: integrate time-off and holiday calendars into planning.</li>
-            <li><strong>Not separating project work from BAU/KTLO</strong> — hides how much time is really available. Fix: track project work and business-as-usual work separately.</li>
-            <li><strong>Overlooking key specialists</strong> — single points of failure go unnoticed. Fix: identify and calendar-block your bottleneck skill sets first.</li>
-          </ul>
-          <p style="margin-top: 10px;"><strong>Principles of effective capacity management:</strong> transparency, built-in buffers, realistic estimates, and a weekly review cadence.</p>
-        </div>
-      </div>
-
-      <div class="framework-item is-accordion" id="critical-path">
-        <button class="fw-toggle" type="button" aria-expanded="false" aria-controls="critical-path-body">
-          <div class="fw-num">6</div>
-          <div class="fw-toggle-text">
-            <h3>Critical Path Method</h3>
-            <p class="fw-teaser">Five ways to compress your timeline without losing quality.</p>
-          </div>
-          <svg class="fw-chevron" width="18" height="18" viewBox="0 0 20 20" aria-hidden="true">
-            <path d="M5 7.5 L10 12.5 L15 7.5" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
-          </svg>
-        </button>
-        <div class="fw-body" id="critical-path-body">
-          <p>The critical path is the longest chain of dependent tasks in a project — the sequence that determines the earliest possible finish date. Lose control of it, and the whole project slips with it. Five ways to compress it without losing quality:</p>
-          <ul class="explainer-list is-bulleted" style="margin-top: 10px;">
-            <li><strong>Re-sequence tasks</strong> — adjust the order of dependent tasks to eliminate unnecessary waiting.</li>
-            <li><strong>Overlap work carefully</strong> — start successor tasks before predecessors fully finish, without compromising quality.</li>
-            <li><strong>Add resources selectively</strong> — assign another skilled contributor to the longest-pole tasks specifically.</li>
-            <li><strong>Reduce scope where possible</strong> — cut or simplify non-essential features that sit on the critical path.</li>
-            <li><strong>Remove approval delays</strong> — streamline review and approval steps that are blocking movement, not adding value.</li>
-          </ul>
-          <p style="margin-top: 10px; font-style: italic;">Do not compress work blindly — quality and dependency logic still matter.</p>
-        </div>
-      </div>
-
-      <div class="framework-item is-accordion" id="risk-management">
-        <button class="fw-toggle" type="button" aria-expanded="false" aria-controls="risk-management-body">
-          <div class="fw-num">7</div>
-          <div class="fw-toggle-text">
-            <h3>Risk Management</h3>
-            <p class="fw-teaser">Five lenses for the risks that could derail the plan.</p>
-          </div>
-          <svg class="fw-chevron" width="18" height="18" viewBox="0 0 20 20" aria-hidden="true">
-            <path d="M5 7.5 L10 12.5 L15 7.5" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
-          </svg>
-        </button>
-        <div class="fw-body" id="risk-management-body">
-          <p>The decision discipline that protects objectives, value, resilience, and accountability when uncertainty changes the plan. Five lenses to view project risk through:</p>
-          <ul class="explainer-list is-bulleted" style="margin-top: 10px;">
-            <li><strong>Strategic Risk</strong> — threats to growth, market position, and long-term direction. Best for board and executive decisions.</li>
-            <li><strong>Operational Resilience</strong> — disruption risk across processes, people, systems, and facilities. Best for continuity and service reliability.</li>
-            <li><strong>Cyber &amp; Data Risk</strong> — digital exposure from attacks, data loss, and technology failure. Best for security and control focus.</li>
-            <li><strong>Third-Party Dependency</strong> — risk created by vendors, platforms, and critical partners. Best for supplier and ecosystem oversight.</li>
-            <li><strong>AI &amp; Model Risk</strong> — uncertainty from automated decisions and weak governance. Best for AI adoption and assurance.</li>
-          </ul>
-          <p style="margin-top: 10px;">Run it as a cycle, not a one-time exercise: <strong>Sense signals → Assess exposure → Choose a response → Track treatment → Report assurance.</strong> The most common failure mode isn't missing a risk — it's recording it and then never managing it.</p>
         </div>
       </div>
 
       <div class="framework-item is-accordion" id="status-report">
         <button class="fw-toggle" type="button" aria-expanded="false" aria-controls="status-report-body">
-          <div class="fw-num">8</div>
+          <div class="fw-num">6</div>
           <div class="fw-toggle-text">
             <h3>Project Status Report Template</h3>
             <p class="fw-teaser">A status report that actually gets read.</p>
@@ -388,7 +610,7 @@
 
       <div class="framework-item is-accordion" id="project-handoffs">
         <button class="fw-toggle" type="button" aria-expanded="false" aria-controls="project-handoffs-body">
-          <div class="fw-num">9</div>
+          <div class="fw-num">7</div>
           <div class="fw-toggle-text">
             <h3>End-to-End Project Handoffs</h3>
             <p class="fw-teaser">Where work quietly falls through the cracks.</p>

@@ -397,6 +397,162 @@ body {
   margin: 14px 0 4px 28px;
 }
 
+/* ---------- Critical Path diagram — two node-and-edge paths through the
+   same project; the longer cumulative path (bold) is critical, the
+   shorter one (dashed) carries slack. Node letters are illustrative, not
+   tied to any other framework's naming. */
+.critical-path-diagram {
+  max-width: 420px;
+  margin: 14px 0 4px;
+}
+
+.critical-path-legend {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 16px;
+  margin-top: 6px;
+  font-size: 0.78rem;
+  color: var(--text-caption);
+}
+
+.critical-path-legend-item {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.critical-path-swatch {
+  width: 16px;
+  height: 3px;
+  border-radius: 2px;
+  display: inline-block;
+}
+
+.critical-path-swatch.is-critical {
+  background: var(--accent-strong);
+}
+
+.critical-path-swatch.is-slack {
+  background: none;
+  border-top: 3px dashed var(--border);
+  height: 0;
+}
+
+/* ---------- Milestone track — checkpoints along the plan, connected by a
+   line. Equal-width flex stops with a ::after line spanning from each
+   dot's center to the next, classic CSS-only connected-timeline trick. ---------- */
+.milestone-track {
+  display: flex;
+  margin: 16px 0 4px;
+  max-width: 580px;
+}
+
+.milestone-stop {
+  flex: 1;
+  position: relative;
+  text-align: center;
+  padding-top: 24px;
+}
+
+.milestone-stop:not(:last-child)::after {
+  content: '';
+  position: absolute;
+  top: 7px;
+  left: 50%;
+  width: 100%;
+  height: 2px;
+  background: var(--border);
+}
+
+.milestone-dot {
+  position: absolute;
+  top: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 16px;
+  height: 16px;
+  border-radius: 50%;
+  background: var(--accent);
+  border: 2px solid var(--accent-strong);
+  z-index: 1;
+}
+
+.milestone-stop h5 {
+  font-family: var(--font-heading);
+  font-weight: 700;
+  font-size: 0.76rem;
+  color: var(--text-heading);
+  margin-bottom: 2px;
+  padding: 0 4px;
+}
+
+.milestone-stop p {
+  font-size: 0.68rem;
+  line-height: 1.4;
+  color: var(--text-caption);
+  padding: 0 4px;
+}
+
+/* ---------- Gotcha list (Reality Check) — small icon per item instead of
+   a bullet dot, same icon+text row shape as .doodle-row. ---------- */
+.gotcha-list {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  margin: 12px 0;
+}
+
+.gotcha-item {
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+}
+
+.gotcha-item svg {
+  flex-shrink: 0;
+  margin-top: 1px;
+}
+
+.gotcha-item p {
+  font-size: 0.88rem;
+  line-height: 1.55;
+  color: var(--text-body);
+  margin: 0;
+}
+
+/* ---------- Generic inline collapse toggle — same collapse mechanics as
+   .try-it-inline-toggle/.try-it-collapse, for non-Try-It optional content
+   (e.g. the enterprise 5-lens risk framework, tucked away by default). ---------- */
+.inline-toggle {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  margin-top: 14px;
+  padding: 7px 14px;
+  border-radius: 20px;
+  border: 1px solid var(--border);
+  background: none;
+  font-family: var(--font-body);
+  font-size: 0.82rem;
+  font-weight: 700;
+  color: var(--text-caption);
+  cursor: pointer;
+}
+
+.inline-collapse {
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.3s ease;
+}
+
+.inline-collapse.is-open {
+  max-height: 900px;
+}
+
+.inline-collapse .section-block-inner {
+  margin-top: 12px;
+}
+
 .pareto-legend {
   display: flex;
   gap: 18px;
@@ -723,6 +879,115 @@ body {
   padding: 7px 10px;
 }
 
+/* ---------- Decomposition stack (Scope to Execution Framework) — a
+   top-down hierarchy, narrowing rung by rung: Business Outcome →
+   Deliverables → Work Packages → Tasks. Each rung indents further right
+   to read as "narrowing," connected by a small down-chevron. The 100%
+   Rule and Owner Test aren't rungs — they're checks that apply at every
+   level, so they get their own dashed-border row below the stack instead
+   of sitting inline as a peer step (same "dashed = rule, not a step"
+   language as .example-box). ---------- */
+.decomp-stack {
+  display: flex;
+  flex-direction: column;
+  max-width: 520px;
+  margin: 14px 0 4px;
+}
+
+.decomp-rung {
+  display: flex;
+  align-items: flex-start;
+  gap: 12px;
+  padding: 12px 14px;
+  background: var(--bg-content);
+  border: 1px solid var(--border);
+  border-radius: 10px;
+}
+
+.decomp-rung:nth-child(3) { margin-left: 16px; }
+.decomp-rung:nth-child(5) { margin-left: 32px; }
+.decomp-rung:nth-child(7) { margin-left: 48px; }
+
+.decomp-icon {
+  flex-shrink: 0;
+  width: 30px;
+  height: 30px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.decomp-rung h4 {
+  font-family: var(--font-heading);
+  font-weight: 700;
+  font-size: 0.88rem;
+  color: var(--text-heading);
+  margin-bottom: 2px;
+}
+
+.decomp-agile-tag {
+  display: inline-block;
+  font-family: var(--font-body);
+  font-size: 0.6rem;
+  font-weight: 600;
+  letter-spacing: 0.02em;
+  color: var(--text-caption);
+  background: var(--bg-sidebar);
+  border: 1px solid var(--border);
+  border-radius: 20px;
+  padding: 2px 8px;
+  margin-left: 6px;
+  vertical-align: middle;
+}
+
+.decomp-rung p {
+  font-size: 0.82rem;
+  line-height: 1.5;
+  color: var(--text-body);
+}
+
+.decomp-connector {
+  align-self: flex-start;
+  margin: 2px 0 2px 29px;
+  color: var(--accent-strong);
+  opacity: 0.6;
+}
+
+.decomp-checks {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-top: 16px;
+  padding: 12px 14px;
+  border: 1px dashed var(--border);
+  border-radius: 10px;
+  max-width: 520px;
+}
+
+.decomp-check {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  flex: 1;
+  min-width: 200px;
+}
+
+.decomp-check .decomp-icon {
+  width: 26px;
+  height: 26px;
+}
+
+.decomp-check strong {
+  display: block;
+  font-size: 0.82rem;
+  color: var(--text-heading);
+}
+
+.decomp-check span {
+  font-size: 0.76rem;
+  color: var(--text-caption);
+}
+
 /* ---------- Comparison table (SMART Goals vs. OKRs) ---------- */
 .compare-table-wrap {
   overflow-x: auto;
@@ -1038,6 +1303,7 @@ body {
   margin-top: 12px;
   padding: 10px 0 10px 16px;
   border-left: 4px solid var(--accent);
+  scroll-margin-top: 80px;
 }
 
 .doodle-row {
@@ -1157,6 +1423,26 @@ body {
   font-size: 0.88rem;
   line-height: 1.55;
   color: var(--text-body);
+}
+
+/* ---------- Sub-section divider inside a merged framework-item (e.g. "The
+   Project Plan" bundling Critical Path + Risk Management under one
+   accordion). Not a new step of its own — a heading break within one. ---------- */
+.fw-subhead {
+  font-family: var(--font-heading);
+  font-weight: 700;
+  font-size: 1rem;
+  color: var(--text-heading);
+  margin: 24px 0 8px;
+  padding-top: 20px;
+  border-top: 1px solid var(--border);
+  scroll-margin-top: 80px;
+}
+
+.fw-subhead:first-of-type {
+  margin-top: 4px;
+  padding-top: 0;
+  border-top: none;
 }
 
 /* ---------- Framework accordion — modifier for content-dense pages (e.g.
