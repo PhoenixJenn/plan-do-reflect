@@ -654,6 +654,22 @@ body {
   .laws-grid { grid-template-columns: repeat(2, 1fr); }
 }
 
+/* Row layout variant — e.g. Focus & Deep Work's 4 Rules, easier to read than a 4-up grid */
+.laws-grid--rows {
+  grid-template-columns: 1fr;
+}
+
+.laws-grid--rows .law-card {
+  display: flex;
+  align-items: flex-start;
+  gap: 14px;
+}
+
+.laws-grid--rows .law-num {
+  margin-bottom: 0;
+  flex-shrink: 0;
+}
+
 /* ---------- OKR tree (Objective branching into Key Results) ---------- */
 .okr-tree {
   display: flex;
@@ -775,7 +791,7 @@ body {
    etc.), same tokens the homepage flywheel and sidebar dots use. ---------- */
 .stage-boxes {
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
+  grid-template-columns: 1fr;
   gap: 16px;
   margin-bottom: 16px;
 }
@@ -785,6 +801,7 @@ body {
   border-radius: 14px;
   padding: 20px;
   background: var(--bg-content);
+  scroll-margin-top: 80px;
 }
 
 .stage-box-header {
@@ -798,7 +815,7 @@ body {
   width: 10px;
   height: 10px;
   border-radius: 50%;
-  background: var(--stage-color, var(--text-caption));
+  background: var(--accent);
   flex-shrink: 0;
 }
 
@@ -831,6 +848,28 @@ body {
 .stage-box-item:first-child {
   border-top: none;
   padding-top: 0;
+}
+
+/* Modifier — bullet points instead of horizontal dividers between items */
+.stage-box-list--bulleted .stage-box-item {
+  border-top: none;
+  padding: 5px 0 5px 16px;
+  position: relative;
+}
+
+.stage-box-list--bulleted .stage-box-item:first-child {
+  padding-top: 5px;
+}
+
+.stage-box-list--bulleted .stage-box-item::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 12px;
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: var(--text-heading);
 }
 
 .stage-box-item h3 {
@@ -873,7 +912,6 @@ body {
 }
 
 @media (max-width: 900px) {
-  .stage-boxes { grid-template-columns: 1fr; }
   .stage-box-skills .stage-box-list { grid-template-columns: 1fr; }
 }
 
@@ -1192,7 +1230,7 @@ body {
   width: 7px;
   height: 7px;
   border-radius: 50%;
-  background: var(--stage-color, var(--text-caption));
+  background: var(--accent);
   flex-shrink: 0;
 }
 

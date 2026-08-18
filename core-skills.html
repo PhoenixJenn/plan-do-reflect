@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="a">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Core Skills · Plan · Do · Reflect</title>
+
+<!-- Applied before CSS loads, so the saved theme / title-font choice doesn't flash to the default on reload -->
+<script>
+(function () {
+  try {
+    var savedTheme = localStorage.getItem('pdr-theme');
+    if (['a', 'b', 'c'].indexOf(savedTheme) > -1) {
+      document.documentElement.setAttribute('data-theme', savedTheme);
+    }
+    var savedTitleFont = localStorage.getItem('pdr-title-font');
+    var titleFont = savedTitleFont === null ? 'golos-text' : savedTitleFont;
+    if (titleFont !== 'default') {
+      document.documentElement.setAttribute('data-title-font', titleFont);
+    }
+  } catch (e) {}
+})();
+</script>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=Work+Sans:wght@400;500;600&family=Sora:wght@600;700;800&family=Plus+Jakarta+Sans:wght@500;600;700&family=Patrick+Hand&display=swap" rel="stylesheet">
+
+<!-- Title-font brainstorm candidates — temporary, for the .title-font-picker toggle only.
+     Remove this link once a title font is chosen and folded into tokens.css. -->
+<link href="https://fonts.googleapis.com/css2?family=Gabarito:wght@800&family=Chivo:wght@800&family=Golos+Text:wght@800&display=swap" rel="stylesheet">
+
+<link rel="stylesheet" href="css/tokens.css">
+<link rel="stylesheet" href="css/main.css">
+</head>
+<body>
+
+<header class="topnav">
+  <a class="logo" href="index.html">Plan·Do·Reflect</a>
+  <nav class="topnav-items">
+    <a class="item" href="self-management.html">The Framework</a>
+    <a class="item" href="self-management.html#plan-stage">Plan</a>
+    <a class="item" href="self-management.html#do-stage">Do</a>
+    <a class="item" href="self-management.html#reflect-stage">Reflect</a>
+    <a class="item" href="processes.html">Processes</a>
+    <a class="item active" href="core-skills.html">Core Skills</a>
+  </nav>
+</header>
+
+<div class="layout">
+  <aside class="sidebar">
+    <div class="sec-title">Core Skills</div>
+    <a class="sub-item active" href="core-skills.html">Overview</a>
+
+    <div class="sidebar-group">
+      <div class="group-label">Foundational Skills</div>
+      <a class="sub-item" href="#">Communication</a>
+      <a class="sub-item" href="#">AI Fundamentals</a>
+    </div>
+
+    <div class="sidebar-group">
+      <div class="group-label">Leadership &amp; Management</div>
+      <a class="sub-item" href="#">Leading</a>
+      <a class="sub-item" href="#">Managing</a>
+      <a class="sub-item" href="#">Strategic Planning</a>
+    </div>
+  </aside>
+
+  <main class="content">
+    <h1>Core Skills</h1>
+    <p class="lede">Not a stage in the cycle — skills that support all of it, whether you're planning, doing, or reflecting.</p>
+
+    <div class="tag-row">
+      <span class="tag primary">Root category</span>
+      <span class="tag secondary">5 categories</span>
+    </div>
+
+    <div class="section-block">
+      <p>Everything under <a href="self-management.html">The Framework</a> is about running yourself. This is about what you do once other people are involved — getting a message across clearly, working with AI well enough that it's actually useful, and leading, managing, or planning at a scale bigger than your own to-do list.</p>
+    </div>
+
+    <div class="stage-box" style="margin-bottom: 16px;">
+      <div class="stage-box-header">
+        <h2>Foundational Skills</h2>
+      </div>
+      <p class="stage-box-intro">The two skills everything else on this list assumes you already have some of.</p>
+      <div class="stage-box-list">
+        <a class="stage-box-item" href="#">
+          <h3>Communication</h3>
+          <p>Written communication, storytelling, public speaking, and networking — ordered by how a message actually moves from you to someone else.</p>
+        </a>
+        <a class="stage-box-item" href="#">
+          <h3>AI Fundamentals</h3>
+          <p>A learning path, not a single skill: understand it, learn to use it, apply it to your work, then make it habitual.</p>
+        </a>
+      </div>
+    </div>
+
+    <div class="stage-box stage-box-skills">
+      <div class="stage-box-header">
+        <h2>Leadership &amp; Management</h2>
+      </div>
+      <p class="stage-box-intro">The three domains that kick in once your job is no longer just about your own output.</p>
+      <div class="stage-box-list">
+        <a class="stage-box-item" href="#">
+          <h3>Leading</h3>
+          <p>A developmental arc — know yourself, think clearly, work through others, grow other leaders, lead through hard terrain.</p>
+        </a>
+        <a class="stage-box-item" href="#">
+          <h3>Managing</h3>
+          <p>The operational side of having a team: who's on it, what matters most, how work gets built, how it runs day to day.</p>
+        </a>
+        <a class="stage-box-item" href="#">
+          <h3>Strategic Planning</h3>
+          <p>The planning cycle zoomed out further still: scan the landscape, formulate, cascade into plans, measure, adjust.</p>
+        </a>
+      </div>
+    </div>
+  </main>
+</div>
+
+<footer class="site-footer">
+  <p>&copy; 2026 Plan-Do-Reflect. <a href="references.html">References &amp; further reading</a></p>
+</footer>
+
+<div class="theme-switch" role="group" aria-label="Style direction">
+  <button data-theme="a" title="Kinetic Signal — black &amp; yellow"></button>
+  <button data-theme="b" title="Studio Ledger — dusty rose"></button>
+  <button data-theme="c" title="Bright Margin — lime"></button>
+</div>
+
+<!-- Temporary brainstorm control — only restyles .content h1. Remove alongside
+     the "title-font experiment" CSS block and the extra Google Fonts link once
+     a title font is picked. -->
+<div class="title-font-picker">
+  <label for="title-font-select">Title font</label>
+  <button type="button" id="title-font-prev" class="title-font-nav" aria-label="Previous title font">‹</button>
+  <select id="title-font-select">
+    <optgroup label="Round 1 — headline character">
+      <option value="gabarito">Gabarito</option>
+      <option value="chivo">Chivo</option>
+    </optgroup>
+    <optgroup label="Round 2 — Calibri-adjacent">
+      <option value="golos-text">Golos Text</option>
+    </optgroup>
+    <option value="default">Theme default</option>
+  </select>
+  <button type="button" id="title-font-next" class="title-font-nav" aria-label="Next title font">›</button>
+</div>
+
+<script src="js/theme-toggle.js" defer></script>
+<script src="js/title-font-toggle.js" defer></script>
+</body>
+</html>
