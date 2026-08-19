@@ -93,16 +93,19 @@
       </div>
     </div>
 
-    <p class="accordion-hint">
-      <svg width="14" height="14" viewBox="0 0 20 20" aria-hidden="true">
-        <path d="M5 7.5 L10 12.5 L15 7.5" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
-      </svg>
-      Click a section below to expand or collapse it.
-    </p>
+    <div class="accordion-hint">
+      <span class="accordion-hint-text">
+        <svg width="14" height="14" viewBox="0 0 20 20" aria-hidden="true">
+          <path d="M5 7.5 L10 12.5 L15 7.5" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
+        Click a section below to expand or collapse it.
+      </span>
+      <button class="collapse-all-btn" type="button">Collapse all</button>
+    </div>
 
     <div class="framework-list">
-      <div class="framework-item is-accordion is-open" id="project-charter">
-        <button class="fw-toggle" type="button" aria-expanded="true" aria-controls="project-charter-body">
+      <div class="framework-item is-accordion" id="project-charter">
+        <button class="fw-toggle" type="button" aria-expanded="false" aria-controls="project-charter-body">
           <div class="fw-num">1</div>
           <div class="fw-toggle-text">
             <h3>Project Charter</h3>
@@ -114,17 +117,93 @@
         </button>
         <div class="fw-body" id="project-charter-body">
           <p>A good charter prevents a fuzzy project. Fill in these nine fields before work begins, and revisit it throughout the project for scope checks and trade-off decisions — not just once at kickoff:</p>
-          <ul class="explainer-list is-bulleted" style="margin-top: 10px;">
-            <li><strong>Problem Statement</strong> — what's actually wrong, in one sentence.</li>
-            <li><strong>Goal</strong> — specific, measurable, achievable, relevant, time-bound.</li>
-            <li><strong>Business Case</strong> — why this is worth doing.</li>
-            <li><strong>Scope</strong> — what's in, and just as important, what's out.</li>
-            <li><strong>Tenets</strong> — short, memorable principles for how the team should decide when the charter doesn't spell it out. "Unless you know better ones" keeps them a guide, not a law.</li>
-            <li><strong>Team</strong> — sponsor, team lead, process owner, stakeholders.</li>
-            <li><strong>Timeline</strong> — the major milestones, not a full schedule. Include a checkpoint for the Launch &amp; Communications Plan, not just launch day itself — the most common miss is waiting too long to engage Marketing, internal Comms, Customer Success, or Legal, and finding out on launch day that one of them needed weeks of lead time.</li>
-            <li><strong>Metrics</strong> — how you'll know it worked.</li>
-            <li><strong>Risks</strong> — what could derail it.</li>
-          </ul>
+          <div class="doodle-note" style="margin-top: 12px;">
+            <div class="doodle-row">
+              <svg width="30" height="30" viewBox="0 0 26 26" aria-hidden="true">
+                <rect x="5" y="2" width="16" height="22" rx="2" fill="none" stroke="var(--border)" stroke-width="2"/>
+                <line x1="13" y1="8" x2="13" y2="15" stroke="var(--accent-strong)" stroke-width="2.2" stroke-linecap="round"/>
+                <circle cx="13" cy="19" r="1.4" fill="var(--accent-strong)"/>
+              </svg>
+              <p><strong>Problem Statement</strong> — what's actually wrong, in one sentence.</p>
+            </div>
+            <div class="doodle-row">
+              <svg width="30" height="30" viewBox="0 0 26 26" aria-hidden="true">
+                <circle cx="13" cy="13" r="11" fill="none" stroke="var(--accent)" stroke-width="2.5"/>
+                <circle cx="13" cy="13" r="6.5" fill="none" stroke="var(--accent)" stroke-width="2.5"/>
+                <circle cx="13" cy="13" r="2.5" fill="var(--accent-strong)"/>
+              </svg>
+              <p><strong>Goal</strong> — specific, measurable, achievable, relevant, time-bound.</p>
+            </div>
+            <div class="doodle-row">
+              <svg width="30" height="30" viewBox="0 0 26 26" aria-hidden="true">
+                <rect x="3" y="6" width="12" height="6" rx="2" fill="var(--accent)" transform="rotate(-45 9 9)"/>
+                <line x1="12" y1="12" x2="18" y2="18" stroke="var(--accent-strong)" stroke-width="2.5" stroke-linecap="round"/>
+                <rect x="2" y="20" width="14" height="3" rx="1" fill="var(--border)"/>
+              </svg>
+              <p><strong>Business Case</strong> — why this is worth doing.</p>
+            </div>
+            <div class="doodle-row">
+              <svg width="30" height="30" viewBox="0 0 26 26" aria-hidden="true">
+                <circle cx="13" cy="13" r="9" fill="none" stroke="var(--accent)" stroke-width="2" stroke-dasharray="3 3"/>
+                <circle cx="13" cy="13" r="2.5" fill="var(--accent-strong)"/>
+                <circle cx="23" cy="6" r="2" fill="none" stroke="var(--border)" stroke-width="1.6"/>
+              </svg>
+              <p><strong>Scope</strong> — what's in, and just as important, what's out.</p>
+            </div>
+            <div class="doodle-row">
+              <svg width="30" height="30" viewBox="0 0 26 26" aria-hidden="true">
+                <rect x="1" y="1" width="6" height="6" rx="1.3" fill="var(--accent)"/>
+                <path d="M2.2 4 L3.4 5.2 L5.6 2.3" stroke="var(--accent-strong)" stroke-width="1.2" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+                <line x1="11" y1="4" x2="25" y2="4" stroke="var(--border)" stroke-width="2" stroke-linecap="round"/>
+                <rect x="1" y="10" width="6" height="6" rx="1.3" fill="var(--accent)"/>
+                <path d="M2.2 13 L3.4 14.2 L5.6 11.3" stroke="var(--accent-strong)" stroke-width="1.2" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+                <line x1="11" y1="13" x2="25" y2="13" stroke="var(--border)" stroke-width="2" stroke-linecap="round"/>
+                <rect x="1" y="19" width="6" height="6" rx="1.3" fill="none" stroke="var(--border)" stroke-width="1.4"/>
+                <line x1="11" y1="22" x2="25" y2="22" stroke="var(--border)" stroke-width="2" stroke-linecap="round"/>
+              </svg>
+              <p><strong>Tenets</strong> — short, memorable principles for how the team should decide when the charter doesn't spell it out. "Unless you know better ones" keeps them a guide, not a law.</p>
+            </div>
+            <div class="doodle-row">
+              <svg width="30" height="30" viewBox="0 0 26 26" aria-hidden="true">
+                <circle cx="6" cy="9" r="3.5" fill="var(--border)"/>
+                <path d="M1 22 C1 16.5 3.5 14 6 14 C8.5 14 11 16.5 11 22" fill="none" stroke="var(--border)" stroke-width="1.8" stroke-linecap="round"/>
+                <circle cx="20" cy="9" r="3.5" fill="var(--border)"/>
+                <path d="M15 22 C15 16.5 17.5 14 20 14 C22.5 14 25 16.5 25 22" fill="none" stroke="var(--border)" stroke-width="1.8" stroke-linecap="round"/>
+                <circle cx="13" cy="8" r="5" fill="var(--accent)"/>
+                <path d="M3 24 C3 17 8 14 13 14 C18 14 23 17 23 24" fill="none" stroke="var(--accent-strong)" stroke-width="2.5" stroke-linecap="round"/>
+              </svg>
+              <p><strong>Team</strong> — sponsor, team lead, process owner, stakeholders.</p>
+            </div>
+            <div class="doodle-row">
+              <svg width="30" height="30" viewBox="0 0 26 26" aria-hidden="true">
+                <rect x="3" y="5" width="20" height="18" rx="2" fill="none" stroke="var(--border)" stroke-width="2"/>
+                <line x1="3" y1="10" x2="23" y2="10" stroke="var(--accent)" stroke-width="2"/>
+                <line x1="8" y1="2" x2="8" y2="7" stroke="var(--accent-strong)" stroke-width="2" stroke-linecap="round"/>
+                <line x1="18" y1="2" x2="18" y2="7" stroke="var(--accent-strong)" stroke-width="2" stroke-linecap="round"/>
+                <circle cx="8" cy="15" r="1.6" fill="var(--accent-strong)"/>
+                <circle cx="13" cy="15" r="1.6" fill="var(--accent)"/>
+                <circle cx="18" cy="15" r="1.6" fill="var(--border)"/>
+              </svg>
+              <p><strong>Timeline</strong> — the major milestones, not a full schedule. Include a checkpoint for the Launch &amp; Communications Plan, not just launch day itself — the most common miss is waiting too long to engage Marketing, internal Comms, Customer Success, or Legal, and finding out on launch day that one of them needed weeks of lead time.</p>
+            </div>
+            <div class="doodle-row">
+              <svg width="30" height="30" viewBox="0 0 26 26" aria-hidden="true">
+                <path d="M2 22 L2 3" stroke="var(--border)" stroke-width="2" stroke-linecap="round"/>
+                <path d="M2 22 L23 22" stroke="var(--border)" stroke-width="2" stroke-linecap="round"/>
+                <path d="M4 18 L10 12 L15 15 L22 6" fill="none" stroke="var(--accent-strong)" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/>
+                <circle cx="22" cy="6" r="2" fill="var(--accent)"/>
+              </svg>
+              <p><strong>Metrics</strong> — how you'll know it worked.</p>
+            </div>
+            <div class="doodle-row">
+              <svg width="30" height="30" viewBox="0 0 26 26" aria-hidden="true">
+                <path d="M13 3 L24 22 L2 22 Z" fill="none" stroke="var(--border)" stroke-width="2" stroke-linejoin="round"/>
+                <line x1="13" y1="10" x2="13" y2="16" stroke="var(--accent-strong)" stroke-width="2.2" stroke-linecap="round"/>
+                <circle cx="13" cy="19" r="1.4" fill="var(--accent-strong)"/>
+              </svg>
+              <p><strong>Risks</strong> — what could derail it.</p>
+            </div>
+          </div>
           <p style="margin-top: 10px;">Vague problem statements and weak sponsor alignment are the two most common ways a charter fails — a charter without a clearly accountable sponsor tends to stall the moment the project hits its first blocker.</p>
           <div class="doodle-note">
             <div class="doodle-row">
@@ -246,12 +325,6 @@
               </tbody>
             </table>
           </div>
-          <blockquote class="pull-quote" style="margin: 20px 0 10px;">
-            <p>"People don't buy what you do, they buy why you do it."</p>
-            <cite>— Simon Sinek, <em>Start with Why</em></cite>
-          </blockquote>
-          <p><em>Start with Why</em> is where the Strategy-is-the-why framing comes from — the same idea applies inside a project team, not just to customers. People don't follow the plan, they follow the reason behind it: a team that understands why a project matters can improvise its way through a plan that's wrong; a team that only has the plan is stuck the moment reality doesn't match it.</p>
-          <p style="margin-top: 10px;">If "strategy" still feels slippery after that, Richard Rumelt's <em>Good Strategy Bad Strategy</em> is the sharpest explanation of why: most things called strategy are really just goals or vision statements in disguise. Real strategy, in his framing, is a diagnosis of the actual problem, a guiding policy for dealing with it, and a set of coherent actions that carry it out — worth reading before writing this section's Strategy column for real.</p>
           <button class="try-it-inline-toggle" type="button" aria-expanded="false" aria-controls="strategy-try-it-collapse">
             <svg width="16" height="16" viewBox="0 0 24 24" aria-hidden="true">
               <path d="M12 2 L14.2 9 L21 11 L14.2 13 L12 20 L9.8 13 L3 11 L9.8 9 Z" fill="var(--accent)"/>
@@ -374,14 +447,62 @@
           </div>
 
           <p style="margin-top: 12px;">Six ways to compress the critical path without losing quality:</p>
-          <ul class="explainer-list is-bulleted" style="margin-top: 10px;">
-            <li><strong>Re-sequence tasks</strong> — adjust the order of dependent tasks to eliminate unnecessary waiting.</li>
-            <li><strong>Parallelize with a contract</strong> — split into workstreams that build side by side, like Frontend and Backend API above, but only works if you plan the seam first. Define the interface between them — the API handshake — and mock it out, so each side builds against the contract instead of waiting on the other to finish.</li>
-            <li><strong>Test in place, not just at the end</strong> — with parallel workstreams, QA doesn't have to wait for Integration. Testing each increment as it lands catches problems while they're still cheap to fix, instead of stacking all the quality risk onto one crunch at the merge point.</li>
-            <li><strong>Add resources selectively</strong> — assign another skilled contributor to the longest-pole tasks specifically.</li>
-            <li><strong>Reduce scope where possible</strong> — cut or simplify non-essential features that sit on the critical path.</li>
-            <li><strong>Remove approval delays</strong> — streamline review and approval steps that are blocking movement, not adding value.</li>
-          </ul>
+          <div class="doodle-note" style="margin-top: 12px;">
+            <div class="doodle-row">
+              <svg width="30" height="30" viewBox="0 0 26 26" aria-hidden="true">
+                <path d="M4 9 L20 9" stroke="var(--border)" stroke-width="2" stroke-linecap="round"/>
+                <path d="M16 5 L20 9 L16 13" stroke="var(--accent-strong)" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+                <path d="M22 18 L6 18" stroke="var(--border)" stroke-width="2" stroke-linecap="round"/>
+                <path d="M10 14 L6 18 L10 22" stroke="var(--accent-strong)" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+              </svg>
+              <p><strong>Re-sequence tasks</strong> — adjust the order of dependent tasks to eliminate unnecessary waiting.</p>
+            </div>
+            <div class="doodle-row">
+              <svg width="30" height="30" viewBox="0 0 26 26" aria-hidden="true">
+                <line x1="2" y1="8" x2="19" y2="8" stroke="var(--accent)" stroke-width="2.2" stroke-linecap="round"/>
+                <path d="M14 4 L19 8 L14 12" stroke="var(--accent)" stroke-width="2.2" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+                <line x1="2" y1="18" x2="19" y2="18" stroke="var(--accent-strong)" stroke-width="2.2" stroke-linecap="round"/>
+                <path d="M14 14 L19 18 L14 22" stroke="var(--accent-strong)" stroke-width="2.2" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+              </svg>
+              <p><strong>Parallelize with a contract</strong> — split into workstreams that build side by side, like Frontend and Backend API above, but only works if you plan the seam first. Define the interface between them — the API handshake — and mock it out, so each side builds against the contract instead of waiting on the other to finish.</p>
+            </div>
+            <div class="doodle-row">
+              <svg width="30" height="30" viewBox="0 0 26 26" aria-hidden="true">
+                <rect x="5" y="3" width="16" height="20" rx="2" fill="none" stroke="var(--border)" stroke-width="2"/>
+                <rect x="9" y="1" width="8" height="4" rx="1" fill="var(--accent)"/>
+                <path d="M8 12 L10 14 L14 9" stroke="var(--accent-strong)" stroke-width="1.8" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+                <line x1="16" y1="12" x2="19" y2="12" stroke="var(--border)" stroke-width="1.6" stroke-linecap="round"/>
+                <path d="M8 18 L10 20 L14 15" stroke="var(--accent-strong)" stroke-width="1.8" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+                <line x1="16" y1="18" x2="19" y2="18" stroke="var(--border)" stroke-width="1.6" stroke-linecap="round"/>
+              </svg>
+              <p><strong>Test in place, not just at the end</strong> — with parallel workstreams, QA doesn't have to wait for Integration. Testing each increment as it lands catches problems while they're still cheap to fix, instead of stacking all the quality risk onto one crunch at the merge point.</p>
+            </div>
+            <div class="doodle-row">
+              <svg width="30" height="30" viewBox="0 0 26 26" aria-hidden="true">
+                <circle cx="10" cy="9" r="5" fill="var(--accent)"/>
+                <path d="M2 24 C2 17 6 14 10 14 C14 14 18 17 18 24" fill="none" stroke="var(--accent-strong)" stroke-width="2.2" stroke-linecap="round"/>
+                <line x1="21" y1="6" x2="21" y2="14" stroke="var(--accent-strong)" stroke-width="2.2" stroke-linecap="round"/>
+                <line x1="17" y1="10" x2="25" y2="10" stroke="var(--accent-strong)" stroke-width="2.2" stroke-linecap="round"/>
+              </svg>
+              <p><strong>Add resources selectively</strong> — assign another skilled contributor to the longest-pole tasks specifically.</p>
+            </div>
+            <div class="doodle-row">
+              <svg width="30" height="30" viewBox="0 0 26 26" aria-hidden="true">
+                <path d="M3 4 L23 4 L15 14 L15 22 L11 20 L11 14 Z" fill="var(--accent)"/>
+              </svg>
+              <p><strong>Reduce scope where possible</strong> — cut or simplify non-essential features that sit on the critical path.</p>
+            </div>
+            <div class="doodle-row">
+              <svg width="30" height="30" viewBox="0 0 26 26" aria-hidden="true">
+                <circle cx="12" cy="14" r="9" fill="none" stroke="var(--border)" stroke-width="2.2"/>
+                <line x1="12" y1="14" x2="12" y2="8" stroke="var(--accent-strong)" stroke-width="2" stroke-linecap="round"/>
+                <line x1="9" y1="3" x2="15" y2="3" stroke="var(--border)" stroke-width="2" stroke-linecap="round"/>
+                <line x1="17" y1="17" x2="21" y2="21" stroke="var(--accent-strong)" stroke-width="2" stroke-linecap="round"/>
+                <line x1="21" y1="17" x2="17" y2="21" stroke="var(--accent-strong)" stroke-width="2" stroke-linecap="round"/>
+              </svg>
+              <p><strong>Remove approval delays</strong> — streamline review and approval steps that are blocking movement, not adding value.</p>
+            </div>
+          </div>
           <p style="margin-top: 10px; font-style: italic;">Do not compress work blindly — quality and dependency logic still matter.</p>
 
           <div class="doodle-note" id="capacity-gotchas">
@@ -444,12 +565,38 @@
 
           <h4 class="fw-subhead" id="risk-management">Risk Management</h4>
           <p>For each risk that could derail the plan: how likely is it, how bad if it happens, and what are you actually going to do about it?</p>
-          <ul class="explainer-list is-bulleted" style="margin-top: 10px;">
-            <li><strong>Avoid</strong> — change the plan so the risk can't happen at all.</li>
-            <li><strong>Mitigate</strong> — reduce the likelihood, the impact, or both.</li>
-            <li><strong>Transfer</strong> — shift the risk elsewhere: a vendor contract, insurance, a more experienced team.</li>
-            <li><strong>Accept</strong> — acknowledge it and move on, when managing it would cost more than the risk itself.</li>
-          </ul>
+          <div class="doodle-note" style="margin-top: 12px;">
+            <div class="doodle-row">
+              <svg width="30" height="30" viewBox="0 0 26 26" aria-hidden="true">
+                <circle cx="13" cy="13" r="10" fill="none" stroke="var(--border)" stroke-width="2.5"/>
+                <line x1="6" y1="20" x2="20" y2="6" stroke="var(--accent-strong)" stroke-width="2.5" stroke-linecap="round"/>
+              </svg>
+              <p><strong>Avoid</strong> — change the plan so the risk can't happen at all.</p>
+            </div>
+            <div class="doodle-row">
+              <svg width="30" height="30" viewBox="0 0 26 26" aria-hidden="true">
+                <path d="M13 2 L23 6 V13 C23 20 18 24 13 26 C8 24 3 20 3 13 V6 Z" fill="none" stroke="var(--border)" stroke-width="2" stroke-linejoin="round"/>
+                <path d="M8 13 L11.5 16.5 L18 9" stroke="var(--accent-strong)" stroke-width="2.2" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+              </svg>
+              <p><strong>Mitigate</strong> — reduce the likelihood, the impact, or both.</p>
+            </div>
+            <div class="doodle-row">
+              <svg width="30" height="30" viewBox="0 0 26 26" aria-hidden="true">
+                <circle cx="6" cy="13" r="4" fill="var(--accent)"/>
+                <path d="M11 13 L19 13" stroke="var(--border)" stroke-width="2" stroke-linecap="round"/>
+                <path d="M16 9 L20 13 L16 17" stroke="var(--accent-strong)" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+                <circle cx="22" cy="13" r="4" fill="none" stroke="var(--border)" stroke-width="1.8"/>
+              </svg>
+              <p><strong>Transfer</strong> — shift the risk elsewhere: a vendor contract, insurance, a more experienced team.</p>
+            </div>
+            <div class="doodle-row">
+              <svg width="30" height="30" viewBox="0 0 26 26" aria-hidden="true">
+                <circle cx="13" cy="13" r="11" fill="none" stroke="var(--border)" stroke-width="2"/>
+                <path d="M8 13 L11.5 17 L19 9" stroke="var(--accent-strong)" stroke-width="2.2" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+              </svg>
+              <p><strong>Accept</strong> — acknowledge it and move on, when managing it would cost more than the risk itself.</p>
+            </div>
+          </div>
           <p style="margin-top: 10px;">Run it as a cycle, not a one-time exercise: identify → assess → respond → monitor. The most common failure mode isn't missing a risk — it's writing it down once and never looking at it again.</p>
 
           <button class="inline-toggle" type="button" aria-expanded="false" aria-controls="risk-lenses-collapse">
@@ -461,13 +608,45 @@
           <div class="inline-collapse" id="risk-lenses-collapse">
             <div class="section-block-inner">
               <p style="font-size: 0.85rem; color: var(--text-caption); margin-bottom: 8px;">For programs and larger initiatives where a single register isn't enough — five lenses to view risk through instead of one flat list:</p>
-              <ul class="explainer-list is-bulleted">
-                <li><strong>Strategic Risk</strong> — threats to growth, market position, and long-term direction. Best for board and executive decisions.</li>
-                <li><strong>Operational Resilience</strong> — disruption risk across processes, people, systems, and facilities. Best for continuity and service reliability.</li>
-                <li><strong>Cyber &amp; Data Risk</strong> — digital exposure from attacks, data loss, and technology failure. Best for security and control focus.</li>
-                <li><strong>Third-Party Dependency</strong> — risk created by vendors, platforms, and critical partners. Best for supplier and ecosystem oversight.</li>
-                <li><strong>AI &amp; Model Risk</strong> — uncertainty from automated decisions and weak governance. Best for AI adoption and assurance.</li>
-              </ul>
+              <div class="doodle-note" style="margin-top: 4px;">
+                <div class="doodle-row">
+                  <svg width="26" height="26" viewBox="0 0 26 26" aria-hidden="true">
+                    <circle cx="13" cy="13" r="11" fill="none" stroke="var(--border)" stroke-width="2"/>
+                    <path d="M17 9 L14.5 14.5 L9 17 L11.5 11.5 Z" fill="var(--accent)"/>
+                    <circle cx="13" cy="13" r="1.6" fill="var(--accent-strong)"/>
+                  </svg>
+                  <p><strong>Strategic Risk</strong> — threats to growth, market position, and long-term direction. Best for board and executive decisions.</p>
+                </div>
+                <div class="doodle-row">
+                  <svg width="26" height="26" viewBox="0 0 26 26" aria-hidden="true">
+                    <circle cx="13" cy="13" r="5" fill="none" stroke="var(--accent)" stroke-width="2.2"/>
+                    <path d="M13 4 L13 6.5 M13 19.5 L13 22 M4 13 L6.5 13 M19.5 13 L22 13 M6.6 6.6 L8.3 8.3 M17.7 17.7 L19.4 19.4 M6.6 19.4 L8.3 17.7 M17.7 8.3 L19.4 6.6" stroke="var(--border)" stroke-width="2" stroke-linecap="round"/>
+                  </svg>
+                  <p><strong>Operational Resilience</strong> — disruption risk across processes, people, systems, and facilities. Best for continuity and service reliability.</p>
+                </div>
+                <div class="doodle-row">
+                  <svg width="26" height="26" viewBox="0 0 26 26" aria-hidden="true">
+                    <rect x="6" y="12" width="14" height="11" rx="2" fill="var(--accent)"/>
+                    <path d="M9 12 V8 a4 4 0 0 1 8 0 V12" fill="none" stroke="var(--border)" stroke-width="2.2"/>
+                  </svg>
+                  <p><strong>Cyber &amp; Data Risk</strong> — digital exposure from attacks, data loss, and technology failure. Best for security and control focus.</p>
+                </div>
+                <div class="doodle-row">
+                  <svg width="26" height="26" viewBox="0 0 26 26" aria-hidden="true">
+                    <ellipse cx="10" cy="14" rx="7" ry="4.5" fill="none" stroke="var(--accent)" stroke-width="2.2" transform="rotate(-30 10 14)"/>
+                    <ellipse cx="18" cy="14" rx="7" ry="4.5" fill="none" stroke="var(--accent)" stroke-width="2.2" transform="rotate(-30 18 14)"/>
+                  </svg>
+                  <p><strong>Third-Party Dependency</strong> — risk created by vendors, platforms, and critical partners. Best for supplier and ecosystem oversight.</p>
+                </div>
+                <div class="doodle-row">
+                  <svg width="26" height="26" viewBox="0 0 26 26" aria-hidden="true">
+                    <path d="M13 2 C13.6 6 14 8.4 18 9 C14 9.6 13.6 12 13 16 C12.4 12 12 9.6 8 9 C12 8.4 12.4 6 13 2 Z" fill="var(--accent-strong)"/>
+                    <path d="M21 14 C21.3 15.7 21.5 16.7 23 17 C21.5 17.3 21.3 18.3 21 20 C20.7 18.3 20.5 17.3 19 17 C20.5 16.7 20.7 15.7 21 14 Z" fill="var(--accent)"/>
+                    <path d="M5 16 C5.2 17.1 5.3 17.7 6.2 17.9 C5.3 18.1 5.2 18.7 5 19.8 C4.8 18.7 4.7 18.1 3.8 17.9 C4.7 17.7 4.8 17.1 5 16 Z" fill="var(--accent)"/>
+                  </svg>
+                  <p><strong>AI &amp; Model Risk</strong> — uncertainty from automated decisions and weak governance. Best for AI adoption and assurance.</p>
+                </div>
+              </div>
             </div>
           </div>
           <button class="try-it-inline-toggle" type="button" aria-expanded="false" aria-controls="projectplan-try-it-collapse">
@@ -781,15 +960,64 @@
             </div>
           </div>
 
-          <ul class="explainer-list is-bulleted" style="margin-top: 16px;">
-            <li><strong>Project Overview</strong> — name, lead, reporting period, overall status.</li>
-            <li><strong>Health Summary</strong> — overall Project Health and Health Trend as Green / Amber / Red, plus scope, schedule, and budget flagged the same way.</li>
-            <li><strong>Milestones &amp; Achievements</strong> — planned date, actual date, and comments per milestone, alongside what actually got done this period.</li>
-            <li><strong>Task Progress Summary</strong> — % complete, % at risk, % not started, plus Planned vs. Actual against the schedule.</li>
-            <li><strong>Budget Summary</strong> — total budget, spend to date, remaining, utilization.</li>
-            <li><strong>Key Risks &amp; Issues</strong> — what's threatening the plan right now.</li>
-            <li><strong>Next Steps</strong> — action, owner, due date.</li>
-          </ul>
+          <div class="doodle-note" style="margin-top: 16px;">
+            <div class="doodle-row">
+              <svg width="30" height="30" viewBox="0 0 26 26" aria-hidden="true">
+                <rect x="5" y="2" width="16" height="22" rx="2" fill="none" stroke="var(--border)" stroke-width="2"/>
+                <line x1="9" y1="8" x2="17" y2="8" stroke="var(--accent-strong)" stroke-width="1.6" stroke-linecap="round"/>
+                <line x1="9" y1="12" x2="17" y2="12" stroke="var(--accent-strong)" stroke-width="1.6" stroke-linecap="round"/>
+                <line x1="9" y1="16" x2="14" y2="16" stroke="var(--accent-strong)" stroke-width="1.6" stroke-linecap="round"/>
+              </svg>
+              <p><strong>Project Overview</strong> — name, lead, reporting period, overall status.</p>
+            </div>
+            <div class="doodle-row">
+              <svg width="30" height="30" viewBox="0 0 26 26" aria-hidden="true">
+                <circle cx="7" cy="13" r="5" fill="var(--accent)"/>
+                <circle cx="19" cy="13" r="5" fill="var(--accent-strong)"/>
+                <circle cx="13" cy="22" r="5" fill="none" stroke="var(--border)" stroke-width="1.6"/>
+              </svg>
+              <p><strong>Health Summary</strong> — overall Project Health and Health Trend as Green / Amber / Red, plus scope, schedule, and budget flagged the same way.</p>
+            </div>
+            <div class="doodle-row">
+              <svg width="30" height="30" viewBox="0 0 26 26" aria-hidden="true">
+                <line x1="2" y1="13" x2="24" y2="13" stroke="var(--border)" stroke-width="2" stroke-linecap="round"/>
+                <circle cx="5" cy="13" r="3" fill="var(--accent)"/>
+                <circle cx="13" cy="13" r="3" fill="var(--accent-strong)"/>
+                <circle cx="21" cy="13" r="3" fill="none" stroke="var(--border)" stroke-width="1.6"/>
+              </svg>
+              <p><strong>Milestones &amp; Achievements</strong> — planned date, actual date, and comments per milestone, alongside what actually got done this period.</p>
+            </div>
+            <div class="doodle-row">
+              <svg width="30" height="30" viewBox="0 0 26 26" aria-hidden="true">
+                <circle cx="13" cy="13" r="9" fill="none" stroke="var(--border)" stroke-width="4"/>
+                <path d="M13 4 A9 9 0 0 1 20 16" fill="none" stroke="var(--accent-strong)" stroke-width="4" stroke-linecap="round"/>
+              </svg>
+              <p><strong>Task Progress Summary</strong> — % complete, % at risk, % not started, plus Planned vs. Actual against the schedule.</p>
+            </div>
+            <div class="doodle-row">
+              <svg width="30" height="30" viewBox="0 0 26 26" aria-hidden="true">
+                <rect x="2" y="6" width="22" height="14" rx="2" fill="var(--accent)"/>
+                <circle cx="13" cy="13" r="4.5" fill="none" stroke="var(--accent-strong)" stroke-width="1.8"/>
+                <line x1="13" y1="9" x2="13" y2="17" stroke="var(--accent-strong)" stroke-width="1.6" stroke-linecap="round"/>
+              </svg>
+              <p><strong>Budget Summary</strong> — total budget, spend to date, remaining, utilization.</p>
+            </div>
+            <div class="doodle-row">
+              <svg width="30" height="30" viewBox="0 0 26 26" aria-hidden="true">
+                <path d="M13 3 L24 22 L2 22 Z" fill="none" stroke="var(--border)" stroke-width="2" stroke-linejoin="round"/>
+                <line x1="13" y1="10" x2="13" y2="16" stroke="var(--accent-strong)" stroke-width="2.2" stroke-linecap="round"/>
+                <circle cx="13" cy="19" r="1.4" fill="var(--accent-strong)"/>
+              </svg>
+              <p><strong>Key Risks &amp; Issues</strong> — what's threatening the plan right now.</p>
+            </div>
+            <div class="doodle-row">
+              <svg width="30" height="30" viewBox="0 0 26 26" aria-hidden="true">
+                <line x1="4" y1="13" x2="20" y2="13" stroke="var(--accent-strong)" stroke-width="2.2" stroke-linecap="round"/>
+                <path d="M15 7 L21 13 L15 19" stroke="var(--accent-strong)" stroke-width="2.2" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+              </svg>
+              <p><strong>Next Steps</strong> — action, owner, due date.</p>
+            </div>
+          </div>
 
           <blockquote class="pull-quote" style="margin: 20px 0 10px;">
             <p>"Bad news isn't wine. It doesn't improve with age."</p>
@@ -846,17 +1074,7 @@
         </button>
         <div class="fw-body" id="launch-communications-plan-body">
           <p>A launch isn't done when the code ships — it's done when everyone who needs to know already does, before the customer finds out first. Six fields to work through, and the answer to the first one changes who else belongs in the room for the rest:</p>
-          <ul class="explainer-list is-bulleted" style="margin-top: 10px;">
-            <li><strong>Launch Type</strong> — public (external customers) or internal (employees only)? This decides who else has to be in the room.</li>
-            <li><strong>Audience Map</strong> — every group that needs to know, and by when: customers, internal teams, leadership, partners, press.</li>
-            <li><strong>Communications Plan</strong> — if public, Marketing/PR owns the external announcement and press materials. If internal, the internal communications team owns the org-wide message. Either way, the project team doesn't freelance the announcement alone.</li>
-            <li><strong>Customer Success Enablement</strong> — CS and support need to know before the customer does: talking points, known issues, escalation path, and training on what's changing. Not optional just because the launch is internal — internal launches still generate support tickets.</li>
-            <li><strong>Rollout Sequencing</strong> — a phased rollout (beta → GA, or region by region) and what has to be true before moving to the next phase.</li>
-            <li><strong>Post-Launch Monitoring</strong> — who's watching what in the first 24-72 hours, and what triggers a rollback.</li>
-          </ul>
-          <p style="margin-top: 10px;">The most common failure is treating communications as a checkbox at the very end instead of its own workstream with its own owner. By the time someone remembers Customer Success needed a heads-up, support tickets are already piling in from customers who found out before Support did.</p>
-          <p style="margin-top: 10px;">Continuing the checkout-page example from Critical Path Method:</p>
-          <div class="doodle-note">
+          <div class="doodle-note" style="margin-top: 12px;">
             <div class="doodle-row">
               <svg width="30" height="30" viewBox="0 0 26 26" aria-hidden="true">
                 <circle cx="6" cy="13" r="3" fill="var(--accent)"/>
@@ -865,7 +1083,7 @@
                 <circle cx="21" cy="6" r="2.5" fill="var(--accent-strong)"/>
                 <circle cx="21" cy="20" r="2.5" fill="none" stroke="var(--border)" stroke-width="1.4"/>
               </svg>
-              <p><strong>Launch Type:</strong> Public — this checkout page is customer-facing, so Marketing and PR are in scope, not just the project team.</p>
+              <p><strong>Launch Type</strong> — public (external customers) or internal (employees only)? This decides who else has to be in the room.</p>
             </div>
             <div class="doodle-row">
               <svg width="30" height="30" viewBox="0 0 26 26" aria-hidden="true">
@@ -873,7 +1091,7 @@
                 <circle cx="19" cy="8" r="4" fill="var(--border)"/>
                 <circle cx="13" cy="18" r="4" fill="var(--accent-strong)"/>
               </svg>
-              <p><strong>Audience Map:</strong> Customers checking out today, merchants still on the old flow, the support team, and the exec who asked about conversion rate last QBR — four audiences, four different messages.</p>
+              <p><strong>Audience Map</strong> — every group that needs to know, and by when: customers, internal teams, leadership, partners, press.</p>
             </div>
             <div class="doodle-row">
               <svg width="30" height="30" viewBox="0 0 26 26" aria-hidden="true">
@@ -881,7 +1099,7 @@
                 <path d="M18 9 C20 10.5 20 13.5 18 15" stroke="var(--accent-strong)" stroke-width="2" fill="none" stroke-linecap="round"/>
                 <path d="M21 6 C24.5 9 24.5 17 21 20" stroke="var(--border)" stroke-width="1.6" fill="none" stroke-linecap="round"/>
               </svg>
-              <p><strong>Communications Plan:</strong> Marketing drafts a one-line in-app banner for the new flow; PR sits this one out — a checkout redesign doesn't need a press release, just making sure nobody's surprised.</p>
+              <p><strong>Communications Plan</strong> — if public, Marketing/PR owns the external announcement and press materials. If internal, the internal communications team owns the org-wide message. Either way, the project team doesn't freelance the announcement alone.</p>
             </div>
             <div class="doodle-row">
               <svg width="30" height="30" viewBox="0 0 26 26" aria-hidden="true">
@@ -891,13 +1109,13 @@
                 <line x1="21.5" y1="22" x2="21.5" y2="24" stroke="var(--accent-strong)" stroke-width="1.6" stroke-linecap="round"/>
                 <line x1="21.5" y1="24" x2="18" y2="24" stroke="var(--accent-strong)" stroke-width="1.6" stroke-linecap="round"/>
               </svg>
-              <p><strong>Customer Success Enablement:</strong> Support got a one-pager and a 15-minute walkthrough three days before launch, including the two known edge cases still being fixed in the next patch.</p>
+              <p><strong>Customer Success Enablement</strong> — CS and support need to know before the customer does: talking points, known issues, escalation path, and training on what's changing. Not optional just because the launch is internal — internal launches still generate support tickets.</p>
             </div>
             <div class="doodle-row">
               <svg width="30" height="30" viewBox="0 0 26 26" aria-hidden="true">
                 <path d="M2 24 L2 18 L9 18 L9 12 L16 12 L16 6 L23 6" stroke="var(--accent-strong)" stroke-width="2.4" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
               </svg>
-              <p><strong>Rollout Sequencing:</strong> 5% of traffic for 48 hours, then 25%, then 100% — each step gated on conversion rate not dropping more than 1 point from baseline.</p>
+              <p><strong>Rollout Sequencing</strong> — a phased rollout (beta → GA, or region by region) and what has to be true before moving to the next phase.</p>
             </div>
             <div class="doodle-row">
               <svg width="30" height="30" viewBox="0 0 26 26" aria-hidden="true">
@@ -905,6 +1123,28 @@
                 <circle cx="13" cy="13" r="4" fill="var(--accent)"/>
                 <circle cx="13" cy="13" r="1.6" fill="var(--accent-strong)"/>
               </svg>
+              <p><strong>Post-Launch Monitoring</strong> — who's watching what in the first 24-72 hours, and what triggers a rollback.</p>
+            </div>
+          </div>
+          <p style="margin-top: 10px;">The most common failure is treating communications as a checkbox at the very end instead of its own workstream with its own owner. By the time someone remembers Customer Success needed a heads-up, support tickets are already piling in from customers who found out before Support did.</p>
+          <p style="margin-top: 10px;">Continuing the checkout-page example from Critical Path Method:</p>
+          <div class="doodle-note">
+            <div class="doodle-row">
+              <p><strong>Launch Type:</strong> Public — this checkout page is customer-facing, so Marketing and PR are in scope, not just the project team.</p>
+            </div>
+            <div class="doodle-row">
+              <p><strong>Audience Map:</strong> Customers checking out today, merchants still on the old flow, the support team, and the exec who asked about conversion rate last QBR — four audiences, four different messages.</p>
+            </div>
+            <div class="doodle-row">
+              <p><strong>Communications Plan:</strong> Marketing drafts a one-line in-app banner for the new flow; PR sits this one out — a checkout redesign doesn't need a press release, just making sure nobody's surprised.</p>
+            </div>
+            <div class="doodle-row">
+              <p><strong>Customer Success Enablement:</strong> Support got a one-pager and a 15-minute walkthrough three days before launch, including the two known edge cases still being fixed in the next patch.</p>
+            </div>
+            <div class="doodle-row">
+              <p><strong>Rollout Sequencing:</strong> 5% of traffic for 48 hours, then 25%, then 100% — each step gated on conversion rate not dropping more than 1 point from baseline.</p>
+            </div>
+            <div class="doodle-row">
               <p><strong>Post-Launch Monitoring:</strong> Checkout conversion rate and error-rate dashboards watched hourly for the first 72 hours; a 2-point conversion drop triggers an automatic rollback.</p>
             </div>
           </div>
@@ -941,14 +1181,57 @@
         </button>
         <div class="fw-body" id="project-handoffs-body">
           <p>Breaking down silos, delivering value. Most projects pass through four handoffs — Strategy → Product → Engineering → Customer Success — and each one is a place work quietly falls through the cracks. What every handoff must include:</p>
-          <ul class="explainer-list is-bulleted" style="margin-top: 10px;">
-            <li><strong>Context</strong> — why this work exists, in plain language.</li>
-            <li><strong>Requirements</strong> — what "done" actually means to the receiving team.</li>
-            <li><strong>Documentation</strong> — links to specs, decisions, and artifacts the receiving team needs, not tribal knowledge in someone's head.</li>
-            <li><strong>Status</strong> — exactly where things stand right now, no rounding up.</li>
-            <li><strong>Owner</strong> — a named person, not a team name.</li>
-            <li><strong>Next Steps</strong> — the very next action, and who's taking it.</li>
-          </ul>
+          <div class="doodle-note" style="margin-top: 12px;">
+            <div class="doodle-row">
+              <svg width="30" height="30" viewBox="0 0 26 26" aria-hidden="true">
+                <path d="M13 3 C8 3 5 6.5 5 10.5 C5 13.5 6.8 15.3 8.3 16.8 C9 17.5 9.3 18.2 9.3 19 L16.7 19 C16.7 18.2 17 17.5 17.7 16.8 C19.2 15.3 21 13.5 21 10.5 C21 6.5 18 3 13 3 Z" fill="var(--accent)"/>
+                <line x1="9.5" y1="22" x2="16.5" y2="22" stroke="var(--border)" stroke-width="2" stroke-linecap="round"/>
+                <line x1="10.5" y1="24.5" x2="15.5" y2="24.5" stroke="var(--border)" stroke-width="1.6" stroke-linecap="round"/>
+              </svg>
+              <p><strong>Context</strong> — why this work exists, in plain language.</p>
+            </div>
+            <div class="doodle-row">
+              <svg width="30" height="30" viewBox="0 0 26 26" aria-hidden="true">
+                <rect x="5" y="3" width="16" height="20" rx="2" fill="none" stroke="var(--border)" stroke-width="2"/>
+                <rect x="9" y="1" width="8" height="4" rx="1" fill="var(--accent)"/>
+                <path d="M8 12 L10 14 L14 9" stroke="var(--accent-strong)" stroke-width="1.8" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+                <line x1="16" y1="12" x2="19" y2="12" stroke="var(--border)" stroke-width="1.6" stroke-linecap="round"/>
+                <path d="M8 18 L10 20 L14 15" stroke="var(--accent-strong)" stroke-width="1.8" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+                <line x1="16" y1="18" x2="19" y2="18" stroke="var(--border)" stroke-width="1.6" stroke-linecap="round"/>
+              </svg>
+              <p><strong>Requirements</strong> — what "done" actually means to the receiving team.</p>
+            </div>
+            <div class="doodle-row">
+              <svg width="30" height="30" viewBox="0 0 26 26" aria-hidden="true">
+                <rect x="5" y="2" width="16" height="22" rx="2" fill="none" stroke="var(--border)" stroke-width="2"/>
+                <line x1="9" y1="8" x2="17" y2="8" stroke="var(--accent-strong)" stroke-width="1.6" stroke-linecap="round"/>
+                <line x1="9" y1="12" x2="17" y2="12" stroke="var(--accent-strong)" stroke-width="1.6" stroke-linecap="round"/>
+                <line x1="9" y1="16" x2="14" y2="16" stroke="var(--accent-strong)" stroke-width="1.6" stroke-linecap="round"/>
+              </svg>
+              <p><strong>Documentation</strong> — links to specs, decisions, and artifacts the receiving team needs, not tribal knowledge in someone's head.</p>
+            </div>
+            <div class="doodle-row">
+              <svg width="30" height="30" viewBox="0 0 26 26" aria-hidden="true">
+                <circle cx="13" cy="13" r="9" fill="none" stroke="var(--border)" stroke-width="4"/>
+                <path d="M13 4 A9 9 0 0 1 20 16" fill="none" stroke="var(--accent-strong)" stroke-width="4" stroke-linecap="round"/>
+              </svg>
+              <p><strong>Status</strong> — exactly where things stand right now, no rounding up.</p>
+            </div>
+            <div class="doodle-row">
+              <svg width="30" height="30" viewBox="0 0 26 26" aria-hidden="true">
+                <circle cx="13" cy="8" r="5" fill="var(--accent)"/>
+                <path d="M3 24 C3 17 8 14 13 14 C18 14 23 17 23 24" fill="none" stroke="var(--accent-strong)" stroke-width="2.5" stroke-linecap="round"/>
+              </svg>
+              <p><strong>Owner</strong> — a named person, not a team name.</p>
+            </div>
+            <div class="doodle-row">
+              <svg width="30" height="30" viewBox="0 0 26 26" aria-hidden="true">
+                <line x1="4" y1="13" x2="20" y2="13" stroke="var(--accent-strong)" stroke-width="2.2" stroke-linecap="round"/>
+                <path d="M15 7 L21 13 L15 19" stroke="var(--accent-strong)" stroke-width="2.2" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+              </svg>
+              <p><strong>Next Steps</strong> — the very next action, and who's taking it.</p>
+            </div>
+          </div>
           <p style="margin-top: 10px; font-style: italic;">One team. One flow. One outcome.</p>
           <button class="try-it-inline-toggle" type="button" aria-expanded="false" aria-controls="handoffs-try-it-collapse">
             <svg width="16" height="16" viewBox="0 0 24 24" aria-hidden="true">

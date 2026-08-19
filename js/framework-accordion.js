@@ -31,6 +31,13 @@
       });
     });
 
+    var collapseAllBtn = document.querySelector('.collapse-all-btn');
+    if (collapseAllBtn) {
+      collapseAllBtn.addEventListener('click', function () {
+        items.forEach(function (item) { setOpen(item, false); });
+      });
+    }
+
     var inlineToggles = Array.prototype.slice.call(document.querySelectorAll('.try-it-inline-toggle, .inline-toggle'));
     inlineToggles.forEach(function (btn) {
       var collapse = document.getElementById(btn.getAttribute('aria-controls'));

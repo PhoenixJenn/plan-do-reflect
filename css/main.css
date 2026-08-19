@@ -1390,6 +1390,11 @@ body {
 .example-label[data-example="ipod"] {
   display: inline;
 }
+.example-label-icon[data-example="ipod"] {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+}
 .example-block[data-example] {
   display: none;
 }
@@ -1654,14 +1659,39 @@ body {
 .accordion-hint {
   display: flex;
   align-items: center;
-  gap: 6px;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 6px 12px;
   font-size: 0.8rem;
   color: var(--text-caption);
   margin-bottom: 12px;
 }
 
+.accordion-hint-text {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
 .accordion-hint svg {
   flex-shrink: 0;
+}
+
+.collapse-all-btn {
+  font-family: var(--font-body);
+  font-size: 0.8rem;
+  font-weight: 600;
+  color: var(--text-caption);
+  background: none;
+  border: none;
+  text-decoration: underline;
+  text-underline-offset: 2px;
+  cursor: pointer;
+  padding: 0;
+}
+
+.collapse-all-btn:hover {
+  color: var(--accent-strong);
 }
 
 /* ---------- Subcategory grid (root landing pages, e.g. self-management.html) ---------- */

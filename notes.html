@@ -440,6 +440,44 @@
     </div>
   </div>
 
+  <div class="note-entry">
+    <div class="note-entry-header">
+      <div class="note-entry-title">Product Management build-out status</div>
+      <span class="note-entry-dest">→ product-management.html</span>
+    </div>
+    <div class="note-entry-date">Moved here 2026-08-19</div>
+    <div class="note-entry-body">
+      <p>Formerly the page-bottom note on <code>product-management.html</code>, replaced there with a transition paragraph into Project &amp; Program Management. Keeping the dev-status tracking here instead of on the live page.</p>
+      <p>The remaining frameworks — Ideation &amp; MVP Scoping, Prioritization Frameworks, Roadmapping, and Metrics/OKRs &amp; North Star — are still being built out. In the meantime, Project &amp; Program Management is a fully worked example of what this page will look like once they're in.</p>
+    </div>
+    <div class="note-remarks">
+      <strong>Notes on this:</strong> Built so far: Understanding Your Customers, Identifying Opportunities, Product Vision &amp; Strategy, Working Backwards Plan, Product Requirements (PRD). Update this entry as more sections land, and remove it once the outline is fully built.
+    </div>
+  </div>
+
+  <div class="note-entry">
+    <div class="note-entry-header">
+      <div class="note-entry-title">"Project Strategy vs. Project Plan" needs rework — is Project Strategy even a real thing?</div>
+      <span class="note-entry-dest">→ project-program-management.html</span>
+    </div>
+    <div class="note-entry-date">Drafted 2026-08-19</div>
+    <div class="note-entry-body">
+      <p>The user pushed back on the "Project Strategy vs. Project Plan" section: they've only ever worked with Product Strategy, never a separate "Project Strategy" artifact, and asked whether the section could just be renamed "Product Strategy vs. Project Plan."</p>
+      <p>A pure rename doesn't work as-is — the table's content is scoped to a single project's own lifecycle ("Time horizon: project lifecycle through benefits realization; reset at major stage gates"), which is factually wrong if relabeled Product Strategy (which spans years and many projects, not one project's stage gates). It would also duplicate Product Vision &amp; Strategy, which already has a fuller, better-built treatment of Product Strategy elsewhere.</p>
+      <p>Proposed direction (not yet built): rename to "Product Strategy vs. Project Plan," rewrite the Strategy column to accurately describe Product Strategy's real scope, link back to Product Vision &amp; Strategy as where it actually gets defined, and reframe this section's job as protecting that upstream strategy from getting silently overridden by the plan — not re-deriving strategy from scratch.</p>
+      <h3>Open question to resolve before rebuilding this: who owns what</h3>
+      <p>Once Strategy and Plan are cleanly separated, three operational things still need a clear owner, and none of them obviously belongs to either column as currently defined:</p>
+      <ul class="explainer-list is-bulleted">
+        <li><strong>Resourcing</strong> — headcount and budget allocated to this initiative. Feels upstream of the Plan (a precondition for it being feasible at all) but isn't really Product Strategy either (Product Strategy says what to build, not who's available to build it). Possibly Project Charter's Team field, or a Program-level arbitration layer this taxonomy doesn't fully model yet.</li>
+        <li><strong>Dependency negotiation</strong> — getting another team to actually commit to a cross-team or cross-project dependency. The dependency itself shows up in the Plan (Scope to Execution already tracks it), but negotiating it often requires strategic weight the Plan alone doesn't carry.</li>
+        <li><strong>Managing cost estimates</strong> — initial estimates probably belong in the Charter's Business Case; ongoing cost tracking already lives in the Status Report's Budget Summary. Worth confirming this one's actually already covered, not actually open.</li>
+      </ul>
+    </div>
+    <div class="note-remarks">
+      <strong>Notes on this:</strong> Explicitly parked, not queued to build — "we can revisit." Don't touch the live "Project Strategy vs. Project Plan" section until this is resolved with the user.
+    </div>
+  </div>
+
   <div class="theme-switch" role="group" aria-label="Style direction">
     <button data-theme="a" title="Kinetic Signal — black &amp; yellow"></button>
     <button data-theme="b" title="Studio Ledger — dusty rose"></button>
