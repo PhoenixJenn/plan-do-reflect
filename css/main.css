@@ -64,6 +64,14 @@ body {
   color: var(--text-nav-active);
 }
 
+/* Extra breathing room before Core Skills — it's the cross-cutting category,
+   not another altitude in the Framework/Self/Team/Organization progression,
+   so it reads as visually set apart rather than a fifth equal step. Chosen
+   from three spacing options mocked up on icon-library.html's Nav Mockup. */
+.topnav-items .item:last-child {
+  margin-left: 40px;
+}
+
 /* ---------- Layout: sidebar + content ---------- */
 .layout {
   display: grid;
@@ -1803,19 +1811,28 @@ body {
   margin: 4px 12px 6px;
 }
 
+/* Cross-cutting marker: brackets a group label that doesn't belong to any
+   one altitude, in a fixed gold rather than the active theme's accent, so
+   it reads as "different" no matter which style direction is active. */
+.group-label.is-crosscutting,
+.stage-box-header h2.is-crosscutting {
+  color: var(--accent-gold);
+}
+
+.is-crosscutting::before,
+.is-crosscutting::after {
+  color: var(--accent-gold);
+  font-weight: 800;
+}
+
+.is-crosscutting::before { content: "["; margin-right: 5px; }
+.is-crosscutting::after { content: "]"; margin-left: 5px; }
+
 /* Indent so the link text lines up under the first letter of the group
    label above it (dot width + gap = 13px past the label's own edge). */
 .sidebar-group > .sub-item,
 .sidebar-group > .sub-item-group {
   margin-left: 13px;
-}
-
-.sidebar .group-label .stage-dot {
-  width: 7px;
-  height: 7px;
-  border-radius: 50%;
-  background: var(--accent);
-  flex-shrink: 0;
 }
 
 @media (max-width: 720px) {

@@ -10,8 +10,8 @@
 <link rel="stylesheet" href="css/main.css">
 <style>
   /* Internal reference page only — not part of the site's IA, not linked
-     from nav. A working scratchpad for drafting the Personal/Team/Corporate
-     restructure against the site's actual current pages. */
+     from nav. Tracks the site's actual current pages now that the
+     Self/Team/Organization restructure has been built. */
   body { padding: 32px 40px; max-width: 900px; margin: 0 auto; background: var(--bg-page); }
   .sitemap-h1 { font-family: var(--font-heading); font-size: 1.8rem; font-weight: 800; color: var(--text-heading); margin-bottom: 8px; }
   .sitemap-intro { color: var(--text-body); max-width: 680px; margin-bottom: 28px; line-height: 1.6; }
@@ -39,14 +39,21 @@
 </head>
 <body>
 
-  <h1 class="sitemap-h1">Sitemap — working draft</h1>
-  <p class="sitemap-intro">Every page that exists today, plus a first draft of the Personal / Team / Corporate restructure underneath it. Not part of the site's nav or IA — a scratchpad for reorganizing before we touch any real markup.</p>
+  <h1 class="sitemap-h1">Sitemap</h1>
+  <p class="sitemap-intro">Every page on the site, as built. The Self/Team/Organization restructure (previously drafted here) is now live — this page just tracks the real nav going forward.</p>
 
   <h2 class="sitemap-h2">Current site, as built</h2>
-  <p class="sitemap-h2-note">Reflects the live nav: The Framework, Processes, Core Skills, plus standalone/internal pages.</p>
+  <p class="sitemap-h2-note">Reflects the live nav: The Framework, Self, Team, Organization, Core Skills, plus standalone/internal pages.</p>
 
   <div class="sitemap-section">
-    <div class="sitemap-section-title">The Framework <span class="sitemap-tag is-built">Built</span></div>
+    <div class="sitemap-section-title">The Framework <span class="sitemap-tag is-stub">Placeholder</span></div>
+    <ul class="sitemap-list">
+      <li class="sitemap-item"><a href="framework.html">Overview</a> <span class="sitemap-tag is-stub">Coming soon — just sidebar scaffold so far</span></li>
+    </ul>
+  </div>
+
+  <div class="sitemap-section">
+    <div class="sitemap-section-title">Self <span class="sitemap-tag is-built">Built</span></div>
     <ul class="sitemap-list">
       <li class="sitemap-item"><a href="self-management.html">Overview</a></li>
       <li class="sitemap-item"><a href="goal-setting-priorities.html">Goal Setting &amp; Priorities</a>
@@ -68,9 +75,9 @@
   </div>
 
   <div class="sitemap-section">
-    <div class="sitemap-section-title">Processes <span class="sitemap-tag is-built">Partially built</span></div>
+    <div class="sitemap-section-title">Team <span class="sitemap-tag is-built">Partially built</span></div>
     <ul class="sitemap-list">
-      <li class="sitemap-item"><a href="processes.html">Overview</a></li>
+      <li class="sitemap-item"><a href="team.html">Overview</a></li>
       <li class="sitemap-item"><span class="sitemap-item-plain">Team Operating Rhythm &amp; Cadence</span> <span class="sitemap-tag is-stub">Stub — no page</span></li>
       <li class="sitemap-item"><a href="research.html">Research</a> <span class="sitemap-tag is-stub">Stub</span></li>
       <li class="sitemap-item"><a href="product-management.html">Product Management</a> <span class="sitemap-tag is-built">5 of 9 sections built</span>
@@ -97,19 +104,32 @@
       <li class="sitemap-item"><span class="sitemap-item-plain">Agile / Delivery Process</span> <span class="sitemap-tag is-stub">Stub — no page</span></li>
       <li class="sitemap-item"><span class="sitemap-item-plain">Technical / Engineering Process</span> <span class="sitemap-tag is-stub">Stub — no page</span></li>
       <li class="sitemap-item"><span class="sitemap-item-plain">Quality &amp; Problem-Solving</span> <span class="sitemap-tag is-stub">Stub — no page</span></li>
-      <li class="sitemap-item"><span class="sitemap-item-plain">Operational Process</span> <span class="sitemap-tag is-stub">Stub — no page</span></li>
     </ul>
   </div>
 
   <div class="sitemap-section">
-    <div class="sitemap-section-title">Core Skills <span class="sitemap-tag is-stub">All stubs</span></div>
+    <div class="sitemap-section-title">Organization <span class="sitemap-tag is-stub">All stubs</span></div>
+    <ul class="sitemap-list">
+      <li class="sitemap-item"><a href="organization.html">Overview</a></li>
+      <li class="sitemap-item"><span class="sitemap-item-plain">Annual Operating Plan, MBR &amp; QBR</span> <span class="sitemap-tag is-stub">Stub — no page</span></li>
+      <li class="sitemap-item"><span class="sitemap-item-plain">Strategic Planning</span> <span class="sitemap-tag is-stub">Stub, moved from Core Skills</span></li>
+      <li class="sitemap-item"><span class="sitemap-item-plain">Operational Process</span> <span class="sitemap-tag is-stub">Stub, moved from Team</span></li>
+      <li class="sitemap-item"><span class="sitemap-item-plain">Leading</span> <span class="sitemap-tag is-stub">Stub, moved from Core Skills</span></li>
+      <li class="sitemap-item"><span class="sitemap-item-plain">Managing</span> <span class="sitemap-tag is-stub">Stub, moved from Core Skills</span></li>
+      <li class="sitemap-item"><span class="sitemap-item-plain">People Management</span> <span class="sitemap-tag is-stub">Stub — no page</span></li>
+    </ul>
+  </div>
+
+  <div class="sitemap-section">
+    <div class="sitemap-section-title">Core Skills <span class="sitemap-tag is-stub">Cross-cutting only</span></div>
     <ul class="sitemap-list">
       <li class="sitemap-item"><a href="core-skills.html">Overview</a></li>
-      <li class="sitemap-item"><span class="sitemap-item-plain">Communication</span> <span class="sitemap-tag is-stub">Stub — no page</span></li>
-      <li class="sitemap-item"><span class="sitemap-item-plain">AI Fundamentals</span> <span class="sitemap-tag is-stub">Stub — no page</span></li>
-      <li class="sitemap-item"><span class="sitemap-item-plain">Leading</span> <span class="sitemap-tag is-stub">Stub — no page</span></li>
-      <li class="sitemap-item"><span class="sitemap-item-plain">Managing</span> <span class="sitemap-tag is-stub">Stub — no page</span></li>
-      <li class="sitemap-item"><span class="sitemap-item-plain">Strategic Planning</span> <span class="sitemap-tag is-stub">Stub — no page</span></li>
+      <li class="sitemap-item"><span class="sitemap-item-plain">Professional Development</span> <span class="sitemap-tag is-built">Resolves the old "cross-cutting placement" question — gold-bracket treatment marks it as not altitude-scoped</span>
+        <ul class="sitemap-sub-list">
+          <li class="sitemap-item"><span class="sitemap-item-plain">Communication</span> <span class="sitemap-tag is-stub">Stub — no page</span></li>
+          <li class="sitemap-item"><span class="sitemap-item-plain">AI Fundamentals</span> <span class="sitemap-tag is-stub">Stub — no page</span></li>
+        </ul>
+      </li>
     </ul>
   </div>
 
@@ -124,60 +144,33 @@
     </ul>
   </div>
 
-  <h2 class="sitemap-h2">Draft: Personal / Team / Corporate restructure</h2>
-  <p class="sitemap-h2-note">First pass at the mapping from our last conversation. Same pages, regrouped — nothing here has been built. Items tagged <span class="sitemap-tag is-new">Net-new</span> don't exist anywhere yet.</p>
-
-  <div class="sitemap-section">
-    <div class="sitemap-section-title">The Framework <span class="sitemap-tag is-new">Net-new</span></div>
-    <ul class="sitemap-list">
-      <li class="sitemap-item"><span class="sitemap-item-plain">Overview page: the repeating Plan → Do → Reflect cycle across altitudes</span> <span class="sitemap-tag is-new">Net-new</span> — draft narrative already in <a href="notes.html">notes.html</a> ("One Cycle, Every Altitude")</li>
-    </ul>
-  </div>
-
-  <div class="sitemap-section">
-    <div class="sitemap-section-title">Personal <span class="sitemap-tag is-built">No content work — just repositioned</span></div>
-    <ul class="sitemap-list">
-      <li class="sitemap-item"><span class="sitemap-item-plain">= today's entire "The Framework" section, unchanged</span></li>
-    </ul>
-  </div>
-
-  <div class="sitemap-section">
-    <div class="sitemap-section-title">Team</div>
-    <ul class="sitemap-list">
-      <li class="sitemap-item"><span class="sitemap-item-plain">Team Operating Rhythm &amp; Cadence</span> <span class="sitemap-tag is-stub">Stub, moved from Processes</span></li>
-      <li class="sitemap-item"><span class="sitemap-item-plain">Research</span> <span class="sitemap-tag is-stub">Stub, moved from Processes</span></li>
-      <li class="sitemap-item"><span class="sitemap-item-plain">Product Management</span> <span class="sitemap-tag is-built">Moved from Processes</span></li>
-      <li class="sitemap-item"><span class="sitemap-item-plain">Project &amp; Program Management</span> <span class="sitemap-tag is-built">Moved from Processes</span></li>
-      <li class="sitemap-item"><span class="sitemap-item-plain">Agile / Delivery Process</span> <span class="sitemap-tag is-stub">Stub, moved from Processes</span></li>
-      <li class="sitemap-item"><span class="sitemap-item-plain">Technical / Engineering Process</span> <span class="sitemap-tag is-stub">Stub, moved from Processes</span></li>
-      <li class="sitemap-item"><span class="sitemap-item-plain">Quality &amp; Problem-Solving</span> <span class="sitemap-tag is-stub">Stub, moved from Processes</span></li>
-    </ul>
-  </div>
-
-  <div class="sitemap-section">
-    <div class="sitemap-section-title">Corporate</div>
-    <ul class="sitemap-list">
-      <li class="sitemap-item"><span class="sitemap-item-plain">Annual Operating Plan, MBR, QBR — enterprise planning cadence</span> <span class="sitemap-tag is-new">Net-new</span></li>
-      <li class="sitemap-item"><span class="sitemap-item-plain">Strategic Planning</span> <span class="sitemap-tag is-stub">Stub, moved from Core Skills</span></li>
-      <li class="sitemap-item"><span class="sitemap-item-plain">Operational Process</span> <span class="sitemap-tag is-stub">Stub, moved from Processes</span></li>
-      <li class="sitemap-item"><span class="sitemap-item-plain">Leading</span> <span class="sitemap-tag is-stub">Stub, moved from Core Skills</span></li>
-      <li class="sitemap-item"><span class="sitemap-item-plain">Managing</span> <span class="sitemap-tag is-stub">Stub, moved from Core Skills</span></li>
-      <li class="sitemap-item"><span class="sitemap-item-plain">People Management — hiring, onboarding, 1:1s, performance reviews, org design, comp philosophy</span> <span class="sitemap-tag is-new">Net-new</span></li>
-    </ul>
-  </div>
-
-  <div class="sitemap-section">
-    <div class="sitemap-section-title">Cross-cutting (placement TBD)</div>
-    <ul class="sitemap-list">
-      <li class="sitemap-item"><span class="sitemap-item-plain">Communication</span> <span class="sitemap-tag is-stub">Stub, from Core Skills — own nav item, footer link, or referenced from all three buckets?</span></li>
-      <li class="sitemap-item"><span class="sitemap-item-plain">AI Fundamentals</span> <span class="sitemap-tag is-stub">Stub, from Core Skills — same open question</span></li>
-    </ul>
-  </div>
-
   <div class="theme-switch" role="group" aria-label="Style direction">
     <button data-theme="a" title="Kinetic Signal — black &amp; yellow"></button>
     <button data-theme="b" title="Studio Ledger — dusty rose"></button>
     <button data-theme="c" title="Bright Margin — lime"></button>
+    <a class="icon-lib-link" href="index.html" title="Home">
+      <svg width="14" height="14" viewBox="0 0 14 14" aria-hidden="true">
+        <path d="M1.5 6.5 L7 1.5 L12.5 6.5" stroke="currentColor" stroke-width="1.3" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+        <path d="M3 5.5 V12 H11 V5.5" stroke="currentColor" stroke-width="1.3" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+        <rect x="6" y="8" width="2.5" height="4" fill="currentColor"/>
+      </svg>
+    </a>
+    <a class="icon-lib-link" href="icon-library.html" title="Style Guide (internal reference)">
+      <svg width="14" height="14" viewBox="0 0 14 14" aria-hidden="true">
+        <rect x="1" y="1" width="5" height="5" rx="1" fill="currentColor"/>
+        <rect x="8" y="1" width="5" height="5" rx="1" fill="currentColor"/>
+        <rect x="1" y="8" width="5" height="5" rx="1" fill="currentColor"/>
+        <rect x="8" y="8" width="5" height="5" rx="1" fill="currentColor"/>
+      </svg>
+    </a>
+    <a class="icon-lib-link" href="notes.html" title="Notes (working drafts)">
+      <svg width="14" height="14" viewBox="0 0 14 14" aria-hidden="true">
+        <rect x="2" y="1" width="10" height="12" rx="1.5" fill="none" stroke="currentColor" stroke-width="1.3"/>
+        <line x1="4.5" y1="5" x2="9.5" y2="5" stroke="currentColor" stroke-width="1.3" stroke-linecap="round"/>
+        <line x1="4.5" y1="7.5" x2="9.5" y2="7.5" stroke="currentColor" stroke-width="1.3" stroke-linecap="round"/>
+        <line x1="4.5" y1="10" x2="7.5" y2="10" stroke="currentColor" stroke-width="1.3" stroke-linecap="round"/>
+      </svg>
+    </a>
   </div>
 
 <script src="js/theme-toggle.js" defer></script>

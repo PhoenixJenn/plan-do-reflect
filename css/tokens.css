@@ -32,6 +32,12 @@
   --status-green: #16a34a;
   --status-amber: #f59e0b;
   --status-red: #dc2626;
+
+  /* Fixed marker for cross-cutting content that doesn't belong to any one
+     altitude (Personal/Team/Organization) — same "stays fixed across all
+     three theme directions" reasoning as the status colors above, so the
+     bracket treatment reads consistently regardless of active theme. */
+  --accent-gold: #a9790a;
 }
 
 /* ---------- Direction A — Kinetic Signal (gray / black / bright yellow) — default ---------- */

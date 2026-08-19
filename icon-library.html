@@ -37,6 +37,12 @@
   .lib-verdict.playful { background: var(--accent); color: var(--accent-strong); }
   .lib-verdict.flat { background: var(--bg-sidebar); color: var(--text-caption); border: 1px solid var(--border); }
 
+  /* Nav Mockup */
+  .lib-nav-mock { max-width: 720px; display: flex; flex-direction: column; gap: 14px; }
+  .lib-nav-mock .topnav { border: 1px solid var(--border); border-radius: 12px; }
+  .nav-mock-breadcrumb { display: flex; align-items: center; gap: 8px; }
+  .nav-mock-sep { color: var(--accent-gold); font-weight: 700; }
+
   /* Voice & Tone principles */
   .lib-principles { display: flex; flex-direction: column; gap: 14px; max-width: 720px; }
   .lib-principle { background: var(--bg-content); border: 1px solid var(--border); border-radius: 12px; padding: 14px 18px; }
@@ -81,6 +87,7 @@
 
   <nav class="lib-toc" aria-label="Section jump links">
     <a href="#design-brief">Design Brief</a>
+    <a href="#nav-mockup">Nav Mockup</a>
     <a href="#voice-tone">Voice &amp; Tone</a>
     <a href="#typography">Typography</a>
     <a href="#color-themes">Color &amp; Themes</a>
@@ -93,6 +100,48 @@
     <p class="lib-section-sub">The brief this whole system is built to satisfy, given directly and worth preserving verbatim intent.</p>
     <div class="lib-rule-box">"Executive whimsical" — serious but fun, approachable but authoritative.</div>
     <p style="max-width: 680px; margin-top: 14px; font-size: 0.86rem; line-height: 1.6; color: var(--text-body);">Explicitly <strong>rejected</strong> as too sterile for this site: Masterclass, HBR, TED, FranklinCovey. The hand-drawn icons, Doodle Notes, and playful color pop exist specifically to avoid that register — but the content underneath still has to hold up like a real reference, not a novelty. Sans-serif only, no exceptions, in every one of the three style directions.</p>
+  </section>
+
+  <section class="lib-section" id="nav-mockup">
+    <div class="lib-section-h2">Nav Mockup</div>
+    <p class="lib-section-sub">The real top nav markup at actual size, not an isolated swatch, so color and type choices can be judged in context. Switch the theme swatch at the bottom to compare directions.</p>
+    <div class="lib-nav-mock">
+      <header class="topnav" style="position: static;">
+        <a class="logo" href="#" onclick="return false;">Plan·Do·Reflect</a>
+        <nav class="topnav-items">
+          <a class="item" href="#" onclick="return false;">The Framework</a>
+          <a class="item active" href="#" onclick="return false;">Self</a>
+          <a class="item" href="#" onclick="return false;">Team</a>
+          <a class="item" href="#" onclick="return false;">Organization</a>
+          <a class="item" href="#" onclick="return false;">Core Skills</a>
+        </nav>
+      </header>
+      <header class="topnav" style="position: static;">
+        <a class="logo" href="#" onclick="return false;">Plan·Do·Reflect</a>
+        <nav class="topnav-items">
+          <a class="item" href="#" onclick="return false;">The Framework</a>
+          <span class="nav-mock-breadcrumb">
+            <a class="item active" href="#" onclick="return false;">Self</a>
+            <span class="nav-mock-sep">&gt;</span>
+            <a class="item" href="#" onclick="return false;">Team</a>
+            <span class="nav-mock-sep">&gt;</span>
+            <a class="item" href="#" onclick="return false;">Organization</a>
+          </span>
+          <a class="item" href="#" onclick="return false;" style="margin-left: 24px;">Core Skills</a>
+        </nav>
+      </header>
+      <header class="topnav" style="position: static;">
+        <a class="logo" href="#" onclick="return false;">Plan·Do·Reflect</a>
+        <nav class="topnav-items">
+          <a class="item" href="#" onclick="return false;">The Framework</a>
+          <a class="item active" href="#" onclick="return false;">Self</a>
+          <a class="item" href="#" onclick="return false;">Team</a>
+          <a class="item" href="#" onclick="return false;">Organization</a>
+          <a class="item" href="#" onclick="return false;" style="margin-left: 40px;">Core Skills</a>
+        </nav>
+      </header>
+    </div>
+    <div class="lib-component-source">.topnav, .topnav-items, .item — used site-wide. Wrapped in .lib-nav-mock here only, to sit as a contained card instead of full-bleed/sticky like the real header. Row 3's wider Core Skills gap shipped site-wide as <code>.topnav-items .item:last-child</code>. Row 2's gold <code>.nav-mock-sep</code> breadcrumb stays a page-local experiment, not adopted.</div>
   </section>
 
   <section class="lib-section" id="voice-tone">
@@ -266,7 +315,7 @@
       <div class="lib-component-desc">Small rounded-pill labels for metadata (category tags, framework counts, RAG status). Always <code>inline-flex</code> with <code>align-items: center</code> — a plain inline span inside a flex row will stretch to match its tallest sibling and the text drifts off-center, which is exactly the bug this fixes.</div>
       <div class="lib-component-demo">
         <div class="tag-row" style="margin-bottom: 0;">
-          <span class="tag primary">Processes</span>
+          <span class="tag primary">Team</span>
           <span class="tag secondary">7 frameworks</span>
         </div>
       </div>
@@ -531,6 +580,29 @@
     <button data-theme="a" title="Kinetic Signal — black &amp; yellow"></button>
     <button data-theme="b" title="Studio Ledger — dusty rose"></button>
     <button data-theme="c" title="Bright Margin — lime"></button>
+    <a class="icon-lib-link" href="index.html" title="Home">
+      <svg width="14" height="14" viewBox="0 0 14 14" aria-hidden="true">
+        <path d="M1.5 6.5 L7 1.5 L12.5 6.5" stroke="currentColor" stroke-width="1.3" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+        <path d="M3 5.5 V12 H11 V5.5" stroke="currentColor" stroke-width="1.3" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+        <rect x="6" y="8" width="2.5" height="4" fill="currentColor"/>
+      </svg>
+    </a>
+    <a class="icon-lib-link" href="notes.html" title="Notes (working drafts)">
+      <svg width="14" height="14" viewBox="0 0 14 14" aria-hidden="true">
+        <rect x="2" y="1" width="10" height="12" rx="1.5" fill="none" stroke="currentColor" stroke-width="1.3"/>
+        <line x1="4.5" y1="5" x2="9.5" y2="5" stroke="currentColor" stroke-width="1.3" stroke-linecap="round"/>
+        <line x1="4.5" y1="7.5" x2="9.5" y2="7.5" stroke="currentColor" stroke-width="1.3" stroke-linecap="round"/>
+        <line x1="4.5" y1="10" x2="7.5" y2="10" stroke="currentColor" stroke-width="1.3" stroke-linecap="round"/>
+      </svg>
+    </a>
+    <a class="icon-lib-link" href="sitemap.html" title="Sitemap (working draft)">
+      <svg width="14" height="14" viewBox="0 0 14 14" aria-hidden="true">
+        <circle cx="7" cy="2.5" r="1.8" fill="none" stroke="currentColor" stroke-width="1.3"/>
+        <circle cx="3" cy="11" r="1.8" fill="none" stroke="currentColor" stroke-width="1.3"/>
+        <circle cx="11" cy="11" r="1.8" fill="none" stroke="currentColor" stroke-width="1.3"/>
+        <path d="M7 4.3 L7 7 M7 7 L3 9.5 M7 7 L11 9.5" stroke="currentColor" stroke-width="1.3" fill="none" stroke-linecap="round"/>
+      </svg>
+    </a>
   </div>
 
 <script src="js/theme-toggle.js" defer></script>
