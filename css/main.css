@@ -1327,6 +1327,110 @@ body {
   margin: 0;
 }
 
+/* ---------- Insight aside — a small tinted card for a single dense
+   paragraph that deserves to stand apart from the surrounding prose:
+   hand-drawn icon + a short handwritten label + the paragraph itself.
+   Reuses the icon+handwriting-label language of .annotation, just packaged
+   as a standalone block instead of a caption pinned to something else.
+   Good for a short run of 2-4 paragraphs that each make one distinct
+   point — stack multiple with normal spacing between them. ---------- */
+.insight-aside {
+  display: flex;
+  align-items: flex-start;
+  gap: 12px;
+  margin-top: 14px;
+  padding: 12px 16px;
+  border-radius: 10px;
+  background: var(--bg-sidebar);
+}
+
+.insight-aside svg {
+  flex-shrink: 0;
+  margin-top: 2px;
+}
+
+.insight-aside-body {
+  flex: 1;
+  min-width: 0;
+}
+
+.insight-aside-label {
+  display: block;
+  font-family: var(--font-hand);
+  font-size: 1.05rem;
+  color: var(--accent-strong);
+  line-height: 1;
+  margin-bottom: 5px;
+}
+
+.insight-aside p {
+  font-size: 0.88rem;
+  line-height: 1.55;
+  color: var(--text-body);
+  margin: 0;
+}
+
+/* ---------- Example switch — toggles which worked example's content is
+   visible inside a page (currently product-management.html: iPod,
+   RouteWise). Every example's content lives in the DOM at all times,
+   tagged [data-example="<id>"]; js/example-switch.js shows/hides by
+   clearing/setting inline display. Only the fallback example (ipod) gets
+   an explicit CSS default, so there's a sensible no-JS/pre-JS state —
+   adding a new example needs zero CSS changes, just new [data-example]
+   content and a new toggle button. ---------- */
+[data-example] {
+  display: none;
+}
+[data-example="ipod"] {
+  display: flex;
+}
+.example-label[data-example] {
+  display: none;
+}
+.example-label[data-example="ipod"] {
+  display: inline;
+}
+
+.example-switch {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  flex-wrap: wrap;
+  margin: 16px 0 4px;
+}
+
+.example-switch-label {
+  font-size: 0.78rem;
+  font-weight: 700;
+  color: var(--text-caption);
+  letter-spacing: 0.02em;
+  text-transform: uppercase;
+  margin-right: 2px;
+}
+
+.example-switch button {
+  font-family: var(--font-body);
+  font-size: 0.82rem;
+  font-weight: 600;
+  color: var(--text-body);
+  background: var(--bg-content);
+  border: 1px solid var(--border);
+  border-radius: 20px;
+  padding: 5px 14px;
+  cursor: pointer;
+  transition: background 0.15s ease, color 0.15s ease, border-color 0.15s ease;
+}
+
+.example-switch button:hover {
+  border-color: var(--accent-strong);
+}
+
+.example-switch button.is-active {
+  background: var(--accent-strong);
+  color: var(--bg-content);
+  border-color: var(--accent-strong);
+}
+
 
 .pull-quote cite {
   display: block;
