@@ -1390,6 +1390,12 @@ body {
 .example-label[data-example="ipod"] {
   display: inline;
 }
+.example-block[data-example] {
+  display: none;
+}
+.example-block[data-example="ipod"] {
+  display: block;
+}
 
 .example-switch {
   display: flex;
@@ -2559,4 +2565,46 @@ body {
 .status-card-column {
   flex: 1;
   min-width: 150px;
+}
+
+.status-card.is-wide {
+  max-width: 640px;
+}
+
+/* ---------- Priority tag — small P0-P3 badge, darkest/most solid for the
+   highest priority, fading to an outline for P3. Used inside PRD-style
+   faux-document cards next to a user story or the framework's own legend. ---------- */
+.priority-tag {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 24px;
+  padding: 2px 6px;
+  border-radius: 5px;
+  font-size: 0.62rem;
+  font-weight: 800;
+  letter-spacing: 0.02em;
+  flex-shrink: 0;
+}
+
+.priority-tag.is-p0 {
+  background: var(--accent-strong);
+  color: var(--bg-content);
+}
+
+.priority-tag.is-p1 {
+  background: var(--accent);
+  color: var(--text-heading);
+}
+
+.priority-tag.is-p2 {
+  background: var(--bg-sidebar);
+  color: var(--text-caption);
+  border: 1px solid var(--border);
+}
+
+.priority-tag.is-p3 {
+  background: none;
+  color: var(--text-caption);
+  border: 1px dashed var(--border);
 }
