@@ -3,6 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="icon" type="image/svg+xml" href="favicon.svg">
 <title>Notes (working drafts) · Plan · Do · Reflect</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=Work+Sans:wght@400;500;600&family=Sora:wght@600;700;800&family=Plus+Jakarta+Sans:wght@500;600;700&family=Patrick+Hand&display=swap" rel="stylesheet">
@@ -475,6 +476,35 @@
     </div>
     <div class="note-remarks">
       <strong>Notes on this:</strong> Explicitly parked, not queued to build — "we can revisit." Don't touch the live "Project Strategy vs. Project Plan" section until this is resolved with the user.
+    </div>
+  </div>
+
+  <div class="note-entry">
+    <div class="note-entry-header">
+      <div class="note-entry-title">Logo direction — resolved, final PNG built in Photoshop</div>
+      <span class="note-entry-dest">→ images/plan-do-reflect-logo.png</span>
+    </div>
+    <div class="note-entry-date">Drafted 2026-08-20, recreated 2026-08-20, Concept 3 added 2026-08-20, Concept 4 (winner) added 2026-08-20, finalized 2026-08-20</div>
+    <div class="note-entry-body">
+      <p>User shared three AI-generated logo concepts as reference (their own AI-generated images, not scraped/third-party — the original IP caution below no longer applies to the source images themselves, but each recreation is still drawn from scratch in the site's own icon style rather than reusing their exact art).</p>
+      <p><strong>Concept 1:</strong> three separate outlined circles (teal/green/purple) each holding a simple line icon — checklist for Plan, play-triangle for Do, person-with-refresh-arrow for Reflect — with "Plan · Do · Reflect" in a plain sans-serif below. Clean and separated, no interlocking.</p>
+      <p><strong>Concept 2:</strong> the same three-circle idea but the circles overlap/interlock like a chain (reads almost like a möbius loop), different icons — mountain+flag for Plan, arrow for Do, sunrise for Reflect — "Plan · Do · Reflect" set in a serif font, plus a small-caps tagline row underneath: "THINK AHEAD. TAKE ACTION. GROW ALWAYS."</p>
+      <p><strong>Concept 3:</strong> a follow-up the user generated after seeing 1 and 2 — Concept 1's icon set (checklist, play, person-with-refresh) but Concept 2's connected quality taken further: the three circles pinch into one continuous ribbon (true open-loop-plus-crossing-strand construction, not just overlapping circles), with small arrowheads on the ribbon showing the cycle flowing forward into Reflect and back into Plan. Sans-serif wordmark, same tagline row as Concept 2 but "Grow Always" replaced with "Keep Improving."</p>
+      <h3>User's reaction</h3>
+      <ul class="explainer-list is-bulleted">
+        <li>Likes Concept 1 "a lot" overall.</li>
+        <li>From Concept 2, specifically likes the interlocking/möbius-loop shape (the circles visually connecting into one continuous form, unlike Concept 1's separate circles).</li>
+        <li>From Concept 2, likes having a one-line tagline under each word.</li>
+        <li>Does <strong>not</strong> like "Grow Always" as the Reflect tagline specifically — the other two ("Think Ahead," "Take Action") weren't objected to.</li>
+        <li>Concept 3 (which resolves the "Grow Always" complaint and pushes the interlock further): "I like this one I think?" — positive but tentative, not a firm final pick.</li>
+        <li>User then mocked up their own variants on top of Concept 3's shape, converging on a "gray ribbon + colored icons" color treatment (structure stays neutral gray, color moves to the icons/wordmark dots/taglines instead of coloring the rings themselves) — confirmed as <strong>"the winner"</strong>, built as Concept 4. A separate radial/pinwheel arrangement the user also mocked up was more thematically apt (matches the homepage's own "flywheel" language) but was set aside as better suited to a future hero placement than the compact nav-friendly lockup — too detailed to survive at small size, and its top-Plan/top-Reflect/bottom-Do arrangement doesn't give an obvious reading order the way the linear ribbon's left-to-right flow does.</li>
+        <li>User then supplied the actual exported mark as <code>images/plan-do-reflect-logo.png</code> (monotone gold icons + gray ribbon, not the teal/gold/purple version — confirmed intentional) and asked to pair it with real site text instead of more hand-drawn SVG. First attempt centered "Plan · Do · Reflect" as one block under the image, which broke because "Plan" and "Reflect" are very different lengths — "Plan" landed under the middle of the clipboard icon, "Reflect" overshot past the person icon. Fixed with a 3-column grid matching the image's width so each word centers under its own icon — better, but user judged it "not better" overall and moved to building the complete lockup by hand in Photoshop instead (wordmark + taglines baked into the PNG itself, set in Gabarito). <code>images/plan-do-reflect-logo.png</code> is now the complete, final asset — no HTML text layered on top of it anymore.</li>
+      </ul>
+    </div>
+    <div class="note-remarks">
+      <p><strong>Notes on this:</strong> Resolved. <code>images/plan-do-reflect-logo.png</code> is the final logo — a complete, self-contained transparent PNG (icon + wordmark + taglines, Gabarito) built in Photoshop, not HTML/CSS/SVG. <code>icon-library.html</code>'s "Logo Concepts" section was trimmed to just the one "Final Asset" card displaying the real file — Concepts 1–4 (the hand-drawn SVG exploration) were removed from the live page per the user's request, kept only in this note's history above. The <code>--logo-plan/do/reflect/ribbon/ink</code> tokens added to <code>tokens.css</code> during the Concept 4 exploration were unused by the final mark and by anything else, so they've been removed from <code>tokens.css</code>.</p>
+      <p><strong>Confirmed color match (2026-08-21):</strong> the logo's gold and gray, given directly by the user as Photoshop hex values, are <code>#facc15</code> and <code>#6b6c70</code> — both an <em>exact</em> match to Theme A (Kinetic Signal)'s own tokens (<code>--accent</code>/<code>--stage-plan</code> and <code>--text-caption</code> respectively). Not a coincidence — the logo was built to Theme A's real palette, not eyeballed. Since the logo's colors are baked into the PNG rather than theme-variable, it'll only truly match if Theme A ends up the one actually shipped; it'll read slightly off against Theme B or C's own accent colors, same as any fixed-color asset would.</p>
+      <p><strong>Deployed to <code>index.html</code> (2026-08-21):</strong> replaces the homepage hero's large "Plan · Do · Reflect" text wordmark, enlarged to ~560px wide. The old text <code>&lt;h1&gt;</code> and its accent-color rule are hidden (<code>display: none</code>) rather than deleted, for a one-line revert if needed. <strong>Still not on the top nav</strong> — the nav bar is dark (<code>--bg-nav</code>), and this version's gold/gray was built for a light background, so it won't read well there. User is aware and plans to redo the logo in nav-safe colors before it goes there too.</p>
     </div>
   </div>
 

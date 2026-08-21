@@ -3,6 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="icon" type="image/svg+xml" href="favicon.svg">
 <title>Style Guide (internal reference) · Plan · Do · Reflect</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=Work+Sans:wght@400;500;600&family=Sora:wght@600;700;800&family=Plus+Jakarta+Sans:wght@500;600;700&family=Patrick+Hand&display=swap" rel="stylesheet">
@@ -37,6 +38,24 @@
   .lib-verdict.playful { background: var(--accent); color: var(--accent-strong); }
   .lib-verdict.flat { background: var(--bg-sidebar); color: var(--text-caption); border: 1px solid var(--border); }
 
+  /* Logo Concepts */
+  .lib-logo-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 16px; }
+  .lib-logo-card { background: var(--bg-content); border: 1px solid var(--border); border-radius: 12px; padding: 22px; text-align: center; }
+  .lib-logo-name { font-family: var(--font-heading); font-weight: 700; font-size: 0.9rem; color: var(--text-heading); margin-top: 18px; text-align: left; }
+  .lib-logo-notes { font-size: 0.8rem; line-height: 1.55; color: var(--text-body); text-align: left; margin-top: 4px; }
+  .lib-logo-notes li { margin-bottom: 3px; }
+
+  /* Favicon Ideas */
+  .lib-favicon-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(230px, 1fr)); gap: 16px; }
+  .lib-favicon-card { background: var(--bg-content); border: 1px solid var(--border); border-radius: 12px; padding: 16px; }
+  .lib-favicon-preview-row { display: flex; align-items: center; gap: 16px; margin-bottom: 12px; }
+  .lib-favicon-large { border-radius: 14px; overflow: hidden; line-height: 0; }
+  .lib-favicon-small-wrap { display: flex; flex-direction: column; align-items: center; gap: 4px; }
+  .lib-favicon-small { border-radius: 4px; overflow: hidden; line-height: 0; }
+  .lib-favicon-small-label { font-size: 0.62rem; color: var(--text-caption); text-transform: uppercase; letter-spacing: 0.04em; }
+  .lib-favicon-name { font-family: var(--font-heading); font-weight: 700; font-size: 0.94rem; color: var(--text-heading); margin-bottom: 4px; }
+  .lib-favicon-desc { font-size: 0.8rem; line-height: 1.5; color: var(--text-body); margin-bottom: 10px; }
+
   /* Nav Mockup */
   .lib-nav-mock { max-width: 720px; display: flex; flex-direction: column; gap: 14px; }
   .lib-nav-mock .topnav { border: 1px solid var(--border); border-radius: 12px; }
@@ -49,6 +68,16 @@
   .lib-principle-title { font-family: var(--font-heading); font-weight: 700; font-size: 0.94rem; color: var(--text-heading); margin-bottom: 4px; }
   .lib-principle p { font-size: 0.84rem; line-height: 1.55; color: var(--text-body); }
   .lib-principle-example { display: inline-block; margin-top: 8px; font-size: 0.78rem; font-style: italic; color: var(--text-caption); background: var(--bg-sidebar); border-radius: 8px; padding: 6px 10px; }
+
+  /* Typography: concrete per-theme font/color reference table (doesn't
+     live-update with the theme swatch — shows all three at once, since
+     that's the point of it existing alongside the live samples above). */
+  .lib-font-ref-table { display: grid; grid-template-columns: 1.3fr 1fr 1fr 0.9fr 0.9fr 0.9fr; border: 1px solid var(--border); border-radius: 10px; overflow: hidden; max-width: 760px; margin-top: 4px; }
+  .lib-font-ref-row { display: contents; }
+  .lib-font-ref-row span { padding: 8px 10px; font-size: 0.78rem; color: var(--text-body); border-bottom: 1px solid var(--border); background: var(--bg-content); }
+  .lib-font-ref-row.lib-font-ref-header span { font-weight: 700; color: var(--text-heading); background: var(--bg-sidebar); font-size: 0.68rem; text-transform: uppercase; letter-spacing: 0.03em; }
+  .lib-font-ref-table .lib-font-ref-row:last-of-type span { border-bottom: none; }
+  .lib-font-ref-hex { font-family: ui-monospace, SFMono-Regular, Menlo, monospace; }
 
   /* Typography */
   .lib-type-table { display: flex; flex-direction: column; gap: 10px; max-width: 720px; }
@@ -87,6 +116,8 @@
 
   <nav class="lib-toc" aria-label="Section jump links">
     <a href="#design-brief">Design Brief</a>
+    <a href="#favicon-ideas">Favicon Ideas</a>
+    <a href="#logo-concepts">Logo Concepts</a>
     <a href="#nav-mockup">Nav Mockup</a>
     <a href="#voice-tone">Voice &amp; Tone</a>
     <a href="#typography">Typography</a>
@@ -100,6 +131,138 @@
     <p class="lib-section-sub">The brief this whole system is built to satisfy, given directly and worth preserving verbatim intent.</p>
     <div class="lib-rule-box">"Executive whimsical" — serious but fun, approachable but authoritative.</div>
     <p style="max-width: 680px; margin-top: 14px; font-size: 0.86rem; line-height: 1.6; color: var(--text-body);">Explicitly <strong>rejected</strong> as too sterile for this site: Masterclass, HBR, TED, FranklinCovey. The hand-drawn icons, Doodle Notes, and playful color pop exist specifically to avoid that register — but the content underneath still has to hold up like a real reference, not a novelty. Sans-serif only, no exceptions, in every one of the three style directions.</p>
+  </section>
+
+  <section class="lib-section" id="favicon-ideas">
+    <div class="lib-section-h2">Favicon Ideas</div>
+    <p class="lib-section-sub">Four candidate marks for the browser-tab favicon — each shown large and at actual 16px (rendered live at that size, not a scaled screenshot) so legibility at real size is part of the comparison, not an afterthought. None chosen yet.</p>
+    <div class="lib-favicon-grid">
+
+      <div class="lib-favicon-card">
+        <div class="lib-favicon-preview-row">
+          <div class="lib-favicon-large">
+            <svg width="56" height="56" viewBox="0 0 32 32" aria-hidden="true">
+              <rect width="32" height="32" rx="8" fill="#111215"/>
+              <path d="M16 7 A9 9 0 1 1 7 16" fill="none" stroke="#facc15" stroke-width="5.5" stroke-linecap="round"/>
+              <path d="M10.5 4.8 L17 7 L10.8 10.6 Z" fill="#facc15"/>
+            </svg>
+          </div>
+          <div class="lib-favicon-small-wrap">
+            <div class="lib-favicon-small">
+              <svg width="16" height="16" viewBox="0 0 32 32" aria-hidden="true">
+                <rect width="32" height="32" rx="8" fill="#111215"/>
+                <path d="M16 7 A9 9 0 1 1 7 16" fill="none" stroke="#facc15" stroke-width="5.5" stroke-linecap="round"/>
+                <path d="M10.5 4.8 L17 7 L10.8 10.6 Z" fill="#facc15"/>
+              </svg>
+            </div>
+            <div class="lib-favicon-small-label">16px</div>
+          </div>
+        </div>
+        <div class="lib-favicon-name">Loop Arrow</div>
+        <div class="lib-favicon-desc">A single circular arrow — nods at the repeating Plan → Do → Reflect cycle directly. Currently shipped as <code>favicon.svg</code>.</div>
+        <span class="lib-verdict playful">clear at 16px</span>
+      </div>
+
+      <div class="lib-favicon-card">
+        <div class="lib-favicon-preview-row">
+          <div class="lib-favicon-large">
+            <svg width="56" height="56" viewBox="0 0 32 32" aria-hidden="true">
+              <rect width="32" height="32" rx="8" fill="#111215"/>
+              <path d="M9.11 10.21 A9 9 0 0 1 22.89 10.21" fill="none" stroke="#facc15" stroke-width="4.6" stroke-linecap="round"/>
+              <path d="M24.46 12.92 A9 9 0 0 1 17.56 24.86" fill="none" stroke="#f4f4f1" stroke-width="4.6" stroke-linecap="round"/>
+              <path d="M14.44 24.86 A9 9 0 0 1 7.54 12.92" fill="none" stroke="#8b8c90" stroke-width="4.6" stroke-linecap="round"/>
+            </svg>
+          </div>
+          <div class="lib-favicon-small-wrap">
+            <div class="lib-favicon-small">
+              <svg width="16" height="16" viewBox="0 0 32 32" aria-hidden="true">
+                <rect width="32" height="32" rx="8" fill="#111215"/>
+                <path d="M9.11 10.21 A9 9 0 0 1 22.89 10.21" fill="none" stroke="#facc15" stroke-width="4.6" stroke-linecap="round"/>
+                <path d="M24.46 12.92 A9 9 0 0 1 17.56 24.86" fill="none" stroke="#f4f4f1" stroke-width="4.6" stroke-linecap="round"/>
+                <path d="M14.44 24.86 A9 9 0 0 1 7.54 12.92" fill="none" stroke="#8b8c90" stroke-width="4.6" stroke-linecap="round"/>
+              </svg>
+            </div>
+            <div class="lib-favicon-small-label">16px</div>
+          </div>
+        </div>
+        <div class="lib-favicon-name">Three-Way Split</div>
+        <div class="lib-favicon-desc">The ring divided into three equal arcs, one per stage — the most literal "Plan / Do / Reflect" reading of the three. The gaps between arcs mostly vanish at 16px, so it reads as a plain gold-topped ring at real size rather than three distinct parts.</div>
+        <span class="lib-verdict flat">softens at 16px</span>
+      </div>
+
+      <div class="lib-favicon-card">
+        <div class="lib-favicon-preview-row">
+          <div class="lib-favicon-large">
+            <svg width="56" height="56" viewBox="0 0 32 32" aria-hidden="true">
+              <rect width="32" height="32" rx="8" fill="#111215"/>
+              <circle cx="16" cy="16" r="10" fill="none" stroke="#facc15" stroke-width="2.8"/>
+              <circle cx="16" cy="16" r="5.6" fill="none" stroke="#facc15" stroke-width="2.8"/>
+              <circle cx="16" cy="16" r="2" fill="#facc15"/>
+            </svg>
+          </div>
+          <div class="lib-favicon-small-wrap">
+            <div class="lib-favicon-small">
+              <svg width="16" height="16" viewBox="0 0 32 32" aria-hidden="true">
+                <rect width="32" height="32" rx="8" fill="#111215"/>
+                <circle cx="16" cy="16" r="10" fill="none" stroke="#facc15" stroke-width="2.8"/>
+                <circle cx="16" cy="16" r="5.6" fill="none" stroke="#facc15" stroke-width="2.8"/>
+                <circle cx="16" cy="16" r="2" fill="#facc15"/>
+              </svg>
+            </div>
+            <div class="lib-favicon-small-label">16px</div>
+          </div>
+        </div>
+        <div class="lib-favicon-name">Bullseye</div>
+        <div class="lib-favicon-desc">Reuses the site's own SMART-goal concentric-circle icon (see Icons below) rather than inventing a new mark. The boldest and most legible of the four at true favicon size — but reads as "goal," not "cycle."</div>
+        <span class="lib-verdict playful">clearest at 16px</span>
+      </div>
+
+      <div class="lib-favicon-card">
+        <div class="lib-favicon-preview-row">
+          <div class="lib-favicon-large">
+            <svg width="56" height="56" viewBox="0 0 32 32" aria-hidden="true">
+              <rect width="32" height="32" rx="8" fill="#111215"/>
+              <path d="M16 25 V16" stroke="#facc15" stroke-width="2.6" stroke-linecap="round"/>
+              <path d="M16 16 C10 16 8 10 8 7 C14 7 17 10 16 16 Z" fill="#facc15"/>
+              <path d="M16 16 C22 16 24 10 24 7 C18 7 15 10 16 16 Z" fill="#facc15"/>
+            </svg>
+          </div>
+          <div class="lib-favicon-small-wrap">
+            <div class="lib-favicon-small">
+              <svg width="16" height="16" viewBox="0 0 32 32" aria-hidden="true">
+                <rect width="32" height="32" rx="8" fill="#111215"/>
+                <path d="M16 25 V16" stroke="#facc15" stroke-width="2.6" stroke-linecap="round"/>
+                <path d="M16 16 C10 16 8 10 8 7 C14 7 17 10 16 16 Z" fill="#facc15"/>
+                <path d="M16 16 C22 16 24 10 24 7 C18 7 15 10 16 16 Z" fill="#facc15"/>
+              </svg>
+            </div>
+            <div class="lib-favicon-small-label">16px</div>
+          </div>
+        </div>
+        <div class="lib-favicon-name">Sprout</div>
+        <div class="lib-favicon-desc">Two leaves branching from one stem — a growth metaphor instead of a cycle one, tying to the homepage's "reflection is what turns effort into growth" line rather than the Plan-Do-Reflect loop itself.</div>
+        <span class="lib-verdict playful">reads at 16px</span>
+      </div>
+
+    </div>
+  </section>
+
+  <section class="lib-section" id="logo-concepts">
+    <div class="lib-section-h2">Logo Concepts</div>
+    <p class="lib-section-sub">The final mark — a complete PNG built in Photoshop, icon and wordmark and taglines all in one file. Earlier hand-drawn SVG exploration (four concepts, working through shape and color direction before landing here) has been removed; see <code>notes.html</code> for that history if it's ever useful again.</p>
+    <div class="lib-logo-grid">
+
+      <div class="lib-logo-card">
+        <img src="images/plan-do-reflect-logo.png" alt="Plan, Do, Reflect — Think Ahead, Take Action, Keep Improving" style="width: 100%; max-width: 320px; height: auto; display: block; margin: 0 auto;">
+        <div class="lib-logo-name">Final Asset — complete, built in Photoshop</div>
+        <ul class="lib-logo-notes">
+          <li>Wordmark and taglines are baked into the image now (Gabarito, installed properly rather than substituted) — no separate HTML text layer on top of it anymore. Solves the centering problem the grid-column approach was papering over: everything is positioned once, by hand, in the file itself.</li>
+          <li>Still a transparent-background PNG, so it drops cleanly onto any card or nav background regardless of theme — just no longer theme-adaptive text, since the words are pixels now, not live type.</li>
+          <li>This is the mark going forward.</li>
+        </ul>
+      </div>
+
+    </div>
   </section>
 
   <section class="lib-section" id="nav-mockup">
@@ -200,7 +363,24 @@
         <div class="lib-type-sample" style="font-family: var(--font-hand); font-weight: 400;">The quick brown fox</div>
       </div>
     </div>
-    <div class="lib-rule-box"><strong>No serif fonts, anywhere, no exceptions</strong> — explicit, non-negotiable brief requirement.</div>
+    <div class="lib-group-title">Fonts &amp; text colors by theme</div>
+    <div class="lib-group-note">The samples above update live with whichever theme is active. This table doesn't — it's the concrete reference, all three themes side by side.</div>
+    <div class="lib-font-ref-table">
+      <div class="lib-font-ref-row lib-font-ref-header">
+        <span>Theme</span><span>Heading font</span><span>Body font</span><span>--text-heading</span><span>--text-body</span><span>--text-caption</span>
+      </div>
+      <div class="lib-font-ref-row">
+        <span>A — Kinetic Signal</span><span>Sora</span><span>Work Sans</span><span class="lib-font-ref-hex">#111215</span><span class="lib-font-ref-hex">#45464a</span><span class="lib-font-ref-hex">#6b6c70</span>
+      </div>
+      <div class="lib-font-ref-row">
+        <span>B — Studio Ledger</span><span>Space Grotesk</span><span>Work Sans</span><span class="lib-font-ref-hex">#33302d</span><span class="lib-font-ref-hex">#33302d</span><span class="lib-font-ref-hex">#6b6460</span>
+      </div>
+      <div class="lib-font-ref-row">
+        <span>C — Bright Margin</span><span>Sora</span><span>Plus Jakarta Sans</span><span class="lib-font-ref-hex">#111214</span><span class="lib-font-ref-hex">#45464a</span><span class="lib-font-ref-hex">#6b6c70</span>
+      </div>
+    </div>
+    <p style="max-width: 680px; margin-top: 10px; font-size: 0.8rem; color: var(--text-caption);"><code>--font-hand</code> (Patrick Hand) is fixed at <code>:root</code> and doesn't vary by theme — same handwriting font across all three directions.</p>
+    <div class="lib-rule-box" style="margin-top: 14px;"><strong>No serif fonts, anywhere, no exceptions</strong> — explicit, non-negotiable brief requirement.</div>
     <div class="lib-rule-box" style="margin-top: 10px;"><strong>--font-hand is for short standalone labels only</strong> — a Doodle Note title, an annotation tag — never for full sentences or body copy. Established after direct feedback that handwriting applied to real content "was doing too much work" and became harder to read, not more charming.</div>
   </section>
 

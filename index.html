@@ -3,6 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="icon" type="image/svg+xml" href="favicon.svg">
 <title>Plan · Do · Reflect</title>
 
 <!-- Applied before CSS loads, so the saved theme / title-font choice doesn't flash to the default on reload -->
@@ -53,8 +54,12 @@
 
   <section class="hero">
     <p class="hero-eyebrow">The framework behind this site</p>
-    <h1 class="hero-title">Plan <span class="hero-title-arrow">·</span> Do <span class="hero-title-arrow">·</span> Reflect</h1>
-    <div class="hero-title-rule"></div>
+    <!-- Text wordmark, hidden in favor of the logo mark below. Kept here
+         (not deleted) so it's a one-line revert if the logo placement
+         doesn't work out — see images/plan-do-reflect-logo.png. -->
+    <h1 class="hero-title" style="display: none;">Plan <span class="hero-title-arrow">·</span> Do <span class="hero-title-arrow">·</span> Reflect</h1>
+    <div class="hero-title-rule" style="display: none;"></div>
+    <img class="hero-logo" src="images/plan-do-reflect-logo.png" alt="Plan, Do, Reflect — Think Ahead, Take Action, Keep Improving">
     <p class="hero-sub">Most advice gives you more to do. This gives you a way to get better at doing it: a simple, repeating cycle that turns raw experience into real progress instead of just letting it pass by.</p>
     <a class="hero-cta" href="reflection-practice.html">Start with Reflection →</a>
   </section>
