@@ -67,8 +67,9 @@ body {
 /* Extra breathing room before Core Skills — it's the cross-cutting category,
    not another altitude in the Framework/Self/Team/Organization progression,
    so it reads as visually set apart rather than a fifth equal step. Chosen
-   from three spacing options mocked up on icon-library.html's Nav Mockup. */
-.topnav-items .item:last-child {
+   from three spacing options mocked up on icon-library.html's Nav Mockup.
+   Targets the link itself (not :last-child) because References now follows it. */
+.topnav-items .item[href="core-skills.html"] {
   margin-left: 40px;
 }
 

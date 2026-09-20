@@ -1,0 +1,3 @@
+{
+ "_how_to_use": "Add \"<ASIN or x-slug>\": \"your short take\" entries, then re-run build.py. Shown on the card as 'My take'."
+}

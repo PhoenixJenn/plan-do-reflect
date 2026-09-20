@@ -1,0 +1,58 @@
+/* References page: book cards + category nav. Reads only tokens.css custom properties. */
+
+.rf { max-width: 1320px; margin: 0 auto; padding: 48px 24px 56px; color: var(--text-body); font-family: var(--font-body); }
+.rf-intro { max-width: 62ch; line-height: 1.6; margin: 6px 0 22px; }
+
+.rf-toolbar { display: flex; flex-wrap: wrap; gap: 14px; align-items: flex-end; padding: 14px; background: var(--bg-content); border: 1px solid var(--border); border-radius: 12px; }
+.rf-field { display: flex; flex-direction: column; gap: 4px; font-size: .75rem; font-weight: 600; color: var(--text-caption); }
+.rf-field input, .rf-field select { font: inherit; font-weight: 400; font-size: .9rem; color: var(--text-heading); background: var(--bg-page); border: 1px solid var(--border); border-radius: 8px; padding: 7px 9px; }
+.rf-search { flex: 1 1 260px; }
+.rf-search input { width: 100%; }
+.rf-status { margin-left: auto; font-size: .85rem; color: var(--text-caption); }
+
+.rf-layout { display: grid; grid-template-columns: 280px 1fr; gap: 28px; margin-top: 24px; align-items: start; }
+.rf-side { position: sticky; top: 16px; max-height: calc(100vh - 32px); overflow: auto; background: var(--bg-sidebar); border: 1px solid var(--border); border-radius: 12px; padding: 12px; }
+.rf-nav-group { margin: 14px 0 4px; padding: 0 8px; font-size: .7rem; font-weight: 700; letter-spacing: .06em; text-transform: uppercase; color: var(--text-caption); }
+.rf-nav-group:first-child { margin-top: 2px; }
+.rf-nav-item { display: flex; justify-content: space-between; align-items: center; gap: 8px; padding: 6px 8px; border-radius: 8px; font-size: .86rem; color: var(--sidebar-text); text-decoration: none; line-height: 1.3; }
+.rf-nav-item:hover { background: var(--bg-content); }
+.rf-nav-item.active { background: var(--sidebar-active-bg); color: var(--sidebar-active-text); font-weight: 600; }
+.rf-nav-item small { font-size: .74rem; opacity: .75; }
+.rf-stage { font-style: normal; font-size: .64rem; font-weight: 700; text-transform: uppercase; opacity: .7; margin-right: 2px; }
+
+.rf-cat, .rf-research { margin-bottom: 44px; scroll-margin-top: 16px; }
+.rf-eyebrow { font-size: .72rem; font-weight: 700; letter-spacing: .06em; text-transform: uppercase; color: var(--text-caption); }
+.rf-cat h2, .rf-research h2 { font-family: var(--font-heading); font-size: 1.35rem; color: var(--text-heading); margin: 2px 0 14px; }
+.rf-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(360px, 1fr)); gap: 14px; }
+
+.rf-card { display: grid; grid-template-columns: 96px 1fr; gap: 6px 14px; align-content: start; background: var(--bg-content); border: 1px solid var(--border); border-radius: 12px; padding: 14px; }
+.rf-cover { width: 96px; height: 96px; object-fit: cover; border-radius: 6px; background: var(--bg-page); }
+.rf-cover-blank { display: flex; align-items: center; justify-content: center; font-family: var(--font-heading); font-size: 2rem; color: var(--text-caption); border: 1px dashed var(--border); }
+.rf-title { font-family: var(--font-heading); font-size: 1rem; line-height: 1.25; color: var(--text-heading); }
+.rf-title a { color: inherit; text-decoration: none; }
+.rf-title a:hover { text-decoration: underline; }
+.rf-sub { font-size: .8rem; line-height: 1.35; color: var(--text-caption); margin-top: 2px; }
+.rf-author { font-size: .85rem; color: var(--text-body); margin-top: 4px; }
+.rf-meta { font-size: .78rem; color: var(--text-caption); margin-top: 3px; }
+
+.rf-site, .rf-desc, .rf-take, .rf-buy { grid-column: 1 / -1; }
+.rf-site, .rf-take { font-size: .84rem; line-height: 1.5; background: var(--bg-page); border-left: 4px solid var(--accent); border-radius: 6px; padding: 8px 10px; margin-top: 6px; }
+.rf-site a { color: var(--accent-strong); }
+.rf-site-label { font-size: .68rem; font-weight: 700; letter-spacing: .05em; text-transform: uppercase; color: var(--text-caption); margin-right: 6px; }
+.rf-desc { font-size: .84rem; line-height: 1.5; margin-top: 6px; }
+.rf-desc p { display: -webkit-box; -webkit-line-clamp: 4; -webkit-box-orient: vertical; overflow: hidden; }
+.rf-desc.open p { display: block; }
+.rf-more { background: none; border: 0; padding: 2px 0; font: inherit; font-size: .78rem; color: var(--text-caption); text-decoration: underline; cursor: pointer; }
+.rf-src { float: right; font-size: .68rem; color: var(--text-caption); }
+.rf-buy { justify-self: start; margin-top: 6px; font-size: .82rem; font-weight: 600; color: var(--accent-strong); background: var(--accent); padding: 6px 12px; border-radius: 8px; text-decoration: none; }
+.rf-buy:hover { opacity: .85; }
+
+.rf-note { font-size: .78rem; color: var(--text-caption); margin-top: 8px; }
+.rf-empty { padding: 36px; text-align: center; color: var(--text-caption); background: var(--bg-content); border: 1px dashed var(--border); border-radius: 12px; }
+.rf-research .ref-section { max-width: 720px; }
+
+@media (max-width: 900px) {
+  .rf-layout { grid-template-columns: 1fr; }
+  .rf-side { position: static; max-height: 320px; }
+  .rf-grid { grid-template-columns: 1fr; }
+}
