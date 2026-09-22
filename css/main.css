@@ -1996,6 +1996,13 @@ body {
   padding-left: 20px;
 }
 
+/* Modifier — real numbered markers, same reasoning as .is-bulleted but for
+   an ordered sequence of steps rather than an unordered set of items. */
+.explainer-list.is-numbered {
+  list-style: decimal;
+  padding-left: 20px;
+}
+
 .explainer-list li {
   font-size: 0.92rem;
   line-height: 1.5;
