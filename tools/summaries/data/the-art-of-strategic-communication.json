@@ -1,0 +1,30 @@
+{
+  "asin": "B0DH2PTN89", "slug": "the-art-of-strategic-communication", "read_time": "2 min read",
+  "big_idea": "Police Chief Christopher Cook argues that law enforcement leaders should treat the media as a bridge to public trust rather than an adversary, and that fast, transparent, proactive communication, especially around critical incidents, builds more community trust than silence or delay.",
+  "tool": {"label": "Transparency-first crisis response", "text": "Release accurate information quickly after critical incidents, including body-cam or video release, rather than waiting for a perfect statement, on the logic that bad news does not get better because you stick your head in the sand.", "note": "Grew out of Cook's real-world experience, including his 2020 congressional testimony after George Floyd's death, after which the DOJ asked him to build law-enforcement communication training now used across Texas."},
+  "ideas": [
+    {"title": "Media as bridge, not enemy", "text": "Reframes the press and public as partners in building trust rather than obstacles to manage."},
+    {"title": "Humanize the department", "text": "Regularly sharing officers' everyday positive community interactions counters a purely incident-driven public image."},
+    {"title": "Own your mistakes", "text": "Publicly acknowledging errors builds more long-term trust than defensiveness."},
+    {"title": "Multi-channel engagement", "text": "Reach community members through social media, podcasts, mobile apps, digital dashboards, and town halls, not just press releases."},
+    {"title": "Soundbite discipline", "text": "Prepare tight, quotable, jargon-free statements in advance so spokespeople aren't improvising under pressure."},
+    {"title": "Soft-skill fundamentals", "text": "Covers practical basics too, email etiquette, handling difficult conversations, and conduct at press conferences."}
+  ],
+  "try_it": [
+    "Draft a one-paragraph critical incident holding statement template your team could adapt within the first hour of an event.",
+    "Identify one channel your organization isn't using yet and sketch a single post or episode.",
+    "Write three jargon-free soundbites for a topic you often get asked about.",
+    "Review a past difficult announcement and rewrite it applying share the facts fast instead of wait until certain."
+  ],
+  "best_for": ["Police chiefs and public information officers", "Public-sector communicators handling crisis or community relations"],
+  "less_useful": ["General or corporate communicators outside public safety", "Readers wanting communication theory rather than field-tested law-enforcement practice"],
+  "site_links": [{"label": "Communication", "href": "references.html#cat-comm"}],
+  "related": [
+    {"asin": "B075FG7HLK", "why": "The underlying discipline of sharpening a message down to one defensible point"},
+    {"asin": "1797123769", "why": "The broader psychology of trust and de-escalation this kind of crisis communication depends on"}
+  ],
+  "sources": [
+    {"label": "Publishers Weekly review", "href": "https://policepio.com/publishers-weekly-review-of-the-art-of-strategic-communication/"},
+    {"label": "Police1 podcast writeup", "href": "https://www.police1.com/leadership/building-bridges-with-words-strategic-communication-in-policing"}
+  ]
+}

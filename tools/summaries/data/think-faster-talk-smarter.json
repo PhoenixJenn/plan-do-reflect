@@ -1,0 +1,30 @@
+{
+  "asin": "B0BW1GCBFP", "slug": "think-faster-talk-smarter", "read_time": "2 min read",
+  "big_idea": "Spontaneous, impromptu speaking is a learnable skill, not a fixed talent. By managing anxiety, shifting mindset, and applying light structure, anyone can communicate confidently when put on the spot.",
+  "tool": {"label": "What, so what, now what", "text": "A three-part structure for answering unexpectedly or explaining an idea on the fly: state what happened or the topic, explain why it matters, then say what should happen next.", "note": "One of several small structures Abrahams teaches; he compares this kind of light scaffolding to jazz improvisation, structure doesn't restrict you, it liberates you."},
+  "ideas": [
+    {"title": "Anxiety has three faces", "text": "Abrahams categorizes spontaneous-speaking nerves as physical, emotional, and mental, each needing a different coping tactic."},
+    {"title": "Physiological calming works fast", "text": "Techniques like making exhalations twice as long as inhalations, or holding something cold, reduce panic in the moment."},
+    {"title": "Reframe threat as opportunity", "text": "Viewing an unexpected question or meeting moment as a chance rather than a threat changes body language and tone for the better."},
+    {"title": "Break your mental autopilot", "text": "Over-relied-on verbal habits and heuristics make responses generic; noticing and interrupting them enables more authentic answers."},
+    {"title": "Listen to respond, not to wait", "text": "Genuinely tuning into the audience or question improves the relevance of what you say next."},
+    {"title": "Dare to be dull", "text": "Chasing cleverness under pressure backfires; clear and plain often lands better than trying to sound impressive."}
+  ],
+  "try_it": [
+    "Next time you're asked a surprise question in a meeting, silently structure your answer as What, So What, Now What before speaking.",
+    "Practice the long-exhale breathing technique before a call or conversation that makes you anxious.",
+    "At your next networking or social event, ask two open-ended questions about the other person before talking about yourself.",
+    "After a spontaneous answer you gave this week, reflect on whether you fell back on a habitual phrase, and name it so you notice it next time."
+  ],
+  "best_for": ["People who freeze in Q&A or meetings", "Professionals who need to think on their feet, managers, salespeople, interviewees"],
+  "less_useful": ["Readers preparing formal, scripted speeches, since this is about unplanned moments, not slide decks", "Those wanting deep academic communication theory"],
+  "site_links": [{"label": "Communication", "href": "references.html#cat-comm"}],
+  "related": [
+    {"asin": "B0C6YM6Q41", "why": "A companion framework for reading which kind of conversation is actually happening"},
+    {"asin": "B014GCH3DE", "why": "The same put-on-the-spot skill applied specifically to irrational or hostile people"}
+  ],
+  "sources": [
+    {"label": "Shortform book summary", "href": "https://www.shortform.com/summary/think-faster-talk-smarter-summary-matt-abrahams"},
+    {"label": "getAbstract summary", "href": "https://www.getabstract.com/en/summary/think-faster-talk-smarter/47810"}
+  ]
+}

@@ -1,0 +1,30 @@
+{
+  "asin": "B00TJJNSQG", "slug": "nonviolent-communication", "read_time": "2 min read",
+  "big_idea": "Most conflict and disconnection comes from a habitual, judgment-based way of speaking and listening. By observing without evaluating, naming genuine feelings, connecting them to underlying needs, and making clear requests, not demands, people can communicate in a way that stays connected to compassion even in conflict.",
+  "tool": {"label": "The four-part NVC process, OFNR", "text": "State a concrete Observation, a fact, not a judgment, name the Feeling it brings up, identify the underlying Need or value driving that feeling, and make a specific, actionable Request, not a demand. For example: when I see or hear X, I feel Y, because I need Z; would you be willing to do W?", "note": "Formalized by Rosenberg as the 4-Part NVC Process, taught today by the Center for Nonviolent Communication exactly as OFNR."},
+  "ideas": [
+    {"title": "Observation vs. evaluation", "text": "Separate what actually happened, a fact a camera could record, from your interpretation of it; mixing the two triggers defensiveness in the listener."},
+    {"title": "Feelings vs. thoughts", "text": "True feeling words, hurt, anxious, relieved, differ from disguised judgments, like feeling ignored or attacked, which are actually interpretations of the other person's behavior."},
+    {"title": "Underlying needs", "text": "Every feeling points to a met or unmet universal human need, connection, autonomy, safety; naming the need, not the other person's fault, is the path to resolution."},
+    {"title": "Requests vs. demands", "text": "A request stays a request only if you can accept no gracefully; if refusal brings punishment or guilt-tripping, it was really a demand."},
+    {"title": "Jackal vs. giraffe language", "text": "Rosenberg used jackal to represent judgmental, blaming speech and giraffe to represent compassionate NVC-style speech, as a teaching metaphor."},
+    {"title": "Self-empathy and anger", "text": "Anger is treated as a signal of an unmet need rather than something to suppress or vent destructively; process it by identifying the need beneath it before speaking."}
+  ],
+  "try_it": [
+    "Rewrite one recent complaint using OFNR: state the observable fact, your feeling, your need, and a concrete request, before you say it out loud.",
+    "Catch yourself using a judgment word this week and translate it into an observation plus a feeling instead.",
+    "Practice empathic listening once: when someone vents to you, reflect back their feelings and needs instead of offering advice or defending yourself.",
+    "Next time you're angry, pause and ask what need of mine isn't being met right now before responding."
+  ],
+  "best_for": ["People wanting to reduce blame and defensiveness in close relationships", "Therapists, mediators, parents, and communication-skills learners"],
+  "less_useful": ["Readers in acute, high-stakes adversarial negotiations needing fast tactics", "Those who find the required language patterns stilted or slow-going at first"],
+  "site_links": [{"label": "Crucial & Difficult Conversations", "href": "references.html#cat-convo"}],
+  "related": [
+    {"asin": "B002V59YHM", "why": "A complementary framework for the same feelings-and-identity layer of hard conversations"},
+    {"asin": "B0C6YM6Q41", "why": "A modern, research-driven companion on matching your listening to what a conversation needs"}
+  ],
+  "sources": [
+    {"label": "PuddleDancer Press official 4-Part NVC page", "href": "https://nonviolentcommunication.com/learn-nonviolent-communication/4-part-nvc/"},
+    {"label": "ReadingGraphics book summary", "href": "https://readingraphics.com/book-summary-nonviolent-communication/"}
+  ]
+}

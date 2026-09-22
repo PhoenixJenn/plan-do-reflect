@@ -1,0 +1,30 @@
+{
+  "asin": "B0C6YM6Q41", "slug": "supercommunicators", "read_time": "2 min read",
+  "big_idea": "Every meaningful conversation is actually one of three types, practical, emotional, or social, happening at once, and supercommunicators succeed by figuring out which type is occurring and deliberately matching that mode rather than responding on a different wavelength.",
+  "tool": {"label": "The matching principle, with looping for understanding", "text": "Identify whether a conversation is practical, what's this really about; emotional, how do we feel; or social, who are we; then match the other person's mode. Duhigg pairs this with looping for understanding: ask a question, repeat back what you heard in your own words, and confirm you got it right.", "note": "Illustrated with research and real cases ranging from hostage negotiators to jury deliberations, drawing on the neuroscience of neural entrainment between well-matched conversation partners."},
+  "ideas": [
+    {"title": "Three conversation types", "text": "Practical, emotional, and social conversations each require a different mode of listening and response."},
+    {"title": "Looping for understanding", "text": "Repeat back what you heard before responding, to demonstrate genuine listening rather than assumed understanding."},
+    {"title": "Perspective-getting over perspective-taking", "text": "Directly asking someone how they feel beats guessing or imagining their perspective."},
+    {"title": "Neural entrainment", "text": "In well-matched conversations, people's brain activity, breathing, and even pupils sync up, a measurable marker of connection."},
+    {"title": "Deep questions", "text": "Asking about values and experiences instead of surface facts unlocks more honest, connective exchanges."},
+    {"title": "Multiple identities", "text": "Reminding people of their other identities, parent, teammate, neighbor, can defuse identity-based conflict."}
+  ],
+  "try_it": [
+    "In your next disagreement, pause and ask yourself whether it's a practical, emotional, or identity conversation before responding.",
+    "Practice looping: after someone explains something important, repeat it back in your own words and check if you got it right.",
+    "Replace one assumption this week with a direct deep question instead of guessing how someone feels.",
+    "In a tense conversation, name a shared identity or goal out loud to reset the footing."
+  ],
+  "best_for": ["Managers and team leads", "Parents and partners navigating hard conversations"],
+  "less_useful": ["Not a quick-tip book; it's research and anecdote heavy to build its case", "Less useful for scripted small talk than for genuinely deep exchanges"],
+  "site_links": [{"label": "Communication", "href": "references.html#cat-comm"}],
+  "related": [
+    {"asin": "B09MV39LHQ", "why": "A more scripted, step-by-step system for the same high-stakes conversation moments"},
+    {"asin": "B00TJJNSQG", "why": "A structured language practice for the emotional-conversation mode this book describes"}
+  ],
+  "sources": [
+    {"label": "Four Minute Books summary", "href": "https://fourminutebooks.com/supercommunicators-summary/"},
+    {"label": "Sobrief summary", "href": "https://sobrief.com/books/supercommunicators"}
+  ]
+}

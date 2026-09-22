@@ -1,0 +1,30 @@
+{
+  "asin": "1629976156", "slug": "mastering-stage-presence", "read_time": "2 min read",
+  "big_idea": "Stage presence, how you carry yourself, breathe, move, and use your voice, is a trainable skill, not an innate gift. Long, an acting and directing professor, adapts professional actor training to help any presenter command a room.",
+  "tool": {"label": "The performance triangle", "text": "Long frames strong presence as three components trained together: mental focus and intention, physical freedom and alignment, and vocal technique, rather than treating nerves as a single problem to suppress.", "note": "This course has thin independent review coverage online beyond the publisher's own description, so treat the framework names here as drawn from The Great Courses' official course description rather than cross-verified critical analysis."},
+  "ideas": [
+    {"title": "Physical freedom", "text": "Uses Alexander Technique-style work to release habitual tension so the body moves naturally under pressure."},
+    {"title": "Vocal resource", "text": "Exercises to expand breath support, range, and clarity so the voice projects authority."},
+    {"title": "Converting nervous energy", "text": "Reframes performance anxiety as usable energy rather than something to eliminate."},
+    {"title": "Status and positioning", "text": "Physical stance and spacing are used to signal power and presence to an audience."},
+    {"title": "Character-preparation questions", "text": "Adapts an actor-preparation framework, who am I, what do I want, what's in my way, to clarify a speaker's purpose before going on."},
+    {"title": "Audience engagement", "text": "Techniques for reading a room and sustaining attention across a talk."}
+  ],
+  "try_it": [
+    "Do a 5-minute breath and vocal warm-up before your next important call or meeting.",
+    "Before presenting, answer: who am I speaking to, what do I want from them, what's in my way.",
+    "Practice a grounded power stance and notice how it changes your vocal tone.",
+    "Record yourself presenting and check for tension in your shoulders and jaw."
+  ],
+  "best_for": ["People who present or perform regularly, speakers, teachers, trainers", "Those wanting embodied and vocal technique beyond slide content"],
+  "less_useful": ["Not a quick-tip resource; it's a full academic course", "Some segments reference visual demonstration that's better suited to video than audio-only listening"],
+  "site_links": [{"label": "Communication", "href": "references.html#cat-comm"}],
+  "related": [
+    {"asin": "0593506286", "why": "The narrative craft that gives a presenter something worth delivering with this presence"},
+    {"asin": "B0BW1GCBFP", "why": "A complementary skill for handling the moments presence alone can't script"}
+  ],
+  "sources": [
+    {"label": "The Great Courses official course page", "href": "https://shop.thegreatcourses.com/mastering-stage-presence-how-to-present-to-any-audience"},
+    {"label": "Audible audiobook page", "href": "https://www.audible.com/pd/Mastering-Stage-Presence-How-to-Present-to-Any-Audience-Audiobook/1629976156"}
+  ]
+}

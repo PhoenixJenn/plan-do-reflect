@@ -1,0 +1,30 @@
+{
+  "asin": "B00N44XTP2", "slug": "crystal-clear-communication", "read_time": "2 min read",
+  "big_idea": "Clear communication, in both speaking and writing, is a learnable, formula-driven skill, and eliminating ambiguity between you and your reader or listener is what makes messages land, persuade, and stick.",
+  "tool": {"label": "The PEP formula", "text": "A structuring formula Goodman describes as a method to get your point across clearly, every time, used to organize a message so the point is unmistakable rather than buried.", "note": "One program in Goodman's Nightingale-Conant audio catalog, built for listening in short, practical segments rather than as a traditional print book; the exact expansion of PEP couldn't be independently verified beyond the publisher's own description."},
+  "ideas": [
+    {"title": "Communication is a skill, not a gift", "text": "Goodman frames clarity as trainable technique rather than natural talent."},
+    {"title": "The three Ts", "text": "Help you appeal to any audience by tailoring your message to who's actually listening."},
+    {"title": "A four-step sales method", "text": "Offered for persuading others, applicable to products, services, or ideas, not just formal sales."},
+    {"title": "Breaking through writer's block", "text": "Five specific strategies are given, treating it as a solvable, tactical problem."},
+    {"title": "Sizing up your audience", "text": "Quieting your thoughts and assessing who's listening before you speak or write is framed as essential prep, not optional."},
+    {"title": "Stage fright, addressed directly", "text": "Gets practical treatment alongside the writing-focused material, since the program covers both speech and text."}
+  ],
+  "try_it": [
+    "Before your next important email, write one sentence stating your single point, then build the email around only that.",
+    "Pick one piece of stalled writing and try writing the ending first, or writing it as if explaining to a friend out loud.",
+    "Before your next presentation or difficult conversation, spend two minutes explicitly sizing up the audience.",
+    "Apply the four-step sales approach to something non-sales, like pitching an idea to your team."
+  ],
+  "best_for": ["People who want quick, audio-format tactics for business writing and speaking", "Salespeople and presenters wanting a persuasion structure"],
+  "less_useful": ["Readers wanting a print book to flip through, since it's an audio program", "Those seeking deep theory rather than quick applied formulas"],
+  "site_links": [{"label": "Communication", "href": "references.html#cat-comm"}],
+  "related": [
+    {"asin": "B075FG7HLK", "why": "A sharper, book-length treatment of the same one-point clarity discipline"},
+    {"asin": "B00D94332Q", "why": "The psychological roots of miscommunication this formula works around"}
+  ],
+  "sources": [
+    {"label": "Audible program page", "href": "https://www.audible.com/pd/Crystal-Clear-Communication-Audiobook/B00N44XTP2"},
+    {"label": "Nightingale publisher page", "href": "https://www.nightingale.com/crystal-clear-communication.html"}
+  ]
+}

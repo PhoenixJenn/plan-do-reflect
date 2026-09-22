@@ -1,0 +1,30 @@
+{
+  "asin": "B014GCH3DE", "slug": "talking-to-crazy", "read_time": "2 min read",
+  "big_idea": "You can't out-reason a genuinely irrational person, but you can reach them by understanding what crazy behavior is actually protecting them from, and by using specific psychological moves to speak to the sane person still underneath the outburst.",
+  "tool": {"label": "The sanity cycle", "text": "Rather than treating an irrational person as a threat to fight or flee, Goulston's core reframe is to treat them as someone in pain to be reached, a shift in your own mindset from adversary to ally that changes how the whole interaction unfolds.", "note": "One of roughly 33 named short techniques in the book, built around Goulston's psychiatric and hostage-negotiation-adjacent background; reviewers note the book leans on catchy technique names more than deep clinical theory."},
+  "ideas": [
+    {"title": "The tripartite brain", "text": "Goulston frames irrational behavior through three brain systems, reptilian, limbic, and neocortex, arguing crazy moments happen when the rational brain gets hijacked."},
+    {"title": "Roots of irrationality", "text": "He traces adult irrational patterns to childhood dynamics: overprotection breeding entitlement, excessive criticism breeding fear of self-expression, and abandonment breeding deep emotional wounds."},
+    {"title": "The belly roll", "text": "A technique of deliberately handing an irrational person a sense of control or being in charge in the moment, which defuses their need to fight for it."},
+    {"title": "The butter-up", "text": "A counterintuitive approach to know-it-alls and narcissists: feeding their ego slightly reduces their need to dominate the conversation."},
+    {"title": "The kiss-off", "text": "A scripted way to firmly say no to a manipulator without getting drawn into a prolonged guilt trip or argument."},
+    {"title": "Speak to the sane person inside", "text": "Address the rational, underlying person rather than arguing with the crazy wrapper of their outburst; this reframes your goal from winning to reaching."}
+  ],
+  "try_it": [
+    "Next time someone is escalating irrationally, mentally reframe them as someone in pain rather than a threat, and notice how your tone changes.",
+    "Try the belly roll once this week: in a minor conflict, explicitly hand the other person a choice or sense of control early in the conversation.",
+    "Practice identifying the trigger behind someone's outburst before you respond to the content of what they said.",
+    "Prepare a calm, short kiss-off script in advance for the next time a specific person tries to manipulate or guilt you into something."
+  ],
+  "best_for": ["People with one specific recurring difficult person in their life, family member, coworker, ex", "Readers who like short, tactic-per-chapter self-help books"],
+  "less_useful": ["Anyone dealing with a person who has a diagnosed serious mental illness or personality disorder, which the book itself says exceeds a layperson's pay grade", "Readers wanting rigorous psychological research over catchy technique labels"],
+  "site_links": [{"label": "Crucial & Difficult Conversations", "href": "references.html#cat-convo"}],
+  "related": [
+    {"asin": "1639291377", "why": "A wider catalog of difficult-person types, for less extreme everyday cases"},
+    {"asin": "B0BW1GCBFP", "why": "The underlying skill of staying composed and quick-thinking under pressure"}
+  ],
+  "sources": [
+    {"label": "Shortform book summary", "href": "https://www.shortform.com/summary/talking-to-crazy-summary-mark-goulston"},
+    {"label": "Elevate Society summary and review", "href": "https://elevatesociety.com/talking-to-crazy-summary-review/"}
+  ]
+}

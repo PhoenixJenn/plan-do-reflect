@@ -1,0 +1,30 @@
+{
+  "asin": "163929113X", "slug": "crucial-accountability", "read_time": "2 min read",
+  "big_idea": "Most people either avoid holding others accountable for broken promises and bad behavior, or handle it so poorly that it damages the relationship. Accountability conversations become manageable, even relationship-strengthening, once you diagnose the real problem and create psychological safety before addressing it.",
+  "tool": {"label": "CPR: content, pattern, relationship", "text": "The book's diagnostic framework for figuring out what's actually going wrong: Content is the single broken promise itself, Pattern is when the same violation keeps recurring, and Relationship is when repeated violations have damaged trust between people. Each level requires a different conversation.", "note": "The sequel and companion framework to Crucial Conversations by the same author team, illustrated throughout with workplace and family case examples."},
+  "ideas": [
+    {"title": "Grievances bundle together", "text": "Accountability issues tend to come in bundles, but there's usually one root problem; solving it resolves the rest, so identify the real issue before speaking up."},
+    {"title": "Avoid gunnysacking", "text": "Don't stockpile multiple resentments to unload at once; address significant issues one at a time, in their own conversation."},
+    {"title": "See the whole story", "text": "People unconsciously invent stories about why someone let them down; check assumptions about others' motives before confronting them."},
+    {"title": "Create safety first", "text": "Making someone feel disrespected or blamed triggers defensiveness or silence; establishing mutual purpose and respect is a prerequisite for a productive accountability talk."},
+    {"title": "Diagnose motivation vs. ability", "text": "When someone fails to deliver, the fix differs depending on whether they lack the will to do it or the skill and resources to do it."},
+    {"title": "End with a real plan", "text": "Vague commitments don't produce accountability; the book insists on specific who, what, when action plans plus follow-up."}
+  ],
+  "try_it": [
+    "Before your next accountability conversation, write down the single root issue underneath the bundle of complaints you have.",
+    "Practice stating one recent disappointment as an observable fact, without the story you've attached to it about the person's motives.",
+    "In your next tough conversation, explicitly state a shared goal before raising the issue, to establish safety.",
+    "After any commitment someone makes to you this week, write down the specific who, what, when, and calendar a follow-up check."
+  ],
+  "best_for": ["Managers and leaders who avoid confronting underperformance or broken promises", "Anyone who has read Crucial Conversations and wants the accountability-specific follow-up"],
+  "less_useful": ["Readers looking for quick one-off scripts rather than a full prepare, execute, follow-up process", "Situations involving one-time, low-stakes issues that don't need a formal framework"],
+  "site_links": [{"label": "Crucial & Difficult Conversations", "href": "references.html#cat-convo"}],
+  "related": [
+    {"asin": "B09MV39LHQ", "why": "The flagship book this framework builds directly on"},
+    {"asin": "B002V59YHM", "why": "A complementary, less scripted approach to the same hard conversations"}
+  ],
+  "sources": [
+    {"label": "Shortform summary", "href": "https://www.shortform.com/summary/crucial-accountability-summary-kerry-patterson-et-al"},
+    {"label": "Blinkist summary", "href": "https://www.blinkist.com/en/books/crucial-accountability-en"}
+  ]
+}

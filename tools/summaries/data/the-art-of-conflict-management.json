@@ -1,0 +1,30 @@
+{
+  "asin": "B00DIEGPTA", "slug": "the-art-of-conflict-management", "read_time": "2 min read",
+  "big_idea": "Conflict is a normal, manageable part of life rather than something to avoid, and drawing on decades of win-win conflict research, people can learn structured skills, listening, perspective-taking, principled negotiation, to turn destructive conflicts into constructive resolutions in relationships, workplaces, and communities.",
+  "tool": {"label": "Principled negotiation", "text": "A four-part negotiation framework, drawn from the Harvard Negotiation Project tradition, that separates people from the problem, focuses on underlying interests rather than fixed positions, generates multiple options for mutual gain, and insists on objective criteria for deciding between them.", "note": "A 24-lecture Great Courses series illustrated with roughly 70 professionally acted dramatizations of real-world conflict scenarios."},
+  "ideas": [
+    {"title": "Win-win foundations", "text": "The course builds on mid-20th-century research establishing cooperative approaches as more effective than adversarial ones."},
+    {"title": "Perception, perspective, and punctuation", "text": "How two people can experience the identical event completely differently depending on where they mentally start the story, fueling misunderstanding."},
+    {"title": "Conflict styles", "text": "The course surveys five classic conflict-handling styles, competing, accommodating, avoiding, compromising, collaborating, and argues collaboration outperforms mere compromise for durable win-win outcomes."},
+    {"title": "Dysfunctional conflict strategies", "text": "Common destructive patterns, escalation, stonewalling, manipulation, are identified so listeners can recognize and interrupt them."},
+    {"title": "Conflict in close relationships", "text": "Dedicated lectures examine dynamic patterns specific to romantic and family relationships, distinct from workplace conflict."},
+    {"title": "Getting outside help", "text": "Maps when and how to bring in mediators, arbitrators, ombudsmen, or counselors once a conflict exceeds what the parties can resolve alone."}
+  ],
+  "try_it": [
+    "In your next disagreement, consciously separate the person from the problem: state the issue without attacking the other person's character.",
+    "Identify your default conflict style and try deliberately shifting toward collaboration once this week.",
+    "Before negotiating something, write down your underlying interest, not just your stated position, and try to uncover the other side's interest too.",
+    "Reflect on one recent conflict: where did you and the other person each start the story, and how did that shape the blame?"
+  ],
+  "best_for": ["Audio-learners wanting a structured academic overview of conflict theory", "Managers and general audiences wanting breadth across workplace, family, and cultural conflict"],
+  "less_useful": ["Readers wanting a fast, quotable pop-nonfiction book, since this is a 12-plus hour lecture course", "Those specifically needing scripted negotiation tactics rather than conceptual grounding"],
+  "site_links": [{"label": "Crucial & Difficult Conversations", "href": "references.html#cat-convo"}],
+  "related": [
+    {"asin": "B01CF5O89G", "why": "A more tactical, scripted counterpart to this course's conceptual grounding"},
+    {"asin": "B09MV39LHQ", "why": "A shorter, more prescriptive framework for the same high-stakes moments"}
+  ],
+  "sources": [
+    {"label": "The Great Courses official course page", "href": "https://shop.thegreatcourses.com/the-art-of-conflict-management"},
+    {"label": "Audible listing", "href": "https://www.audible.com/pd/The-Art-of-Conflict-Management-Achieving-Solutions-for-Life-Work-and-Beyond-Audiobook/B00DIEGPTA"}
+  ]
+}

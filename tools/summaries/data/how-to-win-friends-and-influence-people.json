@@ -1,0 +1,30 @@
+{
+  "asin": "B002V5BV96", "slug": "how-to-win-friends-and-influence-people", "read_time": "2 min read",
+  "big_idea": "Lasting influence comes not from arguing people into agreement but from genuinely valuing them, listening, offering honest appreciation, and framing requests around what the other person wants, so they arrive at your conclusion feeling it's their own idea.",
+  "tool": {"label": "Arouse in the other person an eager want", "text": "Before asking anything of someone, translate the request into terms of their own desires rather than yours. Carnegie treats this as the master lever of persuasion: the only way to get anybody to do anything is by making the other person want to do it.", "note": "One of Carnegie's original Fundamental Techniques in Handling People chapter titles, illustrated with everyday examples of appealing to what the other person wants, not what you want."},
+  "ideas": [
+    {"title": "Don't criticize, condemn, or complain", "text": "Direct criticism triggers defensiveness and resentment rather than change, so address behavior without attacking the person."},
+    {"title": "Give honest, sincere appreciation", "text": "People are starved for recognition, and genuine, not flattering, appreciation is one of the most reliable ways to motivate someone."},
+    {"title": "Become genuinely interested in other people", "text": "You'll make more friends in two months by being interested in others than in two years trying to get others interested in you."},
+    {"title": "Remember and use people's names", "text": "A person's own name is, to them, the most important sound in any language."},
+    {"title": "Let the other person save face", "text": "Never diminish someone publicly, even while correcting them; protecting their dignity preserves the relationship."},
+    {"title": "Talk in terms of the other person's interests", "text": "Frame conversations and requests around what matters to them, not what matters to you."}
+  ],
+  "try_it": [
+    "Go one full day without criticizing, condemning, or complaining about anyone, even mildly.",
+    "In your next three conversations, ask at least two follow-up questions about the other person before talking about yourself.",
+    "Learn and use a new acquaintance's name twice in your next conversation with them.",
+    "Before your next ask, rewrite it in terms of what the other person gains, not what you need."
+  ],
+  "best_for": ["People early in sales, leadership, or networking who want simple, durable relationship habits"],
+  "less_useful": ["Readers wanting modern research citations, since it's built on 1930s-era anecdotes", "Anyone wary of persuasion tactics that can feel manipulative if applied insincerely"],
+  "site_links": [{"label": "Networking & Relationships", "href": "references.html#cat-network"}],
+  "related": [
+    {"asin": "B013F5WEZK", "why": "A more tactical, modern set of conversation techniques building on the same relationship-first philosophy"},
+    {"asin": "1549150340", "why": "A caution about the limits of reading people we don't actually know well"}
+  ],
+  "sources": [
+    {"label": "HubSpot summary", "href": "https://www.hubspot.com/sales/how-to-win-friends-and-influence-people-summary"},
+    {"label": "Calvin Rosser summary and notes", "href": "https://calvinrosser.com/notes/how-to-win-friends-and-influence-people-summary/"}
+  ]
+}

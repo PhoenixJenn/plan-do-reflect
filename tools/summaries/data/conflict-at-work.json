@@ -1,0 +1,30 @@
+{
+  "asin": "B093DLKB5S", "slug": "conflict-at-work", "read_time": "2 min read",
+  "big_idea": "Workplace conflict is fundamentally an emotional event, not a rational one, which is why standard, purely logic-based conflict-resolution training often fails. Daoust offers a flexible toolkit of techniques rather than one rigid method, so readers can pick what fits their own style.",
+  "tool": {"label": "The Aiki approach", "text": "Named for the aikido principle of blending with an opponent's energy rather than meeting it head-on, this technique is framed as a way to defuse a conflict by working with the other person's emotional energy instead of resisting or escalating it.", "note": "The Aiki tool and an accompanying worksheet are confirmed via the author's own site; the detailed step-by-step mechanics couldn't be independently verified beyond that, so treat specifics beyond blend-don't-resist as unconfirmed."},
+  "ideas": [
+    {"title": "Conflict is emotional first", "text": "Daoust's core argument is that people mismanage conflict because they treat it as a logic problem when it's really an emotional one."},
+    {"title": "Two bad defaults", "text": "Most people oscillate between two ineffective patterns: demanding what they want and damaging the relationship, or avoiding conflict and giving up what they need."},
+    {"title": "A toolkit, not one method", "text": "Rather than a single framework, the book offers multiple selectable tools so readers can combine strategies that suit their personality."},
+    {"title": "Irrational beliefs fuel escalation", "text": "Companion material addresses distorted thinking patterns that intensify workplace conflict."},
+    {"title": "Forgiveness as a conflict tool", "text": "A dedicated resource in the toolkit treats forgiveness as a practical step for moving past a conflict, not just a moral nicety."},
+    {"title": "Built for the real workplace", "text": "Daoust illustrates concepts through workplace scenarios rather than abstract theory."}
+  ],
+  "try_it": [
+    "Before your next tense work conversation, name the emotion you're feeling, not just the issue, before you say anything.",
+    "Identify one recurring work conflict where you default to either over-demanding or avoiding, and write down what a middle path would look like.",
+    "Notice one irrational or catastrophizing thought during a conflict this week and write a more balanced version of it.",
+    "After a disagreement is resolved, deliberately practice a small act of letting go rather than replaying the grievance."
+  ],
+  "best_for": ["People whose conflict-resolution training hasn't stuck because it was too rational or scripted", "Managers wanting emotional self-regulation tools for workplace friction"],
+  "less_useful": ["Readers wanting a single, clearly defined step-by-step model, since this is explicitly a pick-what-fits toolkit", "Anyone needing frameworks for large organizational disputes rather than individual emotional regulation"],
+  "site_links": [{"label": "Crucial & Difficult Conversations", "href": "references.html#cat-convo"}],
+  "related": [
+    {"asin": "B09MV39LHQ", "why": "A more scripted, step-by-step system for the same high-stakes conversations"},
+    {"asin": "1797123769", "why": "The bigger picture of how ordinary conflict escalates into something harder to defuse"}
+  ],
+  "sources": [
+    {"label": "Author's site, resources page", "href": "https://docpaula.com/caw-meet-resources/"},
+    {"label": "Audible synopsis", "href": "https://www.audible.com/pd/Conflict-at-Work-Audiobook/B093DLKB5S"}
+  ]
+}

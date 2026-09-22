@@ -1,0 +1,30 @@
+{
+  "asin": "B013F5WEZK", "slug": "how-to-talk-to-anyone", "read_time": "2 min read",
+  "big_idea": "Social success comes less from raw charisma than from a set of specific, learnable verbal and nonverbal techniques that make other people feel noticed, valued, and comfortable in your presence.",
+  "tool": {"label": "The flooding smile", "text": "Instead of smiling reflexively the instant you meet someone, pause a beat, take in their face, then let a warm smile spread slowly across yours; the slight delay reads as genuine and personal rather than automatic.", "note": "One of Lowndes' opening first-impression moves, used alongside related nonverbal tricks like Sticky Eyes and the Big Baby Pivot."},
+  "ideas": [
+    {"title": "Sticky eyes", "text": "Hold your gaze on the speaker a moment after they've finished talking, signaling full attention rather than a wandering mind."},
+    {"title": "Big baby pivot", "text": "Turn your entire body toward whoever is speaking to you, the way an infant fully turns toward a parent's voice."},
+    {"title": "Whozit opener", "text": "Break into a new group or approach a stranger by asking a low-risk question like who's that; it's an easy, natural entry point."},
+    {"title": "Parroting", "text": "When you're stuck for a response, repeat back the last few words someone said as a question, buying time while signaling you were listening."},
+    {"title": "Grapevine glory", "text": "Say something complimentary about someone to a third party, trusting it will circulate back; indirect praise often lands harder than direct praise."},
+    {"title": "The munching mingler mistake", "text": "Eat before networking events so your hands stay free and you're not stuck hovering near the buffet, avoiding the isolation trap."}
+  ],
+  "try_it": [
+    "At your next introduction, deliberately delay your smile one beat before letting it spread.",
+    "Practice sticky eyes in three conversations this week: hold eye contact a moment after the other person stops talking.",
+    "Use the whozit opener at one social or work event to start a conversation with someone you don't know.",
+    "Say something genuinely positive about a colleague to a third person and notice if it circulates back."
+  ],
+  "best_for": ["People anxious about small talk or networking events", "Readers who want concrete body-language scripts to rehearse"],
+  "less_useful": ["Readers wanting psychological theory or research backing", "Anyone put off by techniques that can feel performative if used insincerely"],
+  "site_links": [{"label": "Networking & Relationships", "href": "references.html#cat-network"}],
+  "related": [
+    {"asin": "B002V5BV96", "why": "The classic, values-first companion to these more tactical conversation tricks"},
+    {"asin": "B074V1XGSZ", "why": "How to turn a good first conversation into a moment people actually remember"}
+  ],
+  "sources": [
+    {"label": "Four Minute Books summary", "href": "https://fourminutebooks.com/how-to-talk-to-anyone-summary/"},
+    {"label": "Reading Graphics summary", "href": "https://readingraphics.com/book-summary-how-to-talk-to-anyone/"}
+  ]
+}

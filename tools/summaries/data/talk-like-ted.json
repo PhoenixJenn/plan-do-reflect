@@ -1,0 +1,30 @@
+{
+  "asin": "B00H4E0YUQ", "slug": "talk-like-ted", "read_time": "2 min read",
+  "big_idea": "After analyzing over 500 TED talks, Gallo concludes that the most persuasive speakers combine genuine passion, novel ideas, and vivid storytelling, and that this mix of skills is learnable, not innate.",
+  "tool": {"label": "The 65/25/10 rule", "text": "Gallo found the most memorable TED talks lean roughly 65% on emotional storytelling, 25% on data and evidence, and 10% on speaker credibility, a ratio far more story-heavy than most business presentations use.", "note": "Derived from content-analyzing top-rated TED talks against Aristotle's classical three modes of persuasion."},
+  "ideas": [
+    {"title": "Unleash the master within", "text": "Speak about what you're genuinely passionate about; audiences can feel its absence."},
+    {"title": "Master the art of storytelling", "text": "Personal stories, stories about others, and brand stories plant ideas and emotions more effectively than data alone."},
+    {"title": "Have a conversation", "text": "Rehearse enough to sound natural and unscripted, using natural rate, pitch, pauses, and gesture rather than reciting."},
+    {"title": "Teach me something new", "text": "Introduce novel information or an unexpected angle that shifts how the audience sees a familiar topic."},
+    {"title": "Deliver jaw-dropping moments", "text": "Build one emotionally charged moment or vivid visual into the talk that audiences will remember and repeat."},
+    {"title": "Stick to the 18-minute rule", "text": "Structure the talk around one headline and no more than three supporting messages, respecting the cognitive limit on how much people retain."}
+  ],
+  "try_it": [
+    "Write your talk's headline in one sentence, then pick only 3 supporting points to back it.",
+    "Draft one personal or third-party story to open your next presentation instead of a bullet-point overview.",
+    "Time yourself explaining your topic in under 18 minutes and cut anything outside your 3 core points.",
+    "Identify one jaw-dropping visual, demo, or stat you could build a moment around, rather than just stating it."
+  ],
+  "best_for": ["Aspiring keynote and conference speakers", "Professionals wanting a story-driven speaking style"],
+  "less_useful": ["Readers wanting rigorous academic communication theory", "Those who dislike heavy anecdote-driven writing"],
+  "site_links": [{"label": "Communication", "href": "references.html#cat-comm"}],
+  "related": [
+    {"asin": "B01DTE9WOI", "why": "TED's own official guide, with a deeper structural playbook for building a single talk"},
+    {"asin": "B07C48SWTD", "why": "The same author's broader case for storytelling as a career skill"}
+  ],
+  "sources": [
+    {"label": "Four Minute Books summary", "href": "https://fourminutebooks.com/talk-like-ted-summary/"},
+    {"label": "Tier One 9-secrets breakdown", "href": "https://www.wearetierone.com/blog/cracking-the-ted-code-takeaways-from-talk-like-ted-the-9-public-speaking-secrets-of-the-worlds-top-minds"}
+  ]
+}

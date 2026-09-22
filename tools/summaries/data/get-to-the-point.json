@@ -1,0 +1,30 @@
+{
+  "asin": "B075FG7HLK", "slug": "get-to-the-point", "read_time": "2 min read",
+  "big_idea": "Most communication fails not because of poor delivery but because the speaker never identified a real point, a specific, defensible assertion, as opposed to a vague topic, and didn't organize the whole message around driving that point home.",
+  "tool": {"label": "The I believe, so what, why test", "text": "To convert a vague topic into a real point, state it starting with I believe that, then stress-test it with So what, is it consequential enough to matter, and Why, can you defend it, until it becomes a sharp, arguable claim rather than a hollow generality.", "note": "Schwartzberg, a communications coach, defines a point as something you can state, explain, and support, explicitly distinct from a topic, which is just a subject."},
+  "ideas": [
+    {"title": "Point vs. topic", "text": "A topic, like communication, is a subject; a point is an arguable, ownable assertion."},
+    {"title": "Start with the point", "text": "Open speeches, meetings, and emails by stating the point immediately instead of building up to it."},
+    {"title": "Sell the point", "text": "Structure your content so listeners could repeat your point back to you in their own words."},
+    {"title": "Stay laser-focused", "text": "Use the point as an anchor to redirect Q&A or a drifting conversation."},
+    {"title": "End with the point", "text": "Close by restating the point to reinforce the takeaway and signal the conversation is done."},
+    {"title": "Point-first workplace writing", "text": "Apply the same logic to business writing: point in the email subject line, short paragraphs, concise bullets."}
+  ],
+  "try_it": [
+    "Take a recent presentation topic and rewrite it as a single I believe sentence.",
+    "Rewrite your next work email so the point sits in the subject line and the first sentence.",
+    "Prepare one redirect phrase, like here's the point, to use if your next meeting drifts off-topic.",
+    "End your next presentation by restating your point in one sentence instead of a generic any questions."
+  ],
+  "best_for": ["Presenters and public speakers", "Professionals drafting emails and reports who tend to ramble"],
+  "less_useful": ["Readers seeking deep rhetorical or persuasion theory rather than practical drills", "Contexts where a multi-message approach may serve better, a counterpoint some communication strategists raise"],
+  "site_links": [{"label": "Communication", "href": "references.html#cat-comm"}],
+  "related": [
+    {"asin": "0593148495", "why": "A similar discipline of cutting content down to what actually lands"},
+    {"asin": "B0C6YM6Q41", "why": "A broader look at matching your message to what the listener actually needs"}
+  ],
+  "sources": [
+    {"label": "Shortform chapter summary", "href": "https://www.shortform.com/summary/get-to-the-point-vb13747-b-summary-joel-schwartzberg"},
+    {"label": "Blinkist summary", "href": "https://www.blinkist.com/en/books/get-to-the-point-en"}
+  ]
+}

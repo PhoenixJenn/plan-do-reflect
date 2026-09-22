@@ -1,0 +1,30 @@
+{
+  "asin": "B01CF5O89G", "slug": "never-split-the-difference", "read_time": "2 min read",
+  "big_idea": "Negotiation is not a rational exchange of information but an emotional, psychological process. The negotiator who best understands and manages the other side's emotions, rather than splitting the difference, wins better outcomes for everyone.",
+  "tool": {"label": "Tactical empathy: mirroring and labeling", "text": "Mirroring means repeating the last one to three words your counterpart just said, then staying silent, which prompts them to elaborate; labeling means naming their emotion aloud, it seems like or it sounds like, to validate the feeling without agreeing to their position, which lowers defensiveness.", "note": "Voss developed these as an FBI international hostage negotiator and adapted them for business and everyday negotiations."},
+  "ideas": [
+    {"title": "Calibrated questions", "text": "Open-ended what and how questions give the other side the illusion of control while steering the outcome your way."},
+    {"title": "That's right vs. you're right", "text": "The goal is to summarize the other person's position so well they say that's right, a sign of real breakthrough; you're right usually just means they want you to stop talking."},
+    {"title": "The accusation audit", "text": "List every negative thing the other party could say about you and say it first, disarming their objections before they raise them."},
+    {"title": "Black swans", "text": "Every negotiation holds hidden, unknown information that, once surfaced through careful listening, can flip the deal in your favor."},
+    {"title": "The Ackerman model", "text": "A structured concession pattern, roughly 65%, 85%, 95%, then 100% of your target, using non-round numbers to make final offers feel more credible."},
+    {"title": "No-oriented questions", "text": "Asking questions that make it easy for the other side to say no reduces their defensiveness and opens dialogue."}
+  ],
+  "try_it": [
+    "In your next tense conversation, mirror the last three words someone says and pause; notice how much more they explain.",
+    "Try labeling an emotion you observe in someone instead of arguing with their position.",
+    "Before a request or ask this week, run your own accusation audit: write down what the other person might think is unfair about it, and name it upfront.",
+    "Practice a calibrated how question instead of a direct demand."
+  ],
+  "best_for": ["People negotiating salary, deals, or high-stakes asks", "Managers and salespeople wanting concrete verbal scripts"],
+  "less_useful": ["Readers looking for cooperative, win-win negotiation theory, since it leans persuasive and somewhat adversarial", "Those wanting academic rigor over FBI-style anecdote"],
+  "site_links": [{"label": "Crucial & Difficult Conversations", "href": "references.html#cat-convo"}],
+  "related": [
+    {"asin": "1639294759", "why": "A similarly frame-driven approach to controlling a high-stakes interaction"},
+    {"asin": "1797123769", "why": "The bigger picture of the emotional escalation these tactics are designed to interrupt"}
+  ],
+  "sources": [
+    {"label": "Science of People chapter summary", "href": "https://www.scienceofpeople.com/never-split-difference-summary/"},
+    {"label": "Graham Mann's chapter-by-chapter notes", "href": "https://grahammann.net/book-notes/never-split-the-difference-chris-voss"}
+  ]
+}

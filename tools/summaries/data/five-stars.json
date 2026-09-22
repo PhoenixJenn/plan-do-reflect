@@ -1,0 +1,30 @@
+{
+  "asin": "B07C48SWTD", "slug": "five-stars", "read_time": "2 min read",
+  "big_idea": "In an age of automation, communication and storytelling ability, not technical skill alone, is what separates people who get ahead from those who don't. Ideas don't sell themselves, and Gallo builds his case on Aristotle's classical framework of persuasion.",
+  "tool": {"label": "Aristotle's three appeals", "text": "Gallo structures the book around classical rhetoric's three persuasion levers: credibility (ethos), logical argument (logos), and emotional connection (pathos), showing through modern examples how blending all three moves audiences to act, not just listen.", "note": "Presented as the book's foundational, ancient formula running through every chapter and case study."},
+  "ideas": [
+    {"title": "Single, concrete, time-specific goals", "text": "Kennedy's moon-landing speech shows how turning a vague aspiration into one measurable, deadline-bound goal focuses an audience."},
+    {"title": "Storytelling for career advancement", "text": "Personal narrative structure, beginning-middle-end, helped one engineer land offers from top tech companies despite a nontraditional resume."},
+    {"title": "The beer mat principle", "text": "The clearest ideas can be distilled to fit on a single beer mat: simplicity as a discipline, not a shortcut."},
+    {"title": "Presentation design", "text": "Keep talks to 15 to 20 minutes, add visuals, which can raise retention from roughly 10% to 65%, and write for a 10th-grade reading level."},
+    {"title": "Pathos in origin stories", "text": "Brand founding stories work because they carry genuine emotional stakes, not just facts."},
+    {"title": "The 50% value principle", "text": "Cites Warren Buffett's claim that communication skill alone can raise a professional's value by 50%."}
+  ],
+  "try_it": [
+    "Write your professional origin story in three acts, setup, struggle, resolution, and practice telling it in under two minutes.",
+    "Run your next email or slide deck through a readability checker and simplify until a 10th-grader could follow it.",
+    "Before your next pitch, write down one single, measurable, time-bound goal you want your audience to act on.",
+    "Open your next presentation with a story, question, or striking stat in the first 2 to 3 minutes instead of an agenda slide."
+  ],
+  "best_for": ["Aspiring public speakers and pitchers", "Professionals aiming to advance via soft skills"],
+  "less_useful": ["Readers wanting a tactical workbook; one reviewer estimates roughly 60% of the book is motivational rather than instructional", "Those tired of celebrity and historical anecdote-heavy business books"],
+  "site_links": [{"label": "Communication", "href": "references.html#cat-comm"}],
+  "related": [
+    {"asin": "B00H4E0YUQ", "why": "A more speech-specific companion built on the same storytelling-first philosophy"},
+    {"asin": "0593148495", "why": "A sharper, shorter-format take on cutting a pitch down to what matters"}
+  ],
+  "sources": [
+    {"label": "Blinkist summary", "href": "https://www.blinkist.com/en/books/five-stars-en"},
+    {"label": "Author's official book page", "href": "https://www.carminegallo.com/books/five-stars/"}
+  ]
+}

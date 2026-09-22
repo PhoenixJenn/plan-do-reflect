@@ -1,0 +1,30 @@
+{
+  "asin": "B09MV39LHQ", "slug": "crucial-conversations", "read_time": "2 min read",
+  "big_idea": "When conversations carry high stakes, strong emotions, and differing opinions, most people default to either silence or aggression instead of honest dialogue. Mastering crucial conversations, getting all relevant information into a shared pool of meaning, is the single biggest lever for better decisions, relationships, and results.",
+  "tool": {"label": "STATE, with CRIB for shared purpose", "text": "STATE is a five-step way to voice a difficult viewpoint safely: Share your facts, Tell your story, Ask for others' paths, Talk tentatively, and Encourage testing of your view. When goals seem to conflict, CRIB restores mutual purpose: Commit to seeking it, Recognize the purpose behind the other's strategy, Invent a shared purpose, and Brainstorm new strategies together.", "note": "The book's signature acronyms, illustrated throughout with workplace and family dialogue examples; critics note the models lean on common-sense structure rather than novel psychology."},
+  "ideas": [
+    {"title": "Pool of shared meaning", "text": "The best decisions happen when everyone's relevant facts and opinions flow freely into a shared understanding, rather than being withheld or forced."},
+    {"title": "Fool's choice", "text": "People wrongly assume they must choose between being honest and keeping the relationship intact; skilled communicators find a way to do both."},
+    {"title": "Start with heart", "text": "Before a hard conversation, check your own motives and stay focused on what you really want, not on winning or punishing."},
+    {"title": "Learn to look", "text": "Watch for the moment a conversation turns crucial: signs of safety breaking down, like silence or verbal aggression."},
+    {"title": "Make it safe", "text": "People clam up or attack because they feel disrespected or that there's no shared purpose; rebuilding safety reopens dialogue."},
+    {"title": "AMPP for listening", "text": "When the other person goes silent or aggressive, use Ask, Mirror, Paraphrase, and Prime to draw out their real story."}
+  ],
+  "try_it": [
+    "Before your next hard conversation, write down your actual goal and check it isn't secretly to win or punish.",
+    "Practice STATE once this week: separate the plain facts from your interpretation before you speak.",
+    "Notice one moment you go silent or aggressive in a conversation this week, and name which safety cue you missed.",
+    "Use CRIB the next time you and someone else seem to want opposite things: ask what purpose is behind their position."
+  ],
+  "best_for": ["Managers giving tough feedback", "Anyone dreading a recurring conflict at work or home"],
+  "less_useful": ["Readers wanting deep psychological theory", "Readers who dislike acronym-heavy frameworks"],
+  "site_links": [{"label": "Crucial & Difficult Conversations", "href": "references.html#cat-convo"}],
+  "related": [
+    {"asin": "163929113X", "why": "The same authors' direct follow-up for holding people accountable afterward"},
+    {"asin": "B0C6YM6Q41", "why": "A complementary lens for reading what kind of conversation is actually happening"}
+  ],
+  "sources": [
+    {"label": "Four Minute Books summary", "href": "https://fourminutebooks.com/crucial-conversations-summary/"},
+    {"label": "pmdartus book notes", "href": "https://pm.dartus.fr/books/crucial-conversation/"}
+  ]
+}

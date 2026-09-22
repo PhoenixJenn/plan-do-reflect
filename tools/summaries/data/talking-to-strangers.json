@@ -1,0 +1,30 @@
+{
+  "asin": "1549150340", "slug": "talking-to-strangers", "read_time": "2 min read",
+  "big_idea": "We consistently misjudge people we don't know because we rely on three flawed mental strategies, defaulting to trust, assuming behavior transparently reveals inner feelings, and ignoring that behavior is tied to specific circumstances, and history shows these failures have had real, sometimes tragic, consequences.",
+  "tool": {"label": "Default to truth", "text": "Drawing on research including a trivia experiment where viewers correctly identified lies only about 54% of the time, barely better than chance, Gladwell argues humans are wired to assume others are honest unless the evidence of deception becomes overwhelming.", "note": "Gladwell treats this as a feature, not a flaw, since societies couldn't function if everyone were treated as a suspect, but uses it to explain real institutional failures."},
+  "ideas": [
+    {"title": "Truth-default theory", "text": "We assume people are honest by default, which serves cooperation well but occasionally blinds us to real deception in our midst."},
+    {"title": "Illusion of transparency", "text": "We wrongly assume a person's demeanor, nervousness, calm, eye contact, reliably reveals their true feelings, though people express emotion idiosyncratically."},
+    {"title": "Coupling", "text": "Behaviors like suicide or crime are tied to specific circumstances, place, method, access, not just fixed personality traits; remove the circumstance and the behavior often doesn't occur elsewhere."},
+    {"title": "Mismatched demeanor", "text": "When someone's outward behavior contradicts what we'd expect from a guilty or innocent person, we misjudge them."},
+    {"title": "Institutional failure via misplaced trust", "text": "Default-to-truth let real predators operate for years because the people around them refused to believe the obvious."},
+    {"title": "Two strangers, catastrophically misread", "text": "Gladwell returns throughout to a real 2015 traffic stop as a throughline example of how these failure modes compound."}
+  ],
+  "try_it": [
+    "Before assuming you can read a new coworker's or date's true feelings from body language, ask a direct clarifying question instead.",
+    "Notice one moment this week you judged someone's honesty purely from their demeanor, and reconsider the evidence.",
+    "When a friend's behavior seems out of character in one setting, ask what changed about the circumstances rather than what changed about them.",
+    "Pick one real case from the book and identify which of the three failure modes was at play."
+  ],
+  "best_for": ["Readers interested in social psychology or true-crime-style journalism", "People wanting a critical lens on snap judgments"],
+  "less_useful": ["Anyone wanting practical networking or small-talk tips, since it's diagnostic, not prescriptive", "Note several reviewers flagged Gladwell's evidence and conclusions as selective or oversimplified"],
+  "site_links": [{"label": "Networking & Relationships", "href": "references.html#cat-network"}],
+  "related": [
+    {"asin": "B002V5BV96", "why": "The optimistic counterpart this book's caution about misjudging strangers complicates"},
+    {"asin": "1797123769", "why": "How misread intentions between strangers can escalate into entrenched conflict"}
+  ],
+  "sources": [
+    {"label": "Shortform summary", "href": "https://www.shortform.com/summary/talking-to-strangers-summary-malcolm-gladwell"},
+    {"label": "Wikipedia overview", "href": "https://en.wikipedia.org/wiki/Talking_to_Strangers"}
+  ]
+}

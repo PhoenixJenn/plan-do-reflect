@@ -1,0 +1,30 @@
+{
+  "asin": "0593506286", "slug": "how-to-tell-a-story", "read_time": "2 min read",
+  "big_idea": "True, first-person personal stories, told aloud, not read, build genuine connection when they have real stakes and show how the teller changed. The Moth distills over 25 years of coaching storytellers into a repeatable process for finding and shaping those stories.",
+  "tool": {"label": "Narrative stepping stones", "text": "Instead of narrating everything chronologically, identify the handful of key moments, scenes, brief summarizing bridges, and reflections, that the audience actually needs to follow the arc, and build the story around just those.", "note": "The Moth's own coaching technique, developed for their StorySLAM and Moth Radio Hour storytellers and explained by longtime Moth directors and editors."},
+  "ideas": [
+    {"title": "Story seeds", "text": "Mine your memory for specific moments that taught you something or marked a turning point in who you were becoming."},
+    {"title": "Stakes and change", "text": "Every Moth-worthy story needs what you wanted or feared, what you gained or lost, and how you were different afterward."},
+    {"title": "True, first-person, spoken", "text": "The Moth's core rule: no notes, no fiction, no reading from a page; the story must be told live, in your own words."},
+    {"title": "Launching and landing", "text": "Craft a strong first line to orient the audience and a strong last line that gives the story a satisfying close."},
+    {"title": "Familiarization, not memorization", "text": "Internalize the shape and key beats of the story through repeated telling rather than memorizing a script word for word."},
+    {"title": "Test with a trusted audience", "text": "Try the story out loud on a friend before the real telling to check pacing, clarity, and emotional impact."}
+  ],
+  "try_it": [
+    "Write down three story seeds: moments when you learned something about yourself.",
+    "Pick one and outline it as 4 to 5 stepping stones instead of a full script.",
+    "Tell it out loud to someone, with no notes, aiming for under 5 minutes.",
+    "Draft your opening line and closing line first, then build the middle to connect them."
+  ],
+  "best_for": ["Aspiring public speakers and personal storytellers", "People preparing toasts, eulogies, or interview stories"],
+  "less_useful": ["Not a business-pitch or slide-deck presentation guide", "Less relevant for data-heavy or technical talks"],
+  "site_links": [{"label": "Communication", "href": "references.html#cat-comm"}],
+  "related": [
+    {"asin": "B00H4E0YUQ", "why": "A complementary look at how storytelling fits into a full stage presentation"},
+    {"asin": "1629976156", "why": "The physical and vocal delivery skills that carry a story once it's shaped"}
+  ],
+  "sources": [
+    {"label": "Readingraphics book summary", "href": "https://readingraphics.com/book-summary-how-to-tell-a-story/"},
+    {"label": "Penguin Random House publisher page", "href": "https://www.penguinrandomhouse.com/books/635183/how-to-tell-a-story-by-meg-bowles-catherine-burns-jenifer-hixson-sarah-austin-jenness-and-kate-tellers-foreword-by-padma-lakshmi-introduction-by-chenjerai-kumanyika/"}
+  ]
+}

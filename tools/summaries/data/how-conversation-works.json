@@ -1,0 +1,30 @@
+{
+  "asin": "B00DEK2G46", "slug": "how-conversation-works", "read_time": "2 min read",
+  "big_idea": "Conversation isn't random; it runs on a hidden, learnable grammar of turn-taking, politeness norms, and speech acts, and Curzan argues that making these implicit rules explicit lets anyone navigate tricky moments, like apologies, favors, and disagreement, more skillfully.",
+  "tool": {"label": "Face theory", "text": "Nearly every request, correction, or refusal threatens someone's face, their desire to be respected or left in control of their choices, and hedging and softening language exist specifically to manage that threat.", "note": "Drawn from Brown and Levinson's academic politeness theory, applied by Curzan, a University of Michigan linguist, to everyday scenarios like pointing out a mistake or turning down a request."},
+  "ideas": [
+    {"title": "Conversational mechanics", "text": "Turn-taking, holding the floor, and back-channel cues like mmhmm structure exchanges largely below conscious awareness."},
+    {"title": "Speech acts and implicature", "text": "What we literally say and what we mean often diverge; learning to read and use indirect meaning prevents misfires."},
+    {"title": "Delivering hard moments", "text": "The course gives concrete verbal strategies for apologizing, pointing out mistakes, asking favors, and delivering unwelcome news."},
+    {"title": "Face-threatening acts", "text": "Corrective or demanding statements threaten the listener's self-image; hedges and careful framing reduce that damage."},
+    {"title": "Gender and conversational style", "text": "Surveys research on cooperative versus competitive conversational patterns and floor-holding differences."},
+    {"title": "Professional application", "text": "The same mechanics apply directly to interviews, first impressions, and building workplace rapport."}
+  ],
+  "try_it": [
+    "Next time you need to correct someone, soften it with a hedge before stating the correction.",
+    "Notice the back-channel cues you give in your next conversation and use them deliberately to show engagement.",
+    "Practice declining a request this week with face-saving, indirect phrasing instead of a flat no.",
+    "In your next meeting, notice who holds the conversational floor and practice a polite way to enter the turn-taking."
+  ],
+  "best_for": ["People curious about the linguistics behind everyday talk", "Professionals working on rapport and soft skills"],
+  "less_useful": ["Readers wanting a quick, skimmable text; it's a multi-hour audio lecture series, not a book", "Those seeking business-specific sales or negotiation tactics rather than general conversational linguistics"],
+  "site_links": [{"label": "Communication", "href": "references.html#cat-comm"}],
+  "related": [
+    {"asin": "B0C6YM6Q41", "why": "A more modern, research-driven take on the same underlying conversational mechanics"},
+    {"asin": "B00TJJNSQG", "why": "A structured language practice for handling the same face-threatening moments"}
+  ],
+  "sources": [
+    {"label": "Grokipedia course summary", "href": "https://grokipedia.com/page/how_conversation_works_(book)"},
+    {"label": "Audible course page", "href": "https://www.audible.com/pd/How-Conversation-Works-6-Lessons-for-Better-Communication-Audiobook/B00DEK2G46"}
+  ]
+}

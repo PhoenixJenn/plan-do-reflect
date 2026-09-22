@@ -1,0 +1,30 @@
+{
+  "asin": "B0BDHQ3KPL", "slug": "dealing-with-difficult-people", "read_time": "2 min read",
+  "big_idea": "This curated collection of Harvard Business Review articles argues that the key to handling difficult colleagues is managing emotions, both the other person's and your own, rather than trying to win the interaction.",
+  "tool": {"label": "Hot conflict vs. cold conflict", "text": "The collection distinguishes hot conflicts, visible anger, tension, sniping, from cold conflicts, withdrawal, silent resentment, passive aggression, and argues each requires a different de-escalation approach: hot conflict needs emotional cooling before any content discussion, cold conflict needs surfacing the unspoken issue.", "note": "One of several distinct tools in the book rather than a single unifying model, since it's an anthology of separate articles, not a single-author framework."},
+  "ideas": [
+    {"title": "Own your contribution", "text": "Before labeling someone difficult, examine how your own behavior or expectations feed the friction."},
+    {"title": "Manage your own emotions first", "text": "Techniques for staying composed, like naming your emotional state and pausing, prevent you from escalating a tense exchange."},
+    {"title": "Passive-aggressive colleagues", "text": "Practical scripts for naming indirect hostility without triggering more defensiveness."},
+    {"title": "The chronically stressed coworker", "text": "Advice on adjusting your approach with colleagues whose stress-reactivity colors every interaction."},
+    {"title": "The everything-is-urgent colleague", "text": "Strategies for negotiating priorities with someone who treats all requests as emergencies."},
+    {"title": "Managing up when a boss is difficult", "text": "Tactics for handling a supervisor's difficult behavior without damaging the relationship or your position."}
+  ],
+  "try_it": [
+    "Identify one recurring conflict and label it hot or cold, then try the matching de-escalation tactic this week.",
+    "Before your next tense exchange, name your own emotional state silently before responding.",
+    "Write down one way you may be contributing to a difficult dynamic with a specific coworker.",
+    "Try one scripted phrase from the passive-aggression material next time someone gives you a backhanded comment."
+  ],
+  "best_for": ["People new to workplace conflict skills wanting a fast, practical primer", "Readers who prefer short, bite-sized articles over a single long book"],
+  "less_useful": ["Readers wanting one cohesive framework rather than several separate essays", "Readers facing deeply entrenched or complex conflicts, which reviewers note it breezes through"],
+  "site_links": [{"label": "Crucial & Difficult Conversations", "href": "references.html#cat-convo"}],
+  "related": [
+    {"asin": "1639291377", "why": "A single-author framework covering the same difficult-colleague territory in more depth"},
+    {"asin": "B014GCH3DE", "why": "A sharper focus on the most irrational, hardest cases this collection touches on"}
+  ],
+  "sources": [
+    {"label": "HBR Store product page", "href": "https://store.hbr.org/product/dealing-with-difficult-people-hbr-emotional-intelligence-series/10204"},
+    {"label": "Writing at Large review", "href": "https://writingatlarge.com/2025/01/24/book-review-dealing-with-difficult-people-harvard-business-review/"}
+  ]
+}

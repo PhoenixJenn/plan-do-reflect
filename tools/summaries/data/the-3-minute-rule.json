@@ -1,0 +1,30 @@
+{
+  "asin": "0593148495", "slug": "the-3-minute-rule", "read_time": "2 min read",
+  "big_idea": "Hollywood pitch veteran Brant Pinvidic argues that any audience forms its true opinion of your idea within about three minutes, so the goal isn't to cover everything, it's to strip a pitch down to its clearest, most essential story and then let the audience ask questions.",
+  "tool": {"label": "The WHAC method", "text": "WHAC sorts every pitch point into four buckets, What is it, How does it work, Are you sure, proof and validation, and Can you do it, execution capability, then sequences them into a roughly 3-minute arc: Conceptualize, Contextualize, Actualize.", "note": "Pinvidic developed WHAC from decades of pitching and greenlighting TV shows and films in Hollywood, then generalized it to business pitches."},
+  "ideas": [
+    {"title": "The 3-minute reality", "text": "Audiences decide their level of interest almost immediately, so pitches should be built for that attention span, not a full meeting's worth of time."},
+    {"title": "Story trumps style", "text": "A clear, sequential narrative that lets listeners reach their own conclusion outperforms polished delivery or slick slides."},
+    {"title": "The hook isn't the opener", "text": "Save your most compelling detail so the audience discovers it and reacts positively, rather than announcing it upfront."},
+    {"title": "Address negatives yourself", "text": "Raise likely objections before the audience does, which reads as confidence and shifts them into defending your idea."},
+    {"title": "The reason for being", "text": "Open with the human story of how you found the idea; it primes the audience emotionally before the facts arrive."},
+    {"title": "Fewer slides, more images", "text": "Cap visuals at around 10 slides for a 3-minute pitch, using images instead of text-heavy bullets."}
+  ],
+  "try_it": [
+    "Sort your pitch talking points into the four WHAC buckets and time each section.",
+    "Rewrite your opening as a short how I found this story instead of a mission statement.",
+    "List your pitch's top 3 likely objections and pre-empt them in one sentence each.",
+    "Pitch a colleague in 3 minutes and have them tell you exactly where they got confused."
+  ],
+  "best_for": ["Salespeople, founders, and anyone pitching investors or clients", "Presenters who tend to over-explain"],
+  "less_useful": ["Readers wanting academic or behavioral-science backing rather than Hollywood-pitch anecdotes", "Presentations that require deep technical detail upfront"],
+  "site_links": [{"label": "Communication", "href": "references.html#cat-comm"}],
+  "related": [
+    {"asin": "B075FG7HLK", "why": "A companion discipline for finding the one sharp claim a pitch should center on"},
+    {"asin": "B01DTE9WOI", "why": "The longer-form version of the same single-throughline structure"}
+  ],
+  "sources": [
+    {"label": "Manas J. Saloi WHAC-method breakdown", "href": "https://manassaloi.com/booksummaries/2022/08/26/3-minute-rule-brant.html"},
+    {"label": "Cameron Potter summary", "href": "https://cameronpotter.net/book-summary-the-3-minute-rule-brant-pinvidic/"}
+  ]
+}

@@ -1,0 +1,30 @@
+{
+  "asin": "B01DTE9WOI", "slug": "ted-talks", "read_time": "2 min read",
+  "big_idea": "TED curator Chris Anderson argues that presentation literacy is a core skill for our era, and that any talk succeeds or fails based on whether it builds a single clear throughline of an idea worth spreading, delivered with authentic human connection.",
+  "tool": {"label": "The throughline", "text": "Distill the entire talk into a single connecting thread of no more than about 15 words, a rope that every story, fact, and example in the talk should visibly hang from, so the audience never loses the thread.", "note": "Anderson's own coinage as TED's longtime curator, drawn from watching thousands of TED talks succeed or fail on structure."},
+  "ideas": [
+    {"title": "Presentation literacy", "text": "Public speaking is a learnable, teachable skill with outsized career and civic impact, not a fixed talent."},
+    {"title": "Five tools for building a talk", "text": "Connection, Narration, Explanation, Persuasion, and Revelation are the core techniques for developing and delivering an idea."},
+    {"title": "Connect before you present", "text": "Open by establishing trust and common ground with the audience before diving into content."},
+    {"title": "Explain from the known to the unknown", "text": "Layer complex ideas step by step, building from what the audience already understands."},
+    {"title": "Persuade by demolishing objections first", "text": "Before presenting your case, address and dismantle the audience's likely counterarguments."},
+    {"title": "Visuals should support, not star", "text": "Use high-resolution images, minimal text, and large single typefaces so slides amplify rather than compete with the speaker."}
+  ],
+  "try_it": [
+    "Write your talk's throughline in 15 words or fewer before writing anything else.",
+    "Pick one of the five tools, like Narration, and rebuild your opening around it.",
+    "Cut every slide's text down to a single phrase or number, replacing paragraphs with one strong image.",
+    "Script and memorize just your first and last two sentences, even if the middle stays loose."
+  ],
+  "best_for": ["People preparing a specific talk or keynote", "Those wanting the official TED-insider structural playbook"],
+  "less_useful": ["Readers seeking a quick skim; some find it anecdote-heavy relative to distilled principles", "Those who want techniques beyond formal stage talks, like informal pitches"],
+  "site_links": [{"label": "Communication", "href": "references.html#cat-comm"}],
+  "related": [
+    {"asin": "B00H4E0YUQ", "why": "A companion breakdown of what makes the most-watched TED talks land emotionally"},
+    {"asin": "0593148495", "why": "A more compressed structure for a much shorter pitch format"}
+  ],
+  "sources": [
+    {"label": "ReadingGraphics summary", "href": "https://readingraphics.com/book-summary-ted-talks/"},
+    {"label": "Shortform review and critical reception", "href": "https://www.shortform.com/blog/ted-talks-review/"}
+  ]
+}

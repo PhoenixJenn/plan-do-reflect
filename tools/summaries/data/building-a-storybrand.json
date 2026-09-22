@@ -1,0 +1,30 @@
+{
+  "asin": "B072PRFBPQ", "slug": "building-a-storybrand", "read_time": "2 min read",
+  "big_idea": "Most marketing fails because it makes the brand the hero of the story. Miller argues brands should instead cast the customer as the hero and position themselves as the guide who helps that hero solve a problem and win.",
+  "tool": {"label": "The SB7 framework", "text": "A seven-part story structure for any marketing message: a Hero, the customer, has a Problem, meets a Guide, the brand, who gives them a Plan, and calls them to Action, that helps them avoid failure and ends in success.", "note": "Miller illustrates the guide role with the mentor archetype, like Mr. Miyagi or Yoda, mentors who empower the hero rather than overshadow them; meant to be filled out as a one-page BrandScript."},
+  "ideas": [
+    {"title": "Customers are the hero, not your brand", "text": "Messaging that centers the company loses customers who are looking for themselves in the story."},
+    {"title": "Confusion kills conversion", "text": "If customers have to work to understand what you offer or how it helps them, they tune out; clarity beats cleverness."},
+    {"title": "Three layers of problem", "text": "Every brand should identify the customer's external, internal, and philosophical problem, since most companies only address the surface-level one."},
+    {"title": "Guide, not hero", "text": "A brand becomes trustworthy by showing empathy and authority rather than showcasing the company's own story."},
+    {"title": "A clear plan", "text": "A simple plan, often 3 steps, removes the customer's fear of commitment or complexity."},
+    {"title": "Direct, repeated calls to action", "text": "Vague, buried CTAs are a common reason marketing underperforms."}
+  ],
+  "try_it": [
+    "Rewrite your website's homepage headline so the customer, not your product, is the subject of the sentence.",
+    "List your customer's external problem, then push one level deeper and name the internal, emotional problem it creates.",
+    "Draft a 3-step plan a new customer would follow after saying yes to your product or offer.",
+    "Find your strongest call-to-action line and make sure it appears in at least two places a customer would naturally look."
+  ],
+  "best_for": ["Marketers and business owners struggling to explain what they do", "Bloggers and consultants clarifying their value proposition"],
+  "less_useful": ["Readers wanting SEO or paid-ads tactics rather than message clarity", "Those looking for narrative craft for fiction rather than sales copy"],
+  "site_links": [{"label": "Communication", "href": "references.html#cat-comm"}],
+  "related": [
+    {"asin": "B075FG7HLK", "why": "The same discipline of clarity applied to any message, not just marketing"},
+    {"asin": "0593148495", "why": "A complementary system for pitching that same clear story in three minutes"}
+  ],
+  "sources": [
+    {"label": "Four Minute Books summary", "href": "https://fourminutebooks.com/building-a-storybrand-summary/"},
+    {"label": "Shortform summary", "href": "https://www.shortform.com/summary/building-a-storybrand-summary-donald-miller"}
+  ]
+}

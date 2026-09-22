@@ -1,0 +1,30 @@
+{
+  "asin": "B00D94332Q", "slug": "effective-communication-skills", "read_time": "2 min read",
+  "big_idea": "Most communication breakdowns come from unconscious psychological, biological, and cultural patterns, early conditioning, defensive reactions, ego states, rather than a simple lack of vocabulary, and shifting from control talk to mindful dialogue is what actually fixes them.",
+  "tool": {"label": "Connect, control, dialogue talk", "text": "Kehoe frames most conversations as falling into three modes: connect talk, small talk and rapport-building; control talk, commands, blame, and escalation; and dialogue talk, mindful, mutual, collaborative exchange. Recognizing which mode you're in is the first step to shifting toward dialogue.", "note": "Runs through all 24 lectures and is paired with other frameworks he cites, including transactional analysis and the ladder of inference."},
+  "ideas": [
+    {"title": "Talk shapes self", "text": "Self-concept and communication habits are formed young, through childhood conversations with caregivers, and often operate unconsciously in adulthood."},
+    {"title": "Schema-based perception", "text": "We don't hear what's said so much as we interpret it through mental templates built from past experience, a major source of miscommunication."},
+    {"title": "Control talk escalates", "text": "Light and heavy control patterns, commands, accusations, blame, are common default reactions under stress and tend to trigger defensiveness."},
+    {"title": "Active listening is underused", "text": "Genuinely listening, not just waiting to respond, is one of the most neglected and most powerful communication skills."},
+    {"title": "Gender and cultural patterns", "text": "Discusses report talk versus rapport talk gender differences and broader cultural influences on how people communicate."},
+    {"title": "Dialogue as practice", "text": "Mindful, compassionate confrontation and structured dialogue are taught as learnable techniques for turning conflict-prone conversations into collaborative ones."}
+  ],
+  "try_it": [
+    "For one day, notice every time you slip into control talk and try re-phrasing it as a question instead.",
+    "Practice one I-message this week instead of a you accusation in a tense conversation.",
+    "Before responding in your next disagreement, pause and ask yourself which assumption you're filtering the other person's words through.",
+    "Try one deliberate active-listening exercise: reflect back what you heard before adding your own point."
+  ],
+  "best_for": ["People who want the psychological why behind miscommunication", "Listeners who prefer structured academic-style teaching"],
+  "less_useful": ["Readers wanting quick tactical scripts over theory", "Those who already know transactional analysis or similar frameworks"],
+  "site_links": [{"label": "Communication", "href": "references.html#cat-comm"}],
+  "related": [
+    {"asin": "B00TJJNSQG", "why": "A structured language practice for moving out of control talk into dialogue"},
+    {"asin": "B0C6YM6Q41", "why": "A modern take on matching your communication mode to the conversation at hand"}
+  ],
+  "sources": [
+    {"label": "Grokipedia course summary", "href": "https://grokipedia.com/page/effective_communication_skills_great_courses_9331_(book)"},
+    {"label": "Audible course listing", "href": "https://www.audible.com/pd/Effective-Communication-Skills-Audiobook/B00D94332Q"}
+  ]
+}

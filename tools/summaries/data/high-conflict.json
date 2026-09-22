@@ -1,0 +1,30 @@
+{
+  "asin": "1797123769", "slug": "high-conflict", "read_time": "2 min read",
+  "big_idea": "Ordinary disagreement can curdle into high conflict, a self-perpetuating state where people become certain of their own righteousness and treat total victory over the other side as the only acceptable outcome. Understanding the psychological mechanics of how conflict escalates is the first step to escaping it.",
+  "tool": {"label": "Looping, the understanding loop", "text": "A listening technique of asking a question, paraphrasing back what you heard the other person say, and asking if you got it right, repeating the cycle until they confirm you truly understand, which slows the conversation and lowers emotional temperature.", "note": "Illustrated through mediators and hostage negotiators Ripley profiles in the book, including a divorce mediator's real cases."},
+  "ideas": [
+    {"title": "Healthy vs. high conflict", "text": "In healthy conflict, curiosity leads somewhere; in high conflict, the conflict itself becomes the destination."},
+    {"title": "The understory", "text": "Escalated conflicts are usually driven by deeper, unspoken forces like fear, humiliation, and a need to belong, not the surface issue being argued."},
+    {"title": "Conflict entrepreneurs", "text": "Certain people or institutions profit from stoking conflict and deliberately pull others deeper into an us-versus-them fight."},
+    {"title": "Binary framing", "text": "High conflict thrives on reducing a dispute to two opposing sides; breaking people into more, cross-cutting groups undermines that binary."},
+    {"title": "Humiliation as trigger", "text": "Ripley calls humiliation the nuclear bomb of the emotions because it activates pain responses that drive aggressive escalation."},
+    {"title": "Saturation points", "text": "People in high conflict eventually reach a point where the costs outweigh the benefits, creating an opening to exit if someone offers them a way out."}
+  ],
+  "try_it": [
+    "Before your next hard conversation, ask: does this need to be said, does it need to be said by me, does it need to be said right now.",
+    "Practice one round of looping in a disagreement this week: paraphrase the other person's point back to them and ask if you got it right.",
+    "Identify one relationship or online debate where you've fallen into binary us-versus-them thinking, and name one way the other side is not monolithic.",
+    "Notice if a conflict entrepreneur is profiting from keeping a dispute hot, and consciously reduce your exposure to them for a week."
+  ],
+  "best_for": ["People stuck in a recurring feud, family, ex-partner, neighbor", "Anyone navigating polarized political or workplace divides"],
+  "less_useful": ["Readers wanting a quick tactical script rather than narrative journalism", "Those needing tools for a single low-stakes disagreement rather than entrenched conflict"],
+  "site_links": [{"label": "Crucial & Difficult Conversations", "href": "references.html#cat-convo"}],
+  "related": [
+    {"asin": "B01CF5O89G", "why": "A more tactical set of moves for the negotiation side of a conflict"},
+    {"asin": "B0BDHQ3KPL", "why": "Shorter, practical pieces for the everyday version of the same conflict patterns"}
+  ],
+  "sources": [
+    {"label": "Toby Sinclair summary", "href": "https://www.tobysinclair.com/post/high-conflict-summary-by-amanda-ripley"},
+    {"label": "Next Big Idea Club summary", "href": "https://nextbigideaclub.com/magazine/high-conflict-get-trapped-get-bookbite/27474/"}
+  ]
+}

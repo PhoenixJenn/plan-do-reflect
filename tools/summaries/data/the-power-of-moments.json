@@ -1,0 +1,30 @@
+{
+  "asin": "B074V1XGSZ", "slug": "the-power-of-moments", "read_time": "2 min read",
+  "big_idea": "A handful of brief, defining moments disproportionately shape how we remember experiences and relationships, and rather than leaving them to chance, these moments can be deliberately designed.",
+  "tool": {"label": "The four elements of defining moments", "text": "Elevation, rising above the routine via heightened sensation or surprise; Insight, a realization that rewires understanding; Pride, recognition of accomplishment or courage; and Connection, a moment of shared meaning. Even one or two of these is often enough to make a moment memorable.", "note": "Some secondary sources use the mnemonic EPIC for these four elements, but that couldn't be confirmed as the authors' own term rather than a later commentator's shorthand."},
+  "ideas": [
+    {"title": "The peak-end rule", "text": "People judge and remember an experience mainly by its most intense point and its ending, not its overall average, a concept the Heaths borrow from psychology to argue for engineering high points and closings."},
+    {"title": "Three moment-making opportunities", "text": "Transitions, marking life changes with rituals; Milestones, celebrating progress; and Pits, softening a bad experience."},
+    {"title": "Elevation's three levers", "text": "Boost sensory pleasure, raise the stakes, or break the expected script with a surprise."},
+    {"title": "Trip over the truth", "text": "Powerful insight moments often come from confronting people with a stark, undeniable fact rather than lecturing them."},
+    {"title": "Milestones and momentum", "text": "Marking visible progress toward a goal increases motivation and creates a memorable pride moment."},
+    {"title": "Connection moments are social", "text": "Shared meaningful experiences create bonds, which is why solo positive experiences tend to be less memorable than shared ones."}
+  ],
+  "try_it": [
+    "Pick one recurring low point in your week and add one deliberate touch to soften it.",
+    "Mark one upcoming transition with a small, intentional ritual instead of letting it pass unnoticed.",
+    "Deliberately plan the ending of your next gathering or one-on-one, since endings are remembered disproportionately.",
+    "Give someone specific, public recognition for an accomplishment this week to create a genuine pride moment for them."
+  ],
+  "best_for": ["Managers or team leads designing onboarding or events", "People wanting a research-grounded approach to memorable relationships"],
+  "less_useful": ["Readers wanting everyday conversation tips, since this is about designed peak experiences, not moment-to-moment small talk", "Anyone wanting low-effort quick fixes, since several concepts require real planning"],
+  "site_links": [{"label": "Networking & Relationships", "href": "references.html#cat-network"}],
+  "related": [
+    {"asin": "B013F5WEZK", "why": "The moment-to-moment conversational skills that complement this book's bigger designed moments"},
+    {"asin": "B0C6YM6Q41", "why": "A closer look at what makes an ordinary conversation land as a real connection"}
+  ],
+  "sources": [
+    {"label": "Heath Brothers official book page", "href": "https://heathbrothers.com/books/the-power-of-moments/"},
+    {"label": "Reading Graphics summary", "href": "https://readingraphics.com/book-summary-the-power-of-moments/"}
+  ]
+}

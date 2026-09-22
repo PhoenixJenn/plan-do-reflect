@@ -1,0 +1,30 @@
+{
+  "asin": "1984887440", "slug": "flip-the-script", "read_time": "2 min read",
+  "big_idea": "People act with far more conviction on ideas they believe they discovered themselves than on ideas pitched at them. Instead of pushing a proposal, the skilled persuader engineers the conversation so the other person arrives at your idea on their own.",
+  "tool": {"label": "The inception method", "text": "A five-part sequence: Status Tip-Off, establishing yourself as a peer; Flash Roll, a burst of confident technical fluency; Pre-Wired Ideas, tapping existing beliefs; Plain Vanilla, framing the new idea as mostly familiar; and the Buyer's Formula, a structured walkthrough that lets the buyer discover your solution.", "note": "Klaff, also author of Pitch Anything, built this as an extension of his earlier status and frame-based pitching work, aimed at high-stakes sales and negotiation."},
+  "ideas": [
+    {"title": "Status tip-off", "text": "Quickly signal peer-level credibility through industry language and recent relevant work so people listen instead of resisting."},
+    {"title": "Flash roll", "text": "A rapid, confident, jargon-fluent explanation of a technical problem or solution that establishes expertise without over-explaining."},
+    {"title": "Pre-wired ideas", "text": "Trigger existing psychological drivers, like threat, reward, or fairness, so your pitch lands on beliefs the listener already holds."},
+    {"title": "Plain vanilla", "text": "Present an innovative idea as the same, except for one key difference, to lower resistance to change."},
+    {"title": "Strategic pessimism", "text": "Name your proposal's flaws yourself before the other person can, which builds credibility through apparent objectivity."},
+    {"title": "The buyer's formula", "text": "A structured sequence of failure modes and options that leads the listener to your preferred conclusion while feeling it was their own choice."}
+  ],
+  "try_it": [
+    "Before your next pitch or ask, script a 30-second status tip-off line establishing yourself as a peer, not a vendor.",
+    "Practice a 60-second flash roll explaining part of your work with zero hedging language.",
+    "Identify one real weakness in your own proposal and plan to name it yourself before someone else does.",
+    "Reframe one idea you want approved as just like X, with one difference, instead of presenting it as entirely new."
+  ],
+  "best_for": ["Salespeople and negotiators", "Entrepreneurs pitching investors or big deals"],
+  "less_useful": ["Readers uneasy with overtly engineered persuasion tactics", "Everyday, low-stakes conversations, since the framework is built for high-stakes sales"],
+  "site_links": [{"label": "Communication", "href": "references.html#cat-comm"}],
+  "related": [
+    {"asin": "1639294759", "why": "The same author's original frame-control system this book builds on"},
+    {"asin": "B01CF5O89G", "why": "A complementary set of tactics for negotiating once the pitch is on the table"}
+  ],
+  "sources": [
+    {"label": "Sobrief book summary", "href": "https://sobrief.com/books/flip-the-script"},
+    {"label": "Wise Words book summary", "href": "https://wisewords.blog/book-summaries/flip-the-script-book-summary/"}
+  ]
+}

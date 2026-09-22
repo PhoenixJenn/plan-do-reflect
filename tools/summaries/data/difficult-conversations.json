@@ -1,0 +1,30 @@
+{
+  "asin": "B002V59YHM", "slug": "difficult-conversations", "read_time": "2 min read",
+  "big_idea": "Every hard conversation is actually three conversations happening at once, about what happened, about feelings, and about identity, and most people fail because they fight over who's right instead of exploring each party's contribution, feelings, and sense of self at stake.",
+  "tool": {"label": "The three conversations framework", "text": "The what-happened conversation should shift from assigning blame to exploring how each person's actions fed the outcome and separating impact from intent; the feelings conversation requires acknowledging emotions rather than suppressing them; the identity conversation involves managing the internal questions, am I competent, am I good, am I worthy, silently triggered by the exchange.", "note": "The core organizing structure of the entire book, developed by the authors out of their work with the Harvard Negotiation Project."},
+  "ideas": [
+    {"title": "Contribution, not blame", "text": "In the what-happened conversation, ask what each party contributed to the problem instead of litigating who's at fault."},
+    {"title": "Impact vs. intent", "text": "Someone's impact on you doesn't prove their intent; assuming bad intent from bad impact fuels unnecessary conflict."},
+    {"title": "Emotional footprint", "text": "Families and cultures shape which emotions we feel comfortable expressing; unexpressed feelings leak out sideways into the conversation anyway."},
+    {"title": "Have your feelings, or they'll have you", "text": "Naming and sharing emotions directly, without dumping or judging, is more productive than suppressing them."},
+    {"title": "The and stance", "text": "Instead of insisting only one interpretation is correct, hold that both your story and the other person's story can be simultaneously true."},
+    {"title": "Identity quakes", "text": "Difficult conversations often threaten a person's sense of competence, goodness, or worthiness; recognizing this in yourself keeps you from overreacting defensively."}
+  ],
+  "try_it": [
+    "Before your next hard conversation, list what you contributed to the problem, not just what the other person did.",
+    "Practice replacing you made me feel with a direct statement of your own feeling this week.",
+    "In one disagreement, consciously hold the and stance: write down both your story and their likely story.",
+    "Notice when a conversation triggers an identity question in you and name it silently before responding."
+  ],
+  "best_for": ["People preparing for an emotionally loaded conversation, family, breakup, workplace grievance", "Readers who want a thoughtful, psychological approach rather than scripts"],
+  "less_useful": ["Readers wanting quick tactical scripts or acronyms", "Readers only dealing with low-stakes, purely transactional conflicts"],
+  "site_links": [{"label": "Crucial & Difficult Conversations", "href": "references.html#cat-convo"}],
+  "related": [
+    {"asin": "B09MV39LHQ", "why": "A more scripted, acronym-driven companion for the same high-stakes moments"},
+    {"asin": "B00TJJNSQG", "why": "A language practice for naming feelings and needs directly, which this book identifies as one of the three hidden conversations"}
+  ],
+  "sources": [
+    {"label": "Shortform summary", "href": "https://www.shortform.com/summary/difficult-conversations-summary-douglas-stone-bruce-patton-sheila-heen"},
+    {"label": "Beyond Intractability summary", "href": "https://www.beyondintractability.org/bksum/stone-difficult"}
+  ]
+}

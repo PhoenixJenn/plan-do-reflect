@@ -1,0 +1,30 @@
+{
+  "asin": "1639294759", "slug": "pitch-anything", "read_time": "2 min read",
+  "big_idea": "Pitches are won or lost in the listener's primitive, emotional brain rather than through rational analysis, so Klaff argues you win by controlling the social frame of the interaction and making the other side chase you, not the reverse.",
+  "tool": {"label": "The STRONG method", "text": "A six-step pitch structure: Set the frame, Tell the story, Reveal the intrigue, Offer the prize, Nail the hook point, Get a decision, designed to trigger a fast emotional response before the listener's analytical brain can pick the pitch apart.", "note": "Illustrated throughout with Klaff's own high-stakes deal pitches as an investment banker; multiple reviewers flag the underlying frame-control and neediness-eradication tactics as bordering on manipulative."},
+  "ideas": [
+    {"title": "Three-brain model", "text": "Pitches must satisfy the primal, emotional brain first: simplicity and novelty beat detail and data."},
+    {"title": "Frame control", "text": "Whoever holds the stronger social frame in a room controls the interaction; weaker frames collapse into stronger ones."},
+    {"title": "Become the prize", "text": "Flip the dynamic so the buyer or investor is qualifying themselves to you, not the other way around."},
+    {"title": "Hot cognitions", "text": "People make fast emotional decisions and rationalize them afterward, so intrigue and mild time pressure drive action."},
+    {"title": "Eradicate neediness", "text": "Visible desperation signals low status and kills deals; detachment reads as power."},
+    {"title": "Status moves", "text": "Subtle power plays, like reclaiming attention and not over-explaining, run throughout a meeting, not just the opening."}
+  ],
+  "try_it": [
+    "Before your next pitch or ask, write one sentence simple enough for a 10-year-old to grasp.",
+    "In your next negotiation, find one thing you're over-explaining and cut it.",
+    "Notice this week when you're over-explaining in conversation and consciously stop.",
+    "Before an important meeting, decide what you're genuinely willing to walk away from."
+  ],
+  "best_for": ["Salespeople and founders pitching investors", "People negotiating high-stakes deals"],
+  "less_useful": ["Not comfortable reading for those wary of manipulation-adjacent tactics", "Less suited to collaborative, internal team communication"],
+  "site_links": [{"label": "Communication", "href": "references.html#cat-comm"}],
+  "related": [
+    {"asin": "1984887440", "why": "The same author's follow-up, sharpening the same frame-control approach"},
+    {"asin": "B01CF5O89G", "why": "A different but compatible high-stakes negotiation system"}
+  ],
+  "sources": [
+    {"label": "Four Minute Books summary", "href": "https://fourminutebooks.com/pitch-anything-summary/"},
+    {"label": "The Power Moves detailed breakdown", "href": "https://thepowermoves.com/pitch-anything/"}
+  ]
+}

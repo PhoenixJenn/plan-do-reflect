@@ -1,0 +1,30 @@
+{
+  "asin": "B00DIFFY6E", "slug": "the-art-of-public-speaking", "read_time": "2 min read",
+  "big_idea": "Public speaking is a learnable craft, not an innate talent. Hale argues that studying how great historical orators, from Demosthenes to MLK, handled preparation, structure, and audience connection gives modern speakers a time-tested toolkit.",
+  "tool": {"label": "The power of three", "text": "Structuring key points, examples, or arguments in groups of three, illustrated via classic speeches, as a memorable, rhythmically persuasive way to organize a speech's content.", "note": "One of several structural devices taught across the course's 12 lectures, alongside narrative organization, logical sequencing, and vivid imagery."},
+  "ideas": [
+    {"title": "Speaking is learnable", "text": "The central premise is that confidence and skill come from practice and known techniques, not natural gift, illustrated by Demosthenes, who reportedly overcame a speech impediment through relentless practice."},
+    {"title": "Delivery matters as much as words", "text": "Voice control, pitch variation, posture, and body language are taught as core delivery skills."},
+    {"title": "Personal connection sells the message", "text": "Sharing genuine experience and vulnerability is framed as a way speakers build trust with an audience."},
+    {"title": "Humor as a tool, not a distraction", "text": "Well-placed humor reinforces rather than undercuts a speech's main point."},
+    {"title": "Tailoring tone to the audience", "text": "Demonstrates adapting delivery and message to different audiences."},
+    {"title": "Ending with a call to action", "text": "Illustrates the importance of a clear, memorable close that moves listeners to act."}
+  ],
+  "try_it": [
+    "Rewrite one key section of an upcoming talk or email using a rule-of-three structure for your main points.",
+    "Practice a two-minute personal story you could use to open your next presentation, focused on a real, specific experience.",
+    "Record yourself giving a short speech and review only your vocal pitch and pacing, not your content.",
+    "Draft a closing line for your next presentation that gives listeners one explicit action to take."
+  ],
+  "best_for": ["Public-speaking beginners or infrequent presenters", "History and rhetoric enthusiasts who like learning through famous speeches"],
+  "less_useful": ["Experienced or professional speakers; some reviewers found it very basic", "Listeners wanting actual audio clips of the speeches discussed, which the course reportedly doesn't include"],
+  "site_links": [{"label": "Communication", "href": "references.html#cat-comm"}],
+  "related": [
+    {"asin": "B00H4E0YUQ", "why": "A modern, TED-focused companion to the same historical speaking principles"},
+    {"asin": "1629976156", "why": "The physical and vocal delivery training that complements this course's structural lessons"}
+  ],
+  "sources": [
+    {"label": "Goodreads course description and reviews", "href": "https://www.goodreads.com/book/show/24551767-the-art-of-public-speaking"},
+    {"label": "Great Courses shop listing", "href": "https://shop.thegreatcourses.com/the-art-of-public-speaking"}
+  ]
+}
