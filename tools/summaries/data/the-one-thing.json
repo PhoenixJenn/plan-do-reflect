@@ -1,0 +1,51 @@
+{
+  "asin": "B00FPMTFRM",
+  "slug": "the-one-thing",
+  "read_time": "3 min read",
+  "big_idea": "Extraordinary results come from narrowing, not spreading out. Find the one action that makes everything else easier or unnecessary, do it first, and protect the time to do it.",
+  "tool": {
+    "label": "The Focusing Question",
+    "text": "What's the ONE Thing I can do such that by doing it everything else will be easier or unnecessary?",
+    "note": "Ask it about your life, your year, your week, and your day, and let each answer narrow the next. The small version is your very next action. The big version is the direction of your work."
+  },
+  "ideas": [
+    {"title": "Success is sequential, not simultaneous", "text": "A small domino can topple one about 50% larger, so a chain of well-chosen actions builds on itself. Find the first domino in your chain instead of pushing on all of them at once."},
+    {"title": "Six lies keep you scattered", "text": "Everything matters equally. Multitasking works. You need a disciplined life. Willpower is always there. Balance is the goal. Big is bad. Each one nudges you toward doing more, smaller, safer things."},
+    {"title": "A few things drive most results", "text": "Leaning on the 80/20 idea, a small share of your tasks produces most of your outcomes. Keep lists short on purpose and let lower-value items wait or fall away."},
+    {"title": "Cascade the question down to now", "text": "Start with a someday goal, then ask what to do over five years, this year, this month, this week, today, and right now. The bottom rung is what goes on today's calendar."},
+    {"title": "Protect a block of time", "text": "Book about four hours of uninterrupted time, early in the day, for your ONE Thing. Then defend the block, which means saying no a lot."},
+    {"title": "Manage willpower and name the thieves", "text": "Willpower drains over the day, so do the important work first. Four things steal focus: not being able to say no, fear of the chaos that follows, poor health habits, and an environment that works against your goals."},
+    {"title": "Counterbalance instead of balance", "text": "Perfect balance across every area of life stops you from going deep on anything. Lean hard toward one priority for a season, then correct before the neglected areas suffer."}
+  ],
+  "try_it": [
+    "Write down a someday goal, then ask the Focusing Question at each level down to today. Stop when you reach a single task.",
+    "Tomorrow morning, block time for that task before you open email. Start with what you can actually protect, and work toward Keller's four hours.",
+    "Decide in advance what you will decline or delay during the block, and how you will say it.",
+    "At the end of the week, note whether the block held and what broke it. Use that in your reflection."
+  ],
+  "best_for": [
+    "People who feel busy but not effective",
+    "Managers and founders with one clearly dominant priority",
+    "Anyone who wants a single, simple prioritization habit"
+  ],
+  "less_useful": [
+    "Roles with constant parallel demands, such as on-call or support work, where the top priority changes hourly",
+    "Readers who want research depth. The book leans on stories and popular science more than controlled studies"
+  ],
+  "site_links": [
+    {"label": "Prioritize Work", "href": "prioritize-work.html"},
+    {"label": "Set Goals", "href": "set-goals.html"},
+    {"label": "Focus & Deep Work", "href": "focus-deep-work.html"},
+    {"label": "Time Management", "href": "time-management.html"}
+  ],
+  "related": [
+    {"asin": "B0189PX1RQ", "why": "Deeper on protecting focused time"},
+    {"asin": "B08NMQFKFD", "why": "A short, practical take on doing the hardest task first"},
+    {"asin": "1250834384", "why": "A counterweight: you will never finish everything"},
+    {"asin": "1524779261", "why": "How to make the habit stick"}
+  ],
+  "sources": [
+    {"label": "Blinkist summary", "href": "https://www.blinkist.com/en/books/the-one-thing-en"},
+    {"label": "Shortform summary", "href": "https://www.shortform.com/summary/the-one-thing-summary-gary-keller"}
+  ]
+}

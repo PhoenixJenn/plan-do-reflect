@@ -14,6 +14,10 @@ from books import CAT, ROOT, HERE
 from config import CATS
 
 esc = lambda s: html.escape(str(s), quote=True)
+import glob
+SUMMARIES = {}
+for _f in glob.glob(os.path.join(HERE, '..', 'summaries', 'data', '*.json')):
+    _d = json.load(open(_f, encoding='utf-8')); SUMMARIES[_d['asin']] = _d['slug']
 XLSX = os.path.join(ROOT, '_local', 'ALE-spreadsheet-library.xlsx')
 entries, dropped = books.select(XLSX, os.path.join(HERE, 'book-picks.md'))
 try:
@@ -40,8 +44,8 @@ def card(e):
     href = amazon(e)
     cover = ('<img class="rf-cover" src="images/covers/%s.jpg" data-remote="%s" alt="Cover of %s" loading="lazy" width="96" height="96">' % (esc(e['asin']), esc(e['cover']), esc(e['title']))
              if e['cover'] else '<div class="rf-cover rf-cover-blank" aria-hidden="true">%s</div>' % esc(e['title'][:1]))
-    out = ['<article class="rf-card" data-rating="%s" data-year="%s" data-title="%s" data-text="%s">' % (
-        esc(e['rating'] or '0'), esc(e['released']), esc(e['title'].lower()),
+    out = ['<article class="rf-card" id="book-%s" data-rating="%s" data-year="%s" data-title="%s" data-text="%s">' % (
+        esc(e['asin']), esc(e['rating'] or '0'), esc(e['released']), esc(e['title'].lower()),
         esc((e['title'] + ' ' + e['sub'] + ' ' + ' '.join(authors) + ' ' + e['blurb']).lower()))]
     out.append(cover + '<div class="rf-body">')
     out.append('<h3 class="rf-title"><a href="%s" target="_blank" rel="noopener">%s</a></h3>' % (esc(href), esc(e['title'])))
@@ -55,6 +59,8 @@ def card(e):
         out.append('<div class="rf-desc"><p>%s</p><button type="button" class="rf-more" hidden>Read more</button><span class="rf-src">Publisher description</span></div>' % esc(e['blurb']))
     t = takes.get(e['asin'])
     if t: out.append('<div class="rf-take"><span class="rf-site-label">My take</span><p>%s</p></div>' % esc(t))
+    if e['asin'] in SUMMARIES:
+        out.append('<a class="rf-sum" href="summaries/%s.html">One-page summary</a>' % SUMMARIES[e['asin']])
     out.append('<a class="rf-buy" href="%s" target="_blank" rel="noopener">Find on Amazon</a></article>' % esc(href))
     return '\n'.join(out)
 
@@ -123,6 +129,6 @@ body = '''<body>
 open(os.path.join(ROOT, 'references.html'), 'w', encoding='utf-8').write(head + body + tail)
 with open(os.path.join(HERE, 'covers.tsv'), 'w') as f:
     for e in entries:
-        if e['cover']: f.write('%s\t%s\n' % (e['asin'], e['cover']))
+        if e['cover']: f.write('%s\t%s%s\n' % (e['asin'], e['cover'], ('\t' + e['cover_alt']) if e.get('cover_alt') else ''))
 print('wrote references.html:', total, 'books,', sum(1 for c in by_cat if by_cat[c]), 'categories;', len(dropped), 'left out')
 for t, why in dropped: print('  left out:', t[:60], '|', why)

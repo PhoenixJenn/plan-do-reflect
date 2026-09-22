@@ -44,6 +44,8 @@
 .rf-desc.open p { display: block; }
 .rf-more { background: none; border: 0; padding: 2px 0; font: inherit; font-size: .78rem; color: var(--text-caption); text-decoration: underline; cursor: pointer; }
 .rf-src { float: right; font-size: .68rem; color: var(--text-caption); }
+.rf-sum { grid-column: 1 / -1; justify-self: start; margin-top: 6px; font-size: .82rem; font-weight: 600; color: var(--text-heading); border: 1px solid var(--border); padding: 5px 11px; border-radius: 8px; text-decoration: none; }
+.rf-sum:hover { background: var(--bg-page); }
 .rf-buy { justify-self: start; margin-top: 6px; font-size: .82rem; font-weight: 600; color: var(--accent-strong); background: var(--accent); padding: 6px 12px; border-radius: 8px; text-decoration: none; }
 .rf-buy:hover { opacity: .85; }
 

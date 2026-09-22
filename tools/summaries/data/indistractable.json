@@ -1,0 +1,30 @@
+{
+  "asin": "B07SXBB3FS", "slug": "indistractable", "read_time": "3 min read",
+  "big_idea": "Distraction is mostly an internal problem, not a technology problem. Learn what you are trying to escape, plan your time around your values, and then use practical tactics to keep triggers and temptations from steering you.",
+  "tool": {"label": "The four-part model", "text": "Master internal triggers. Make time for traction. Hack back external triggers. Prevent distraction with pacts.", "note": "Eyal says the later steps only work well once the first is in place, because discomfort is what makes us reach for a distraction."},
+  "ideas": [
+    {"title": "Distraction starts inside", "text": "Most distractions are a way to avoid discomfort such as boredom, anxiety, or uncertainty. Notice the urge, name the feeling behind it, and reframe it, instead of just blaming your phone."},
+    {"title": "Traction versus distraction", "text": "Traction moves you toward what you intended, and distraction pulls you away. You can only call something a distraction if you know what it is distracting you from."},
+    {"title": "Plan time by values", "text": "Build a timeboxed calendar around three areas: yourself, your relationships, and your work. Time you plan is time you can honestly judge, and that includes time you choose to spend on fun."},
+    {"title": "Hack back external triggers", "text": "Audit notifications, email, chat, and meetings, and ask of each trigger whether it serves you. Turn off, batch, or reroute the ones that do not."},
+    {"title": "Use pacts", "text": "Effort pacts add friction to bad habits, price pacts put money at stake, and identity pacts tie your behavior to how you see yourself, such as being an indistractable person."},
+    {"title": "The ten-minute rule", "text": "When an urge hits, agree to wait ten minutes. Many urges fade, and you have practiced choosing instead of reacting."},
+    {"title": "Fix it as a team", "text": "At work, distraction becomes culture. Eyal suggests talking openly about it, so that constant availability stops being an unspoken expectation."}
+  ],
+  "try_it": [
+    "Write down the last three times you got distracted and what discomfort came just before each one.",
+    "Build tomorrow's calendar in time blocks, including one block for something you enjoy.",
+    "Turn off one category of notifications for a week and see what actually breaks.",
+    "Next time you feel the urge to check something, set a ten-minute timer first."
+  ],
+  "best_for": ["People who know what to do but keep getting pulled away", "Anyone who wants tactics for phones, email, and notifications without giving up technology", "Managers who want to change norms around constant availability"],
+  "less_useful": ["Readers who want a deep treatment of psychology. The model is practical and simplified", "People whose distraction has clinical causes, where a professional's help is more relevant than a book of tactics"],
+  "site_links": [{"label": "Focus & Deep Work", "href": "focus-deep-work.html"}, {"label": "Habit-Building", "href": "habit-building.html"}, {"label": "Motivation & Procrastination", "href": "motivation-procrastination.html"}],
+  "related": [
+    {"asin": "B0189PX1RQ", "why": "The case for protected focus time"},
+    {"asin": "B08KHR7KGZ", "why": "Another practical take on staying on one thing"},
+    {"asin": "1524779261", "why": "Small systems that keep new behavior going"},
+    {"asin": "B004S3GJYQ", "why": "How attention works in the brain"}
+  ],
+  "sources": [{"label": "Shortform summary", "href": "https://www.shortform.com/summary/indistractable-summary-nir-eyal"}]
+}

@@ -1,0 +1,75 @@
+/* One-page book summaries (summaries/*.html). Reads only tokens.css custom properties. */
+
+.sm { max-width: 860px; margin: 0 auto; padding: 32px 24px 56px; color: var(--text-body); font-family: var(--font-body); }
+.sm-crumb { font-size: .8rem; color: var(--text-caption); margin-bottom: 14px; }
+.sm-crumb a { color: var(--accent-strong); }
+.sm-page { background: var(--bg-content); border: 1px solid var(--border); border-radius: 16px; padding: 30px 32px; }
+.sm-page h2 { font-family: var(--font-heading); font-size: .78rem; font-weight: 700; letter-spacing: .07em; text-transform: uppercase; color: var(--text-caption); margin-bottom: 8px; }
+.sm-page h3 { font-family: var(--font-heading); }
+
+.sm-head { display: grid; grid-template-columns: 120px 1fr; gap: 22px; align-items: center; padding-bottom: 20px; border-bottom: 1px solid var(--border); }
+.sm-cover { width: 120px; height: 120px; object-fit: cover; border-radius: 8px; background: var(--bg-page); }
+.sm-eyebrow { font-size: .72rem; font-weight: 700; letter-spacing: .06em; text-transform: uppercase; color: var(--text-caption); }
+.sm-head .page-title { margin: 4px 0 4px; font-size: 2rem; line-height: 1.1; }
+.sm-sub { font-size: .95rem; color: var(--text-caption); }
+.sm-by { font-weight: 600; color: var(--text-heading); margin-top: 6px; }
+.sm-meta { font-size: .8rem; color: var(--text-caption); margin-top: 2px; }
+
+.sm-idea { margin-top: 20px; }
+.sm-idea p { font-family: var(--font-heading); font-size: 1.2rem; line-height: 1.4; color: var(--text-heading); }
+
+.sm-tool { margin-top: 18px; background: var(--accent); color: var(--accent-strong); border-radius: 12px; padding: 16px 20px; }
+.sm-label { font-size: .7rem; font-weight: 700; letter-spacing: .07em; text-transform: uppercase; opacity: .8; }
+.sm-tool blockquote { font-family: var(--font-heading); font-size: 1.15rem; font-weight: 600; line-height: 1.35; margin: 4px 0 8px; }
+.sm-tool p { font-size: .86rem; line-height: 1.5; }
+
+.sm-ideas { margin-top: 24px; }
+.sm-ideas ol { list-style: none; counter-reset: idea; display: grid; grid-template-columns: 1fr 1fr; gap: 14px 24px; padding: 0; }
+.sm-ideas li { counter-increment: idea; position: relative; padding-left: 36px; }
+.sm-ideas li::before { content: counter(idea); position: absolute; left: 0; top: 0; width: 24px; height: 24px; border-radius: 50%; background: var(--tag-secondary-bg); color: var(--text-heading); font-family: var(--font-heading); font-weight: 700; font-size: .78rem; display: flex; align-items: center; justify-content: center; }
+.sm-ideas h3 { font-size: .92rem; line-height: 1.25; color: var(--text-heading); margin-bottom: 3px; }
+.sm-ideas p { font-size: .84rem; line-height: 1.5; }
+
+.sm-cols { display: grid; grid-template-columns: 1fr 1fr; gap: 24px; margin-top: 26px; padding-top: 20px; border-top: 1px solid var(--border); }
+.sm-steps { padding-left: 18px; font-size: .86rem; line-height: 1.5; display: flex; flex-direction: column; gap: 6px; }
+.sm-cols ul { padding-left: 18px; font-size: .86rem; line-height: 1.5; display: flex; flex-direction: column; gap: 4px; margin-bottom: 8px; }
+.sm-good, .sm-less { font-size: .76rem; text-transform: uppercase; letter-spacing: .05em; margin: 4px 0; }
+.sm-good { color: var(--status-green); }
+.sm-less { color: var(--accent-gold); }
+
+.sm-links { margin-top: 22px; }
+.sm-chips { display: flex; flex-wrap: wrap; gap: 8px; }
+.sm-chips a { font-size: .82rem; font-weight: 600; color: var(--accent-strong); background: var(--tag-primary-bg); padding: 5px 12px; border-radius: 999px; text-decoration: none; }
+.sm-related ul { list-style: none; padding: 0; display: grid; grid-template-columns: 1fr 1fr; gap: 6px 24px; font-size: .84rem; }
+.sm-related a { color: var(--accent-strong); font-weight: 600; }
+.sm-related span { color: var(--text-caption); display: block; font-size: .78rem; }
+
+.sm-foot { margin-top: 26px; padding-top: 16px; border-top: 1px solid var(--border); display: flex; gap: 18px; align-items: center; flex-wrap: wrap; }
+.sm-buy { font-size: .84rem; font-weight: 600; color: var(--accent-strong); background: var(--accent); padding: 7px 14px; border-radius: 8px; text-decoration: none; white-space: nowrap; }
+.sm-foot p { font-size: .74rem; line-height: 1.45; color: var(--text-caption); flex: 1 1 320px; }
+.sm-foot a { color: var(--accent-strong); }
+
+@media (max-width: 720px) {
+  .sm-page { padding: 22px 18px; }
+  .sm-head { grid-template-columns: 84px 1fr; gap: 14px; }
+  .sm-cover { width: 84px; height: 84px; }
+  .sm-ideas ol, .sm-cols, .sm-related ul { grid-template-columns: 1fr; }
+}
+
+@media print {
+  .topnav, .site-footer, .theme-switch, .title-font-picker, .sm-crumb, .sm-buy { display: none !important; }
+  body { background: #fff; }
+  .sm { padding: 0; max-width: none; }
+  .sm-page { border: 0; padding: 0; zoom: 0.78; } /* rem-based sizes ignore font-size, so zoom the whole page to fit one sheet */
+  .sm-head { grid-template-columns: 76px 1fr; gap: 14px; padding-bottom: 10px; }
+  .sm-cover { width: 76px; height: 76px; }
+  .sm-head .page-title { font-size: 1.6rem; }
+  .sm-idea, .sm-tool, .sm-ideas, .sm-links { margin-top: 10px; }
+  .sm-idea p { font-size: 1rem; }
+  .sm-tool { padding: 10px 14px; }
+  .sm-tool blockquote { font-size: 1rem; }
+  .sm-ideas ol { gap: 8px 18px; }
+  .sm-cols { margin-top: 12px; padding-top: 10px; gap: 18px; }
+  .sm-foot { margin-top: 12px; padding-top: 8px; }
+  @page { margin: 10mm; }
+}

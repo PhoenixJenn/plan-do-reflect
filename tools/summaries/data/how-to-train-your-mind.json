@@ -1,0 +1,28 @@
+{
+  "asin": "B08N5C3QLB", "slug": "how-to-train-your-mind", "read_time": "2 min read",
+  "big_idea": "Meditation is presented here as a practical productivity tool rather than a spiritual practice. Training your attention in short daily sessions is meant to leave you calmer, clearer, and less prone to procrastination.",
+  "tool": {"label": "The headline claim", "text": "One minute of meditation can earn back about nine minutes of your day.", "note": "This ratio is Bailey's own estimate, based on his experiments and reported experience. Treat it as a motivating idea rather than an established finding."},
+  "ideas": [
+    {"title": "Attention is trainable", "text": "The core practice is one-pointed attention, usually on the breath. Each time you notice your mind wandering and return, you are doing a repetition."},
+    {"title": "A quieter mind works better", "text": "Bailey argues that meditation reduces the constant stimulation our minds seek, which helps with clearer thinking and less avoidance of hard tasks."},
+    {"title": "Start very small", "text": "Short sessions are enough to begin, and the emphasis is on consistency over length. Habit-building tactics are part of the program."},
+    {"title": "Practical rather than spiritual", "text": "The book deliberately frames meditation around work and life outcomes, which makes it an easy entry for skeptics."},
+    {"title": "It matters most when you are busiest", "text": "Bailey suggests practice pays off most during stressful periods, which is also when people tend to skip it."}
+  ],
+  "try_it": [
+    "Set a timer for five minutes tomorrow morning and focus on your breathing. When your mind wanders, note it and return.",
+    "Attach the practice to something you already do, such as right after coffee.",
+    "Keep a two-line log for a week: how long you sat and how focused you felt afterward.",
+    "Decide after a week whether the effect on your focus justifies extending the time."
+  ],
+  "best_for": ["Skeptics who want a no-mysticism introduction to meditation", "Busy people who need a short, tactical starting point", "Readers who liked Bailey's productivity writing"],
+  "less_useful": ["Readers looking for a deep meditation tradition or teacher-led practice", "Anyone who wants controlled evidence. The productivity numbers come from personal experiments and self-report"],
+  "site_links": [{"label": "Focus & Deep Work", "href": "focus-deep-work.html"}, {"label": "Reflection Practice", "href": "reflection-practice.html"}, {"label": "Habit-Building", "href": "habit-building.html"}],
+  "related": [
+    {"asin": "B0C1TFR8JL", "why": "A classic on mindfulness in everyday life"},
+    {"asin": "B0189PX1RQ", "why": "Focus as a professional skill"},
+    {"asin": "B004S3GJYQ", "why": "The brain science of attention"},
+    {"asin": "1524779261", "why": "Making a new practice stick"}
+  ],
+  "sources": [{"label": "Chris Bailey on the Audible Original", "href": "https://chrisbailey.com/surprise-my-audible-original-on-meditation-is-out-now/"}]
+}

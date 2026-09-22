@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="a">
+<head>
+<meta charset="UTF-8">
+<base href="../">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="icon" type="image/svg+xml" href="favicon.svg">
+<title>Deep Work: One-page summary · Plan · Do · Reflect</title>
+
+<!-- Applied before CSS loads, so the saved theme / title-font choice doesn't flash to the default on reload -->
+<script>
+(function () {
+  try {
+    var savedTheme = localStorage.getItem('pdr-theme');
+    if (['a', 'b', 'c'].indexOf(savedTheme) > -1) {
+      document.documentElement.setAttribute('data-theme', savedTheme);
+    }
+    /* No saved choice yet means a first-time visitor — default them to Golos
+       Text rather than the theme's own heading font. Explicitly picking
+       "Theme default" in the picker stores the literal string 'default',
+       which is the one value that clears the override below. */
+    var savedTitleFont = localStorage.getItem('pdr-title-font');
+    var titleFont = savedTitleFont === null ? 'golos-text' : savedTitleFont;
+    if (titleFont !== 'default') {
+      document.documentElement.setAttribute('data-title-font', titleFont);
+    }
+  } catch (e) {}
+})();
+</script>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=Work+Sans:wght@400;500;600&family=Sora:wght@600;700;800&family=Plus+Jakarta+Sans:wght@500;600;700&family=Patrick+Hand&display=swap" rel="stylesheet">
+
+<!-- Title-font brainstorm candidates — temporary, for the .title-font-picker toggle only.
+     Remove this link once a title font is chosen and folded into tokens.css. -->
+<link href="https://fonts.googleapis.com/css2?family=Gabarito:wght@800&family=Chivo:wght@800&family=Golos+Text:wght@800&display=swap" rel="stylesheet">
+
+<link rel="stylesheet" href="css/tokens.css">
+<link rel="stylesheet" href="css/main.css">
+<link rel="stylesheet" href="css/summary.css">
+</head>
+<body>
+
+<header class="topnav">
+  <a class="logo" href="index.html">Plan·Do·Reflect</a>
+  <nav class="topnav-items">
+    <a class="item" href="framework.html">The Framework</a>
+    <a class="item" href="self-management.html">Self</a>
+    <a class="item" href="team.html">Team</a>
+    <a class="item" href="organization.html">Organization</a>
+    <a class="item" href="core-skills.html">Core Skills</a>
+    <a class="item active" href="references.html">References</a>
+  </nav>
+</header>
+
+<main class="sm">
+  <p class="sm-crumb"><a href="references.html">References &amp; Further Reading</a> &rsaquo; One-page summary</p>
+  <article class="sm-page">
+    <header class="sm-head">
+      <img class="sm-cover" src="images/covers/B0189PX1RQ.jpg" data-r="https://m.media-amazon.com/images/I/51CTJKORW7L._SL300_.jpg" alt="Cover of Deep Work" onerror="if(this.dataset.r&amp;&amp;this.src.indexOf(this.dataset.r)===-1){this.src=this.dataset.r}else{this.style.visibility='hidden'}">
+      <div>
+        <p class="sm-eyebrow">One-page summary &middot; 3 min read</p>
+        <h1 class="page-title">Deep Work</h1>
+        <p class="sm-sub">Rules for Focused Success in a Distracted World</p>
+        <p class="sm-by">by Cal Newport</p>
+        <p class="sm-meta">2016 &middot; 7h 44m audiobook &middot; &#9733; 4.6 Audible</p>
+      </div>
+    </header>
+
+    <section class="sm-idea"><h2>The big idea</h2><p>The ability to focus without distraction on hard problems is becoming both more valuable and more rare. Treat it as a skill to train and a resource to schedule, not something that happens when you find a quiet moment.</p></section>
+
+<section class="sm-tool"><span class="sm-label">The four rules</span><blockquote>Work deeply. Embrace boredom. Quit social media. Drain the shallows.</blockquote><p>Newport&#x27;s rules run from building the habit (ritual, structure) to protecting it (choosing tools carefully and shrinking low-value busywork). The site&#x27;s Focus &amp; Deep Work page draws on the same rules and the shutdown ritual.</p></section>
+
+    <section class="sm-ideas"><h2>Key ideas</h2><ol><li><h3>Deep work is valuable and rare</h3><p>Deep work is focused effort on demanding tasks, and shallow work is logistical busywork. The economy rewards people who learn hard things quickly and produce at a high level, which is exactly what deep work builds.</p></li><li><h3>Switching has a cost</h3><p>When you jump between tasks, part of your attention stays on the last one. Newport calls this attention residue, and it is why constant checking lowers the quality of your thinking.</p></li><li><h3>Choose a scheduling style</h3><p>Monastic means removing shallow work almost entirely. Bimodal means splitting whole days or weeks between deep and shallow. Rhythmic means the same slot every day. Journalistic means grabbing deep time whenever a gap opens.</p></li><li><h3>Give it a ritual</h3><p>Decide where you will work, for how long, and under what rules, such as no internet. A repeatable setup removes daily decisions and makes starting easier.</p></li><li><h3>Train your tolerance for boredom</h3><p>If every idle moment gets filled with a phone, your focus muscle weakens. Resisting that urge, and scheduling internet use instead of grabbing it, is practice for deep work.</p></li><li><h3>Drain the shallows</h3><p>Budget how much shallow work you allow, plan your day in blocks, and end work at a set time with a shutdown ritual. Newport argues you can produce more by working fewer, more focused hours.</p></li></ol></section>
+
+    <div class="sm-cols">
+      <section><h2>Try it this week</h2><ol class="sm-steps"><li>Pick one deep work slot this week, ideally 60 to 90 minutes, and put it on your calendar like a meeting.</li><li>Choose a place and a rule set for it, for example phone in another room and email closed.</li><li>Try a shutdown ritual at the end of your workday: review open items, plan tomorrow, and say a set phrase to signal you are done.</li><li>After a week, decide which of the four scheduling styles fits your job and adjust.</li></ol></section>
+      <section><h2>Is it for you?</h2><h3 class="sm-good">Best for</h3><ul><li>Knowledge workers, writers, engineers, and researchers who control their calendar</li><li>Anyone whose best work suffers from constant email and chat</li><li>Readers who want a clear, opinionated case for protecting focus</li></ul><h3 class="sm-less">Less useful if</h3><ul><li>Roles that are mostly reactive, such as support or on-call work, where availability is the job</li><li>Readers who want strong evidence. Much of the book rests on examples and Newport&#x27;s own practice</li></ul></section>
+    </div>
+
+<section class="sm-links"><h2>On this site</h2><div class="sm-chips"><a href="focus-deep-work.html">Focus &amp; Deep Work</a><a href="time-management.html">Time Management</a><a href="habit-building.html">Habit-Building</a></div></section>
+    <section class="sm-links sm-related"><h2>Pairs well with</h2><ul><li><a href="references.html#book-B07SXBB3FS">Indistractable</a> <span>Adds the internal side: why we get distracted</span></li><li><a href="references.html#book-B00FPMTFRM">The ONE Thing</a> <span>Decide what deserves the focus</span></li><li><a href="references.html#book-B004S3GJYQ">Your Brain at Work</a> <span>The brain science behind limited focus</span></li><li><a href="references.html#book-1250834384">Four Thousand Weeks</a> <span>A gentler view of limited time</span></li></ul></section>
+
+    <footer class="sm-foot">
+      <a class="sm-buy" href="https://www.amazon.com/s?k=Cal+Newport+Deep+Work&amp;tag=phoenixjenn-20" target="_blank" rel="noopener">Find the book on Amazon</a>
+      <p>Original summary written for Plan &middot; Do &middot; Reflect. Prepared from the book&rsquo;s ideas and public summaries (<a href="https://www.shortform.com/summary/deep-work-summary-cal-newport" target="_blank" rel="noopener">Shortform summary</a>, <a href="https://www.blinkist.com/en/books/deep-work-en" target="_blank" rel="noopener">Blinkist summary</a>), not a substitute for reading it. Links may earn a commission.</p>
+    </footer>
+  </article>
+</main>
+
+<footer class="site-footer">
+  <p>&copy; 2026 Plan-Do-Reflect. <a href="references.html">References &amp; further reading</a></p>
+</footer>
+
+<div class="theme-switch" role="group" aria-label="Style direction">
+  <button data-theme="a" title="Kinetic Signal — black &amp; yellow"></button>
+  <button data-theme="b" title="Studio Ledger — dusty rose"></button>
+  <button data-theme="c" title="Bright Margin — lime"></button>
+  <a class="icon-lib-link" href="icon-library.html" title="Style Guide (internal reference)">
+    <svg width="14" height="14" viewBox="0 0 14 14" aria-hidden="true">
+      <rect x="1" y="1" width="5" height="5" rx="1" fill="currentColor"/>
+      <rect x="8" y="1" width="5" height="5" rx="1" fill="currentColor"/>
+      <rect x="1" y="8" width="5" height="5" rx="1" fill="currentColor"/>
+      <rect x="8" y="8" width="5" height="5" rx="1" fill="currentColor"/>
+    </svg>
+  </a>
+  <a class="icon-lib-link" href="notes.html" title="Notes (working drafts)">
+    <svg width="14" height="14" viewBox="0 0 14 14" aria-hidden="true">
+      <rect x="2" y="1" width="10" height="12" rx="1.5" fill="none" stroke="currentColor" stroke-width="1.3"/>
+      <line x1="4.5" y1="5" x2="9.5" y2="5" stroke="currentColor" stroke-width="1.3" stroke-linecap="round"/>
+      <line x1="4.5" y1="7.5" x2="9.5" y2="7.5" stroke="currentColor" stroke-width="1.3" stroke-linecap="round"/>
+      <line x1="4.5" y1="10" x2="7.5" y2="10" stroke="currentColor" stroke-width="1.3" stroke-linecap="round"/>
+    </svg>
+  </a>
+  <a class="icon-lib-link" href="sitemap.html" title="Sitemap (working draft)">
+    <svg width="14" height="14" viewBox="0 0 14 14" aria-hidden="true">
+      <circle cx="7" cy="2.5" r="1.8" fill="none" stroke="currentColor" stroke-width="1.3"/>
+      <circle cx="3" cy="11" r="1.8" fill="none" stroke="currentColor" stroke-width="1.3"/>
+      <circle cx="11" cy="11" r="1.8" fill="none" stroke="currentColor" stroke-width="1.3"/>
+      <path d="M7 4.3 L7 7 M7 7 L3 9.5 M7 7 L11 9.5" stroke="currentColor" stroke-width="1.3" fill="none" stroke-linecap="round"/>
+    </svg>
+  </a>
+</div>
+
+<!-- Temporary brainstorm control — only restyles the main h1 (.content h1 / .hero-title / .page-title). Remove alongside
+     the "title-font experiment" CSS block and the extra Google Fonts link once
+     a title font is picked. -->
+<div class="title-font-picker">
+  <label for="title-font-select">Title font</label>
+  <button type="button" id="title-font-prev" class="title-font-nav" aria-label="Previous title font">‹</button>
+  <select id="title-font-select">
+    <optgroup label="Round 1 — headline character">
+      <option value="gabarito">Gabarito</option>
+      <option value="chivo">Chivo</option>
+    </optgroup>
+    <optgroup label="Round 2 — Calibri-adjacent">
+      <option value="golos-text">Golos Text</option>
+    </optgroup>
+    <option value="default">Theme default</option>
+  </select>
+  <button type="button" id="title-font-next" class="title-font-nav" aria-label="Next title font">›</button>
+</div>
+
+<script src="js/theme-toggle.js" defer></script>
+<script src="js/title-font-toggle.js" defer></script>
+</body>
+</html>

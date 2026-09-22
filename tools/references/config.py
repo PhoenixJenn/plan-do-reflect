@@ -106,15 +106,15 @@ DEDUPE_DROP = {
 }
 
 # Books cited elsewhere on the site that were not Keep/Maybe in the review: force-included
-FORCE_INCLUDE = {"B01B6WSMHI": "time", "B00FPMTFRM": "goals"}   # Getting Things Done, The ONE Thing
+FORCE_INCLUDE = {"B01B6WSMHI": "time", "B00FPMTFRM": "goals", "1549144936": "innovation"}   # Getting Things Done, The ONE Thing, Think Like a Rocket Scientist (Jenn: favorite)
 
 # Site citations (from the old references page) -> how to match a library book, or an extra card if none
 # key = lowercase substring of legacy label text; cat used only for extras (not in the library)
 SITE_MATCH = {
  "the one thing": {}, "deep work": {}, "getting things done": {}, "eat that frog": {}, "four thousand weeks": {},
  "the art of saying no": {}, "atomic habits": {}, "7 habits of highly effective": {}, "start with why": {}, "good strategy": {}, "working backwards": {},
- "168 hours": {"cat": "time", "authors": "Laura Vanderkam", "title": "168 Hours"},
- "the book of no": {"cat": "time", "authors": "Susan Newman", "title": "The Book of No"},
- "rethinking positive thinking": {"cat": "motivation", "authors": "Gabriele Oettingen", "title": "Rethinking Positive Thinking"},
- "it worked for me": {"cat": "project", "authors": "Colin Powell", "title": "It Worked for Me", "sub": "In Life and Leadership"},
+ "168 hours": {"cat": "time", "authors": "Laura Vanderkam", "title": "168 Hours", "isbn13": "9781591844105", "isbn10": "159184410X"},
+ "the book of no": {"cat": "time", "authors": "Susan Newman", "title": "The Book of No", "isbn13": "9780071460781", "isbn10": "0071460780"},
+ "rethinking positive thinking": {"cat": "motivation", "authors": "Gabriele Oettingen", "title": "Rethinking Positive Thinking", "isbn13": "9781591846871", "isbn10": "1591846870"},
+ "it worked for me": {"cat": "project", "authors": "Colin Powell", "title": "It Worked for Me", "sub": "In Life and Leadership", "isbn13": "9780062135124", "isbn10": "0062135120"},
 }

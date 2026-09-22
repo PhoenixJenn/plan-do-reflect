@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="a">
+<head>
+<meta charset="UTF-8">
+<base href="../">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="icon" type="image/svg+xml" href="favicon.svg">
+<title>The ONE Thing: One-page summary · Plan · Do · Reflect</title>
+
+<!-- Applied before CSS loads, so the saved theme / title-font choice doesn't flash to the default on reload -->
+<script>
+(function () {
+  try {
+    var savedTheme = localStorage.getItem('pdr-theme');
+    if (['a', 'b', 'c'].indexOf(savedTheme) > -1) {
+      document.documentElement.setAttribute('data-theme', savedTheme);
+    }
+    /* No saved choice yet means a first-time visitor — default them to Golos
+       Text rather than the theme's own heading font. Explicitly picking
+       "Theme default" in the picker stores the literal string 'default',
+       which is the one value that clears the override below. */
+    var savedTitleFont = localStorage.getItem('pdr-title-font');
+    var titleFont = savedTitleFont === null ? 'golos-text' : savedTitleFont;
+    if (titleFont !== 'default') {
+      document.documentElement.setAttribute('data-title-font', titleFont);
+    }
+  } catch (e) {}
+})();
+</script>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=Work+Sans:wght@400;500;600&family=Sora:wght@600;700;800&family=Plus+Jakarta+Sans:wght@500;600;700&family=Patrick+Hand&display=swap" rel="stylesheet">
+
+<!-- Title-font brainstorm candidates — temporary, for the .title-font-picker toggle only.
+     Remove this link once a title font is chosen and folded into tokens.css. -->
+<link href="https://fonts.googleapis.com/css2?family=Gabarito:wght@800&family=Chivo:wght@800&family=Golos+Text:wght@800&display=swap" rel="stylesheet">
+
+<link rel="stylesheet" href="css/tokens.css">
+<link rel="stylesheet" href="css/main.css">
+<link rel="stylesheet" href="css/summary.css">
+</head>
+<body>
+
+<header class="topnav">
+  <a class="logo" href="index.html">Plan·Do·Reflect</a>
+  <nav class="topnav-items">
+    <a class="item" href="framework.html">The Framework</a>
+    <a class="item" href="self-management.html">Self</a>
+    <a class="item" href="team.html">Team</a>
+    <a class="item" href="organization.html">Organization</a>
+    <a class="item" href="core-skills.html">Core Skills</a>
+    <a class="item active" href="references.html">References</a>
+  </nav>
+</header>
+
+<main class="sm">
+  <p class="sm-crumb"><a href="references.html">References &amp; Further Reading</a> &rsaquo; One-page summary</p>
+  <article class="sm-page">
+    <header class="sm-head">
+      <img class="sm-cover" src="images/covers/B00FPMTFRM.jpg" data-r="https://m.media-amazon.com/images/I/41mf3zSewKL._SL300_.jpg" alt="Cover of The ONE Thing" onerror="if(this.dataset.r&amp;&amp;this.src.indexOf(this.dataset.r)===-1){this.src=this.dataset.r}else{this.style.visibility='hidden'}">
+      <div>
+        <p class="sm-eyebrow">One-page summary &middot; 3 min read</p>
+        <h1 class="page-title">The ONE Thing</h1>
+        <p class="sm-sub">The Surprisingly Simple Truth Behind Extraordinary Results</p>
+        <p class="sm-by">by Gary Keller, Jay Papasan</p>
+        <p class="sm-meta">2013 &middot; 5h 28m audiobook &middot; &#9733; 4.7 Audible</p>
+      </div>
+    </header>
+
+    <section class="sm-idea"><h2>The big idea</h2><p>Extraordinary results come from narrowing, not spreading out. Find the one action that makes everything else easier or unnecessary, do it first, and protect the time to do it.</p></section>
+
+<section class="sm-tool"><span class="sm-label">The Focusing Question</span><blockquote>What&#x27;s the ONE Thing I can do such that by doing it everything else will be easier or unnecessary?</blockquote><p>Ask it about your life, your year, your week, and your day, and let each answer narrow the next. The small version is your very next action. The big version is the direction of your work.</p></section>
+
+    <section class="sm-ideas"><h2>Key ideas</h2><ol><li><h3>Success is sequential, not simultaneous</h3><p>A small domino can topple one about 50% larger, so a chain of well-chosen actions builds on itself. Find the first domino in your chain instead of pushing on all of them at once.</p></li><li><h3>Six lies keep you scattered</h3><p>Everything matters equally. Multitasking works. You need a disciplined life. Willpower is always there. Balance is the goal. Big is bad. Each one nudges you toward doing more, smaller, safer things.</p></li><li><h3>A few things drive most results</h3><p>Leaning on the 80/20 idea, a small share of your tasks produces most of your outcomes. Keep lists short on purpose and let lower-value items wait or fall away.</p></li><li><h3>Cascade the question down to now</h3><p>Start with a someday goal, then ask what to do over five years, this year, this month, this week, today, and right now. The bottom rung is what goes on today&#x27;s calendar.</p></li><li><h3>Protect a block of time</h3><p>Book about four hours of uninterrupted time, early in the day, for your ONE Thing. Then defend the block, which means saying no a lot.</p></li><li><h3>Manage willpower and name the thieves</h3><p>Willpower drains over the day, so do the important work first. Four things steal focus: not being able to say no, fear of the chaos that follows, poor health habits, and an environment that works against your goals.</p></li><li><h3>Counterbalance instead of balance</h3><p>Perfect balance across every area of life stops you from going deep on anything. Lean hard toward one priority for a season, then correct before the neglected areas suffer.</p></li></ol></section>
+
+    <div class="sm-cols">
+      <section><h2>Try it this week</h2><ol class="sm-steps"><li>Write down a someday goal, then ask the Focusing Question at each level down to today. Stop when you reach a single task.</li><li>Tomorrow morning, block time for that task before you open email. Start with what you can actually protect, and work toward Keller&#x27;s four hours.</li><li>Decide in advance what you will decline or delay during the block, and how you will say it.</li><li>At the end of the week, note whether the block held and what broke it. Use that in your reflection.</li></ol></section>
+      <section><h2>Is it for you?</h2><h3 class="sm-good">Best for</h3><ul><li>People who feel busy but not effective</li><li>Managers and founders with one clearly dominant priority</li><li>Anyone who wants a single, simple prioritization habit</li></ul><h3 class="sm-less">Less useful if</h3><ul><li>Roles with constant parallel demands, such as on-call or support work, where the top priority changes hourly</li><li>Readers who want research depth. The book leans on stories and popular science more than controlled studies</li></ul></section>
+    </div>
+
+<section class="sm-links"><h2>On this site</h2><div class="sm-chips"><a href="prioritize-work.html">Prioritize Work</a><a href="set-goals.html">Set Goals</a><a href="focus-deep-work.html">Focus &amp; Deep Work</a><a href="time-management.html">Time Management</a></div></section>
+    <section class="sm-links sm-related"><h2>Pairs well with</h2><ul><li><a href="references.html#book-B0189PX1RQ">Deep Work</a> <span>Deeper on protecting focused time</span></li><li><a href="references.html#book-B08NMQFKFD">Eat That Frog!</a> <span>A short, practical take on doing the hardest task first</span></li><li><a href="references.html#book-1250834384">Four Thousand Weeks</a> <span>A counterweight: you will never finish everything</span></li><li><a href="references.html#book-1524779261">Atomic Habits</a> <span>How to make the habit stick</span></li></ul></section>
+
+    <footer class="sm-foot">
+      <a class="sm-buy" href="https://www.amazon.com/s?k=Gary+Keller+The+ONE+Thing&amp;tag=phoenixjenn-20" target="_blank" rel="noopener">Find the book on Amazon</a>
+      <p>Original summary written for Plan &middot; Do &middot; Reflect. Prepared from the book&rsquo;s ideas and public summaries (<a href="https://www.blinkist.com/en/books/the-one-thing-en" target="_blank" rel="noopener">Blinkist summary</a>, <a href="https://www.shortform.com/summary/the-one-thing-summary-gary-keller" target="_blank" rel="noopener">Shortform summary</a>), not a substitute for reading it. Links may earn a commission.</p>
+    </footer>
+  </article>
+</main>
+
+<footer class="site-footer">
+  <p>&copy; 2026 Plan-Do-Reflect. <a href="references.html">References &amp; further reading</a></p>
+</footer>
+
+<div class="theme-switch" role="group" aria-label="Style direction">
+  <button data-theme="a" title="Kinetic Signal — black &amp; yellow"></button>
+  <button data-theme="b" title="Studio Ledger — dusty rose"></button>
+  <button data-theme="c" title="Bright Margin — lime"></button>
+  <a class="icon-lib-link" href="icon-library.html" title="Style Guide (internal reference)">
+    <svg width="14" height="14" viewBox="0 0 14 14" aria-hidden="true">
+      <rect x="1" y="1" width="5" height="5" rx="1" fill="currentColor"/>
+      <rect x="8" y="1" width="5" height="5" rx="1" fill="currentColor"/>
+      <rect x="1" y="8" width="5" height="5" rx="1" fill="currentColor"/>
+      <rect x="8" y="8" width="5" height="5" rx="1" fill="currentColor"/>
+    </svg>
+  </a>
+  <a class="icon-lib-link" href="notes.html" title="Notes (working drafts)">
+    <svg width="14" height="14" viewBox="0 0 14 14" aria-hidden="true">
+      <rect x="2" y="1" width="10" height="12" rx="1.5" fill="none" stroke="currentColor" stroke-width="1.3"/>
+      <line x1="4.5" y1="5" x2="9.5" y2="5" stroke="currentColor" stroke-width="1.3" stroke-linecap="round"/>
+      <line x1="4.5" y1="7.5" x2="9.5" y2="7.5" stroke="currentColor" stroke-width="1.3" stroke-linecap="round"/>
+      <line x1="4.5" y1="10" x2="7.5" y2="10" stroke="currentColor" stroke-width="1.3" stroke-linecap="round"/>
+    </svg>
+  </a>
+  <a class="icon-lib-link" href="sitemap.html" title="Sitemap (working draft)">
+    <svg width="14" height="14" viewBox="0 0 14 14" aria-hidden="true">
+      <circle cx="7" cy="2.5" r="1.8" fill="none" stroke="currentColor" stroke-width="1.3"/>
+      <circle cx="3" cy="11" r="1.8" fill="none" stroke="currentColor" stroke-width="1.3"/>
+      <circle cx="11" cy="11" r="1.8" fill="none" stroke="currentColor" stroke-width="1.3"/>
+      <path d="M7 4.3 L7 7 M7 7 L3 9.5 M7 7 L11 9.5" stroke="currentColor" stroke-width="1.3" fill="none" stroke-linecap="round"/>
+    </svg>
+  </a>
+</div>
+
+<!-- Temporary brainstorm control — only restyles the main h1 (.content h1 / .hero-title / .page-title). Remove alongside
+     the "title-font experiment" CSS block and the extra Google Fonts link once
+     a title font is picked. -->
+<div class="title-font-picker">
+  <label for="title-font-select">Title font</label>
+  <button type="button" id="title-font-prev" class="title-font-nav" aria-label="Previous title font">‹</button>
+  <select id="title-font-select">
+    <optgroup label="Round 1 — headline character">
+      <option value="gabarito">Gabarito</option>
+      <option value="chivo">Chivo</option>
+    </optgroup>
+    <optgroup label="Round 2 — Calibri-adjacent">
+      <option value="golos-text">Golos Text</option>
+    </optgroup>
+    <option value="default">Theme default</option>
+  </select>
+  <button type="button" id="title-font-next" class="title-font-nav" aria-label="Next title font">›</button>
+</div>
+
+<script src="js/theme-toggle.js" defer></script>
+<script src="js/title-font-toggle.js" defer></script>
+</body>
+</html>

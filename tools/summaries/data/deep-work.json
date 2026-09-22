@@ -1,0 +1,32 @@
+{
+  "asin": "B0189PX1RQ", "slug": "deep-work", "read_time": "3 min read",
+  "big_idea": "The ability to focus without distraction on hard problems is becoming both more valuable and more rare. Treat it as a skill to train and a resource to schedule, not something that happens when you find a quiet moment.",
+  "tool": {"label": "The four rules", "text": "Work deeply. Embrace boredom. Quit social media. Drain the shallows.", "note": "Newport's rules run from building the habit (ritual, structure) to protecting it (choosing tools carefully and shrinking low-value busywork). The site's Focus & Deep Work page draws on the same rules and the shutdown ritual."},
+  "ideas": [
+    {"title": "Deep work is valuable and rare", "text": "Deep work is focused effort on demanding tasks, and shallow work is logistical busywork. The economy rewards people who learn hard things quickly and produce at a high level, which is exactly what deep work builds."},
+    {"title": "Switching has a cost", "text": "When you jump between tasks, part of your attention stays on the last one. Newport calls this attention residue, and it is why constant checking lowers the quality of your thinking."},
+    {"title": "Choose a scheduling style", "text": "Monastic means removing shallow work almost entirely. Bimodal means splitting whole days or weeks between deep and shallow. Rhythmic means the same slot every day. Journalistic means grabbing deep time whenever a gap opens."},
+    {"title": "Give it a ritual", "text": "Decide where you will work, for how long, and under what rules, such as no internet. A repeatable setup removes daily decisions and makes starting easier."},
+    {"title": "Train your tolerance for boredom", "text": "If every idle moment gets filled with a phone, your focus muscle weakens. Resisting that urge, and scheduling internet use instead of grabbing it, is practice for deep work."},
+    {"title": "Drain the shallows", "text": "Budget how much shallow work you allow, plan your day in blocks, and end work at a set time with a shutdown ritual. Newport argues you can produce more by working fewer, more focused hours."}
+  ],
+  "try_it": [
+    "Pick one deep work slot this week, ideally 60 to 90 minutes, and put it on your calendar like a meeting.",
+    "Choose a place and a rule set for it, for example phone in another room and email closed.",
+    "Try a shutdown ritual at the end of your workday: review open items, plan tomorrow, and say a set phrase to signal you are done.",
+    "After a week, decide which of the four scheduling styles fits your job and adjust."
+  ],
+  "best_for": ["Knowledge workers, writers, engineers, and researchers who control their calendar", "Anyone whose best work suffers from constant email and chat", "Readers who want a clear, opinionated case for protecting focus"],
+  "less_useful": ["Roles that are mostly reactive, such as support or on-call work, where availability is the job", "Readers who want strong evidence. Much of the book rests on examples and Newport's own practice"],
+  "site_links": [{"label": "Focus & Deep Work", "href": "focus-deep-work.html"}, {"label": "Time Management", "href": "time-management.html"}, {"label": "Habit-Building", "href": "habit-building.html"}],
+  "related": [
+    {"asin": "B07SXBB3FS", "why": "Adds the internal side: why we get distracted"},
+    {"asin": "B00FPMTFRM", "why": "Decide what deserves the focus"},
+    {"asin": "B004S3GJYQ", "why": "The brain science behind limited focus"},
+    {"asin": "1250834384", "why": "A gentler view of limited time"}
+  ],
+  "sources": [
+    {"label": "Shortform summary", "href": "https://www.shortform.com/summary/deep-work-summary-cal-newport"},
+    {"label": "Blinkist summary", "href": "https://www.blinkist.com/en/books/deep-work-en"}
+  ]
+}

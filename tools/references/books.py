@@ -118,7 +118,9 @@ def select(xlsx, picks_md):
         cite = dict(page=n['page'], page_label=n['section'].split(' — ', 1)[1], note=n['note'], href=n['href'])
         if info:
             extras.append(dict(asin='x-' + re.sub(r'[^a-z0-9]+', '-', info['title'].lower()).strip('-'), raw_title=info['title'], title=info['title'],
-                sub=info.get('sub', ''), authors=[info['authors']], length='', rating='', ratings='', released='', blurb='', cover='',
+                sub=info.get('sub', ''), authors=[info['authors']], length='', rating='', ratings='', released='', blurb='',
+                cover='https://covers.openlibrary.org/b/isbn/%s-L.jpg?default=false' % info['isbn13'],
+                cover_alt='https://images-na.ssl-images-amazon.com/images/P/%s.01.LZZZZZZZ.jpg' % info['isbn10'],
                 cat=info['cat'], site=[cite], extra=True))
         else:
             hits = [e for e in entries if key in e['raw_title'].replace('""', '"').lower()]

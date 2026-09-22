@@ -1,0 +1,33 @@
+{
+  "asin": "B004S3GJYQ", "slug": "your-brain-at-work", "read_time": "3 min read",
+  "big_idea": "Thinking well at work is physically expensive, and the part of the brain that does it has limited capacity. Working with that limit, by prioritizing, protecting energy, and managing emotions, gets you more from the same day.",
+  "tool": {"label": "SCARF", "text": "Status. Certainty. Autonomy. Relatedness. Fairness.", "note": "Rock describes five social concerns the brain treats as rewards or threats. Noticing which one is in play helps you manage your own reactions and other people's."},
+  "ideas": [
+    {"title": "Conscious thinking has a small stage", "text": "Rock compares the prefrontal cortex to a stage with room for only a few actors at once. Juggling too much at once crowds it and lowers the quality of your thinking."},
+    {"title": "Protect mental energy", "text": "Demanding thinking burns energy quickly. Do hard work when you are fresh, alternate heavy and light tasks, and avoid multitasking on anything that needs real thought."},
+    {"title": "Interruptions cost more than time", "text": "Email and notifications pull attention away from complex work. Rock's advice is to control when you check them instead of responding to every one."},
+    {"title": "Find your arousal sweet spot", "text": "Too little stimulation leads to boredom and too much to stress. Performance peaks in between, so adjust your environment or workload to land there."},
+    {"title": "Manage emotions on purpose", "text": "Naming a feeling and reframing a situation can lower its intensity. Rock also describes a toward-or-away state: threat pushes you into avoidance, while reward opens you up."},
+    {"title": "SCARF explains social friction", "text": "Perceived loss of status, certainty, autonomy, relatedness, or fairness can trigger a threat response. Leaders can reduce it by giving clarity, choice, and fair treatment."},
+    {"title": "Insight beats instruction", "text": "People change more when they reach their own conclusions. Asking good questions works better than directly telling someone what is wrong, which tends to trigger defensiveness."}
+  ],
+  "try_it": [
+    "Pick your most demanding task of the day and do it first, before email or chat.",
+    "Next time you feel irritated at work, name the feeling in a few words and note which SCARF factor might be behind it.",
+    "In your next feedback conversation, replace one statement with a question that helps the person find the issue themselves.",
+    "Try five minutes of focused breathing before your hardest block of work."
+  ],
+  "best_for": ["Knowledge workers who feel mentally drained by the end of the day", "Managers who want a science-flavored language for feedback and team dynamics", "Readers who like practical advice told through stories"],
+  "less_useful": ["Readers who want rigorous neuroscience. The book simplifies brain science for a general audience, and some of its popular statistics have been challenged", "Anyone looking for a step-by-step system rather than principles"],
+  "site_links": [{"label": "Focus & Deep Work", "href": "focus-deep-work.html"}, {"label": "Motivation & Procrastination", "href": "motivation-procrastination.html"}, {"label": "Reflection Practice", "href": "reflection-practice.html"}],
+  "related": [
+    {"asin": "B0189PX1RQ", "why": "Turns the focus ideas into a work practice"},
+    {"asin": "B07SXBB3FS", "why": "Practical tactics for staying on task"},
+    {"asin": "B08N5C3QLB", "why": "Attention training through meditation"},
+    {"asin": "B0C1TFR8JL", "why": "Mindfulness as a daily practice"}
+  ],
+  "sources": [
+    {"label": "Shortform summary", "href": "https://www.shortform.com/summary/your-brain-at-work-summary-david-rock"},
+    {"label": "Blinkist summary", "href": "https://www.blinkist.com/en/books/your-brain-at-work-en"}
+  ]
+}
