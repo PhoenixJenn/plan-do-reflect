@@ -1,0 +1,31 @@
+{
+  "asin": "B07KRKJ8W8", "slug": "the-5am-club", "read_time": "3 min read",
+  "big_idea": "Waking at 5:00 a.m. and dedicating the first hour to deliberate self-development, before the world and its distractions wake up, is framed as one of the most reliable ways to build focus, discipline, and elite performance. It's delivered as a business-fable about an entrepreneur and an artist mentored by a billionaire and a monk-like guide.",
+  "tool": {"label": "The 20/20/20 formula", "text": "Split the first hour after waking into three 20-minute blocks: Move (vigorous exercise), Reflect (journaling or meditation in solitude), Grow (focused learning, such as reading in your field).", "note": "This is the book's most cited framework, verified across multiple independent summaries."},
+  "ideas": [
+    {"title": "The four interior empires", "text": "Sustainable success requires developing Mindset, Heartset, Healthset, and Soulset together, not just positive thinking alone."},
+    {"title": "A 66-day habit protocol", "text": "Sharma proposes a habit-change arc broken into three roughly 22-day phases: Destruction of the old pattern, Installation through repetition, and Integration into automatic behavior."},
+    {"title": "Twin cycles of performance", "text": "High-output Excellence Cycles need to be paired with deliberate Deep Refuelling Cycles of rest and recovery, or performance burns out instead of compounding."},
+    {"title": "Four focuses of history makers", "text": "Top performers are framed as sharing four habits: capitalizing on their unique talent, avoiding distraction, achieving daily, and practicing ongoing self-mastery."},
+    {"title": "The cognitive case for early hours", "text": "The book argues the prefrontal cortex, the source of rumination and worry, is quieter early in the morning, which is the rationale for protecting that hour for deep, distraction-free focus."},
+    {"title": "Morning as identity work", "text": "The routine is framed less as a productivity hack and more as a daily ritual for reclaiming purpose and self-respect."}
+  ],
+  "try_it": [
+    "Pick one morning this week to try a full 20/20/20 hour, even if not at 5 a.m.; the point is one uninterrupted hour before checking your phone.",
+    "Do 20 minutes of genuinely vigorous movement before anything else.",
+    "Spend 20 minutes journaling or sitting with one question: what matters most today?",
+    "Spend 20 minutes reading or learning something tied to your goals instead of scrolling."
+  ],
+  "best_for": ["People who want a structured morning ritual and respond well to a narrative, story-driven style", "Anyone overwhelmed by decision fatigue who wants one simple repeatable formula"],
+  "less_useful": ["Readers who want a straight how-to guide; this is a novel, and the actionable content doesn't fully appear until well into the story", "Anyone with an unpredictable schedule, such as shift work or an infant at home, where 5 a.m. isn't realistic"],
+  "site_links": [{"label": "Time Management", "href": "time-management.html"}, {"label": "Habit-Building", "href": "habit-building.html"}],
+  "related": [
+    {"asin": "1524779261", "why": "A research-grounded look at how the habit actually sticks"},
+    {"asin": "B076BXLDVP", "why": "A less story-driven take on high performer habits"}
+  ],
+  "sources": [
+    {"label": "Shortform: the 20/20/20 formula", "href": "https://www.shortform.com/blog/20-20-20-formula/"},
+    {"label": "Four Minute Books summary", "href": "https://fourminutebooks.com/the-5-am-club-summary/"},
+    {"label": "Blinkist summary", "href": "https://www.blinkist.com/en/books/the-5-am-club-en"}
+  ]
+}

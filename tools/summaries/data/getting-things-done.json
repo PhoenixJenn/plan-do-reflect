@@ -1,0 +1,32 @@
+{
+  "asin": "B01B6WSMHI", "slug": "getting-things-done", "read_time": "3 min read",
+  "big_idea": "Productivity and calm come from getting every open commitment out of your head and into a trusted external system, so your mind, freed from trying to remember everything, can achieve what Allen calls 'mind like water': fully present and responsive rather than anxious or scattered.",
+  "tool": {"label": "The five-step workflow", "text": "Capture everything into external inboxes. Clarify each item: is it actionable, and what's the next concrete step? Organize items into lists such as Next Actions, Projects, Waiting For, and Someday/Maybe. Reflect through regular review, especially weekly. Engage by choosing what to act on by context, time, and energy.", "note": "This is the terminology from the updated edition of the book; the original used Collect, Process, Organize, Plan, Do for the same five steps."},
+  "ideas": [
+    {"title": "Mind like water", "text": "A martial-arts metaphor: water responds proportionately to whatever hits it, then returns to calm. The goal is a mind that reacts appropriately to inputs without lingering stress."},
+    {"title": "The two-minute rule", "text": "If a captured action will take less than two minutes, do it immediately rather than filing it, since tracking it would take longer than finishing it."},
+    {"title": "Next actions by context", "text": "Every actionable item gets broken down to its literal next physical step, organized by context such as calls, computer, or errands, so you always know what you can do right now."},
+    {"title": "The weekly review", "text": "A recurring ritual to empty inboxes, update every list, and reassess commitments. The system only stays trustworthy, and therefore stress-relieving, if this review actually happens."},
+    {"title": "Someday/Maybe as a pressure valve", "text": "Ideas and possible future projects go on a separate list, so they're captured and stop nagging at you without cluttering your active task lists."},
+    {"title": "Horizons of focus", "text": "Work spans multiple altitudes, from ground-level next actions up through projects, areas of responsibility, and life goals. Allen argues day-to-day control is the foundation that makes higher-level focus possible."}
+  ],
+  "try_it": [
+    "Do a full mind sweep: spend 20 to 30 minutes writing down every open task, worry, and commitment on your mind into one inbox, without organizing yet.",
+    "Pick ten items from that list and clarify each one: is it actionable, and what's the literal next step?",
+    "Apply the two-minute rule for the rest of the day: anything under two minutes, do immediately.",
+    "Block 30 to 60 minutes this week for a first weekly review: empty your inboxes, scan your calendar and projects, and update what's stale."
+  ],
+  "best_for": ["People who feel overwhelmed by mental clutter or unfinished commitments", "Professionals juggling many simultaneous projects", "Anyone who wants a rigorous, systemic approach to organization rather than a motivational one"],
+  "less_useful": ["Readers wanting a light-touch or flexible system; GTD needs consistent upkeep, especially the weekly review, to actually work", "Anyone who wants a simpler, more forgiving approach; consider a lighter system like The ONE Thing instead"]
+  ,
+  "site_links": [{"label": "Time Management", "href": "time-management.html"}, {"label": "Prioritize Work", "href": "prioritize-work.html"}],
+  "related": [
+    {"asin": "B00FPMTFRM", "why": "A simpler, more forgiving alternative if GTD's upkeep feels like too much"},
+    {"asin": "B06Y3C4DDM", "why": "A visual alternative for capturing and organizing the same open loops"}
+  ],
+  "sources": [
+    {"label": "Getting Things Done — Wikipedia", "href": "https://en.wikipedia.org/wiki/Getting_Things_Done"},
+    {"label": "Official GTD site: the 5 steps", "href": "https://www.gtd.be/en/what-is-gtd/the-5-steps-of-gtd"},
+    {"label": "Four Minute Books summary", "href": "https://fourminutebooks.com/getting-things-done-summary/"}
+  ]
+}

@@ -1,0 +1,29 @@
+{
+  "asin": "x-168-hours", "slug": "168-hours", "read_time": "2 min read",
+  "big_idea": "Most people aren't actually short on time. With 168 hours in a week, there's enough room for meaningful work, relationships, health, and leisure if you manage your schedule intentionally instead of filling it with low-value defaults.",
+  "tool": {"label": "The 168-hour time log", "text": "For one full week, record everything you do in half-hour increments, being specific (made stir-fry, not dinner). At week's end, tally hours by category and compare what you find to what you assumed you were doing.", "note": "Vanderkam's signature exercise. Most people are shocked at the gap between perceived busyness and actual time use, and it's the diagnostic step before any schedule change."},
+  "ideas": [
+    {"title": "You're not too busy, you're not in control", "text": "Feeling slammed is usually a control problem, not a math problem. The fix is asking whether something is actually a priority before accepting it, not finding more hours."},
+    {"title": "Build around core competencies", "text": "Identify two or three things you're genuinely best at, at work and at home, and structure your schedule around them, delegating or minimizing the rest."},
+    {"title": "Outsource the mismatch", "text": "Tasks that don't use your strengths are worth paying to offload if it frees time for higher-value work or family time."},
+    {"title": "Quality over quantity with family", "text": "Direct, focused time with kids is often only a few hours a day even for engaged parents. The goal is making that time count, not maximizing raw hours together."},
+    {"title": "Leisure is squandered by default", "text": "Most people have more leisure hours than they think, but much of it disappears into passive, unplanned screen time rather than activities they actually find fulfilling."}
+  ],
+  "try_it": [
+    "Track every activity for the next 168 hours in a simple spreadsheet, in specific detail.",
+    "At week's end, total your hours by category and note the biggest surprise.",
+    "Write your top three core competencies and one task you could delegate or drop this week to protect time for them.",
+    "Pick one recurring low-value time sink and pre-schedule a replacement activity you actually want more of."
+  ],
+  "best_for": ["Busy professionals and parents feeling chronically time-strapped", "People who want a data-driven, not just motivational, approach to time management"],
+  "less_useful": ["Readers with tight budgets or rigid schedules; the advice assumes some flexibility to outsource or restructure work", "Anyone looking for the emotional or psychological side of time pressure rather than the logistics"],
+  "site_links": [{"label": "Time Management", "href": "time-management.html"}, {"label": "Prioritize Work", "href": "prioritize-work.html"}],
+  "related": [
+    {"asin": "1250834384", "why": "A more philosophical counterpoint on the same 168-hour week"},
+    {"asin": "B01B6WSMHI", "why": "A system for the tasks this book's log surfaces"}
+  ],
+  "sources": [
+    {"label": "Shortform summary", "href": "https://www.shortform.com/summary/168-hours-summary-laura-vanderkam"},
+    {"label": "Blinkist summary", "href": "https://www.blinkist.com/en/books/168-hours-en"}
+  ]
+}

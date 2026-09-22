@@ -1,0 +1,32 @@
+{
+  "asin": "1663712301", "slug": "hbr-10-must-reads-managing-yourself-vol-2", "read_time": "3 min read",
+  "big_idea": "Sustainable career effectiveness comes less from grand self-reinvention than from clarifying your purpose, managing your energy and emotions deliberately, and making values-aligned choices under pressure. Across this anthology's eleven HBR articles, the throughline is: know yourself well enough to direct your own growth, decisions, and boundaries.",
+  "tool": {"label": "Five questions for a tough decision", "text": "What are the full consequences of each option? What are my core obligations? What will actually work in the world as it is? Who are we? What can I live with?", "note": "From Joseph Badaracco's article 'How to Tackle Your Toughest Decisions.' He frames hard calls as right-versus-right dilemmas that need judgment, not just analysis."},
+  "ideas": [
+    {"title": "Purpose needs a usable statement", "text": "'From Purpose to Impact' argues an abstract sense of purpose only helps once distilled into a short, concrete statement you can use to evaluate daily decisions and role choices."},
+    {"title": "Learning is a trainable skill", "text": "'Learning to Learn' reframes being a good learner as curiosity, vulnerability, and seeking feedback, a skillset that can atrophy or be deliberately strengthened as roles change faster than ever."},
+    {"title": "Play to strengths, not just weaknesses", "text": "Research in 'Making Yourself Indispensable' finds people improve their standing more by amplifying a few genuine strengths than by fixing weaknesses."},
+    {"title": "Protect time for what matters, not just what's urgent", "text": "'Make Time for the Work That Matters' shows how calendars fill with low-value busywork and offers ways to audit and reclaim time for meaningful work."},
+    {"title": "Collaboration overload drives burnout", "text": "Research in 'Collaboration Without Burnout' finds excessive meetings, cc's, and requests are a major hidden cause of exhaustion, with ways to redistribute the load."},
+    {"title": "Unhook from unhelpful emotions", "text": "'Emotional Agility' teaches noticing, labeling, and accepting a thought or feeling as transient data, then acting on your values rather than obeying or fighting it."},
+    {"title": "Courage is buildable in small increments", "text": "'Cultivating Everyday Courage' reframes workplace courage as small, practicable acts like speaking up or pushing back respectfully, which compound with practice."}
+  ],
+  "try_it": [
+    "Write a one-sentence impact statement of your purpose and test one upcoming decision against it.",
+    "Audit your calendar for a week, flag the busywork versus what actually matters, and cancel or delegate one item.",
+    "Next time a thought hooks you emotionally, practice labeling it before reacting.",
+    "Before your next hard call at work, run it through the five questions instead of defaulting to gut instinct alone."
+  ],
+  "best_for": ["Mid-career professionals navigating change", "Readers who like article-length, anthology-style reads over one long book", "Managers wanting a range of HBR-validated frameworks on self-management"],
+  "less_useful": ["Readers wanting one unified system; this is a curated set of standalone articles, not a single cohesive methodology", "Anyone put off by fairly corporate language and analogies in a few of the essays"],
+  "site_links": [{"label": "Time Management", "href": "time-management.html"}, {"label": "Prioritize Work", "href": "prioritize-work.html"}],
+  "related": [
+    {"asin": "B01B6WSMHI", "why": "A fuller system for the calendar-and-commitments problem this collection also touches"},
+    {"asin": "B00FPMTFRM", "why": "A single-idea version of protecting time for what matters"}
+  ],
+  "sources": [
+    {"label": "HBR Store product page", "href": "https://store.hbr.org/product/hbr-s-10-must-reads-on-managing-yourself-vol-2-paperback-ebook/1117BN"},
+    {"label": "O'Reilly edition (confirms table of contents)", "href": "https://www.oreilly.com/library/view/hbrs-10-must/9781647820817/"},
+    {"label": "Content Catnip review", "href": "https://contentcatnip.com/2025/07/30/book-review-hbrs-10-must-reads-on-managing-yourself-vol-2-harvard-business-review-press/"}
+  ]
+}

@@ -1,0 +1,30 @@
+{
+  "asin": "B06Y3C4DDM", "slug": "mind-mapping", "read_time": "2 min read",
+  "big_idea": "Mind mapping, a visual note-taking method that radiates branches of ideas outward from a central topic, works better than linear notes because it mirrors how the brain actually processes and stores information: associatively, not line by line.",
+  "tool": {"label": "The mind map", "text": "Put your central topic in the middle of the page. Draw main branches for major subtopics, then smaller branches off those for supporting details, using keywords rather than full sentences, plus color and images to mark importance.", "note": "This core structure is the book's single signature technique; nearly everything else, from studying to brainstorming to planning, is a variation on it."},
+  "ideas": [
+    {"title": "The brain is associative, not linear", "text": "New information sticks better when it's explicitly connected to existing knowledge, which is why radiating, connected diagrams outperform sequential lists for memory and understanding."},
+    {"title": "A four-step study process", "text": "Preview the material first (headings, structure, summaries), read it deeply, transcribe it as an interconnected mind map, then review using the map to reinforce learning."},
+    {"title": "Visuals aren't decoration", "text": "Color, images, symbols, and varying branch thickness encode hierarchy and meaning, engaging more of the brain's sensory and pattern-recognition systems to aid recall."},
+    {"title": "Keywords over sentences", "text": "Mind maps work best with single words or short phrases at each node, which keeps the map scannable and forces real synthesis instead of copying."},
+    {"title": "Uses beyond studying", "text": "The technique extends to brainstorming, research synthesis, writing outlines, project and goal planning, and group decision-making."},
+    {"title": "Best for known, not unfolding, information", "text": "Mind mapping works best when you already have the full picture of a topic before mapping it, and is harder to use live for something unfolding unpredictably, like a fast-moving meeting."}
+  ],
+  "try_it": [
+    "Pick a topic you already understand reasonably well and map it by hand: central topic in the middle, three to five main branches, sub-branches off those.",
+    "Next time you finish an article or chapter, run it through preview, read, mind map, review instead of taking linear notes.",
+    "Use a mind map instead of a bullet list for your next brainstorm or planning session.",
+    "Add one color-coding rule and one small symbol to your next map and see if it helps you recall it later."
+  ],
+  "best_for": ["Students and lifelong learners wanting a memory or retention boost", "Visual thinkers", "People using it for planning, brainstorming, or synthesizing research after the fact"],
+  "less_useful": ["Capturing information live during fast-moving events like lectures or meetings, where the structure isn't known in advance", "Readers who prefer purely linear, textual note systems"],
+  "site_links": [{"label": "Time Management", "href": "time-management.html"}, {"label": "Prioritize Work", "href": "prioritize-work.html"}],
+  "related": [
+    {"asin": "B01B6WSMHI", "why": "A different system for the same goal: getting everything out of your head"},
+    {"asin": "B004S3GJYQ", "why": "More on how the brain handles information and focus"}
+  ],
+  "sources": [
+    {"label": "Shortform summary", "href": "https://www.shortform.com/summary/mind-mapping-summary-kam-knight"},
+    {"label": "Sobrief summary", "href": "https://sobrief.com/books/mind-mapping"}
+  ]
+}

@@ -1,0 +1,30 @@
+{
+  "asin": "B071W76GKW", "slug": "work-life-brilliance", "read_time": "2 min read",
+  "big_idea": "Rather than chasing balance through better time management, executive coach Denise Green argues fulfillment comes from intentionally upgrading your thoughts, habits, and boundaries across four connected life domains, using practical tools built from over a decade of corporate coaching.",
+  "tool": {"label": "Assess, choose, change", "text": "Assess where you actually stand across your thoughts, habits, and boundaries. Choose deliberately what to keep or change. Change it using concrete daily tools rather than relying on willpower alone.", "note": "Quoted directly from Green as her own distillation of the book: if forced to describe work-life brilliance in a few steps, these are the steps."},
+  "ideas": [
+    {"title": "Four connected realms", "text": "Life is organized into four interconnected realms, including health, work, and relationships, plus your relationship to 'stuff' such as spaces, possessions, technology, and time. You can't fix one in isolation."},
+    {"title": "A six-step thought upgrade", "text": "A guided self-reflection process for shifting a stress-inducing thought into a more constructive one, drawn from a chapter on taming negative thinking."},
+    {"title": "Why habit change usually fails", "text": "Draws on neuroscience to explain common habit-change mistakes and offers strategies meant to make new habits stick past the initial burst of motivation."},
+    {"title": "In-the-moment versus long-term stress relief", "text": "Distinguishes techniques for relieving stress right now from structural changes that reduce stress over the long run."},
+    {"title": "Diplomatic boundary-setting", "text": "A dedicated focus on declining requests in ways that protect your time while actually strengthening professional and personal relationships."},
+    {"title": "Sleep as a lever", "text": "Addresses better rest specifically for people who've already tried and failed at fixing their sleep on their own."}
+  ],
+  "try_it": [
+    "Pick the one of the four life realms that feels most neglected and name one small change to make there this week.",
+    "Try assess, choose, change on one recurring stressor: name it, decide what to do differently, then take one concrete action.",
+    "Catch one stress-inducing thought this week and consciously reframe it before reacting.",
+    "Practice one diplomatic no this week using a boundary phrase instead of an explanation."
+  ],
+  "best_for": ["Busy professionals feeling overwhelmed by always-on technology", "People who've tried generic time-management advice and want a coaching-style, whole-life approach instead"],
+  "less_useful": ["Readers outside a corporate-coaching context, since the lens and examples lean professional", "Anyone wanting an independently well-reviewed pick; this title has little outside coverage beyond the publisher and a handful of reviews"],
+  "site_links": [{"label": "Time Management", "href": "time-management.html"}, {"label": "Reflection Practice", "href": "reflection-practice.html"}],
+  "related": [
+    {"asin": "B0758HJSG7", "why": "A deeper, more tactical look at the boundary-setting piece"},
+    {"asin": "1524779261", "why": "More on making a new habit actually stick"}
+  ],
+  "sources": [
+    {"label": "Goodreads listing", "href": "https://www.goodreads.com/book/show/34869874-work-life-brilliance"},
+    {"label": "BizCatalyst360 review", "href": "https://www.bizcatalyst360.com/work-life-brilliance/"}
+  ]
+}

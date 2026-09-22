@@ -1,0 +1,30 @@
+{
+  "asin": "x-the-book-of-no", "slug": "the-book-of-no", "read_time": "2 min read",
+  "big_idea": "Compulsive yes-saying, driven by guilt, fear of disappointing others, or a need for approval, leads to overcommitment, resentment, and burnout. Learning to say no clearly and without over-apologizing protects both your time and your relationships.",
+  "tool": {"label": "Buy time before you answer", "text": "When put on the spot, don't answer immediately. Ask for details about the request and use a holding response, such as 'let me check my schedule and get back to you,' before committing.", "note": "One of the book's recurring techniques across its Friends, Family, and Work sections for interrupting a reflexive yes."},
+  "ideas": [
+    {"title": "Yes to one thing is no to another", "text": "Every commitment you accept displaces something else: time, energy, or a priority. Newman frames overcommitment as a hidden trade-off, not a free favor."},
+    {"title": "Guilt is a wasted emotion", "text": "Guilt over saying no rarely serves any real purpose and mainly drains mental energy. Naming it as wasted helps readers let go of it faster."},
+    {"title": "No doesn't need an apology", "text": "The book coaches plain refusals without over-explaining, since long justifications invite negotiation and more guilt."},
+    {"title": "Scripts by relationship type", "text": "Organized by friends, family, work colleagues, and difficult people, since the right way to decline a friend differs from declining a boss or a manipulative relative."},
+    {"title": "The fallout is usually smaller than feared", "text": "Others dwell on your refusal far less than you expect; the anticipated damage to a relationship is usually much smaller than imagined."},
+    {"title": "Spot manipulation before you respond", "text": "Recognizing pressure tactics and guilt trips, especially from family or pushy acquaintances, lets you respond deliberately instead of being maneuvered into agreement."}
+  ],
+  "try_it": [
+    "Write a one-line no script in advance for a recurring request you always say yes to but resent.",
+    "Next time you're asked for something on the spot, practice a buy-time response instead of answering immediately.",
+    "Notice guilt after a refusal this week and consciously label it as wasted emotion.",
+    "Say no once this week without adding an apology or long justification."
+  ],
+  "best_for": ["Chronic people-pleasers and yes-people", "Anyone overwhelmed by family, social, or workplace obligations who wants quick, scenario-based scripts"],
+  "less_useful": ["Readers wanting an in-depth psychological framework rather than a large catalog of scripts", "Anyone put off by examples that skew toward traditionally gendered caretaking roles"],
+  "site_links": [{"label": "Time Management", "href": "time-management.html"}],
+  "related": [
+    {"asin": "B0758HJSG7", "why": "A more systematic set of tactics for the same core skill"},
+    {"asin": "B071W76GKW", "why": "Boundary-setting folded into a broader whole-life approach"}
+  ],
+  "sources": [
+    {"label": "Susan Newman's book page", "href": "https://www.susannewmanphd.com/the-book-of-no/"},
+    {"label": "Publishers Weekly review", "href": "https://www.publishersweekly.com/9780071460781"}
+  ]
+}

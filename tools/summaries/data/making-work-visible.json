@@ -1,0 +1,30 @@
+{
+  "asin": "B077757VRZ", "slug": "making-work-visible", "read_time": "3 min read",
+  "big_idea": "Knowledge work, especially in software and IT, is largely invisible; unlike a factory floor, you can't see where work is stuck. Teams unknowingly lose huge amounts of productivity to what DeGrandis calls time theft, and making work visible through Kanban-style boards and flow metrics exposes the problem so teams can fix it.",
+  "tool": {"label": "The five thieves of time", "text": "Too much work in progress. Unknown dependencies. Unplanned work. Conflicting priorities. Neglected work.", "note": "The book's central diagnostic framework: identifying which thief is at work is the first step to fixing flow problems."},
+  "ideas": [
+    {"title": "Visualize work with a board", "text": "A simple To Do, Doing, Done board, physical or digital, makes invisible knowledge work visible immediately, surfacing bottlenecks that would otherwise stay hidden in people's heads or ticketing systems."},
+    {"title": "Limiting work in progress is the highest-leverage fix", "text": "Too much work in progress is framed as the biggest thief. Capping how many things a person or team works on at once reduces context-switching and speeds up real completion."},
+    {"title": "The 80% utilization trap", "text": "Pushing people or teams past roughly 80% utilization causes queues and wait times to increase sharply, so deliberately keeping slack capacity actually improves throughput."},
+    {"title": "Visibility should cascade across levels", "text": "Kanban-style boards work best used at multiple organizational levels, team, department, and company, so individual work visibly connects to broader priorities."},
+    {"title": "Standups should surface blockers, not status", "text": "Daily standups are more useful focused on what's blocked or at risk rather than each person reciting a task list."},
+    {"title": "Map the full value stream", "text": "Borrowed from Lean manufacturing, mapping a work item's full end-to-end path reveals handoffs, delays, and waste invisible when looking at any single step alone."}
+  ],
+  "try_it": [
+    "Set up a simple To Do, Doing, Done board for your own tasks or your team's work this week, even just on sticky notes.",
+    "Count how many things you or your team are actively working on right now, and try capping it to a smaller explicit limit.",
+    "In your next status meeting, ask what's blocked before asking what did you do.",
+    "Identify one piece of unplanned work that derailed your week and note where it came from."
+  ],
+  "best_for": ["Software and IT teams, engineering managers, and Agile or DevOps practitioners", "Anyone managing knowledge-work teams where work isn't physically visible"],
+  "less_useful": ["General personal productivity or non-team, individual use; the vocabulary and examples are Kanban and sprint-specific", "Readers without any team or project-management context"],
+  "site_links": [{"label": "Time Management", "href": "time-management.html"}, {"label": "Project & Program Management", "href": "project-program-management.html"}],
+  "related": [
+    {"asin": "B01B6WSMHI", "why": "The individual-level version of getting work out of your head and visible"},
+    {"asin": "B00FPMTFRM", "why": "A simpler individual framing of the same too-much-in-progress problem"}
+  ],
+  "sources": [
+    {"label": "Publisher description, IT Revolution", "href": "https://itrevolution.com/product/making-work-visible/"},
+    {"label": "Blinkist summary", "href": "https://www.blinkist.com/en/books/making-work-visible-en"}
+  ]
+}

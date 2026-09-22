@@ -1,0 +1,31 @@
+{
+  "asin": "B0CW4ST43L", "slug": "meditations-for-mortals", "read_time": "2 min read",
+  "big_idea": "You'll never get fully on top of things or reach a future point of complete control, so the way to a meaningful life is imperfectionism: engaging fully with your limited, messy, present life now, through small daily shifts in attitude rather than waiting for ideal conditions.",
+  "tool": {"label": "The done list", "text": "Keep a running log of what you actually completed each day, instead of only tracking what's still undone.", "note": "One of several short, practice-sized techniques across the book's 28 daily entries, meant to be revisited a little at a time rather than read straight through."},
+  "ideas": [
+    {"title": "Imperfectionism", "text": "Treat your limitations of time, energy, and ability as the fixed terrain a meaningful life is built on, not problems to fix. The day when everything else is out of the way is never coming."},
+    {"title": "Effectiveness over efficiency", "text": "The goal isn't doing things faster, it's doing the right things. The book repeatedly pushes back on hustle-culture optimization for its own sake."},
+    {"title": "A kayak, not a superyacht", "text": "Life is inherently unsteady and reactive, more like paddling a small kayak on rough water than steering a stable ship. Trying to eliminate all instability is a losing game."},
+    {"title": "Scruffy hospitality", "text": "Borrowed from an Anglican priest: welcome and engage with life despite imperfect circumstances, rather than waiting until things are presentable or ready."},
+    {"title": "Treat inputs like a river, not a bucket", "text": "Books, opportunities, and obligations are an endless flowing stream to dip into selectively, not a fixed bucket you're guilty for failing to empty."},
+    {"title": "Decisions are made through action", "text": "Deliberation alone doesn't make something real. A choice only truly becomes a decision once you act on it, so momentum from small actions matters more than a perfect plan."}
+  ],
+  "try_it": [
+    "Start a daily done list for one week, alongside or instead of your to-do list.",
+    "Pick one task you're deliberating over and just do a small piece of it today, treating the action itself as the decision.",
+    "Find one area where you're waiting for ideal conditions and do a scruffier, imperfect version of it now.",
+    "Each morning this week, name one thing you'll consciously let go of, without guilt."
+  ],
+  "best_for": ["Readers who already read Four Thousand Weeks and want a lighter, repeatable companion", "Busy list-makers who've slid back into old productivity anxiety", "Anyone who wants bite-sized daily reflections rather than one long argument"],
+  "less_useful": ["Readers new to Burkeman looking for his most substantial argument; start with Four Thousand Weeks first", "Anyone wanting one big unifying framework rather than a collection of short daily entries"],
+  "site_links": [{"label": "Time Management", "href": "time-management.html"}, {"label": "Reflection Practice", "href": "reflection-practice.html"}],
+  "related": [
+    {"asin": "1250834384", "why": "The deeper, mortality-centered argument this book applies day to day"},
+    {"asin": "B08N5C3QLB", "why": "Another short daily practice built around presence over control"}
+  ],
+  "sources": [
+    {"label": "Blinkist summary", "href": "https://www.blinkist.com/en/books/meditations-for-mortals-en"},
+    {"label": "Oliver Burkeman's book page", "href": "https://www.oliverburkeman.com/meditationsformortals"},
+    {"label": "Bobby Powers review", "href": "https://bobbypowers.com/review-meditations-for-mortals/"}
+  ]
+}

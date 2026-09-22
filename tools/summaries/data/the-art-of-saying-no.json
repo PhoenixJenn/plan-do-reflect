@@ -1,0 +1,30 @@
+{
+  "asin": "B0758HJSG7", "slug": "the-art-of-saying-no", "read_time": "2 min read",
+  "big_idea": "Every yes to someone else's request is an implicit no to your own priorities. Chronic people-pleasing drains time, energy, and self-respect, and learning to decline gracefully, without over-explaining or guilt, is a learnable skill that strengthens relationships rather than damaging them.",
+  "tool": {"label": "Ten tactics for saying no", "text": "Be direct. Don't stall. Offer alternate phrasing when useful. Resist over-explaining. Own the decision with 'I don't' instead of 'I can't'. Ask for time if you need it. Don't fake unavailability. Offer an alternative. Point to someone better suited. Be transparent about your bandwidth.", "note": "The 'I don't' versus 'I can't' framing is the book's most distinctive hook: it turns a refusal into a choice rather than an excuse."},
+  "ideas": [
+    {"title": "The opportunity cost of yes", "text": "Every agreement displaces something else you could be doing. Unconscious overcommitment happens because people don't see that trade-off in the moment."},
+    {"title": "Why we say yes automatically", "text": "Fear of disappointing others, wanting to seem useful or likable, conflict avoidance, and FOMO drive reflexive agreement, not genuine obligation."},
+    {"title": "Disappointment is the asker's issue", "text": "Someone's disappointment comes from their own unmet expectations, not from any flaw in your no."},
+    {"title": "The oxygen mask principle", "text": "You have to protect your own capacity first in order to actually help others well, rather than helping from a depleted, resentful place."},
+    {"title": "Build the muscle on small stakes", "text": "Practice declining low-stakes requests, like sales pitches or surveys, before tackling harder ones with family or a boss."},
+    {"title": "Different scripts for different relationships", "text": "The right tone for a no differs by relationship, so the book gives context-specific approaches for family, partners, friends, coworkers, and bosses."}
+  ],
+  "try_it": [
+    "Practice one low-stakes no a day this week to build the habit before you need it for something bigger.",
+    "Swap 'I can't' for 'I don't' in one recurring situation, so the boundary feels like a choice rather than an excuse.",
+    "Pause before answering a request instead of agreeing reflexively; even 'let me get back to you' buys space.",
+    "Pick one category of recurring request and pre-decide a blanket rule for it, so you're not renegotiating every time."
+  ],
+  "best_for": ["Chronic people-pleasers and the go-to person for every favor", "Anyone building assertiveness or boundary-setting skills at work or at home"],
+  "less_useful": ["Readers wanting psychological depth or research citations; this leans on numbered lists and scripts", "People whose overcommitment is structural, such as a job with no real autonomy, rather than a personal habit"],
+  "site_links": [{"label": "Time Management", "href": "time-management.html"}, {"label": "Prioritize Work", "href": "prioritize-work.html"}],
+  "related": [
+    {"asin": "x-the-book-of-no", "why": "A scenario-and-script companion covering more relationship types"},
+    {"asin": "B00FPMTFRM", "why": "The other side of the coin: deciding what deserves a yes"}
+  ],
+  "sources": [
+    {"label": "Shortform summary", "href": "https://www.shortform.com/summary/the-art-of-saying-no-summary-damon-zahariades"},
+    {"label": "12min summary", "href": "https://12min.com/en/book/the-art-of-saying-no"}
+  ]
+}

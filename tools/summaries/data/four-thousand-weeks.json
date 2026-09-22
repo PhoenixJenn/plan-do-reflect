@@ -1,0 +1,33 @@
+{
+  "asin": "1250834384", "slug": "four-thousand-weeks", "read_time": "3 min read",
+  "big_idea": "The average human life is about four thousand weeks long, and no productivity system will ever make everything fit — so the sane response isn't more optimization, it's accepting your finitude and deliberately choosing what matters, at the cost of everything else.",
+  "tool": {"label": "Cosmic insignificance therapy", "text": "Deliberately remember how small and temporary your life and your to-do list are against the scale of the universe and history.", "note": "Burkeman means this as relief, not despair: it's finitude itself that makes any single choice meaningful, since infinite time would make nothing matter more than anything else."},
+  "ideas": [
+    {"title": "The efficiency trap", "text": "Getting faster at tasks doesn't create more free time, it creates more tasks. Answer email faster and you just receive more email. Productivity gains get absorbed, not banked."},
+    {"title": "You can't do it all, ever", "text": "Even a perfectly organized life can't fit every worthwhile pursuit. There will always be more good books, relationships, and projects than a finite life can hold, and that's a fact of existence, not a personal failure."},
+    {"title": "Clock time is a recent invention", "text": "Premodern life was task-oriented and rhythm-based, not clock-oriented: do the milking when the cows need it. Treating time as a scarce resource to spend well is historically recent and tied to industrial thinking."},
+    {"title": "Distraction as an escape from finitude", "text": "Compulsive busyness and phone-checking are often unconscious strategies to avoid confronting the discomfort of limitedness and mortality, not just bad habits."},
+    {"title": "The joy of missing out", "text": "Deliberately and consciously choosing what not to do, rather than passively letting things slide, turns limitation into a source of freedom instead of anxiety."},
+    {"title": "Patience over hacks", "text": "Big, meaningful projects unfold on their own timeline, and rushing or hacking them often backfires. Burkeman argues for tolerating the discomfort of things taking as long as they take."},
+    {"title": "Rest as an end in itself", "text": "Modern culture treats rest as fuel for more productivity. Burkeman argues leisure and idle time deserve to be valued for their own sake, without needing to be justified by output."}
+  ],
+  "try_it": [
+    "Keep a done list at day's end instead of only tracking what's undone.",
+    "Pick one thing to consciously and openly decline this week, out loud, rather than letting it quietly slip.",
+    "Block one chunk of genuinely purposeless time this week, no phone, no 'productive' leisure, and protect it like an appointment.",
+    "When a big project feels slow, resist the urge to hack it. Commit to showing up on it regularly instead of finishing fast."
+  ],
+  "best_for": ["Chronically overwhelmed high-achievers", "People drawn to productivity systems who still feel behind", "Readers open to philosophy and existential reflection on time and mortality"],
+  "less_useful": ["Readers who want concrete daily systems or step-by-step tactics; this is philosophical, not prescriptive", "Anyone looking for quick tips rather than a mindset shift"],
+  "site_links": [{"label": "Time Management", "href": "time-management.html"}, {"label": "Reflection Practice", "href": "reflection-practice.html"}, {"label": "Prioritize Work", "href": "prioritize-work.html"}],
+  "related": [
+    {"asin": "B0CW4ST43L", "why": "Burkeman's own daily-practice follow-up to this book"},
+    {"asin": "B00FPMTFRM", "why": "A sharper-edged answer to the same problem: narrow to one thing"},
+    {"asin": "B0189PX1RQ", "why": "How to protect focused time inside a finite week"}
+  ],
+  "sources": [
+    {"label": "Blinkist summary", "href": "https://www.blinkist.com/en/books/four-thousand-weeks-en"},
+    {"label": "Shortform summary", "href": "https://www.shortform.com/summary/four-thousand-weeks-summary-oliver-burkeman"},
+    {"label": "ReadingGraphics summary", "href": "https://readingraphics.com/book-summary-four-thousand-weeks/"}
+  ]
+}
