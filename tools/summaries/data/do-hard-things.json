@@ -1,0 +1,30 @@
+{
+  "asin": "B09JYDKRNW", "slug": "do-hard-things", "read_time": "2 min read",
+  "big_idea": "The popular fake-toughness model, stoic bravado, emotional suppression, pushing through at all costs, actually creates fragility. Real toughness is the capacity to stay present with discomfort and still make a clear-headed decision.",
+  "tool": {"label": "The four pillars of real toughness", "text": "Ditch the Facade and embrace reality; Listen to Your Body, treating discomfort and emotion as useful signals, not noise; Respond Instead of React, creating space between stimulus and action; and Transcend Discomfort by reframing hard situations as manageable challenges.", "note": "Drawn from Magness's background in exercise physiology and coaching, and illustrated with research on elite athletes, Navy SEALs, and meditators who rated pain as roughly three times less unpleasant."},
+  "ideas": [
+    {"title": "Fake vs. real toughness", "text": "Fake toughness depends on external displays of dominance and needs constant pressure to keep performing; real toughness works with the body and mind rather than against them."},
+    {"title": "Emotions as data", "text": "Feelings and bodily sensations are an early-warning system, not weakness to be ignored; suppressing them tends to backfire under real stress."},
+    {"title": "The response gap", "text": "Building a pause between a stressful stimulus and your reaction, through mindfulness practice, lets you choose a considered response instead of a reflexive one."},
+    {"title": "Appraisal matters", "text": "How you label a hard situation, as a threat versus a manageable challenge, changes your physiological and performance response to it."},
+    {"title": "Raise the floor, not just the ceiling", "text": "Setting realistic, achievable goals builds durable confidence more effectively than chasing inflated stretch goals."},
+    {"title": "Doubt is a useful signal", "text": "Persistent self-doubt often means your expectations have outpaced your current capability, not that you're broken."}
+  ],
+  "try_it": [
+    "Before a hard task this week, name one honest doubt or fear out loud or in writing instead of masking it with forced confidence.",
+    "Practice a 5-minute breathing or body-scan pause when you notice stress rising, before reacting.",
+    "Reframe one upcoming stressor this week as a challenge to meet rather than a threat to survive.",
+    "Set one deliberately achievable, raise-the-floor goal this week to rebuild confidence through a genuine win."
+  ],
+  "best_for": ["Athletes, coaches, and high-performers taught that toughness means suppression", "Anyone burned out from push-through-it culture"],
+  "less_useful": ["Readers wanting a quick-fix motivational pep talk", "Readers who prefer pure memoir over research-and-framework structure"],
+  "site_links": [{"label": "Motivation & Procrastination", "href": "motivation-procrastination.html"}],
+  "related": [
+    {"asin": "B01D3AC5BA", "why": "A complementary look at perseverance, with more emphasis on sustained passion"},
+    {"asin": "B09WY6Z8KD", "why": "A more introspective take on the inner obstacles that undercut resilience"}
+  ],
+  "sources": [
+    {"label": "Author's book page", "href": "https://www.stevemagness.com/do-hard-things/"},
+    {"label": "Blinkist summary", "href": "https://www.blinkist.com/en/books/do-hard-things-en"}
+  ]
+}

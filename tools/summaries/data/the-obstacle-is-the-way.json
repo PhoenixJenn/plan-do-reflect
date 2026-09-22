@@ -1,0 +1,30 @@
+{
+  "asin": "B0BT54XTLW", "slug": "the-obstacle-is-the-way", "read_time": "2 min read",
+  "big_idea": "Drawing on Stoic philosophy, especially Marcus Aurelius, Holiday argues that obstacles aren't inherently good or bad. How we perceive them, act on them, and muster the will to endure them determines whether they become setbacks or fuel for growth.",
+  "tool": {"label": "Perception, action, will", "text": "A three-part Stoic discipline: first change your Perception of the obstacle to a neutral or opportunity-focused view, then take deliberate, persistent Action to work around or through it, and finally apply Will to endure and accept what genuinely can't be changed.", "note": "Illustrated with historical figures like Edison rebuilding after his lab burned down; critics note the book simplifies Stoicism for accessibility and is sometimes seen as more motivational than rigorous philosophy."},
+  "ideas": [
+    {"title": "Perception is a choice", "text": "Events themselves are neutral; suffering comes from our subjective interpretation of them, so reframing how you see a setback changes its power over you."},
+    {"title": "Objective distance", "text": "Imagining you're advising a friend facing your exact problem creates emotional distance that reveals solutions you can't see when personally invested."},
+    {"title": "Obstacles contain their own solutions", "text": "Significant obstacles often carry a proportional weakness or advantage that can be exploited if you look for it."},
+    {"title": "Discipline of action", "text": "Persistent, practical problem-solving, trying, adjusting, and treating failed attempts as data rather than defeat, is what actually moves you past a blocker."},
+    {"title": "Focus only on what you control", "text": "Separate external events from internal ones, your emotions, decisions, reactions, and direct your energy only at the latter."},
+    {"title": "The obstacle becomes the way", "text": "Reframed correctly, the very thing blocking your goal can become the method by which you achieve it, or something better."}
+  ],
+  "try_it": [
+    "Next time something frustrating happens, write down the neutral facts of the situation separately from your emotional reaction to it.",
+    "Pick a current obstacle and ask what you would tell a friend to do here, then follow that advice yourself.",
+    "List what parts of your current problem are truly outside your control, and consciously set those aside for the day.",
+    "When a plan fails this week, write one sentence on what it taught you before deciding your next move."
+  ],
+  "best_for": ["Readers facing a specific setback or crisis wanting quick, motivational reframing", "Fans of accessible, historically illustrated self-help distilled from Stoicism"],
+  "less_useful": ["Readers seeking rigorous philosophy or deep Stoic scholarship", "Those wanting detailed, step-by-step practical exercises rather than mindset framing"],
+  "site_links": [{"label": "Motivation & Procrastination", "href": "motivation-procrastination.html"}],
+  "related": [
+    {"asin": "B09JYDKRNW", "why": "A research-backed look at the same reframe-under-pressure territory"},
+    {"asin": "B09WY6Z8KD", "why": "A more introspective take on the internal barriers obstacles expose"}
+  ],
+  "sources": [
+    {"label": "Four Minute Books summary", "href": "https://fourminutebooks.com/the-obstacle-is-the-way-summary/"},
+    {"label": "Shortform review of critical reception", "href": "https://www.shortform.com/blog/the-obstacle-is-the-way-review/"}
+  ]
+}

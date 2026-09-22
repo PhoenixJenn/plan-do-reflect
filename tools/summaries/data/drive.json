@@ -1,0 +1,30 @@
+{
+  "asin": "B002ZF14MG", "slug": "drive", "read_time": "2 min read",
+  "big_idea": "Traditional carrot-and-stick motivation is mismatched to modern, creative knowledge work. Once baseline pay is fair, people are driven far more by intrinsic motivation: the desire to direct our own lives, get better at things that matter, and connect to something larger than ourselves.",
+  "tool": {"label": "Autonomy, Mastery, Purpose", "text": "The three elements of intrinsic motivation: Autonomy, control over what you do, when, how, and with whom; Mastery, the urge to keep getting better at something that matters; and Purpose, connecting your work to something bigger than yourself.", "note": "Pink calls people driven this way Type I, intrinsically motivated, versus Type X, reward motivated, and backs the framework with an 80-page toolkit of exercises in the book itself."},
+  "ideas": [
+    {"title": "If-then rewards can backfire", "text": "Contingent rewards were shown to narrow focus and reduce performance on creative or complex tasks, even as they still work for simple, routine ones."},
+    {"title": "The candle problem", "text": "In classic experiments, offering money for a creative problem actually made people slower to solve it; extrinsic incentives can crowd out creative thinking."},
+    {"title": "Fair pay is a baseline, not a driver", "text": "Once compensation is perceived as adequate and fair, more money stops being what motivates better work."},
+    {"title": "Flow and skill-challenge match", "text": "Deep engagement happens when a task's difficulty is well matched to your current skill level, not too easy, not overwhelming."},
+    {"title": "Mastery is a mindset, not a destination", "text": "Pursuing mastery is asymptotic, you approach it but never fully arrive, and that ongoing pursuit itself is motivating."},
+    {"title": "Motivation evolved", "text": "Pink frames history as moving from Motivation 1.0, survival, to 2.0, reward and punishment, to 3.0, intrinsic drive layered on top."}
+  ],
+  "try_it": [
+    "Give yourself or a teammate one small, real choice this week over how or when a task gets done.",
+    "Block 60 to 90 minutes this week for a task matched closely to your current skill level, aiming for an uninterrupted flow session.",
+    "Write one sentence connecting a task on your list this week to a larger purpose or person it serves.",
+    "For three days, jot a quick note whenever you lose track of time at work, and look for the pattern."
+  ],
+  "best_for": ["Managers and leaders designing incentive and reward systems", "Anyone feeling demotivated by extrinsic pressure at work"],
+  "less_useful": ["Readers in highly routine, procedural jobs, where if-then rewards still work fine", "Readers wanting hands-on team exercises rather than research synthesis"],
+  "site_links": [{"label": "Motivation & Procrastination", "href": "motivation-procrastination.html"}],
+  "related": [
+    {"asin": "0593150422", "why": "A complementary look at the beliefs that shape whether effort feels worth it"},
+    {"asin": "x-rethinking-positive-thinking", "why": "The research behind turning motivation into an actual plan, not just a feeling"}
+  ],
+  "sources": [
+    {"label": "Author's book page", "href": "https://www.danpink.com/books/drive/"},
+    {"label": "Four Minute Books summary", "href": "https://fourminutebooks.com/drive-summary/"}
+  ]
+}

@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="a">
+<head>
+<meta charset="UTF-8">
+<base href="../">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="icon" type="image/svg+xml" href="favicon.svg">
+<title>The Mountain Is You: One-page summary · Plan · Do · Reflect</title>
+
+<!-- Applied before CSS loads, so the saved theme / title-font choice doesn't flash to the default on reload -->
+<script>
+(function () {
+  try {
+    var savedTheme = localStorage.getItem('pdr-theme');
+    if (['a', 'b', 'c'].indexOf(savedTheme) > -1) {
+      document.documentElement.setAttribute('data-theme', savedTheme);
+    }
+    /* No saved choice yet means a first-time visitor — default them to Golos
+       Text rather than the theme's own heading font. Explicitly picking
+       "Theme default" in the picker stores the literal string 'default',
+       which is the one value that clears the override below. */
+    var savedTitleFont = localStorage.getItem('pdr-title-font');
+    var titleFont = savedTitleFont === null ? 'golos-text' : savedTitleFont;
+    if (titleFont !== 'default') {
+      document.documentElement.setAttribute('data-title-font', titleFont);
+    }
+  } catch (e) {}
+})();
+</script>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=Work+Sans:wght@400;500;600&family=Sora:wght@600;700;800&family=Plus+Jakarta+Sans:wght@500;600;700&family=Patrick+Hand&display=swap" rel="stylesheet">
+
+<!-- Title-font brainstorm candidates — temporary, for the .title-font-picker toggle only.
+     Remove this link once a title font is chosen and folded into tokens.css. -->
+<link href="https://fonts.googleapis.com/css2?family=Gabarito:wght@800&family=Chivo:wght@800&family=Golos+Text:wght@800&display=swap" rel="stylesheet">
+
+<link rel="stylesheet" href="css/tokens.css">
+<link rel="stylesheet" href="css/main.css">
+<link rel="stylesheet" href="css/summary.css">
+</head>
+<body>
+
+<header class="topnav">
+  <a class="logo" href="index.html">Plan·Do·Reflect</a>
+  <nav class="topnav-items">
+    <a class="item" href="framework.html">The Framework</a>
+    <a class="item" href="self-management.html">Self</a>
+    <a class="item" href="team.html">Team</a>
+    <a class="item" href="organization.html">Organization</a>
+    <a class="item" href="core-skills.html">Core Skills</a>
+    <a class="item active" href="references.html">References</a>
+  </nav>
+</header>
+
+<main class="sm">
+  <p class="sm-crumb"><a href="references.html">References &amp; Further Reading</a> &rsaquo; One-page summary</p>
+  <article class="sm-page">
+    <header class="sm-head">
+      <img class="sm-cover" src="images/covers/B09WY6Z8KD.jpg" data-r="https://m.media-amazon.com/images/I/41jiySKmibL._SL300_.jpg" alt="Cover of The Mountain Is You" onerror="if(this.dataset.r&amp;&amp;this.src.indexOf(this.dataset.r)===-1){this.src=this.dataset.r}else{this.style.visibility='hidden'}">
+      <div>
+        <p class="sm-eyebrow">One-page summary &middot; 2 min read</p>
+        <h1 class="page-title">The Mountain Is You</h1>
+        <p class="sm-sub">Transforming Self-Sabotage into Self-Mastery</p>
+        <p class="sm-by">by Brianna Wiest</p>
+        <p class="sm-meta">2022 &middot; 5h 44m audiobook &middot; &#9733; 4.7 Audible</p>
+      </div>
+    </header>
+
+    <section class="sm-idea"><h2>The big idea</h2><p>Self-sabotage isn&#x27;t random or a character flaw; it&#x27;s the predictable output of unresolved trauma, fear, and unmet subconscious needs. The mountain is the internal barrier you build between who you are and who you could become, and climbing it means understanding and dismantling that barrier rather than pushing harder against it.</p></section>
+
+<section class="sm-tool"><span class="sm-label">The conflicting needs lens</span><blockquote>Wiest frames self-sabotage as arising when two real but conflicting needs coexist, like a conscious desire for success versus a subconscious need for safety. The mountain forms exactly like a geological one, from two forces pushed against each other, and resolving the conflict is what dissolves the sabotage.</blockquote><p>Unlike many books in this category, this one doesn&#x27;t present a single named, branded framework; its tools are more introspective and metaphorical than procedural.</p></section>
+
+    <section class="sm-ideas"><h2>Key ideas</h2><ol><li><h3>Self-sabotage as autopilot</h3><p>Sabotaging behaviors run on autopilot to protect a deeper, often unconscious need; identifying that need is the first step to interrupting the pattern.</p></li><li><h3>Comfort vs. growth</h3><p>Growth requires deliberately leaving what&#x27;s comfortable, even when nothing is objectively wrong with it.</p></li><li><h3>Intuition vs. fear</h3><p>Intuitive insight tends to feel calm and lives in the body, while fear-based intrusive thoughts spiral, stay in the head, and escalate with attention.</p></li><li><h3>Emotional backlog</h3><p>Suppressed or unprocessed emotions accumulate and eventually surface as sabotage; the book advocates deliberately processing them rather than pushing them down.</p></li><li><h3>Microshifts</h3><p>Small daily behavioral changes are less likely to trigger fear-based resistance and more likely to compound into real transformation than dramatic overhauls.</p></li><li><h3>Trauma&#x27;s role</h3><p>The book treats unresolved trauma, not just bad habits, as a root cause of self-sabotage, arguing that healing the underlying wound does more than willpower alone.</p></li></ol></section>
+
+    <div class="sm-cols">
+      <section><h2>Try it this week</h2><ol class="sm-steps"><li>Journal on one recurring self-sabotaging pattern and ask what subconscious need it might be protecting.</li><li>Practice the intuition-vs-fear check this week: notice whether a reaction feels calm and grounded or spiraling and urgent.</li><li>Pick one area where you&#x27;re clinging to comfort and make one small, deliberate microshift away from it.</li><li>Set aside 10 minutes to sit with and name an emotion you&#x27;ve been avoiding.</li></ol></section>
+      <section><h2>Is it for you?</h2><h3 class="sm-good">Best for</h3><ul><li>Readers dealing with procrastination or self-sabotage patterns who want an introspective, journal-style read</li><li>People who like memoir-adjacent self-help with short chapters</li></ul><h3 class="sm-less">Less useful if</h3><ul><li>Readers wanting a step-by-step protocol or clinically validated framework</li><li>Anyone dealing with significant trauma who needs actual clinical support rather than a self-help book</li></ul></section>
+    </div>
+
+<section class="sm-links"><h2>On this site</h2><div class="sm-chips"><a href="motivation-procrastination.html">Motivation &amp; Procrastination</a></div></section>
+    <section class="sm-links sm-related"><h2>Pairs well with</h2><ul><li><a href="references.html#book-B00ZJFQN9I">Letting Go</a> <span>An older, more clinically-framed take on releasing the same buried emotions</span></li><li><a href="references.html#book-0593150422">Mindset</a> <span>The belief system that either reinforces or dismantles this kind of self-sabotage</span></li></ul></section>
+
+    <footer class="sm-foot">
+      <a class="sm-buy" href="https://www.amazon.com/s?k=Brianna+Wiest+The+Mountain+Is+You&amp;tag=phoenixjenn-20" target="_blank" rel="noopener">Find the book on Amazon</a>
+      <p>Original summary written for Plan &middot; Do &middot; Reflect. Prepared from the book&rsquo;s ideas and public summaries (<a href="https://fourminutebooks.com/the-mountain-is-you-summary/" target="_blank" rel="noopener">Four Minute Books summary</a>, <a href="https://www.myndlift.com/post/breaking-the-self-sabotage-cycle-the-mountain-is-you-by-brianna-wiest-summarized" target="_blank" rel="noopener">Myndlift summary</a>), not a substitute for reading it. Links may earn a commission.</p>
+    </footer>
+  </article>
+</main>
+
+<footer class="site-footer">
+  <p>&copy; 2026 Plan-Do-Reflect. <a href="references.html">References &amp; further reading</a></p>
+</footer>
+
+<div class="theme-switch" role="group" aria-label="Style direction">
+  <button data-theme="a" title="Kinetic Signal — black &amp; yellow"></button>
+  <button data-theme="b" title="Studio Ledger — dusty rose"></button>
+  <button data-theme="c" title="Bright Margin — lime"></button>
+  <a class="icon-lib-link" href="icon-library.html" title="Style Guide (internal reference)">
+    <svg width="14" height="14" viewBox="0 0 14 14" aria-hidden="true">
+      <rect x="1" y="1" width="5" height="5" rx="1" fill="currentColor"/>
+      <rect x="8" y="1" width="5" height="5" rx="1" fill="currentColor"/>
+      <rect x="1" y="8" width="5" height="5" rx="1" fill="currentColor"/>
+      <rect x="8" y="8" width="5" height="5" rx="1" fill="currentColor"/>
+    </svg>
+  </a>
+  <a class="icon-lib-link" href="notes.html" title="Notes (working drafts)">
+    <svg width="14" height="14" viewBox="0 0 14 14" aria-hidden="true">
+      <rect x="2" y="1" width="10" height="12" rx="1.5" fill="none" stroke="currentColor" stroke-width="1.3"/>
+      <line x1="4.5" y1="5" x2="9.5" y2="5" stroke="currentColor" stroke-width="1.3" stroke-linecap="round"/>
+      <line x1="4.5" y1="7.5" x2="9.5" y2="7.5" stroke="currentColor" stroke-width="1.3" stroke-linecap="round"/>
+      <line x1="4.5" y1="10" x2="7.5" y2="10" stroke="currentColor" stroke-width="1.3" stroke-linecap="round"/>
+    </svg>
+  </a>
+  <a class="icon-lib-link" href="sitemap.html" title="Sitemap (working draft)">
+    <svg width="14" height="14" viewBox="0 0 14 14" aria-hidden="true">
+      <circle cx="7" cy="2.5" r="1.8" fill="none" stroke="currentColor" stroke-width="1.3"/>
+      <circle cx="3" cy="11" r="1.8" fill="none" stroke="currentColor" stroke-width="1.3"/>
+      <circle cx="11" cy="11" r="1.8" fill="none" stroke="currentColor" stroke-width="1.3"/>
+      <path d="M7 4.3 L7 7 M7 7 L3 9.5 M7 7 L11 9.5" stroke="currentColor" stroke-width="1.3" fill="none" stroke-linecap="round"/>
+    </svg>
+  </a>
+</div>
+
+<!-- Temporary brainstorm control — only restyles the main h1 (.content h1 / .hero-title / .page-title). Remove alongside
+     the "title-font experiment" CSS block and the extra Google Fonts link once
+     a title font is picked. -->
+<div class="title-font-picker">
+  <label for="title-font-select">Title font</label>
+  <button type="button" id="title-font-prev" class="title-font-nav" aria-label="Previous title font">‹</button>
+  <select id="title-font-select">
+    <optgroup label="Round 1 — headline character">
+      <option value="gabarito">Gabarito</option>
+      <option value="chivo">Chivo</option>
+    </optgroup>
+    <optgroup label="Round 2 — Calibri-adjacent">
+      <option value="golos-text">Golos Text</option>
+    </optgroup>
+    <option value="default">Theme default</option>
+  </select>
+  <button type="button" id="title-font-next" class="title-font-nav" aria-label="Next title font">›</button>
+</div>
+
+<script src="js/theme-toggle.js" defer></script>
+<script src="js/title-font-toggle.js" defer></script>
+</body>
+</html>

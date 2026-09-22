@@ -1,0 +1,30 @@
+{
+  "asin": "B00A4OPH0U", "slug": "mastery", "read_time": "3 min read",
+  "big_idea": "Genius and natural talent are largely myths. True mastery is a learnable, near-universal process that unfolds through a predictable sequence of stages: finding your life's task, a rigorous apprenticeship, and years of deep immersion, demonstrated across history by figures like Darwin, Einstein, and Da Vinci.",
+  "tool": {"label": "The apprenticeship phase", "text": "Greene breaks the multi-year apprenticeship into three overlapping modes: deep Observation, watching and absorbing the rules of a field before acting; Skills Acquisition through repetition; and Experimentation, testing and pushing beyond what you were taught, with mentors used to accelerate the process.", "note": "This apprenticeship model sits inside Greene's larger arc: discover your life's task, apprentice for roughly 5 to 10 years, enter a creative-active phase, then reach mastery, illustrated through dozens of historical case studies."},
+  "ideas": [
+    {"title": "Life's task", "text": "Mastery starts with reconnecting to an authentic inner inclination or calling, often visible in childhood interests, before social pressure redirected you."},
+    {"title": "Apprenticeship over income", "text": "In the early stage of a career, prioritize environments that maximize learning and skill development over higher pay or status."},
+    {"title": "The value of mentors", "text": "A good mentor doesn't hand you shortcuts but streamlines your learning curve through direct, personalized feedback."},
+    {"title": "Social intelligence", "text": "Reading people and organizational dynamics accurately, rather than projecting your own assumptions, is a distinct skill masters must develop alongside technical expertise."},
+    {"title": "The creative-active phase", "text": "After apprenticeship, practitioners combine accumulated technical knowledge with looser, experimental thinking to develop a unique, original style."},
+    {"title": "The dimensional mind", "text": "With enough years of immersion, masters develop a near-instinctive grasp of their field that lets them see patterns and possibilities others miss."}
+  ],
+  "try_it": [
+    "Write down two or three recurring interests from childhood and note whether your current work or hobbies actually connect to them.",
+    "Evaluate your current job or a task this week purely by how much you're learning, separate from pay or title.",
+    "Identify one potential mentor and ask them one specific, targeted question this week.",
+    "Spend one practice session this week in pure observation mode, watching an expert without trying to perform yourself."
+  ],
+  "best_for": ["Ambitious career-builders and creatives wanting a long-horizon framework", "People who enjoy biography-driven nonfiction"],
+  "less_useful": ["Readers wanting quick tactical tips or short-term productivity hacks", "Those skeptical of broad claims drawn mainly from historical anecdote rather than controlled research"],
+  "site_links": [{"label": "Motivation & Procrastination", "href": "motivation-procrastination.html"}],
+  "related": [
+    {"asin": "B00FPMTFRM", "why": "A narrower tactic for protecting the focus mastery requires"},
+    {"asin": "B082VK6Q8G", "why": "A wider menu of tactics from high performers, to test against this book's slower arc"}
+  ],
+  "sources": [
+    {"label": "Four Minute Books summary", "href": "https://fourminutebooks.com/mastery-summary/"},
+    {"label": "Readingraphics book summary", "href": "https://readingraphics.com/book-summary-mastery-robert-greene/"}
+  ]
+}

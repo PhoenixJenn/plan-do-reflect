@@ -1,0 +1,30 @@
+{
+  "asin": "B01G9E9C7M", "slug": "hell-week", "read_time": "2 min read",
+  "big_idea": "A single, deliberately structured week of extreme discipline, modeled loosely on the grueling Hell Week of Navy SEAL training, can act as a catalyst that resets your habits and proves you're capable of far more than your comfort zone suggests.",
+  "tool": {"label": "The Hell Week challenge", "text": "For seven consecutive days, commit to non-negotiable baseline rules: wake at 5:00 a.m. every day including weekends, lights out at 10:00 p.m., only healthy food, no TV or social media during work hours, and at least one hour of exercise daily, layered with your own specific goal for the week.", "note": "Larssen is a Norwegian mental-performance coach who has worked with Olympic athletes and executives; the book is more a personal-discipline challenge than an academically grounded framework, so read its claims as coaching rather than research."},
+  "ideas": [
+    {"title": "Structure without purpose is empty", "text": "The rigid rules only work if paired with a clearly defined personal goal you're using the week to pursue."},
+    {"title": "Adversity as fuel", "text": "Discomfort and difficulty are reframed as opportunities and growth signals rather than problems to avoid."},
+    {"title": "Radical consistency beats motivation", "text": "Sticking to the same wake time, diet, and exercise every day, weekends included, removes decision fatigue and builds momentum."},
+    {"title": "Eliminate escape hatches", "text": "Cutting off TV and social media during the week removes the passive-consumption habits that normally absorb willpower and time."},
+    {"title": "One week can reframe a life", "text": "Because a typical life is roughly 4,000 weeks long, Larssen argues one intensely disciplined week can permanently shift your self-image and standards."},
+    {"title": "Build a support system", "text": "Identify people who will hold you accountable and help you sustain the changes after the week ends."}
+  ],
+  "try_it": [
+    "Pick one specific, personal goal for a 7-day challenge before you start, not just be disciplined, something concrete.",
+    "Set a fixed wake time for the next 7 days, including the weekend, and don't move it.",
+    "Cut TV and social media entirely during your designated work hours for one week and track how much extra time appears.",
+    "Commit to one hour of exercise daily for a week and note the effect on your energy and mood at day 7."
+  ],
+  "best_for": ["People who respond well to intense, short-burst challenges and military-style discipline", "Readers looking for a jolt to break out of a rut"],
+  "less_useful": ["People who need gradual, sustainable habit-building rather than an all-or-nothing sprint", "Anyone with health or scheduling constraints that make the rigid rules unrealistic"],
+  "site_links": [{"label": "Motivation & Procrastination", "href": "motivation-procrastination.html"}, {"label": "Habit-Building", "href": "habit-building.html"}],
+  "related": [
+    {"asin": "B06XKRF7TD", "why": "A gentler version of the same daily-discipline-first philosophy"},
+    {"asin": "1982648066", "why": "The longer-horizon case for why small daily consistency compounds"}
+  ],
+  "sources": [
+    {"label": "Publisher page", "href": "https://www.simonandschuster.com/books/Hell-Week/Erik-Bertrand-Larssen/9781476783369"},
+    {"label": "Reader summary and review", "href": "https://sergushkin.medium.com/book-of-erik-bertrand-larssen-hell-week-aa481ef662b1"}
+  ]
+}

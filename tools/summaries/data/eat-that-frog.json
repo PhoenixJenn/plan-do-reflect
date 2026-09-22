@@ -1,0 +1,30 @@
+{
+  "asin": "B08NMQFKFD", "slug": "eat-that-frog", "read_time": "2 min read",
+  "big_idea": "Identify your single most important, most difficult task each day, your frog, and do it first, before anything else. Tackling the biggest challenge early builds momentum and eliminates the procrastination that drags down everything else.",
+  "tool": {"label": "The ABCDE method", "text": "Label every task A, serious consequences if not done, B, should do with mild consequences, C, nice to do with no consequences, D, delegate, or E, eliminate, then work strictly in order, never touching a B task until all A tasks are finished.", "note": "One of 21 techniques in the book and Tracy's most widely cited system for daily prioritization; it requires honest self-assessment of which tasks are truly A priority."},
+  "ideas": [
+    {"title": "Eat the frog first", "text": "Do your hardest, most important task at the start of the day when willpower is highest."},
+    {"title": "Plan each day in advance", "text": "Make tomorrow's task list tonight so you start the day with clarity instead of drifting."},
+    {"title": "The 80/20 rule", "text": "Roughly 20% of your tasks will account for 80% of your results, so find and prioritize those."},
+    {"title": "Single-handle every task", "text": "Once you start your top task, stay with it without interruption until it's complete."},
+    {"title": "Slice and dice the task", "text": "Break large, intimidating projects into small chunks to lower the barrier to starting."},
+    {"title": "Create large chunks of time", "text": "Protect long, uninterrupted blocks for deep, high-value work rather than fragmenting your day."}
+  ],
+  "try_it": [
+    "Tonight, write tomorrow's task list and label each item A through E before you go to bed.",
+    "Pick your single frog for tomorrow and schedule it as the very first thing you do at work.",
+    "Take one large, stalled project and slice it into 15-minute sub-tasks; do just one slice.",
+    "Identify one recurring C task, nice to do with no real consequence, and eliminate it from your week entirely."
+  ],
+  "best_for": ["Chronic procrastinators who need a simple daily system", "People drowning in long to-do lists"],
+  "less_useful": ["Readers who prefer psychological, root-cause explanations of procrastination", "Those who already use a robust task-management system, where the tactics can feel basic"],
+  "site_links": [{"label": "Motivation & Procrastination", "href": "motivation-procrastination.html"}, {"label": "Time Management", "href": "time-management.html"}],
+  "related": [
+    {"asin": "B01B6WSMHI", "why": "A fuller system for capturing and organizing everything competing for your attention"},
+    {"asin": "B06VX22V89", "why": "A faster trigger for starting the task you're avoiding right now"}
+  ],
+  "sources": [
+    {"label": "Four Minute Books summary", "href": "https://fourminutebooks.com/eat-that-frog-summary/"},
+    {"label": "Shortform ABCDE method explainer", "href": "https://www.shortform.com/blog/abcde-method/"}
+  ]
+}

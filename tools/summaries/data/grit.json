@@ -1,0 +1,30 @@
+{
+  "asin": "B01D3AC5BA", "slug": "grit", "read_time": "2 min read",
+  "big_idea": "Long-term achievement depends less on innate talent than on grit, the combination of sustained passion and perseverance toward long-term goals, and grit can be deliberately cultivated.",
+  "tool": {"label": "The grit formula", "text": "Duckworth models achievement in two steps: Talent times Effort equals Skill, then Skill times Effort equals Achievement, meaning effort counts twice, so it mathematically outweighs raw talent in determining results.", "note": "This is Duckworth's own simplified model built to make a psychological point vividly, not a peer-reviewed formula; critics note it's illustrative rather than literally tested."},
+  "ideas": [
+    {"title": "Grit equals passion plus perseverance", "text": "Sustained, focused commitment to a single long-term goal matters more than raw giftedness."},
+    {"title": "The four psychological assets", "text": "Gritty people share interest, genuine enjoyment; practice, deliberate daily improvement; purpose, belief the work matters to others; and hope, belief that effort can improve outcomes after setbacks."},
+    {"title": "Deliberate practice", "text": "Grit is expressed through targeted, effortful practice on weaknesses with immediate feedback, not just putting in hours."},
+    {"title": "Talent is overrated, relatively", "text": "People consistently overvalue naturals over hard workers even while claiming to believe the opposite."},
+    {"title": "Grit can be grown", "text": "Through both cultivating interest, practice, purpose, and hope from the inside, and through culture, mentors, and demanding-but-supportive parenting from the outside."},
+    {"title": "The hard thing rule", "text": "Duckworth's own family rule: everyone must do one hard, deliberately practiced thing and can't quit mid-commitment period, but can choose what that thing is."}
+  ],
+  "try_it": [
+    "Write down your single long-term goal and one hard thing you'll commit to for the next 3 months without quitting.",
+    "Schedule 20 minutes of deliberate practice this week on the specific weak point of a skill you're building, with a way to get feedback.",
+    "Write one sentence connecting your current work to how it helps someone else.",
+    "Track one small daily win related to your goal for 7 days to build the habit of seeing effort produce results."
+  ],
+  "best_for": ["People chasing a long-term goal who need motivation to keep going", "Parents, coaches, and managers interested in developing perseverance in others"],
+  "less_useful": ["Readers wanting a general anti-procrastination or daily productivity toolkit rather than long-horizon commitment", "Skeptics of self-help psychology, since the book's core research has drawn published academic criticism about effect size and predictive power"],
+  "site_links": [{"label": "Motivation & Procrastination", "href": "motivation-procrastination.html"}],
+  "related": [
+    {"asin": "B09JYDKRNW", "why": "A closer look at what genuine toughness requires, versus grit's passion-and-perseverance frame"},
+    {"asin": "0593150422", "why": "The belief system that underlies whether effort feels worth sustaining"}
+  ],
+  "sources": [
+    {"label": "Four Minute Books summary", "href": "https://fourminutebooks.com/grit-summary/"},
+    {"label": "NPR coverage of academic critique", "href": "https://www.npr.org/sections/ed/2016/05/25/479172868/angela-duckworth-responds-to-a-new-critique-of-grit"}
+  ]
+}

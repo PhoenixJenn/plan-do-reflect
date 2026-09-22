@@ -1,0 +1,30 @@
+{
+  "asin": "B0C1TFR8JL", "slug": "wherever-you-go-there-you-are", "read_time": "2 min read",
+  "big_idea": "Mindfulness, paying attention on purpose, in the present moment, without judgment, is available to anyone in ordinary daily life, not just seated meditators. Kabat-Zinn frames it as a way of being rather than a technique for achieving anything.",
+  "tool": {"label": "The seven attitudinal foundations", "text": "Kabat-Zinn organizes the practice around seven attitudes to cultivate together: non-judging, patience, beginner's mind, trust, non-striving, acceptance, and letting go.", "note": "These same seven attitudes first appeared in his clinical book Full Catastrophe Living and are restated here as short, personal essays rather than a formal checklist."},
+  "ideas": [
+    {"title": "Present-moment awareness", "text": "Most people live filtered through memories, plans, and mental commentary, missing the actual experience happening right now."},
+    {"title": "Non-doing", "text": "Mindfulness isn't about achieving a state or fixing yourself; it's about stopping the constant doing mode and simply being aware."},
+    {"title": "The breath as anchor", "text": "The breath is a steady point of attention to return to whenever the mind wanders, in formal practice or daily life."},
+    {"title": "Autopilot awareness", "text": "Habitual, automatic behavior, like walking, eating, or listening, can be interrupted by deliberately noticing bodily sensations and surroundings."},
+    {"title": "Patience as practice", "text": "Losing your patience compounds a loss: don't let circumstances take your mind after they've already taken your time."},
+    {"title": "No single right method", "text": "Meditation has no fixed formula; consistency and honest attention matter more than duration or technique."}
+  ],
+  "try_it": [
+    "Pick one routine activity this week, like climbing stairs or washing dishes, and do it once a day with full attention instead of autopilot.",
+    "Sit for 2 to 5 minutes each morning, following your breath and gently noting when your mind wanders, without judging the wandering.",
+    "During one unavoidable wait this week, practice staying present instead of mentally fighting the wait.",
+    "Pick one of the seven attitudes, like beginner's mind, and notice a moment each day you could approach as if for the first time."
+  ],
+  "best_for": ["Meditation beginners wanting an approachable entry point", "Anyone wanting to build reflection into ordinary daily moments rather than a formal practice"],
+  "less_useful": ["Readers wanting structured step-by-step MBSR instruction, which is more Full Catastrophe Living's territory", "Readers who prefer secular, clinical framing over reflective, essay-style prose"],
+  "site_links": [{"label": "Reflection Practice", "href": "reflection-practice.html"}, {"label": "Focus & Deep Work", "href": "focus-deep-work.html"}],
+  "related": [
+    {"asin": "B08N5C3QLB", "why": "A more structured, technique-by-technique companion for building the same practice"},
+    {"asin": "B0189PX1RQ", "why": "How sustained, undistracted attention pays off in work, not just reflection"}
+  ],
+  "sources": [
+    {"label": "Four Minute Books summary", "href": "https://fourminutebooks.com/wherever-you-go-there-you-are-summary/"},
+    {"label": "Shortform overview", "href": "https://www.shortform.com/blog/wherever-you-go-there-you-are-jon-kabat-zinn/"}
+  ]
+}

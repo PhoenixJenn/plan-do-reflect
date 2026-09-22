@@ -1,0 +1,30 @@
+{
+  "asin": "B078KNWTHK", "slug": "the-motivation-myth", "read_time": "2 min read",
+  "big_idea": "Motivation is not a prerequisite for success but a byproduct of it. Haden argues high achievers don't wait to feel inspired, they start despite the absence of motivation, and small visible wins generate the momentum that keeps them going.",
+  "tool": {"label": "Process goals, not outcome goals", "text": "Instead of fixating on a distant outcome, set a goal once and then largely forget it, concentrating daily effort on a specific, repeatable process so consistent small wins build the momentum that outcome-focus can't.", "note": "Haden frames this as what separates people who look motivated from people who actually finish things: the process, not the initial spark of inspiration, is what's sustainable."},
+  "ideas": [
+    {"title": "Motivation follows action", "text": "Preparation and starting, even reluctantly, build enough early confidence to cross the first hurdle; motivation shows up afterward, not before."},
+    {"title": "The reward-loop effect", "text": "Every small, visible win triggers the brain's reward center, creating a positive feedback loop that pulls you toward the next step without relying on willpower."},
+    {"title": "Serial achievement over single-minded specialization", "text": "Haden argues most successful people build competence in a domain over roughly 5 to 7 years, then move on to a new challenge."},
+    {"title": "Decision minimization", "text": "Turn recurring choices into fixed routines to save willpower for the moments that matter."},
+    {"title": "Work your number", "text": "Treat success as probabilistic; increase your rate of attempts rather than trying to perfect your strategy in advance."},
+    {"title": "Share routines, not goals", "text": "Talking about your goal too early triggers a satisfaction response that can undercut follow-through; talk about your daily process instead."}
+  ],
+  "try_it": [
+    "Pick one goal you've stalled on and rewrite it as a daily process rather than an outcome, tracking only the process this week.",
+    "Start one task today specifically without waiting to feel motivated; notice whether momentum shows up afterward.",
+    "Identify one recurring decision and turn it into a fixed, automatic routine to remove that daily choice.",
+    "Instead of announcing your big goal to friends, tell one person your process instead and ask them to check in."
+  ],
+  "best_for": ["Entrepreneurs and people in early-stage grinds, startups, fitness goals, creative projects", "Chronic goal-abandoners who keep waiting to feel ready"],
+  "less_useful": ["Readers wanting research-heavy, citation-driven arguments, since Haden leans on anecdotes and his own journalism experience", "People whose motivation struggles stem from clinical factors like depression or ADHD, which the book doesn't really address"],
+  "site_links": [{"label": "Motivation & Procrastination", "href": "motivation-procrastination.html"}],
+  "related": [
+    {"asin": "B06VX22V89", "why": "A faster trigger for the same start-before-you-feel-ready principle"},
+    {"asin": "1524779261", "why": "The systems-and-cues mechanics behind turning a process into a lasting habit"}
+  ],
+  "sources": [
+    {"label": "Growth Habit summary and review", "href": "https://growthabit.com/the-motivation-myth-book-summary-review-notes/"},
+    {"label": "Blinkist summary", "href": "https://www.blinkist.com/en/books/the-motivation-myth-en"}
+  ]
+}

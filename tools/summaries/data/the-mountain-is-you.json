@@ -1,0 +1,30 @@
+{
+  "asin": "B09WY6Z8KD", "slug": "the-mountain-is-you", "read_time": "2 min read",
+  "big_idea": "Self-sabotage isn't random or a character flaw; it's the predictable output of unresolved trauma, fear, and unmet subconscious needs. The mountain is the internal barrier you build between who you are and who you could become, and climbing it means understanding and dismantling that barrier rather than pushing harder against it.",
+  "tool": {"label": "The conflicting needs lens", "text": "Wiest frames self-sabotage as arising when two real but conflicting needs coexist, like a conscious desire for success versus a subconscious need for safety. The mountain forms exactly like a geological one, from two forces pushed against each other, and resolving the conflict is what dissolves the sabotage.", "note": "Unlike many books in this category, this one doesn't present a single named, branded framework; its tools are more introspective and metaphorical than procedural."},
+  "ideas": [
+    {"title": "Self-sabotage as autopilot", "text": "Sabotaging behaviors run on autopilot to protect a deeper, often unconscious need; identifying that need is the first step to interrupting the pattern."},
+    {"title": "Comfort vs. growth", "text": "Growth requires deliberately leaving what's comfortable, even when nothing is objectively wrong with it."},
+    {"title": "Intuition vs. fear", "text": "Intuitive insight tends to feel calm and lives in the body, while fear-based intrusive thoughts spiral, stay in the head, and escalate with attention."},
+    {"title": "Emotional backlog", "text": "Suppressed or unprocessed emotions accumulate and eventually surface as sabotage; the book advocates deliberately processing them rather than pushing them down."},
+    {"title": "Microshifts", "text": "Small daily behavioral changes are less likely to trigger fear-based resistance and more likely to compound into real transformation than dramatic overhauls."},
+    {"title": "Trauma's role", "text": "The book treats unresolved trauma, not just bad habits, as a root cause of self-sabotage, arguing that healing the underlying wound does more than willpower alone."}
+  ],
+  "try_it": [
+    "Journal on one recurring self-sabotaging pattern and ask what subconscious need it might be protecting.",
+    "Practice the intuition-vs-fear check this week: notice whether a reaction feels calm and grounded or spiraling and urgent.",
+    "Pick one area where you're clinging to comfort and make one small, deliberate microshift away from it.",
+    "Set aside 10 minutes to sit with and name an emotion you've been avoiding."
+  ],
+  "best_for": ["Readers dealing with procrastination or self-sabotage patterns who want an introspective, journal-style read", "People who like memoir-adjacent self-help with short chapters"],
+  "less_useful": ["Readers wanting a step-by-step protocol or clinically validated framework", "Anyone dealing with significant trauma who needs actual clinical support rather than a self-help book"],
+  "site_links": [{"label": "Motivation & Procrastination", "href": "motivation-procrastination.html"}],
+  "related": [
+    {"asin": "B00ZJFQN9I", "why": "An older, more clinically-framed take on releasing the same buried emotions"},
+    {"asin": "0593150422", "why": "The belief system that either reinforces or dismantles this kind of self-sabotage"}
+  ],
+  "sources": [
+    {"label": "Four Minute Books summary", "href": "https://fourminutebooks.com/the-mountain-is-you-summary/"},
+    {"label": "Myndlift summary", "href": "https://www.myndlift.com/post/breaking-the-self-sabotage-cycle-the-mountain-is-you-by-brianna-wiest-summarized"}
+  ]
+}

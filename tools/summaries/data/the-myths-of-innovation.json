@@ -1,0 +1,30 @@
+{
+  "asin": "1705223486", "slug": "the-myths-of-innovation", "read_time": "2 min read",
+  "big_idea": "Popular stories about how innovation happens, sudden epiphanies, lone geniuses, best-idea-always-wins, are dramatically oversimplified myths. Real innovation is messy, collaborative, incremental, and driven as much by persuasion, timing, and problem-framing as by raw idea quality.",
+  "tool": {"label": "The ten myths framework", "text": "Berkun structures the book around debunking ten specific myths, like the Myth of Epiphany and the Myth of the Lone Inventor, using each as a lens to show what actually drives successful innovation: deep immersion, incubation, collaboration, and champion-style persistence.", "note": "Not a single how-to formula but a myth-by-myth debunking structure; Berkun explicitly resists offering a universal innovation method, arguing no reliable innovation pipeline exists."},
+  "ideas": [
+    {"title": "Myth of epiphany", "text": "Breakthrough ideas feel sudden but actually result from long periods of immersion and incubation, not a single flash of insight."},
+    {"title": "Myth of the lone inventor", "text": "Celebrated solo geniuses relied heavily on teams, predecessors, and existing ideas that history later erased from the story."},
+    {"title": "Myth that the best idea wins", "text": "Adoption depends on marketing, politics, timing, and ease of implementation, not merit alone."},
+    {"title": "Ideas are not scarce, courage is", "text": "Good ideas are common; what's rare is the willingness to champion an idea despite social resistance and risk of failure."},
+    {"title": "Problem framing is the real work", "text": "How a problem is defined largely determines the quality of the solution, so effective innovators spend disproportionate time on framing."},
+    {"title": "Innovation isn't always good", "text": "New innovations create winners and losers unpredictably, so progress should be evaluated, not assumed to be automatically positive."}
+  ],
+  "try_it": [
+    "Pick one idea you've dismissed as impossible and spend 20 minutes reframing the problem statement instead of solving it.",
+    "Write down the real, unglamorous origin story of one genius innovation you admire and note how many people it depended on.",
+    "Before your next brainstorm, block out incubation time; step away from the problem for a day before deciding it's unsolvable.",
+    "Practice pitching one of your ideas to a skeptical colleague, focusing on persuasion and timing rather than just explaining the idea's merits."
+  ],
+  "best_for": ["Innovation and product teams frustrated by genius-myth pressure", "Managers wanting a realistic, historically grounded view of how change happens in organizations"],
+  "less_useful": ["Readers wanting a step-by-step innovation methodology or checklist", "Those looking for motivational hero-narratives rather than myth-busting analysis"],
+  "site_links": [{"label": "Motivation & Procrastination", "href": "motivation-procrastination.html"}],
+  "related": [
+    {"asin": "B0036FLXLQ", "why": "A similarly contrarian case against conventional planning and process"},
+    {"asin": "0593394763", "why": "The mindset shift, rethinking your own certainty, that underlies good problem framing"}
+  ],
+  "sources": [
+    {"label": "Author's own summary of the ten myths", "href": "https://scottberkun.com/2013/ten-myths-of-innnovation/"},
+    {"label": "Book summary with the eight innovation challenges", "href": "https://techratchet.com/2021/07/28/book-summary-the-myths-of-innovation-by-scott-berkun/"}
+  ]
+}

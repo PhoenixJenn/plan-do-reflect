@@ -1,0 +1,30 @@
+{
+  "asin": "0593394763", "slug": "think-again", "read_time": "2 min read",
+  "big_idea": "In a fast-changing world, the ability to doubt what you know, question your opinions, and update your beliefs matters more than raw intelligence or conviction. Grant argues most people default to defending their existing views rather than rethinking them.",
+  "tool": {"label": "The scientist mindset", "text": "Instead of arguing like a preacher defending sacred beliefs, a prosecutor attacking others' views to win, or a politician telling people what they want to hear, think like a scientist: treat your opinions as hypotheses to test, actively seek disconfirming evidence, and update your views when the evidence warrants it.", "note": "Grant pairs this with confident humility, staying confident in your ability to figure things out while staying humble about your current conclusions, and extends the idea to persuasion via motivational-interviewing-style questioning."},
+  "ideas": [
+    {"title": "Preacher, prosecutor, politician, scientist", "text": "Four mental modes people slip into when their beliefs are challenged; only the scientist mode treats a belief as testable rather than something to defend, attack, or spin."},
+    {"title": "Confirmation and desirability bias", "text": "We tend to see what we expect to see and what we want to see, which locks us into an overconfidence cycle that resists updating."},
+    {"title": "Confident humility", "text": "Real confidence pairs trust in your ability to grow with humility about your present knowledge, the opposite of both arrogance and self-doubt paralysis."},
+    {"title": "Task conflict vs. relationship conflict", "text": "Productive disagreement over ideas improves decisions; personal conflict shuts down rethinking, so good teams cultivate the former and defuse the latter."},
+    {"title": "Motivational interviewing for persuasion", "text": "Asking open-ended questions and letting people articulate their own reasons for change is more effective at shifting minds than presenting facts."},
+    {"title": "Psychological safety enables rethinking", "text": "Groups and organizations rethink and learn faster when people feel safe admitting uncertainty or being wrong without fear of punishment."}
+  ],
+  "try_it": [
+    "Pick one strongly held opinion and write down what evidence would actually change your mind about it.",
+    "In your next disagreement, ask two open-ended questions before stating your own position.",
+    "Identify one belief you hold mainly because of where or how you grew up, and consider whether it still holds up on its own merits.",
+    "Practice saying I don't know or I changed my mind out loud once this week when it's true."
+  ],
+  "best_for": ["People in leadership, negotiation, or persuasion-heavy roles", "Anyone wanting to reduce overconfidence and improve decision-making"],
+  "less_useful": ["Readers wanting quick tactical productivity tips rather than a mindset deep-dive", "Those already well versed in cognitive bias literature, who may find some ground familiar"],
+  "site_links": [{"label": "Motivation & Procrastination", "href": "motivation-procrastination.html"}],
+  "related": [
+    {"asin": "B0C5Y44LWW", "why": "The same author's companion book on developing character skills and potential"},
+    {"asin": "x-rethinking-positive-thinking", "why": "A similarly research-grounded challenge to comfortable but unproductive thinking habits"}
+  ],
+  "sources": [
+    {"label": "Four Minute Books summary", "href": "https://fourminutebooks.com/think-again-summary/"},
+    {"label": "ReadingGraphics breakdown", "href": "https://readingraphics.com/book-summary-think-again-adam-grant/"}
+  ]
+}

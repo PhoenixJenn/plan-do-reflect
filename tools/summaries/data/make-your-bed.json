@@ -1,0 +1,30 @@
+{
+  "asin": "B06XKRF7TD", "slug": "make-your-bed", "read_time": "2 min read",
+  "big_idea": "Admiral William McRaven, drawing on Navy SEAL training, argues that changing the world, or your own life, starts with small, disciplined daily actions and requires leaning on others: life is a small rubber boat that can't be paddled alone.",
+  "tool": {"label": "The ten lessons from SEAL training", "text": "The book is structured as ten short, image-driven lessons drawn directly from Basic Underwater Demolition and SEAL training, each ending with a variation of if you want to change the world: make your bed, find someone to help you paddle, don't ever, ever ring the bell.", "note": "Originally a 2014 University of Texas commencement speech that went viral before being expanded into the book."},
+  "ideas": [
+    {"title": "Make your bed", "text": "Completing one small task first thing every morning builds momentum and gives you an accomplishment to return to even if the rest of the day goes badly."},
+    {"title": "Find someone to help you paddle", "text": "SEAL training is done in seven-man boat crews; no meaningful goal is achieved solo, so build and lean on a team."},
+    {"title": "Only the size of your heart matters", "text": "Physical size or credentials matter less than determination; the smallest, least impressive trainees often outlast bigger, stronger ones."},
+    {"title": "Get over being a sugar cookie", "text": "Sometimes life is unfair and you'll be set back for reasons outside your control; you have to keep going anyway."},
+    {"title": "Don't back down from the sharks", "text": "Facing real danger or intimidating obstacles requires confronting fear head-on with preparation and calm rather than panic."},
+    {"title": "Never, ever ring the bell", "text": "In SEAL training, ringing a bell means quitting; giving up is the only true failure, and persistence through hardship is what separates people who succeed."}
+  ],
+  "try_it": [
+    "Make your bed, or complete one small fixed task, first thing tomorrow morning, every day this week.",
+    "Identify one goal you've been trying to do solo and ask one specific person for help with it this week.",
+    "When something unfair happens this week, consciously choose to keep moving instead of dwelling on the injustice.",
+    "Write down one moment from your past week where you were tempted to quit, and note what you did instead."
+  ],
+  "best_for": ["Readers wanting quick, motivational, story-driven inspiration", "Anyone facing a rough patch who wants simple resilience reminders"],
+  "less_useful": ["Readers wanting deep strategic or psychological frameworks", "Anyone looking for nuance beyond military-inspirational anecdotes"],
+  "site_links": [{"label": "Motivation & Procrastination", "href": "motivation-procrastination.html"}, {"label": "Habit-Building", "href": "habit-building.html"}],
+  "related": [
+    {"asin": "B01G9E9C7M", "why": "A more intense, week-long version of the same discipline-first philosophy"},
+    {"asin": "1982648066", "why": "The longer-horizon case for why small daily wins compound"}
+  ],
+  "sources": [
+    {"label": "Four Minute Books summary", "href": "https://fourminutebooks.com/make-your-bed-summary/"},
+    {"label": "10 lessons breakdown", "href": "https://blog.journey.cloud/make-your-bed-by-william-h-mcraven-10-lessons-that-can-change-your-life/"}
+  ]
+}

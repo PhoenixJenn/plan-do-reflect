@@ -1,0 +1,30 @@
+{
+  "asin": "0593150422", "slug": "mindset", "read_time": "2 min read",
+  "big_idea": "People's core belief about whether abilities are fixed or can be developed, their mindset, shapes how they respond to challenge and failure. A growth mindset tends to produce more resilience, learning, and long-run achievement than a fixed mindset.",
+  "tool": {"label": "Fixed mindset vs. growth mindset", "text": "In a fixed mindset, people believe intelligence is a static trait, so they avoid challenges that risk exposing inadequacy and treat effort itself as a sign of low ability. In a growth mindset, people believe abilities can be developed through effort and better strategies, so setbacks become information rather than a verdict on their worth.", "note": "Dweck illustrates the framework across sports, business, such as Enron's talent-obsessed culture, and parenting, showing how praising ability versus effort shapes a child's mindset."},
+  "ideas": [
+    {"title": "Praise the process, not the person", "text": "Praising ability tends to instill a fixed mindset in children, while praising effort and strategy supports a growth mindset."},
+    {"title": "Failure as data, not identity", "text": "In a growth mindset, a setback is information about what to try next, not evidence about your fundamental worth."},
+    {"title": "The talent myth in organizations", "text": "Companies that obsess over identifying and rewarding innate talent over developed skill can foster brittle cultures that hide problems instead of solving them."},
+    {"title": "Mindset in relationships", "text": "Fixed-mindset partners expect relationships to just work naturally if they're right for each other; growth-minded partners treat relationship skills as things to build together."},
+    {"title": "Redefining success", "text": "Fixed-mindset success is about proving yourself; growth-mindset success is about stretching your abilities and learning, regardless of the immediate outcome."},
+    {"title": "Mindsets are learnable", "text": "Mindset itself isn't fixed; people can shift from fixed to more growth-oriented thinking with awareness and practice."}
+  ],
+  "try_it": [
+    "Catch yourself using fixed-mindset language this week, like I'm just not a math person, and reframe it as I haven't learned this yet.",
+    "After your next setback, write down one concrete lesson or strategy adjustment instead of a judgment about your ability.",
+    "If you mentor someone, practice praising their effort or strategy on a specific task rather than praising them as smart or talented.",
+    "Pick one skill you've avoided because you weren't good at it and spend 20 minutes practicing it with a beginner's mindset."
+  ],
+  "best_for": ["Parents, teachers, and managers shaping how others respond to failure", "Anyone wanting a lens for handling setbacks and building resilience"],
+  "less_useful": ["Readers wanting rigorous, unqualified science", "Anyone expecting the dramatic real-world effect sizes often implied by popular coverage of the book"],
+  "site_links": [{"label": "Motivation & Procrastination", "href": "motivation-procrastination.html"}],
+  "related": [
+    {"asin": "B01D3AC5BA", "why": "A complementary look at what sustains effort once you believe it's worth making"},
+    {"asin": "B0C5Y44LWW", "why": "How growth-oriented belief translates into concrete, learnable character skills"}
+  ],
+  "sources": [
+    {"label": "Shortform book summary", "href": "https://www.shortform.com/summary/mindset-the-new-psychology-of-success-summary-carol-dweck"},
+    {"label": "Replication-crisis analysis of growth mindset research", "href": "https://atticusli.com/replication-crisis/growth-mindset/"}
+  ]
+}

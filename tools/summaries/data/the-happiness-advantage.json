@@ -1,0 +1,30 @@
+{
+  "asin": "B0041NZRDC", "slug": "the-happiness-advantage", "read_time": "2 min read",
+  "big_idea": "Happiness is a precursor to success, not a reward for it. Achor argues that cultivating positive emotion first raises brain performance across nearly every metric, productivity, creativity, resilience, which is what actually drives achievement.",
+  "tool": {"label": "The Zorro Circle", "text": "When you feel overwhelmed or out of control, deliberately shrink your ambitions down to a small, fully manageable circle you can master completely, then expand that circle outward step by step as confidence and competence build.", "note": "The name comes from a training scene in The Mask of Zorro, where a mentor confines his student's world to a small circle until he masters that space; Achor uses it to explain how small wins restore control after setbacks."},
+  "ideas": [
+    {"title": "Happiness precedes success", "text": "Achor cites research showing people who started happier went on to achieve more roughly 18 months later, reversing the usual assumption that success creates happiness."},
+    {"title": "The Tetris effect", "text": "Just as marathon Tetris players start seeing falling blocks everywhere, the brain can be trained via daily gratitude practice to automatically scan for opportunity instead of threats."},
+    {"title": "The ABCD model", "text": "A structured way to reframe adversity: Adversity, the event; Belief, your interpretation of it; Consequence, the resulting feelings; and Disputation, actively challenging whether your belief is actually true."},
+    {"title": "Falling up", "text": "After failure, consciously build an empowering alternate story about what happened rather than letting a disempowering narrative take hold."},
+    {"title": "The 20-second rule", "text": "Lower the activation energy for good habits and raise it for bad ones, like keeping running shoes by the door, so the path of least resistance becomes the one you want."},
+    {"title": "Social investment", "text": "Strong relationships are one of the best predictors of resilience under stress, so time spent on relationships should be treated as a performance lever, not a distraction."}
+  ],
+  "try_it": [
+    "Each night this week, write down three specific things that went well that day.",
+    "Pick one overwhelming goal and draw your own Zorro Circle: the smallest version of it you can fully control, and finish that first.",
+    "Next time something goes wrong, run it through the ABCD model on paper.",
+    "Reduce the activation energy on one good habit and increase it on one bad habit this week."
+  ],
+  "best_for": ["Workplace and team leaders wanting a research-backed case for positivity", "Readers who like a mix of psychology studies and practical habit tweaks"],
+  "less_useful": ["Readers wanting rigorous, footnoted academic psychology, since it's a popular-business-book treatment of the research", "Those already deep into positive-psychology literature who want new findings rather than a synthesis"],
+  "site_links": [{"label": "Motivation & Procrastination", "href": "motivation-procrastination.html"}],
+  "related": [
+    {"asin": "B076B2DTZ6", "why": "The same author's follow-up, extending the research from individuals to teams"},
+    {"asin": "B0C1TFR8JL", "why": "A slower, more reflective practice for building the same present-focused attention"}
+  ],
+  "sources": [
+    {"label": "Four Minute Books summary", "href": "https://fourminutebooks.com/the-happiness-advantage-summary/"},
+    {"label": "Shortform, the 7 principles", "href": "https://www.shortform.com/blog/the-happiness-advantage-7-principles/"}
+  ]
+}

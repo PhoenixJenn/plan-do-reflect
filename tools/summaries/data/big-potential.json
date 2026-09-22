@@ -1,0 +1,30 @@
+{
+  "asin": "B076B2DTZ6", "slug": "big-potential", "read_time": "2 min read",
+  "big_idea": "Small potential, success pursued in isolation, is capped. Big potential is unlocked by deliberately building the people and ecosystem around you, since achievement, happiness, and well-being rise together only through connection, not competition.",
+  "tool": {"label": "The SEEDS framework", "text": "Five practices for growing big potential: Surround yourself with positive, complementary people; Expand your power by giving it away; Enhance others through genuine praise; Defend your team against negativity; and Sustain gains through a virtuous cycle of reinforcement.", "note": "Illustrated with case studies like Kaiser Permanente's program empowering front-line receptionists to flag cancer-screening gaps, which reportedly helped save hundreds of lives."},
+  "ideas": [
+    {"title": "Small potential has a ceiling", "text": "Chasing individual achievement alone caps how high you can rise, since you're limited to your own resources and energy."},
+    {"title": "Assists beat scoring", "text": "Research Achor cites found basketball assists predict team wins more reliably than individual point totals: collaboration outperforms solo effort."},
+    {"title": "Leadership from any seat", "text": "You don't need a title to expand influence; empowering people below or beside you multiplies impact more than hoarding authority."},
+    {"title": "Praise redirected builds trust", "text": "Crediting the team, and even competitors, rather than self-promoting, is shown in one case to be what actually won a partnership."},
+    {"title": "Cognitive diversity wins", "text": "Teams that combine different thinking styles consistently outperform more homogeneous expert teams."},
+    {"title": "Motivation fades without reinforcement", "text": "A single burst of inspiration dissipates fast unless you build a support system that sustains it."}
+  ],
+  "try_it": [
+    "Identify one energy-draining relationship or habit this week and consciously limit exposure to it.",
+    "Give one piece of specific, public credit to a teammate or collaborator instead of claiming an individual win.",
+    "Hand off one small piece of ownership or decision-making to someone else on your team this week.",
+    "After learning something useful, teach or share it with one other person within 48 hours to lock in the gain."
+  ],
+  "best_for": ["Managers and team leads", "People whose growth feels capped by going it alone"],
+  "less_useful": ["Readers wanting rigorous, citation-heavy research; it leans on illustrative anecdotes", "Readers looking for individual-only habit or productivity advice rather than a team lens"],
+  "site_links": [{"label": "Motivation & Procrastination", "href": "motivation-procrastination.html"}],
+  "related": [
+    {"asin": "B0041NZRDC", "why": "The same author's earlier book on the research behind positivity and performance"},
+    {"asin": "B0C5Y44LWW", "why": "A complementary take on unlocking potential through character and systems"}
+  ],
+  "sources": [
+    {"label": "Four Minute Books summary", "href": "https://fourminutebooks.com/big-potential-summary/"},
+    {"label": "Allen Cheng summary", "href": "https://www.allencheng.com/big-potential-book-summary-shawn-achor/"}
+  ]
+}

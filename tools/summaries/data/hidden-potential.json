@@ -1,0 +1,30 @@
+{
+  "asin": "B0C5Y44LWW", "slug": "hidden-potential", "read_time": "2 min read",
+  "big_idea": "How far people travel from their starting point, not their starting talent, is the real measure of potential. That growth is driven by learnable character skills and better systems of practice, feedback, and support, not by innate gifts.",
+  "tool": {"label": "The four character skills", "text": "Determination, treating discomfort as a sign of growth; Discipline, prioritizing values over instincts; Proactivity, seeking out information and opportunities instead of waiting; and Prosociality, helping and sharing knowledge with others.", "note": "Grant cites research finding these character skills generated roughly three times more profit for entrepreneurs than conventional business expertise alone; he frames them as trainable habits, not fixed traits."},
+  "ideas": [
+    {"title": "Character over talent", "text": "Character skills, not innate ability, are the strongest predictors of how far someone can grow."},
+    {"title": "The sponge model of learning", "text": "Effective learners absorb information, filter which feedback to trust, adapt it to their own style, and share it forward, shifting from passive to active learning."},
+    {"title": "Fun plus uncomfortable practice", "text": "Sustainable skill-building requires both enjoyment, to avoid burnout, and productive discomfort, to force growth; either alone isn't enough."},
+    {"title": "Scaffolding, then removing it", "text": "Early support structures should be deliberately withdrawn over time so the learner builds independent capability."},
+    {"title": "Sources of support matter", "text": "Growth is accelerated by guidance from mentors who know and are invested in you, purpose, and collaboration that compounds individual effort."},
+    {"title": "Systems unlock potential", "text": "Organizations and schools that widen opportunity, not just identify existing talent, unlock far more collective potential than talent-sorting alone."}
+  ],
+  "try_it": [
+    "Pick one skill you're building and add a discomfort element to this week's practice: harder difficulty, tighter time limit, public accountability.",
+    "Identify one piece of feedback you've been avoiding and actively seek it out from someone who knows your work.",
+    "Find a sponge partner: someone to explain or teach something you just learned this week.",
+    "Pick one recurring task where you still lean on a support or template and try removing it once to test your own capability."
+  ],
+  "best_for": ["Managers, educators, and parents interested in developing others' potential", "Individuals who feel capped by I'm just not talented enough narratives"],
+  "less_useful": ["Readers wanting rigorous single-study depth rather than anecdote-plus-research synthesis", "People looking for individual daily-productivity tactics rather than a broader philosophy of growth"],
+  "site_links": [{"label": "Motivation & Procrastination", "href": "motivation-procrastination.html"}],
+  "related": [
+    {"asin": "B076B2DTZ6", "why": "Extends the same idea from individual growth to building potential in others"},
+    {"asin": "0593150422", "why": "The underlying belief system that makes learnable growth possible in the first place"}
+  ],
+  "sources": [
+    {"label": "Shortform summary", "href": "https://www.shortform.com/summary/hidden-potential-summary-adam-grant"},
+    {"label": "Character skills and sponge model analysis", "href": "https://ludtoussaint.substack.com/p/are-you-a-human-sponge-adam-grants"}
+  ]
+}

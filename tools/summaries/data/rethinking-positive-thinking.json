@@ -1,0 +1,30 @@
+{
+  "asin": "x-rethinking-positive-thinking", "slug": "rethinking-positive-thinking", "read_time": "2 min read",
+  "big_idea": "Pure positive fantasizing about a desired future can backfire: it gives the brain a false sense of already having succeeded, which saps the energy needed to actually pursue the goal. Oettingen's research shows that pairing optimism with a clear-eyed look at real obstacles is what actually drives motivation and achievement.",
+  "tool": {"label": "WOOP: Wish, Outcome, Obstacle, Plan", "text": "A four-step exercise: name a feasible Wish, vividly imagine the best Outcome, identify the real internal Obstacle standing in your way, then make a concrete if-then Plan for how you'll respond when that obstacle shows up.", "note": "WOOP is Oettingen's own research-backed tool, built from decades of her published mental contrasting studies rather than folk psychology."},
+  "ideas": [
+    {"title": "Dwelling vs. mental contrasting", "text": "Fantasizing about success alone relaxes the body and mind as if the goal were already reached, while contrasting that fantasy with present obstacles creates productive tension that fuels action."},
+    {"title": "Positive fantasies can backfire", "text": "In her studies, women who vividly visualized weight loss lost fewer pounds, and job seekers who daydreamed about ideal jobs sent fewer applications and earned less."},
+    {"title": "A critique of the cult of optimism", "text": "The book directly pushes back on parts of the positive-psychology movement that treat unconditional optimism as automatically good for motivation."},
+    {"title": "Obstacles should be internal, not external", "text": "WOOP works best when the identified obstacle is something within you, a habit, emotion, or thought pattern, rather than an external circumstance you can't control."},
+    {"title": "If-then planning links mind and behavior", "text": "Pre-deciding if obstacle X happens, then I will do Y lets the brain automatically trigger the planned response."},
+    {"title": "Grounded, not anti-optimism", "text": "The method isn't about pessimism; it still starts from a genuine, felt wish and outcome, it just refuses to let fantasy substitute for a plan."}
+  ],
+  "try_it": [
+    "Pick one real wish for this week and run it through WOOP on paper: Wish, Outcome, Obstacle, Plan, in that order.",
+    "Before visualizing a goal, pause and ask what inside me is most likely to get in the way, instead of only picturing success.",
+    "Write one if-then plan today, like if I feel too tired to write after dinner, then I'll write for just 5 minutes at my desk.",
+    "Notice one moment this week when you catch yourself dwelling, enjoying the fantasy of a finished goal, and consciously contrast it with the next obstacle you'll actually face."
+  ],
+  "best_for": ["Goal-setters who feel stuck despite a positive attitude", "Readers who want evidence-based psychology rather than pure motivational rhetoric"],
+  "less_useful": ["Readers wanting a quick, breezy read; the discovery process could be more concise", "Those looking for pure inspiration rather than research and methodology"],
+  "site_links": [{"label": "Motivation & Procrastination", "href": "motivation-procrastination.html"}, {"label": "Goal Setting & Priorities", "href": "goal-setting-priorities.html"}],
+  "related": [
+    {"asin": "0593394763", "why": "A companion case for questioning your own certainty, applied to beliefs generally"},
+    {"asin": "B002ZF14MG", "why": "The broader research on what actually drives motivation, which this book complicates"}
+  ],
+  "sources": [
+    {"label": "Blinkist summary", "href": "https://www.blinkist.com/en/books/rethinking-positive-thinking-en"},
+    {"label": "Shortform overview", "href": "https://www.shortform.com/blog/rethinking-positive-thinking-by-gabriele-oettingen/"}
+  ]
+}

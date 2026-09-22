@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="a">
+<head>
+<meta charset="UTF-8">
+<base href="../">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="icon" type="image/svg+xml" href="favicon.svg">
+<title>The Obstacle Is the Way: One-page summary · Plan · Do · Reflect</title>
+
+<!-- Applied before CSS loads, so the saved theme / title-font choice doesn't flash to the default on reload -->
+<script>
+(function () {
+  try {
+    var savedTheme = localStorage.getItem('pdr-theme');
+    if (['a', 'b', 'c'].indexOf(savedTheme) > -1) {
+      document.documentElement.setAttribute('data-theme', savedTheme);
+    }
+    /* No saved choice yet means a first-time visitor — default them to Golos
+       Text rather than the theme's own heading font. Explicitly picking
+       "Theme default" in the picker stores the literal string 'default',
+       which is the one value that clears the override below. */
+    var savedTitleFont = localStorage.getItem('pdr-title-font');
+    var titleFont = savedTitleFont === null ? 'golos-text' : savedTitleFont;
+    if (titleFont !== 'default') {
+      document.documentElement.setAttribute('data-title-font', titleFont);
+    }
+  } catch (e) {}
+})();
+</script>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=Work+Sans:wght@400;500;600&family=Sora:wght@600;700;800&family=Plus+Jakarta+Sans:wght@500;600;700&family=Patrick+Hand&display=swap" rel="stylesheet">
+
+<!-- Title-font brainstorm candidates — temporary, for the .title-font-picker toggle only.
+     Remove this link once a title font is chosen and folded into tokens.css. -->
+<link href="https://fonts.googleapis.com/css2?family=Gabarito:wght@800&family=Chivo:wght@800&family=Golos+Text:wght@800&display=swap" rel="stylesheet">
+
+<link rel="stylesheet" href="css/tokens.css">
+<link rel="stylesheet" href="css/main.css">
+<link rel="stylesheet" href="css/summary.css">
+</head>
+<body>
+
+<header class="topnav">
+  <a class="logo" href="index.html">Plan·Do·Reflect</a>
+  <nav class="topnav-items">
+    <a class="item" href="framework.html">The Framework</a>
+    <a class="item" href="self-management.html">Self</a>
+    <a class="item" href="team.html">Team</a>
+    <a class="item" href="organization.html">Organization</a>
+    <a class="item" href="core-skills.html">Core Skills</a>
+    <a class="item active" href="references.html">References</a>
+  </nav>
+</header>
+
+<main class="sm">
+  <p class="sm-crumb"><a href="references.html">References &amp; Further Reading</a> &rsaquo; One-page summary</p>
+  <article class="sm-page">
+    <header class="sm-head">
+      <img class="sm-cover" src="images/covers/B0BT54XTLW.jpg" data-r="https://m.media-amazon.com/images/I/41EO0rCC2iL._SL300_.jpg" alt="Cover of The Obstacle Is the Way" onerror="if(this.dataset.r&amp;&amp;this.src.indexOf(this.dataset.r)===-1){this.src=this.dataset.r}else{this.style.visibility='hidden'}">
+      <div>
+        <p class="sm-eyebrow">One-page summary &middot; 2 min read</p>
+        <h1 class="page-title">The Obstacle Is the Way</h1>
+        <p class="sm-sub">The Timeless Art of Turning Trials into Triumph</p>
+        <p class="sm-by">by Ryan Holiday</p>
+        <p class="sm-meta">2023 &middot; 4h 38m audiobook &middot; &#9733; 4.7 Audible</p>
+      </div>
+    </header>
+
+    <section class="sm-idea"><h2>The big idea</h2><p>Drawing on Stoic philosophy, especially Marcus Aurelius, Holiday argues that obstacles aren&#x27;t inherently good or bad. How we perceive them, act on them, and muster the will to endure them determines whether they become setbacks or fuel for growth.</p></section>
+
+<section class="sm-tool"><span class="sm-label">Perception, action, will</span><blockquote>A three-part Stoic discipline: first change your Perception of the obstacle to a neutral or opportunity-focused view, then take deliberate, persistent Action to work around or through it, and finally apply Will to endure and accept what genuinely can&#x27;t be changed.</blockquote><p>Illustrated with historical figures like Edison rebuilding after his lab burned down; critics note the book simplifies Stoicism for accessibility and is sometimes seen as more motivational than rigorous philosophy.</p></section>
+
+    <section class="sm-ideas"><h2>Key ideas</h2><ol><li><h3>Perception is a choice</h3><p>Events themselves are neutral; suffering comes from our subjective interpretation of them, so reframing how you see a setback changes its power over you.</p></li><li><h3>Objective distance</h3><p>Imagining you&#x27;re advising a friend facing your exact problem creates emotional distance that reveals solutions you can&#x27;t see when personally invested.</p></li><li><h3>Obstacles contain their own solutions</h3><p>Significant obstacles often carry a proportional weakness or advantage that can be exploited if you look for it.</p></li><li><h3>Discipline of action</h3><p>Persistent, practical problem-solving, trying, adjusting, and treating failed attempts as data rather than defeat, is what actually moves you past a blocker.</p></li><li><h3>Focus only on what you control</h3><p>Separate external events from internal ones, your emotions, decisions, reactions, and direct your energy only at the latter.</p></li><li><h3>The obstacle becomes the way</h3><p>Reframed correctly, the very thing blocking your goal can become the method by which you achieve it, or something better.</p></li></ol></section>
+
+    <div class="sm-cols">
+      <section><h2>Try it this week</h2><ol class="sm-steps"><li>Next time something frustrating happens, write down the neutral facts of the situation separately from your emotional reaction to it.</li><li>Pick a current obstacle and ask what you would tell a friend to do here, then follow that advice yourself.</li><li>List what parts of your current problem are truly outside your control, and consciously set those aside for the day.</li><li>When a plan fails this week, write one sentence on what it taught you before deciding your next move.</li></ol></section>
+      <section><h2>Is it for you?</h2><h3 class="sm-good">Best for</h3><ul><li>Readers facing a specific setback or crisis wanting quick, motivational reframing</li><li>Fans of accessible, historically illustrated self-help distilled from Stoicism</li></ul><h3 class="sm-less">Less useful if</h3><ul><li>Readers seeking rigorous philosophy or deep Stoic scholarship</li><li>Those wanting detailed, step-by-step practical exercises rather than mindset framing</li></ul></section>
+    </div>
+
+<section class="sm-links"><h2>On this site</h2><div class="sm-chips"><a href="motivation-procrastination.html">Motivation &amp; Procrastination</a></div></section>
+    <section class="sm-links sm-related"><h2>Pairs well with</h2><ul><li><a href="references.html#book-B09JYDKRNW">Do Hard Things</a> <span>A research-backed look at the same reframe-under-pressure territory</span></li><li><a href="references.html#book-B09WY6Z8KD">The Mountain Is You</a> <span>A more introspective take on the internal barriers obstacles expose</span></li></ul></section>
+
+    <footer class="sm-foot">
+      <a class="sm-buy" href="https://www.amazon.com/s?k=Ryan+Holiday+The+Obstacle+Is+the+Way&amp;tag=phoenixjenn-20" target="_blank" rel="noopener">Find the book on Amazon</a>
+      <p>Original summary written for Plan &middot; Do &middot; Reflect. Prepared from the book&rsquo;s ideas and public summaries (<a href="https://fourminutebooks.com/the-obstacle-is-the-way-summary/" target="_blank" rel="noopener">Four Minute Books summary</a>, <a href="https://www.shortform.com/blog/the-obstacle-is-the-way-review/" target="_blank" rel="noopener">Shortform review of critical reception</a>), not a substitute for reading it. Links may earn a commission.</p>
+    </footer>
+  </article>
+</main>
+
+<footer class="site-footer">
+  <p>&copy; 2026 Plan-Do-Reflect. <a href="references.html">References &amp; further reading</a></p>
+</footer>
+
+<div class="theme-switch" role="group" aria-label="Style direction">
+  <button data-theme="a" title="Kinetic Signal — black &amp; yellow"></button>
+  <button data-theme="b" title="Studio Ledger — dusty rose"></button>
+  <button data-theme="c" title="Bright Margin — lime"></button>
+  <a class="icon-lib-link" href="icon-library.html" title="Style Guide (internal reference)">
+    <svg width="14" height="14" viewBox="0 0 14 14" aria-hidden="true">
+      <rect x="1" y="1" width="5" height="5" rx="1" fill="currentColor"/>
+      <rect x="8" y="1" width="5" height="5" rx="1" fill="currentColor"/>
+      <rect x="1" y="8" width="5" height="5" rx="1" fill="currentColor"/>
+      <rect x="8" y="8" width="5" height="5" rx="1" fill="currentColor"/>
+    </svg>
+  </a>
+  <a class="icon-lib-link" href="notes.html" title="Notes (working drafts)">
+    <svg width="14" height="14" viewBox="0 0 14 14" aria-hidden="true">
+      <rect x="2" y="1" width="10" height="12" rx="1.5" fill="none" stroke="currentColor" stroke-width="1.3"/>
+      <line x1="4.5" y1="5" x2="9.5" y2="5" stroke="currentColor" stroke-width="1.3" stroke-linecap="round"/>
+      <line x1="4.5" y1="7.5" x2="9.5" y2="7.5" stroke="currentColor" stroke-width="1.3" stroke-linecap="round"/>
+      <line x1="4.5" y1="10" x2="7.5" y2="10" stroke="currentColor" stroke-width="1.3" stroke-linecap="round"/>
+    </svg>
+  </a>
+  <a class="icon-lib-link" href="sitemap.html" title="Sitemap (working draft)">
+    <svg width="14" height="14" viewBox="0 0 14 14" aria-hidden="true">
+      <circle cx="7" cy="2.5" r="1.8" fill="none" stroke="currentColor" stroke-width="1.3"/>
+      <circle cx="3" cy="11" r="1.8" fill="none" stroke="currentColor" stroke-width="1.3"/>
+      <circle cx="11" cy="11" r="1.8" fill="none" stroke="currentColor" stroke-width="1.3"/>
+      <path d="M7 4.3 L7 7 M7 7 L3 9.5 M7 7 L11 9.5" stroke="currentColor" stroke-width="1.3" fill="none" stroke-linecap="round"/>
+    </svg>
+  </a>
+</div>
+
+<!-- Temporary brainstorm control — only restyles the main h1 (.content h1 / .hero-title / .page-title). Remove alongside
+     the "title-font experiment" CSS block and the extra Google Fonts link once
+     a title font is picked. -->
+<div class="title-font-picker">
+  <label for="title-font-select">Title font</label>
+  <button type="button" id="title-font-prev" class="title-font-nav" aria-label="Previous title font">‹</button>
+  <select id="title-font-select">
+    <optgroup label="Round 1 — headline character">
+      <option value="gabarito">Gabarito</option>
+      <option value="chivo">Chivo</option>
+    </optgroup>
+    <optgroup label="Round 2 — Calibri-adjacent">
+      <option value="golos-text">Golos Text</option>
+    </optgroup>
+    <option value="default">Theme default</option>
+  </select>
+  <button type="button" id="title-font-next" class="title-font-nav" aria-label="Next title font">›</button>
+</div>
+
+<script src="js/theme-toggle.js" defer></script>
+<script src="js/title-font-toggle.js" defer></script>
+</body>
+</html>

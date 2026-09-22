@@ -1,0 +1,30 @@
+{
+  "asin": "B00YD1FSRM", "slug": "move-your-bus", "read_time": "2 min read",
+  "big_idea": "An organization only moves forward when its people actively push it forward. Success depends less on the driver, the leader, alone than on getting the largest possible share of passengers to contribute effort, since even one dead-weight rider slows the whole bus.",
+  "tool": {"label": "The bus passenger types", "text": "Clark sorts every team member into one of five roles: Runners, high-effort top performers; Joggers, steady but lacking confidence to push harder; Walkers, minimal, resistant-to-change contributors; Riders, dead weight who only perform when watched; and the Driver, the leader who steers.", "note": "Clark's advice differs by type: nurture and reward Runners, build Joggers' confidence, and address Walkers and Riders directly rather than ignore them."},
+  "ideas": [
+    {"title": "Runners drive momentum", "text": "Top performers need visible recognition and room to innovate, not micromanagement, or they disengage."},
+    {"title": "Joggers need confidence, not pressure", "text": "Steady performers often have more capacity than they show; encouragement moves them toward Runner behavior."},
+    {"title": "Riders slow everyone down", "text": "Non-performers who coast unnoticed create resentment among high performers and must be addressed directly."},
+    {"title": "Set explicit, high expectations", "text": "Clear, specific, achievable goals, communicated openly, are more motivating than vague encouragement."},
+    {"title": "Accountability without entitlement", "text": "Nobody is owed recognition or reward; in high-performing cultures, contribution has to be earned continually."},
+    {"title": "Individualized management", "text": "Different passenger types require different leadership approaches; a one-size-fits-all style under-serves both top and struggling performers."}
+  ],
+  "try_it": [
+    "Privately sort your team into Runner, Jogger, Walker, or Rider, and notice where your own energy goes.",
+    "Give one specific, public acknowledgment to a Runner this week instead of a generic compliment.",
+    "Have one direct, non-confrontational conversation with a Rider or Walker about a concrete expectation.",
+    "Audit one recurring commitment you've been coasting on and decide whether to re-engage as a Runner or hand it off."
+  ],
+  "best_for": ["Team leaders and managers", "People frustrated by uneven effort on their team"],
+  "less_useful": ["Individual contributors with no direct reports", "Readers wanting nuanced HR or ethical guidance on managing out underperformers"],
+  "site_links": [{"label": "Motivation & Procrastination", "href": "motivation-procrastination.html"}],
+  "related": [
+    {"asin": "B076BXLDVP", "why": "A fuller system for the habits high performers use to sustain that effort"},
+    {"asin": "1401960774", "why": "A framework for leveraging the right people once you've identified them"}
+  ],
+  "sources": [
+    {"label": "Four Minute Books summary", "href": "https://fourminutebooks.com/move-your-bus-summary/"},
+    {"label": "Allen Cheng summary", "href": "https://www.allencheng.com/move-your-bus-book-summary-ron-clark/"}
+  ]
+}

@@ -1,0 +1,30 @@
+{
+  "asin": "B015EXHPCI", "slug": "the-magic-of-thinking-big", "read_time": "2 min read",
+  "big_idea": "Success is driven far more by the size and confidence of one's thinking than by intelligence, talent, or circumstance. Believing you can achieve something generates the energy and behavior needed to actually achieve it.",
+  "tool": {"label": "The sell-yourself-on-yourself commercial", "text": "Write and recite a short daily self-talk script that lists your real strengths and past wins, using it the way an ad sells a product, to counter self-doubt before it can take hold.", "note": "Schwartz's own term from the book, meant to be practiced daily like a habit, not a one-time pep talk."},
+  "ideas": [
+    {"title": "Belief creates success", "text": "Genuine conviction that a goal is achievable supplies the persistence and creativity needed to reach it."},
+    {"title": "Cure excusitis", "text": "Successful people make fewer excuses about health, intelligence, age, or luck; treat excuse-making as a disease to actively cure."},
+    {"title": "Think and dress like important people", "text": "Appearance and environment shape self-perception, so upgrading how you present yourself changes how you think."},
+    {"title": "Use big, positive language", "text": "The words you use internally and aloud create the mental images that drive your actions, so replace defeatist language deliberately."},
+    {"title": "Curate your environment", "text": "Surround yourself with encouraging people and mentors, and limit exposure to negators who shrink your ambitions."},
+    {"title": "Be an activationist", "text": "Take imperfect action now rather than waiting for ideal conditions, and set clear written goals with timelines."}
+  ],
+  "try_it": [
+    "Write a 3-sentence self-talk commercial naming your top strengths and read it aloud each morning this week.",
+    "Catch yourself making one excuse today, name it as excusitis, and reframe it as a solvable problem.",
+    "Pick one relationship or media habit that shrinks your ambition and reduce your exposure to it this week.",
+    "Write one goal down with a specific deadline and the very next physical action you'll take toward it."
+  ],
+  "best_for": ["Readers wanting a classic, motivational confidence boost", "People prone to self-doubt or excuse-making"],
+  "less_useful": ["Readers wanting modern research or evidence, since it's a 1959 classic with no citations", "Those who find affirmation-heavy self-help formulaic"],
+  "site_links": [{"label": "Motivation & Procrastination", "href": "motivation-procrastination.html"}],
+  "related": [
+    {"asin": "B0051QF7L0", "why": "A contemporary from the same classic era of success-mindset writing"},
+    {"asin": "1469084864", "why": "A more modern take on turning big thinking into daily, repeatable action"}
+  ],
+  "sources": [
+    {"label": "Four Minute Books summary", "href": "https://fourminutebooks.com/the-magic-of-thinking-big-summary/"},
+    {"label": "NJ Lifehacks summary", "href": "https://www.njlifehacks.com/the-magic-of-thinking-big-david-j-schwartz-book-summary/"}
+  ]
+}

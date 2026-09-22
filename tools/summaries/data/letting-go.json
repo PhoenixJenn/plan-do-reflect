@@ -1,0 +1,30 @@
+{
+  "asin": "B00ZJFQN9I", "slug": "letting-go", "read_time": "2 min read",
+  "big_idea": "Suppressed and unexpressed emotions are the hidden engine behind stress and stuck patterns. Hawkins argues that consciously surrendering to a feeling, letting it be fully felt without suppressing, expressing, or escaping it, dissolves its hold, typically within minutes.",
+  "tool": {"label": "The map of consciousness", "text": "Hawkins ranks emotional states on a calibrated scale from 1 to 1000, from Shame and Guilt up through Courage at 200, then Neutrality, Acceptance, Love, and Peace; 200 is the pivot point where a person shifts from states that drain energy to states that generate it.", "note": "The scale was derived using applied-kinesiology muscle testing, a method that hasn't held up in blinded scientific trials, so treat the numeric calibrations as a symbolic, motivational device rather than a validated measurement."},
+  "ideas": [
+    {"title": "Three ways people mishandle feelings", "text": "Most people cope with hard emotions through distraction, burying them until they resurface as anxiety or illness, or venting onto others, none of which actually resolves the feeling."},
+    {"title": "Surrender vs. suppression vs. expression", "text": "The release technique means neither pushing a feeling down nor acting it out, but consciously allowing it to be present until its energy runs its course."},
+    {"title": "Resistance feeds the emotion", "text": "Fighting the emotion is what gives it power and allows it to grow; the more you resist a feeling, the longer it persists."},
+    {"title": "One feeling, many thoughts", "text": "A single buried emotion can generate an endless stream of related anxious thoughts; addressing the root feeling is more effective than chasing each thought."},
+    {"title": "I can't often means I won't", "text": "Many perceived limitations are disguised unwillingness; recognizing this restores a sense of choice and agency."},
+    {"title": "Wanting pushes away", "text": "Intense craving or desperate desire for an outcome creates distance from it; releasing the neediness behind a goal paradoxically makes it easier to reach."}
+  ],
+  "try_it": [
+    "Pick one recurring negative feeling this week and, instead of distracting or venting, sit with it for a few minutes and let yourself feel it fully.",
+    "Next time you say I can't, pause and rephrase it as I won't or I'm choosing not to, and notice if that changes how you feel.",
+    "When you notice yourself gripping tightly to a desired outcome, practice consciously relaxing your need for that specific result.",
+    "Keep a one-line log for a week noting which avoidance pattern, distract, bury, or vent, you default to under stress."
+  ],
+  "best_for": ["Readers drawn to introspective, spiritual self-help", "People dealing with chronic stress or anxiety patterns"],
+  "less_useful": ["Readers wanting evidence-based psychology or clinical rigor", "Anyone skeptical of muscle-testing or energy-frequency claims"],
+  "site_links": [{"label": "Motivation & Procrastination", "href": "motivation-procrastination.html"}, {"label": "Reflection Practice", "href": "reflection-practice.html"}],
+  "related": [
+    {"asin": "B0C1TFR8JL", "why": "A more secular, present-moment-focused companion practice"},
+    {"asin": "B09WY6Z8KD", "why": "A modern take on unresolved emotion as the root of self-sabotage"}
+  ],
+  "sources": [
+    {"label": "Shortform book overview", "href": "https://www.shortform.com/blog/letting-go-david-r-hawkins/"},
+    {"label": "Sobrief summary", "href": "https://sobrief.com/books/letting-go-2"}
+  ]
+}

@@ -1,0 +1,30 @@
+{
+  "asin": "B0036FLXLQ", "slug": "rework", "read_time": "2 min read",
+  "big_idea": "Building a successful business requires far less than conventional wisdom assumes: less planning, less staff, less funding, less bureaucracy. Small, fast, constraint-embracing teams that ship real work beat companies that plan and meet instead of build.",
+  "tool": {"label": "Build half a product, not a half-assed product", "text": "Instead of cramming in every feature before launch, cut scope ruthlessly and ship a smaller but fully realized core product, illustrated by the authors' own Basecamp launch, which shipped without billing functionality because it wasn't essential yet.", "note": "One of several contrarian mantras in the book, alongside planning is guessing and embrace constraints, drawn directly from the authors' experience building 37signals and Basecamp."},
+  "ideas": [
+    {"title": "Planning is guessing", "text": "Long-range business plans are speculation dressed up as strategy; the authors favor short, reversible decisions over rigid roadmaps."},
+    {"title": "Workaholism isn't dedication", "text": "Long hours signal a broken process, not commitment; overworked employees produce worse judgment and burn out teams around them."},
+    {"title": "Constraints breed creativity", "text": "Limited time, money, or people force sharper, simpler decisions instead of enabling bloat."},
+    {"title": "Meetings are costly by default", "text": "A one-hour meeting with ten people burns ten person-hours; most meetings lack a clear goal or outcome."},
+    {"title": "Write and market like a human", "text": "Marketing copy and communication should sound like talking to a friend, not corporate jargon; authenticity builds more trust than polish."},
+    {"title": "Take a stand", "text": "A product or company with a clear point of view and willingness to alienate some people differentiates better than one trying to please everyone."}
+  ],
+  "try_it": [
+    "Cancel or shorten one recurring meeting this week and replace it with a written update.",
+    "Pick one project you're over-planning and cut the plan down to what's the very next action, nothing further out.",
+    "Identify one extra feature or task you're adding out of habit and cut it, shipping the smaller, complete version instead.",
+    "Rewrite one piece of outward communication in plain, conversational language, as if writing to a friend."
+  ],
+  "best_for": ["Entrepreneurs and small-team builders", "People skeptical of corporate meeting and planning culture"],
+  "less_useful": ["Readers at large, highly regulated organizations", "Anyone seeking detailed financial or operational how-to rather than philosophy"],
+  "site_links": [{"label": "Motivation & Procrastination", "href": "motivation-procrastination.html"}],
+  "related": [
+    {"asin": "B00FPMTFRM", "why": "A similar case for radical simplicity, focused on personal priorities rather than products"},
+    {"asin": "x-168-hours", "why": "A complementary look at cutting the non-essential to protect what actually matters"}
+  ],
+  "sources": [
+    {"label": "Four Minute Books summary", "href": "https://fourminutebooks.com/rework-summary/"},
+    {"label": "Blinkist summary", "href": "https://www.blinkist.com/en/books/rework-en"}
+  ]
+}

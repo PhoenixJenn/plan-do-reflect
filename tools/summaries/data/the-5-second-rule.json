@@ -1,0 +1,30 @@
+{
+  "asin": "B06VX22V89", "slug": "the-5-second-rule", "read_time": "2 min read",
+  "big_idea": "When you feel an urge to act on something important, you have about five seconds before your brain talks you out of it. Deliberately counting backward and physically moving interrupts hesitation and turns intention into action before overthinking can stop you.",
+  "tool": {"label": "The 5 Second Rule", "text": "The moment you feel the instinct to act on a goal-aligned impulse, get up, speak up, make the call, count backward from 5 to 1 like a rocket launch and physically move on GO. The window is short because the brain will otherwise talk you out of it with excuses.", "note": "Robbins says she discovered the technique watching a rocket launch on TV during a difficult period, and first used it just to force herself out of bed each morning."},
+  "ideas": [
+    {"title": "Feelings follow action, not the other way around", "text": "Waiting to feel like it rarely works; acting first changes how you feel afterward."},
+    {"title": "Activation energy", "text": "Like a chemical reaction, the hardest part of any task is the initial push; the countdown supplies that push before doubt can build."},
+    {"title": "The countdown interrupts overthinking", "text": "Counting backward occupies the part of the brain that would otherwise generate excuses, engaging deliberate focus instead."},
+    {"title": "Courage compounds", "text": "Small, repeated acts of bravery, speaking up, trying, asking, build over time into meaningfully different confidence and life outcomes."},
+    {"title": "The right time never arrives", "text": "Waiting for ideal conditions is itself a form of avoidance; worthwhile change is inherently uncertain and a little scary."},
+    {"title": "Treat feelings as suggestions, not commands", "text": "You can acknowledge fear or reluctance and still choose to act despite it, rather than being ruled by it."}
+  ],
+  "try_it": [
+    "Use 5-4-3-2-1-GO tomorrow morning to get out of bed the instant your alarm goes off, before your mind can negotiate.",
+    "Pick one task you've been avoiding and use the countdown to start it within the next hour.",
+    "Next time you feel the urge to speak up but hesitate, count down and say it before the impulse fades.",
+    "Notice one moment of stalling this week, name the feeling driving it, and use the rule to act anyway."
+  ],
+  "best_for": ["Chronic procrastinators", "People wanting a simple, low-friction habit or confidence tool"],
+  "less_useful": ["Readers wanting deep neuroscience or academic rigor", "People whose stalling stems from clinical anxiety or ADHD rather than simple hesitation"],
+  "site_links": [{"label": "Motivation & Procrastination", "href": "motivation-procrastination.html"}],
+  "related": [
+    {"asin": "B09DTJ7W3G", "why": "The same author's follow-up ritual for building daily self-support"},
+    {"asin": "B08NMQFKFD", "why": "A complementary system for choosing which task to act on first"}
+  ],
+  "sources": [
+    {"label": "Four Minute Books summary", "href": "https://fourminutebooks.com/the-5-second-rule-summary/"},
+    {"label": "ReadingGraphics summary", "href": "https://readingraphics.com/book-summary-the-5-second-rule/"}
+  ]
+}
