@@ -1,0 +1,30 @@
+{
+  "asin": "B0711JQHHV", "slug": "habit-stacking", "read_time": "2 min read",
+  "big_idea": "You can transform your life without relying on willpower by stacking a sequence of small habits, each five minutes or less, onto one existing trigger, gradually building a 15 to 30 minute automatic routine rather than attempting one dramatic change.",
+  "tool": {"label": "The habit stacking formula", "text": "One trigger, plus several small habits of five minutes or less, run in the same order daily until automatic, then scaled up over time.", "note": "Scott's version chains several small habits into one checklist-driven routine, not a single one-line swap of old habit for new."},
+  "ideas": [
+    {"title": "Three types of habits", "text": "Keystone habits are foundational with ripple effects, like exercise. Support habits reinforce a keystone habit. Elephant habits are large goals broken into incremental steps."},
+    {"title": "127 habits across seven life categories", "text": "Concrete habit examples organized across career, finance, health, organizing, relationships, leisure, and spirituality."},
+    {"title": "Checklists over motivation", "text": "A written daily checklist for your stacked routine removes decision fatigue and reliance on memory or willpower."},
+    {"title": "Most important tasks", "text": "Identify your top three priority tasks the evening before, so they get done regardless of what else happens that day."},
+    {"title": "Gradual scaling", "text": "Start with a small stack of a few minutes and only add new habits once the current stack is automatic, working up to a 30-minute routine."},
+    {"title": "Restart without guilt", "text": "Missed days are treated as normal. The book encourages resuming the stack immediately rather than abandoning it."}
+  ],
+  "try_it": [
+    "Pick one existing daily trigger, like making coffee, and attach one new five-minute habit to it this week.",
+    "Write tomorrow's three most important tasks tonight, before bed.",
+    "Build a simple written checklist for a two or three habit starter stack and run it for seven straight days.",
+    "If you miss a day, restart the next day rather than quitting the stack entirely."
+  ],
+  "best_for": ["People overwhelmed trying to change many things at once who want a concrete, checklist-driven method", "Readers who like example-heavy, highly practical books"],
+  "less_useful": ["Readers wanting the deeper psychology or neuroscience behind habit formation; Atomic Habits covers that ground more rigorously", "Anyone wanting one unifying framework rather than a long catalog of discrete habit ideas"],
+  "site_links": [{"label": "Habit-Building", "href": "habit-building.html"}],
+  "related": [
+    {"asin": "1524779261", "why": "The research and mechanism behind why stacking habits works"},
+    {"asin": "1982648066", "why": "The long-run payoff of the small choices this book helps you stack"}
+  ],
+  "sources": [
+    {"label": "Shortform summary", "href": "https://www.shortform.com/summary/habit-stacking-summary-s-j-scott"},
+    {"label": "James Clear on habit stacking", "href": "https://jamesclear.com/habit-stacking"}
+  ]
+}

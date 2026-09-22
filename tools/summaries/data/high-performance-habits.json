@@ -1,0 +1,30 @@
+{
+  "asin": "B076BXLDVP", "slug": "high-performance-habits", "read_time": "3 min read",
+  "big_idea": "High performance isn't about personality or luck. Burchard argues it comes from deliberately and consistently practicing a specific set of habits, and that anyone can become an extraordinary performer by building them, regardless of where they're starting from.",
+  "tool": {"label": "The six high performance habits", "text": "Seek clarity. Generate energy. Raise necessity. Increase productivity. Develop influence. Demonstrate courage.", "note": "Burchard says he identified these through years of surveying and coaching high performers; treat it as a practitioner framework rather than peer-reviewed research."},
+  "ideas": [
+    {"title": "The Future Four", "text": "Under seeking clarity, envision your future self across four domains: self-image, relationships, skills, and service or contribution."},
+    {"title": "Energy through transitions", "text": "Most people bleed energy moving between tasks without resetting. The fix is a simple release-and-intention ritual repeated several times a day."},
+    {"title": "Necessity has internal and external drivers", "text": "Deep motivation comes from a mix of identity, obsession, duty to others, and urgency, not willpower alone."},
+    {"title": "Prolific quality output", "text": "High performers don't just focus, they produce a lot in their core domain. Volume plus quality beats perfectionism."},
+    {"title": "Progressive mastery of five skills", "text": "Identify the five skills your future self most needs, then pursue them with deliberate practice and measurement."},
+    {"title": "Influence through questions", "text": "High performers shape others' thinking by asking what would happen if, instead of telling people what to do."}
+  ],
+  "try_it": [
+    "Spend 15 minutes writing your Future Four: who you want to be, your relationships, skills, and contribution three years from now.",
+    "Pick one recurring transition in your day and add a 30-second breathe, release, and set-intention ritual before it.",
+    "Write your top five needed skills for the next year and pick one to deliberately practice this week.",
+    "Before your next conversation where you want to influence someone, decide on one open question to ask instead of giving advice."
+  ],
+  "best_for": ["Readers who feel motivated but directionless and want a structured system", "People who like concrete exercises and checklists over pure theory"],
+  "less_useful": ["Readers wanting peer-reviewed, academically rigorous research; claims are framed as research but aren't well-sourced", "Not a substitute for professional help with depression or anxiety"],
+  "site_links": [{"label": "Habit-Building", "href": "habit-building.html"}, {"label": "Motivation & Procrastination", "href": "motivation-procrastination.html"}],
+  "related": [
+    {"asin": "1797115073", "why": "A more principle-based, character-first take on the same territory"},
+    {"asin": "B082VK6Q8G", "why": "A wider menu of individual tactics from top performers across fields"}
+  ],
+  "sources": [
+    {"label": "12min critical summary review", "href": "https://12min.com/high-performance-habits-critical%20summary%20review"},
+    {"label": "Summaries.com overview", "href": "https://summaries.com/blog/high-performance-habits"}
+  ]
+}

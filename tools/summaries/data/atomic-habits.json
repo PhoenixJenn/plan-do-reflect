@@ -1,0 +1,31 @@
+{
+  "asin": "1524779261", "slug": "atomic-habits", "read_time": "3 min read",
+  "big_idea": "Remarkable results come from tiny, 1% improvements repeated consistently over time, and lasting behavior change happens when you build systems and shift your identity rather than chase one-off goals through willpower alone.",
+  "tool": {"label": "The four laws of behavior change", "text": "To build a good habit: make it obvious, make it attractive, make it easy, make it satisfying. To break a bad habit, invert each law: make it invisible, unattractive, difficult, and unsatisfying.", "note": "The four laws map directly onto the four stages of the habit loop: cue, craving, response, reward."},
+  "ideas": [
+    {"title": "Identity-based habits", "text": "Change your self-image before your outcomes. Every action is a vote for the type of person you wish to become, so real change starts at the identity level, not the outcome level."},
+    {"title": "The habit loop", "text": "Cue, craving, response, and reward form a neurological feedback loop that automates behavior. Understanding each stage lets you deliberately redesign a habit."},
+    {"title": "Environment design", "text": "Your surroundings act as an invisible hand shaping behavior. Rearranging cues, visible versus hidden, is often more effective than relying on discipline."},
+    {"title": "The plateau of latent potential", "text": "Results lag effort, like an ice cube that shows nothing until a threshold is crossed. That's why people quit right before a breakthrough."},
+    {"title": "Habit stacking and implementation intentions", "text": "Pairing a new habit with an existing routine, and stating a specific time and location, dramatically increases follow-through."},
+    {"title": "The two-minute rule", "text": "Scale any new habit down to something that takes two minutes or less, to defeat the inertia of getting started."}
+  ],
+  "try_it": [
+    "Do a habit scorecard: list your daily routine and mark each behavior plus, minus, or neutral to build awareness of automatic behaviors.",
+    "Write one implementation intention: I will [behavior] at [time] in [location].",
+    "Make one bad-habit cue invisible, like moving a distracting app off your home screen, and one good-habit cue obvious.",
+    "Apply the two-minute rule to a habit you've been avoiding by shrinking it to a starter version."
+  ],
+  "best_for": ["People who've failed at willpower-based goal-setting before", "Readers wanting a practical, research-grounded system", "Anyone motivated by small, visible wins"],
+  "less_useful": ["Readers seeking deep clinical treatment of addiction or major behavioral disorders", "Anyone already deeply familiar with habit-formation literature, since it synthesizes a lot of prior research"],
+  "site_links": [{"label": "Habit-Building", "href": "habit-building.html"}, {"label": "Self", "href": "self-management.html"}],
+  "related": [
+    {"asin": "B0711JQHHV", "why": "A more example-heavy, checklist-driven take on stacking habits"},
+    {"asin": "B0035C6SMO", "why": "A complementary model for why change feels hard in the first place"},
+    {"asin": "1982648066", "why": "The compounding math behind small, consistent choices"}
+  ],
+  "sources": [
+    {"label": "James Clear's own summary", "href": "https://jamesclear.com/atomic-habits-summary"},
+    {"label": "ReadingGraphics summary", "href": "https://readingraphics.com/book-summary-atomic-habits/"}
+  ]
+}

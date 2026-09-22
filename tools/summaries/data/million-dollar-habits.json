@@ -1,0 +1,30 @@
+{
+  "asin": "1469084864", "slug": "million-dollar-habits", "read_time": "2 min read",
+  "big_idea": "Success in wealth, career, health, and relationships isn't random, it's the product of specific, learnable habits, and the foundation of all of them is a strong self-concept: how you see your ideal self, your current self, and your self-esteem.",
+  "tool": {"label": "The self-concept triangle", "text": "Self-ideal, the person you aspire to be, shapes self-image, how you currently see yourself, which in turn shapes self-esteem, how much you value yourself as your self-image moves toward your self-ideal.", "note": "Tracy treats this as the psychological engine behind every other habit in the book, presented as assertion more than tested theory."},
+  "ideas": [
+    {"title": "Habits are learned, not fixed", "text": "Habits are changeable patterns driven by expected consequences and reinforced by emotional investment, so replacing one means changing both the trigger and the payoff."},
+    {"title": "Most behavior is habitual", "text": "Tracy asserts a very high share of thoughts and behaviors are habitual, a figure later reviewers flag as overstated compared to behavioral research, but it's a useful provocation for taking habits seriously."},
+    {"title": "The 10% savings rule", "text": "Automatically save 10% of all income, or direct half of any raise to savings, as a non-negotiable habit for building financial independence."},
+    {"title": "The 80/20 rule applied to effort", "text": "Roughly 80% of your results come from 20% of your activities, so the habit is ruthlessly identifying and prioritizing that 20%."},
+    {"title": "Modeling successful people", "text": "Rather than trial and error, study and copy the specific habits of people who've already achieved what you want."},
+    {"title": "Relationship habits", "text": "Tracy claims a large share of happiness comes from relationships, built through habits like genuine praise, active listening, and making people feel valued."}
+  ],
+  "try_it": [
+    "Set up an automatic transfer so 10% of your next paycheck goes straight to savings.",
+    "Write your top three goals by hand every morning this week.",
+    "Do a quick 80/20 audit of your task list and protect time for the 20% producing most results.",
+    "Pick one person and practice one specific relationship habit, like full listening without interrupting, daily this week."
+  ],
+  "best_for": ["Readers wanting broad, practical self-improvement across money, career, health, and relationships in one book", "People who like simple rules and daily disciplines over deep theory"],
+  "less_useful": ["Readers wanting evidence-based behavioral psychology; the book leans motivational and anecdotal, and some claims don't hold up well against current research", "Some financial advice feels dated and can oversimplify complex situations"],
+  "site_links": [{"label": "Habit-Building", "href": "habit-building.html"}, {"label": "Goal Setting & Priorities", "href": "goal-setting-priorities.html"}],
+  "related": [
+    {"asin": "1982648066", "why": "A more focused version of the same compounding-small-choices argument"},
+    {"asin": "1524779261", "why": "A more rigorous, research-grounded system for building the habits this book lists"}
+  ],
+  "sources": [
+    {"label": "Shortform book summary", "href": "https://www.shortform.com/summary/million-dollar-habits-summary-brian-tracy"},
+    {"label": "Blinkist summary", "href": "https://www.blinkist.com/en/books/million-dollar-habits-en"}
+  ]
+}

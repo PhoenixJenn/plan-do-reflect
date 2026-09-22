@@ -1,0 +1,30 @@
+{
+  "asin": "B0035C6SMO", "slug": "switch", "read_time": "3 min read",
+  "big_idea": "Change fails not because people are lazy but because a rational, analytical mind and an emotional, instinctive mind pull against each other, and because the surrounding environment often makes the desired behavior harder than it needs to be.",
+  "tool": {"label": "The Rider, the Elephant, and the Path", "text": "The Rider is your rational mind, able to plan but easily paralyzed by ambiguity. The Elephant is your emotional, instinctive side, powerful but hard to control by logic alone. The Path is the surrounding environment, often easier to change than the person. Lasting change directs the Rider, motivates the Elephant, and shapes the Path.", "note": "The metaphor is drawn from Jonathan Haidt's earlier work and adapted by the Heaths as the book's organizing framework."},
+  "ideas": [
+    {"title": "Follow the bright spots", "text": "Instead of only diagnosing what's broken, look for exceptions where the desired outcome is already happening, even in small pockets, and study or clone those successes."},
+    {"title": "Script the critical moves", "text": "Ambiguity paralyzes the Rider. Specific, concrete instructions remove decision fatigue and are far more likely to be followed than vague goals."},
+    {"title": "Point to the destination", "text": "Pairing clear direction with a vivid picture of what success looks like gives the Rider a target and the Elephant a reason to move."},
+    {"title": "Find the feeling", "text": "Facts and analysis rarely motivate action on their own. The Elephant responds to emotion, so effective change creates a felt sense of urgency or possibility."},
+    {"title": "Shrink the change", "text": "Large, vague goals overwhelm the Elephant. Breaking change into small, immediately achievable steps builds momentum and confidence."},
+    {"title": "Tweak the environment", "text": "What looks like a people problem is often a situation problem. Small environmental tweaks can produce outsized behavior change without needing to change anyone's mindset."}
+  ],
+  "try_it": [
+    "Pick one change you want to make and find a bright spot, a moment or person where it's already working, and copy what they're doing.",
+    "Replace one vague goal with one specific, scripted action this week.",
+    "Identify one environmental tweak that would make your desired behavior the easy default.",
+    "Shrink a goal that currently feels overwhelming into the smallest possible first step you could complete today."
+  ],
+  "best_for": ["Managers and leaders driving organizational change", "Individuals trying to build new personal habits", "People who've felt resistance to change and want a framework beyond willpower"],
+  "less_useful": ["Readers seeking a spiritual or values-based approach to transformation; this framework is secular and practically oriented", "Its situation-over-person emphasis can feel like it understates personal accountability in some cases"],
+  "site_links": [{"label": "Habit-Building", "href": "habit-building.html"}, {"label": "Reflection Practice", "href": "reflection-practice.html"}],
+  "related": [
+    {"asin": "1524779261", "why": "A more tactical system for the environment design this book argues for"},
+    {"asin": "B074XGXWC8", "why": "The brain chemistry behind why the emotional side resists change"}
+  ],
+  "sources": [
+    {"label": "Four Minute Books summary", "href": "https://fourminutebooks.com/switch-summary/"},
+    {"label": "ReadingGraphics summary", "href": "https://readingraphics.com/book-summary-switch/"}
+  ]
+}

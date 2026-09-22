@@ -1,0 +1,30 @@
+{
+  "asin": "1797115073", "slug": "the-7-habits", "read_time": "3 min read",
+  "big_idea": "True, sustainable effectiveness comes from building character around timeless principles, not surface-level personality tricks, achieved by progressing through a maturity continuum from dependence, through independence, to interdependence.",
+  "tool": {"label": "Circle of Influence vs. Circle of Concern", "text": "Your Circle of Concern holds everything you worry about, most of which you can't control. Inside it sits a smaller Circle of Influence, the things you can actually affect. Proactive people spend their energy in the Circle of Influence, which causes it to expand; reactive people focus on the Circle of Concern, which causes it to shrink.", "note": "This is the core mechanic behind Habit 1, Be Proactive, and one of Covey's most widely reused frameworks."},
+  "ideas": [
+    {"title": "Be proactive", "text": "Take responsibility for your responses rather than blaming circumstances, and focus your energy on what you can influence, not just what concerns you."},
+    {"title": "Begin with the end in mind", "text": "Clarify your values and define what success actually looks like before you act, ideally through a personal mission statement."},
+    {"title": "Put first things first", "text": "Organize and prioritize around what matters most, not just what's urgent, using time management and delegation to protect important work."},
+    {"title": "Think win-win, and understand first", "text": "Approach relationships looking for mutually beneficial outcomes, and practice empathic listening before advocating for your own view."},
+    {"title": "Synergize", "text": "Combine different people's perspectives and strengths to reach solutions better than any one person could produce alone."},
+    {"title": "Sharpen the saw", "text": "Renew yourself regularly across four dimensions, physical, mental, social, and spiritual, to sustain the other habits over time."}
+  ],
+  "try_it": [
+    "For one recurring frustration this week, write down what's in your Circle of Concern versus your Circle of Influence, and pick one action inside the influence circle.",
+    "Draft a rough one-paragraph personal mission statement: what do you want to be remembered for?",
+    "Before your next big to-do list, mark one or two items that are important but not urgent, and schedule them first.",
+    "In your next disagreement, listen to fully understand the other person's position before stating your own."
+  ],
+  "best_for": ["Readers wanting a principle-based, not trendy, approach to personal effectiveness", "Managers and leaders wanting a shared vocabulary for teams"],
+  "less_useful": ["Readers wanting quick tactical hacks rather than a character-development framework", "The prose is dense and somewhat dated in style and examples for modern readers"],
+  "site_links": [{"label": "Habit-Building", "href": "habit-building.html"}, {"label": "Self", "href": "self-management.html"}],
+  "related": [
+    {"asin": "B076BXLDVP", "why": "A more modern, habit-list take on similar territory"},
+    {"asin": "B00FPMTFRM", "why": "A narrower, single-priority companion to putting first things first"}
+  ],
+  "sources": [
+    {"label": "FranklinCovey overview", "href": "https://www.franklincovey.com/the-7-habits/"},
+    {"label": "Toolshero summary", "href": "https://www.toolshero.com/leadership/7-habits-highly-effective-people/"}
+  ]
+}

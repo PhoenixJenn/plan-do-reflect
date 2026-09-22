@@ -1,0 +1,26 @@
+{
+  "asin": "B0BDBP2JYG", "slug": "overthinking", "read_time": "1 min read",
+  "big_idea": "An Audible-original audiobook aimed at reducing rumination, anxiety, and stress by building present-moment focus and mental toughness. Unlike the other books on this page, it has no independent reviews or publisher history to draw on, so this summary is based only on the publisher's own description.",
+  "tool": {"label": "Note on sourcing", "text": "No verified excerpt, framework name, or independently reviewed technique could be confirmed for this title.", "note": "Treat the ideas below as the publisher's stated topics, not verified content from inside the book."},
+  "ideas": [
+    {"title": "Rumination and negative thinking", "text": "The audiobook is framed around identifying and interrupting patterns of negative or repetitive thinking."},
+    {"title": "Fear and anxiety", "text": "Addresses common anxiety and fear responses as part of the broader case for mental decluttering."},
+    {"title": "Stress and mental clutter", "text": "Positions stress reduction and a decluttered mind as connected goals, without a named technique to achieve either that could be independently verified."},
+    {"title": "Mental toughness", "text": "Frames building resilience and present-moment focus as the end goal of working through overthinking."}
+  ],
+  "try_it": [
+    "If overthinking is a real pattern for you, consider a more established title on the same topic, since this one has little independent verification.",
+    "Notice one recurring worry this week and write down whether it changed anything by being thought about repeatedly.",
+    "Try a short daily check-in: name one thought you're stuck on and one fact that either confirms or challenges it."
+  ],
+  "best_for": ["Listeners wanting a short, low-commitment introduction to the topic of overthinking"],
+  "less_useful": ["Readers wanting a well-reviewed, independently verified book; this title has no coverage on major book-summary sites and appears to be mass-produced audiobook content", "Anyone wanting rigorous psychological grounding rather than a general self-help overview"],
+  "site_links": [{"label": "Habit-Building", "href": "habit-building.html"}, {"label": "Reflection Practice", "href": "reflection-practice.html"}],
+  "related": [
+    {"asin": "B0035C6SMO", "why": "A well-sourced look at why the rational and emotional mind pull against each other"},
+    {"asin": "B074XGXWC8", "why": "A more rigorously sourced look at the brain chemistry behind mood and stress"}
+  ],
+  "sources": [
+    {"label": "Audible product page", "href": "https://www.audible.com/pd/Overthinking-Audiobook/B0BDBP2JYG"}
+  ]
+}

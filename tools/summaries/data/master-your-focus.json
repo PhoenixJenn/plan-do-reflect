@@ -1,0 +1,30 @@
+{
+  "asin": "B08KHR7KGZ", "slug": "master-your-focus", "read_time": "2 min read",
+  "big_idea": "Focus is a trainable skill, not a fixed trait. By deliberately managing attention across three levels, short-term, transitional, and long-term, you can stop chasing every new idea and actually finish what matters.",
+  "tool": {"label": "The three levels of focus", "text": "Short-term focus: staying on the task in front of you without distraction. Transitional focus: the routines and planning that carry momentum from one task to the next. Long-term focus: a clear, compelling vision that guides your daily decisions.", "note": "Most of the book's other techniques, prioritization, distraction management, goal-setting, map onto one of these three levels."},
+  "ideas": [
+    {"title": "Shiny object syndrome", "text": "Naming the pattern of abandoning a project the moment a newer, more exciting opportunity appears, the core obstacle the book is written to solve."},
+    {"title": "The cost of switching", "text": "Cites research that it takes roughly 23 minutes to fully regain concentration after an interruption, making task-switching far more costly than it feels."},
+    {"title": "Vision to daily task", "text": "A cascading system: yearly goals to 90-day sprints to weekly targets to daily tasks, distinguishing process goals you control from result goals you don't."},
+    {"title": "Ruthless prioritization", "text": "Sorting tasks by urgent and important to decide what actually deserves focused attention versus what should be dropped or delegated."},
+    {"title": "The single highest-leverage task", "text": "Identify the one task that matters most and do it during your peak-energy hours, before anything else competes for attention."},
+    {"title": "Root causes of procrastination", "text": "Traces avoidance to unclear goals, unconfronted fears, and disconnection from a larger vision, and pairs each cause with a fix."}
+  ],
+  "try_it": [
+    "Identify your single most important task for tomorrow and do it before checking phone or email.",
+    "Sort this week's task list into urgent and important, and cut or delegate what's neither.",
+    "Build a two-minute transition ritual, like a short walk or a few slow breaths, to use between tasks for one week.",
+    "Try one distraction-free morning: no phone for the first hour after waking."
+  ],
+  "best_for": ["People juggling too many projects or ideas at once", "Goal-oriented readers who want a step-by-step system connecting vision to daily tasks"],
+  "less_useful": ["Lighter on the emotional or psychological root-cause work than more introspective books, more system than self-inquiry", "Readers already familiar with the Eisenhower Matrix or SMART goals from other productivity books"],
+  "site_links": [{"label": "Habit-Building", "href": "habit-building.html"}, {"label": "Focus & Deep Work", "href": "focus-deep-work.html"}],
+  "related": [
+    {"asin": "B0189PX1RQ", "why": "A deeper look at protecting the short-term focus level"},
+    {"asin": "B00FPMTFRM", "why": "A sharper single-priority version of the vision-to-task cascade"}
+  ],
+  "sources": [
+    {"label": "Blinkist summary", "href": "https://www.blinkist.com/en/books/master-your-focus-en"},
+    {"label": "Shortform summary", "href": "https://www.shortform.com/summary/master-your-focus-summary-thibaut-meurisse"}
+  ]
+}

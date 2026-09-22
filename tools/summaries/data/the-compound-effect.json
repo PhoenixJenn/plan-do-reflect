@@ -1,0 +1,30 @@
+{
+  "asin": "1982648066", "slug": "the-compound-effect", "read_time": "2 min read",
+  "big_idea": "Small, smart choices, repeated consistently over time, compound into radically different outcomes than any single dramatic effort. Success or failure is rarely one big decision, but the accumulated effect of everyday habits.",
+  "tool": {"label": "The compound effect formula", "text": "Small, smart choices, plus consistency, plus time, equal a radical difference.", "note": "Hardy illustrates this with a penny doubled every day for 31 days eventually beating three million dollars handed to you upfront, to show how compounding outpaces one-time windfalls."},
+  "ideas": [
+    {"title": "Own your choices", "text": "Take full responsibility for outcomes instead of blaming circumstances or luck; small, unconscious choices compound just as much as big decisions."},
+    {"title": "Track your behavior", "text": "Measuring a behavior for a few weeks makes you conscious of it, and that awareness alone tends to shift it."},
+    {"title": "Momentum", "text": "Consistent daily, weekly, and monthly rhythms build unstoppable forward motion; once established, a routine is easier to keep than to break."},
+    {"title": "Three influences", "text": "Your input, the media and information you consume, your associations, and your environment shape your trajectory more than willpower alone."},
+    {"title": "Habit triggers over willpower", "text": "Identify and remove the triggers behind bad habits and substitute better cues, rather than relying on raw self-control."},
+    {"title": "Acceleration", "text": "Once momentum exists, deliberately exceeding expectations and pushing through obstacles multiplies results beyond the baseline compounding rate."}
+  ],
+  "try_it": [
+    "Track one behavior, like spending or screen time, daily for a week without trying to change it, just observe.",
+    "Identify one trigger behind a habit you want to break and remove it from your environment.",
+    "Audit the five people you spend the most time with and note their influence on your goals.",
+    "Pick one small daily action tied to a goal and commit to it every day this week."
+  ],
+  "best_for": ["Readers who want a business and personal-achievement framing of compounding habits", "People who respond well to tracking and accountability"],
+  "less_useful": ["Readers seeking academic or behavioral-science depth; it's lighter on research citations than Atomic Habits", "May read as repetitive or hustle-culture flavored for some readers"],
+  "site_links": [{"label": "Habit-Building", "href": "habit-building.html"}, {"label": "Goal Setting & Priorities", "href": "goal-setting-priorities.html"}],
+  "related": [
+    {"asin": "1524779261", "why": "A more research-grounded mechanism for the same compounding idea"},
+    {"asin": "1469084864", "why": "A broader set of habits built on the same small-choices logic"}
+  ],
+  "sources": [
+    {"label": "Four Minute Books summary", "href": "https://fourminutebooks.com/the-compound-effect-summary/"},
+    {"label": "Blinkist summary", "href": "https://www.blinkist.com/en/books/the-compound-effect-en"}
+  ]
+}

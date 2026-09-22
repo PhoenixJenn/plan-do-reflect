@@ -1,0 +1,30 @@
+{
+  "asin": "B074XGXWC8", "slug": "habits-of-a-happy-brain", "read_time": "3 min read",
+  "big_idea": "Happiness is biological, not philosophical. It comes from four neurochemicals that evolved to reward survival behaviors, not to produce lasting contentment, so sustained wellbeing means deliberately building new habits that keep triggering them, rather than chasing a permanent high.",
+  "tool": {"label": "The 45-day retrain method", "text": "Pick one new thought or behavior you want to reinforce, and repeat it consistently for 45 days without fail.", "note": "Breuning frames this as the antidote to habituation: the reason novelty fades and old comforts stop working is that the brain has already wired around them."},
+  "ideas": [
+    {"title": "The four happy chemicals", "text": "Dopamine drives reward-seeking and novelty, endorphin masks physical discomfort, oxytocin drives social bonding, and serotonin drives status and pride. Each evolved for a survival function, not enjoyment itself."},
+    {"title": "Cortisol, the unhappy chemical", "text": "The stress hormone evolved to flag real threats, but modern brains still fire it over trivial concerns, producing chronic low-grade anxiety."},
+    {"title": "Habituation explains fading feelings", "text": "Once the brain learns something is reliably rewarding, it releases less of the associated chemical. Repeating the same pleasure loses its punch over time."},
+    {"title": "Modeling through mirror neurons", "text": "Watching other people engage in habits you want to build can activate related circuitry in your own brain, making modeling a legitimate tool for change."},
+    {"title": "Chemical-specific strategies", "text": "Different tactics for each chemical: celebrate small wins for dopamine, vary movement for endorphin, build trust incrementally for oxytocin, and practice healthy pride for serotonin."},
+    {"title": "Leftover mammalian wiring", "text": "Modern reactions like jealousy or the urge for approval are reframed as leftover circuitry from mammalian social survival, not moral failings."}
+  ],
+  "try_it": [
+    "Choose one specific new habit and commit to repeating it daily for the next 45 days.",
+    "Break a goal into smaller milestones and consciously celebrate each one, rather than saving satisfaction for the end.",
+    "Vary a pleasurable routine this week, different music, a new recipe, instead of repeating the identical version.",
+    "Identify one relationship where you can practice small, repeated trust-building exchanges."
+  ],
+  "best_for": ["Readers curious about the neuroscience behind mood and motivation", "People who like mechanism-first explanations of behavior over abstract advice"],
+  "less_useful": ["Clinical depression, trauma, or serious mental illness; the lens is normal-range mood, not therapy", "Readers who want more nuanced psychological or systemic explanations for wellbeing"],
+  "site_links": [{"label": "Habit-Building", "href": "habit-building.html"}, {"label": "Reflection Practice", "href": "reflection-practice.html"}],
+  "related": [
+    {"asin": "1524779261", "why": "A more practical system for the habit-repetition this book explains the biology of"},
+    {"asin": "B0035C6SMO", "why": "How the rational and emotional sides of the brain pull against each other in change"}
+  ],
+  "sources": [
+    {"label": "12min summary", "href": "https://blog.12min.com/habits-of-a-happy-brain-summary/"},
+    {"label": "Bookey chapter summary", "href": "https://www.bookey.app/book/habits-of-a-happy-brain"}
+  ]
+}

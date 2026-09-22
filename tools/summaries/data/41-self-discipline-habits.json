@@ -1,0 +1,30 @@
+{
+  "asin": "B09HL56398", "slug": "41-self-discipline-habits", "read_time": "2 min read",
+  "big_idea": "Self-discipline isn't one grand willpower marathon, it's a toolbox of small, concrete techniques spanning habits, mindset, mindfulness, and goal-setting that let procrastinators build momentum and close the gap between intention and action.",
+  "tool": {"label": "The two-day rule", "text": "Never let yourself skip a desired habit or action two days in a row. Miss one day, and get back to it the next, no exceptions.", "note": "A forgiveness-built-in consistency rule: the goal is preventing one slip from becoming a collapse, not demanding perfection."},
+  "ideas": [
+    {"title": "A toolbox, not a grind", "text": "The book rejects grinding it out through sheer endurance, framing discipline as a set of learnable, low-effort tools rather than raw willpower."},
+    {"title": "Small-start momentum", "text": "The opening chapters focus on tiny first steps, like starting a new habit on a specific day, to build momentum before tackling bigger goals."},
+    {"title": "Body and mind come first", "text": "A dedicated chapter treats physical and emotional basics, energy, stress, and rest, as prerequisites discipline can't be built without."},
+    {"title": "Grounding under stress", "text": "A sensory grounding exercise, naming things you see, hear, touch, smell, and taste, for managing the anxiety that derails follow-through."},
+    {"title": "Gradual habit replacement", "text": "Swap bad habits for good ones incrementally rather than trying to eliminate them outright."},
+    {"title": "Vision-driven goal work", "text": "The closing chapters connect daily habits back to explicitly written goals, rather than treating habits as ends in themselves."}
+  ],
+  "try_it": [
+    "Pick one habit you keep abandoning and apply the two-day rule to it for a week.",
+    "Use a 5-4-3-2-1 senses grounding technique the next time stress tempts you to quit.",
+    "Write down one specific goal by hand and put it somewhere visible.",
+    "Start a new habit on a specific day, rather than whenever, and commit to that date."
+  ],
+  "best_for": ["Readers who want a grab-bag menu of quick, discrete tactics", "Chronic procrastinators who need something to try today, not a theory to study"],
+  "less_useful": ["Readers wanting one unified explanatory framework for why they lack discipline; that's closer to the author's companion book, The Power of Self-Discipline", "Can read as a loosely connected list rather than a progressive program"],
+  "site_links": [{"label": "Habit-Building", "href": "habit-building.html"}],
+  "related": [
+    {"asin": "B098BJP5NS", "why": "The same author's deeper look at the psychology behind discipline"},
+    {"asin": "1524779261", "why": "A more research-grounded system for building any habit"}
+  ],
+  "sources": [
+    {"label": "Everand chapter overview", "href": "https://www.everand.com/book/538646618/41-Self-Discipline-Habits-For-Slackers-Avoiders-Couch-Potatoes"},
+    {"label": "Newton Media Group chapter breakdown", "href": "https://newtonmg.com/2021/10/23/41-self-discipline-habits-by-peter-hollins-chapter-by-chapter/"}
+  ]
+}

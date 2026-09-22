@@ -1,0 +1,30 @@
+{
+  "asin": "B09DTJ7W3G", "slug": "the-high-5-habit", "read_time": "2 min read",
+  "big_idea": "A single, simple daily ritual, high-fiving yourself in the mirror, can retrain your brain out of habitual self-criticism and into self-support, and that shift in how you treat yourself is what unlocks the confidence to pursue your goals.",
+  "tool": {"label": "The mirror high five", "text": "Every morning, look yourself in the eye and give your reflection a high five, instead of scanning for flaws.", "note": "Robbins ties this to pairing an ordinary routine moment with an unexpected, positive gesture; it's her own framing, blending personal narrative with cited research rather than original studies."},
+  "ideas": [
+    {"title": "Self-positivity bias", "text": "Robbins cites research that people who hold generally favorable views of themselves report lower stress and higher motivation; the high five nudges you toward that bias."},
+    {"title": "Cue, routine, reward", "text": "The ritual is built on the classic habit-loop model: the mirror is the cue, the high five is the routine, and the resulting feeling is the reward."},
+    {"title": "What you notice shapes what you see", "text": "Chronic negative self-talk is framed as narrowing your attention toward threats and flaws, while positive self-talk redirects it toward opportunities."},
+    {"title": "Self-talk shapes action", "text": "Robbins shares her own story of turning down opportunities out of fear, arguing that what you tell yourself before you act directly shapes whether you act at all."},
+    {"title": "Reframing language", "text": "Swapping deficit language, like I can't, for possibility language, like I'll figure it out, as a deliberate, repeatable practice."},
+    {"title": "A stacked morning routine", "text": "The high five is paired with other small disciplines, like not hitting snooze or getting morning light, to reinforce a sense of control over the day."}
+  ],
+  "try_it": [
+    "Each morning this week, before checking your phone, high-five yourself in the mirror and say one encouraging phrase out loud.",
+    "Write a short list of your personal strengths and keep it somewhere visible.",
+    "Catch yourself using 'I can't' language once a day and consciously reframe it to a possibility statement.",
+    "Pair the high five with one other small morning discipline to build the routine as a stack."
+  ],
+  "best_for": ["Readers dealing with low self-confidence or a harsh inner critic who want a low-effort entry point", "People who respond well to simple, ritual-based habits rather than complex systems"],
+  "less_useful": ["Readers wanting rigorous, clinically tested behavioral science; the mechanism is more popular-science shorthand than established clinical fact", "Anyone already comfortable with self-compassion practices or looking for a full productivity system"],
+  "site_links": [{"label": "Habit-Building", "href": "habit-building.html"}, {"label": "Motivation & Procrastination", "href": "motivation-procrastination.html"}],
+  "related": [
+    {"asin": "B076BXLDVP", "why": "A fuller system of habits, once confidence is no longer the blocker"},
+    {"asin": "1524779261", "why": "How to turn this ritual into a lasting habit using cue and reward design"}
+  ],
+  "sources": [
+    {"label": "Shortform summary", "href": "https://www.shortform.com/summary/the-high-5-habit-summary-mel-robbins"},
+    {"label": "Four Minute Books summary", "href": "https://fourminutebooks.com/the-high-5-habit-summary/"}
+  ]
+}

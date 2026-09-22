@@ -1,0 +1,30 @@
+{
+  "asin": "B082VK6Q8G", "slug": "tools-of-titans", "read_time": "3 min read",
+  "big_idea": "There's no single formula for extraordinary success, but world-class performers across wildly different fields converge on a surprisingly small set of shared tactics and routines, which Ferriss distills from over 200 podcast interviews into a reference to dip into rather than a linear argument.",
+  "tool": {"label": "A daily mindfulness practice", "text": "More than 80% of the high performers Ferriss interviewed have some form of daily mindfulness or meditation practice, often just 10 to 20 minutes, with no single method dominating.", "note": "This is the single most consistently recurring practice Ferriss himself calls out across the book's profiled people, not a one-off anecdote."},
+  "ideas": [
+    {"title": "No universal formula", "text": "The book is explicitly anti-prescriptive: tactics must be personally tested and adapted, since even top performers disagree with each other on specifics."},
+    {"title": "Fear-setting", "text": "A structured journaling exercise, inspired by Stoic philosophy, where you define your worst-case scenario in detail, how you'd recover, and the cost of inaction."},
+    {"title": "Morning and evening journaling", "text": "Many titans front-load their day with a fixed ritual before checking email, and close it with a short evening review of what went well and what could improve."},
+    {"title": "Hell yes or no", "text": "A filtering heuristic for opportunities and commitments: if it's not an enthusiastic yes, treat it as a no, to protect focus for high-leverage work."},
+    {"title": "Discomfort as training", "text": "Several performers deliberately practice controlled discomfort, like cold exposure or fasting, to build resilience and lower reactivity to real setbacks."},
+    {"title": "Systems over goals", "text": "A recurring theme that durable habits and systems beat one-off goal-chasing for long-term results."}
+  ],
+  "try_it": [
+    "Pick one anxiety-inducing decision and run a 10-minute fear-setting exercise: write the worst case, how you'd recover, and the cost of doing nothing.",
+    "Try five minutes of guided meditation each morning for one week and note whether it changes your day.",
+    "Start a simple two-line evening journal: one thing that went well, one way tomorrow could be better.",
+    "Apply hell yes or no to your next three incoming requests or invitations."
+  ],
+  "best_for": ["Readers who like browsing and dipping in rather than reading cover to cover", "People wanting a wide menu of tactics to personally experiment with"],
+  "less_useful": ["Readers wanting one cohesive argument; it's explicitly a reference organized by guest, not topic", "The pool of profiled people skews toward already high-resource individuals, so not every tactic transfers easily"],
+  "site_links": [{"label": "Habit-Building", "href": "habit-building.html"}, {"label": "Reflection Practice", "href": "reflection-practice.html"}],
+  "related": [
+    {"asin": "B076BXLDVP", "why": "A single coherent system, rather than a menu of individual tactics"},
+    {"asin": "1524779261", "why": "How to actually build any one of these tactics into a lasting habit"}
+  ],
+  "sources": [
+    {"label": "Four Minute Books summary", "href": "https://fourminutebooks.com/tools-of-titans-summary/"},
+    {"label": "Forbes on Tools of Titans", "href": "https://www.forbes.com/sites/danschawbel/2016/12/06/tim-ferriss-what-you-can-learn-from-the-habits-of-world-class-performers/"}
+  ]
+}

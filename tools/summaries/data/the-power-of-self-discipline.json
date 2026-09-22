@@ -1,0 +1,30 @@
+{
+  "asin": "B098BJP5NS", "slug": "the-power-of-self-discipline", "read_time": "2 min read",
+  "big_idea": "Self-discipline is the bridge between what you intend and what you actually do. The book maps the psychological barriers that trap people in a self-justifying cycle of avoidance, and gives structured exercises for acting despite discomfort instead of chasing instant gratification.",
+  "tool": {"label": "The self-discipline formula", "text": "Self-discipline equals motivation plus benefits, minus discomfort plus distractions. To follow through, raise the first side or lower the second.", "note": "A diagnostic mental model, not literal math: use it to figure out which lever is actually sabotaging you before you try to fix it."},
+  "ideas": [
+    {"title": "Five psychological barriers", "text": "Sensory temptation, resentment, indifference, worry, and insecurity are framed as the five internal obstacles undermining self-control."},
+    {"title": "The cycle of laziness", "text": "A five-phase loop, from counterproductive assumptions through intensifying discomfort, justifying inaction, diversionary activities, and negative outcomes, that explains how people talk themselves out of follow-through."},
+    {"title": "If-then planning", "text": "Pre-deciding 'if X happens, then I do Y' automates decisions ahead of time and can sharply increase follow-through."},
+    {"title": "Honest self-interrogation", "text": "Forcing honest yes or no answers to hard questions, like whether a choice matches your ideal self or is just avoiding discomfort, to cut through rationalization."},
+    {"title": "Moderation versus abstinence", "text": "Some people do better with controlled indulgence, others with complete avoidance; the book has readers identify which fits their personality."},
+    {"title": "Environment and automation", "text": "Shaping your surroundings and building repeatable routines so discipline becomes the default rather than a constant willpower fight."}
+  ],
+  "try_it": [
+    "Write one if-then plan for your biggest recurring temptation this week.",
+    "Keep a temptation tracker for seven days, logging every time you resist or give in, and look for a pattern.",
+    "Set a daily 15-minute worry window and postpone anxious thoughts to it.",
+    "Test whether you're a moderation or abstinence type on one habit for a week and note which felt more sustainable."
+  ],
+  "best_for": ["Readers who want to understand the psychological why behind lack of discipline, not just the what", "People who like formulas and short structured exercises"],
+  "less_useful": ["Less useful as a pure quick-reference checklist; the author's 41 Self-Discipline Habits fills that role better", "Readers already familiar with implementation intentions or CBT-style reframing from other sources"],
+  "site_links": [{"label": "Habit-Building", "href": "habit-building.html"}],
+  "related": [
+    {"asin": "B09HL56398", "why": "The same author's companion book of quick, discrete tactics"},
+    {"asin": "B0035C6SMO", "why": "A model for the same rational-versus-emotional tug of war"}
+  ],
+  "sources": [
+    {"label": "Shortform summary", "href": "https://www.shortform.com/summary/the-power-of-self-discipline-summary-peter-hollins"},
+    {"label": "Sobrief summary", "href": "https://sobrief.com/books/the-power-of-self-discipline"}
+  ]
+}
