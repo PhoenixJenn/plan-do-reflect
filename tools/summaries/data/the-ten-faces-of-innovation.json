@@ -1,0 +1,30 @@
+{
+  "asin": "B002V00XJK", "slug": "the-ten-faces-of-innovation", "read_time": "2 min read",
+  "big_idea": "Organizations kill innovation when they let devil's-advocate skepticism dominate; instead, teams should deliberately cultivate ten distinct innovation personas, spanning learning, organizing, and building roles, that individuals can rotate through to keep creative momentum alive.",
+  "tool": {"label": "The ten personas framework", "text": "Kelley groups ten roles into three categories: learning personas, the Anthropologist, Experimenter, and Cross-Pollinator, who gather fresh input; organizing personas, the Hurdler, Collaborator, and Director, who navigate people and obstacles; and building personas, the Experience Architect, Set Designer, Storyteller, and Caregiver, who turn insight into tangible innovation. A team doesn't need ten separate people, individuals can adopt different personas depending on the challenge at hand.", "note": "The book draws its examples heavily from Kelley's own firm, IDEO, and client companies, so the framework reflects a design-consultancy lens more than a universal management theory."},
+  "ideas": [
+    {"title": "The Anthropologist", "text": "Observes how real people actually use products and services in context, surfacing unmet needs that surveys and focus groups miss."},
+    {"title": "The Experimenter", "text": "Learns through rapid, hands-on prototyping and treats early failures as cheap information rather than setbacks."},
+    {"title": "The Cross-Pollinator", "text": "Deliberately imports ideas and metaphors from other industries or cultures to spark novel solutions in their own domain."},
+    {"title": "The Hurdler", "text": "Faces unprecedented obstacles with resourceful, optimistic problem-solving rather than getting stuck waiting for permission or perfect conditions."},
+    {"title": "The Collaborator", "text": "Breaks down organizational silos by assembling multidisciplinary teams and empowering members to contribute outside their usual lane."},
+    {"title": "The Storyteller and Experience Architect", "text": "Build compelling narratives and designed, memorable end-to-end experiences that make innovations resonate emotionally, not just functionally."}
+  ],
+  "try_it": [
+    "Identify which of the ten personas comes most naturally to you, and deliberately practice the persona you use least in your next project meeting.",
+    "Spend 30 minutes this week directly observing how someone actually uses a product or process you're responsible for, taking notes like an Anthropologist.",
+    "Prototype one small, rough version of an idea you've been overthinking, purely to get real reaction from a colleague or customer.",
+    "Pull one person outside your usual collaborators into a current project for a single working session."
+  ],
+  "best_for": ["Team leads and innovation managers wanting a shared vocabulary for different creative roles on a team", "Design and product teams looking to diagnose which capabilities are missing from a stalled project"],
+  "less_useful": ["Readers wanting quantitative or financial innovation metrics rather than role-based, qualitative guidance", "Very small teams or solo founders who can't realistically distribute ten distinct roles"],
+  "site_links": [{"label": "Innovation & Creativity", "href": "references.html#cat-innovation"}],
+  "related": [
+    {"asin": "B01B89LABY", "why": "The same author's earlier book on the innovation process these ten personas operate within"},
+    {"asin": "B007TKVPO4", "why": "A complementary set of individual discovery skills behind the personas described here"}
+  ],
+  "sources": [
+    {"label": "IDEO Journal: The Ten Faces of Innovation", "href": "https://www.ideo.com/journal/the-ten-faces-of-innovation"},
+    {"label": "Medium: Learning from The Ten Faces of Innovation", "href": "https://medium.com/@ameet/learning-from-the-ten-faces-of-innovation-4aaf253a9a62"}
+  ]
+}

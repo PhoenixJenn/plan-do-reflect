@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="a">
+<head>
+<meta charset="UTF-8">
+<base href="../">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="icon" type="image/svg+xml" href="favicon.svg">
+<title>Better and Faster: One-page summary · Plan · Do · Reflect</title>
+
+<!-- Applied before CSS loads, so the saved theme / title-font choice doesn't flash to the default on reload -->
+<script>
+(function () {
+  try {
+    var savedTheme = localStorage.getItem('pdr-theme');
+    if (['a', 'b', 'c'].indexOf(savedTheme) > -1) {
+      document.documentElement.setAttribute('data-theme', savedTheme);
+    }
+    /* No saved choice yet means a first-time visitor — default them to Golos
+       Text rather than the theme's own heading font. Explicitly picking
+       "Theme default" in the picker stores the literal string 'default',
+       which is the one value that clears the override below. */
+    var savedTitleFont = localStorage.getItem('pdr-title-font');
+    var titleFont = savedTitleFont === null ? 'golos-text' : savedTitleFont;
+    if (titleFont !== 'default') {
+      document.documentElement.setAttribute('data-title-font', titleFont);
+    }
+  } catch (e) {}
+})();
+</script>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=Work+Sans:wght@400;500;600&family=Sora:wght@600;700;800&family=Plus+Jakarta+Sans:wght@500;600;700&family=Patrick+Hand&display=swap" rel="stylesheet">
+
+<!-- Title-font brainstorm candidates — temporary, for the .title-font-picker toggle only.
+     Remove this link once a title font is chosen and folded into tokens.css. -->
+<link href="https://fonts.googleapis.com/css2?family=Gabarito:wght@800&family=Chivo:wght@800&family=Golos+Text:wght@800&display=swap" rel="stylesheet">
+
+<link rel="stylesheet" href="css/tokens.css">
+<link rel="stylesheet" href="css/main.css">
+<link rel="stylesheet" href="css/summary.css">
+</head>
+<body>
+
+<header class="topnav">
+  <a class="logo" href="index.html">Plan·Do·Reflect</a>
+  <nav class="topnav-items">
+    <a class="item" href="framework.html">The Framework</a>
+    <a class="item" href="self-management.html">Self</a>
+    <a class="item" href="team.html">Team</a>
+    <a class="item" href="organization.html">Organization</a>
+    <a class="item" href="core-skills.html">Core Skills</a>
+    <a class="item active" href="references.html">References</a>
+  </nav>
+</header>
+
+<main class="sm">
+  <p class="sm-crumb"><a href="references.html">References &amp; Further Reading</a> &rsaquo; One-page summary</p>
+  <article class="sm-page">
+    <header class="sm-head">
+      <img class="sm-cover" src="images/covers/B00TG190XW.jpg" data-r="https://m.media-amazon.com/images/I/51CZeQalC9L._SL300_.jpg" alt="Cover of Better and Faster" onerror="if(this.dataset.r&amp;&amp;this.src.indexOf(this.dataset.r)===-1){this.src=this.dataset.r}else{this.style.visibility='hidden'}">
+      <div>
+        <p class="sm-eyebrow">One-page summary &middot; 2 min read</p>
+        <h1 class="page-title">Better and Faster</h1>
+        <p class="sm-sub">The Proven Path to Unstoppable Ideas</p>
+        <p class="sm-by">by Jeremy Gutsche</p>
+        <p class="sm-meta">2015 &middot; 6h 43m audiobook &middot; &#9733; 4.4 Audible</p>
+      </div>
+    </header>
+
+    <section class="sm-idea"><h2>The big idea</h2><p>Businesses fail not from lack of talent but from falling into complacent farmer habits; sustained success requires adopting a hunter mindset and a repeatable method for spotting the trends already emerging around you.</p></section>
+
+<section class="sm-tool"><span class="sm-label">The six patterns of opportunity</span><blockquote>Drawing on Trend Hunter&#x27;s analysis of roughly 250,000 ideas, Gutsche distills trend-spotting into six repeatable patterns: Convergence (combining separate trends), Divergence (splitting a category into a specialized niche), Cyclicality (reviving and updating something from the past), Redirection (applying an existing capability to a new market), Reduction (stripping something down to its essentials), and Acceleration (speeding up an existing process). He advises picking a specific hunting ground, a market or category to focus on, and systematically running each pattern against it to surface opportunities.</blockquote><p>Exact naming of the six patterns varies slightly across secondary summaries of the book; confirm precise wording against the book itself before quoting verbatim.</p></section>
+
+    <section class="sm-ideas"><h2>Key ideas</h2><ol><li><h3>Farmer vs. hunter mindset</h3><p>Farmer organizations protect what they have and repeat past tactics; hunter organizations stay insatiably curious and are willing to disrupt their own success, and only the latter survives long term.</p></li><li><h3>Three farmer traps</h3><p>Complacency, resting on past wins; repetition, assuming old tactics still work; and overprotectiveness, guarding an existing market instead of cannibalizing it.</p></li><li><h3>Three hunter instincts</h3><p>Insatiability, always scanning for the next opportunity; curiosity, questioning assumptions; and a willingness to destroy your own current advantage before a competitor does.</p></li><li><h3>Innovation archetypes</h3><p>The book includes a self-assessment to identify your own or your team&#x27;s innovation personality, surfacing blind spots and suggesting tactics suited to that style.</p></li><li><h3>Pattern recognition over prediction</h3><p>Rather than trying to predict the future, opportunity comes from recognizing patterns already playing out in adjacent industries and applying them to your own.</p></li><li><h3>Case-driven proof</h3><p>The book closes with dozens of short innovation secrets drawn from well-known companies, showing the patterns in action.</p></li></ol></section>
+
+    <div class="sm-cols">
+      <section><h2>Try it this week</h2><ol class="sm-steps"><li>Pick one of the six patterns and spend 20 minutes listing products in your industry that could combine with something from a totally different industry.</li><li>Write down one thing your team does because that&#x27;s how we&#x27;ve always done it, and identify which farmer trap it falls into.</li><li>Take 15 minutes to define your specific hunting ground for this quarter, instead of trying to watch every trend at once.</li><li>Find one recent innovation from an unrelated industry and write a one-paragraph memo on how the same idea could apply to your own work.</li></ol></section>
+      <section><h2>Is it for you?</h2><h3 class="sm-good">Best for</h3><ul><li>Entrepreneurs and innovation teams looking for a structured trend-spotting exercise</li><li>Leaders auditing why their organization has stalled</li></ul><h3 class="sm-less">Less useful if</h3><ul><li>Readers wanting deep academic rigor behind the research claims, since the book is written for a practitioner audience</li><li>Those who prefer narrative case studies over frameworks and self-assessments</li></ul></section>
+    </div>
+
+<section class="sm-links"><h2>On this site</h2><div class="sm-chips"><a href="references.html#cat-innovation">Innovation &amp; Creativity</a></div></section>
+    <section class="sm-links sm-related"><h2>Pairs well with</h2><ul><li><a href="references.html#book-B0CLYMKKCW">What&#x27;s Next Is Now</a> <span>A more individual, mindset-level companion on staying future-ready</span></li><li><a href="references.html#book-B007TKVPO4">The Innovator&#x27;s DNA</a> <span>The individual discovery skills that make pattern-spotting like this book&#x27;s method possible</span></li></ul></section>
+
+    <footer class="sm-foot">
+      <a class="sm-buy" href="https://www.amazon.com/s?k=Jeremy+Gutsche+Better+and+Faster&amp;tag=phoenixjenn-20" target="_blank" rel="noopener">Find the book on Amazon</a>
+      <p>Original summary written for Plan &middot; Do &middot; Reflect. Prepared from the book&rsquo;s ideas and public summaries (<a href="https://www.betterandfaster.com/" target="_blank" rel="noopener">Better and Faster, official book site</a>, <a href="https://www.blinkist.com/en/books/better-and-faster-en" target="_blank" rel="noopener">Blinkist summary</a>), not a substitute for reading it. Links may earn a commission.</p>
+    </footer>
+  </article>
+</main>
+
+<footer class="site-footer">
+  <p>&copy; 2026 Plan-Do-Reflect. <a href="references.html">References &amp; further reading</a></p>
+</footer>
+
+<div class="theme-switch" role="group" aria-label="Style direction">
+  <button data-theme="a" title="Kinetic Signal — black &amp; yellow"></button>
+  <button data-theme="b" title="Studio Ledger — dusty rose"></button>
+  <button data-theme="c" title="Bright Margin — lime"></button>
+  <a class="icon-lib-link" href="icon-library.html" title="Style Guide (internal reference)">
+    <svg width="14" height="14" viewBox="0 0 14 14" aria-hidden="true">
+      <rect x="1" y="1" width="5" height="5" rx="1" fill="currentColor"/>
+      <rect x="8" y="1" width="5" height="5" rx="1" fill="currentColor"/>
+      <rect x="1" y="8" width="5" height="5" rx="1" fill="currentColor"/>
+      <rect x="8" y="8" width="5" height="5" rx="1" fill="currentColor"/>
+    </svg>
+  </a>
+  <a class="icon-lib-link" href="notes.html" title="Notes (working drafts)">
+    <svg width="14" height="14" viewBox="0 0 14 14" aria-hidden="true">
+      <rect x="2" y="1" width="10" height="12" rx="1.5" fill="none" stroke="currentColor" stroke-width="1.3"/>
+      <line x1="4.5" y1="5" x2="9.5" y2="5" stroke="currentColor" stroke-width="1.3" stroke-linecap="round"/>
+      <line x1="4.5" y1="7.5" x2="9.5" y2="7.5" stroke="currentColor" stroke-width="1.3" stroke-linecap="round"/>
+      <line x1="4.5" y1="10" x2="7.5" y2="10" stroke="currentColor" stroke-width="1.3" stroke-linecap="round"/>
+    </svg>
+  </a>
+  <a class="icon-lib-link" href="sitemap.html" title="Sitemap (working draft)">
+    <svg width="14" height="14" viewBox="0 0 14 14" aria-hidden="true">
+      <circle cx="7" cy="2.5" r="1.8" fill="none" stroke="currentColor" stroke-width="1.3"/>
+      <circle cx="3" cy="11" r="1.8" fill="none" stroke="currentColor" stroke-width="1.3"/>
+      <circle cx="11" cy="11" r="1.8" fill="none" stroke="currentColor" stroke-width="1.3"/>
+      <path d="M7 4.3 L7 7 M7 7 L3 9.5 M7 7 L11 9.5" stroke="currentColor" stroke-width="1.3" fill="none" stroke-linecap="round"/>
+    </svg>
+  </a>
+</div>
+
+<!-- Temporary brainstorm control — only restyles the main h1 (.content h1 / .hero-title / .page-title). Remove alongside
+     the "title-font experiment" CSS block and the extra Google Fonts link once
+     a title font is picked. -->
+<div class="title-font-picker">
+  <label for="title-font-select">Title font</label>
+  <button type="button" id="title-font-prev" class="title-font-nav" aria-label="Previous title font">‹</button>
+  <select id="title-font-select">
+    <optgroup label="Round 1 — headline character">
+      <option value="gabarito">Gabarito</option>
+      <option value="chivo">Chivo</option>
+    </optgroup>
+    <optgroup label="Round 2 — Calibri-adjacent">
+      <option value="golos-text">Golos Text</option>
+    </optgroup>
+    <option value="default">Theme default</option>
+  </select>
+  <button type="button" id="title-font-next" class="title-font-nav" aria-label="Next title font">›</button>
+</div>
+
+<script src="js/theme-toggle.js" defer></script>
+<script src="js/title-font-toggle.js" defer></script>
+</body>
+</html>

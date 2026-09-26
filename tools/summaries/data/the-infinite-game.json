@@ -1,0 +1,30 @@
+{
+  "asin": "B07DKHSL3W", "slug": "the-infinite-game", "read_time": "2 min read",
+  "big_idea": "Simon Sinek argues that business and leadership should be approached as an infinite game, one with no fixed endpoint or winner, where the goal is to keep the organization and its cause alive and thriving, rather than playing to win against short-term, finite metrics.",
+  "tool": {"label": "The five essential practices", "text": "Sinek lays out five practices for adopting an infinite mindset: champion a Just Cause, a vision worth sacrificing for, tested against five criteria, for something, inclusive, service-oriented, resilient, idealistic; build trusting teams; study worthy rivals; maintain existential flexibility, a willingness to pivot fundamentally; and lead with courage. The Just Cause functions as a north star every strategic decision is measured against, replacing short-term financial targets as the primary compass.", "note": "The five criteria for a Just Cause are Sinek's own construct rather than an externally validated test; different secondary sources phrase them slightly differently."},
+  "ideas": [
+    {"title": "Finite vs. infinite games", "text": "Finite games have known players, fixed rules, and a defined end; infinite games have shifting players and rules and no finish line, and most of business and life are infinite games mistakenly played with a finite mindset."},
+    {"title": "Just Cause", "text": "A compelling, future-oriented vision that gives an organization a reason to exist beyond beating competitors or hitting quarterly numbers."},
+    {"title": "Trusting teams", "text": "High performance requires psychological safety, an environment where people can admit mistakes and ask for help, not just individual talent."},
+    {"title": "Worthy rivals", "text": "Competitors should be studied for what they do better than you, revealing your own blind spots rather than being treated as enemies to crush."},
+    {"title": "Existential flexibility", "text": "The capacity to make a radical strategic pivot when the current path no longer serves the Just Cause, even at short-term cost."},
+    {"title": "Ethical fading", "text": "Organizations obsessed with finite, short-term wins can drift into rationalizing unethical shortcuts without anyone feeling they crossed a line."}
+  ],
+  "try_it": [
+    "Draft a one-sentence Just Cause statement for your team and check it against the five criteria: for something, inclusive, service-oriented, resilient, idealistic.",
+    "In your next team meeting, explicitly invite people to name a mistake or ask for help, and notice how the group responds.",
+    "Identify one worthy rival and list two specific things they do better than you.",
+    "Before a major decision this week, ask whether it serves the long-term cause or just this quarter's numbers."
+  ],
+  "best_for": ["Leaders and managers shaping team or organizational vision and culture", "People frustrated with short-termism looking for a values-based alternative"],
+  "less_useful": ["Readers wanting hard data or case-study rigor, since the book leans philosophical and anecdotal rather than empirical", "Operators needing near-term, quarter-by-quarter execution tactics rather than a mindset shift"],
+  "site_links": [{"label": "Innovation & Creativity", "href": "references.html#cat-innovation"}],
+  "related": [
+    {"asin": "B00HM8YEHI", "why": "A tactical companion for shifting culture at the team level toward this book's long-game mindset"},
+    {"asin": "B06Y4VPJSJ", "why": "A cautionary look at what happens when short-term optimization crowds out long-term thinking"}
+  ],
+  "sources": [
+    {"label": "Reading Graphics book summary", "href": "https://readingraphics.com/book-summary-the-infinite-game-simon-sinek/"},
+    {"label": "Shortform book summary", "href": "https://www.shortform.com/summary/the-infinite-game-summary-simon-sinek"}
+  ]
+}

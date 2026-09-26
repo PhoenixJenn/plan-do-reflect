@@ -1,0 +1,27 @@
+{
+  "asin": "B0CLYMKKCW", "slug": "whats-next-is-now", "read_time": "1 min read",
+  "big_idea": "The future isn't something that happens to us or that we predict, it's something we actively create through a future-ready mindstate built on openness, curiosity, experimentation, empathy, and radical optimism, applied through small, intentional daily choices.",
+  "tool": {"label": "Collecting and connecting dots", "text": "Pferdt frames creativity as a practice of deliberately collecting dots, new experiences, observations, and perspectives gathered through small, intentional choices like taking a different route or talking to someone outside your usual circle, and then actively connecting those dots into novel ideas. The tool reframes curiosity and openness as trainable daily habits rather than fixed personality traits.", "note": "This is Pferdt's newly published book, and independent, non-promotional secondary coverage is limited compared to more established titles; most summaries found trace back to the author's own site and Blinkist rather than independent critical reviews."},
+  "ideas": [
+    {"title": "Radical optimism", "text": "Shifting from a passive things-will-work-out mindset to an active I-can-create-possibility-now stance, treated as a deliberate choice rather than an innate disposition."},
+    {"title": "Unreserved openness", "text": "Favoring a beginner's mind over expert certainty, since repeatedly stepping outside comfort zones builds adaptive capacity over time."},
+    {"title": "Compulsive curiosity", "text": "Reclaiming persistent questioning, the kind common in childhood, as a strategic professional advantage rather than something to outgrow."},
+    {"title": "Perpetual experimentation", "text": "Reframing setbacks as data to learn from rather than failures to avoid, encouraging frequent small experiments over rare big bets."}
+  ],
+  "try_it": [
+    "Take a different physical route once this week purely to collect a new dot of observation or experience.",
+    "Pick one recurring frustration or setback from the past month and rewrite it in one sentence as data rather than failure.",
+    "Identify the smallest possible next step on a stalled project and take it within 48 hours, rather than waiting for ideal conditions."
+  ],
+  "best_for": ["Individuals and teams wanting a personal-development framework for navigating uncertainty and change", "Readers interested in innovation culture from a former Google Chief Innovation Evangelist's perspective"],
+  "less_useful": ["Readers seeking a rigorously evidence-based or academically sourced text rather than a practice-and-mindset book", "Those wanting organizational-level frameworks rather than an individual mindset and habit approach"],
+  "site_links": [{"label": "Innovation & Creativity", "href": "references.html#cat-innovation"}],
+  "related": [
+    {"asin": "B00TG190XW", "why": "A more structured, pattern-based approach to the same future-readiness theme"},
+    {"asin": "1549144936", "why": "A bolder, more mindset-driven complement for navigating uncertainty"}
+  ],
+  "sources": [
+    {"label": "What's Next Is Now, official book page", "href": "https://www.frederikgpferdt.com/book"},
+    {"label": "Blinkist summary", "href": "https://www.blinkist.com/en/books/whats-next-is-now-en"}
+  ]
+}

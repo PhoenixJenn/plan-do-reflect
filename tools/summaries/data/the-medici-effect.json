@@ -1,0 +1,30 @@
+{
+  "asin": "B06XBYMVNW", "slug": "the-medici-effect", "read_time": "2 min read",
+  "big_idea": "Breakthrough innovation happens disproportionately at the intersection, the point where diverse fields, cultures, and disciplines collide, because combining ideas from unrelated domains produces novel combinations that specialists working within a single field rarely see.",
+  "tool": {"label": "The intersection and associative barriers", "text": "Johansson argues our brains default to associative thinking, building on ideas already familiar within our own field or culture, which creates associative barriers that block us from seeing distant, non-obvious connections. Deliberately putting yourself at an intersection, by joining a team, industry, or environment unlike your own, forces new associative pathways and produces intersectional ideas instead of merely directional, incremental ones.", "note": "The Medici family didn't intentionally design an innovation methodology; Johansson uses their patronage of diverse Renaissance artists and thinkers as a historical illustration, not a framework they themselves articulated."},
+  "ideas": [
+    {"title": "Diversity as an innovation driver", "text": "Teams assembled from genuinely different educational, cultural, and professional backgrounds generate more novel solutions than homogeneous expert teams working alone."},
+    {"title": "The outsider advantage", "text": "People without formal training in a field sometimes see what insiders miss; Johansson cites Darwin's contributions to ornithology, where his outsider perspective revealed patterns credentialed ornithologists overlooked."},
+    {"title": "Combine existing ideas", "text": "Most intersectional breakthroughs come from combining pre-existing ideas from different fields, like architecture borrowing structural ideas from termite mounds, rather than requiring wholly original concepts."},
+    {"title": "Prioritize loosely-linked ideas", "text": "Concepts only loosely related to your field are statistically more likely to produce a genuine breakthrough than ideas closely related to what you already do."},
+    {"title": "Generate volume", "text": "Because most combinations won't work, deliberately generating a high volume of idea combinations increases the odds of finding a valuable one."},
+    {"title": "Embrace failure and sustain passion", "text": "Intersectional innovation requires tolerating a high failure rate along the way, so maintaining personal passion and resilience is a practical requirement, not just a nice-to-have."}
+  ],
+  "try_it": [
+    "Invite one person from a completely different function or industry into your next brainstorm and ask them to react to your problem with no prior context.",
+    "Read one article or book this week from a field you have zero professional connection to and note any idea that could loosely map onto your own work.",
+    "Rate your last five ideas as directional or intersectional, and aim to generate at least one clearly intersectional idea.",
+    "Identify one associative barrier in your own thinking, an assumption you default to because it's familiar, and deliberately argue the opposite case for ten minutes."
+  ],
+  "best_for": ["Innovation leaders and team-builders wanting to design more diverse, cross-disciplinary teams", "Readers interested in the psychology and history of where breakthrough ideas come from"],
+  "less_useful": ["Readers wanting a step-by-step execution playbook rather than a conceptual and psychological framework", "Teams that already operate cross-functionally and need tactical process tools more than a mindset shift"],
+  "site_links": [{"label": "Innovation & Creativity", "href": "references.html#cat-innovation"}],
+  "related": [
+    {"asin": "B004285S6W", "why": "A complementary, more historical look at how ideas recombine into breakthroughs"},
+    {"asin": "B01B89LABY", "why": "A practical process for putting cross-disciplinary teams to work on real design problems"}
+  ],
+  "sources": [
+    {"label": "Wikipedia: The Medici Effect", "href": "https://en.wikipedia.org/wiki/The_Medici_Effect"},
+    {"label": "PeopleShift: The Medici Effect, a simple introduction", "href": "https://people-shift.com/articles/the-medici-effect/"}
+  ]
+}

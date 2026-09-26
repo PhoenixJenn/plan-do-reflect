@@ -1,0 +1,30 @@
+{
+  "asin": "B0CNFJ1BVP", "slug": "co-intelligence", "read_time": "2 min read",
+  "big_idea": "AI works best not as a tool that replaces human judgment but as a co-intelligence, an alien-minded partner with a jagged, uneven set of skills that people must learn to collaborate with, direct, and stay ahead of.",
+  "tool": {"label": "The four rules of co-intelligence", "text": "Always invite AI to the table and test it on real tasks to map its jagged frontier of strengths and blind spots; keep a human in the loop, since most professionals already work in their top specialty while AI performs closer to average, so judgment and accountability should stay human; treat AI like a person by assigning it a specific role and tone rather than relying on technical prompt tricks; and assume this is the worst AI you will ever use, since capabilities improve quickly and today's limitations are temporary.", "note": "Mollick's own synthesis from his research and teaching at Wharton, a practical heuristic rather than an empirically validated system."},
+  "ideas": [
+    {"title": "The jagged frontier", "text": "AI is unpredictably good at some hard tasks (writing, brainstorming, coding) and unpredictably bad at some easy ones (arithmetic, factual precision), so the only way to find the boundary is to test it directly on your own work."},
+    {"title": "An alien wearing a human mask", "text": "Large language models generate fluent, human-sounding text by predicting the next word statistically, not by understanding or retrieving facts the way a person does, a reminder not to over-trust its confident tone."},
+    {"title": "Five ways to work with AI", "text": "As a person (thought partner), creative collaborator, coworker, tutor, or coach, each framing invites a different style of interaction and different expectations of the tool."},
+    {"title": "Hallucination risk", "text": "Because AI generates plausible-sounding text rather than verified fact, it can state falsehoods with total confidence, making human fact-checking and domain expertise non-negotiable."},
+    {"title": "The alignment problem at work", "text": "AI systems optimize for the goals they're given, so a poorly specified prompt or business objective can be pursued efficiently and confidently in the wrong direction."},
+    {"title": "Continuous disruption of expertise", "text": "Because AI can compress the time it takes to gain surface-level competence, professionals need to double down on the deeper judgment and contextual expertise AI can't easily replicate."}
+  ],
+  "try_it": [
+    "Pick one recurring task this week and run it through an AI tool with a specific persona prompt to see where it helps and where it falls short.",
+    "Deliberately test an AI tool on both a hard creative task and a simple factual one, and log where it surprised you in each direction.",
+    "In your next AI-assisted deliverable, keep yourself as the final reviewer of accuracy and tone rather than pasting AI output directly into a shared document.",
+    "Rewrite one prompt as a plain instruction and instead assign the AI a clear role and audience, then compare the quality of the output."
+  ],
+  "best_for": ["Managers and knowledge workers wanting a grounded, research-based starting point for using generative AI daily", "Leaders trying to set team norms for responsible AI use"],
+  "less_useful": ["Readers wanting deep technical detail on how LLMs are built, since this is a practitioner's field guide, not a technical text", "Readers with well-established personal AI workflows may find the four rules familiar rather than new"],
+  "site_links": [{"label": "AI Fundamentals", "href": "references.html#cat-ai"}],
+  "related": [
+    {"asin": "B0DDD8R9LR", "why": "A more leadership-focused method for using AI on strategic decisions"},
+    {"asin": "B0FPGKZZHL", "why": "The same collaborate-with-AI mindset applied specifically to software development"}
+  ],
+  "sources": [
+    {"label": "Forbes: Ethan Mollick on the Four Rules of Co-Intelligence", "href": "https://www.forbes.com/sites/peterhigh/2024/05/07/ethan-mollick-on-the-four-rules-of-co-intelligence-with-ai/"},
+    {"label": "Reading Graphics book summary", "href": "https://readingraphics.com/book-summary-cointelligence/"}
+  ]
+}

@@ -1,0 +1,30 @@
+{
+  "asin": "B005LXV0HI", "slug": "the-lean-startup", "read_time": "2 min read",
+  "big_idea": "Startup success isn't luck or genius, it can be engineered through a disciplined, science-based process of rapid experimentation that lets entrepreneurs learn what customers actually want under conditions of extreme uncertainty, rather than perfecting a product in isolation.",
+  "tool": {"label": "Build-measure-learn with an MVP", "text": "Instead of spending months building a polished product, teams create a minimum viable product, the simplest version that allows one full turn of the build-measure-learn cycle with the least time and effort. The team ships it, measures real customer behavior rather than opinions, and uses that data to decide whether to persist with the current strategy or pivot. The goal is speed of learning, not speed of building.", "note": "Ries emphasizes that early adopters often distrust an overly polished product, so a minimum viable product is a feature, not a shortcut taken under time pressure."},
+  "ideas": [
+    {"title": "Validated learning", "text": "Progress is measured not by features shipped but by rigorous, evidence-based proof that a sustainable business can be built, learning is treated as the unit of progress."},
+    {"title": "The pivot", "text": "When data shows a founding hypothesis is wrong, teams make a structural course correction to test a new fundamental hypothesis rather than abandoning the venture; Ries identifies roughly nine types of pivots."},
+    {"title": "Value hypothesis vs. growth hypothesis", "text": "Every new product rests on two testable assumptions, does it deliver real value to customers, and how will it acquire new customers at scale, and both need explicit experiments."},
+    {"title": "Innovation accounting", "text": "Startups need a different measurement system than traditional accounting, one that tracks actionable metrics tied to specific learning milestones rather than vanity metrics like total signups."},
+    {"title": "Entrepreneurship as management", "text": "Ries argues a startup is an institution, not just a product, and that entrepreneur should be treated as a job title requiring its own management discipline."},
+    {"title": "Working in small batches", "text": "Reducing batch size, of code, of features, of decisions, shortens feedback loops and surfaces problems earlier, borrowed from lean manufacturing principles."}
+  ],
+  "try_it": [
+    "Write down your product's single riskiest assumption and design one small, cheap experiment to test it this week before building anything further.",
+    "Pick one metric you currently track and ask whether it's a vanity metric or an actionable metric tied to a specific decision; replace it if it's the former.",
+    "Draft a one-paragraph MVP definition for a current idea: the smallest thing you could ship to start one build-measure-learn loop.",
+    "Hold a 15-minute pivot-or-persevere conversation with a collaborator using only data from the last experiment, not opinions."
+  ],
+  "best_for": ["Early-stage founders and product managers validating a new idea under real uncertainty", "Corporate innovation teams launching new internal ventures"],
+  "less_useful": ["Leaders running a mature, already-validated business where the core problem is execution and scale, not discovery", "Readers wanting deep technical or engineering detail rather than a management philosophy"],
+  "site_links": [{"label": "Innovation & Creativity", "href": "references.html#cat-innovation"}],
+  "related": [
+    {"asin": "0593164954", "why": "A founder's real-world account of the forced, sequential problem-solving this book's method tries to systematize"},
+    {"asin": "B00HZNTRE0", "why": "A complementary framework for the specific product loop that keeps validated customers coming back"}
+  ],
+  "sources": [
+    {"label": "The Lean Startup: official principles", "href": "https://theleanstartup.com/principles"},
+    {"label": "The Lean Startup book summary, Tyler DeVries", "href": "https://tylerdevries.com/book-summaries/the-lean-startup/"}
+  ]
+}

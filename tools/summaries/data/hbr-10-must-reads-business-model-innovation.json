@@ -1,0 +1,30 @@
+{
+  "asin": "1663714983", "slug": "hbr-10-must-reads-business-model-innovation", "read_time": "2 min read",
+  "big_idea": "A business model is a system of interlocking choices, value proposition, profit formula, resources, and processes, and real innovation usually means redesigning that whole system, not just tweaking a product, because incumbents' existing models actively resist the changes disruption requires.",
+  "tool": {"label": "The four-box business model framework", "text": "From Johnson, Christensen, and Kagermann's featured essay Reinventing Your Business Model: a business model has four interlocking parts, the customer value proposition (a job to be done and how you help do it), the profit formula (revenue model, cost structure, margins, resource velocity), key resources (people, tech, products, channels), and key processes (how you consistently deliver value at scale). Because the boxes reinforce each other, changing one usually forces you to redesign the rest.", "note": "The four-box model is specific to that one featured essay; other essays in the anthology use their own distinct frameworks, since this is a multi-author collection, not one unified book."},
+  "ideas": [
+    {"title": "Why business models matter", "text": "A business model is essentially a story of how the enterprise creates and captures value; get the story's logic wrong and no amount of execution saves it."},
+    {"title": "Reinventing your business model", "text": "New growth often requires a genuinely new model, built and run separately from the core business rather than bolted onto it."},
+    {"title": "When your business model is in trouble", "text": "Business models decay predictably as competitive advantage erodes; leaders should watch for the warning signs before performance craters, not after."},
+    {"title": "Four paths to business model innovation", "text": "Innovation typically comes from shifting who makes which decision, when it's made, why it's made, or what information it's based on."},
+    {"title": "Competing against free", "text": "Free or low-cost rivals attack by stripping out features most customers don't value; incumbents must decide whether to match, retreat upmarket, or launch a separate low-cost brand."},
+    {"title": "Platforms over pipelines", "text": "Many industries are shifting from linear pipeline business models to platform models that create value by facilitating exchange between producers and consumers."}
+  ],
+  "try_it": [
+    "Map your own offering against the four boxes and flag which one is under the most competitive pressure right now.",
+    "Ask what job the customer is really hiring you to do, and compare that honestly to what your product description actually says.",
+    "List three free or low-cost competitors nibbling at your market and identify exactly which feature they've stripped out to do it.",
+    "Run the decline checklist against your own business unit: are margins compressing, are new entrants copying your uncontested space, is satisfaction quietly falling even as usage holds?"
+  ],
+  "best_for": ["Executives and strategy teams evaluating whether to defend, extend, or replace their current business model", "Readers who want condensed access to canonical HBR thinking without reading each original article separately"],
+  "less_useful": ["Early-stage founders wanting hands-on startup tactics, since this is written more for existing-company strategists than day-one builders", "Readers wanting one continuous narrative, since each chapter is a standalone essay by a different author"],
+  "site_links": [{"label": "Innovation & Creativity", "href": "references.html#cat-innovation"}],
+  "related": [
+    {"asin": "B0BM3S2JYZ", "why": "The companion HBR anthology focused on innovation practice more broadly"},
+    {"asin": "B002V0M6D6", "why": "A single-author deep dive on business-model disruption that complements this anthology's essays"}
+  ],
+  "sources": [
+    {"label": "HBR official product page", "href": "https://store.hbr.org/product/hbr-s-10-must-reads-on-business-model-innovation-with-featured-article-reinventing-your-business-model-by-mark-w-johnson-clayton-m-christensen-and-henning-kagermann/10235"},
+    {"label": "O'Reilly online edition (table of contents)", "href": "https://www.oreilly.com/library/view/hbrs-10-must/9781633696884/"}
+  ]
+}

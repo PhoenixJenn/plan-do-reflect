@@ -1,0 +1,30 @@
+{
+  "asin": "B0BBYZFBQW", "slug": "awaken-your-genius", "read_time": "2 min read",
+  "big_idea": "Everyone has an innate creative genius, but conformity, mindless media consumption, and rote schooling bury it; reclaiming it requires deliberately shedding borrowed identities and relearning how to think for yourself.",
+  "tool": {"label": "The death/birth process", "text": "Varol frames creative reinvention as a two-phase cycle: death means consciously dropping an identity, belief, or role that no longer fits, illustrated by choreographer Gillian Lynne breaking free of the problem student label to become a Broadway force, and birth means deconstructing the parts you're left with and recombining them into something new, the way YouTube's founders repurposed a failed dating-video site into a video-sharing platform.", "note": "Varol's own synthesis drawn from psychology and innovation history rather than a single peer-reviewed model."},
+  "ideas": [
+    {"title": "Conformity as a cage", "text": "Adopting a fixed identity, a job title, a political label, a community's norms, narrows what you'll let yourself explore or believe."},
+    {"title": "The consumption trap", "text": "Constant low-quality media intake crowds out the mental white space original ideas need to form."},
+    {"title": "Education dulls curiosity", "text": "Schooling rewards memorization and correct answers over wonder, gradually training out the divergent thinking kids start with."},
+    {"title": "Creative confidence through failure", "text": "Treating failed attempts as data rather than verdicts on your worth keeps you willing to keep generating ideas."},
+    {"title": "Listening to your own signal", "text": "Original insight tends to come from solitude, contemplation, and intuitive cues, not from scrolling other people's opinions."},
+    {"title": "Present-focused engagement", "text": "Releasing anxious fixation on future outcomes and skepticism toward settled facts opens space for genuinely new thinking."}
+  ],
+  "try_it": [
+    "Write down one identity label you hold and list three beliefs or behaviors it's quietly locking you out of.",
+    "Block 30 minutes of unstructured nothing time this week with no phone or input, just to think.",
+    "Pick one long-held assumption in your work and spend 10 minutes actively arguing the opposite case.",
+    "Before consuming any content today, ask whether it will leave you more original or less, and skip anything that fails the test."
+  ],
+  "best_for": ["People who feel creatively stuck in a conventional career path", "Leaders wanting a personal-reinvention framework rather than a team-process one"],
+  "less_useful": ["Readers wanting concrete business tools or step-by-step innovation processes, since this is personal and psychological, not organizational", "Readers who prefer research-heavy, citation-dense nonfiction over an anecdote-and-reflection style"],
+  "site_links": [{"label": "Innovation & Creativity", "href": "references.html#cat-innovation"}],
+  "related": [
+    {"asin": "1549144936", "why": "The same author's companion book on bold reframing and reinvention under uncertainty"},
+    {"asin": "B0B3L2T9W5", "why": "A more meditative take on the same mindset-level creative practice"}
+  ],
+  "sources": [
+    {"label": "Ozan Varol's official book page", "href": "https://ozanvarol.com/awaken/"},
+    {"label": "Shortform book overview", "href": "https://www.shortform.com/blog/ozan-varol-awaken-your-genius/"}
+  ]
+}

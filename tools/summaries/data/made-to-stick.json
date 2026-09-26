@@ -1,0 +1,30 @@
+{
+  "asin": "B002V0QVY6", "slug": "made-to-stick", "read_time": "2 min read",
+  "big_idea": "Ideas that are remembered and acted on, urban legends, proverbs, great teaching, effective pitches, reliably share six identifiable traits, and anyone can deliberately engineer those traits into their own message rather than hoping it just clicks.",
+  "tool": {"label": "The SUCCESs checklist", "text": "The Heath brothers distill sticky communication into six traits: Simple (find and lead with the single core message), Unexpected (break the audience's pattern to earn attention, then open a curiosity gap), Concrete (use sensory, specific language instead of abstraction), Credible (build in believability through vivid detail or a single powerful example rather than statistics alone), Emotional (connect to what people already care about, not just logic), and Stories (wrap the message in a narrative that lets people mentally rehearse acting on it). It's meant as a diagnostic: run a draft message through all six and see which are missing.", "note": "Presented as a synthesized checklist drawn from psychology and communication research and the authors' own case studies, not an original scientific experiment."},
+  "ideas": [
+    {"title": "Curse of knowledge", "text": "Once you know something well, you lose the ability to imagine not knowing it, which is why experts routinely give explanations that make no sense to their actual audience."},
+    {"title": "Simplicity as prioritization", "text": "Getting to simple isn't dumbing down, it's ruthless prioritization, finding the single most important core of an idea and leading with it."},
+    {"title": "The curiosity gap", "text": "Deliberately highlighting a gap in someone's knowledge creates a felt need for closure that keeps attention on your message until you resolve it."},
+    {"title": "The Velcro theory of memory", "text": "Concrete, sensory details give an idea more hooks to catch in memory than abstract statements do, and create a shared, unambiguous meaning across a whole audience."},
+    {"title": "The Sinatra test", "text": "Rather than piling on statistics, one vivid, high-stakes example can carry more persuasive weight than pages of data."},
+    {"title": "Three story plot types", "text": "Challenge plots (overcoming a big obstacle), connection plots (bridging a gap between people), and creativity plots (a novel solution to a problem) are the narrative shapes that most reliably move people to act."}
+  ],
+  "try_it": [
+    "Before your next presentation or email, cut it down to the one sentence you'd keep if you could only say one thing, and put that sentence first.",
+    "Replace one abstract claim or statistic in your next pitch with a single concrete, sensory example.",
+    "Apply the Sinatra Test to your next proposal: find one specific, high-credibility example instead of listing five general ones.",
+    "Turn one piece of advice or policy you need people to remember into a two-minute story built on a challenge, connection, or creativity plot."
+  ],
+  "best_for": ["Managers, teachers, and marketers who need to make presentations, internal communications, or pitches memorable", "Anyone responsible for getting an already-formed idea to stick with an audience"],
+  "less_useful": ["Not a framework for generating new ideas or strategy, since it assumes you already have the idea and need to communicate it", "Less relevant for deep organizational or financial decision-making"],
+  "site_links": [{"label": "Innovation & Creativity", "href": "references.html#cat-innovation"}],
+  "related": [
+    {"asin": "B0C6YM6Q41", "why": "A closer look at the conversational skills that make any message land in the moment"},
+    {"asin": "B00HZNTRE0", "why": "A complementary look at engineering products, not just messages, that people keep coming back to"}
+  ],
+  "sources": [
+    {"label": "Reading Graphics book summary", "href": "https://readingraphics.com/book-summary-made-to-stick/"},
+    {"label": "Made to Stick: notes and review, Nat Eliason", "href": "https://www.nateliason.com/notes/made-stick-chip-dan-heath"}
+  ]
+}

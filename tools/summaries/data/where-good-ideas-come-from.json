@@ -1,0 +1,30 @@
+{
+  "asin": "B004285S6W", "slug": "where-good-ideas-come-from", "read_time": "2 min read",
+  "big_idea": "Innovation is not a single aha moment but the predictable product of certain environments and conditions, networked, error-tolerant, recombinant systems, that recur again and again in nature, cities, and technology.",
+  "tool": {"label": "The adjacent possible", "text": "The adjacent possible is the set of ideas, inventions, and combinations that are one step reachable from what already exists at a given moment, given current knowledge, materials, and tools. Johnson argues breakthrough innovation happens by combining existing elements just past the current boundary, not by leaping far beyond it. His example: Charles Babbage's 1830s mechanical computer concept was outside the adjacent possible of his time because the necessary electronics didn't exist yet; a century later, once surrounding technology caught up, the same basic blueprint became buildable.", "note": "none"},
+  "ideas": [
+    {"title": "Liquid networks", "text": "Innovation flourishes in dense, loosely connected environments, like cities or coffeehouses, where ideas move quickly between people, rather than in isolated, rigid hierarchies."},
+    {"title": "Slow hunches", "text": "Big ideas are usually not sudden insights but incomplete hunches that need months or years, and often collision with someone else's hunch, before they mature into something usable."},
+    {"title": "Exaptation", "text": "Traits or technologies developed for one purpose often get repurposed for an entirely different, more consequential use, a pattern that recurs throughout technology history."},
+    {"title": "Platforms", "text": "New innovations tend to stack on top of existing infrastructure or technology layers, like GPS enabling ride-sharing apps, lowering the bar for the next wave of ideas."},
+    {"title": "Serendipity and error", "text": "Unplanned mistakes and accidental discoveries are a recurring, productive source of innovation, so environments that tolerate error outperform those optimized purely for efficiency."},
+    {"title": "The multiple phenomenon", "text": "The same invention is often discovered independently by different people around the same time, because they're all drawing on the same adjacent possible rather than pure individual genius."}
+  ],
+  "try_it": [
+    "Keep a running hunch list where you jot down half-formed ideas, and revisit it monthly instead of discarding ideas that aren't immediately actionable.",
+    "Deliberately have one conversation this week with someone outside your usual team or industry to see what adjacent ideas surface.",
+    "Audit a recent project for a slow hunch you shelved too early, and ask whether it's now reachable given new tools or information.",
+    "Identify one tool or platform your team already has access to and brainstorm one adjacent use nobody has tried yet."
+  ],
+  "best_for": ["Innovation leaders and product teams designing collaborative environments", "Readers interested in the history of science and technology"],
+  "less_useful": ["Readers wanting a step-by-step personal productivity workbook, since the book is descriptive and historical rather than prescriptive", "Those focused solely on individual-level creativity techniques rather than organizational or environmental design"],
+  "site_links": [{"label": "Innovation & Creativity", "href": "references.html#cat-innovation"}],
+  "related": [
+    {"asin": "B06XBYMVNW", "why": "A companion theory on how combining distant fields produces the same kind of breakthroughs"},
+    {"asin": "B0B3L2T9W5", "why": "A more personal, practice-based take on where creative ideas come from"}
+  ],
+  "sources": [
+    {"label": "Shortform: The Adjacent Possible", "href": "https://www.shortform.com/blog/adjacent-possible-steven-johnson/"},
+    {"label": "techratchet book summary", "href": "https://techratchet.com/2020/05/21/book-summary-where-good-ideas-come-from-by-steven-johnson/"}
+  ]
+}

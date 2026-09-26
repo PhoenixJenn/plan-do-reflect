@@ -1,0 +1,30 @@
+{
+  "asin": "B0BM3S2JYZ", "slug": "hbr-10-must-reads-innovation", "read_time": "2 min read",
+  "big_idea": "Innovation isn't a flash of inspiration, it's a discipline of specific, learnable practices, systematic opportunity-scanning, disciplined project evaluation, and structural protection from the core business, that determines whether creativity actually turns into results.",
+  "tool": {"label": "Discovery-driven planning", "text": "Developed by Rita McGrath and Ian MacMillan and featured in the collection, this is a planning method for ventures built on uncertain assumptions: instead of a fixed forecast-based business plan, teams state their assumptions explicitly, define the specific milestones that would confirm or kill those assumptions, and budget in small stages tied to hitting those checkpoints, deliberately building in the ability to reverse course cheaply rather than over-committing to an unproven bet.", "note": "One of ten distinct essay-level frameworks in the anthology; Drucker's seven sources of innovation, the featured article, and Christensen's disruption concepts are separate, equally central tools in the same book."},
+  "ideas": [
+    {"title": "The discipline of innovation", "text": "Systematic innovation means monitoring seven specific sources of opportunity, from unexpected successes and failures to demographic shifts, rather than waiting for a stroke of genius."},
+    {"title": "Innovation's classic traps", "text": "Companies repeatedly fail at innovation for predictable, avoidable reasons, including misjudging what customers actually value and over-relying on existing customer feedback for breakthrough bets."},
+    {"title": "How GE disrupted itself", "text": "Reverse innovation, building stripped-down products for emerging markets first, then adapting them for developed markets, can open growth that traditional top-down R&D misses."},
+    {"title": "Is it real? Can we win? Is it worth doing?", "text": "A simple three-question screen helps leaders kill weak innovation bets early instead of letting sunk-cost thinking carry them forward."},
+    {"title": "The customer-centered innovation map", "text": "Innovation should be organized around the sequence of a customer's experience with a product or service, not around internal departmental boundaries."},
+    {"title": "Six myths of product development", "text": "Common assumptions, like a fast development process yields fast results, or more people mean faster progress, are frequently wrong and lead teams to optimize the wrong things."}
+  ],
+  "try_it": [
+    "Run the seven-sources scan against your own team: which source, industry changes, process needs, demographic shifts, have you been ignoring?",
+    "Pick one active project and apply the three-question test: is it real, can we win, is it worth doing? Kill or double down based on honest answers.",
+    "Write down the assumptions behind your riskiest current initiative, then define the cheapest possible test for the shakiest one.",
+    "Map a customer's full journey with your product end-to-end and note where your internal team boundaries are creating friction."
+  ],
+  "best_for": ["Managers and executives wanting condensed access to foundational innovation thinking without reading full books", "Teams designing an innovation process or portfolio-review system"],
+  "less_useful": ["Readers wanting a single unified narrative, since this is ten standalone essays from different decades and authors", "Readers seeking very current case studies, since several essays are decades-old classics"],
+  "site_links": [{"label": "Innovation & Creativity", "href": "references.html#cat-innovation"}],
+  "related": [
+    {"asin": "1663714983", "why": "The companion HBR anthology focused specifically on business-model innovation"},
+    {"asin": "B06Y4VPJSJ", "why": "Christensen's full-length treatment of the disruption theory summarized in this anthology's essays"}
+  ],
+  "sources": [
+    {"label": "HBR official product page", "href": "https://store.hbr.org/product/hbr-s-10-must-reads-on-innovation-with-featured-article-the-discipline-of-innovation-by-peter-f-drucker/11363"},
+    {"label": "O'Reilly online edition (table of contents)", "href": "https://www.oreilly.com/library/view/hbrs-10-must/9781422191507/"}
+  ]
+}

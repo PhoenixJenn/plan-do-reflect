@@ -1,0 +1,30 @@
+{
+  "asin": "B00EAGV2BQ", "slug": "thinking-in-new-boxes", "read_time": "2 min read",
+  "big_idea": "Simply thinking outside the box isn't enough, real innovation requires consciously building an entirely new mental framework, since the mind can't function without categories, so the goal is to replace an outdated box with a better one rather than pretend to escape boxes altogether.",
+  "tool": {"label": "The five-step model for new-box thinking", "text": "The model moves through: recognize the limits of your current mental model and challenge your underlying assumptions; gather fresh, even contradictory, information from outside your usual sources; generate ideas broadly without premature judgment; test those ideas systematically, expecting many attempts before a breakthrough; and question your business's most fundamental assumptions, not just surface-level tactics, sometimes paired with scenario planning to prepare for multiple possible futures rather than one predicted one.", "note": "none"},
+  "ideas": [
+    {"title": "The box metaphor", "text": "Mental categories are necessary for processing a complex world, but they entrench biases and make truly novel ideas feel automatically wrong simply because they're unfamiliar."},
+    {"title": "BIC's reframe", "text": "The authors' signature example: BIC moved from we make disposable pens to we make all kinds of disposable products, opening expansion into lighters, razors, and even surfboards."},
+    {"title": "Question your worldview first", "text": "Before generating new ideas, the model insists on interrogating the assumptions currently taken for granted, since a flawed box will produce flawed solutions no matter how creative the ideas inside it are."},
+    {"title": "Seek disconfirming information", "text": "Rather than confirming what you already believe, deliberately collect data and perspectives that contradict your current mental model to loosen its grip."},
+    {"title": "Scenario planning for multiple futures", "text": "Because single-future predictions trap organizations when reality diverges, the book recommends building several plausible future scenarios and staying mentally flexible across all of them."},
+    {"title": "Change happens to you or through you", "text": "Companies either actively drive change by rebuilding their boxes, or they passively have change imposed on them by competitors and markets who got there first."}
+  ],
+  "try_it": [
+    "Write down the box, the core assumption, your business or role currently operates inside, then write one plausible alternative box a competitor might be building instead.",
+    "Spend 20 minutes actively seeking one piece of information that contradicts your current strategy or plan, rather than confirming it.",
+    "Draft two different one-paragraph future scenarios for your industry or role five years out, and note one action that would work in both.",
+    "Take one long-standing obvious assumption on your team and ask why five times in a row to see if it still holds."
+  ],
+  "best_for": ["Strategy consultants and senior leaders responsible for reframing a business model or long-range planning", "Teams stuck iterating on the same category of ideas without a breakthrough"],
+  "less_useful": ["Readers wanting concrete tactical brainstorming exercises rather than a conceptual and strategic model", "Individual contributors without influence over higher-level business assumptions"],
+  "site_links": [{"label": "Innovation & Creativity", "href": "references.html#cat-innovation"}],
+  "related": [
+    {"asin": "1980090939", "why": "A closer look at reframing the specific problem before reframing the whole mental model"},
+    {"asin": "B06XBYMVNW", "why": "A complementary source of fresh combinations for building a genuinely new mental box"}
+  ],
+  "sources": [
+    {"label": "getAbstract summary", "href": "https://www.getabstract.com/en/summary/thinking-in-new-boxes/21846"},
+    {"label": "Blinkist summary", "href": "https://www.blinkist.com/en/books/thinking-in-new-boxes-en"}
+  ]
+}

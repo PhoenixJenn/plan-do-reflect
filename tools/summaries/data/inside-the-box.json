@@ -1,0 +1,30 @@
+{
+  "asin": "B0FNDTVTNR", "slug": "inside-the-box", "read_time": "2 min read",
+  "big_idea": "Contrary to the think-outside-the-box cliche, deliberately imposed constraints, of time, materials, budget, or choice, reliably produce more creative, satisfying, and higher-quality outcomes than unlimited freedom or resources.",
+  "tool": {"label": "Constraint-as-design", "text": "Epstein shows that removing options or blocking the easiest, path-of-least-resistance solution forces genuine experimentation instead of default behavior. Concrete versions include structural defaults, like auto-enrolling people in a 401(k) rather than requiring opt-in, pre-commitment devices, like leaving your phone in another room, and sequential or private disclosure, like having sports teams write down draft picks privately before group discussion so early voices don't anchor everyone else. The common mechanism: constraints don't rely on willpower, they redesign the environment so the desired behavior becomes the easy one.", "note": "This is a distinct, newly published book by David Epstein, author of Range and The Sports Gene, unrelated to a similarly-titled 2013 book on creativity by different authors covering related constraint-based territory."},
+  "ideas": [
+    {"title": "Unlimited freedom can paralyze", "text": "Too much choice and resource abundance often produces worse creative outcomes than tight limits, because open-ended freedom leaves no clear starting point."},
+    {"title": "Working memory bottleneck", "text": "Attention is a finite resource; environments that grab cognitive capacity at the wrong moment can make performance worse, not better."},
+    {"title": "Constraint forces prioritization", "text": "When a familiar or easy solution is blocked, people are pushed to clarify what actually matters, as when a design team had to design a product's packaging before the device itself."},
+    {"title": "Creative limits in art", "text": "Dr. Seuss wrote Green Eggs and Ham after being challenged to use only 50 words, and Monet helped invent Impressionism partly by rejecting traditional light-and-dark shading, both self-imposed constraints that produced signature styles."},
+    {"title": "Resource scarcity spurs reuse", "text": "Budget-constrained engineering efforts, like Apollo 13 and the LCROSS moon-impact mission, succeeded partly by creatively repurposing existing off-the-shelf technology."},
+    {"title": "Abundance can fail", "text": "Well-funded, unconstrained efforts can flounder precisely because nothing forces hard prioritization choices."}
+  ],
+  "try_it": [
+    "Before starting your next creative or planning task, pick one artificial constraint, a word count, a time limit, a budget cap, and set it before you begin.",
+    "Identify one path-of-least-resistance habit you want to change, and redesign your environment, not your willpower, to block it.",
+    "In your next group decision, have everyone write their initial choice privately before discussion, to prevent early opinions from anchoring the group.",
+    "Set up one structural default this week so the behavior you want happens without a fresh decision each time."
+  ],
+  "best_for": ["Leaders and creatives who feel overwhelmed by too many options", "People designing systems, products, or habits meant to hold up under real human behavior rather than idealized willpower"],
+  "less_useful": ["Readers looking for a business-strategy framework with named steps, since this reads closer to narrative science journalism", "Those who want purely open-ended, no-limits brainstorming methods"],
+  "site_links": [{"label": "Innovation & Creativity", "href": "references.html#cat-innovation"}],
+  "related": [
+    {"asin": "1524779261", "why": "A complementary look at redesigning your environment, rather than relying on willpower, to change behavior"},
+    {"asin": "B00EAGV2BQ", "why": "A broader framework for rebuilding assumptions once a useful constraint reveals what actually matters"}
+  ],
+  "sources": [
+    {"label": "David Epstein's official book page", "href": "https://davidepstein.com/inside-the-box/"},
+    {"label": "Penguin Random House book page", "href": "https://www.penguinrandomhouse.com/books/737494/inside-the-box-by-david-epstein/"}
+  ]
+}

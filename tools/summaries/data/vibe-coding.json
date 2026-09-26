@@ -1,0 +1,30 @@
+{
+  "asin": "B0FPGKZZHL", "slug": "vibe-coding", "read_time": "2 min read",
+  "big_idea": "Generative AI is shifting software development from writing syntax line-by-line to describing intent in natural language, turning developers from line cooks executing code into head chefs who orchestrate AI-generated work, a shift that multiplies both what's possible and what can go wrong.",
+  "tool": {"label": "The FAAFO value framework", "text": "A five-part lens for measuring what AI-assisted coding actually delivers, beyond raw speed: Fast (tasks that took days now take hours), Ambitious (previously infeasible projects become viable for small teams), Autonomous (a single developer can achieve what used to require a team), Fun (automating tedious work restores enjoyment), and Optionality (cheap experimentation across languages and frameworks a developer wouldn't otherwise risk learning).", "note": "none"},
+  "ideas": [
+    {"title": "Role inversion: line cook to head chef", "text": "The developer's core job shifts from typing implementation code to specifying intent, reviewing AI output, and maintaining quality standards across work they didn't personally type."},
+    {"title": "Co-creation, not replacement", "text": "The book frames AI as a coding partner in a conversational loop rather than a tool that simply generates final code to be accepted wholesale."},
+    {"title": "Polyglot capability", "text": "Developers can credibly build in languages or frameworks they don't already know well, since the AI can handle unfamiliar syntax while the developer directs architecture and intent."},
+    {"title": "Documented failure modes", "text": "The authors are candid about real risks observed in practice, deleted test suites, unmaintainable sprawl of AI-generated code, and near-catastrophic production incidents, arguing these require new engineering discipline, not blind trust."},
+    {"title": "The DORA data warning", "text": "The book cites a 2024 DORA report finding that GenAI adoption was, counterintuitively, correlated with degraded software delivery stability in some organizations, underscoring that speed gains can come with hidden quality costs."},
+    {"title": "Professional paranoia as a discipline", "text": "Rather than accepting AI output on faith, the authors argue engineers need heightened, deliberate skepticism and verification habits precisely because AI-generated code looks more polished and confident than it may actually be."}
+  ],
+  "try_it": [
+    "On your next small project or script, describe the desired outcome in plain language to an AI coding tool before writing any code yourself, and note where you had to step in as reviewer.",
+    "Deliberately use an AI coding assistant to prototype something in a language or framework you don't know well, to test the optionality claim for yourself.",
+    "Audit one AI-assisted piece of code your team shipped recently against your normal review and testing standards.",
+    "Read your team's latest deployment-stability metrics before scaling AI-coding-tool adoption further, to check for the failure pattern the authors warn about."
+  ],
+  "best_for": ["Engineering leaders and senior developers deciding how to roll out AI coding tools responsibly", "Individual developers wanting vocabulary for what's changing in their day-to-day practice"],
+  "less_useful": ["Non-technical leaders wanting a business-strategy-level AI book, since this is written for practitioners and engineering managers", "Readers wanting an uncritical cheerleading account, since the book pairs enthusiasm with real documented failure cases"],
+  "site_links": [{"label": "AI Fundamentals", "href": "references.html#cat-ai"}],
+  "related": [
+    {"asin": "B0CNFJ1BVP", "why": "The foundational people-and-AI collaboration mindset this book applies to software engineering"},
+    {"asin": "B0DDD8R9LR", "why": "The same disciplined, skeptical approach to AI output, aimed at leadership decisions rather than code"}
+  ],
+  "sources": [
+    {"label": "IT Revolution (official publisher page)", "href": "https://itrevolution.com/product/vibe-coding-book/"},
+    {"label": "Medium: I Read the Book on Vibe Coding", "href": "https://medium.com/@keviniancampbell/i-read-the-book-on-vibe-coding-by-gene-kim-author-steve-yegge-author-35cc369af6a6"}
+  ]
+}

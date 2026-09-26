@@ -1,0 +1,26 @@
+{
+  "asin": "B0F1QKGJ6J", "slug": "adopting-ai", "read_time": "1 min read",
+  "big_idea": "AI adoption inside organizations succeeds or fails on the human layer, trust, culture, and behavior change, not on the technology itself, so leaders need a people-first, experimental approach rather than a top-down tech rollout.",
+  "tool": {"label": "Adaptive adoption", "text": "The authors' alternative to traditional change-management programs for AI rollouts: rather than a fixed top-down plan, teams adopt AI tools experimentally and bottom-up, adjusting as they learn what works, with explicit focus on building trust and behavioral buy-in alongside the technical rollout.", "note": "This is a self-published title with very limited independent review coverage; the framework and its name come from the authors' own site rather than independent case-study verification, so treat the specifics as the authors' self-description rather than externally validated results."},
+  "ideas": [
+    {"title": "People-first framing", "text": "The book positions AI as the smartest, dumbest, strangest colleague you've ever had, emphasizing that successful adoption depends on how people relate to and trust that colleague, not just its raw capability."},
+    {"title": "Adoption outcomes aren't predetermined", "text": "Whether AI adoption goes well or badly in a given organization is a matter of choices made by leaders and employees, not an inevitable result of the technology."},
+    {"title": "Scenario-based thinking", "text": "The book walks through multiple future scenarios, both utopian and catastrophic, to help readers reason about risk rather than assuming one fixed outcome."},
+    {"title": "Bridging perspectives", "text": "The authors draw on both AI-optimist and AI-safety literature to stake out a middle, pragmatic position for organizational leaders."}
+  ],
+  "try_it": [
+    "Before rolling out a new AI tool to your team, ask people what would make them trust it, or not, rather than starting with a training schedule.",
+    "Run one small, bottom-up AI pilot with a single willing team rather than a company-wide mandate, and adjust based on what that team reports back."
+  ],
+  "best_for": ["HR and change-management leaders responsible for organizational AI rollouts", "Leaders looking for a people counterweight to purely technical AI adoption guides"],
+  "less_useful": ["Readers wanting a title with a long independent track record of reviews and case studies to lean on", "Readers who want the proprietary frameworks validated independently rather than described mainly by the authors themselves"],
+  "site_links": [{"label": "AI Fundamentals", "href": "references.html#cat-ai"}],
+  "related": [
+    {"asin": "B0CNFJ1BVP", "why": "A more independently established treatment of the same people-first framing for AI collaboration"},
+    {"asin": "B0DDD8R9LR", "why": "A leadership-side complement on driving AI adoption from the top"}
+  ],
+  "sources": [
+    {"label": "Goodreads: Adopting AI", "href": "https://www.goodreads.com/book/show/223786234-adopting-ai"},
+    {"label": "Paul Gibbons Advisory (author site)", "href": "https://paulgibbonsadvisory.com/"}
+  ]
+}

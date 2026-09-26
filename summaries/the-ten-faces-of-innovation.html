@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="a">
+<head>
+<meta charset="UTF-8">
+<base href="../">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="icon" type="image/svg+xml" href="favicon.svg">
+<title>The Ten Faces of Innovation: One-page summary · Plan · Do · Reflect</title>
+
+<!-- Applied before CSS loads, so the saved theme / title-font choice doesn't flash to the default on reload -->
+<script>
+(function () {
+  try {
+    var savedTheme = localStorage.getItem('pdr-theme');
+    if (['a', 'b', 'c'].indexOf(savedTheme) > -1) {
+      document.documentElement.setAttribute('data-theme', savedTheme);
+    }
+    /* No saved choice yet means a first-time visitor — default them to Golos
+       Text rather than the theme's own heading font. Explicitly picking
+       "Theme default" in the picker stores the literal string 'default',
+       which is the one value that clears the override below. */
+    var savedTitleFont = localStorage.getItem('pdr-title-font');
+    var titleFont = savedTitleFont === null ? 'golos-text' : savedTitleFont;
+    if (titleFont !== 'default') {
+      document.documentElement.setAttribute('data-title-font', titleFont);
+    }
+  } catch (e) {}
+})();
+</script>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=Work+Sans:wght@400;500;600&family=Sora:wght@600;700;800&family=Plus+Jakarta+Sans:wght@500;600;700&family=Patrick+Hand&display=swap" rel="stylesheet">
+
+<!-- Title-font brainstorm candidates — temporary, for the .title-font-picker toggle only.
+     Remove this link once a title font is chosen and folded into tokens.css. -->
+<link href="https://fonts.googleapis.com/css2?family=Gabarito:wght@800&family=Chivo:wght@800&family=Golos+Text:wght@800&display=swap" rel="stylesheet">
+
+<link rel="stylesheet" href="css/tokens.css">
+<link rel="stylesheet" href="css/main.css">
+<link rel="stylesheet" href="css/summary.css">
+</head>
+<body>
+
+<header class="topnav">
+  <a class="logo" href="index.html">Plan·Do·Reflect</a>
+  <nav class="topnav-items">
+    <a class="item" href="framework.html">The Framework</a>
+    <a class="item" href="self-management.html">Self</a>
+    <a class="item" href="team.html">Team</a>
+    <a class="item" href="organization.html">Organization</a>
+    <a class="item" href="core-skills.html">Core Skills</a>
+    <a class="item active" href="references.html">References</a>
+  </nav>
+</header>
+
+<main class="sm">
+  <p class="sm-crumb"><a href="references.html">References &amp; Further Reading</a> &rsaquo; One-page summary</p>
+  <article class="sm-page">
+    <header class="sm-head">
+      <img class="sm-cover" src="images/covers/B002V00XJK.jpg" data-r="https://m.media-amazon.com/images/I/41K-Xd6ltgL._SL300_.jpg" alt="Cover of The Ten Faces of Innovation" onerror="if(this.dataset.r&amp;&amp;this.src.indexOf(this.dataset.r)===-1){this.src=this.dataset.r}else{this.style.visibility='hidden'}">
+      <div>
+        <p class="sm-eyebrow">One-page summary &middot; 2 min read</p>
+        <h1 class="page-title">The Ten Faces of Innovation</h1>
+        <p class="sm-sub"></p>
+        <p class="sm-by">by Tom Kelley, Jonathan Littman</p>
+        <p class="sm-meta">2006 &middot; 8h 49m audiobook &middot; &#9733; 4 Audible</p>
+      </div>
+    </header>
+
+    <section class="sm-idea"><h2>The big idea</h2><p>Organizations kill innovation when they let devil&#x27;s-advocate skepticism dominate; instead, teams should deliberately cultivate ten distinct innovation personas, spanning learning, organizing, and building roles, that individuals can rotate through to keep creative momentum alive.</p></section>
+
+<section class="sm-tool"><span class="sm-label">The ten personas framework</span><blockquote>Kelley groups ten roles into three categories: learning personas, the Anthropologist, Experimenter, and Cross-Pollinator, who gather fresh input; organizing personas, the Hurdler, Collaborator, and Director, who navigate people and obstacles; and building personas, the Experience Architect, Set Designer, Storyteller, and Caregiver, who turn insight into tangible innovation. A team doesn&#x27;t need ten separate people, individuals can adopt different personas depending on the challenge at hand.</blockquote><p>The book draws its examples heavily from Kelley&#x27;s own firm, IDEO, and client companies, so the framework reflects a design-consultancy lens more than a universal management theory.</p></section>
+
+    <section class="sm-ideas"><h2>Key ideas</h2><ol><li><h3>The Anthropologist</h3><p>Observes how real people actually use products and services in context, surfacing unmet needs that surveys and focus groups miss.</p></li><li><h3>The Experimenter</h3><p>Learns through rapid, hands-on prototyping and treats early failures as cheap information rather than setbacks.</p></li><li><h3>The Cross-Pollinator</h3><p>Deliberately imports ideas and metaphors from other industries or cultures to spark novel solutions in their own domain.</p></li><li><h3>The Hurdler</h3><p>Faces unprecedented obstacles with resourceful, optimistic problem-solving rather than getting stuck waiting for permission or perfect conditions.</p></li><li><h3>The Collaborator</h3><p>Breaks down organizational silos by assembling multidisciplinary teams and empowering members to contribute outside their usual lane.</p></li><li><h3>The Storyteller and Experience Architect</h3><p>Build compelling narratives and designed, memorable end-to-end experiences that make innovations resonate emotionally, not just functionally.</p></li></ol></section>
+
+    <div class="sm-cols">
+      <section><h2>Try it this week</h2><ol class="sm-steps"><li>Identify which of the ten personas comes most naturally to you, and deliberately practice the persona you use least in your next project meeting.</li><li>Spend 30 minutes this week directly observing how someone actually uses a product or process you&#x27;re responsible for, taking notes like an Anthropologist.</li><li>Prototype one small, rough version of an idea you&#x27;ve been overthinking, purely to get real reaction from a colleague or customer.</li><li>Pull one person outside your usual collaborators into a current project for a single working session.</li></ol></section>
+      <section><h2>Is it for you?</h2><h3 class="sm-good">Best for</h3><ul><li>Team leads and innovation managers wanting a shared vocabulary for different creative roles on a team</li><li>Design and product teams looking to diagnose which capabilities are missing from a stalled project</li></ul><h3 class="sm-less">Less useful if</h3><ul><li>Readers wanting quantitative or financial innovation metrics rather than role-based, qualitative guidance</li><li>Very small teams or solo founders who can&#x27;t realistically distribute ten distinct roles</li></ul></section>
+    </div>
+
+<section class="sm-links"><h2>On this site</h2><div class="sm-chips"><a href="references.html#cat-innovation">Innovation &amp; Creativity</a></div></section>
+    <section class="sm-links sm-related"><h2>Pairs well with</h2><ul><li><a href="references.html#book-B01B89LABY">The Art of Innovation</a> <span>The same author&#x27;s earlier book on the innovation process these ten personas operate within</span></li><li><a href="references.html#book-B007TKVPO4">The Innovator&#x27;s DNA</a> <span>A complementary set of individual discovery skills behind the personas described here</span></li></ul></section>
+
+    <footer class="sm-foot">
+      <a class="sm-buy" href="https://www.amazon.com/s?k=Tom+Kelley+The+Ten+Faces+of+Innovation&amp;tag=phoenixjenn-20" target="_blank" rel="noopener">Find the book on Amazon</a>
+      <p>Original summary written for Plan &middot; Do &middot; Reflect. Prepared from the book&rsquo;s ideas and public summaries (<a href="https://www.ideo.com/journal/the-ten-faces-of-innovation" target="_blank" rel="noopener">IDEO Journal: The Ten Faces of Innovation</a>, <a href="https://medium.com/@ameet/learning-from-the-ten-faces-of-innovation-4aaf253a9a62" target="_blank" rel="noopener">Medium: Learning from The Ten Faces of Innovation</a>), not a substitute for reading it. Links may earn a commission.</p>
+    </footer>
+  </article>
+</main>
+
+<footer class="site-footer">
+  <p>&copy; 2026 Plan-Do-Reflect. <a href="references.html">References &amp; further reading</a></p>
+</footer>
+
+<div class="theme-switch" role="group" aria-label="Style direction">
+  <button data-theme="a" title="Kinetic Signal — black &amp; yellow"></button>
+  <button data-theme="b" title="Studio Ledger — dusty rose"></button>
+  <button data-theme="c" title="Bright Margin — lime"></button>
+  <a class="icon-lib-link" href="icon-library.html" title="Style Guide (internal reference)">
+    <svg width="14" height="14" viewBox="0 0 14 14" aria-hidden="true">
+      <rect x="1" y="1" width="5" height="5" rx="1" fill="currentColor"/>
+      <rect x="8" y="1" width="5" height="5" rx="1" fill="currentColor"/>
+      <rect x="1" y="8" width="5" height="5" rx="1" fill="currentColor"/>
+      <rect x="8" y="8" width="5" height="5" rx="1" fill="currentColor"/>
+    </svg>
+  </a>
+  <a class="icon-lib-link" href="notes.html" title="Notes (working drafts)">
+    <svg width="14" height="14" viewBox="0 0 14 14" aria-hidden="true">
+      <rect x="2" y="1" width="10" height="12" rx="1.5" fill="none" stroke="currentColor" stroke-width="1.3"/>
+      <line x1="4.5" y1="5" x2="9.5" y2="5" stroke="currentColor" stroke-width="1.3" stroke-linecap="round"/>
+      <line x1="4.5" y1="7.5" x2="9.5" y2="7.5" stroke="currentColor" stroke-width="1.3" stroke-linecap="round"/>
+      <line x1="4.5" y1="10" x2="7.5" y2="10" stroke="currentColor" stroke-width="1.3" stroke-linecap="round"/>
+    </svg>
+  </a>
+  <a class="icon-lib-link" href="sitemap.html" title="Sitemap (working draft)">
+    <svg width="14" height="14" viewBox="0 0 14 14" aria-hidden="true">
+      <circle cx="7" cy="2.5" r="1.8" fill="none" stroke="currentColor" stroke-width="1.3"/>
+      <circle cx="3" cy="11" r="1.8" fill="none" stroke="currentColor" stroke-width="1.3"/>
+      <circle cx="11" cy="11" r="1.8" fill="none" stroke="currentColor" stroke-width="1.3"/>
+      <path d="M7 4.3 L7 7 M7 7 L3 9.5 M7 7 L11 9.5" stroke="currentColor" stroke-width="1.3" fill="none" stroke-linecap="round"/>
+    </svg>
+  </a>
+</div>
+
+<!-- Temporary brainstorm control — only restyles the main h1 (.content h1 / .hero-title / .page-title). Remove alongside
+     the "title-font experiment" CSS block and the extra Google Fonts link once
+     a title font is picked. -->
+<div class="title-font-picker">
+  <label for="title-font-select">Title font</label>
+  <button type="button" id="title-font-prev" class="title-font-nav" aria-label="Previous title font">‹</button>
+  <select id="title-font-select">
+    <optgroup label="Round 1 — headline character">
+      <option value="gabarito">Gabarito</option>
+      <option value="chivo">Chivo</option>
+    </optgroup>
+    <optgroup label="Round 2 — Calibri-adjacent">
+      <option value="golos-text">Golos Text</option>
+    </optgroup>
+    <option value="default">Theme default</option>
+  </select>
+  <button type="button" id="title-font-next" class="title-font-nav" aria-label="Next title font">›</button>
+</div>
+
+<script src="js/theme-toggle.js" defer></script>
+<script src="js/title-font-toggle.js" defer></script>
+</body>
+</html>

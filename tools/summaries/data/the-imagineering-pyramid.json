@@ -1,0 +1,26 @@
+{
+  "asin": "B0D6WK8QLR", "slug": "the-imagineering-pyramid", "read_time": "1 min read",
+  "big_idea": "Prosperi distills the design principles Disney Imagineers use to create theme park attractions into a systematic pyramid of practices that anyone can apply to develop and pitch creative ideas in any field.",
+  "tool": {"label": "The Imagineering Pyramid framework", "text": "The book organizes roughly 15 Imagineering principles, forced perspective, wienies as visual landmarks, plussing, hidden details, into five tiers forming a step-by-step creative workflow: define the story and purpose, block out the experience, layer in sensory and narrative detail, then continuously refine before launch. Each tier pairs with Disney park examples and guidance for applying it to non-theme-park work like presentations or content design.", "note": "This is an independently/small-press published title with limited coverage from major business publications; the most substantive independent commentary comes from Disney-fan enthusiast blogs rather than professional business critics, so its ideas read as a niche practitioner's framework rather than an independently vetted methodology."},
+  "ideas": [
+    {"title": "Storytelling as the foundation", "text": "Every project should start from a clear narrative or why before any visual or technical design begins."},
+    {"title": "Forced perspective and visual landmarks", "text": "Attention-grabbing cues guide focus and orient people within an experience, adaptable to presentations or web design."},
+    {"title": "Plussing", "text": "Imagineers continuously add small improvements to existing work rather than treating a design as finished, an iterative mindset applicable to any creative output."},
+    {"title": "Cross-discipline mapping", "text": "The book maps techniques like cinematographic shot framing onto how leaders communicate at different organizational scales."}
+  ],
+  "try_it": [
+    "Write a one-paragraph story statement for your next project or presentation before building any slides or deliverables.",
+    "Pick one existing piece of work and apply one round of plussing, add a single improvement without redoing the whole thing."
+  ],
+  "best_for": ["Disney and Imagineering enthusiasts wanting a structured lens on park design", "Creatives and presenters looking for a simple, checklist-style creative-development process"],
+  "less_useful": ["Readers wanting empirically validated business strategy or peer-reviewed innovation research", "Anyone expecting the depth or independent review track record of a traditionally published bestseller"],
+  "site_links": [{"label": "Innovation & Creativity", "href": "references.html#cat-innovation"}],
+  "related": [
+    {"asin": "B01B89LABY", "why": "A more independently established treatment of experience-design and prototyping practices"},
+    {"asin": "B002V0QVY6", "why": "A closer look at the storytelling and detail choices that make a designed experience memorable"}
+  ],
+  "sources": [
+    {"label": "ImagiNERDing independent book review", "href": "https://www.imaginerding.com/2018/07/04/imagineering-pyramid-louis-prosperi-book-review/"},
+    {"label": "Tomorrow Society review and overview", "href": "https://tomorrowsociety.com/imagineering-pyramid/"}
+  ]
+}

@@ -1,0 +1,30 @@
+{
+  "asin": "B00TG190XW", "slug": "better-and-faster", "read_time": "2 min read",
+  "big_idea": "Businesses fail not from lack of talent but from falling into complacent farmer habits; sustained success requires adopting a hunter mindset and a repeatable method for spotting the trends already emerging around you.",
+  "tool": {"label": "The six patterns of opportunity", "text": "Drawing on Trend Hunter's analysis of roughly 250,000 ideas, Gutsche distills trend-spotting into six repeatable patterns: Convergence (combining separate trends), Divergence (splitting a category into a specialized niche), Cyclicality (reviving and updating something from the past), Redirection (applying an existing capability to a new market), Reduction (stripping something down to its essentials), and Acceleration (speeding up an existing process). He advises picking a specific hunting ground, a market or category to focus on, and systematically running each pattern against it to surface opportunities.", "note": "Exact naming of the six patterns varies slightly across secondary summaries of the book; confirm precise wording against the book itself before quoting verbatim."},
+  "ideas": [
+    {"title": "Farmer vs. hunter mindset", "text": "Farmer organizations protect what they have and repeat past tactics; hunter organizations stay insatiably curious and are willing to disrupt their own success, and only the latter survives long term."},
+    {"title": "Three farmer traps", "text": "Complacency, resting on past wins; repetition, assuming old tactics still work; and overprotectiveness, guarding an existing market instead of cannibalizing it."},
+    {"title": "Three hunter instincts", "text": "Insatiability, always scanning for the next opportunity; curiosity, questioning assumptions; and a willingness to destroy your own current advantage before a competitor does."},
+    {"title": "Innovation archetypes", "text": "The book includes a self-assessment to identify your own or your team's innovation personality, surfacing blind spots and suggesting tactics suited to that style."},
+    {"title": "Pattern recognition over prediction", "text": "Rather than trying to predict the future, opportunity comes from recognizing patterns already playing out in adjacent industries and applying them to your own."},
+    {"title": "Case-driven proof", "text": "The book closes with dozens of short innovation secrets drawn from well-known companies, showing the patterns in action."}
+  ],
+  "try_it": [
+    "Pick one of the six patterns and spend 20 minutes listing products in your industry that could combine with something from a totally different industry.",
+    "Write down one thing your team does because that's how we've always done it, and identify which farmer trap it falls into.",
+    "Take 15 minutes to define your specific hunting ground for this quarter, instead of trying to watch every trend at once.",
+    "Find one recent innovation from an unrelated industry and write a one-paragraph memo on how the same idea could apply to your own work."
+  ],
+  "best_for": ["Entrepreneurs and innovation teams looking for a structured trend-spotting exercise", "Leaders auditing why their organization has stalled"],
+  "less_useful": ["Readers wanting deep academic rigor behind the research claims, since the book is written for a practitioner audience", "Those who prefer narrative case studies over frameworks and self-assessments"],
+  "site_links": [{"label": "Innovation & Creativity", "href": "references.html#cat-innovation"}],
+  "related": [
+    {"asin": "B0CLYMKKCW", "why": "A more individual, mindset-level companion on staying future-ready"},
+    {"asin": "B007TKVPO4", "why": "The individual discovery skills that make pattern-spotting like this book's method possible"}
+  ],
+  "sources": [
+    {"label": "Better and Faster, official book site", "href": "https://www.betterandfaster.com/"},
+    {"label": "Blinkist summary", "href": "https://www.blinkist.com/en/books/better-and-faster-en"}
+  ]
+}

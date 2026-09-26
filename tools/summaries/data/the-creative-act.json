@@ -1,0 +1,30 @@
+{
+  "asin": "B0B3L2T9W5", "slug": "the-creative-act", "read_time": "2 min read",
+  "big_idea": "Creativity is not a specialized talent limited to artists, it's a way of living and paying attention available to everyone, and the creative practice is fundamentally about cultivating awareness and receptivity rather than chasing output or originality for its own sake.",
+  "tool": {"label": "The vessel and the seeds practice", "text": "Rubin frames the creator as a vessel or receiver tuning into an inexhaustible external field of ideas he calls Source, rather than someone inventing ideas from nothing. The practical exercise is to first soften the personal filters, habits, self-judgment, inherited assumptions, that block what comes through, then gather raw, unfinished fragments called seeds without judging or editing them, and only afterward experiment with which seeds are worth developing further.", "note": "A personal, spiritually-inflected metaphor rather than an empirical model, best read as a mindset practice for creative work, not a testable claim about how ideas originate."},
+  "ideas": [
+    {"title": "Everyone is a creator", "text": "How you live and make everyday choices, arranging a room, cooking a meal, solving a small problem, is itself a creative act, not just work labeled art."},
+    {"title": "Source", "text": "Ideas are treated as an infinite field that already exists outside the individual, which creators tune into rather than generate purely from their own minds."},
+    {"title": "Awareness as the core practice", "text": "Meditation, quiet walks, and deep attention to daily life are presented as the actual training ground for creativity, more so than technique or craft skill."},
+    {"title": "Process over rules", "text": "Rubin repeatedly favors staying open to change and experimentation mid-project over locking into a fixed method or plan from the start."},
+    {"title": "Reframing failure as feedback", "text": "A piece or experiment that doesn't work is treated as directional information about where to go next, not a verdict on the value of the work or the person."},
+    {"title": "Completion and release as their own stage", "text": "Finishing a piece and letting it go, regardless of how it's received, is presented as a distinct, necessary part of the creative cycle."}
+  ],
+  "try_it": [
+    "Take a 20-minute walk with no phone or agenda purely to notice your surroundings, then jot down any idea fragments that surface afterward.",
+    "Keep a running list of raw, unjudged idea fragments for a week without deciding yet which ones to pursue.",
+    "Before starting a new piece of work, spend five minutes sitting quietly or journaling to clear mental clutter first.",
+    "Pick one piece of work you've been endlessly refining and deliberately declare it finished, then share or release it as-is."
+  ],
+  "best_for": ["Creative practitioners, musicians, writers, designers, looking for a mindset reset or inspiration rather than a technical manual", "Readers drawn to a reflective, philosophical approach to creative work"],
+  "less_useful": ["Not a fit for readers wanting concrete business frameworks, production processes, or step-by-step tactics", "The meditative, aphoristic style can feel abstract or repetitive for readers who prefer prescriptive how-to advice"],
+  "site_links": [{"label": "Innovation & Creativity", "href": "references.html#cat-innovation"}],
+  "related": [
+    {"asin": "B0BBYZFBQW", "why": "A more structured, exercise-driven companion on reclaiming personal creativity"},
+    {"asin": "B004285S6W", "why": "A more empirical look at where ideas actually come from, to pair with this book's philosophical framing"}
+  ],
+  "sources": [
+    {"label": "Books That Slay: The Creative Act summary and analysis", "href": "https://booksthatslay.com/the-creative-act-a-way-of-being-summary/"},
+    {"label": "Penguin Random House book page", "href": "https://www.penguinrandomhouse.com/books/717356/the-creative-act-by-rick-rubin/"}
+  ]
+}

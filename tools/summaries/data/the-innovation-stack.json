@@ -1,0 +1,30 @@
+{
+  "asin": "0593164954", "slug": "the-innovation-stack", "read_time": "2 min read",
+  "big_idea": "Jim McKelvey argues that durable, defensible companies aren't built on a single innovation but on an innovation stack, an interlocking set of unplanned solutions a company is forced to invent, in sequence, to survive problems with no existing playbook.",
+  "tool": {"label": "The innovation stack", "text": "When an entrepreneur tackles a genuinely new problem rather than copying an existing business, solving it typically creates a new problem needing its own solution, and so on. Each layer depends on the ones below it, so a competitor can't simply copy the top layer, they'd have to independently rebuild the entire stack. McKelvey illustrates this with Square's founding: a lost sale because he couldn't accept Amex led to building a card reader, which ran into 17 different credit-card-network regulations, each requiring its own novel workaround.", "note": "McKelvey frames the stack as something that emerges organically under survival pressure, not something a company can deliberately plan from the outset."},
+  "ideas": [
+    {"title": "Perfect problems", "text": "The best entrepreneurial opportunities are solvable problems with no existing solution, so there's no playbook or competitor to copy."},
+    {"title": "Innovation as involuntary", "text": "True innovation stacks rarely arise from deliberate choice, they're forced into existence because a founder is blocked at every turn with no incumbent solution to fall back on."},
+    {"title": "A.P. Giannini and Bank of Italy", "text": "McKelvey uses banking pioneer Giannini, who served immigrant and working-class customers ignored by big banks, as a historical example of an innovation stack built long before the term existed."},
+    {"title": "Timing and enabling technology", "text": "Some innovations only become possible once underlying technology matures enough to support them."},
+    {"title": "Constraints as an advantage", "text": "Operating outside an established market means lacking conventional resources, but this absence of how it's normally done can free founders to build genuinely different solutions."},
+    {"title": "Stacks as competitive moats", "text": "Because a full stack is hard to replicate piece by piece, it can protect a company from being out-competed by larger, better-resourced incumbents."}
+  ],
+  "try_it": [
+    "Write down a problem in your work with no existing solution you can copy, and list every sub-problem solving it would create.",
+    "Identify a workaround you use only because no proper tool exists yet, and treat it as the first layer of a potential stack.",
+    "Look at a competitor's most defensible advantage and ask whether it's a single feature or an interlocking stack of decisions.",
+    "Map the Square and Amex origin story against a frustration you've personally had as a customer, is it a generalizable problem?"
+  ],
+  "best_for": ["Founders and product leaders building something without an existing playbook", "Entrepreneurship-minded readers wanting an alternative to copy-and-iterate startup advice"],
+  "less_useful": ["Readers seeking a repeatable, teachable methodology, since McKelvey's own argument is that stacks can't be engineered on demand", "Managers inside large, established companies looking for internal-innovation tactics rather than founder-level survival stories"],
+  "site_links": [{"label": "Innovation & Creativity", "href": "references.html#cat-innovation"}],
+  "related": [
+    {"asin": "B005LXV0HI", "why": "A more structured, repeatable method for building a new venture under uncertainty"},
+    {"asin": "B06Y4VPJSJ", "why": "The theory of why incumbents can't easily copy a scrappy new entrant's stack"}
+  ],
+  "sources": [
+    {"label": "Blinkist summary", "href": "https://www.blinkist.com/en/books/the-innovation-stack-en"},
+    {"label": "Shortform summary", "href": "https://www.shortform.com/summary/the-innovation-stack-summary-jim-mckelvey"}
+  ]
+}

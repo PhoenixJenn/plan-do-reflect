@@ -1,0 +1,30 @@
+{
+  "asin": "B0DDD8R9LR", "slug": "the-ai-driven-leader", "read_time": "2 min read",
+  "big_idea": "Most leaders waste AI's potential on low-stakes tasks like drafting emails; the real leverage is using AI as a thinking partner for the strategic decisions that actually determine business outcomes.",
+  "tool": {"label": "The CRIT framework", "text": "A four-part method for prompting AI as a strategic advisor: Context (describe the situation in vivid, specific detail, including constraints and what's at stake), Role (assign the AI a specific expert persona, such as market analyst or turnaround strategist), Interview (ask the AI to pose clarifying questions back to you before it answers, surfacing knowledge you have but hadn't articulated), and Task (specify the exact output wanted). The Interview step is the core inversion Woods emphasizes: instead of just asking AI for answers, you let it question you first.", "note": "none"},
+  "ideas": [
+    {"title": "AI as prediction machine, not oracle", "text": "AI identifies statistical patterns rather than knowing truth, and can hallucinate confidently without flagging uncertainty, so leaders must validate outputs rather than accept them at face value."},
+    {"title": "Three strategic roles for AI", "text": "Interviewer (drawing out your own thinking through questions), communicator (translating complex ideas for a specific audience), and challenger (stress-testing a plan by generating counterarguments)."},
+    {"title": "The critical 20%", "text": "Leaders are encouraged to identify the roughly 20% of any role's activities that drive 80% of results, and focus AI-augmentation efforts there rather than spreading thin across every task."},
+    {"title": "Redesign before automating", "text": "A five-step sequence, question whether a task is necessary, delete it if not, simplify what remains, accelerate it, then automate, meant to prevent leaders from automating inefficient processes and locking in waste."},
+    {"title": "Reframing the default question", "text": "Replacing how do I do this with how might AI help me think about this, as a standing habit before starting most work tasks."},
+    {"title": "AI adoption as a leadership challenge", "text": "Rollout succeeds when leaders start from specific problems and involve teams in designing the solution, rather than mandating a tool top-down."}
+  ],
+  "try_it": [
+    "Before your next strategic decision, run it through the CRIT framework and ask the AI to interview you with three clarifying questions before it gives recommendations.",
+    "Pick one meeting or task type this week and apply the redesign sequence (question, delete, simplify, accelerate, automate) before reaching for an AI shortcut.",
+    "Identify the 20% of your own role that drives most of your impact, and use AI only to protect time for that 20% this week.",
+    "Draft one strategic message by first asking AI to act as your intended audience and tell you what's unclear, before you finalize it."
+  ],
+  "best_for": ["Executives and senior leaders wanting a repeatable prompting method for strategic, not just administrative, AI use", "Leaders responsible for driving AI adoption across a team"],
+  "less_useful": ["Individual contributors looking for tactical, task-level AI tips rather than leadership framing", "Readers skeptical of promotional, bestseller-style business-book tone"],
+  "site_links": [{"label": "AI Fundamentals", "href": "references.html#cat-ai"}],
+  "related": [
+    {"asin": "B0CNFJ1BVP", "why": "The foundational collaboration principles this book applies to strategic leadership specifically"},
+    {"asin": "B0F1QKGJ6J", "why": "A complementary org-wide rollout lens to pair with this book's individual-leader prompting method"}
+  ],
+  "sources": [
+    {"label": "Shortform: The AI-Driven Leader summary", "href": "https://www.shortform.com/pdf/the-ai-driven-leader-pdf-geoff-woods"},
+    {"label": "AI Leadership (official book site)", "href": "https://www.aileadership.com/book/"}
+  ]
+}

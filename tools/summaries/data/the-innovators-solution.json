@@ -1,0 +1,30 @@
+{
+  "asin": "B002V0M6D6", "slug": "the-innovators-solution", "read_time": "2 min read",
+  "big_idea": "Building on The Innovator's Dilemma, Christensen and Raynor shift from diagnosing why incumbents fail to prescribing how established companies can successfully create and sustain new-growth businesses through disruptive innovation.",
+  "tool": {"label": "Jobs to be done", "text": "Rather than segmenting customers by demographics, the authors argue companies should identify the specific job a customer is trying to get done in a given circumstance, then design a product that does that job better than the alternatives, including non-consumption. The book's signature example is a fast-food chain's milkshakes: data showed many were bought alone, in the morning, by commuters, so the milkshake's real job was to be an easy, long-lasting, one-handed companion for a boring commute, not a dessert, redirecting improvement efforts toward thickness and drink-through time rather than flavor variety.", "note": "Jobs to Be Done is closely associated with Christensen but was also developed and popularized in parallel by other practitioners, so attribution of the exact framework varies across sources."},
+  "ideas": [
+    {"title": "Jobs to be done", "text": "Understanding the functional, emotional, and social job behind a purchase reveals opportunities that demographic segmentation misses entirely."},
+    {"title": "Low-end disruption", "text": "Targeting customers who are overserved by existing products with a simpler, cheaper offering that's good enough for their needs."},
+    {"title": "New-market disruption", "text": "Creating a product so much simpler or cheaper that people who previously couldn't participate in the market, non-consumers, now can."},
+    {"title": "Resources, processes, and values", "text": "An organization's capabilities and limits come from what it has, how it works, and what it prioritizes, and the same processes and values that enable core-business excellence often actively block disruptive initiatives."},
+    {"title": "Good money vs. bad money", "text": "Growth investments should be patient for growth, time to find the right strategy, but impatient for profit, a lean cost structure early, the reverse of how many companies fund new ventures."},
+    {"title": "Emergent vs. deliberate strategy", "text": "When a market is genuinely new, strategy should emerge from experimentation and learning rather than a fixed, upfront five-year plan."}
+  ],
+  "try_it": [
+    "Pick one product you sell and write down the actual job customers are hiring it for, in their own words and circumstances.",
+    "Look for a market segment your company treats as non-consumers and brainstorm a radically simpler offer that could reach them.",
+    "Audit whether a current growth project is funded like a sustaining project when it should be patient for growth, impatient for profit instead.",
+    "Identify one process or approval step from your core business that would slow or kill a genuinely new initiative, and ask if it needs its own separate path."
+  ],
+  "best_for": ["Senior leaders and innovation teams responsible for actually building new-growth businesses inside an established company", "Product managers wanting a practical alternative to demographic segmentation"],
+  "less_useful": ["Readers who haven't read The Innovator's Dilemma and want the underlying disruption theory explained from scratch, since this book assumes it", "Very early-stage solo founders, since much of the advice concerns organizational structure and capital allocation inside larger companies"],
+  "site_links": [{"label": "Innovation & Creativity", "href": "references.html#cat-innovation"}],
+  "related": [
+    {"asin": "B06Y4VPJSJ", "why": "The original diagnosis of the disruption problem this book prescribes solutions for"},
+    {"asin": "B01JBCEBLQ", "why": "A complementary organizational-design approach to running the new venture alongside the core business"}
+  ],
+  "sources": [
+    {"label": "Shortform book summary", "href": "https://www.shortform.com/summary/the-innovators-solution-summary-clayton-m-christensen-and-michael-e-raynor"},
+    {"label": "ClearPurpose book brief", "href": "https://clearpurpose.media/book-brief-the-innovators-solution-c09052e19b8b"}
+  ]
+}

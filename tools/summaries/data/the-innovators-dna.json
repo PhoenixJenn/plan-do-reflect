@@ -1,0 +1,30 @@
+{
+  "asin": "B007TKVPO4", "slug": "the-innovators-dna", "read_time": "2 min read",
+  "big_idea": "Disruptive innovators aren't simply born with genius; they consistently practice five learnable discovery skills that non-innovators use far less, and roughly two-thirds of a person's innovation capacity comes from behavior, not genetics.",
+  "tool": {"label": "The five discovery skills", "text": "The authors identify Associational Thinking, connecting seemingly unrelated ideas, fields, or problems into novel combinations, as the hub skill, fed by four behavioral skills: Questioning (regularly asking what if and why to challenge the status quo), Observing (watching customers, processes, and competitors like an anthropologist to spot small anomalies), Networking (deliberately meeting people from very different backgrounds and disciplines, not just industry peers), and Experimenting (actively piloting new experiences, taking things apart, and testing prototypes). Innovators like well-known tech founders, per the authors' research, score consistently higher across all five than typical executives.", "note": "none"},
+  "ideas": [
+    {"title": "Discovery skills vs. delivery skills", "text": "The authors distinguish discovery skills, generating new ideas, from delivery skills, execution, analysis, discipline; most executives are heavily trained in delivery and under-trained in discovery."},
+    {"title": "Nature vs. nurture", "text": "Twin studies cited by the authors suggest only about a third of innovation skill is genetic; the rest can be deliberately built through practice."},
+    {"title": "Questioning as a habit", "text": "The authors recommend techniques like a running question log or question storming, generating questions instead of answers, to strengthen this specific skill."},
+    {"title": "Observing like an outsider", "text": "Deliberate observation, watching how people actually struggle with a product or process rather than asking what they want, repeatedly surfaces opportunities executives miss."},
+    {"title": "Networking for divergent ideas, not resources", "text": "The book stresses networking with people unlike you specifically for idea generation, distinguishing it from networking for career or resource-building."},
+    {"title": "Small experiments compound", "text": "Rather than one big leap, innovators run many small, low-cost experiments and prototypes, treating each as a source of data rather than a bet-the-company move."}
+  ],
+  "try_it": [
+    "This week, ask five why or what-if questions about a process at work you've never questioned before, and write them down before answering any.",
+    "Spend 30 minutes observing customers, users, or colleagues doing a task without asking them anything, and note one thing that surprises you.",
+    "Reach out to one person outside your industry or function and ask how they'd approach a problem you're currently stuck on.",
+    "Run one small, cheap experiment on an idea you've been debating internally instead of only discussing it in a meeting."
+  ],
+  "best_for": ["Managers wanting to deliberately build innovation capability in themselves or their teams", "HR and learning leaders designing innovation training"],
+  "less_useful": ["Readers wanting a step-by-step product-development process, since this is about individual and team behaviors rather than a methodology", "Those looking for rigorous, replicated academic evidence rather than an accessible synthesis of survey and interview research"],
+  "site_links": [{"label": "Innovation & Creativity", "href": "references.html#cat-innovation"}],
+  "related": [
+    {"asin": "B002V00XJK", "why": "A complementary set of team-level personas built on these same individual discovery skills"},
+    {"asin": "B01A7Q6672", "why": "A closer look at the specific behaviors, like strategic delay, behind original thinkers"}
+  ],
+  "sources": [
+    {"label": "Harvard Business Review: The Innovator's DNA", "href": "https://hbr.org/2009/12/the-innovators-dna"},
+    {"label": "techratchet book summary", "href": "https://techratchet.com/2021/10/01/book-summary-the-innovators-dna-by-clayton-christensen-et-al/"}
+  ]
+}

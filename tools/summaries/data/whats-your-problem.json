@@ -1,0 +1,30 @@
+{
+  "asin": "1980090939", "slug": "whats-your-problem", "read_time": "2 min read",
+  "big_idea": "How you frame a problem determines the solutions you'll find; most organizations waste effort solving the wrong problem because they never questioned the initial framing.",
+  "tool": {"label": "The reframing loop", "text": "Wedell-Wedellsborg's core method: first frame the problem as originally presented and check who has a stake in it; then reframe by questioning assumptions, asking what's being left out, looking for exceptions where the problem didn't occur, and examining your own possible contribution to it; then move forward by testing the new frame with others before committing resources. He illustrates it with the slow-elevator case: instead of engineering a faster elevator, building managers added lobby mirrors, reframing the complaint from the elevator is slow to the wait feels boring, and solving it far more cheaply.", "note": "The specific reframing checklist is a synthesis drawn from secondary summaries of the book; check the book itself for Wedell-Wedellsborg's exact phrasing."},
+  "ideas": [
+    {"title": "Rushing to solve", "text": "Most people jump straight to solving the first version of a problem presented to them, skipping the step of checking whether it's the right problem at all."},
+    {"title": "The 85% statistic", "text": "Wedell-Wedellsborg cites research suggesting a large majority of organizations spend real time and money addressing a problem that turns out not to be the actual issue."},
+    {"title": "Bracketing", "text": "Before reframing, briefly bracket the problem as first stated so you have a clear baseline to compare later reframes against."},
+    {"title": "Outside perspectives close blind spots", "text": "Because everyone has blind spots about problems they're personally involved in, deliberately pulling in outsiders or people from other functions surfaces reframes insiders can't see themselves."},
+    {"title": "Look for exceptions", "text": "Studying situations where the same unsolvable problem didn't occur, or was already resolved elsewhere, often reveals the real lever to pull."},
+    {"title": "Reframing as an ongoing habit", "text": "Rather than a single upfront phase, effective problem-solvers cycle between framing, acting, and reframing throughout a project as they learn more."}
+  ],
+  "try_it": [
+    "Before your next meeting about a stuck problem, write down the problem exactly as it was first told to you, then generate two alternative framings.",
+    "Ask someone outside your team or function to describe the problem in their own words, and note where their framing differs from yours.",
+    "List 2-3 places or teams where a similar-looking problem doesn't happen, and ask what's different about their situation.",
+    "In your next project kickoff, spend the first 10 minutes explicitly agreeing on what problem you're actually solving before discussing solutions."
+  ],
+  "best_for": ["Managers and consultants who lead problem-solving or strategy discussions", "Teams that keep shipping solutions nobody uses"],
+  "less_useful": ["Readers wanting hard technical or quantitative problem-solving methods, since this is about framing rather than analytical technique", "Those wanting a single quick fix rather than a mindset shift that takes practice to internalize"],
+  "site_links": [{"label": "Innovation & Creativity", "href": "references.html#cat-innovation"}],
+  "related": [
+    {"asin": "B00EAGV2BQ", "why": "A broader model for rebuilding the whole mental framework once a problem is correctly reframed"},
+    {"asin": "B00HM8YEHI", "why": "A practical exercise for surfacing the organizational obstacles this book teaches you to reframe"}
+  ],
+  "sources": [
+    {"label": "getAbstract summary", "href": "https://www.getabstract.com/en/summary/whats-your-problem/40235"},
+    {"label": "Next Big Idea Club BookBite", "href": "https://nextbigideaclub.com/magazine/whats-problem-solve-toughest-problems-change-problems-solve-bookbite/25344/"}
+  ]
+}

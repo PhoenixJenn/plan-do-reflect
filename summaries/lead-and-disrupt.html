@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="a">
+<head>
+<meta charset="UTF-8">
+<base href="../">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="icon" type="image/svg+xml" href="favicon.svg">
+<title>Lead and Disrupt: One-page summary · Plan · Do · Reflect</title>
+
+<!-- Applied before CSS loads, so the saved theme / title-font choice doesn't flash to the default on reload -->
+<script>
+(function () {
+  try {
+    var savedTheme = localStorage.getItem('pdr-theme');
+    if (['a', 'b', 'c'].indexOf(savedTheme) > -1) {
+      document.documentElement.setAttribute('data-theme', savedTheme);
+    }
+    /* No saved choice yet means a first-time visitor — default them to Golos
+       Text rather than the theme's own heading font. Explicitly picking
+       "Theme default" in the picker stores the literal string 'default',
+       which is the one value that clears the override below. */
+    var savedTitleFont = localStorage.getItem('pdr-title-font');
+    var titleFont = savedTitleFont === null ? 'golos-text' : savedTitleFont;
+    if (titleFont !== 'default') {
+      document.documentElement.setAttribute('data-title-font', titleFont);
+    }
+  } catch (e) {}
+})();
+</script>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=Work+Sans:wght@400;500;600&family=Sora:wght@600;700;800&family=Plus+Jakarta+Sans:wght@500;600;700&family=Patrick+Hand&display=swap" rel="stylesheet">
+
+<!-- Title-font brainstorm candidates — temporary, for the .title-font-picker toggle only.
+     Remove this link once a title font is chosen and folded into tokens.css. -->
+<link href="https://fonts.googleapis.com/css2?family=Gabarito:wght@800&family=Chivo:wght@800&family=Golos+Text:wght@800&display=swap" rel="stylesheet">
+
+<link rel="stylesheet" href="css/tokens.css">
+<link rel="stylesheet" href="css/main.css">
+<link rel="stylesheet" href="css/summary.css">
+</head>
+<body>
+
+<header class="topnav">
+  <a class="logo" href="index.html">Plan·Do·Reflect</a>
+  <nav class="topnav-items">
+    <a class="item" href="framework.html">The Framework</a>
+    <a class="item" href="self-management.html">Self</a>
+    <a class="item" href="team.html">Team</a>
+    <a class="item" href="organization.html">Organization</a>
+    <a class="item" href="core-skills.html">Core Skills</a>
+    <a class="item active" href="references.html">References</a>
+  </nav>
+</header>
+
+<main class="sm">
+  <p class="sm-crumb"><a href="references.html">References &amp; Further Reading</a> &rsaquo; One-page summary</p>
+  <article class="sm-page">
+    <header class="sm-head">
+      <img class="sm-cover" src="images/covers/B01JBCEBLQ.jpg" data-r="https://m.media-amazon.com/images/I/41vTiaG9DHL._SL300_.jpg" alt="Cover of Lead and Disrupt" onerror="if(this.dataset.r&amp;&amp;this.src.indexOf(this.dataset.r)===-1){this.src=this.dataset.r}else{this.style.visibility='hidden'}">
+      <div>
+        <p class="sm-eyebrow">One-page summary &middot; 2 min read</p>
+        <h1 class="page-title">Lead and Disrupt</h1>
+        <p class="sm-sub">How to Solve the Innovator&#x27;s Dilemma</p>
+        <p class="sm-by">by Charles A. O&#x27;Reilly III, Michael L. Tushman</p>
+        <p class="sm-meta">2016 &middot; 8h 36m audiobook &middot; &#9733; 4.3 Audible</p>
+      </div>
+    </header>
+
+    <section class="sm-idea"><h2>The big idea</h2><p>Established companies fail during disruption not from lack of talent but because the discipline and culture that made their core business successful actively blocks the exploration needed to build what comes next; the fix is organizational ambidexterity, running exploit and explore simultaneously under one roof.</p></section>
+
+<section class="sm-tool"><span class="sm-label">The three disciplines of ambidexterity</span><blockquote>O&#x27;Reilly and Tushman break the innovation pipeline into three organizational capabilities that most companies handle unevenly: ideation (generating new business concepts), incubation (testing and validating those concepts against real customers with dedicated, protected teams), and scaling (integrating a proven venture into the larger company without killing what made it work). Most innovation programs only build one or two of these muscles, lots of hackathons and idea contests with no path to actually scale a winner, which is why splashy initiatives quietly stall out.</blockquote><p>The underlying explore-vs-exploit ambidexterity concept originates in O&#x27;Reilly and Tushman&#x27;s earlier academic work; this book is the applied, practitioner-facing extension of that research.</p></section>
+
+    <section class="sm-ideas"><h2>Key ideas</h2><ol><li><h3>The Innovator&#x27;s Dilemma trap</h3><p>Firms that cling exclusively to what made them successful are structurally blind to disruptive change, contrasting Blockbuster&#x27;s failure to shift to streaming with Netflix repeatedly cannibalizing its own profitable businesses.</p></li><li><h3>Explore vs. exploit</h3><p>The existing business needs efficiency and incremental improvement, while new ventures need experimentation and tolerance for failure; running both under identical metrics and incentives kills the new one every time.</p></li><li><h3>Structural separation, senior integration</h3><p>New ventures need their own P&amp;L, staffing, and culture separate from the core business, but must stay tightly connected at the senior leadership level so resources and strategic intent stay aligned.</p></li><li><h3>Culture as competitive advantage and disadvantage</h3><p>The same strong, aligned culture that drives efficient execution in a mature business can actively suppress the ideas and risk-taking a new venture requires.</p></li><li><h3>Leaders as linchpins</h3><p>Because explore and exploit units pull in opposite directions, the senior team must actively hold the tension, arbitrate resource conflicts, and personally sponsor the new-business units.</p></li><li><h3>Shrinking corporate lifespans</h3><p>Pre-WWII S&amp;P 500 firms averaged nearly a century of tenure on the index; today it&#x27;s under 15 years, the empirical urgency case for why ambidexterity isn&#x27;t optional.</p></li></ol></section>
+
+    <div class="sm-cols">
+      <section><h2>Try it this week</h2><ol class="sm-steps"><li>Map your team&#x27;s current initiatives into exploit and explore buckets and check whether they&#x27;re being measured by the same success metrics, they shouldn&#x27;t be.</li><li>Identify one early-stage idea currently starved of attention and give it a small, protected team with its own short-term goals.</li><li>Audit a recent leadership meeting agenda for how much time went to defending the existing business versus funding new bets.</li><li>Identify which of the three disciplines, ideation, incubation, scaling, your organization is weakest at.</li></ol></section>
+      <section><h2>Is it for you?</h2><h3 class="sm-good">Best for</h3><ul><li>Executives and senior leaders at established companies managing legacy business lines under disruption threat</li><li>Internal innovation and product leaders trying to launch new ventures inside a large organization</li></ul><h3 class="sm-less">Less useful if</h3><ul><li>Solo entrepreneurs and early-stage startup founders, since the book&#x27;s frame is large-company organizational design rather than startup execution</li><li>Readers wanting quick tactical checklists rather than an academically grounded organizational framework</li></ul></section>
+    </div>
+
+<section class="sm-links"><h2>On this site</h2><div class="sm-chips"><a href="references.html#cat-innovation">Innovation &amp; Creativity</a></div></section>
+    <section class="sm-links sm-related"><h2>Pairs well with</h2><ul><li><a href="references.html#book-B06Y4VPJSJ">The Innovator&#x27;s Dilemma</a> <span>The root disruption theory this book&#x27;s ambidexterity framework is designed to solve</span></li><li><a href="references.html#book-B002V0M6D6">The Innovator&#x27;s Solution</a> <span>A more prescriptive companion on how to structure the new-growth business itself</span></li></ul></section>
+
+    <footer class="sm-foot">
+      <a class="sm-buy" href="https://www.amazon.com/s?k=Charles+A.+O&#x27;Reilly+III+Lead+and+Disrupt&amp;tag=phoenixjenn-20" target="_blank" rel="noopener">Find the book on Amazon</a>
+      <p>Original summary written for Plan &middot; Do &middot; Reflect. Prepared from the book&rsquo;s ideas and public summaries (<a href="https://www.getabstract.com/en/summary/lead-and-disrupt/44151" target="_blank" rel="noopener">getAbstract summary of Lead and Disrupt</a>, <a href="https://www.sup.org/books/business/lead-and-disrupt/excerpt/table-contents" target="_blank" rel="noopener">Stanford University Press: table of contents and excerpt</a>), not a substitute for reading it. Links may earn a commission.</p>
+    </footer>
+  </article>
+</main>
+
+<footer class="site-footer">
+  <p>&copy; 2026 Plan-Do-Reflect. <a href="references.html">References &amp; further reading</a></p>
+</footer>
+
+<div class="theme-switch" role="group" aria-label="Style direction">
+  <button data-theme="a" title="Kinetic Signal — black &amp; yellow"></button>
+  <button data-theme="b" title="Studio Ledger — dusty rose"></button>
+  <button data-theme="c" title="Bright Margin — lime"></button>
+  <a class="icon-lib-link" href="icon-library.html" title="Style Guide (internal reference)">
+    <svg width="14" height="14" viewBox="0 0 14 14" aria-hidden="true">
+      <rect x="1" y="1" width="5" height="5" rx="1" fill="currentColor"/>
+      <rect x="8" y="1" width="5" height="5" rx="1" fill="currentColor"/>
+      <rect x="1" y="8" width="5" height="5" rx="1" fill="currentColor"/>
+      <rect x="8" y="8" width="5" height="5" rx="1" fill="currentColor"/>
+    </svg>
+  </a>
+  <a class="icon-lib-link" href="notes.html" title="Notes (working drafts)">
+    <svg width="14" height="14" viewBox="0 0 14 14" aria-hidden="true">
+      <rect x="2" y="1" width="10" height="12" rx="1.5" fill="none" stroke="currentColor" stroke-width="1.3"/>
+      <line x1="4.5" y1="5" x2="9.5" y2="5" stroke="currentColor" stroke-width="1.3" stroke-linecap="round"/>
+      <line x1="4.5" y1="7.5" x2="9.5" y2="7.5" stroke="currentColor" stroke-width="1.3" stroke-linecap="round"/>
+      <line x1="4.5" y1="10" x2="7.5" y2="10" stroke="currentColor" stroke-width="1.3" stroke-linecap="round"/>
+    </svg>
+  </a>
+  <a class="icon-lib-link" href="sitemap.html" title="Sitemap (working draft)">
+    <svg width="14" height="14" viewBox="0 0 14 14" aria-hidden="true">
+      <circle cx="7" cy="2.5" r="1.8" fill="none" stroke="currentColor" stroke-width="1.3"/>
+      <circle cx="3" cy="11" r="1.8" fill="none" stroke="currentColor" stroke-width="1.3"/>
+      <circle cx="11" cy="11" r="1.8" fill="none" stroke="currentColor" stroke-width="1.3"/>
+      <path d="M7 4.3 L7 7 M7 7 L3 9.5 M7 7 L11 9.5" stroke="currentColor" stroke-width="1.3" fill="none" stroke-linecap="round"/>
+    </svg>
+  </a>
+</div>
+
+<!-- Temporary brainstorm control — only restyles the main h1 (.content h1 / .hero-title / .page-title). Remove alongside
+     the "title-font experiment" CSS block and the extra Google Fonts link once
+     a title font is picked. -->
+<div class="title-font-picker">
+  <label for="title-font-select">Title font</label>
+  <button type="button" id="title-font-prev" class="title-font-nav" aria-label="Previous title font">‹</button>
+  <select id="title-font-select">
+    <optgroup label="Round 1 — headline character">
+      <option value="gabarito">Gabarito</option>
+      <option value="chivo">Chivo</option>
+    </optgroup>
+    <optgroup label="Round 2 — Calibri-adjacent">
+      <option value="golos-text">Golos Text</option>
+    </optgroup>
+    <option value="default">Theme default</option>
+  </select>
+  <button type="button" id="title-font-next" class="title-font-nav" aria-label="Next title font">›</button>
+</div>
+
+<script src="js/theme-toggle.js" defer></script>
+<script src="js/title-font-toggle.js" defer></script>
+</body>
+</html>

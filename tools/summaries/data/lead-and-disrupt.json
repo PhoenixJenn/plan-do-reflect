@@ -1,0 +1,30 @@
+{
+  "asin": "B01JBCEBLQ", "slug": "lead-and-disrupt", "read_time": "2 min read",
+  "big_idea": "Established companies fail during disruption not from lack of talent but because the discipline and culture that made their core business successful actively blocks the exploration needed to build what comes next; the fix is organizational ambidexterity, running exploit and explore simultaneously under one roof.",
+  "tool": {"label": "The three disciplines of ambidexterity", "text": "O'Reilly and Tushman break the innovation pipeline into three organizational capabilities that most companies handle unevenly: ideation (generating new business concepts), incubation (testing and validating those concepts against real customers with dedicated, protected teams), and scaling (integrating a proven venture into the larger company without killing what made it work). Most innovation programs only build one or two of these muscles, lots of hackathons and idea contests with no path to actually scale a winner, which is why splashy initiatives quietly stall out.", "note": "The underlying explore-vs-exploit ambidexterity concept originates in O'Reilly and Tushman's earlier academic work; this book is the applied, practitioner-facing extension of that research."},
+  "ideas": [
+    {"title": "The Innovator's Dilemma trap", "text": "Firms that cling exclusively to what made them successful are structurally blind to disruptive change, contrasting Blockbuster's failure to shift to streaming with Netflix repeatedly cannibalizing its own profitable businesses."},
+    {"title": "Explore vs. exploit", "text": "The existing business needs efficiency and incremental improvement, while new ventures need experimentation and tolerance for failure; running both under identical metrics and incentives kills the new one every time."},
+    {"title": "Structural separation, senior integration", "text": "New ventures need their own P&L, staffing, and culture separate from the core business, but must stay tightly connected at the senior leadership level so resources and strategic intent stay aligned."},
+    {"title": "Culture as competitive advantage and disadvantage", "text": "The same strong, aligned culture that drives efficient execution in a mature business can actively suppress the ideas and risk-taking a new venture requires."},
+    {"title": "Leaders as linchpins", "text": "Because explore and exploit units pull in opposite directions, the senior team must actively hold the tension, arbitrate resource conflicts, and personally sponsor the new-business units."},
+    {"title": "Shrinking corporate lifespans", "text": "Pre-WWII S&P 500 firms averaged nearly a century of tenure on the index; today it's under 15 years, the empirical urgency case for why ambidexterity isn't optional."}
+  ],
+  "try_it": [
+    "Map your team's current initiatives into exploit and explore buckets and check whether they're being measured by the same success metrics, they shouldn't be.",
+    "Identify one early-stage idea currently starved of attention and give it a small, protected team with its own short-term goals.",
+    "Audit a recent leadership meeting agenda for how much time went to defending the existing business versus funding new bets.",
+    "Identify which of the three disciplines, ideation, incubation, scaling, your organization is weakest at."
+  ],
+  "best_for": ["Executives and senior leaders at established companies managing legacy business lines under disruption threat", "Internal innovation and product leaders trying to launch new ventures inside a large organization"],
+  "less_useful": ["Solo entrepreneurs and early-stage startup founders, since the book's frame is large-company organizational design rather than startup execution", "Readers wanting quick tactical checklists rather than an academically grounded organizational framework"],
+  "site_links": [{"label": "Innovation & Creativity", "href": "references.html#cat-innovation"}],
+  "related": [
+    {"asin": "B06Y4VPJSJ", "why": "The root disruption theory this book's ambidexterity framework is designed to solve"},
+    {"asin": "B002V0M6D6", "why": "A more prescriptive companion on how to structure the new-growth business itself"}
+  ],
+  "sources": [
+    {"label": "getAbstract summary of Lead and Disrupt", "href": "https://www.getabstract.com/en/summary/lead-and-disrupt/44151"},
+    {"label": "Stanford University Press: table of contents and excerpt", "href": "https://www.sup.org/books/business/lead-and-disrupt/excerpt/table-contents"}
+  ]
+}

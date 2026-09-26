@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="a">
+<head>
+<meta charset="UTF-8">
+<base href="../">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="icon" type="image/svg+xml" href="favicon.svg">
+<title>The Singularity Is Nearer: One-page summary · Plan · Do · Reflect</title>
+
+<!-- Applied before CSS loads, so the saved theme / title-font choice doesn't flash to the default on reload -->
+<script>
+(function () {
+  try {
+    var savedTheme = localStorage.getItem('pdr-theme');
+    if (['a', 'b', 'c'].indexOf(savedTheme) > -1) {
+      document.documentElement.setAttribute('data-theme', savedTheme);
+    }
+    /* No saved choice yet means a first-time visitor — default them to Golos
+       Text rather than the theme's own heading font. Explicitly picking
+       "Theme default" in the picker stores the literal string 'default',
+       which is the one value that clears the override below. */
+    var savedTitleFont = localStorage.getItem('pdr-title-font');
+    var titleFont = savedTitleFont === null ? 'golos-text' : savedTitleFont;
+    if (titleFont !== 'default') {
+      document.documentElement.setAttribute('data-title-font', titleFont);
+    }
+  } catch (e) {}
+})();
+</script>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=Work+Sans:wght@400;500;600&family=Sora:wght@600;700;800&family=Plus+Jakarta+Sans:wght@500;600;700&family=Patrick+Hand&display=swap" rel="stylesheet">
+
+<!-- Title-font brainstorm candidates — temporary, for the .title-font-picker toggle only.
+     Remove this link once a title font is chosen and folded into tokens.css. -->
+<link href="https://fonts.googleapis.com/css2?family=Gabarito:wght@800&family=Chivo:wght@800&family=Golos+Text:wght@800&display=swap" rel="stylesheet">
+
+<link rel="stylesheet" href="css/tokens.css">
+<link rel="stylesheet" href="css/main.css">
+<link rel="stylesheet" href="css/summary.css">
+</head>
+<body>
+
+<header class="topnav">
+  <a class="logo" href="index.html">Plan·Do·Reflect</a>
+  <nav class="topnav-items">
+    <a class="item" href="framework.html">The Framework</a>
+    <a class="item" href="self-management.html">Self</a>
+    <a class="item" href="team.html">Team</a>
+    <a class="item" href="organization.html">Organization</a>
+    <a class="item" href="core-skills.html">Core Skills</a>
+    <a class="item active" href="references.html">References</a>
+  </nav>
+</header>
+
+<main class="sm">
+  <p class="sm-crumb"><a href="references.html">References &amp; Further Reading</a> &rsaquo; One-page summary</p>
+  <article class="sm-page">
+    <header class="sm-head">
+      <img class="sm-cover" src="images/covers/0593148916.jpg" data-r="https://m.media-amazon.com/images/I/51u9mxDVWoL._SL300_.jpg" alt="Cover of The Singularity Is Nearer" onerror="if(this.dataset.r&amp;&amp;this.src.indexOf(this.dataset.r)===-1){this.src=this.dataset.r}else{this.style.visibility='hidden'}">
+      <div>
+        <p class="sm-eyebrow">One-page summary &middot; 2 min read</p>
+        <h1 class="page-title">The Singularity Is Nearer</h1>
+        <p class="sm-sub">When We Merge with AI</p>
+        <p class="sm-by">by Ray Kurzweil</p>
+        <p class="sm-meta">2024 &middot; 10h 25m audiobook &middot; &#9733; 4.4 Audible</p>
+      </div>
+    </header>
+
+    <section class="sm-idea"><h2>The big idea</h2><p>Kurzweil argues that exponential technological progress, his Law of Accelerating Returns, is on track to produce human-level AI around 2029 and a full human-machine merger, the Singularity, by 2045, a transition he frames as ultimately positive if navigated well.</p></section>
+
+<section class="sm-tool"><span class="sm-label">The Law of Accelerating Returns</span><blockquote>Kurzweil&#x27;s central predictive tool: information-based technologies (computing power, genetic sequencing, AI capability) improve exponentially rather than linearly, because each generation of technology is used to build the next, faster one. He extrapolates this pattern from historical data to justify forecasts like human-level AI by 2029 and the Singularity by 2045.</blockquote><p>This is Kurzweil&#x27;s own long-standing thesis rather than a consensus scientific model, and it has drawn criticism from reviewers and researchers for being difficult to falsify and overconfident in its precision.</p></section>
+
+    <section class="sm-ideas"><h2>Key ideas</h2><ol><li><h3>Exponential vs. linear thinking</h3><p>Humans naturally underestimate technological change because they intuitively expect linear progress, while Kurzweil argues the relevant trends are exponential.</p></li><li><h3>2029 milestone</h3><p>Kurzweil&#x27;s specific prediction that AI will match human-level intelligence across a broad range of tasks by 2029, a date he has held to since earlier books.</p></li><li><h3>2045 as the Singularity</h3><p>The projected point at which humans merge with machine intelligence closely enough that the distinction between biological and artificial cognition breaks down.</p></li><li><h3>Learning from the brain</h3><p>Kurzweil argues studying biological structures like the neocortex can accelerate the design of artificial neural networks, citing deep-learning milestones like AlphaGo as validation.</p></li><li><h3>Reframing the merger as positive</h3><p>Kurzweil compares the human-AI merger to a person who is deaf hearing a symphony for the first time, arguing against the assumption that merging with machines is a loss of humanity.</p></li><li><h3>Documented historical progress</h3><p>The book includes data showing measures of human wellbeing, poverty, literacy, disease, violence, have improved over recent decades, used to support optimism about continued exponential improvement.</p></li></ol></section>
+
+    <div class="sm-cols">
+      <section><h2>Try it this week</h2><ol class="sm-steps"><li>Pick one trend relevant to your field and look at its trajectory over the past 5-10 years to see whether it looks more linear or exponential, then reconsider your planning horizon.</li><li>List one assumption in your work that assumes today&#x27;s AI capability is close to a ceiling, and stress-test it against continued rapid improvement.</li><li>Read one critical review alongside the book to weigh Kurzweil&#x27;s specific date predictions against skeptical counterarguments before adopting them as planning assumptions.</li></ol></section>
+      <section><h2>Is it for you?</h2><h3 class="sm-good">Best for</h3><ul><li>Futurists and technologists who enjoy long-range, high-conviction forecasting</li><li>Readers interested in transhumanism and human-AI merger debates</li></ul><h3 class="sm-less">Less useful if</h3><ul><li>Readers wanting a measured, consensus-view treatment of AI timelines, since Kurzweil&#x27;s dates are contested by many AI researchers</li><li>Readers wanting practical business or leadership guidance, since this is a futurist work, not an operating manual</li></ul></section>
+    </div>
+
+<section class="sm-links"><h2>On this site</h2><div class="sm-chips"><a href="references.html#cat-ai">AI Fundamentals</a></div></section>
+    <section class="sm-links sm-related"><h2>Pairs well with</h2><ul><li><a href="references.html#book-B0742K1G4Q">Life 3.0</a> <span>A parallel long-range framework for reasoning about the same human-AI transition</span></li><li><a href="references.html#book-B0CNFJ1BVP">Co-Intelligence</a> <span>A near-term, practical counterpoint to this book&#x27;s long-range speculation</span></li></ul></section>
+
+    <footer class="sm-foot">
+      <a class="sm-buy" href="https://www.amazon.com/s?k=Ray+Kurzweil+The+Singularity+Is+Nearer&amp;tag=phoenixjenn-20" target="_blank" rel="noopener">Find the book on Amazon</a>
+      <p>Original summary written for Plan &middot; Do &middot; Reflect. Prepared from the book&rsquo;s ideas and public summaries (<a href="https://en.wikipedia.org/wiki/The_Singularity_Is_Nearer" target="_blank" rel="noopener">Wikipedia: The Singularity Is Nearer</a>, <a href="https://www.shortform.com/summary/the-singularity-is-nearer-summary-ray-kurzweil" target="_blank" rel="noopener">Shortform book summary</a>), not a substitute for reading it. Links may earn a commission.</p>
+    </footer>
+  </article>
+</main>
+
+<footer class="site-footer">
+  <p>&copy; 2026 Plan-Do-Reflect. <a href="references.html">References &amp; further reading</a></p>
+</footer>
+
+<div class="theme-switch" role="group" aria-label="Style direction">
+  <button data-theme="a" title="Kinetic Signal — black &amp; yellow"></button>
+  <button data-theme="b" title="Studio Ledger — dusty rose"></button>
+  <button data-theme="c" title="Bright Margin — lime"></button>
+  <a class="icon-lib-link" href="icon-library.html" title="Style Guide (internal reference)">
+    <svg width="14" height="14" viewBox="0 0 14 14" aria-hidden="true">
+      <rect x="1" y="1" width="5" height="5" rx="1" fill="currentColor"/>
+      <rect x="8" y="1" width="5" height="5" rx="1" fill="currentColor"/>
+      <rect x="1" y="8" width="5" height="5" rx="1" fill="currentColor"/>
+      <rect x="8" y="8" width="5" height="5" rx="1" fill="currentColor"/>
+    </svg>
+  </a>
+  <a class="icon-lib-link" href="notes.html" title="Notes (working drafts)">
+    <svg width="14" height="14" viewBox="0 0 14 14" aria-hidden="true">
+      <rect x="2" y="1" width="10" height="12" rx="1.5" fill="none" stroke="currentColor" stroke-width="1.3"/>
+      <line x1="4.5" y1="5" x2="9.5" y2="5" stroke="currentColor" stroke-width="1.3" stroke-linecap="round"/>
+      <line x1="4.5" y1="7.5" x2="9.5" y2="7.5" stroke="currentColor" stroke-width="1.3" stroke-linecap="round"/>
+      <line x1="4.5" y1="10" x2="7.5" y2="10" stroke="currentColor" stroke-width="1.3" stroke-linecap="round"/>
+    </svg>
+  </a>
+  <a class="icon-lib-link" href="sitemap.html" title="Sitemap (working draft)">
+    <svg width="14" height="14" viewBox="0 0 14 14" aria-hidden="true">
+      <circle cx="7" cy="2.5" r="1.8" fill="none" stroke="currentColor" stroke-width="1.3"/>
+      <circle cx="3" cy="11" r="1.8" fill="none" stroke="currentColor" stroke-width="1.3"/>
+      <circle cx="11" cy="11" r="1.8" fill="none" stroke="currentColor" stroke-width="1.3"/>
+      <path d="M7 4.3 L7 7 M7 7 L3 9.5 M7 7 L11 9.5" stroke="currentColor" stroke-width="1.3" fill="none" stroke-linecap="round"/>
+    </svg>
+  </a>
+</div>
+
+<!-- Temporary brainstorm control — only restyles the main h1 (.content h1 / .hero-title / .page-title). Remove alongside
+     the "title-font experiment" CSS block and the extra Google Fonts link once
+     a title font is picked. -->
+<div class="title-font-picker">
+  <label for="title-font-select">Title font</label>
+  <button type="button" id="title-font-prev" class="title-font-nav" aria-label="Previous title font">‹</button>
+  <select id="title-font-select">
+    <optgroup label="Round 1 — headline character">
+      <option value="gabarito">Gabarito</option>
+      <option value="chivo">Chivo</option>
+    </optgroup>
+    <optgroup label="Round 2 — Calibri-adjacent">
+      <option value="golos-text">Golos Text</option>
+    </optgroup>
+    <option value="default">Theme default</option>
+  </select>
+  <button type="button" id="title-font-next" class="title-font-nav" aria-label="Next title font">›</button>
+</div>
+
+<script src="js/theme-toggle.js" defer></script>
+<script src="js/title-font-toggle.js" defer></script>
+</body>
+</html>

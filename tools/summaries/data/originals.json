@@ -1,0 +1,30 @@
+{
+  "asin": "B01A7Q6672", "slug": "originals", "read_time": "2 min read",
+  "big_idea": "Originality is not an innate personality trait of fearless risk-takers, it's a learnable set of behaviors, and the people who successfully champion new ideas typically do so through calculated, hedged, strategic action rather than bold leaps.",
+  "tool": {"label": "Strategic procrastination", "text": "Grant argues that deliberately delaying a task after conceiving it, rather than executing immediately, lets the idea keep incubating in the background via the Zeigarnik effect, where unfinished tasks stay active in memory and keep generating fresh associations. He points to Martin Luther King Jr., who was still reworking his speech the night before delivering it and improvised its most famous line in the moment, as an example of how moderate procrastination can produce more original output than rushing to finish first.", "note": "Grant is explicit this applies to moderate, deliberate delay, not chronic procrastination; the research he cites found the middle group of procrastinators, not the most extreme ones, produced the most creative work."},
+  "ideas": [
+    {"title": "Quantity over quality in idea generation", "text": "The biggest barrier to originality isn't generating ideas, it's selecting among them; prolific creators succeed by generating far more raw material, not by having a higher hit rate."},
+    {"title": "Risk portfolios, not fearlessness", "text": "Successful originals typically hedge, keeping steady income or a day job while testing a risky venture, rather than betting everything at once."},
+    {"title": "Coalition building on tactics, not goals", "text": "Aligning with allies who share your specific tactics, even with different ultimate goals, is more durable than alliances based on shared goals alone."},
+    {"title": "Timing and the first-mover myth", "text": "Being first to market carries real disadvantages; early movers make the costly mistakes that later entrants learn from and avoid."},
+    {"title": "Familiarity reduces resistance to bold ideas", "text": "Novel pitches land better when anchored to something the audience already trusts, reframing a risky idea in terms of a familiar, trusted reference point."},
+    {"title": "Vuja de", "text": "A deliberate inversion of deja vu describing the practice of looking at a familiar situation with fresh eyes, actively questioning the default and assumed-normal way of doing things."}
+  ],
+  "try_it": [
+    "Before locking in your next big idea or pitch, force yourself to generate at least ten alternatives rather than stopping at the first workable one.",
+    "The next time you finish outlining a project, deliberately step away from it for a day before executing, and note what new angles occur to you.",
+    "If you're testing a risky new idea, identify one way to hedge it rather than committing fully upfront.",
+    "Before pitching an unconventional idea, find one familiar reference point your audience already trusts and use it to frame your pitch."
+  ],
+  "best_for": ["Individuals trying to get a novel idea championed and adopted within an organization", "Managers who want to encourage productive dissent and reduce groupthink on their teams"],
+  "less_useful": ["Not a step-by-step operating manual, since it's built from social-science studies and narrative examples rather than sequential tactics", "Less useful for readers wanting hands-on creative-generation exercises rather than behavioral insight"],
+  "site_links": [{"label": "Innovation & Creativity", "href": "references.html#cat-innovation"}],
+  "related": [
+    {"asin": "0593394763", "why": "A companion look at the intellectual humility that lets people update their ideas, from the same author"},
+    {"asin": "B0BBYZFBQW", "why": "A parallel treatment of creative non-conformity, focused more on personal reinvention"}
+  ],
+  "sources": [
+    {"label": "Reading Graphics book summary", "href": "https://readingraphics.com/book-summary-originals/"},
+    {"label": "Originals summary, Four Minute Books", "href": "https://fourminutebooks.com/originals-summary/"}
+  ]
+}

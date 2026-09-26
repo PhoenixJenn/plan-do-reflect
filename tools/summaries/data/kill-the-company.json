@@ -1,0 +1,30 @@
+{
+  "asin": "B00HM8YEHI", "slug": "kill-the-company", "read_time": "2 min read",
+  "big_idea": "The biggest obstacle to innovation isn't a lack of creative ideas, it's the company itself: its accumulated rules, meetings, reports, and complacency actively crowd out the time and mental space employees would need to think differently.",
+  "tool": {"label": "Kill a stupid rule", "text": "A simple workshop exercise where a team spends about 10 minutes independently answering, if you could kill or change any stupid rule that gets in the way of doing your work, what would it be. The exercise surfaces small, specific annoyances, redundant approval chains, unnecessary recurring reports, that are then actually eliminated as a test; if removing one causes no real harm, as when a company's HR team scrapped its monthly operating report with zero negative fallout, the removal becomes permanent.", "note": "none"},
+  "ideas": [
+    {"title": "The company as its own worst enemy", "text": "Bodell argues internal bureaucracy, not external competitors, is usually the biggest threat to a company's future relevance."},
+    {"title": "Everyone is a change agent", "text": "Innovation capacity already exists at every level of the org chart; the constraint is usually permission and time, not creativity."},
+    {"title": "Created by employees, for employees", "text": "Change initiatives designed by the people closest to the daily friction stick better than top-down mandates imposed without their input."},
+    {"title": "Little Bigs", "text": "Small, low-risk changes, like removing reply-all or instituting no-internal-email Fridays, can shift culture and behavior faster than large formal transformation programs."},
+    {"title": "Evolve and iterate", "text": "Treat every change as an experiment: test small, gather feedback fast, adjust, and keep removing friction rather than declaring victory after one fix."},
+    {"title": "The kill-the-company exercise", "text": "Deliberately imagining how a competitor would destroy your own business surfaces blind spots and vulnerabilities leadership is otherwise too close to see."}
+  ],
+  "try_it": [
+    "Run the Kill a Stupid Rule exercise in your next team meeting: give everyone 10 minutes to list rules or reports that get in the way, then pick one to actually eliminate for a trial period.",
+    "Identify one recurring report or meeting on your calendar and cancel it for two weeks to see if anyone notices its absence.",
+    "Ask your team: if a competitor wanted to put us out of business, what would they target first?",
+    "Pick one Little Big from the book, no-reply-all threads, a no-meeting block, a phone-free stretch, and pilot it with your immediate team for a week."
+  ],
+  "best_for": ["Middle managers and team leads wanting low-cost, immediate ways to unblock innovation without waiting on executive sponsorship", "Executives auditing why a well-resourced team still feels stuck"],
+  "less_useful": ["Readers wanting a deep strategic framework for market disruption or business-model redesign, since this is about internal culture and process", "Very small or informal teams that don't yet have much bureaucracy to cut"],
+  "site_links": [{"label": "Innovation & Creativity", "href": "references.html#cat-innovation"}],
+  "related": [
+    {"asin": "B07DKHSL3W", "why": "A culture-level companion on playing the long game rather than optimizing for short-term wins"},
+    {"asin": "1980090939", "why": "A framework for spotting when you're solving the wrong organizational problem in the first place"}
+  ],
+  "sources": [
+    {"label": "ATD: Book Brief: Kill the Company", "href": "https://www.td.org/content/atd-blog/book-brief-kill-the-company"},
+    {"label": "getAbstract summary", "href": "https://www.getabstract.com/en/summary/kill-the-company/18722"}
+  ]
+}

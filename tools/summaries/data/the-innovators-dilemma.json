@@ -1,0 +1,30 @@
+{
+  "asin": "B06Y4VPJSJ", "slug": "the-innovators-dilemma", "read_time": "2 min read",
+  "big_idea": "Clayton Christensen shows that well-run companies fail not from bad management but from good management, the same practices that make firms successful with existing customers blind them to cheaper, simpler disruptive technologies that eventually overtake their markets.",
+  "tool": {"label": "Sustaining vs. disruptive innovation", "text": "Sustaining innovations improve products along the performance dimensions a company's best customers already value, and incumbents are naturally good at these. Disruptive innovations are initially simpler, cheaper, and worse by mainstream standards, so they first appeal only to overlooked or new customers at a market's low end. Because disruptive products improve over time, they eventually meet mainstream needs too, by which point the incumbent, having rationally ignored the inferior technology and low-margin customers, can't catch up. Christensen ties this to value networks: a firm's existing customer and profit context makes some opportunities look obviously bad even when they'll define the next market.", "note": "The framework was developed primarily from the disk-drive industry and other manufacturing cases; later critics argue it doesn't generalize as cleanly to every industry as the book implies."},
+  "ideas": [
+    {"title": "The dilemma itself", "text": "Rational, customer-focused decision-making, the hallmark of good management, is precisely what causes incumbents to reject disruptive technologies until it's too late."},
+    {"title": "Value networks", "text": "A firm's cost structure, customer base, and competitive context shape which opportunities look attractive, making genuinely disruptive markets look unprofitable by design."},
+    {"title": "Performance oversupply", "text": "When a product's features exceed what most customers actually need, it creates an opening for a cheaper, good-enough disruptive alternative."},
+    {"title": "Small markets can't solve big companies' growth needs", "text": "Large firms structurally need large new markets to move the needle, so they systematically overlook the small, emerging markets where disruption starts."},
+    {"title": "Discovery-driven planning", "text": "Because disruptive markets don't yet exist, they can't be forecasted with traditional market research; companies must plan to learn through rapid experimentation instead."},
+    {"title": "Create autonomous units", "text": "The book recommends spinning out disruptive initiatives into independent organizations with their own cost structures, rather than forcing them through processes built for the core business."}
+  ],
+  "try_it": [
+    "List the good reasons your organization has rejected a low-margin, unproven opportunity in the past year, and check them against this pattern.",
+    "Identify one place where your product may be overserving typical customers with features they don't use.",
+    "Sketch what an independent, small-scale unit would look like if built specifically to pursue an opportunity your core business keeps deprioritizing.",
+    "Pick one emerging, currently not-good-enough technology in your field and track its improvement over the next month."
+  ],
+  "best_for": ["Executives and product leaders responsible for long-term strategy in incumbent companies", "Anyone trying to understand why successful, well-managed companies get overtaken by scrappier competitors"],
+  "less_useful": ["Early-stage founders looking for tactical startup advice, since it's written from the incumbent's perspective", "Readers wanting the what-to-do-about-it playbook, which Christensen mostly reserves for the sequel"],
+  "site_links": [{"label": "Innovation & Creativity", "href": "references.html#cat-innovation"}],
+  "related": [
+    {"asin": "B002V0M6D6", "why": "The direct sequel that turns this book's diagnosis into a prescriptive playbook"},
+    {"asin": "B007TKVPO4", "why": "The individual behavioral skills behind the disruptive innovators this book describes"}
+  ],
+  "sources": [
+    {"label": "Reading Graphics book summary", "href": "https://readingraphics.com/book-summary-the-innovators-dilemma/"},
+    {"label": "Wikipedia: The Innovator's Dilemma", "href": "https://en.wikipedia.org/wiki/The_Innovator's_Dilemma"}
+  ]
+}

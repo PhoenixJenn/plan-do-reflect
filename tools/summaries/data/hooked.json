@@ -1,0 +1,30 @@
+{
+  "asin": "B00HZNTRE0", "slug": "hooked", "read_time": "2 min read",
+  "big_idea": "Products that become habits don't rely on advertising to pull users back; they're engineered around a repeatable psychological loop that links a user's internal need to the company's product as the solution.",
+  "tool": {"label": "The Hook Model", "text": "A four-step cycle designed to build habitual product use: a trigger (external, like a notification, or eventually internal, like boredom) prompts an action (the simplest behavior done in anticipation of a reward); that action delivers a variable reward (unpredictable payoffs of the tribe, the hunt, or the self that keep users curious rather than satiated); and the user makes an investment (time, data, effort, or social capital) that loads the next trigger and increases the odds of returning, turning the loop into a self-reinforcing flywheel.", "note": "Eyal pairs the model with a Manipulation Matrix that asks builders whether their product genuinely improves users' lives and whether they'd use it themselves, explicitly to flag when habit-forming design tips into manipulation."},
+  "ideas": [
+    {"title": "Motivation + ability + trigger = behavior", "text": "Borrowed from BJ Fogg's behavior model, a trigger only produces action when the user is sufficiently motivated and the action is easy enough to do."},
+    {"title": "External vs. internal triggers", "text": "Early product use relies on external cues like push notifications; the goal over time is for the product to become linked to an internal cue, anxiety, boredom, FOMO, so users return unprompted."},
+    {"title": "Variable reward types", "text": "Eyal categorizes rewards into the tribe (social validation), the hunt (resources or information), and the self (mastery or competence); mixing unpredictability into any of these sustains interest longer than a fixed payoff."},
+    {"title": "The IKEA effect and sunk cost", "text": "Small user investments, adding a profile photo, following people, building a playlist, increase perceived value and make leaving the product feel like a loss."},
+    {"title": "Reducing friction over adding motivation", "text": "It's often easier and more effective to simplify the action, fewer steps, fewer decisions, than to try to boost user motivation directly."},
+    {"title": "Ethical responsibility of habit design", "text": "Because the Hook Model can build genuinely useful habits or exploitative ones, the authors argue builders have an obligation to ask who benefits from the habit being formed."}
+  ],
+  "try_it": [
+    "Map one feature of your own product or workflow tool against all four Hook steps and identify which step is currently weakest.",
+    "Run the Manipulation Matrix on something you're building: does it materially improve the user's life, and would you use it yourself?",
+    "Audit your own most-used app and identify its internal trigger, what emotion sends you back to it without a notification?",
+    "Reduce one step of friction from a task you want a team or customer to repeat, then observe whether completion rates change."
+  ],
+  "best_for": ["Product managers, designers, and founders building consumer or B2B software meant to be used repeatedly", "Marketers wanting the psychology behind engagement and retention"],
+  "less_useful": ["Readers looking for a business-model or go-to-market book, since this is specifically about behavioral product design, not pricing or strategy", "Anyone uncomfortable with the ethical gray area of intentionally engineering habitual behavior"],
+  "site_links": [{"label": "Innovation & Creativity", "href": "references.html#cat-innovation"}],
+  "related": [
+    {"asin": "B005LXV0HI", "why": "The build-measure-learn discipline that pairs with engineering a habit-forming product"},
+    {"asin": "B002V0QVY6", "why": "A complementary look at what makes any message or product idea stick with people"}
+  ],
+  "sources": [
+    {"label": "Nir Eyal's official book page", "href": "https://www.nirandfar.com/hooked/"},
+    {"label": "Reading Graphics detailed book summary", "href": "https://readingraphics.com/book-summary-hooked-how-to-build-habit-forming-products/"}
+  ]
+}

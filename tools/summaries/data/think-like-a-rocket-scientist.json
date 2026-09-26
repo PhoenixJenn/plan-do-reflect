@@ -1,0 +1,30 @@
+{
+  "asin": "1549144936", "slug": "think-like-a-rocket-scientist", "read_time": "2 min read",
+  "big_idea": "The unconventional thinking tools that let rocket scientists solve seemingly impossible problems, reasoning from first principles, testing rigorously, and treating failure as data, are learnable strategies anyone can apply to make ambitious leaps in ordinary work and life.",
+  "tool": {"label": "First-principles thinking", "text": "Instead of reasoning by analogy, copying what's worked before, or deferring to expert consensus, Varol advises breaking a problem down to its most basic, verifiable truths and rebuilding a solution from there, ignoring that's how it's always been done. He warns that expertise itself can become a trap, deep familiarity with one way of doing things can blind experts to fresh approaches, which is why some breakthroughs come from outsiders or beginners who haven't been grooved into the standard method.", "note": "none"},
+  "ideas": [
+    {"title": "Shoot for the moon", "text": "Set audacious, moonshot goals rather than safe incremental ones; bigger goals sometimes carry better risk-adjusted odds because they attract different resources and effort than modest ones."},
+    {"title": "Embrace uncertainty", "text": "Reframe ambiguity as necessary raw material for breakthroughs rather than something to eliminate before acting, since certainty often isn't available up front."},
+    {"title": "Thought experiments", "text": "Use imaginative, personalized hypothetical scenarios, in the tradition of Einstein, to stress-test ideas and generate insight before committing real resources."},
+    {"title": "Reframe the problem", "text": "Mental fixation on the first framing of a problem blocks better solutions; deliberately restating the problem in new terms often reveals options you couldn't see before."},
+    {"title": "Rigorous, realistic testing", "text": "Test ideas under conditions that resemble the real, whole system, not just isolated components, to catch failure modes that idealized tests miss."},
+    {"title": "Premortems and productive failure analysis", "text": "Before launching, imagine the project has already failed and work backward to identify why; after real failures, extract specific lessons rather than dwelling on them or brushing past them."}
+  ],
+  "try_it": [
+    "Take one assumption you're currently treating as fixed and rewrite the problem from first principles, ignoring how it's currently done.",
+    "Before your next big decision or launch, run a 10-minute premortem: assume it failed, and write down the most likely reasons why.",
+    "Reframe one open problem at work in three different ways this week before choosing which to act on.",
+    "Pick one goal you've been keeping deliberately modest, rewrite it as a moonshot version, and identify the one experiment that would test if it's remotely possible."
+  ],
+  "best_for": ["Ambitious professionals and entrepreneurs wanting frameworks for big, uncertain bets", "Readers who enjoy science and space-program storytelling alongside practical takeaways"],
+  "less_useful": ["Readers wanting quick incremental productivity tips rather than mindset-level reframing", "Those uninterested in space-program anecdotes as the connective narrative device"],
+  "site_links": [{"label": "Innovation & Creativity", "href": "references.html#cat-innovation"}],
+  "related": [
+    {"asin": "B0BBYZFBQW", "why": "The same author's companion book on personal creative reinvention"},
+    {"asin": "B0BT54XTLW", "why": "A stoic counterpart on reframing obstacles as the actual way forward"}
+  ],
+  "sources": [
+    {"label": "Shortform book summary", "href": "https://www.shortform.com/summary/think-like-a-rocket-scientist-summary-ozan-varol"},
+    {"label": "Hustle Escape book summary", "href": "https://www.hustleescape.com/book-summary-think-like-a-rocket-scientist/"}
+  ]
+}

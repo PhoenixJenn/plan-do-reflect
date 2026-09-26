@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="a">
+<head>
+<meta charset="UTF-8">
+<base href="../">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="icon" type="image/svg+xml" href="favicon.svg">
+<title>The Creative Act: One-page summary · Plan · Do · Reflect</title>
+
+<!-- Applied before CSS loads, so the saved theme / title-font choice doesn't flash to the default on reload -->
+<script>
+(function () {
+  try {
+    var savedTheme = localStorage.getItem('pdr-theme');
+    if (['a', 'b', 'c'].indexOf(savedTheme) > -1) {
+      document.documentElement.setAttribute('data-theme', savedTheme);
+    }
+    /* No saved choice yet means a first-time visitor — default them to Golos
+       Text rather than the theme's own heading font. Explicitly picking
+       "Theme default" in the picker stores the literal string 'default',
+       which is the one value that clears the override below. */
+    var savedTitleFont = localStorage.getItem('pdr-title-font');
+    var titleFont = savedTitleFont === null ? 'golos-text' : savedTitleFont;
+    if (titleFont !== 'default') {
+      document.documentElement.setAttribute('data-title-font', titleFont);
+    }
+  } catch (e) {}
+})();
+</script>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=Work+Sans:wght@400;500;600&family=Sora:wght@600;700;800&family=Plus+Jakarta+Sans:wght@500;600;700&family=Patrick+Hand&display=swap" rel="stylesheet">
+
+<!-- Title-font brainstorm candidates — temporary, for the .title-font-picker toggle only.
+     Remove this link once a title font is chosen and folded into tokens.css. -->
+<link href="https://fonts.googleapis.com/css2?family=Gabarito:wght@800&family=Chivo:wght@800&family=Golos+Text:wght@800&display=swap" rel="stylesheet">
+
+<link rel="stylesheet" href="css/tokens.css">
+<link rel="stylesheet" href="css/main.css">
+<link rel="stylesheet" href="css/summary.css">
+</head>
+<body>
+
+<header class="topnav">
+  <a class="logo" href="index.html">Plan·Do·Reflect</a>
+  <nav class="topnav-items">
+    <a class="item" href="framework.html">The Framework</a>
+    <a class="item" href="self-management.html">Self</a>
+    <a class="item" href="team.html">Team</a>
+    <a class="item" href="organization.html">Organization</a>
+    <a class="item" href="core-skills.html">Core Skills</a>
+    <a class="item active" href="references.html">References</a>
+  </nav>
+</header>
+
+<main class="sm">
+  <p class="sm-crumb"><a href="references.html">References &amp; Further Reading</a> &rsaquo; One-page summary</p>
+  <article class="sm-page">
+    <header class="sm-head">
+      <img class="sm-cover" src="images/covers/B0B3L2T9W5.jpg" data-r="https://m.media-amazon.com/images/I/51l+1wW-S5L._SL300_.jpg" alt="Cover of The Creative Act" onerror="if(this.dataset.r&amp;&amp;this.src.indexOf(this.dataset.r)===-1){this.src=this.dataset.r}else{this.style.visibility='hidden'}">
+      <div>
+        <p class="sm-eyebrow">One-page summary &middot; 2 min read</p>
+        <h1 class="page-title">The Creative Act</h1>
+        <p class="sm-sub">A Way of Being</p>
+        <p class="sm-by">by Rick Rubin</p>
+        <p class="sm-meta">2023 &middot; 5h 45m audiobook &middot; &#9733; 4.7 Audible</p>
+      </div>
+    </header>
+
+    <section class="sm-idea"><h2>The big idea</h2><p>Creativity is not a specialized talent limited to artists, it&#x27;s a way of living and paying attention available to everyone, and the creative practice is fundamentally about cultivating awareness and receptivity rather than chasing output or originality for its own sake.</p></section>
+
+<section class="sm-tool"><span class="sm-label">The vessel and the seeds practice</span><blockquote>Rubin frames the creator as a vessel or receiver tuning into an inexhaustible external field of ideas he calls Source, rather than someone inventing ideas from nothing. The practical exercise is to first soften the personal filters, habits, self-judgment, inherited assumptions, that block what comes through, then gather raw, unfinished fragments called seeds without judging or editing them, and only afterward experiment with which seeds are worth developing further.</blockquote><p>A personal, spiritually-inflected metaphor rather than an empirical model, best read as a mindset practice for creative work, not a testable claim about how ideas originate.</p></section>
+
+    <section class="sm-ideas"><h2>Key ideas</h2><ol><li><h3>Everyone is a creator</h3><p>How you live and make everyday choices, arranging a room, cooking a meal, solving a small problem, is itself a creative act, not just work labeled art.</p></li><li><h3>Source</h3><p>Ideas are treated as an infinite field that already exists outside the individual, which creators tune into rather than generate purely from their own minds.</p></li><li><h3>Awareness as the core practice</h3><p>Meditation, quiet walks, and deep attention to daily life are presented as the actual training ground for creativity, more so than technique or craft skill.</p></li><li><h3>Process over rules</h3><p>Rubin repeatedly favors staying open to change and experimentation mid-project over locking into a fixed method or plan from the start.</p></li><li><h3>Reframing failure as feedback</h3><p>A piece or experiment that doesn&#x27;t work is treated as directional information about where to go next, not a verdict on the value of the work or the person.</p></li><li><h3>Completion and release as their own stage</h3><p>Finishing a piece and letting it go, regardless of how it&#x27;s received, is presented as a distinct, necessary part of the creative cycle.</p></li></ol></section>
+
+    <div class="sm-cols">
+      <section><h2>Try it this week</h2><ol class="sm-steps"><li>Take a 20-minute walk with no phone or agenda purely to notice your surroundings, then jot down any idea fragments that surface afterward.</li><li>Keep a running list of raw, unjudged idea fragments for a week without deciding yet which ones to pursue.</li><li>Before starting a new piece of work, spend five minutes sitting quietly or journaling to clear mental clutter first.</li><li>Pick one piece of work you&#x27;ve been endlessly refining and deliberately declare it finished, then share or release it as-is.</li></ol></section>
+      <section><h2>Is it for you?</h2><h3 class="sm-good">Best for</h3><ul><li>Creative practitioners, musicians, writers, designers, looking for a mindset reset or inspiration rather than a technical manual</li><li>Readers drawn to a reflective, philosophical approach to creative work</li></ul><h3 class="sm-less">Less useful if</h3><ul><li>Not a fit for readers wanting concrete business frameworks, production processes, or step-by-step tactics</li><li>The meditative, aphoristic style can feel abstract or repetitive for readers who prefer prescriptive how-to advice</li></ul></section>
+    </div>
+
+<section class="sm-links"><h2>On this site</h2><div class="sm-chips"><a href="references.html#cat-innovation">Innovation &amp; Creativity</a></div></section>
+    <section class="sm-links sm-related"><h2>Pairs well with</h2><ul><li><a href="references.html#book-B0BBYZFBQW">Awaken Your Genius</a> <span>A more structured, exercise-driven companion on reclaiming personal creativity</span></li><li><a href="references.html#book-B004285S6W">Where Good Ideas Come From</a> <span>A more empirical look at where ideas actually come from, to pair with this book&#x27;s philosophical framing</span></li></ul></section>
+
+    <footer class="sm-foot">
+      <a class="sm-buy" href="https://www.amazon.com/s?k=Rick+Rubin+The+Creative+Act&amp;tag=phoenixjenn-20" target="_blank" rel="noopener">Find the book on Amazon</a>
+      <p>Original summary written for Plan &middot; Do &middot; Reflect. Prepared from the book&rsquo;s ideas and public summaries (<a href="https://booksthatslay.com/the-creative-act-a-way-of-being-summary/" target="_blank" rel="noopener">Books That Slay: The Creative Act summary and analysis</a>, <a href="https://www.penguinrandomhouse.com/books/717356/the-creative-act-by-rick-rubin/" target="_blank" rel="noopener">Penguin Random House book page</a>), not a substitute for reading it. Links may earn a commission.</p>
+    </footer>
+  </article>
+</main>
+
+<footer class="site-footer">
+  <p>&copy; 2026 Plan-Do-Reflect. <a href="references.html">References &amp; further reading</a></p>
+</footer>
+
+<div class="theme-switch" role="group" aria-label="Style direction">
+  <button data-theme="a" title="Kinetic Signal — black &amp; yellow"></button>
+  <button data-theme="b" title="Studio Ledger — dusty rose"></button>
+  <button data-theme="c" title="Bright Margin — lime"></button>
+  <a class="icon-lib-link" href="icon-library.html" title="Style Guide (internal reference)">
+    <svg width="14" height="14" viewBox="0 0 14 14" aria-hidden="true">
+      <rect x="1" y="1" width="5" height="5" rx="1" fill="currentColor"/>
+      <rect x="8" y="1" width="5" height="5" rx="1" fill="currentColor"/>
+      <rect x="1" y="8" width="5" height="5" rx="1" fill="currentColor"/>
+      <rect x="8" y="8" width="5" height="5" rx="1" fill="currentColor"/>
+    </svg>
+  </a>
+  <a class="icon-lib-link" href="notes.html" title="Notes (working drafts)">
+    <svg width="14" height="14" viewBox="0 0 14 14" aria-hidden="true">
+      <rect x="2" y="1" width="10" height="12" rx="1.5" fill="none" stroke="currentColor" stroke-width="1.3"/>
+      <line x1="4.5" y1="5" x2="9.5" y2="5" stroke="currentColor" stroke-width="1.3" stroke-linecap="round"/>
+      <line x1="4.5" y1="7.5" x2="9.5" y2="7.5" stroke="currentColor" stroke-width="1.3" stroke-linecap="round"/>
+      <line x1="4.5" y1="10" x2="7.5" y2="10" stroke="currentColor" stroke-width="1.3" stroke-linecap="round"/>
+    </svg>
+  </a>
+  <a class="icon-lib-link" href="sitemap.html" title="Sitemap (working draft)">
+    <svg width="14" height="14" viewBox="0 0 14 14" aria-hidden="true">
+      <circle cx="7" cy="2.5" r="1.8" fill="none" stroke="currentColor" stroke-width="1.3"/>
+      <circle cx="3" cy="11" r="1.8" fill="none" stroke="currentColor" stroke-width="1.3"/>
+      <circle cx="11" cy="11" r="1.8" fill="none" stroke="currentColor" stroke-width="1.3"/>
+      <path d="M7 4.3 L7 7 M7 7 L3 9.5 M7 7 L11 9.5" stroke="currentColor" stroke-width="1.3" fill="none" stroke-linecap="round"/>
+    </svg>
+  </a>
+</div>
+
+<!-- Temporary brainstorm control — only restyles the main h1 (.content h1 / .hero-title / .page-title). Remove alongside
+     the "title-font experiment" CSS block and the extra Google Fonts link once
+     a title font is picked. -->
+<div class="title-font-picker">
+  <label for="title-font-select">Title font</label>
+  <button type="button" id="title-font-prev" class="title-font-nav" aria-label="Previous title font">‹</button>
+  <select id="title-font-select">
+    <optgroup label="Round 1 — headline character">
+      <option value="gabarito">Gabarito</option>
+      <option value="chivo">Chivo</option>
+    </optgroup>
+    <optgroup label="Round 2 — Calibri-adjacent">
+      <option value="golos-text">Golos Text</option>
+    </optgroup>
+    <option value="default">Theme default</option>
+  </select>
+  <button type="button" id="title-font-next" class="title-font-nav" aria-label="Next title font">›</button>
+</div>
+
+<script src="js/theme-toggle.js" defer></script>
+<script src="js/title-font-toggle.js" defer></script>
+</body>
+</html>

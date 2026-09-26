@@ -1,0 +1,30 @@
+{
+  "asin": "B01B89LABY", "slug": "the-art-of-innovation", "read_time": "2 min read",
+  "big_idea": "Innovation isn't a mysterious gift reserved for lone geniuses, it's a repeatable discipline built on close observation of real users, rapid low-fidelity prototyping, and a culture that gives small, autonomous teams room to fail quickly and often.",
+  "tool": {"label": "IDEO's brainstorming rules", "text": "Kelley lays out concrete ground rules IDEO uses to run productive brainstorms: sharpen the focus with a specific, customer-centered problem statement; establish playful rules posted on the wall, like defer judgment and encourage wild ideas; number ideas as they're generated to track volume; build on the ideas of others rather than just adding new ones; use visible surfaces like whiteboards and sticky notes so the group can see the whole idea space at once; and warm up with a quick unrelated exercise before diving into the real problem.", "note": "These are IDEO's own internal facilitation practices as described by Kelley, one firm's proven method rather than a universally validated science of brainstorming."},
+  "ideas": [
+    {"title": "Observation over focus groups", "text": "IDEO designers watch real users in natural settings rather than relying on what people say they want in a focus group, surfacing ergonomic problems people couldn't articulate themselves."},
+    {"title": "Designing with empathy", "text": "Good design requires deliberately imagining the experience of users unlike the designer, including people with different abilities, habits, or contexts of use."},
+    {"title": "Rapid, crude prototyping", "text": "Encapsulated in the rule never go to a meeting without a prototype, IDEO treats fast, rough physical or paper models as a way to think and get feedback, prioritizing iteration speed over early polish."},
+    {"title": "Hot teams", "text": "High-performing project teams share traits, total dedication, tight deadlines, irreverence toward hierarchy, diverse disciplines in the room, and real autonomy over resources and decisions."},
+    {"title": "Fail often to succeed sooner", "text": "Early, cheap failures are a core input to the design process rather than something to be avoided, since each rough prototype that doesn't work narrows the path to one that does."},
+    {"title": "Innovation as a systematized process", "text": "Kelley frames IDEO's method as a repeatable sequence, understanding the market, observing real behavior, visualizing concepts, refining through iterative prototypes, and implementing, arguing this process can be taught, not just inherited as talent."}
+  ],
+  "try_it": [
+    "Spend an hour directly observing real users or customers doing the task your product or service addresses, without interrupting to ask them questions.",
+    "Run a 20-minute brainstorm on a current problem using explicit ground rules: defer judgment, go for quantity, and build on others' ideas.",
+    "Build a rough, low-fidelity prototype of your next idea before your next planning meeting, instead of arriving with only a description.",
+    "Pull together a small cross-functional team with a tight deadline and real decision-making autonomy for one upcoming initiative."
+  ],
+  "best_for": ["Product, service, and design teams looking to build a more user-centered innovation process", "Leaders trying to build a culture that supports experimentation and fast iteration"],
+  "less_useful": ["Readers focused purely on strategy or finance rather than product and design process", "Some references and tools feel dated since the book predates many current digital collaboration and prototyping tools"],
+  "site_links": [{"label": "Innovation & Creativity", "href": "references.html#cat-innovation"}],
+  "related": [
+    {"asin": "B002V00XJK", "why": "The same firm's follow-up book, organizing these same practices into ten distinct innovation roles"},
+    {"asin": "B06XBYMVNW", "why": "A complementary look at how cross-disciplinary teams generate the ideas this book's process refines"}
+  ],
+  "sources": [
+    {"label": "SuperSummary: The Art of Innovation", "href": "https://www.supersummary.com/the-art-of-innovation/summary/"},
+    {"label": "getAbstract summary", "href": "https://www.getabstract.com/en/summary/the-art-of-innovation/1391"}
+  ]
+}

@@ -1,0 +1,29 @@
+{
+  "asin": "0593148916", "slug": "the-singularity-is-nearer", "read_time": "2 min read",
+  "big_idea": "Kurzweil argues that exponential technological progress, his Law of Accelerating Returns, is on track to produce human-level AI around 2029 and a full human-machine merger, the Singularity, by 2045, a transition he frames as ultimately positive if navigated well.",
+  "tool": {"label": "The Law of Accelerating Returns", "text": "Kurzweil's central predictive tool: information-based technologies (computing power, genetic sequencing, AI capability) improve exponentially rather than linearly, because each generation of technology is used to build the next, faster one. He extrapolates this pattern from historical data to justify forecasts like human-level AI by 2029 and the Singularity by 2045.", "note": "This is Kurzweil's own long-standing thesis rather than a consensus scientific model, and it has drawn criticism from reviewers and researchers for being difficult to falsify and overconfident in its precision."},
+  "ideas": [
+    {"title": "Exponential vs. linear thinking", "text": "Humans naturally underestimate technological change because they intuitively expect linear progress, while Kurzweil argues the relevant trends are exponential."},
+    {"title": "2029 milestone", "text": "Kurzweil's specific prediction that AI will match human-level intelligence across a broad range of tasks by 2029, a date he has held to since earlier books."},
+    {"title": "2045 as the Singularity", "text": "The projected point at which humans merge with machine intelligence closely enough that the distinction between biological and artificial cognition breaks down."},
+    {"title": "Learning from the brain", "text": "Kurzweil argues studying biological structures like the neocortex can accelerate the design of artificial neural networks, citing deep-learning milestones like AlphaGo as validation."},
+    {"title": "Reframing the merger as positive", "text": "Kurzweil compares the human-AI merger to a person who is deaf hearing a symphony for the first time, arguing against the assumption that merging with machines is a loss of humanity."},
+    {"title": "Documented historical progress", "text": "The book includes data showing measures of human wellbeing, poverty, literacy, disease, violence, have improved over recent decades, used to support optimism about continued exponential improvement."}
+  ],
+  "try_it": [
+    "Pick one trend relevant to your field and look at its trajectory over the past 5-10 years to see whether it looks more linear or exponential, then reconsider your planning horizon.",
+    "List one assumption in your work that assumes today's AI capability is close to a ceiling, and stress-test it against continued rapid improvement.",
+    "Read one critical review alongside the book to weigh Kurzweil's specific date predictions against skeptical counterarguments before adopting them as planning assumptions."
+  ],
+  "best_for": ["Futurists and technologists who enjoy long-range, high-conviction forecasting", "Readers interested in transhumanism and human-AI merger debates"],
+  "less_useful": ["Readers wanting a measured, consensus-view treatment of AI timelines, since Kurzweil's dates are contested by many AI researchers", "Readers wanting practical business or leadership guidance, since this is a futurist work, not an operating manual"],
+  "site_links": [{"label": "AI Fundamentals", "href": "references.html#cat-ai"}],
+  "related": [
+    {"asin": "B0742K1G4Q", "why": "A parallel long-range framework for reasoning about the same human-AI transition"},
+    {"asin": "B0CNFJ1BVP", "why": "A near-term, practical counterpoint to this book's long-range speculation"}
+  ],
+  "sources": [
+    {"label": "Wikipedia: The Singularity Is Nearer", "href": "https://en.wikipedia.org/wiki/The_Singularity_Is_Nearer"},
+    {"label": "Shortform book summary", "href": "https://www.shortform.com/summary/the-singularity-is-nearer-summary-ray-kurzweil"}
+  ]
+}

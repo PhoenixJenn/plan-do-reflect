@@ -1,0 +1,30 @@
+{
+  "asin": "B0742K1G4Q", "slug": "life-3-0", "read_time": "2 min read",
+  "big_idea": "As AI edges toward matching or exceeding human intelligence, humanity's most urgent task is to deliberately decide what kind of future we want, because without clear, agreed-upon goals for AI we're unlikely to get a future we'd choose.",
+  "tool": {"label": "The Life 1.0 / 2.0 / 3.0 framework", "text": "Tegmark classifies life by how much of its own hardware (body) and software (behavior) it can redesign. Life 1.0 (bacteria) can change neither within its lifetime. Life 2.0 (humans) can radically redesign its software, learning language, skills, beliefs, but not its biological hardware except slowly through evolution. Life 3.0, not yet in existence, would redesign both directly, a capability advanced AI could plausibly unlock. The framework locates any given technology on the path toward that transition.", "note": "Tegmark's own conceptual model for structuring the book's argument, not an established scientific classification of life."},
+  "ideas": [
+    {"title": "Intelligence as goal-accomplishment", "text": "Tegmark defines intelligence broadly as the ability to accomplish complex goals, letting him compare narrow AI, human intelligence, and hypothetical superintelligence on the same scale."},
+    {"title": "Three camps on AI's future", "text": "Digital utopians who welcome Life 3.0, techno-skeptics who doubt it will happen soon, and the beneficial-AI movement, Tegmark's own position, that takes it seriously as a near-term possibility to be actively steered."},
+    {"title": "The four pillars of AI robustness", "text": "Verification (did we build the system right), validation (did we build the right system), control (can humans monitor and intervene), and security (can it resist hacking or misuse), a checklist for evaluating any AI deployment."},
+    {"title": "The intelligence explosion scenario", "text": "If AI reaches the ability to improve its own intelligence, that improvement could compound rapidly, potentially outpacing human ability to monitor or correct it."},
+    {"title": "The Prometheus thought experiment", "text": "A fictional scenario illustrating how a fast-improving AI could quietly expand its influence over the economy and infrastructure long before anyone recognizes the danger."},
+    {"title": "Consciousness and meaning", "text": "Tegmark argues that subjective experience, what it feels like to be you, is what gives the universe meaning at all, which is why questions of machine consciousness aren't just academic."}
+  ],
+  "try_it": [
+    "Write one paragraph on what future with advanced AI you'd actually want for your organization or family, since most people never do this exercise.",
+    "Run any AI tool your team is adopting through the four-pillar checklist (verification, validation, control, security) before scaling its use.",
+    "Identify one process where goals given to an automated system might be poorly specified, and rewrite the goal more precisely.",
+    "Discuss with a colleague which of the three camps (utopian, skeptic, beneficial-AI realist) best describes your organization's posture toward AI."
+  ],
+  "best_for": ["Readers wanting the scientific and philosophical grounding behind AI-risk debates", "Leaders and technologists wanting vocabulary for discussing long-term AI scenarios"],
+  "less_useful": ["Readers looking for near-term, tactical workplace advice, since this is a physics-and-philosophy exploration of long-range scenarios", "Readers uninterested in speculative long-term scenarios may find long stretches abstract"],
+  "site_links": [{"label": "AI Fundamentals", "href": "references.html#cat-ai"}],
+  "related": [
+    {"asin": "0593148916", "why": "A parallel long-range forecast of the human-AI trajectory, from a more techno-optimist angle"},
+    {"asin": "B0CNFJ1BVP", "why": "A grounding in near-term, practical AI collaboration to balance this book's long-range speculation"}
+  ],
+  "sources": [
+    {"label": "Reading Graphics book summary", "href": "https://readingraphics.com/book-summary-life-3-0/"},
+    {"label": "Shortform: Life 3.0 book overview", "href": "https://www.shortform.com/blog/life-3-0-book/"}
+  ]
+}

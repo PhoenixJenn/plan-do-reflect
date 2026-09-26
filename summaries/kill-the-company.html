@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="a">
+<head>
+<meta charset="UTF-8">
+<base href="../">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="icon" type="image/svg+xml" href="favicon.svg">
+<title>Kill The Company: One-page summary · Plan · Do · Reflect</title>
+
+<!-- Applied before CSS loads, so the saved theme / title-font choice doesn't flash to the default on reload -->
+<script>
+(function () {
+  try {
+    var savedTheme = localStorage.getItem('pdr-theme');
+    if (['a', 'b', 'c'].indexOf(savedTheme) > -1) {
+      document.documentElement.setAttribute('data-theme', savedTheme);
+    }
+    /* No saved choice yet means a first-time visitor — default them to Golos
+       Text rather than the theme's own heading font. Explicitly picking
+       "Theme default" in the picker stores the literal string 'default',
+       which is the one value that clears the override below. */
+    var savedTitleFont = localStorage.getItem('pdr-title-font');
+    var titleFont = savedTitleFont === null ? 'golos-text' : savedTitleFont;
+    if (titleFont !== 'default') {
+      document.documentElement.setAttribute('data-title-font', titleFont);
+    }
+  } catch (e) {}
+})();
+</script>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=Work+Sans:wght@400;500;600&family=Sora:wght@600;700;800&family=Plus+Jakarta+Sans:wght@500;600;700&family=Patrick+Hand&display=swap" rel="stylesheet">
+
+<!-- Title-font brainstorm candidates — temporary, for the .title-font-picker toggle only.
+     Remove this link once a title font is chosen and folded into tokens.css. -->
+<link href="https://fonts.googleapis.com/css2?family=Gabarito:wght@800&family=Chivo:wght@800&family=Golos+Text:wght@800&display=swap" rel="stylesheet">
+
+<link rel="stylesheet" href="css/tokens.css">
+<link rel="stylesheet" href="css/main.css">
+<link rel="stylesheet" href="css/summary.css">
+</head>
+<body>
+
+<header class="topnav">
+  <a class="logo" href="index.html">Plan·Do·Reflect</a>
+  <nav class="topnav-items">
+    <a class="item" href="framework.html">The Framework</a>
+    <a class="item" href="self-management.html">Self</a>
+    <a class="item" href="team.html">Team</a>
+    <a class="item" href="organization.html">Organization</a>
+    <a class="item" href="core-skills.html">Core Skills</a>
+    <a class="item active" href="references.html">References</a>
+  </nav>
+</header>
+
+<main class="sm">
+  <p class="sm-crumb"><a href="references.html">References &amp; Further Reading</a> &rsaquo; One-page summary</p>
+  <article class="sm-page">
+    <header class="sm-head">
+      <img class="sm-cover" src="images/covers/B00HM8YEHI.jpg" data-r="https://m.media-amazon.com/images/I/51+yJ4yn+YL._SL300_.jpg" alt="Cover of Kill The Company" onerror="if(this.dataset.r&amp;&amp;this.src.indexOf(this.dataset.r)===-1){this.src=this.dataset.r}else{this.style.visibility='hidden'}">
+      <div>
+        <p class="sm-eyebrow">One-page summary &middot; 2 min read</p>
+        <h1 class="page-title">Kill The Company</h1>
+        <p class="sm-sub">End the Status Quo, Start an Innovation Revolution</p>
+        <p class="sm-by">by Lisa Bodell</p>
+        <p class="sm-meta">2014 &middot; 6h 22m audiobook &middot; &#9733; 4.1 Audible</p>
+      </div>
+    </header>
+
+    <section class="sm-idea"><h2>The big idea</h2><p>The biggest obstacle to innovation isn&#x27;t a lack of creative ideas, it&#x27;s the company itself: its accumulated rules, meetings, reports, and complacency actively crowd out the time and mental space employees would need to think differently.</p></section>
+
+<section class="sm-tool"><span class="sm-label">Kill a stupid rule</span><blockquote>A simple workshop exercise where a team spends about 10 minutes independently answering, if you could kill or change any stupid rule that gets in the way of doing your work, what would it be. The exercise surfaces small, specific annoyances, redundant approval chains, unnecessary recurring reports, that are then actually eliminated as a test; if removing one causes no real harm, as when a company&#x27;s HR team scrapped its monthly operating report with zero negative fallout, the removal becomes permanent.</blockquote><p>none</p></section>
+
+    <section class="sm-ideas"><h2>Key ideas</h2><ol><li><h3>The company as its own worst enemy</h3><p>Bodell argues internal bureaucracy, not external competitors, is usually the biggest threat to a company&#x27;s future relevance.</p></li><li><h3>Everyone is a change agent</h3><p>Innovation capacity already exists at every level of the org chart; the constraint is usually permission and time, not creativity.</p></li><li><h3>Created by employees, for employees</h3><p>Change initiatives designed by the people closest to the daily friction stick better than top-down mandates imposed without their input.</p></li><li><h3>Little Bigs</h3><p>Small, low-risk changes, like removing reply-all or instituting no-internal-email Fridays, can shift culture and behavior faster than large formal transformation programs.</p></li><li><h3>Evolve and iterate</h3><p>Treat every change as an experiment: test small, gather feedback fast, adjust, and keep removing friction rather than declaring victory after one fix.</p></li><li><h3>The kill-the-company exercise</h3><p>Deliberately imagining how a competitor would destroy your own business surfaces blind spots and vulnerabilities leadership is otherwise too close to see.</p></li></ol></section>
+
+    <div class="sm-cols">
+      <section><h2>Try it this week</h2><ol class="sm-steps"><li>Run the Kill a Stupid Rule exercise in your next team meeting: give everyone 10 minutes to list rules or reports that get in the way, then pick one to actually eliminate for a trial period.</li><li>Identify one recurring report or meeting on your calendar and cancel it for two weeks to see if anyone notices its absence.</li><li>Ask your team: if a competitor wanted to put us out of business, what would they target first?</li><li>Pick one Little Big from the book, no-reply-all threads, a no-meeting block, a phone-free stretch, and pilot it with your immediate team for a week.</li></ol></section>
+      <section><h2>Is it for you?</h2><h3 class="sm-good">Best for</h3><ul><li>Middle managers and team leads wanting low-cost, immediate ways to unblock innovation without waiting on executive sponsorship</li><li>Executives auditing why a well-resourced team still feels stuck</li></ul><h3 class="sm-less">Less useful if</h3><ul><li>Readers wanting a deep strategic framework for market disruption or business-model redesign, since this is about internal culture and process</li><li>Very small or informal teams that don&#x27;t yet have much bureaucracy to cut</li></ul></section>
+    </div>
+
+<section class="sm-links"><h2>On this site</h2><div class="sm-chips"><a href="references.html#cat-innovation">Innovation &amp; Creativity</a></div></section>
+    <section class="sm-links sm-related"><h2>Pairs well with</h2><ul><li><a href="references.html#book-B07DKHSL3W">The Infinite Game</a> <span>A culture-level companion on playing the long game rather than optimizing for short-term wins</span></li><li><a href="references.html#book-1980090939">What&#x27;s Your Problem</a> <span>A framework for spotting when you&#x27;re solving the wrong organizational problem in the first place</span></li></ul></section>
+
+    <footer class="sm-foot">
+      <a class="sm-buy" href="https://www.amazon.com/s?k=Lisa+Bodell+Kill+The+Company&amp;tag=phoenixjenn-20" target="_blank" rel="noopener">Find the book on Amazon</a>
+      <p>Original summary written for Plan &middot; Do &middot; Reflect. Prepared from the book&rsquo;s ideas and public summaries (<a href="https://www.td.org/content/atd-blog/book-brief-kill-the-company" target="_blank" rel="noopener">ATD: Book Brief: Kill the Company</a>, <a href="https://www.getabstract.com/en/summary/kill-the-company/18722" target="_blank" rel="noopener">getAbstract summary</a>), not a substitute for reading it. Links may earn a commission.</p>
+    </footer>
+  </article>
+</main>
+
+<footer class="site-footer">
+  <p>&copy; 2026 Plan-Do-Reflect. <a href="references.html">References &amp; further reading</a></p>
+</footer>
+
+<div class="theme-switch" role="group" aria-label="Style direction">
+  <button data-theme="a" title="Kinetic Signal — black &amp; yellow"></button>
+  <button data-theme="b" title="Studio Ledger — dusty rose"></button>
+  <button data-theme="c" title="Bright Margin — lime"></button>
+  <a class="icon-lib-link" href="icon-library.html" title="Style Guide (internal reference)">
+    <svg width="14" height="14" viewBox="0 0 14 14" aria-hidden="true">
+      <rect x="1" y="1" width="5" height="5" rx="1" fill="currentColor"/>
+      <rect x="8" y="1" width="5" height="5" rx="1" fill="currentColor"/>
+      <rect x="1" y="8" width="5" height="5" rx="1" fill="currentColor"/>
+      <rect x="8" y="8" width="5" height="5" rx="1" fill="currentColor"/>
+    </svg>
+  </a>
+  <a class="icon-lib-link" href="notes.html" title="Notes (working drafts)">
+    <svg width="14" height="14" viewBox="0 0 14 14" aria-hidden="true">
+      <rect x="2" y="1" width="10" height="12" rx="1.5" fill="none" stroke="currentColor" stroke-width="1.3"/>
+      <line x1="4.5" y1="5" x2="9.5" y2="5" stroke="currentColor" stroke-width="1.3" stroke-linecap="round"/>
+      <line x1="4.5" y1="7.5" x2="9.5" y2="7.5" stroke="currentColor" stroke-width="1.3" stroke-linecap="round"/>
+      <line x1="4.5" y1="10" x2="7.5" y2="10" stroke="currentColor" stroke-width="1.3" stroke-linecap="round"/>
+    </svg>
+  </a>
+  <a class="icon-lib-link" href="sitemap.html" title="Sitemap (working draft)">
+    <svg width="14" height="14" viewBox="0 0 14 14" aria-hidden="true">
+      <circle cx="7" cy="2.5" r="1.8" fill="none" stroke="currentColor" stroke-width="1.3"/>
+      <circle cx="3" cy="11" r="1.8" fill="none" stroke="currentColor" stroke-width="1.3"/>
+      <circle cx="11" cy="11" r="1.8" fill="none" stroke="currentColor" stroke-width="1.3"/>
+      <path d="M7 4.3 L7 7 M7 7 L3 9.5 M7 7 L11 9.5" stroke="currentColor" stroke-width="1.3" fill="none" stroke-linecap="round"/>
+    </svg>
+  </a>
+</div>
+
+<!-- Temporary brainstorm control — only restyles the main h1 (.content h1 / .hero-title / .page-title). Remove alongside
+     the "title-font experiment" CSS block and the extra Google Fonts link once
+     a title font is picked. -->
+<div class="title-font-picker">
+  <label for="title-font-select">Title font</label>
+  <button type="button" id="title-font-prev" class="title-font-nav" aria-label="Previous title font">‹</button>
+  <select id="title-font-select">
+    <optgroup label="Round 1 — headline character">
+      <option value="gabarito">Gabarito</option>
+      <option value="chivo">Chivo</option>
+    </optgroup>
+    <optgroup label="Round 2 — Calibri-adjacent">
+      <option value="golos-text">Golos Text</option>
+    </optgroup>
+    <option value="default">Theme default</option>
+  </select>
+  <button type="button" id="title-font-next" class="title-font-nav" aria-label="Next title font">›</button>
+</div>
+
+<script src="js/theme-toggle.js" defer></script>
+<script src="js/title-font-toggle.js" defer></script>
+</body>
+</html>
