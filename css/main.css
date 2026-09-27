@@ -2670,3 +2670,77 @@ body {
   color: var(--text-caption);
   border: 1px dashed var(--border);
 }
+
+/* ---------- Course pages (ai-beyond-fundamentals.html) ----------
+   Modules reuse .framework-item.is-accordion; these add the few pieces a
+   course needs on top: sub-headings inside a module, a project/rubric box,
+   a full-width diagram, and small caption notes. Modules run long, so the
+   open max-height is raised just for .course-module. */
+.is-accordion.is-open.course-module .fw-body {
+  max-height: 12000px;
+}
+
+.course-subhead {
+  font-family: var(--font-heading);
+  font-size: 0.95rem;
+  font-weight: 700;
+  color: var(--text-heading);
+  margin: 18px 0 6px;
+}
+
+.fw-body > p {
+  font-size: 0.92rem;
+  line-height: 1.6;
+  color: var(--text-body);
+}
+
+.course-project {
+  margin: 18px 0 12px;
+  padding: 14px 16px;
+  border: 1px solid var(--border);
+  border-left: 4px solid var(--accent-strong);
+  border-radius: 8px;
+  background: var(--bg-sidebar);
+}
+
+.course-project-label {
+  display: block;
+  font-family: var(--font-heading);
+  font-size: 0.82rem;
+  font-weight: 700;
+  color: var(--accent-strong);
+  margin-bottom: 6px;
+}
+
+.course-project p {
+  font-size: 0.88rem;
+  line-height: 1.55;
+  color: var(--text-body);
+}
+
+.course-project p + p {
+  margin-top: 6px;
+}
+
+.course-note {
+  margin-top: 8px;
+  font-size: 0.78rem !important;
+  color: var(--text-caption) !important;
+}
+
+.course-diagram {
+  margin: 16px 0 8px;
+}
+
+.course-diagram svg {
+  width: 100%;
+  height: auto;
+  display: block;
+  font-family: var(--font-body);
+}
+
+.course-diagram figcaption {
+  margin-top: 6px;
+  font-size: 0.78rem;
+  color: var(--text-caption);
+}

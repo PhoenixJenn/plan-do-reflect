@@ -1,0 +1,761 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="a">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="icon" type="image/svg+xml" href="favicon.svg">
+<title>AI Beyond Fundamentals · Plan · Do · Reflect</title>
+
+<!-- Applied before CSS loads, so the saved theme / title-font choice doesn't flash to the default on reload -->
+<script>
+(function () {
+  try {
+    var savedTheme = localStorage.getItem('pdr-theme');
+    if (['a', 'b', 'c'].indexOf(savedTheme) > -1) {
+      document.documentElement.setAttribute('data-theme', savedTheme);
+    }
+    var savedTitleFont = localStorage.getItem('pdr-title-font');
+    var titleFont = savedTitleFont === null ? 'golos-text' : savedTitleFont;
+    if (titleFont !== 'default') {
+      document.documentElement.setAttribute('data-title-font', titleFont);
+    }
+  } catch (e) {}
+})();
+</script>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=Work+Sans:wght@400;500;600&family=Sora:wght@600;700;800&family=Plus+Jakarta+Sans:wght@500;600;700&family=Patrick+Hand&display=swap" rel="stylesheet">
+
+<!-- Title-font brainstorm candidates — temporary, for the .title-font-picker toggle only.
+     Remove this link once a title font is chosen and folded into tokens.css. -->
+<link href="https://fonts.googleapis.com/css2?family=Gabarito:wght@800&family=Chivo:wght@800&family=Golos+Text:wght@800&display=swap" rel="stylesheet">
+
+<link rel="stylesheet" href="css/tokens.css">
+<link rel="stylesheet" href="css/main.css">
+</head>
+<body>
+
+<header class="topnav">
+  <a class="logo" href="index.html">Plan·Do·Reflect</a>
+  <nav class="topnav-items">
+    <a class="item" href="framework.html">The Framework</a>
+    <a class="item" href="self-management.html">Self</a>
+    <a class="item" href="team.html">Team</a>
+    <a class="item" href="organization.html">Organization</a>
+    <a class="item active" href="core-skills.html">Core Skills</a>
+    <a class="item" href="references.html">References</a>
+  </nav>
+</header>
+
+<div class="layout">
+  <aside class="sidebar">
+    <div class="sec-title">Core Skills</div>
+    <a class="sub-item" href="core-skills.html">Overview</a>
+
+    <div class="sidebar-group">
+      <div class="group-label">Professional Development</div>
+      <a class="sub-item" href="#">Communication</a>
+      <a class="sub-item" href="#">AI Fundamentals</a>
+      <div class="sub-item-group">
+        <a class="sub-item active" href="ai-beyond-fundamentals.html">AI Beyond Fundamentals</a>
+        <div class="sub-sub-list">
+          <a class="sub-sub-item" href="#setup">0 · Setup</a>
+          <a class="sub-sub-item" href="#llm-fundamentals">1 · LLM Fundamentals</a>
+          <a class="sub-sub-item" href="#prompting-reliability">2 · Prompting &amp; Reliability</a>
+          <a class="sub-sub-item" href="#rag-done-right">3 · RAG Done Right</a>
+          <a class="sub-sub-item" href="#evals-guardrails">4 · Evals &amp; Guardrails</a>
+          <a class="sub-sub-item" href="#agents-harnesses">5 · Agents &amp; Harnesses</a>
+          <a class="sub-sub-item" href="#architecture-decisions">6 · Architecture Decisions</a>
+          <a class="sub-sub-item" href="#ship-it">7 · Ship It</a>
+          <a class="sub-sub-item" href="#sources">Sources</a>
+        </div>
+      </div>
+    </div>
+  </aside>
+
+  <main class="content">
+    <div class="page-hero">
+      <h1>AI Beyond Fundamentals</h1>
+      <p class="lede">A hands-on course for engineers who can already call a model and want to build AI systems that hold up in production.</p>
+      <div class="tag-row" style="margin-top: 14px; margin-bottom: 0;">
+        <span class="tag primary">Core Skills</span>
+        <span class="tag secondary">8 modules</span>
+        <span class="tag secondary">About 14 weeks</span>
+        <a class="try-it-quicklink" href="#try-it">
+          <svg width="14" height="14" viewBox="0 0 24 24" aria-hidden="true">
+            <path d="M12 2 L14.2 9 L21 11 L14.2 13 L12 20 L9.8 13 L3 11 L9.8 9 Z" fill="currentColor"/>
+          </svg>
+          Try It
+        </a>
+      </div>
+    </div>
+
+    <div class="section-block">
+      <h2>Why It Matters</h2>
+      <p>AI Fundamentals teaches you to use AI. This course teaches you to build with it. The gap between a demo that works once and a system people rely on is almost never the model. It is retrieval that finds the right passage, evals that catch regressions, guardrails that stop bad actions, and a harness that keeps an agent on track. Those are engineering skills, and they can be learned by building.</p>
+    </div>
+
+    <blockquote class="pull-quote">
+      <p>"Humans steer. Agents execute."</p>
+      <cite>OpenAI, <em>Harness engineering</em></cite>
+    </blockquote>
+
+    <div class="section-block">
+      <h2>How the Course Works</h2>
+      <p>Every module follows the same loop as the rest of this site. <strong>Plan</strong> with a short concept lesson. <strong>Do</strong> three to six guided labs, each with starter code and a checkpoint test. <strong>Reflect</strong> by shipping a module project and writing down what broke and how you fixed it.</p>
+      <p style="margin-top: 10px;">All labs use one shared document collection (public company filings, meeting minutes, or product manuals all work), so you build one system that grows each module instead of seven throwaway demos. You need Python, Git, and comfort calling a REST API. No machine learning background is assumed.</p>
+    </div>
+
+    <div class="section-block" style="max-width: 720px;">
+      <h2>Course Map</h2>
+      <div class="compare-table-wrap" style="max-width: 720px;">
+        <table class="compare-table">
+          <thead>
+            <tr><th>Module</th><th>Weeks</th><th>Level</th><th>You ship</th></tr>
+          </thead>
+          <tbody>
+            <tr><th scope="row">0 · Setup</th><td>1</td><td>Beginner</td><td>Course repo and a logging LLM client</td></tr>
+            <tr><th scope="row">1 · LLM Fundamentals</th><td>2 to 3</td><td>Beginner</td><td>Chatbot with a live cost meter</td></tr>
+            <tr><th scope="row">2 · Prompting &amp; Reliability</th><td>4 to 5</td><td>Beginner</td><td>Invoice PDF to clean JSON</td></tr>
+            <tr><th scope="row">3 · RAG Done Right</th><td>6 to 8</td><td>Intermediate</td><td>Chat with 100 messy PDFs</td></tr>
+            <tr><th scope="row">4 · Evals &amp; Guardrails</th><td>9 to 10</td><td>Intermediate</td><td>Eval suite that runs in CI</td></tr>
+            <tr><th scope="row">5 · Agents &amp; Harnesses</th><td>11 to 12</td><td>Advanced</td><td>Research agent with sub-agents</td></tr>
+            <tr><th scope="row">6 · Architecture Decisions</th><td>13</td><td>Advanced</td><td>RAG vs fine-tune, same task</td></tr>
+            <tr><th scope="row">7 · Ship It</th><td>14</td><td>Capstone</td><td>All projects on GitHub, one deployed original</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <p class="course-note">Assumes 6 to 8 hours a week. Model names and prices change often, so the labs keep them in one config file.</p>
+    </div>
+
+    <div class="accordion-hint">
+      <span class="accordion-hint-text">
+        <svg width="14" height="14" viewBox="0 0 20 20" aria-hidden="true">
+          <path d="M5 7.5 L10 12.5 L15 7.5" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
+        Click a module below to expand or collapse it.
+      </span>
+      <button class="collapse-all-btn" type="button">Collapse all</button>
+    </div>
+
+    <div class="framework-list">
+
+      <!-- ===================== MODULE 0 ===================== -->
+      <div class="framework-item is-accordion course-module" id="setup">
+        <button class="fw-toggle" type="button" aria-expanded="false" aria-controls="setup-body">
+          <div class="fw-num">0</div>
+          <div class="fw-toggle-text">
+            <h3>Setup and the Course Repo</h3>
+            <p class="fw-teaser">One working environment, API keys stored safely, and a single repo that will hold every project you build.</p>
+          </div>
+          <svg class="fw-chevron" width="18" height="18" viewBox="0 0 20 20" aria-hidden="true">
+            <path d="M5 7.5 L10 12.5 L15 7.5" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+        </button>
+        <div class="fw-body" id="setup-body">
+          <h4 class="course-subhead">What you'll learn</h4>
+          <ul class="explainer-list is-bulleted">
+            <li>Keeping API keys in environment files, never in code</li>
+            <li>Python environments with <code>uv</code> and a monorepo layout</li>
+            <li>A shared client wrapper that logs tokens, cost and latency for every call</li>
+          </ul>
+          <h4 class="course-subhead">Hands-on labs</h4>
+          <ol class="explainer-list is-numbered">
+            <li><strong>Scaffold the repo.</strong> One folder per project (chatbot, extraction, RAG, evals, agent, RAG vs fine-tune) plus a shared folder.</li>
+            <li><strong>Three providers, one prompt.</strong> Call Claude, OpenAI and Gemini with the same prompt. Find the token counts in each raw response.</li>
+            <li><strong>Run a model locally.</strong> Install Ollama, pull a small open model, and call it through its OpenAI-compatible endpoint.</li>
+            <li><strong>Build the logger.</strong> Every call appends model, input tokens, output tokens, milliseconds and dollars to a log file. Every later module reuses it.</li>
+          </ol>
+          <div class="course-project">
+            <span class="course-project-label">Checkpoint</span>
+            <p>A test that calls all four providers and confirms a log row exists for each.</p>
+          </div>
+          <a class="back-to-top" href="#setup"><svg width="9" height="9" viewBox="0 0 12 12" aria-hidden="true"><path d="M6 10 L6 2 M2.5 5.5 L6 2 L9.5 5.5" stroke="var(--accent-strong)" stroke-width="1.8" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg>Top</a>
+        </div>
+      </div>
+
+      <!-- ===================== MODULE 1 ===================== -->
+      <div class="framework-item is-accordion course-module" id="llm-fundamentals">
+        <button class="fw-toggle" type="button" aria-expanded="false" aria-controls="llm-fundamentals-body">
+          <div class="fw-num">1</div>
+          <div class="fw-toggle-text">
+            <h3>LLM Fundamentals</h3>
+            <p class="fw-teaser">Predict what a call will cost and how long it will take before you make it.</p>
+          </div>
+          <svg class="fw-chevron" width="18" height="18" viewBox="0 0 20 20" aria-hidden="true">
+            <path d="M5 7.5 L10 12.5 L15 7.5" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+        </button>
+        <div class="fw-body" id="llm-fundamentals-body">
+          <h4 class="course-subhead">What you'll learn</h4>
+          <ul class="explainer-list is-bulleted">
+            <li>Provider APIs: messages, roles, system prompts, and how request shapes differ</li>
+            <li>Tokens, context windows, and what happens at the limit</li>
+            <li>Sampling settings: temperature, top-p, max tokens, stop sequences</li>
+            <li>Streaming: time to first token versus total latency</li>
+            <li>Cost per call, and why output tokens usually dominate</li>
+            <li>The KV cache inside the model, and prompt caching as providers expose it</li>
+            <li>Semantic caching: return a stored answer when a new question means the same thing</li>
+            <li>Picking a model by trading off quality, speed and cost</li>
+          </ul>
+          <h4 class="course-subhead">Hands-on labs</h4>
+          <ol class="explainer-list is-numbered">
+            <li><strong>Token intuition.</strong> Guess the token count for English, code, JSON, emoji and Japanese, then check. Discuss why some cost more.</li>
+            <li><strong>Temperature sweep.</strong> Run one prompt 10 times at three temperatures and count how many distinct answers you get.</li>
+            <li><strong>Streaming vs blocking.</strong> Time the same long answer both ways and chart the difference.</li>
+            <li><strong>Prompt caching.</strong> Ask five questions about one long document, with and without caching. Compare cost and latency from your log.</li>
+            <li><strong>Semantic cache.</strong> Test 20 paraphrased questions and find the similarity threshold where wrong answers start slipping through.</li>
+          </ol>
+          <div class="course-project">
+            <span class="course-project-label">Project · Chatbot with a live cost meter</span>
+            <p>A streaming chat app that shows tokens, dollars and latency per message and a running total, with a model picker that includes one local model.</p>
+            <p><strong>Done when:</strong> cost matches the provider's pricing within 5%, the cache hit rate is visible, and the README compares three models on the same 10 questions.</p>
+          </div>
+          <a class="back-to-top" href="#llm-fundamentals"><svg width="9" height="9" viewBox="0 0 12 12" aria-hidden="true"><path d="M6 10 L6 2 M2.5 5.5 L6 2 L9.5 5.5" stroke="var(--accent-strong)" stroke-width="1.8" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg>Top</a>
+        </div>
+      </div>
+
+      <!-- ===================== MODULE 2 ===================== -->
+      <div class="framework-item is-accordion course-module" id="prompting-reliability">
+        <button class="fw-toggle" type="button" aria-expanded="false" aria-controls="prompting-reliability-body">
+          <div class="fw-num">2</div>
+          <div class="fw-toggle-text">
+            <h3>Prompting &amp; Reliability</h3>
+            <p class="fw-teaser">Treat a prompt like code: versioned, tested, and measured against the same inputs every time.</p>
+          </div>
+          <svg class="fw-chevron" width="18" height="18" viewBox="0 0 20 20" aria-hidden="true">
+            <path d="M5 7.5 L10 12.5 L15 7.5" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+        </button>
+        <div class="fw-body" id="prompting-reliability-body">
+          <h4 class="course-subhead">What you'll learn</h4>
+          <ul class="explainer-list is-bulleted">
+            <li>System prompts and few-shot examples, and how to choose good examples</li>
+            <li>Step-by-step reasoning: when it improves accuracy and what it costs</li>
+            <li>Structured output with JSON schemas and Pydantic, with validation and retry</li>
+            <li>Tool calling: the request, the tool result, and the follow-up call</li>
+            <li>Cutting hallucinations: ground answers in supplied text, require citations, allow "not found"</li>
+            <li>Chain-of-Verification: draft, write check questions, answer them, revise</li>
+            <li>Prompt versioning and A/B tests</li>
+          </ul>
+          <h4 class="course-subhead">Hands-on labs</h4>
+          <ol class="explainer-list is-numbered">
+            <li><strong>Zero-shot vs few-shot.</strong> Sort 50 support tickets into 5 categories with 0, 2 and 5 examples. Compare accuracy.</li>
+            <li><strong>Schema extraction.</strong> Define an invoice model, force schema output, and retry on validation failure. Count retries across 20 documents.</li>
+            <li><strong>Tool calling by hand.</strong> Give the model an exchange-rate tool and a calculator. Log each round trip so the loop is visible.</li>
+            <li><strong>Grounding.</strong> Ask 15 questions about a policy document, half unanswerable. Count invented answers with and without a "quote or say not found" rule.</li>
+            <li><strong>Prompt versions.</strong> Store prompts as files, run two versions on the same inputs, and produce a results table.</li>
+          </ol>
+          <div class="course-project">
+            <span class="course-project-label">Project · Invoice PDF to clean JSON</span>
+            <p>A command-line tool that turns 20 varied invoices into schema-valid JSON, with an arithmetic check that line items add up to the total.</p>
+            <p><strong>Done when:</strong> every output passes the schema, field accuracy is reported against a hand-labeled answer key, and two prompt versions are compared with numbers.</p>
+          </div>
+          <div class="insight-aside">
+            <svg width="26" height="26" viewBox="0 0 26 26" aria-hidden="true">
+              <circle cx="13" cy="13" r="10" fill="none" stroke="var(--border)" stroke-width="2"/>
+              <path d="M13 7 L13 14" stroke="var(--accent-strong)" stroke-width="2.4" stroke-linecap="round"/>
+              <circle cx="13" cy="18.5" r="1.6" fill="var(--accent-strong)"/>
+            </svg>
+            <div class="insight-aside-body">
+              <span class="insight-aside-label">Watch-out</span>
+              <p>Advice on reasoning prompts differs by model family. Teach learners to test it on their own task rather than memorize a rule.</p>
+            </div>
+          </div>
+          <a class="back-to-top" href="#prompting-reliability"><svg width="9" height="9" viewBox="0 0 12 12" aria-hidden="true"><path d="M6 10 L6 2 M2.5 5.5 L6 2 L9.5 5.5" stroke="var(--accent-strong)" stroke-width="1.8" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg>Top</a>
+        </div>
+      </div>
+
+      <!-- ===================== MODULE 3 ===================== -->
+      <div class="framework-item is-accordion course-module" id="rag-done-right">
+        <button class="fw-toggle" type="button" aria-expanded="false" aria-controls="rag-done-right-body">
+          <div class="fw-num">3</div>
+          <div class="fw-toggle-text">
+            <h3>RAG Done Right</h3>
+            <p class="fw-teaser">Take 100 messy PDFs, build retrieval that finds the right passage, and prove it with a score.</p>
+          </div>
+          <svg class="fw-chevron" width="18" height="18" viewBox="0 0 20 20" aria-hidden="true">
+            <path d="M5 7.5 L10 12.5 L15 7.5" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+        </button>
+        <div class="fw-body" id="rag-done-right-body">
+          <p>Retrieval-augmented generation (RAG) has two halves. Documents are processed once and stored in an index. Every question then runs through search, and the best passages are handed to the model along with the question.</p>
+
+          <figure class="course-diagram">
+            <svg viewBox="0 0 760 330" role="img" aria-label="RAG pipeline: documents are indexed once; every question takes the lower path">
+              <defs>
+                <marker id="rag-arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+                  <path d="M0 0L10 5L0 10z" fill="var(--text-caption)"/>
+                </marker>
+              </defs>
+              <!-- lanes -->
+              <rect x="8" y="8" width="744" height="112" rx="10" fill="var(--bg-sidebar)" stroke="var(--border)"/>
+              <text x="24" y="32" font-size="13" font-weight="700" fill="var(--text-heading)">Indexing · runs once per document</text>
+              <rect x="8" y="136" width="744" height="186" rx="10" fill="var(--bg-sidebar)" stroke="var(--border)"/>
+              <text x="24" y="160" font-size="13" font-weight="700" fill="var(--text-heading)">Query · runs on every question</text>
+              <!-- connectors -->
+              <g fill="none" stroke="var(--text-caption)" stroke-width="1.4">
+                <path d="M144 76H170" marker-end="url(#rag-arrow)"/>
+                <path d="M290 76H316" marker-end="url(#rag-arrow)"/>
+                <path d="M436 76H462" marker-end="url(#rag-arrow)"/>
+                <path d="M582 76H608" marker-end="url(#rag-arrow)"/>
+                <path d="M144 206H170" marker-start="url(#rag-arrow)" marker-end="url(#rag-arrow)"/>
+                <path d="M290 206H316" marker-end="url(#rag-arrow)"/>
+                <path d="M436 206H462" marker-end="url(#rag-arrow)"/>
+                <path d="M582 206H608" marker-end="url(#rag-arrow)"/>
+                <path d="M668 100V184" marker-end="url(#rag-arrow)"/>
+                <path d="M668 228V252" marker-end="url(#rag-arrow)"/>
+                <path d="M608 276H582" marker-end="url(#rag-arrow)"/>
+                <path d="M462 276H436" marker-end="url(#rag-arrow)"/>
+                <path d="M316 276H230V228" marker-end="url(#rag-arrow)"/>
+              </g>
+              <!-- indexing boxes -->
+              <g font-size="13" text-anchor="middle">
+                <rect x="24" y="52" width="120" height="48" rx="8" fill="var(--bg-content)" stroke="var(--border)"/>
+                <text x="84" y="72" font-weight="700" fill="var(--text-heading)">Documents</text>
+                <text x="84" y="90" font-size="11.5" fill="var(--text-caption)">PDF, scans, CSV</text>
+                <rect x="170" y="52" width="120" height="48" rx="8" fill="var(--bg-content)" stroke="var(--border)"/>
+                <text x="230" y="72" font-weight="700" fill="var(--text-heading)">Parse</text>
+                <text x="230" y="90" font-size="11.5" fill="var(--text-caption)">OCR, tables</text>
+                <rect x="316" y="52" width="120" height="48" rx="8" fill="var(--bg-content)" stroke="var(--border)"/>
+                <text x="376" y="72" font-weight="700" fill="var(--text-heading)">Chunk</text>
+                <text x="376" y="90" font-size="11.5" fill="var(--text-caption)">per doc type</text>
+                <rect x="462" y="52" width="120" height="48" rx="8" fill="var(--bg-content)" stroke="var(--border)"/>
+                <text x="522" y="72" font-weight="700" fill="var(--text-heading)">Embed</text>
+                <text x="522" y="90" font-size="11.5" fill="var(--text-caption)">embedding model</text>
+                <rect x="608" y="52" width="120" height="48" rx="8" fill="var(--accent)" stroke="var(--accent-strong)" stroke-width="1.6"/>
+                <text x="668" y="72" font-weight="700" fill="var(--text-heading)">Index</text>
+                <text x="668" y="90" font-size="11.5" fill="var(--text-heading)">vectors + BM25</text>
+                <!-- query row -->
+                <rect x="24" y="182" width="120" height="48" rx="8" fill="var(--bg-content)" stroke="var(--border)"/>
+                <text x="84" y="202" font-weight="700" fill="var(--text-heading)">App</text>
+                <text x="84" y="220" font-size="11.5" fill="var(--text-caption)">user question</text>
+                <rect x="170" y="182" width="120" height="48" rx="8" fill="var(--bg-content)" stroke="var(--border)"/>
+                <text x="230" y="202" font-weight="700" fill="var(--text-heading)">Backend API</text>
+                <text x="230" y="220" font-size="11.5" fill="var(--text-caption)">orchestrates</text>
+                <rect x="316" y="182" width="120" height="48" rx="8" fill="var(--bg-content)" stroke="var(--border)"/>
+                <text x="376" y="202" font-weight="700" fill="var(--text-heading)">Cache</text>
+                <text x="376" y="220" font-size="11.5" fill="var(--text-caption)">repeat questions</text>
+                <rect x="462" y="182" width="120" height="48" rx="8" fill="var(--bg-content)" stroke="var(--border)"/>
+                <text x="522" y="202" font-weight="700" fill="var(--text-heading)">Embed query</text>
+                <text x="522" y="220" font-size="11.5" fill="var(--text-caption)">same model</text>
+                <rect x="608" y="182" width="120" height="48" rx="8" fill="var(--bg-content)" stroke="var(--border)"/>
+                <text x="668" y="202" font-weight="700" fill="var(--text-heading)">Hybrid search</text>
+                <text x="668" y="220" font-size="11.5" fill="var(--text-caption)">vector + keyword</text>
+                <rect x="608" y="252" width="120" height="48" rx="8" fill="var(--bg-content)" stroke="var(--border)"/>
+                <text x="668" y="272" font-weight="700" fill="var(--text-heading)">Rerank</text>
+                <text x="668" y="290" font-size="11.5" fill="var(--text-caption)">top 20 to top 5</text>
+                <rect x="462" y="252" width="120" height="48" rx="8" fill="var(--bg-content)" stroke="var(--border)"/>
+                <text x="522" y="272" font-weight="700" fill="var(--text-heading)">Augment</text>
+                <text x="522" y="290" font-size="11.5" fill="var(--text-caption)">question + context</text>
+                <rect x="316" y="252" width="120" height="48" rx="8" fill="var(--accent)" stroke="var(--accent-strong)" stroke-width="1.6"/>
+                <text x="376" y="272" font-weight="700" fill="var(--text-heading)">LLM</text>
+                <text x="376" y="290" font-size="11.5" fill="var(--text-heading)">grounded, cited</text>
+              </g>
+              <text x="678" y="146" font-size="11.5" fill="var(--text-caption)">search</text>
+              <text x="238" y="250" font-size="11.5" fill="var(--text-caption)">answer</text>
+            </svg>
+            <figcaption>A cache hit returns straight from the backend without touching search or the model.</figcaption>
+          </figure>
+
+          <h4 class="course-subhead">What you'll learn</h4>
+          <ul class="explainer-list is-bulleted">
+            <li>Digitizing documents: OCR for scans, text extraction for native PDFs</li>
+            <li>Layout parsing that keeps tables, headers and reading order intact</li>
+            <li>Chunking strategy per document type, including chunk size and overlap</li>
+            <li>Vector indexes: HNSW (fast and accurate, memory-heavy), IVF (clustered, cheaper at scale), PQ (compressed, smaller and less exact)</li>
+            <li>Hybrid search: keyword scores (BM25) plus vector scores, merged</li>
+            <li>Splitting multi-part questions and filtering by metadata such as date or source</li>
+            <li>Reranking, then measuring retrieval with recall@k against labeled questions</li>
+          </ul>
+          <h4 class="course-subhead">Hands-on labs</h4>
+          <ol class="explainer-list is-numbered">
+            <li><strong>Naive baseline.</strong> Build the simplest RAG over the course documents. Write 30 questions with the correct source page and record recall@5. Every later lab has to beat it.</li>
+            <li><strong>Parsing bake-off.</strong> Extract 5 hard PDFs (one scanned, two table-heavy) with a basic extractor and a layout-aware parser. Note what each one lost.</li>
+            <li><strong>Chunking experiment.</strong> Compare three chunking strategies on the same 30 questions.</li>
+            <li><strong>Index types.</strong> Build HNSW and IVF-PQ indexes on 100,000 synthetic vectors. Measure build time, memory, speed and recall.</li>
+            <li><strong>Hybrid search.</strong> Add keyword search and fuse the results. Find the questions it fixes, usually exact terms like IDs and product codes.</li>
+            <li><strong>Rerank and filter.</strong> Retrieve 20, rerank to 5, and add a metadata filter. Record final recall and the added latency.</li>
+          </ol>
+          <div class="course-project">
+            <span class="course-project-label">Project · Chat with 100 messy PDFs</span>
+            <p>A deployed chat app with citations that link to the source page, a semantic cache, and a page showing recall before and after each upgrade.</p>
+            <p><strong>Done when:</strong> citations open the right page, recall beats the baseline with the biggest win identified, and cost and latency per question are reported.</p>
+          </div>
+          <div class="insight-aside">
+            <svg width="26" height="26" viewBox="0 0 26 26" aria-hidden="true">
+              <circle cx="13" cy="13" r="10" fill="none" stroke="var(--border)" stroke-width="2"/>
+              <path d="M13 7 L13 14" stroke="var(--accent-strong)" stroke-width="2.4" stroke-linecap="round"/>
+              <circle cx="13" cy="18.5" r="1.6" fill="var(--accent-strong)"/>
+            </svg>
+            <div class="insight-aside-body">
+              <span class="insight-aside-label">Watch-out</span>
+              <p>This is the longest module. Most retrieval failures start at parsing, not embeddings, so finish labs 1 to 3 before tuning search.</p>
+            </div>
+          </div>
+          <a class="back-to-top" href="#rag-done-right"><svg width="9" height="9" viewBox="0 0 12 12" aria-hidden="true"><path d="M6 10 L6 2 M2.5 5.5 L6 2 L9.5 5.5" stroke="var(--accent-strong)" stroke-width="1.8" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg>Top</a>
+        </div>
+      </div>
+
+      <!-- ===================== MODULE 4 ===================== -->
+      <div class="framework-item is-accordion course-module" id="evals-guardrails">
+        <button class="fw-toggle" type="button" aria-expanded="false" aria-controls="evals-guardrails-body">
+          <div class="fw-num">4</div>
+          <div class="fw-toggle-text">
+            <h3>Evals &amp; Guardrails</h3>
+            <p class="fw-teaser">Change a prompt or a model and know within minutes whether quality went up or down.</p>
+          </div>
+          <svg class="fw-chevron" width="18" height="18" viewBox="0 0 20 20" aria-hidden="true">
+            <path d="M5 7.5 L10 12.5 L15 7.5" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+        </button>
+        <div class="fw-body" id="evals-guardrails-body">
+          <h4 class="course-subhead">What you'll learn</h4>
+          <ul class="explainer-list is-bulleted">
+            <li>Golden sets: real user questions with expected answers, kept fresh</li>
+            <li>Grading methods: exact match, code checks, an LLM judge with a rubric, human spot checks</li>
+            <li>Calibrating the judge against your own labels before trusting it</li>
+            <li>RAG metrics (RAGAS): faithfulness, answer relevance, context precision, context recall</li>
+            <li>Tracing every call, retrieval and tool step (Langfuse, LangSmith)</li>
+            <li>Input guardrails (personal data, prompt injection, off-topic) and output guardrails (schema, unsupported claims)</li>
+            <li>Token budgets, cost alerts, and regression tests on every change</li>
+          </ul>
+          <h4 class="course-subhead">Hands-on labs</h4>
+          <ol class="explainer-list is-numbered">
+            <li><strong>Golden set.</strong> Turn the Module 3 questions into a 50-item set, including 10 the documents can't answer.</li>
+            <li><strong>LLM as judge.</strong> Hand-grade 20 answers on a 1 to 5 faithfulness rubric, run the judge on the same 20, and report agreement.</li>
+            <li><strong>RAGAS.</strong> Score the Module 3 app on all four metrics and find the weakest.</li>
+            <li><strong>Tracing.</strong> Instrument the app and find the slowest step across 10 requests.</li>
+            <li><strong>Guardrails.</strong> Redact personal data on input and require every claim to cite a passage on output. Try 10 attack prompts and count what gets through.</li>
+            <li><strong>Budget alert.</strong> Add a daily token cap per user and an alert when spend crosses a threshold.</li>
+          </ol>
+          <div class="course-project">
+            <span class="course-project-label">Project · Eval suite that runs in CI</span>
+            <p>A GitHub Actions workflow that runs the golden set on every pull request, posts scores as a comment, and fails the build if quality drops past a set margin.</p>
+            <p><strong>Done when:</strong> a deliberately broken prompt fails the build, judge agreement is reported, and each eval run stays under a stated budget.</p>
+          </div>
+          <div class="insight-aside">
+            <svg width="26" height="26" viewBox="0 0 26 26" aria-hidden="true">
+              <circle cx="13" cy="13" r="10" fill="none" stroke="var(--border)" stroke-width="2"/>
+              <path d="M13 7 L13 14" stroke="var(--accent-strong)" stroke-width="2.4" stroke-linecap="round"/>
+              <circle cx="13" cy="18.5" r="1.6" fill="var(--accent-strong)"/>
+            </svg>
+            <div class="insight-aside-body">
+              <span class="insight-aside-label">Watch-out</span>
+              <p>LLM judges drift and tend to favor longer answers. Teach calibration before automation.</p>
+            </div>
+          </div>
+          <a class="back-to-top" href="#evals-guardrails"><svg width="9" height="9" viewBox="0 0 12 12" aria-hidden="true"><path d="M6 10 L6 2 M2.5 5.5 L6 2 L9.5 5.5" stroke="var(--accent-strong)" stroke-width="1.8" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg>Top</a>
+        </div>
+      </div>
+
+      <!-- ===================== MODULE 5 ===================== -->
+      <div class="framework-item is-accordion course-module" id="agents-harnesses">
+        <button class="fw-toggle" type="button" aria-expanded="false" aria-controls="agents-harnesses-body">
+          <div class="fw-num">5</div>
+          <div class="fw-toggle-text">
+            <h3>Agents &amp; Harnesses</h3>
+            <p class="fw-teaser">An agent is a model in a loop with tools and state. Build one from scratch, then learn to fix the system around it instead of the prompt.</p>
+          </div>
+          <svg class="fw-chevron" width="18" height="18" viewBox="0 0 20 20" aria-hidden="true">
+            <path d="M5 7.5 L10 12.5 L15 7.5" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+        </button>
+        <div class="fw-body" id="agents-harnesses-body">
+          <h4 class="course-subhead">What you'll learn</h4>
+          <ul class="explainer-list is-bulleted">
+            <li>The harness: model + tools + loop + state</li>
+            <li>Patterns: sequential steps, parallel fan-out, and a loop that critiques and retries</li>
+            <li>A coordinator that hands work to sub-agents and merges the results</li>
+            <li>Long-running agents that write progress files so work survives a crash</li>
+            <li>MCP servers that expose your own tools to any compatible client</li>
+            <li>Limits (max steps, budget, timeout) and human approval for risky actions</li>
+          </ul>
+
+          <h4 class="course-subhead" id="harness-engineering">Harness engineering: fix the system, not the prompt</h4>
+          <p>When an agent fails, the instinct is to rewrite the prompt, switch models, or add context. The failures usually come back. The better move is to name the failure and change the harness.</p>
+          <div class="compare-table-wrap" style="margin-top: 12px;">
+            <table class="compare-table">
+              <thead>
+                <tr><th>Failure you see</th><th>Harness fix</th></tr>
+              </thead>
+              <tbody>
+                <tr><th scope="row">Missing context</th><td>Give the agent a map of its workspace or a retrieval rule</td></tr>
+                <tr><th scope="row">Wrong tool</th><td>Improve the tool description or add routing</td></tr>
+                <tr><th scope="row">Bad output</th><td>Add a validator or a stricter output contract</td></tr>
+                <tr><th scope="row">Repeated loop</th><td>Cap retries and escalate to a human</td></tr>
+                <tr><th scope="row">Unsafe action</th><td>Add a permission gate</td></tr>
+                <tr><th scope="row">Lost decision</th><td>Write it to durable state</td></tr>
+                <tr><th scope="row">Unknown failure</th><td>Add tracing and capture evidence</td></tr>
+              </tbody>
+            </table>
+          </div>
+          <p class="course-note">Adapted from rari, <em>Harness Engineering</em>.</p>
+
+          <div class="doodle-note" style="margin-top: 14px;">
+            <div class="doodle-row">
+              <svg width="30" height="30" viewBox="0 0 26 26" aria-hidden="true">
+                <circle cx="13" cy="12" r="8" fill="var(--accent)"/>
+                <path d="M9 12 C10 9 16 9 17 12" stroke="var(--accent-strong)" stroke-width="1.6" fill="none" stroke-linecap="round"/>
+              </svg>
+              <p><strong>Brain.</strong> The model that reasons. It should not also be the filesystem, the permission system, the memory store and the audit log.</p>
+            </div>
+            <div class="doodle-row">
+              <svg width="30" height="30" viewBox="0 0 26 26" aria-hidden="true">
+                <rect x="3" y="7" width="20" height="14" rx="2" fill="none" stroke="var(--border)" stroke-width="2"/>
+                <path d="M8 12 L11 14.5 L8 17" stroke="var(--accent-strong)" stroke-width="1.8" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+              </svg>
+              <p><strong>Hands.</strong> The sandbox and tools that act, each behind its own permissions.</p>
+            </div>
+            <div class="doodle-row">
+              <svg width="30" height="30" viewBox="0 0 26 26" aria-hidden="true">
+                <rect x="5" y="3" width="16" height="20" rx="2" fill="none" stroke="var(--border)" stroke-width="2"/>
+                <line x1="9" y1="9" x2="17" y2="9" stroke="var(--accent-strong)" stroke-width="1.6" stroke-linecap="round"/>
+                <line x1="9" y1="13" x2="17" y2="13" stroke="var(--accent-strong)" stroke-width="1.6" stroke-linecap="round"/>
+                <line x1="9" y1="17" x2="14" y2="17" stroke="var(--accent-strong)" stroke-width="1.6" stroke-linecap="round"/>
+              </svg>
+              <p><strong>History.</strong> An append-only record of what happened. Keep the whole run, not only the final answer. It is what makes debugging and evals possible.</p>
+            </div>
+          </div>
+
+          <h4 class="course-subhead" id="agent-first-case-study">Case study: an agent-first codebase</h4>
+          <p>OpenAI describes a team that shipped an internal product over five months with no hand-written code: about a million lines and roughly 1,500 merged pull requests, starting with three engineers directing Codex. The engineers' job shifted to designing the environment, stating intent, and building feedback loops.</p>
+          <ul class="explainer-list is-bulleted" style="margin-top: 10px;">
+            <li><strong>Ask what capability is missing.</strong> Early progress was slow because the environment was underspecified, not because the model was weak.</li>
+            <li><strong>Give the agent a map, not a manual.</strong> One giant instructions file crowded out the task and went stale. A short entry file (about 100 lines) pointing into a structured docs folder worked better.</li>
+            <li><strong>If the agent can't see it, it doesn't exist.</strong> Decisions in chat threads or people's heads are invisible. Put them in versioned files in the repo.</li>
+            <li><strong>Make the app legible.</strong> Each change could boot its own instance, and the agent could drive the UI and query its own logs and metrics.</li>
+            <li><strong>Enforce invariants, not implementations.</strong> Custom lint rules whose error messages tell the agent how to fix the problem.</li>
+            <li><strong>Clean up continuously.</strong> Agents copy existing patterns, bad ones included. Background agents opened small refactoring pull requests on a schedule.</li>
+          </ul>
+          <p class="course-note">The authors caution that these results depend on heavy investment in that specific repository and shouldn't be assumed to generalize.</p>
+
+          <h4 class="course-subhead" id="agent-workforce">From managing agents to enabling them</h4>
+          <p>In a conversation with Greg Isenberg, Allie K. Miller describes running 34 agents led by an AI chief of staff with a layer of directors beneath it. Her framing is that the job shifts from managing agents to enabling them, and that she has moved "from managing to like waiting for escalations." Four ideas from that conversation translate directly into course material:</p>
+          <div class="doodle-note" style="margin-top: 12px;">
+            <div class="doodle-row">
+              <svg width="30" height="30" viewBox="0 0 26 26" aria-hidden="true">
+                <circle cx="13" cy="5" r="3" fill="var(--accent-strong)"/>
+                <circle cx="6" cy="15" r="2.6" fill="var(--accent)"/>
+                <circle cx="13" cy="15" r="2.6" fill="var(--accent)"/>
+                <circle cx="20" cy="15" r="2.6" fill="var(--accent)"/>
+                <path d="M13 8 V11 M13 11 L6 12.5 M13 11 L20 12.5" stroke="var(--border)" stroke-width="1.4" fill="none"/>
+                <circle cx="6" cy="22" r="1.6" fill="var(--border)"/>
+                <circle cx="20" cy="22" r="1.6" fill="var(--border)"/>
+              </svg>
+              <p><strong>Start with one agent, then add layers.</strong> A coordinator with a few directors, each owning a domain, scales further than a flat pile of agents.</p>
+            </div>
+            <div class="doodle-row">
+              <svg width="30" height="30" viewBox="0 0 26 26" aria-hidden="true">
+                <path d="M13 2 C13.6 6 14 8.4 18 9 C14 9.6 13.6 12 13 16 C12.4 12 12 9.6 8 9 C12 8.4 12.4 6 13 2 Z" fill="var(--accent-strong)"/>
+                <path d="M20 15 C20.3 16.7 20.5 17.7 22 18 C20.5 18.3 20.3 19.3 20 21 C19.7 19.3 19.5 18.3 18 18 C19.5 17.7 19.7 16.7 20 15 Z" fill="var(--accent)"/>
+              </svg>
+              <p><strong>"Do smart things."</strong> Her strongest prompt is three words. The lesson for learners: a short, open instruction only works when the agent already has deep context and clear limits, which is exactly what the harness supplies.</p>
+            </div>
+            <div class="doodle-row">
+              <svg width="30" height="30" viewBox="0 0 26 26" aria-hidden="true">
+                <rect x="5" y="3" width="16" height="20" rx="2" fill="none" stroke="var(--border)" stroke-width="2"/>
+                <circle cx="13" cy="11" r="3.5" fill="var(--accent)"/>
+                <line x1="9" y1="18" x2="17" y2="18" stroke="var(--accent-strong)" stroke-width="1.6" stroke-linecap="round"/>
+              </svg>
+              <p><strong>Make everything queryable.</strong> A short daily diary captures context that never reaches email or meetings, so agents can find it. The same idea as OpenAI's "if the agent can't see it, it doesn't exist."</p>
+            </div>
+            <div class="doodle-row">
+              <svg width="30" height="30" viewBox="0 0 26 26" aria-hidden="true">
+                <circle cx="9" cy="13" r="5" fill="none" stroke="var(--accent-strong)" stroke-width="2"/>
+                <circle cx="17" cy="13" r="5" fill="none" stroke="var(--border)" stroke-width="2"/>
+                <circle cx="13" cy="13" r="1.8" fill="var(--accent)"/>
+              </svg>
+              <p><strong>Use agents as watchdogs.</strong> Point an agent at the others' work to catch duplicated effort and conflicting decisions before they compound.</p>
+            </div>
+          </div>
+
+          <h4 class="course-subhead">Hands-on labs</h4>
+          <ol class="explainer-list is-numbered">
+            <li><strong>Raw loop.</strong> Write a 60-line agent: call the model, run any requested tool, append the result, repeat until done. Set a budget limit from the start.</li>
+            <li><strong>Three patterns.</strong> Summarize five articles three ways (sequential, parallel, loop) and compare time, cost and quality.</li>
+            <li><strong>Sub-agents.</strong> A coordinator splits a research question into three parts, gives each to a sub-agent with its own context, and merges cited results.</li>
+            <li><strong>Progress file.</strong> Have the agent update a progress file after each step. Stop it mid-run and resume from the file.</li>
+            <li><strong>MCP server.</strong> Wrap the Module 3 search as an MCP server and call it from an MCP client.</li>
+            <li><strong>Limits and approval.</strong> Add max steps, a dollar budget and a timeout, plus a confirm step before any risky tool. Show each one trigger.</li>
+            <li><strong>Failure clinic.</strong> Debug a broken agent with seven seeded failures, one per row of the harness table, using only its traces and history log. Fix each and rerun to prove it's gone.</li>
+            <li><strong>Make a repo agent-legible.</strong> Add a short map file and a docs folder (architecture, decisions, active plan) to your RAG repo, plus one lint rule whose error explains the fix. Give a coding agent the same feature request before and after, and count your corrections.</li>
+            <li><strong>Agent chief of staff.</strong> Build a coordinator that reads a daily diary file and each sub-agent's progress file, flags duplicate or conflicting work, and escalates to you only when a judgment call is needed.</li>
+          </ol>
+          <div class="course-project">
+            <span class="course-project-label">Project · Research agent with sub-agents</span>
+            <p>Given a question, it plans, dispatches sub-agents, and returns a cited report, with limits, a progress file, and a trace of every step.</p>
+            <p><strong>Done when:</strong> it runs from your own loop (a framework is optional afterward), every limit demonstrably stops it, it resumes after interruption, brain, hands and history are separate components, and the full history is saved with each run.</p>
+          </div>
+          <a class="back-to-top" href="#agents-harnesses"><svg width="9" height="9" viewBox="0 0 12 12" aria-hidden="true"><path d="M6 10 L6 2 M2.5 5.5 L6 2 L9.5 5.5" stroke="var(--accent-strong)" stroke-width="1.8" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg>Top</a>
+        </div>
+      </div>
+
+      <!-- ===================== MODULE 6 ===================== -->
+      <div class="framework-item is-accordion course-module" id="architecture-decisions">
+        <button class="fw-toggle" type="button" aria-expanded="false" aria-controls="architecture-decisions-body">
+          <div class="fw-num">6</div>
+          <div class="fw-toggle-text">
+            <h3>Architecture Decisions</h3>
+            <p class="fw-teaser">Write a one-page design decision for an AI feature and defend it with measurements.</p>
+          </div>
+          <svg class="fw-chevron" width="18" height="18" viewBox="0 0 20 20" aria-hidden="true">
+            <path d="M5 7.5 L10 12.5 L15 7.5" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+        </button>
+        <div class="fw-body" id="architecture-decisions-body">
+          <div class="compare-table-wrap" style="margin-top: 4px;">
+            <table class="compare-table">
+              <thead>
+                <tr><th>Decision</th><th>Rule of thumb to test</th></tr>
+              </thead>
+              <tbody>
+                <tr><th scope="row">RAG vs fine-tuning</th><td>RAG for facts that change; fine-tuning for behavior, format or tone</td></tr>
+                <tr><th scope="row">Workflow vs agent</th><td>A fixed path when the steps are known; an agent only when the path must be chosen at runtime</td></tr>
+                <tr><th scope="row">Big vs small model</th><td>Route easy requests to a cheap model and escalate hard ones</td></tr>
+                <tr><th scope="row">API vs open weights</th><td>Speed and quality versus data control, cost at scale, and operating burden</td></tr>
+                <tr><th scope="row">Prompt injection</th><td>Ranked first in the OWASP Top 10 for LLM applications; treat retrieved and tool content as untrusted</td></tr>
+                <tr><th scope="row">Latency and cost</th><td>Set a budget per feature before building, not after</td></tr>
+                <tr><th scope="row">No LLM at all</th><td>A rule, a query or a classic classifier often wins on cost and reliability</td></tr>
+              </tbody>
+            </table>
+          </div>
+          <h4 class="course-subhead">Hands-on labs</h4>
+          <ol class="explainer-list is-numbered">
+            <li><strong>Router.</strong> A small model labels requests easy or hard and sends hard ones to a large model. Compare cost and quality to always using the large one.</li>
+            <li><strong>Injection red team.</strong> Plant hidden instructions in a document in your RAG collection and try to make the app leak its instructions or misuse a tool. Add defenses and retest.</li>
+            <li><strong>Replace the LLM.</strong> Find one model step from an earlier project that a rule could handle. Measure both.</li>
+            <li><strong>Design doc.</strong> Write a one-page decision record with latency, cost and quality targets.</li>
+          </ol>
+          <div class="course-project">
+            <span class="course-project-label">Project · RAG vs fine-tune, same task</span>
+            <p>Build one task both ways: RAG, and a fine-tuned small open model (or a hosted fine-tuning service). Run both through your Module 4 evals.</p>
+            <p><strong>Done when:</strong> both use the same eval set, a table compares quality, cost, latency and effort to update, and the recommendation follows from the numbers.</p>
+          </div>
+          <a class="back-to-top" href="#architecture-decisions"><svg width="9" height="9" viewBox="0 0 12 12" aria-hidden="true"><path d="M6 10 L6 2 M2.5 5.5 L6 2 L9.5 5.5" stroke="var(--accent-strong)" stroke-width="1.8" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg>Top</a>
+        </div>
+      </div>
+
+      <!-- ===================== MODULE 7 ===================== -->
+      <div class="framework-item is-accordion course-module" id="ship-it">
+        <button class="fw-toggle" type="button" aria-expanded="false" aria-controls="ship-it-body">
+          <div class="fw-num">7</div>
+          <div class="fw-toggle-text">
+            <h3>Ship It</h3>
+            <p class="fw-teaser">One real problem, built from scratch, deployed, and written up honestly.</p>
+          </div>
+          <svg class="fw-chevron" width="18" height="18" viewBox="0 0 20 20" aria-hidden="true">
+            <path d="M5 7.5 L10 12.5 L15 7.5" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+        </button>
+        <div class="fw-body" id="ship-it-body">
+          <h4 class="course-subhead">Requirements</h4>
+          <ul class="explainer-list is-bulleted">
+            <li>A real problem someone actually has, not a tutorial</li>
+            <li>Raw API and your own loop first; a framework only if the README explains what it replaced</li>
+            <li>A RAG app and an agent app, both deployed</li>
+            <li>A README with the architecture, eval scores, cost per request and latency numbers</li>
+            <li>A 60-second demo video</li>
+            <li>A short write-up of what broke and how you fixed it</li>
+          </ul>
+          <h4 class="course-subhead">Hands-on labs</h4>
+          <ol class="explainer-list is-numbered">
+            <li><strong>Problem pitch.</strong> One paragraph: the user, the problem, why an LLM helps, and how you'll measure success. Get feedback before building.</li>
+            <li><strong>README first.</strong> Fill in the architecture, eval, cost and latency sections before writing code.</li>
+            <li><strong>Deploy.</strong> Secrets in environment variables, a health check, and rate limiting.</li>
+            <li><strong>Demo and postmortem.</strong> Record the video and write a blameless what-broke review.</li>
+          </ol>
+          <div class="course-project">
+            <span class="course-project-label">Project · Every project on GitHub</span>
+            <p><strong>Done when:</strong> a stranger can run each project from its README in under 10 minutes, the live links work, and every number is measured, not estimated.</p>
+          </div>
+          <a class="back-to-top" href="#ship-it"><svg width="9" height="9" viewBox="0 0 12 12" aria-hidden="true"><path d="M6 10 L6 2 M2.5 5.5 L6 2 L9.5 5.5" stroke="var(--accent-strong)" stroke-width="1.8" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg>Top</a>
+        </div>
+      </div>
+
+    </div>
+
+    <div class="try-it-box" id="try-it">
+      <div class="try-it-header">
+        <svg width="24" height="24" viewBox="0 0 24 24" aria-hidden="true">
+          <path d="M12 2 L14.2 9 L21 11 L14.2 13 L12 20 L9.8 13 L3 11 L9.8 9 Z" fill="var(--accent)"/>
+        </svg>
+        <h2>Try It</h2>
+      </div>
+      <p>Paste this into ChatGPT, Claude, or whatever AI tool you use:</p>
+      <div class="try-it-prompt" id="try-it-prompt">I'm working through an AI engineering course. Ask me which module I'm on (LLM fundamentals, prompting and reliability, RAG, evals and guardrails, agents and harnesses, or architecture decisions) and what I've built so far. Then act as my lab partner: give me one small, concrete exercise I can finish in under two hours, tell me exactly what to measure, and when I share my results, help me write down what broke and what I'd change next time.</div>
+      <button class="try-it-copy" type="button" data-copy-target="try-it-prompt">Copy prompt</button>
+    </div>
+
+    <div class="section-block" id="sources" style="margin-top: 32px;">
+      <h2>Sources &amp; Further Reading</h2>
+      <ul class="explainer-list is-bulleted">
+        <li>Ryan Lopopolo, <a href="https://openai.com/index/harness-engineering/" target="_blank" rel="noopener"><em>Harness engineering: leveraging Codex in an agent-first world</em></a>, OpenAI, February 11, 2026</li>
+        <li>rari (@0xwhrrari), <a href="https://x.com/0xwhrrari/status/2093685107534000560" target="_blank" rel="noopener"><em>Harness Engineering: How to Build AI Agents That Don't Fall Apart</em></a>, X</li>
+        <li>Greg Isenberg with Allie K. Miller, <a href="https://www.youtube.com/watch?v=EzQAgnjTq2k" target="_blank" rel="noopener"><em>I Run 34 AI Agents with a 3-Word Prompt</em></a>, The Startup Ideas Podcast, August 2026</li>
+        <li>Related book summaries on this site: <a href="summaries/co-intelligence.html"><em>Co-Intelligence</em></a>, <a href="summaries/the-ai-driven-leader.html"><em>The AI-Driven Leader</em></a>, <a href="summaries/vibe-coding.html"><em>Vibe Coding</em></a>, <a href="summaries/adopting-ai.html"><em>Adopting AI</em></a></li>
+      </ul>
+      <p class="course-note">Module structure adapted from a widely shared "Software Engineer to AI Engineer, 2026" roadmap. Lab designs, examples and write-ups are original.</p>
+    </div>
+  </main>
+</div>
+
+<footer class="site-footer">
+  <p>&copy; 2026 Plan-Do-Reflect. <a href="references.html">References &amp; further reading</a></p>
+</footer>
+
+<div class="theme-switch" role="group" aria-label="Style direction">
+  <button data-theme="a" title="Kinetic Signal — black &amp; yellow"></button>
+  <button data-theme="b" title="Studio Ledger — dusty rose"></button>
+  <button data-theme="c" title="Bright Margin — lime"></button>
+  <a class="icon-lib-link" href="icon-library.html" title="Style Guide (internal reference)">
+    <svg width="14" height="14" viewBox="0 0 14 14" aria-hidden="true">
+      <rect x="1" y="1" width="5" height="5" rx="1" fill="currentColor"/>
+      <rect x="8" y="1" width="5" height="5" rx="1" fill="currentColor"/>
+      <rect x="1" y="8" width="5" height="5" rx="1" fill="currentColor"/>
+      <rect x="8" y="8" width="5" height="5" rx="1" fill="currentColor"/>
+    </svg>
+  </a>
+  <a class="icon-lib-link" href="notes.html" title="Notes (working drafts)">
+    <svg width="14" height="14" viewBox="0 0 14 14" aria-hidden="true">
+      <rect x="2" y="1" width="10" height="12" rx="1.5" fill="none" stroke="currentColor" stroke-width="1.3"/>
+      <line x1="4.5" y1="5" x2="9.5" y2="5" stroke="currentColor" stroke-width="1.3" stroke-linecap="round"/>
+      <line x1="4.5" y1="7.5" x2="9.5" y2="7.5" stroke="currentColor" stroke-width="1.3" stroke-linecap="round"/>
+      <line x1="4.5" y1="10" x2="7.5" y2="10" stroke="currentColor" stroke-width="1.3" stroke-linecap="round"/>
+    </svg>
+  </a>
+  <a class="icon-lib-link" href="sitemap.html" title="Sitemap (working draft)">
+    <svg width="14" height="14" viewBox="0 0 14 14" aria-hidden="true">
+      <circle cx="7" cy="2.5" r="1.8" fill="none" stroke="currentColor" stroke-width="1.3"/>
+      <circle cx="3" cy="11" r="1.8" fill="none" stroke="currentColor" stroke-width="1.3"/>
+      <circle cx="11" cy="11" r="1.8" fill="none" stroke="currentColor" stroke-width="1.3"/>
+      <path d="M7 4.3 L7 7 M7 7 L3 9.5 M7 7 L11 9.5" stroke="currentColor" stroke-width="1.3" fill="none" stroke-linecap="round"/>
+    </svg>
+  </a>
+</div>
+
+<!-- Temporary brainstorm control — only restyles .content h1. Remove alongside
+     the "title-font experiment" CSS block and the extra Google Fonts link once
+     a title font is picked. -->
+<div class="title-font-picker">
+  <label for="title-font-select">Title font</label>
+  <button type="button" id="title-font-prev" class="title-font-nav" aria-label="Previous title font">‹</button>
+  <select id="title-font-select">
+    <optgroup label="Round 1 — headline character">
+      <option value="gabarito">Gabarito</option>
+      <option value="chivo">Chivo</option>
+    </optgroup>
+    <optgroup label="Round 2 — Calibri-adjacent">
+      <option value="golos-text">Golos Text</option>
+    </optgroup>
+    <option value="default">Theme default</option>
+  </select>
+  <button type="button" id="title-font-next" class="title-font-nav" aria-label="Next title font">›</button>
+</div>
+
+<script src="js/theme-toggle.js" defer></script>
+<script src="js/title-font-toggle.js" defer></script>
+<script src="js/try-it.js" defer></script>
+<script src="js/framework-accordion.js" defer></script>
+</body>
+</html>
