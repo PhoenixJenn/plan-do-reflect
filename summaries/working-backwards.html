@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="a">
+<head>
+<meta charset="UTF-8">
+<base href="../">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="icon" type="image/svg+xml" href="favicon.svg">
+<title>Working Backwards: One-page summary · Plan · Do · Reflect</title>
+
+<!-- Applied before CSS loads, so the saved theme / title-font choice doesn't flash to the default on reload -->
+<script>
+(function () {
+  try {
+    var savedTheme = localStorage.getItem('pdr-theme');
+    if (['a', 'b', 'c'].indexOf(savedTheme) > -1) {
+      document.documentElement.setAttribute('data-theme', savedTheme);
+    }
+    /* No saved choice yet means a first-time visitor — default them to Golos
+       Text rather than the theme's own heading font. Explicitly picking
+       "Theme default" in the picker stores the literal string 'default',
+       which is the one value that clears the override below. */
+    var savedTitleFont = localStorage.getItem('pdr-title-font');
+    var titleFont = savedTitleFont === null ? 'golos-text' : savedTitleFont;
+    if (titleFont !== 'default') {
+      document.documentElement.setAttribute('data-title-font', titleFont);
+    }
+  } catch (e) {}
+})();
+</script>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=Work+Sans:wght@400;500;600&family=Sora:wght@600;700;800&family=Plus+Jakarta+Sans:wght@500;600;700&family=Patrick+Hand&display=swap" rel="stylesheet">
+
+<!-- Title-font brainstorm candidates — temporary, for the .title-font-picker toggle only.
+     Remove this link once a title font is chosen and folded into tokens.css. -->
+<link href="https://fonts.googleapis.com/css2?family=Gabarito:wght@800&family=Chivo:wght@800&family=Golos+Text:wght@800&display=swap" rel="stylesheet">
+
+<link rel="stylesheet" href="css/tokens.css">
+<link rel="stylesheet" href="css/main.css">
+<link rel="stylesheet" href="css/summary.css">
+</head>
+<body>
+
+<header class="topnav">
+  <a class="logo" href="index.html">Plan·Do·Reflect</a>
+  <nav class="topnav-items">
+    <a class="item" href="framework.html">The Framework</a>
+    <a class="item" href="self-management.html">Self</a>
+    <a class="item" href="team.html">Team</a>
+    <a class="item" href="organization.html">Organization</a>
+    <a class="item" href="core-skills.html">Core Skills</a>
+    <a class="item active" href="references.html">References</a>
+  </nav>
+</header>
+
+<main class="sm">
+  <p class="sm-crumb"><a href="references.html">References &amp; Further Reading</a> &rsaquo; One-page summary</p>
+  <article class="sm-page">
+    <header class="sm-head">
+      <img class="sm-cover" src="images/covers/1250788048.jpg" data-r="https://m.media-amazon.com/images/I/51797uvcYrL._SL300_.jpg" alt="Cover of Working Backwards" onerror="if(this.dataset.r&amp;&amp;this.src.indexOf(this.dataset.r)===-1){this.src=this.dataset.r}else{this.style.visibility='hidden'}">
+      <div>
+        <p class="sm-eyebrow">One-page summary &middot; 2 min read</p>
+        <h1 class="page-title">Working Backwards</h1>
+        <p class="sm-sub">Insights, Stories, and Secrets from Inside Amazon</p>
+        <p class="sm-by">by Colin Bryar, Bill Carr</p>
+        <p class="sm-meta">2021 &middot; 10h 41m audiobook &middot; &#9733; 4.7 Audible</p>
+      </div>
+    </header>
+
+    <section class="sm-idea"><h2>The big idea</h2><p>Amazon&#x27;s execution advantage comes less from any single genius insight than from a small number of institutionalized mechanisms -- most notably working backwards from the customer via an internal press release before writing any code -- that force clarity before resources are committed.</p></section>
+
+<section class="sm-tool"><span class="sm-label">The PR/FAQ (Press Release / Frequently Asked Questions) process</span><blockquote>Before building anything, an Amazon team writes an internal press release announcing the finished product as if it were launching today, plus an FAQ addressing likely objections. Review meetings open with a silent start -- everyone reads the document quietly for 15-20 minutes rather than sitting through a slide presentation. The document goes through many drafts until customer benefit is concrete and specific. Only once the PR/FAQ survives scrutiny does the team scope actual engineering work, meaning failure happens cheaply on paper instead of expensively in production.</blockquote><p>The process assumes a strong writing culture and significant senior-leader time for multi-draft document review -- some former Amazon employees note it can slow launches or produce narrative theater around ideas leadership already favors.</p></section>
+
+    <section class="sm-ideas"><h2>Key ideas</h2><ol><li><h3>Silent-start meetings</h3><p>Six-page narrative memos read silently at the start of a meeting replace PowerPoint decks, rewarding clear thinking over presentation charisma.</p></li><li><h3>Single-threaded leadership</h3><p>One leader, one team, one clear mandate per major initiative, deliberately reducing the shared ownership the authors say causes diffusion of responsibility.</p></li><li><h3>Bar Raisers</h3><p>A specially trained, cross-team interviewer with veto power sits on every hiring loop specifically to protect hiring quality.</p></li><li><h3>Kindle and Prime as PR/FAQ case studies</h3><p>Both major products were born from press releases leadership initially doubted, showing the process forcing a case beyond gut instinct.</p></li><li><h3>The 14 Leadership Principles as daily operating rules</h3><p>The book shows the principles cited explicitly in real meetings as decision rules, not wall art.</p></li><li><h3>Input metrics over output metrics</h3><p>Teams are measured on controllable inputs rather than lagging outputs like revenue, on the theory that inputs drive outputs.</p></li></ol></section>
+
+    <div class="sm-cols">
+      <section><h2>Try it this week</h2><ol class="sm-steps"><li>Write a one-page press release for your next project&#x27;s launch before scoping any engineering or design work.</li><li>Run your next status meeting with a 15-minute silent read of a written memo instead of a slide deck.</li><li>Identify one initiative with too many owners and name a single directly responsible leader for it.</li><li>Replace one lagging output metric your team tracks with two controllable input metrics for a month.</li></ol></section>
+      <section><h2>Is it for you?</h2><h3 class="sm-good">Best for</h3><ul><li>Product and program leaders at scaling companies who want concrete, adoptable decision-making mechanisms rather than culture platitudes.</li><li>Operators studying how large organizations preserve startup-like decision speed.</li></ul><h3 class="sm-less">Less useful if</h3><ul><li>Solo founders or very small teams without the headcount or time to run multi-draft document reviews.</li><li>Readers hoping for a critical, warts-and-all account of Amazon&#x27;s labor practices.</li></ul></section>
+    </div>
+
+<section class="sm-links"><h2>On this site</h2><div class="sm-chips"><a href="references.html#cat-casestudies">Business Case Studies &amp; Company Stories</a></div></section>
+    <section class="sm-links sm-related"><h2>Pairs well with</h2><ul><li><a href="references.html#book-1797120212">The Founders</a> <span>The Founders shows a scrappier, less process-driven version of company-building this book&#x27;s discipline contrasts with.</span></li><li><a href="references.html#book-0062346725">Built to Last</a> <span>Built to Last shares this book&#x27;s interest in the durable mechanisms behind a company&#x27;s execution advantage.</span></li></ul></section>
+
+    <footer class="sm-foot">
+      <a class="sm-buy" href="https://www.amazon.com/s?k=Colin+Bryar+Working+Backwards&amp;tag=phoenixjenn-20" target="_blank" rel="noopener">Find the book on Amazon</a>
+      <p>Original summary written for Plan &middot; Do &middot; Reflect. Prepared from the book&rsquo;s ideas and public summaries (<a href="https://workingbackwards.com/" target="_blank" rel="noopener">Authors&#x27; official site</a>, <a href="https://www.aboutamazon.com/news/workplace/an-insider-look-at-amazons-culture-and-processes" target="_blank" rel="noopener">About Amazon (official company write-up)</a>), not a substitute for reading it. Links may earn a commission.</p>
+    </footer>
+  </article>
+</main>
+
+<footer class="site-footer">
+  <p>&copy; 2026 Plan-Do-Reflect. <a href="references.html">References &amp; further reading</a></p>
+</footer>
+
+<div class="theme-switch" role="group" aria-label="Style direction">
+  <button data-theme="a" title="Kinetic Signal — black &amp; yellow"></button>
+  <button data-theme="b" title="Studio Ledger — dusty rose"></button>
+  <button data-theme="c" title="Bright Margin — lime"></button>
+  <a class="icon-lib-link" href="icon-library.html" title="Style Guide (internal reference)">
+    <svg width="14" height="14" viewBox="0 0 14 14" aria-hidden="true">
+      <rect x="1" y="1" width="5" height="5" rx="1" fill="currentColor"/>
+      <rect x="8" y="1" width="5" height="5" rx="1" fill="currentColor"/>
+      <rect x="1" y="8" width="5" height="5" rx="1" fill="currentColor"/>
+      <rect x="8" y="8" width="5" height="5" rx="1" fill="currentColor"/>
+    </svg>
+  </a>
+  <a class="icon-lib-link" href="notes.html" title="Notes (working drafts)">
+    <svg width="14" height="14" viewBox="0 0 14 14" aria-hidden="true">
+      <rect x="2" y="1" width="10" height="12" rx="1.5" fill="none" stroke="currentColor" stroke-width="1.3"/>
+      <line x1="4.5" y1="5" x2="9.5" y2="5" stroke="currentColor" stroke-width="1.3" stroke-linecap="round"/>
+      <line x1="4.5" y1="7.5" x2="9.5" y2="7.5" stroke="currentColor" stroke-width="1.3" stroke-linecap="round"/>
+      <line x1="4.5" y1="10" x2="7.5" y2="10" stroke="currentColor" stroke-width="1.3" stroke-linecap="round"/>
+    </svg>
+  </a>
+  <a class="icon-lib-link" href="sitemap.html" title="Sitemap (working draft)">
+    <svg width="14" height="14" viewBox="0 0 14 14" aria-hidden="true">
+      <circle cx="7" cy="2.5" r="1.8" fill="none" stroke="currentColor" stroke-width="1.3"/>
+      <circle cx="3" cy="11" r="1.8" fill="none" stroke="currentColor" stroke-width="1.3"/>
+      <circle cx="11" cy="11" r="1.8" fill="none" stroke="currentColor" stroke-width="1.3"/>
+      <path d="M7 4.3 L7 7 M7 7 L3 9.5 M7 7 L11 9.5" stroke="currentColor" stroke-width="1.3" fill="none" stroke-linecap="round"/>
+    </svg>
+  </a>
+</div>
+
+<!-- Temporary brainstorm control — only restyles the main h1 (.content h1 / .hero-title / .page-title). Remove alongside
+     the "title-font experiment" CSS block and the extra Google Fonts link once
+     a title font is picked. -->
+<div class="title-font-picker">
+  <label for="title-font-select">Title font</label>
+  <button type="button" id="title-font-prev" class="title-font-nav" aria-label="Previous title font">‹</button>
+  <select id="title-font-select">
+    <optgroup label="Round 1 — headline character">
+      <option value="gabarito">Gabarito</option>
+      <option value="chivo">Chivo</option>
+    </optgroup>
+    <optgroup label="Round 2 — Calibri-adjacent">
+      <option value="golos-text">Golos Text</option>
+    </optgroup>
+    <option value="default">Theme default</option>
+  </select>
+  <button type="button" id="title-font-next" class="title-font-nav" aria-label="Next title font">›</button>
+</div>
+
+<script src="js/theme-toggle.js" defer></script>
+<script src="js/title-font-toggle.js" defer></script>
+</body>
+</html>

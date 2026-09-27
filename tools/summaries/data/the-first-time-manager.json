@@ -1,0 +1,77 @@
+{
+  "asin": "1400229340",
+  "slug": "the-first-time-manager",
+  "read_time": "2 min read",
+  "big_idea": "New managers succeed not by mastering complex theory but by getting the fundamentals right early -- building trust with former peers, learning to delegate, running fair performance conversations, and recognizing that they'll now be judged by their team's output, not their own.",
+  "tool": {
+    "label": "Situational Management with A/B/C task prioritization",
+    "text": "The book teaches new managers to vary their approach based on the specific situation and person in front of them. It offers a simple A/B/C task-prioritization system: A-tasks urgent and important, B-tasks matter but aren't time-critical, C-tasks delegated or deferred. It pairs this with concrete early-tenure moves: one-on-ones with every team member in the first two months, an explicit attitude talk for new hires, and a closed period of protected, interruption-free time.",
+    "note": "The book is intentionally broad and introductory (43 short chapters), so tools like the A/B/C system are simple by design and won't satisfy managers who already have prioritization habits."
+  },
+  "ideas": [
+    {
+      "title": "You're judged by your team's output now",
+      "text": "The book's opening reframe is that a new manager's success is measured by what the team produces, not by their own individual contribution."
+    },
+    {
+      "title": "Managing former peers",
+      "text": "A dedicated section addresses the awkwardness of managing people who were recently equals, with advice on resetting the relationship."
+    },
+    {
+      "title": "The attitude talk",
+      "text": "New hires get an explicit conversation about how attitude, not just skill, separates strong performers from mediocre ones."
+    },
+    {
+      "title": "Delegating differently for different people",
+      "text": "The book stresses that delegation isn't one-size-fits-all -- it should flex based on a given employee's competence and confidence on that specific task."
+    },
+    {
+      "title": "Surprise-free performance reviews",
+      "text": "Formal reviews are framed as a summary of things the employee should have already heard, never a venue for new criticism."
+    },
+    {
+      "title": "The closed period",
+      "text": "A scheduled, protected block of uninterrupted time is presented as a concrete tactic for new managers whose calendars get consumed by others' urgent requests."
+    }
+  ],
+  "try_it": [
+    "Sort your current task list into A/B/C priority tiers this week and delegate or defer everything in the C tier.",
+    "Schedule individual one-on-ones with every team member you haven't yet had a real conversation with, aiming to complete them within two months.",
+    "Block one recurring closed period on your calendar this week and protect it from meetings and interruptions.",
+    "Before your next performance review conversation, check that every point you plan to raise has already been said to that person in an earlier one-on-one."
+  ],
+  "best_for": [
+    "Someone stepping into their very first people-management role, especially one managing former peers.",
+    "Managers who want a reference they can dip into chapter by chapter for a specific near-term problem."
+  ],
+  "less_useful": [
+    "Experienced managers looking for advanced or novel frameworks.",
+    "Readers wanting research-backed or academically rigorous management theory."
+  ],
+  "site_links": [
+    {
+      "label": "People Management (1:1s, feedback, performance)",
+      "href": "references.html#cat-people"
+    }
+  ],
+  "related": [
+    {
+      "asin": "B0CY6F7V18",
+      "why": "The Effective Manager offers a more rigorous, script-based version of the one-on-one habits this book introduces."
+    },
+    {
+      "asin": "0525642218",
+      "why": "The Making of a Manager covers a similar first-time-manager transition with a design/product-leader's lens."
+    }
+  ],
+  "sources": [
+    {
+      "label": "Alex Martynov's detailed review",
+      "href": "https://alexmartynov.com/the-first-time-manager-book-review/"
+    },
+    {
+      "label": "Bookey chapter summary of frameworks and techniques",
+      "href": "https://www.bookey.app/book/the-first-time-manager-by-jim-mccormick"
+    }
+  ]
+}

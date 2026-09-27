@@ -1,0 +1,77 @@
+{
+  "asin": "B0C4VNYTW6",
+  "slug": "the-diary-of-a-ceo",
+  "read_time": "2 min read",
+  "big_idea": "Bartlett compiles 33 standalone principles -- drawn from his own entrepreneurial career and interviews with guests on his podcast -- organized around the claim that mastering yourself, your business instincts, your relationship with money, and your definition of a good life are four separable but equally necessary skill sets.",
+  "tool": {
+    "label": "The 33 Laws (organized into four books: Self, Business, Money, Life)",
+    "text": "Rather than one unifying model, Bartlett presents 33 discrete laws, each a short chapter built around a single idea. Examples include the Law of 1,000 True Fans, the Law of the Pareto Principle, the Law of the Compound Effect, and the Law of Unfair Advantage -- durable success comes from identifying and doubling down on whatever asymmetric edge you already have rather than competing on effort alone. Each law is illustrated with stories from Bartlett's own ventures or podcast guests.",
+    "note": "Because the laws are self-contained rather than building on each other, the book functions more as a reference/anthology than an argument; several reviewers note individual laws restate well-known ideas without adding new evidence beyond Bartlett's anecdotes."
+  },
+  "ideas": [
+    {
+      "title": "Laws of Self come first",
+      "text": "Bartlett opens with self-mastery on the premise that business and financial success are downstream of personal habits, not the other way around."
+    },
+    {
+      "title": "The 1,000 True Fans law",
+      "text": "Borrowed from Kevin Kelly's original essay, Bartlett reapplies it to modern entrepreneurship, arguing a small base of deeply committed customers is more durable than broad reach."
+    },
+    {
+      "title": "Unfair advantage over grit",
+      "text": "Counter to a pure hustle narrative, Bartlett argues identifying an asymmetric edge you already hold matters more than simply working harder."
+    },
+    {
+      "title": "Give first, then ask",
+      "text": "The give-first law frames providing value up front as a deliberate business-development strategy rather than altruism."
+    },
+    {
+      "title": "Podcast-sourced case studies",
+      "text": "Many of the 33 laws are illustrated with stories pulled directly from Bartlett's interviews on his podcast."
+    },
+    {
+      "title": "Laws of Money as a distinct section",
+      "text": "Bartlett treats financial literacy and wealth-building as a skill set separate from general business acumen."
+    }
+  ],
+  "try_it": [
+    "Pick one law from each of the four sections and write one sentence on how it currently applies, or doesn't, to your own work.",
+    "Identify your own unfair advantage this week and write down one way you're currently underusing it.",
+    "Apply the Pareto Principle literally: list your last 20 work tasks, mark which four produced most of the value, and cut or delegate from the rest.",
+    "Test the give-first law once: make an introduction or share information with no immediate ask attached, and note what it changes over the following month."
+  ],
+  "best_for": [
+    "A reader who wants a broad, anecdote-driven collection of business and life principles, especially fans of the podcast wanting the underlying ideas distilled.",
+    "Someone early in an entrepreneurial journey looking for accessible motivation and a wide sampling of ideas."
+  ],
+  "less_useful": [
+    "A reader seeking rigorous, single-framework depth -- because each law is a short standalone chapter, none get sustained treatment.",
+    "Someone wary of Bartlett's podcast, which has drawn documented criticism for platforming unverified claims."
+  ],
+  "site_links": [
+    {
+      "label": "New Manager & Career Progression",
+      "href": "references.html#cat-newmgr"
+    }
+  ],
+  "related": [
+    {
+      "asin": "B002UUFW5G",
+      "why": "How to Become CEO offers a similarly aphoristic, rule-based structure aimed at a more corporate audience."
+    },
+    {
+      "asin": "179711333X",
+      "why": "Your Next Five Moves shares a similar founder-voice, anecdote-driven approach to business principles."
+    }
+  ],
+  "sources": [
+    {
+      "label": "Publisher page (Portfolio/Penguin Random House)",
+      "href": "https://www.penguinrandomhouse.com/books/737661/the-diary-of-a-ceo-by-steven-bartlett/"
+    },
+    {
+      "label": "Steven Bartlett background and controversies",
+      "href": "https://en.wikipedia.org/wiki/Steven_Bartlett_(businessman)"
+    }
+  ]
+}

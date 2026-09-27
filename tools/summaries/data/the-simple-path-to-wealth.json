@@ -1,0 +1,77 @@
+{
+  "asin": "B071P3SQ2Z",
+  "slug": "the-simple-path-to-wealth",
+  "read_time": "2 min read",
+  "big_idea": "Building wealth doesn't require picking stocks, timing markets, or hiring advisors -- investing consistently in one low-cost, broad-market index fund while avoiding debt and high fees is, statistically, both simpler and more effective than most actively managed alternatives, and the resulting financial independence buys freedom, not just money.",
+  "tool": {
+    "label": "The VTSAX-Based 'Simple Path' Portfolio",
+    "text": "Collins' core tool is a life-stage-based asset allocation built almost entirely around one fund: Vanguard's Total Stock Market Index Fund (VTSAX), which owns a slice of essentially every publicly traded U.S. company at a very low expense ratio. During accumulation years, Collins recommends holding 100% stocks and ignoring short-term volatility. As retirement approaches, he introduces a bond fund and simple ratios for shifting part of the portfolio into bonds. In retirement, he pairs this with the 4% rule -- withdrawing roughly 4% of the portfolio annually gives a high statistical probability the money outlasts a multi-decade retirement.",
+    "note": "Critics note the book's illustrative return projections lean on the market's historical ~11.9% nominal average, which several reviewers call optimistic; the specific fund/account advice is U.S.- and Vanguard-centric, requiring adaptation for non-U.S. readers."
+  },
+  "ideas": [
+    {
+      "title": "Cost is the one variable you control",
+      "text": "Collins hammers on expense ratios because, unlike future market returns, fees are guaranteed and compound against you every year regardless of performance."
+    },
+    {
+      "title": "F-You Money as the real goal",
+      "text": "The book reframes the purpose of saving not as a number on a statement but as the ability to walk away from a bad job or situation without financial fear."
+    },
+    {
+      "title": "The stock market is a wealth-transfer machine from the impatient to the patient",
+      "text": "Volatility is the toll long-term investors pay for higher returns, and panic-selling during downturns is what actually destroys wealth."
+    },
+    {
+      "title": "Avoid debt like the plague it is",
+      "text": "Carrying consumer or credit-card debt is directly incompatible with the simple path, since guaranteed interest costs outweigh probable investment gains."
+    },
+    {
+      "title": "Your house is not an investment (for this purpose)",
+      "text": "Collins separates a primary residence from the investment portfolio, arguing it's a lifestyle expense with poor liquidity."
+    },
+    {
+      "title": "Simplicity is a feature, not a compromise",
+      "text": "A portfolio simple enough for a non-financial person is often more effective than a complex one, because complexity invites costly mistakes."
+    }
+  ],
+  "try_it": [
+    "Calculate the total expense ratio you're currently paying across all your investment accounts and compare it to a low-cost total-market index fund's.",
+    "Write down your current monthly F-You money runway -- how many months you could cover expenses without income -- as a baseline to track.",
+    "If you're holding actively managed mutual funds, research whether a comparable low-cost index fund exists and what switching would cost in fees or taxes.",
+    "Set a specific bond percentage target for your portfolio based on your years-to-retirement, even if it's currently 0%."
+  ],
+  "best_for": [
+    "Younger or mid-career savers who want a low-effort, evidence-based default investing strategy without becoming amateur stock analysts.",
+    "Readers pursuing financial independence or early retirement who want the reasoning behind a simple index-and-withdraw strategy."
+  ],
+  "less_useful": [
+    "Investors near or in retirement seeking sophisticated tax, estate, or decumulation strategy.",
+    "Non-U.S. readers, since the specific fund recommendations and tax-account structure are built around U.S. rules."
+  ],
+  "site_links": [
+    {
+      "label": "Finance, Budgeting & Money",
+      "href": "references.html#cat-finance"
+    }
+  ],
+  "related": [
+    {
+      "asin": "B0C4VNYTW6",
+      "why": "The Diary of a CEO devotes a section to money habits that pairs well with this book's investing discipline."
+    },
+    {
+      "asin": "B078KF1LZ5",
+      "why": "The Career Manifesto shares this book's emphasis on freedom, not just income, as the real career/financial goal."
+    }
+  ],
+  "sources": [
+    {
+      "label": "JL Collins, 'Stock Series' (author's own site, the book's source material)",
+      "href": "https://jlcollinsnh.com/stock-series/"
+    },
+    {
+      "label": "The Poor Swiss, book review of The Simple Path to Wealth",
+      "href": "https://thepoorswiss.com/the-simple-path-to-wealth-book-review/"
+    }
+  ]
+}

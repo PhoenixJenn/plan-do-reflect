@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="a">
+<head>
+<meta charset="UTF-8">
+<base href="../">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="icon" type="image/svg+xml" href="favicon.svg">
+<title>The Ride of a Lifetime: One-page summary · Plan · Do · Reflect</title>
+
+<!-- Applied before CSS loads, so the saved theme / title-font choice doesn't flash to the default on reload -->
+<script>
+(function () {
+  try {
+    var savedTheme = localStorage.getItem('pdr-theme');
+    if (['a', 'b', 'c'].indexOf(savedTheme) > -1) {
+      document.documentElement.setAttribute('data-theme', savedTheme);
+    }
+    /* No saved choice yet means a first-time visitor — default them to Golos
+       Text rather than the theme's own heading font. Explicitly picking
+       "Theme default" in the picker stores the literal string 'default',
+       which is the one value that clears the override below. */
+    var savedTitleFont = localStorage.getItem('pdr-title-font');
+    var titleFont = savedTitleFont === null ? 'golos-text' : savedTitleFont;
+    if (titleFont !== 'default') {
+      document.documentElement.setAttribute('data-title-font', titleFont);
+    }
+  } catch (e) {}
+})();
+</script>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=Work+Sans:wght@400;500;600&family=Sora:wght@600;700;800&family=Plus+Jakarta+Sans:wght@500;600;700&family=Patrick+Hand&display=swap" rel="stylesheet">
+
+<!-- Title-font brainstorm candidates — temporary, for the .title-font-picker toggle only.
+     Remove this link once a title font is chosen and folded into tokens.css. -->
+<link href="https://fonts.googleapis.com/css2?family=Gabarito:wght@800&family=Chivo:wght@800&family=Golos+Text:wght@800&display=swap" rel="stylesheet">
+
+<link rel="stylesheet" href="css/tokens.css">
+<link rel="stylesheet" href="css/main.css">
+<link rel="stylesheet" href="css/summary.css">
+</head>
+<body>
+
+<header class="topnav">
+  <a class="logo" href="index.html">Plan·Do·Reflect</a>
+  <nav class="topnav-items">
+    <a class="item" href="framework.html">The Framework</a>
+    <a class="item" href="self-management.html">Self</a>
+    <a class="item" href="team.html">Team</a>
+    <a class="item" href="organization.html">Organization</a>
+    <a class="item" href="core-skills.html">Core Skills</a>
+    <a class="item active" href="references.html">References</a>
+  </nav>
+</header>
+
+<main class="sm">
+  <p class="sm-crumb"><a href="references.html">References &amp; Further Reading</a> &rsaquo; One-page summary</p>
+  <article class="sm-page">
+    <header class="sm-head">
+      <img class="sm-cover" src="images/covers/0525499334.jpg" data-r="https://m.media-amazon.com/images/I/41J4A8QIMHL._SL300_.jpg" alt="Cover of The Ride of a Lifetime" onerror="if(this.dataset.r&amp;&amp;this.src.indexOf(this.dataset.r)===-1){this.src=this.dataset.r}else{this.style.visibility='hidden'}">
+      <div>
+        <p class="sm-eyebrow">One-page summary &middot; 2 min read</p>
+        <h1 class="page-title">The Ride of a Lifetime</h1>
+        <p class="sm-sub">Lessons Learned from 15 Years as CEO of the Walt Disney Company</p>
+        <p class="sm-by">by Robert Iger</p>
+        <p class="sm-meta">2019 &middot; 8h 45m audiobook &middot; &#9733; 4.8 Audible</p>
+      </div>
+    </header>
+
+    <section class="sm-idea"><h2>The big idea</h2><p>Iger&#x27;s account of his 15 years as Disney CEO (2005-2020) argues that the tenure&#x27;s defining moves -- acquiring Pixar, Marvel, Lucasfilm, and 21st Century Fox, and launching Disney+ -- succeeded because of a consistent set of personal leadership behaviors rather than financial engineering alone.</p></section>
+
+<section class="sm-tool"><span class="sm-label">The Ten Leadership Principles</span><blockquote>In the closing chapter, Iger distills his tenure into ten named principles -- Optimism, Courage, Focus, Decisiveness, Curiosity, Fairness, Thoughtfulness, Authenticity, The Relentless Pursuit of Perfection, and Integrity. He illustrates optimism with his insistence Disney could out-innovate streaming disruption, and respect for the creative team with his approach to Pixar and Marvel: buying the companies but deliberately not imposing Disney&#x27;s process on them. He ties the relentless pursuit of perfection to the years-long, largely secretive development of Disney+ technology.</blockquote><p>The principles are retrospective and self-authored by the CEO whose tenure they describe, so they read as a flattering, coherent narrative applied after the fact -- published in 2019, the book predates later, more mixed outcomes like the Fox deal&#x27;s subsequent write-downs.</p></section>
+
+    <section class="sm-ideas"><h2>Key ideas</h2><ol><li><h3>Buy the culture, don&#x27;t merge it</h3><p>Iger&#x27;s core M&amp;A insight across Pixar, Marvel, and Lucasfilm was preserving each studio&#x27;s independent creative culture rather than folding it into Disney&#x27;s existing structure.</p></li><li><h3>The Pixar near-collapse story</h3><p>Iger describes personally repairing the fractured relationship between Michael Eisner&#x27;s Disney and Steve Jobs&#x27;s Pixar.</p></li><li><h3>Innovate or die on streaming</h3><p>Iger frames launching Disney+ and pulling content from Netflix as deliberately cannibalizing a profitable existing business before a competitor did it first.</p></li><li><h3>Succeeding Eisner</h3><p>Iger writes candidly about the boardroom conflict and political maneuvering behind his path to succeeding Michael Eisner as CEO.</p></li><li><h3>Crisis leadership case studies</h3><p>Chapters cover Iger&#x27;s handling of operational crises as studies in decisiveness and communication.</p></li><li><h3>Succession as unfinished business</h3><p>Iger is candid that CEO succession planning was one of his hardest challenges, a theme that took on new resonance when he later returned as CEO in 2022.</p></li></ol></section>
+
+    <div class="sm-cols">
+      <section><h2>Try it this week</h2><ol class="sm-steps"><li>Before your next acquisition or team merger, decide explicitly what culture you will not try to change, and say so out loud to the team being acquired.</li><li>Identify one profitable-but-declining part of your business and sketch what deliberately cannibalizing it now, before a competitor does, would look like.</li><li>Write your own top five leadership principles in one page, each tied to one concrete decision where you actually applied it.</li><li>Name your own succession plan&#x27;s biggest open question and set a date to address it.</li></ol></section>
+      <section><h2>Is it for you?</h2><h3 class="sm-good">Best for</h3><ul><li>Senior leaders navigating large acquisitions or legacy-business disruption, especially in media and entertainment.</li><li>Aspiring executives wanting a first-person, CEO-level account of major deal-making and crisis management.</li></ul><h3 class="sm-less">Less useful if</h3><ul><li>Readers wanting operational or tactical detail rather than narrative leadership reflection.</li><li>Readers seeking a critical outside perspective on Disney&#x27;s labor practices or the more contested aspects of the Fox deal and later streaming losses.</li></ul></section>
+    </div>
+
+<section class="sm-links"><h2>On this site</h2><div class="sm-chips"><a href="references.html#cat-casestudies">Business Case Studies &amp; Company Stories</a></div></section>
+    <section class="sm-links sm-related"><h2>Pairs well with</h2><ul><li><a href="references.html#book-B01CRM17MS">Shoe Dog</a> <span>Shoe Dog offers a founder&#x27;s-eye complement to this book&#x27;s CEO-level acquisition and brand narrative.</span></li><li><a href="references.html#book-B078RPW8GM">Sam Walton</a> <span>Sam Walton shares the same insider-memoir structure from a very different kind of company builder.</span></li></ul></section>
+
+    <footer class="sm-foot">
+      <a class="sm-buy" href="https://www.amazon.com/s?k=Robert+Iger+The+Ride+of+a+Lifetime&amp;tag=phoenixjenn-20" target="_blank" rel="noopener">Find the book on Amazon</a>
+      <p>Original summary written for Plan &middot; Do &middot; Reflect. Prepared from the book&rsquo;s ideas and public summaries (<a href="https://www.penguinrandomhouse.com/books/556683/the-ride-of-a-lifetime-by-robert-iger/" target="_blank" rel="noopener">Publisher page (Penguin Random House)</a>, <a href="https://store.hbr.org/product/bob-iger-and-the-walt-disney-company-the-ride-of-a-lifetime-a/925314" target="_blank" rel="noopener">Harvard Business School Publishing teaching case built on the book</a>), not a substitute for reading it. Links may earn a commission.</p>
+    </footer>
+  </article>
+</main>
+
+<footer class="site-footer">
+  <p>&copy; 2026 Plan-Do-Reflect. <a href="references.html">References &amp; further reading</a></p>
+</footer>
+
+<div class="theme-switch" role="group" aria-label="Style direction">
+  <button data-theme="a" title="Kinetic Signal — black &amp; yellow"></button>
+  <button data-theme="b" title="Studio Ledger — dusty rose"></button>
+  <button data-theme="c" title="Bright Margin — lime"></button>
+  <a class="icon-lib-link" href="icon-library.html" title="Style Guide (internal reference)">
+    <svg width="14" height="14" viewBox="0 0 14 14" aria-hidden="true">
+      <rect x="1" y="1" width="5" height="5" rx="1" fill="currentColor"/>
+      <rect x="8" y="1" width="5" height="5" rx="1" fill="currentColor"/>
+      <rect x="1" y="8" width="5" height="5" rx="1" fill="currentColor"/>
+      <rect x="8" y="8" width="5" height="5" rx="1" fill="currentColor"/>
+    </svg>
+  </a>
+  <a class="icon-lib-link" href="notes.html" title="Notes (working drafts)">
+    <svg width="14" height="14" viewBox="0 0 14 14" aria-hidden="true">
+      <rect x="2" y="1" width="10" height="12" rx="1.5" fill="none" stroke="currentColor" stroke-width="1.3"/>
+      <line x1="4.5" y1="5" x2="9.5" y2="5" stroke="currentColor" stroke-width="1.3" stroke-linecap="round"/>
+      <line x1="4.5" y1="7.5" x2="9.5" y2="7.5" stroke="currentColor" stroke-width="1.3" stroke-linecap="round"/>
+      <line x1="4.5" y1="10" x2="7.5" y2="10" stroke="currentColor" stroke-width="1.3" stroke-linecap="round"/>
+    </svg>
+  </a>
+  <a class="icon-lib-link" href="sitemap.html" title="Sitemap (working draft)">
+    <svg width="14" height="14" viewBox="0 0 14 14" aria-hidden="true">
+      <circle cx="7" cy="2.5" r="1.8" fill="none" stroke="currentColor" stroke-width="1.3"/>
+      <circle cx="3" cy="11" r="1.8" fill="none" stroke="currentColor" stroke-width="1.3"/>
+      <circle cx="11" cy="11" r="1.8" fill="none" stroke="currentColor" stroke-width="1.3"/>
+      <path d="M7 4.3 L7 7 M7 7 L3 9.5 M7 7 L11 9.5" stroke="currentColor" stroke-width="1.3" fill="none" stroke-linecap="round"/>
+    </svg>
+  </a>
+</div>
+
+<!-- Temporary brainstorm control — only restyles the main h1 (.content h1 / .hero-title / .page-title). Remove alongside
+     the "title-font experiment" CSS block and the extra Google Fonts link once
+     a title font is picked. -->
+<div class="title-font-picker">
+  <label for="title-font-select">Title font</label>
+  <button type="button" id="title-font-prev" class="title-font-nav" aria-label="Previous title font">‹</button>
+  <select id="title-font-select">
+    <optgroup label="Round 1 — headline character">
+      <option value="gabarito">Gabarito</option>
+      <option value="chivo">Chivo</option>
+    </optgroup>
+    <optgroup label="Round 2 — Calibri-adjacent">
+      <option value="golos-text">Golos Text</option>
+    </optgroup>
+    <option value="default">Theme default</option>
+  </select>
+  <button type="button" id="title-font-next" class="title-font-nav" aria-label="Next title font">›</button>
+</div>
+
+<script src="js/theme-toggle.js" defer></script>
+<script src="js/title-font-toggle.js" defer></script>
+</body>
+</html>

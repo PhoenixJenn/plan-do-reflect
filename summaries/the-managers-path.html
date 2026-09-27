@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="a">
+<head>
+<meta charset="UTF-8">
+<base href="../">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="icon" type="image/svg+xml" href="favicon.svg">
+<title>The Manager&#x27;s Path: One-page summary · Plan · Do · Reflect</title>
+
+<!-- Applied before CSS loads, so the saved theme / title-font choice doesn't flash to the default on reload -->
+<script>
+(function () {
+  try {
+    var savedTheme = localStorage.getItem('pdr-theme');
+    if (['a', 'b', 'c'].indexOf(savedTheme) > -1) {
+      document.documentElement.setAttribute('data-theme', savedTheme);
+    }
+    /* No saved choice yet means a first-time visitor — default them to Golos
+       Text rather than the theme's own heading font. Explicitly picking
+       "Theme default" in the picker stores the literal string 'default',
+       which is the one value that clears the override below. */
+    var savedTitleFont = localStorage.getItem('pdr-title-font');
+    var titleFont = savedTitleFont === null ? 'golos-text' : savedTitleFont;
+    if (titleFont !== 'default') {
+      document.documentElement.setAttribute('data-title-font', titleFont);
+    }
+  } catch (e) {}
+})();
+</script>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=Work+Sans:wght@400;500;600&family=Sora:wght@600;700;800&family=Plus+Jakarta+Sans:wght@500;600;700&family=Patrick+Hand&display=swap" rel="stylesheet">
+
+<!-- Title-font brainstorm candidates — temporary, for the .title-font-picker toggle only.
+     Remove this link once a title font is chosen and folded into tokens.css. -->
+<link href="https://fonts.googleapis.com/css2?family=Gabarito:wght@800&family=Chivo:wght@800&family=Golos+Text:wght@800&display=swap" rel="stylesheet">
+
+<link rel="stylesheet" href="css/tokens.css">
+<link rel="stylesheet" href="css/main.css">
+<link rel="stylesheet" href="css/summary.css">
+</head>
+<body>
+
+<header class="topnav">
+  <a class="logo" href="index.html">Plan·Do·Reflect</a>
+  <nav class="topnav-items">
+    <a class="item" href="framework.html">The Framework</a>
+    <a class="item" href="self-management.html">Self</a>
+    <a class="item" href="team.html">Team</a>
+    <a class="item" href="organization.html">Organization</a>
+    <a class="item" href="core-skills.html">Core Skills</a>
+    <a class="item active" href="references.html">References</a>
+  </nav>
+</header>
+
+<main class="sm">
+  <p class="sm-crumb"><a href="references.html">References &amp; Further Reading</a> &rsaquo; One-page summary</p>
+  <article class="sm-page">
+    <header class="sm-head">
+      <img class="sm-cover" src="images/covers/1452652171.jpg" data-r="https://m.media-amazon.com/images/I/61ohIdFlPsL._SL300_.jpg" alt="Cover of The Manager&#x27;s Path" onerror="if(this.dataset.r&amp;&amp;this.src.indexOf(this.dataset.r)===-1){this.src=this.dataset.r}else{this.style.visibility='hidden'}">
+      <div>
+        <p class="sm-eyebrow">One-page summary &middot; 2 min read</p>
+        <h1 class="page-title">The Manager&#x27;s Path</h1>
+        <p class="sm-sub">A Guide for Tech Leaders Navigating Growth and Change</p>
+        <p class="sm-by">by Camille Fournier</p>
+        <p class="sm-meta">2019 &middot; 10h 7m audiobook &middot; &#9733; 4.6 Audible</p>
+      </div>
+    </header>
+
+    <section class="sm-idea"><h2>The big idea</h2><p>Management in a technical organization is itself a discipline that has to be learned in stages -- mentor, tech lead, new manager, manager of managers, senior exec -- and most engineers-turned-managers fail not from lack of talent but because no one taught them the specific skills each stage requires.</p></section>
+
+<section class="sm-tool"><span class="sm-label">The Management Career Ladder (stage-by-stage role map)</span><blockquote>Fournier structures the book as a literal ladder of roles, each with its own chapter: mentoring, tech lead, managing one team, managing managers, and &#x27;the big leagues&#x27; (VP/CTO-level scope). For each rung she defines what changes in your actual daily work -- a tech lead still writes code but now owns technical direction; a manager of managers no longer solves technical problems directly but must judge whether their reports&#x27; teams are healthy without doing the work themselves. The framework&#x27;s core claim is that skills don&#x27;t automatically transfer upward, so each transition needs deliberate new learning.</blockquote><p>The book is explicitly scoped to the tech/software industry -- its org-chart assumptions (clear tech lead / EM split, formal skip-levels) fit mid-size-to-large tech companies better than small startups or non-tech companies.</p></section>
+
+    <section class="sm-ideas"><h2>Key ideas</h2><ol><li><h3>The tech lead is not a manager</h3><p>Fournier draws a hard line between the tech lead role (technical ownership, no formal authority) and the engineering manager role (people ownership), arguing conflating the two is a common early-career mistake.</p></li><li><h3>Mentoring is management practice, not a favor</h3><p>She frames one-on-one mentoring of junior engineers as the lowest-stakes place to build the listening and feedback skills that later management requires.</p></li><li><h3>Managing your own manager</h3><p>A full chapter is devoted to managing up -- reading your manager&#x27;s priorities and constraints and proactively surfacing what they need to know.</p></li><li><h3>Skip-level meetings as a diagnostic tool</h3><p>For managers of managers, Fournier recommends structured skip-levels to sense-check whether a directly-reporting manager&#x27;s account of their team&#x27;s health matches what the team itself feels.</p></li><li><h3>Bootstrapping culture deliberately</h3><p>The book argues culture is something a leader actively designs and reinforces through concrete rituals, not a byproduct of hiring good people.</p></li><li><h3>The big leagues require giving up technical depth</h3><p>At VP/CTO scope, Fournier is candid that you will lose hands-on technical currency and have to build new judgment for evaluating decisions you can no longer personally verify.</p></li></ol></section>
+
+    <div class="sm-cols">
+      <section><h2>Try it this week</h2><ol class="sm-steps"><li>Identify which rung of Fournier&#x27;s ladder you&#x27;re actually on right now (not your title) and read only that chapter plus the one above it this week.</li><li>Schedule one skip-level conversation with someone two levels below you, using it purely to listen rather than to solve anything.</li><li>Write down the one thing you did this week that was &#x27;still doing the job&#x27; rather than &#x27;managing the job,&#x27; and consciously hand it off.</li><li>In your next 1:1 with your own manager, proactively state what you think their top priority is and ask if you&#x27;re reading it right.</li></ol></section>
+      <section><h2>Is it for you?</h2><h3 class="sm-good">Best for</h3><ul><li>A software engineer who has just become a tech lead or first-time engineering manager and needs a map of what&#x27;s coming next, not just the current role.</li><li>An engineering manager stepping up to manage other managers for the first time and unsure how their day-to-day should change.</li></ul><h3 class="sm-less">Less useful if</h3><ul><li>A manager outside the tech industry -- the examples and org structures assume a software engineering context throughout.</li><li>Someone looking for deep research or academic grounding in management theory -- this is a practitioner&#x27;s field guide.</li></ul></section>
+    </div>
+
+<section class="sm-links"><h2>On this site</h2><div class="sm-chips"><a href="references.html#cat-newmgr">New Manager &amp; Career Progression</a></div></section>
+    <section class="sm-links sm-related"><h2>Pairs well with</h2><ul><li><a href="references.html#book-0525642218">The Making of a Manager</a> <span>The Making of a Manager covers similar ground from a Facebook design/product leader&#x27;s perspective.</span></li><li><a href="references.html#book-B0CY6F7V18">The Effective Manager</a> <span>The Effective Manager offers a more scripted, habit-based system for the individual-manager relationship this book also covers.</span></li></ul></section>
+
+    <footer class="sm-foot">
+      <a class="sm-buy" href="https://www.amazon.com/s?k=Camille+Fournier+The+Manager&#x27;s+Path&amp;tag=phoenixjenn-20" target="_blank" rel="noopener">Find the book on Amazon</a>
+      <p>Original summary written for Plan &middot; Do &middot; Reflect. Prepared from the book&rsquo;s ideas and public summaries (<a href="https://www.oreilly.com/library/view/the-managers-path/9781491973882/" target="_blank" rel="noopener">O&#x27;Reilly publisher page</a>, <a href="https://en.wikipedia.org/wiki/Camille_Fournier" target="_blank" rel="noopener">Camille Fournier background</a>), not a substitute for reading it. Links may earn a commission.</p>
+    </footer>
+  </article>
+</main>
+
+<footer class="site-footer">
+  <p>&copy; 2026 Plan-Do-Reflect. <a href="references.html">References &amp; further reading</a></p>
+</footer>
+
+<div class="theme-switch" role="group" aria-label="Style direction">
+  <button data-theme="a" title="Kinetic Signal — black &amp; yellow"></button>
+  <button data-theme="b" title="Studio Ledger — dusty rose"></button>
+  <button data-theme="c" title="Bright Margin — lime"></button>
+  <a class="icon-lib-link" href="icon-library.html" title="Style Guide (internal reference)">
+    <svg width="14" height="14" viewBox="0 0 14 14" aria-hidden="true">
+      <rect x="1" y="1" width="5" height="5" rx="1" fill="currentColor"/>
+      <rect x="8" y="1" width="5" height="5" rx="1" fill="currentColor"/>
+      <rect x="1" y="8" width="5" height="5" rx="1" fill="currentColor"/>
+      <rect x="8" y="8" width="5" height="5" rx="1" fill="currentColor"/>
+    </svg>
+  </a>
+  <a class="icon-lib-link" href="notes.html" title="Notes (working drafts)">
+    <svg width="14" height="14" viewBox="0 0 14 14" aria-hidden="true">
+      <rect x="2" y="1" width="10" height="12" rx="1.5" fill="none" stroke="currentColor" stroke-width="1.3"/>
+      <line x1="4.5" y1="5" x2="9.5" y2="5" stroke="currentColor" stroke-width="1.3" stroke-linecap="round"/>
+      <line x1="4.5" y1="7.5" x2="9.5" y2="7.5" stroke="currentColor" stroke-width="1.3" stroke-linecap="round"/>
+      <line x1="4.5" y1="10" x2="7.5" y2="10" stroke="currentColor" stroke-width="1.3" stroke-linecap="round"/>
+    </svg>
+  </a>
+  <a class="icon-lib-link" href="sitemap.html" title="Sitemap (working draft)">
+    <svg width="14" height="14" viewBox="0 0 14 14" aria-hidden="true">
+      <circle cx="7" cy="2.5" r="1.8" fill="none" stroke="currentColor" stroke-width="1.3"/>
+      <circle cx="3" cy="11" r="1.8" fill="none" stroke="currentColor" stroke-width="1.3"/>
+      <circle cx="11" cy="11" r="1.8" fill="none" stroke="currentColor" stroke-width="1.3"/>
+      <path d="M7 4.3 L7 7 M7 7 L3 9.5 M7 7 L11 9.5" stroke="currentColor" stroke-width="1.3" fill="none" stroke-linecap="round"/>
+    </svg>
+  </a>
+</div>
+
+<!-- Temporary brainstorm control — only restyles the main h1 (.content h1 / .hero-title / .page-title). Remove alongside
+     the "title-font experiment" CSS block and the extra Google Fonts link once
+     a title font is picked. -->
+<div class="title-font-picker">
+  <label for="title-font-select">Title font</label>
+  <button type="button" id="title-font-prev" class="title-font-nav" aria-label="Previous title font">‹</button>
+  <select id="title-font-select">
+    <optgroup label="Round 1 — headline character">
+      <option value="gabarito">Gabarito</option>
+      <option value="chivo">Chivo</option>
+    </optgroup>
+    <optgroup label="Round 2 — Calibri-adjacent">
+      <option value="golos-text">Golos Text</option>
+    </optgroup>
+    <option value="default">Theme default</option>
+  </select>
+  <button type="button" id="title-font-next" class="title-font-nav" aria-label="Next title font">›</button>
+</div>
+
+<script src="js/theme-toggle.js" defer></script>
+<script src="js/title-font-toggle.js" defer></script>
+</body>
+</html>

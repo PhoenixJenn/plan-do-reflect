@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="a">
+<head>
+<meta charset="UTF-8">
+<base href="../">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="icon" type="image/svg+xml" href="favicon.svg">
+<title>High Output Management: One-page summary · Plan · Do · Reflect</title>
+
+<!-- Applied before CSS loads, so the saved theme / title-font choice doesn't flash to the default on reload -->
+<script>
+(function () {
+  try {
+    var savedTheme = localStorage.getItem('pdr-theme');
+    if (['a', 'b', 'c'].indexOf(savedTheme) > -1) {
+      document.documentElement.setAttribute('data-theme', savedTheme);
+    }
+    /* No saved choice yet means a first-time visitor — default them to Golos
+       Text rather than the theme's own heading font. Explicitly picking
+       "Theme default" in the picker stores the literal string 'default',
+       which is the one value that clears the override below. */
+    var savedTitleFont = localStorage.getItem('pdr-title-font');
+    var titleFont = savedTitleFont === null ? 'golos-text' : savedTitleFont;
+    if (titleFont !== 'default') {
+      document.documentElement.setAttribute('data-title-font', titleFont);
+    }
+  } catch (e) {}
+})();
+</script>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=Work+Sans:wght@400;500;600&family=Sora:wght@600;700;800&family=Plus+Jakarta+Sans:wght@500;600;700&family=Patrick+Hand&display=swap" rel="stylesheet">
+
+<!-- Title-font brainstorm candidates — temporary, for the .title-font-picker toggle only.
+     Remove this link once a title font is chosen and folded into tokens.css. -->
+<link href="https://fonts.googleapis.com/css2?family=Gabarito:wght@800&family=Chivo:wght@800&family=Golos+Text:wght@800&display=swap" rel="stylesheet">
+
+<link rel="stylesheet" href="css/tokens.css">
+<link rel="stylesheet" href="css/main.css">
+<link rel="stylesheet" href="css/summary.css">
+</head>
+<body>
+
+<header class="topnav">
+  <a class="logo" href="index.html">Plan·Do·Reflect</a>
+  <nav class="topnav-items">
+    <a class="item" href="framework.html">The Framework</a>
+    <a class="item" href="self-management.html">Self</a>
+    <a class="item" href="team.html">Team</a>
+    <a class="item" href="organization.html">Organization</a>
+    <a class="item" href="core-skills.html">Core Skills</a>
+    <a class="item active" href="references.html">References</a>
+  </nav>
+</header>
+
+<main class="sm">
+  <p class="sm-crumb"><a href="references.html">References &amp; Further Reading</a> &rsaquo; One-page summary</p>
+  <article class="sm-page">
+    <header class="sm-head">
+      <img class="sm-cover" src="images/covers/0593459326.jpg" data-r="https://m.media-amazon.com/images/I/51rUR+d3wVL._SL300_.jpg" alt="Cover of High Output Management" onerror="if(this.dataset.r&amp;&amp;this.src.indexOf(this.dataset.r)===-1){this.src=this.dataset.r}else{this.style.visibility='hidden'}">
+      <div>
+        <p class="sm-eyebrow">One-page summary &middot; 2 min read</p>
+        <h1 class="page-title">High Output Management</h1>
+        <p class="sm-sub"></p>
+        <p class="sm-by">by Andrew S. Grove</p>
+        <p class="sm-meta">2021 &middot; 8h 2m audiobook &middot; &#9733; 4.7 Audible</p>
+      </div>
+    </header>
+
+    <section class="sm-idea"><h2>The big idea</h2><p>A manager&#x27;s output is not their own activity but the output of the organization they supervise and influence, so the job of management is to maximize that collective output through leverage -- training people, gathering information, and making decisions that affect many people at once.</p></section>
+
+<section class="sm-tool"><span class="sm-label">Task-Relevant Maturity (TRM)</span><blockquote>Grove argues a manager&#x27;s style toward any given person should be set by that person&#x27;s task-relevant maturity -- their skill and experience on the specific task at hand, not their seniority or title. When TRM is low, the manager gives highly structured, directive instruction. As TRM rises, the manager shifts to a more participative style. At high TRM, the manager delegates almost entirely. Because TRM is task-specific rather than person-specific, the same employee might need close direction on a brand-new assignment while getting full autonomy on work they&#x27;ve mastered.</blockquote><p>TRM descends from Hersey and Blanchard&#x27;s Situational Leadership model and Grove offers no rigorous way to measure maturity objectively -- in practice it&#x27;s a manager&#x27;s subjective read.</p></section>
+
+    <section class="sm-ideas"><h2>Key ideas</h2><ol><li><h3>Output over activity</h3><p>Grove insists managers stop measuring their own busyness and instead measure the output of their entire organization, including teams they influence but don&#x27;t directly command.</p></li><li><h3>The breakfast factory</h3><p>His extended example of producing a three-minute egg, toast, and coffee breakfast teaches bottleneck identification and trading inventory against capacity as literal operating tools.</p></li><li><h3>Meetings as the actual work</h3><p>Grove reframes meetings as the medium of management, splitting them into process-oriented and mission-oriented types with different purposes and cadences.</p></li><li><h3>The one-on-one as coaching, not status reporting</h3><p>Grove prescribes regular one-on-ones run on the subordinate&#x27;s agenda, where the manager&#x27;s job is to teach and surface problems early.</p></li><li><h3>Hybrid organizations and dual reporting</h3><p>He tackles matrixed structures directly, explaining how to keep dual reporting from causing confusion.</p></li><li><h3>Peer power and knowledge authority</h3><p>Grove describes how modern knowledge-work organizations increasingly run on peer influence and information rather than pure hierarchy.</p></li></ol></section>
+
+    <div class="sm-cols">
+      <section><h2>Try it this week</h2><ol class="sm-steps"><li>Run your next round of one-on-ones with the direct report setting the agenda, and close each one by naming that person&#x27;s current task-relevant maturity on their top project.</li><li>Map one core team workflow as a chain of steps, identify the single limiting step, and redesign the process around it.</li><li>Audit a week of your calendar, label every meeting process-oriented or mission-oriented, and cut or restructure anything that fits neither category.</li><li>Replace one activity metric you currently report with a genuine output metric for your next skip-level update.</li></ol></section>
+      <section><h2>Is it for you?</h2><h3 class="sm-good">Best for</h3><ul><li>New or newly promoted managers in engineering, product, or operations who want a systems view of management grounded in production logic.</li><li>Managers running high-throughput, process-heavy teams who need a concrete model for finding bottlenecks and matching management style to skill level.</li></ul><h3 class="sm-less">Less useful if</h3><ul><li>Readers seeking guidance on culture-building, DEI, or the emotional dynamics of teams.</li><li>Managers at very small startups or single-contributor teams, since the book&#x27;s structure assumes staff meetings and multiple layers.</li></ul></section>
+    </div>
+
+<section class="sm-links"><h2>On this site</h2><div class="sm-chips"><a href="references.html#cat-people">People Management (1:1s, feedback, performance)</a></div></section>
+    <section class="sm-links sm-related"><h2>Pairs well with</h2><ul><li><a href="references.html#book-B0CY6F7V18">The Effective Manager</a> <span>The Effective Manager offers a more scripted, habit-based complement to Grove&#x27;s more conceptual systems view.</span></li><li><a href="references.html#book-1452652171">The Manager&#x27;s Path</a> <span>The Manager&#x27;s Path extends similar systems thinking into a stage-by-stage tech management career ladder.</span></li></ul></section>
+
+    <footer class="sm-foot">
+      <a class="sm-buy" href="https://www.amazon.com/s?k=Andrew+S.+Grove+High+Output+Management&amp;tag=phoenixjenn-20" target="_blank" rel="noopener">Find the book on Amazon</a>
+      <p>Original summary written for Plan &middot; Do &middot; Reflect. Prepared from the book&rsquo;s ideas and public summaries (<a href="https://en.wikipedia.org/wiki/High_Output_Management" target="_blank" rel="noopener">Wikipedia -- publication history and reception</a>, <a href="https://www.nateliason.com/notes/high-output-management-andy-grove" target="_blank" rel="noopener">Nat Eliason&#x27;s detailed framework breakdown and notes</a>), not a substitute for reading it. Links may earn a commission.</p>
+    </footer>
+  </article>
+</main>
+
+<footer class="site-footer">
+  <p>&copy; 2026 Plan-Do-Reflect. <a href="references.html">References &amp; further reading</a></p>
+</footer>
+
+<div class="theme-switch" role="group" aria-label="Style direction">
+  <button data-theme="a" title="Kinetic Signal — black &amp; yellow"></button>
+  <button data-theme="b" title="Studio Ledger — dusty rose"></button>
+  <button data-theme="c" title="Bright Margin — lime"></button>
+  <a class="icon-lib-link" href="icon-library.html" title="Style Guide (internal reference)">
+    <svg width="14" height="14" viewBox="0 0 14 14" aria-hidden="true">
+      <rect x="1" y="1" width="5" height="5" rx="1" fill="currentColor"/>
+      <rect x="8" y="1" width="5" height="5" rx="1" fill="currentColor"/>
+      <rect x="1" y="8" width="5" height="5" rx="1" fill="currentColor"/>
+      <rect x="8" y="8" width="5" height="5" rx="1" fill="currentColor"/>
+    </svg>
+  </a>
+  <a class="icon-lib-link" href="notes.html" title="Notes (working drafts)">
+    <svg width="14" height="14" viewBox="0 0 14 14" aria-hidden="true">
+      <rect x="2" y="1" width="10" height="12" rx="1.5" fill="none" stroke="currentColor" stroke-width="1.3"/>
+      <line x1="4.5" y1="5" x2="9.5" y2="5" stroke="currentColor" stroke-width="1.3" stroke-linecap="round"/>
+      <line x1="4.5" y1="7.5" x2="9.5" y2="7.5" stroke="currentColor" stroke-width="1.3" stroke-linecap="round"/>
+      <line x1="4.5" y1="10" x2="7.5" y2="10" stroke="currentColor" stroke-width="1.3" stroke-linecap="round"/>
+    </svg>
+  </a>
+  <a class="icon-lib-link" href="sitemap.html" title="Sitemap (working draft)">
+    <svg width="14" height="14" viewBox="0 0 14 14" aria-hidden="true">
+      <circle cx="7" cy="2.5" r="1.8" fill="none" stroke="currentColor" stroke-width="1.3"/>
+      <circle cx="3" cy="11" r="1.8" fill="none" stroke="currentColor" stroke-width="1.3"/>
+      <circle cx="11" cy="11" r="1.8" fill="none" stroke="currentColor" stroke-width="1.3"/>
+      <path d="M7 4.3 L7 7 M7 7 L3 9.5 M7 7 L11 9.5" stroke="currentColor" stroke-width="1.3" fill="none" stroke-linecap="round"/>
+    </svg>
+  </a>
+</div>
+
+<!-- Temporary brainstorm control — only restyles the main h1 (.content h1 / .hero-title / .page-title). Remove alongside
+     the "title-font experiment" CSS block and the extra Google Fonts link once
+     a title font is picked. -->
+<div class="title-font-picker">
+  <label for="title-font-select">Title font</label>
+  <button type="button" id="title-font-prev" class="title-font-nav" aria-label="Previous title font">‹</button>
+  <select id="title-font-select">
+    <optgroup label="Round 1 — headline character">
+      <option value="gabarito">Gabarito</option>
+      <option value="chivo">Chivo</option>
+    </optgroup>
+    <optgroup label="Round 2 — Calibri-adjacent">
+      <option value="golos-text">Golos Text</option>
+    </optgroup>
+    <option value="default">Theme default</option>
+  </select>
+  <button type="button" id="title-font-next" class="title-font-nav" aria-label="Next title font">›</button>
+</div>
+
+<script src="js/theme-toggle.js" defer></script>
+<script src="js/title-font-toggle.js" defer></script>
+</body>
+</html>

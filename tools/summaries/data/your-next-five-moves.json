@@ -1,0 +1,77 @@
+{
+  "asin": "179711333X",
+  "slug": "your-next-five-moves",
+  "read_time": "2 min read",
+  "big_idea": "Business strategy can be taught like a chess game -- thinking several moves ahead about competitors, timing, and scale -- drawing on Bet-David's own path building PHP Agency and Valuetainment rather than academic theory.",
+  "tool": {
+    "label": "The Five Moves Framework",
+    "text": "Bet-David structures the book around five progressive moves: knowing yourself and setting a clear, specific goal; building the systems and organizational structure needed to scale past the founder's personal bandwidth; building and leading a high-performing team; developing actual competitive strategy; and mastering the emotional intelligence needed to execute under pressure. Each move is illustrated with business history case studies and Bet-David's personal anecdotes, co-written with Greg Dinkin.",
+    "note": "The framework's moves overlap significantly with general leadership and management advice rather than being a distinctly strategic methodology throughout, and its case examples skew heavily toward aggressive, high-growth entrepreneurial contexts."
+  },
+  "ideas": [
+    {
+      "title": "Aggressive expansion as a default posture",
+      "text": "The book's underlying philosophy favors calculated, ambitious risk-taking and rapid scaling over measured, conservative growth."
+    },
+    {
+      "title": "Self-awareness before strategy",
+      "text": "Bet-David argues most people can't out-execute a strategy their goals and self-knowledge aren't actually aligned with."
+    },
+    {
+      "title": "Systems over heroics",
+      "text": "As move two, the book pushes founders to replace their own personal effort with repeatable systems before scaling further."
+    },
+    {
+      "title": "Reading people as a strategic skill",
+      "text": "Team-building is treated as a competitive advantage in itself, with frameworks for sorting collaborators by motivation and skill type."
+    },
+    {
+      "title": "Thinking several moves ahead",
+      "text": "The title's core metaphor -- anticipating not just your next move but competitors' and the market's likely responses several steps out."
+    },
+    {
+      "title": "Timing and emotional discipline as strategic variables",
+      "text": "The final move frames when to act, and how to regulate your own reactions under pressure, as strategic factors as important as the plan itself."
+    }
+  ],
+  "try_it": [
+    "Write a specific, falsifiable one-year goal for your business as the book's first move.",
+    "Identify one task only you currently do that should become a documented system or be delegated this month.",
+    "Map your current team by motivation/skill type using the book's people-reading framework and flag one obvious mismatch.",
+    "Before your next competitive decision, write out what you expect competitors' next two responses to be."
+  ],
+  "best_for": [
+    "First-time or early-stage entrepreneurs who want an accessible, story-driven strategy primer rooted in one operator's real experience.",
+    "Fans of Bet-David's Valuetainment content who want the long-form version of his frameworks."
+  ],
+  "less_useful": [
+    "Readers in large, established organizations where the book's founder-centric, aggressive-scaling advice doesn't map onto corporate strategy.",
+    "Those seeking rigorous, evidence-based or academically vetted strategy frameworks."
+  ],
+  "site_links": [
+    {
+      "label": "Strategy & Planning",
+      "href": "references.html#cat-strategy"
+    }
+  ],
+  "related": [
+    {
+      "asin": "B00DP5FPRK",
+      "why": "The Art of Strategy offers a more rigorous, academic counterpart to this book's chess metaphor."
+    },
+    {
+      "asin": "B00GP3R02M",
+      "why": "Playing to Win offers a more structured, less founder-anecdotal choice-cascade method."
+    }
+  ],
+  "sources": [
+    {
+      "label": "Simon & Schuster official publisher page",
+      "href": "https://www.simonandschuster.com/books/Your-Next-Five-Moves/Patrick-Bet-David/9781982154806"
+    },
+    {
+      "label": "Paul Segreto book review on Medium",
+      "href": "https://paulsegreto.medium.com/book-review-your-next-five-moves-master-the-art-of-business-strategy-by-patrick-bet-david-6b1024356478"
+    }
+  ]
+}

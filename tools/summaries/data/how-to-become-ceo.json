@@ -1,0 +1,77 @@
+{
+  "asin": "B002UUFW5G",
+  "slug": "how-to-become-ceo",
+  "read_time": "2 min read",
+  "big_idea": "Career advancement to the top of an organization is less about talent than about consistently applying a set of concrete, learnable behavioral rules -- from how you handle money conversations to how you treat receptionists -- that most people never think to treat as a deliberate strategy.",
+  "tool": {
+    "label": "The 75 Rules (short-chapter commandments)",
+    "text": "Fox structures the book as roughly 75 short, standalone rules covering compensation strategy (take the higher-paying job now, since future raises are usually a percentage of current salary), self-directed career management, customer orientation, and personal conduct (protect your reputation, write no angry memos, treat every person in the building with respect). The format is intentionally aphoristic -- each rule stands alone rather than building toward a unified model.",
+    "note": "Several reviewers note the title oversells the content -- the rules are general professional-advancement wisdom rather than CEO-specific strategy."
+  },
+  "ideas": [
+    {
+      "title": "Take the higher salary now",
+      "text": "Because raises are usually set as a percentage of current pay, negotiating hard for starting salary has outsized long-term career leverage."
+    },
+    {
+      "title": "Own your career plan",
+      "text": "No employer or HR department will proactively manage your advancement, so mapping your own path is the individual's job."
+    },
+    {
+      "title": "Understand the customer, whatever your job",
+      "text": "Direct exposure to how customers buy and what they value reveals the real competitive picture faster than internal reporting."
+    },
+    {
+      "title": "Reputation is built in small moments",
+      "text": "Rules about angry memos and treating junior staff with respect reflect the thesis that senior leaders are quietly evaluated on temperament long before results."
+    },
+    {
+      "title": "Do the hard thing others avoid",
+      "text": "Deliberately taking on the unglamorous or difficult task nobody else wants is disproportionately remembered by decision-makers."
+    },
+    {
+      "title": "Words are cheap, deeds are dear",
+      "text": "Fox repeatedly favors demonstrated action over stated intention -- promising less and delivering more is a career-defining habit."
+    }
+  ],
+  "try_it": [
+    "Before your next compensation conversation, calculate what a given starting number compounds to over five years of typical percentage raises.",
+    "This week, identify one customer-facing reality about your company you don't currently understand firsthand, and go find out directly.",
+    "Pick the one task on your team's backlog that everyone is avoiding, and take it.",
+    "Audit your last five emails or messages sent in frustration and write a personal rule for a cooling-off period before you send the next one."
+  ],
+  "best_for": [
+    "An early-to-mid-career professional who wants short, concrete, easy-to-apply workplace conduct rules rather than a strategic framework.",
+    "Someone who responds well to aphoristic, list-based advice they can dip into randomly."
+  ],
+  "less_useful": [
+    "A senior executive or board-level reader looking for guidance specific to public-company governance or actual CEO succession politics.",
+    "A reader who wants an evidence-based model rather than personal maxims from consulting experience."
+  ],
+  "site_links": [
+    {
+      "label": "New Manager & Career Progression",
+      "href": "references.html#cat-newmgr"
+    }
+  ],
+  "related": [
+    {
+      "asin": "B0C4VNYTW6",
+      "why": "The Diary of a CEO offers a similarly aphoristic structure aimed at a broader, more entrepreneurial audience."
+    },
+    {
+      "asin": "1469081911",
+      "why": "Master Your Next Move offers a more research-grounded companion for navigating career transitions."
+    }
+  ],
+  "sources": [
+    {
+      "label": "GetAbstract summary and assessment",
+      "href": "https://www.getabstract.com/en/summary/how-to-become-ceo/1521"
+    },
+    {
+      "label": "Amazon listing with publisher/rating details",
+      "href": "https://www.amazon.com/How-Become-CEO-Rising-Organization/dp/0786864370"
+    }
+  ]
+}

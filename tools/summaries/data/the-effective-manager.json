@@ -1,0 +1,77 @@
+{
+  "asin": "B0CY6F7V18",
+  "slug": "the-effective-manager",
+  "read_time": "2 min read",
+  "big_idea": "Most management failure comes from skipping a small number of basic, learnable behaviors -- regular one-on-ones, frequent feedback, and real delegation -- not from lacking charisma or strategic vision, and doing these consistently produces outsized results.",
+  "tool": {
+    "label": "O3s (weekly One-on-Ones) and the Four Critical Behaviors",
+    "text": "Horstman's Manager Tools methodology centers on a weekly, 30-minute one-on-one with every direct report, structured into three segments: the direct's priorities first, the manager's items second, and forward-looking coaching last. This sits inside the Four Critical Behaviors: getting to know your people personally, communicating regularly about performance, asking directs to stretch, and pushing work down to develop the team. The feedback component follows a short, repeatable script -- asking permission, describing the behavior, stating its impact, and asking for future behavior.",
+    "note": "The system is rigid and habit-based by design, and some managers find the scripted feedback language stilted at first; Horstman argues the seeming artificiality fades with repetition."
+  },
+  "ideas": [
+    {
+      "title": "Relationships as the highest-leverage behavior",
+      "text": "Horstman puts get to know your people first among the Four Critical Behaviors, arguing managers who skip relationship-building undercut every other technique they try."
+    },
+    {
+      "title": "Feedback as a high-frequency habit, not an event",
+      "text": "The book pushes managers toward giving brief feedback multiple times a week rather than saving it for annual reviews."
+    },
+    {
+      "title": "The direct sets the one-on-one agenda",
+      "text": "O3s are built around the report's priorities first, reversing the common pattern where the manager dictates the meeting."
+    },
+    {
+      "title": "Delegation as capability-building, not offloading",
+      "text": "Push work down is framed as a developmental tool for the team, not simply a way to lighten the manager's own workload."
+    },
+    {
+      "title": "Coaching only after trust is established",
+      "text": "Horstman sequences the four behaviors deliberately -- coaching is meant to follow weeks of consistent one-on-ones and feedback."
+    },
+    {
+      "title": "A repeatable script over improvisation",
+      "text": "The insistence on nearly memorized phrasing is a deliberate choice to make good management practice teachable and consistent across an organization."
+    }
+  ],
+  "try_it": [
+    "Start a weekly 30-minute one-on-one with each direct report this month, letting them set the first two-thirds of the agenda.",
+    "Give one piece of specific, behavior-and-impact feedback this week using the ask-permission/describe/impact/request structure.",
+    "Identify one task you're currently doing yourself that a direct report could take on, and delegate it as a development opportunity.",
+    "Keep a simple running note for each direct report after every one-on-one, tracking commitments and recurring themes over a month."
+  ],
+  "best_for": [
+    "New managers who want a concrete, script-based starting point for one-on-ones and feedback.",
+    "Managers in larger organizations who want a consistent, teachable system that scales across many first-line managers."
+  ],
+  "less_useful": [
+    "Highly experienced managers who already have a strong personal feedback and coaching style.",
+    "Readers looking for strategic or organizational-design guidance rather than the individual manager-to-report relationship."
+  ],
+  "site_links": [
+    {
+      "label": "People Management (1:1s, feedback, performance)",
+      "href": "references.html#cat-people"
+    }
+  ],
+  "related": [
+    {
+      "asin": "0593459326",
+      "why": "High Output Management shares the same one-on-one-centered management philosophy at a more conceptual level."
+    },
+    {
+      "asin": "0525642218",
+      "why": "The Making of a Manager offers a similar structured question set for one-on-ones from a different vantage point."
+    }
+  ],
+  "sources": [
+    {
+      "label": "Manager Tools Podcast background (Wikipedia)",
+      "href": "https://en.wikipedia.org/wiki/Manager_Tools_Podcast"
+    },
+    {
+      "label": "Tyler DeVries's chapter-by-chapter summary",
+      "href": "https://tylerdevries.com/book-summaries/the-effective-manager/"
+    }
+  ]
+}

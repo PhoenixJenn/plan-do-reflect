@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="a">
+<head>
+<meta charset="UTF-8">
+<base href="../">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="icon" type="image/svg+xml" href="favicon.svg">
+<title>Dual Transformation: One-page summary · Plan · Do · Reflect</title>
+
+<!-- Applied before CSS loads, so the saved theme / title-font choice doesn't flash to the default on reload -->
+<script>
+(function () {
+  try {
+    var savedTheme = localStorage.getItem('pdr-theme');
+    if (['a', 'b', 'c'].indexOf(savedTheme) > -1) {
+      document.documentElement.setAttribute('data-theme', savedTheme);
+    }
+    /* No saved choice yet means a first-time visitor — default them to Golos
+       Text rather than the theme's own heading font. Explicitly picking
+       "Theme default" in the picker stores the literal string 'default',
+       which is the one value that clears the override below. */
+    var savedTitleFont = localStorage.getItem('pdr-title-font');
+    var titleFont = savedTitleFont === null ? 'golos-text' : savedTitleFont;
+    if (titleFont !== 'default') {
+      document.documentElement.setAttribute('data-title-font', titleFont);
+    }
+  } catch (e) {}
+})();
+</script>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=Work+Sans:wght@400;500;600&family=Sora:wght@600;700;800&family=Plus+Jakarta+Sans:wght@500;600;700&family=Patrick+Hand&display=swap" rel="stylesheet">
+
+<!-- Title-font brainstorm candidates — temporary, for the .title-font-picker toggle only.
+     Remove this link once a title font is chosen and folded into tokens.css. -->
+<link href="https://fonts.googleapis.com/css2?family=Gabarito:wght@800&family=Chivo:wght@800&family=Golos+Text:wght@800&display=swap" rel="stylesheet">
+
+<link rel="stylesheet" href="css/tokens.css">
+<link rel="stylesheet" href="css/main.css">
+<link rel="stylesheet" href="css/summary.css">
+</head>
+<body>
+
+<header class="topnav">
+  <a class="logo" href="index.html">Plan·Do·Reflect</a>
+  <nav class="topnav-items">
+    <a class="item" href="framework.html">The Framework</a>
+    <a class="item" href="self-management.html">Self</a>
+    <a class="item" href="team.html">Team</a>
+    <a class="item" href="organization.html">Organization</a>
+    <a class="item" href="core-skills.html">Core Skills</a>
+    <a class="item active" href="references.html">References</a>
+  </nav>
+</header>
+
+<main class="sm">
+  <p class="sm-crumb"><a href="references.html">References &amp; Further Reading</a> &rsaquo; One-page summary</p>
+  <article class="sm-page">
+    <header class="sm-head">
+      <img class="sm-cover" src="images/covers/B0779LJ33G.jpg" data-r="https://m.media-amazon.com/images/I/61g10-teltL._SL300_.jpg" alt="Cover of Dual Transformation" onerror="if(this.dataset.r&amp;&amp;this.src.indexOf(this.dataset.r)===-1){this.src=this.dataset.r}else{this.style.visibility='hidden'}">
+      <div>
+        <p class="sm-eyebrow">One-page summary &middot; 2 min read</p>
+        <h1 class="page-title">Dual Transformation</h1>
+        <p class="sm-sub">How to Reposition Today&#x27;s Business While Creating the Future</p>
+        <p class="sm-by">by Scott D. Anthony, Clark G. Gilbert, Mark W. Johnson</p>
+        <p class="sm-meta">2017 &middot; 8h 26m audiobook &middot; &#9733; 4.3 Audible</p>
+      </div>
+    </header>
+
+    <section class="sm-idea"><h2>The big idea</h2><p>Companies facing disruption shouldn&#x27;t choose between defending their current business and building a new one -- they need to run both transformations simultaneously, repositioning the core for resilience while separately building a new growth engine, connected by a shared capabilities link.</p></section>
+
+<section class="sm-tool"><span class="sm-label">The Dual Transformation Framework (Transformation A / Transformation B)</span><blockquote>Transformation A repositions the core business to maximize its resilience as its industry shifts, reallocating investment even if it means cutting product lines. Transformation B builds a new, separate growth engine based on a genuinely different business model, run outside the core organization&#x27;s existing structure and metrics. The capabilities link is the deliberate mechanism connecting the two -- identifying which hard-to-replicate assets from the core can accelerate Transformation B without letting B&#x27;s different pace destabilize A.</blockquote><p>Because the framework requires running two very differently-paced organizational efforts at once with real executive attention split between them, under-resourcing either side is a common failure mode the book flags but doesn&#x27;t fully solve for resource-constrained companies.</p></section>
+
+    <section class="sm-ideas"><h2>Key ideas</h2><ol><li><h3>Repositioning is not retreat</h3><p>Transformation A is framed as proactively reallocating a still-valuable core business&#x27;s resources toward its most durable segments, not managing decline.</p></li><li><h3>Structural separation for Transformation B</h3><p>New-growth efforts need their own metrics, incentives, and often physical separation from the core to avoid being judged by the wrong yardsticks.</p></li><li><h3>The capabilities link as competitive moat</h3><p>The specific assets transferred between A and B are what make dual transformation defensible rather than just running two unrelated businesses.</p></li><li><h3>Sequencing and timing</h3><p>Waiting until the core business visibly declines to start Transformation B is typically too late, given how long new engines take to reach scale.</p></li><li><h3>Leadership&#x27;s split-attention problem</h3><p>CEOs must personally sponsor both transformations, since middle management alone can&#x27;t resolve the resource conflicts between them.</p></li><li><h3>Case-based validation</h3><p>Drawing on real companies (Adobe, Netflix&#x27;s shift from DVD to streaming) rather than purely theoretical modeling.</p></li></ol></section>
+
+    <div class="sm-cols">
+      <section><h2>Try it this week</h2><ol class="sm-steps"><li>List which parts of your current core business deserve more investment vs. which are candidates for reduction, as a first Transformation A pass.</li><li>Identify one nascent growth bet currently being evaluated by the same metrics as the core business, and propose separate success metrics for it.</li><li>Name one hard-to-replicate asset your core business has that a new-growth effort could legitimately borrow.</li><li>Set a specific trigger point that would tell you it&#x27;s time to start a Transformation B effort.</li></ol></section>
+      <section><h2>Is it for you?</h2><h3 class="sm-good">Best for</h3><ul><li>Executives at established, mid-to-large companies facing visible industry disruption who need to fund innovation without abandoning a still-profitable core.</li><li>Corporate innovation and strategy teams looking for a structured model for running an internal venture alongside the main business.</li></ul><h3 class="sm-less">Less useful if</h3><ul><li>Early-stage startups or small businesses with no legacy core to reposition.</li><li>Readers wanting quantitative, ROI-driven guidance on how to split limited capital between A and B.</li></ul></section>
+    </div>
+
+<section class="sm-links"><h2>On this site</h2><div class="sm-chips"><a href="references.html#cat-strategy">Strategy &amp; Planning</a></div></section>
+    <section class="sm-links sm-related"><h2>Pairs well with</h2><ul><li><a href="references.html#book-1469080966">Blue Ocean Strategy, Expanded Edition</a> <span>Blue Ocean Strategy shares the same instinct to build genuinely new value rather than compete head-on.</span></li><li><a href="references.html#book-0593162927">Good Strategy/Bad Strategy</a> <span>Good Strategy/Bad Strategy offers complementary diagnostic rigor for deciding what the core should keep.</span></li></ul></section>
+
+    <footer class="sm-foot">
+      <a class="sm-buy" href="https://www.amazon.com/s?k=Scott+D.+Anthony+Dual+Transformation&amp;tag=phoenixjenn-20" target="_blank" rel="noopener">Find the book on Amazon</a>
+      <p>Original summary written for Plan &middot; Do &middot; Reflect. Prepared from the book&rsquo;s ideas and public summaries (<a href="https://store.hbr.org/product/dual-transformation-how-to-reposition-today-s-business-while-creating-the-future/10091" target="_blank" rel="noopener">Harvard Business Review Press official product page</a>, <a href="https://www.apqc.org/profile/scott-anthony" target="_blank" rel="noopener">Scott Anthony&#x27;s APQC profile (Innosight, Christensen connection)</a>), not a substitute for reading it. Links may earn a commission.</p>
+    </footer>
+  </article>
+</main>
+
+<footer class="site-footer">
+  <p>&copy; 2026 Plan-Do-Reflect. <a href="references.html">References &amp; further reading</a></p>
+</footer>
+
+<div class="theme-switch" role="group" aria-label="Style direction">
+  <button data-theme="a" title="Kinetic Signal — black &amp; yellow"></button>
+  <button data-theme="b" title="Studio Ledger — dusty rose"></button>
+  <button data-theme="c" title="Bright Margin — lime"></button>
+  <a class="icon-lib-link" href="icon-library.html" title="Style Guide (internal reference)">
+    <svg width="14" height="14" viewBox="0 0 14 14" aria-hidden="true">
+      <rect x="1" y="1" width="5" height="5" rx="1" fill="currentColor"/>
+      <rect x="8" y="1" width="5" height="5" rx="1" fill="currentColor"/>
+      <rect x="1" y="8" width="5" height="5" rx="1" fill="currentColor"/>
+      <rect x="8" y="8" width="5" height="5" rx="1" fill="currentColor"/>
+    </svg>
+  </a>
+  <a class="icon-lib-link" href="notes.html" title="Notes (working drafts)">
+    <svg width="14" height="14" viewBox="0 0 14 14" aria-hidden="true">
+      <rect x="2" y="1" width="10" height="12" rx="1.5" fill="none" stroke="currentColor" stroke-width="1.3"/>
+      <line x1="4.5" y1="5" x2="9.5" y2="5" stroke="currentColor" stroke-width="1.3" stroke-linecap="round"/>
+      <line x1="4.5" y1="7.5" x2="9.5" y2="7.5" stroke="currentColor" stroke-width="1.3" stroke-linecap="round"/>
+      <line x1="4.5" y1="10" x2="7.5" y2="10" stroke="currentColor" stroke-width="1.3" stroke-linecap="round"/>
+    </svg>
+  </a>
+  <a class="icon-lib-link" href="sitemap.html" title="Sitemap (working draft)">
+    <svg width="14" height="14" viewBox="0 0 14 14" aria-hidden="true">
+      <circle cx="7" cy="2.5" r="1.8" fill="none" stroke="currentColor" stroke-width="1.3"/>
+      <circle cx="3" cy="11" r="1.8" fill="none" stroke="currentColor" stroke-width="1.3"/>
+      <circle cx="11" cy="11" r="1.8" fill="none" stroke="currentColor" stroke-width="1.3"/>
+      <path d="M7 4.3 L7 7 M7 7 L3 9.5 M7 7 L11 9.5" stroke="currentColor" stroke-width="1.3" fill="none" stroke-linecap="round"/>
+    </svg>
+  </a>
+</div>
+
+<!-- Temporary brainstorm control — only restyles the main h1 (.content h1 / .hero-title / .page-title). Remove alongside
+     the "title-font experiment" CSS block and the extra Google Fonts link once
+     a title font is picked. -->
+<div class="title-font-picker">
+  <label for="title-font-select">Title font</label>
+  <button type="button" id="title-font-prev" class="title-font-nav" aria-label="Previous title font">‹</button>
+  <select id="title-font-select">
+    <optgroup label="Round 1 — headline character">
+      <option value="gabarito">Gabarito</option>
+      <option value="chivo">Chivo</option>
+    </optgroup>
+    <optgroup label="Round 2 — Calibri-adjacent">
+      <option value="golos-text">Golos Text</option>
+    </optgroup>
+    <option value="default">Theme default</option>
+  </select>
+  <button type="button" id="title-font-next" class="title-font-nav" aria-label="Next title font">›</button>
+</div>
+
+<script src="js/theme-toggle.js" defer></script>
+<script src="js/title-font-toggle.js" defer></script>
+</body>
+</html>

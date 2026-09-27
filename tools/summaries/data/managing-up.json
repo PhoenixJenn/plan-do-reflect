@@ -1,0 +1,77 @@
+{
+  "asin": "B0BQ1T8WR8",
+  "slug": "managing-up",
+  "read_time": "2 min read",
+  "big_idea": "The relationship with your boss is a two-way management responsibility, not something that just happens to you, and deliberately understanding your manager's priorities, pressures, and working style is the fastest lever for improving your own effectiveness and career trajectory.",
+  "tool": {
+    "label": "The Managing Up 4-Part Approach",
+    "text": "The book structures the boss relationship around four moves: understanding your manager's priorities and the pressures they face from above; deliberately setting a positive tone early in the relationship; managing expectations and egos by calibrating communication to your boss's preferences; and earning trust over time through consistent follow-through. As a 20-Minute Manager title, it delivers this as a compact, checklist-driven primer with self-assessments and quick-reference summaries.",
+    "note": "Because it is a short primer (112 pages), the four-part approach is presented at a summary level without deep handling of harder scenarios like a genuinely dysfunctional manager."
+  },
+  "ideas": [
+    {
+      "title": "Your boss's success is your job too",
+      "text": "The book frames managing up as making your manager successful in the eyes of their own boss, since a manager who looks good has more capital to advocate for their team."
+    },
+    {
+      "title": "Read the pressures above your boss",
+      "text": "It pushes readers to map what their manager is accountable for and measured on."
+    },
+    {
+      "title": "Communication style must match, not just content",
+      "text": "The guide emphasizes adapting the format and frequency of updates to a manager's preference."
+    },
+    {
+      "title": "Set the tone early and deliberately",
+      "text": "Rather than letting a working relationship form by default, the book advises proactively establishing expectations in the first weeks."
+    },
+    {
+      "title": "Ego management is part of the job",
+      "text": "It treats managing a boss's ego and sensitivities as a legitimate, non-manipulative professional skill."
+    },
+    {
+      "title": "Trust compounds through small consistent wins",
+      "text": "The book argues trust with a manager is built incrementally through reliability on small commitments."
+    }
+  ],
+  "try_it": [
+    "This week, write down what you believe your manager's top three priorities are, then confirm or correct that list in your next 1:1.",
+    "Ask your manager directly how they prefer to receive updates and adjust your reporting to match for the next month.",
+    "Before your next status update, reframe it in terms of how it affects what your manager is accountable for to their own boss.",
+    "Identify one small commitment you can reliably deliver on time every week for a month to build a trust track record."
+  ],
+  "best_for": [
+    "Early- to mid-career professionals who want a fast, practical primer on the boss relationship without committing to a full-length book.",
+    "New managers or individual contributors who have just started reporting to someone new."
+  ],
+  "less_useful": [
+    "Readers dealing with a genuinely toxic or abusive manager, since the book assumes a basically reasonable boss.",
+    "Senior leaders looking for depth on organizational politics beyond the direct-manager relationship."
+  ],
+  "site_links": [
+    {
+      "label": "Managing Up & Career Navigation",
+      "href": "references.html#cat-managingup"
+    }
+  ],
+  "related": [
+    {
+      "asin": "B01KIPHEPA",
+      "why": "Pivot shares a self-directed, proactive approach to career navigation."
+    },
+    {
+      "asin": "0241989906",
+      "why": "The Squiggly Career extends the same proactive-relationship logic to career direction more broadly."
+    }
+  ],
+  "sources": [
+    {
+      "label": "Publisher description, Apple Books/HBR",
+      "href": "https://books.apple.com/us/book/managing-up-hbr-20-minute-manager-series/id800840806"
+    },
+    {
+      "label": "HBR 20-Minute Manager Series listing",
+      "href": "https://store.hbr.org/books/hbr-20-minute-manager-series/"
+    }
+  ]
+}

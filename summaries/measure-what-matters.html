@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="a">
+<head>
+<meta charset="UTF-8">
+<base href="../">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="icon" type="image/svg+xml" href="favicon.svg">
+<title>Measure What Matters: One-page summary · Plan · Do · Reflect</title>
+
+<!-- Applied before CSS loads, so the saved theme / title-font choice doesn't flash to the default on reload -->
+<script>
+(function () {
+  try {
+    var savedTheme = localStorage.getItem('pdr-theme');
+    if (['a', 'b', 'c'].indexOf(savedTheme) > -1) {
+      document.documentElement.setAttribute('data-theme', savedTheme);
+    }
+    /* No saved choice yet means a first-time visitor — default them to Golos
+       Text rather than the theme's own heading font. Explicitly picking
+       "Theme default" in the picker stores the literal string 'default',
+       which is the one value that clears the override below. */
+    var savedTitleFont = localStorage.getItem('pdr-title-font');
+    var titleFont = savedTitleFont === null ? 'golos-text' : savedTitleFont;
+    if (titleFont !== 'default') {
+      document.documentElement.setAttribute('data-title-font', titleFont);
+    }
+  } catch (e) {}
+})();
+</script>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=Work+Sans:wght@400;500;600&family=Sora:wght@600;700;800&family=Plus+Jakarta+Sans:wght@500;600;700&family=Patrick+Hand&display=swap" rel="stylesheet">
+
+<!-- Title-font brainstorm candidates — temporary, for the .title-font-picker toggle only.
+     Remove this link once a title font is chosen and folded into tokens.css. -->
+<link href="https://fonts.googleapis.com/css2?family=Gabarito:wght@800&family=Chivo:wght@800&family=Golos+Text:wght@800&display=swap" rel="stylesheet">
+
+<link rel="stylesheet" href="css/tokens.css">
+<link rel="stylesheet" href="css/main.css">
+<link rel="stylesheet" href="css/summary.css">
+</head>
+<body>
+
+<header class="topnav">
+  <a class="logo" href="index.html">Plan·Do·Reflect</a>
+  <nav class="topnav-items">
+    <a class="item" href="framework.html">The Framework</a>
+    <a class="item" href="self-management.html">Self</a>
+    <a class="item" href="team.html">Team</a>
+    <a class="item" href="organization.html">Organization</a>
+    <a class="item" href="core-skills.html">Core Skills</a>
+    <a class="item active" href="references.html">References</a>
+  </nav>
+</header>
+
+<main class="sm">
+  <p class="sm-crumb"><a href="references.html">References &amp; Further Reading</a> &rsaquo; One-page summary</p>
+  <article class="sm-page">
+    <header class="sm-head">
+      <img class="sm-cover" src="images/covers/B07BMHFBCM.jpg" data-r="https://m.media-amazon.com/images/I/51HNGEmZEnL._SL300_.jpg" alt="Cover of Measure What Matters" onerror="if(this.dataset.r&amp;&amp;this.src.indexOf(this.dataset.r)===-1){this.src=this.dataset.r}else{this.style.visibility='hidden'}">
+      <div>
+        <p class="sm-eyebrow">One-page summary &middot; 2 min read</p>
+        <h1 class="page-title">Measure What Matters</h1>
+        <p class="sm-sub">How Google, Bono, and the Gates Foundation Rock the World with OKRs</p>
+        <p class="sm-by">by John Doerr</p>
+        <p class="sm-meta">2018 &middot; 7h 56m audiobook &middot; &#9733; 4.5 Audible</p>
+      </div>
+    </header>
+
+    <section class="sm-idea"><h2>The big idea</h2><p>Ambitious organizations succeed by separating what we want to achieve (Objectives) from how we&#x27;ll know we got there (Key Results), then making those goals transparent and public across the whole organization rather than hidden in a manager&#x27;s drawer.</p></section>
+
+<section class="sm-tool"><span class="sm-label">OKRs (Objectives and Key Results)</span><blockquote>An Objective is a qualitative, memorable statement of a significant, concrete, action-oriented goal. Each Objective is paired with 3-5 Key Results, which are quantitative and time-bound. Doerr, who learned the system from Andy Grove at Intel and later brought it to Google, argues OKRs work only when set at a cadence, scored openly (0.0-1.0, with 0.7 a healthy stretch score), and visible to everyone rather than tied to bonuses. He distinguishes committed OKRs (must hit 1.0) from aspirational OKRs (0.7 is a win), a distinction many adopters skip.</blockquote><p>Reviewers and OKR consultants note the book frequently blurs its own outcome/output distinction -- several of Doerr&#x27;s own example Key Results measure activity completed rather than a business result achieved, exactly the failure mode the framework is supposed to prevent.</p></section>
+
+    <section class="sm-ideas"><h2>Key ideas</h2><ol><li><h3>Objectives vs. Key Results, kept separate</h3><p>The qualitative what and quantitative how-we&#x27;ll-know are written and scored separately so teams don&#x27;t let an easy-to-hit metric quietly redefine an ambitious goal.</p></li><li><h3>Transparency over cascading</h3><p>Rather than OKRs cascading rigidly top-down, Doerr pushes for a public, searchable list of everyone&#x27;s goals.</p></li><li><h3>CFRs replace the annual review</h3><p>Doerr pairs OKRs with Conversations, Feedback, and Recognition -- frequent 1:1 check-ins instead of a once-a-year performance review.</p></li><li><h3>Sandbagging is the real enemy</h3><p>Because OKRs are visible, managers will unconsciously set easy targets to protect their track record; aspirational OKRs are explicitly scored so a 0.6-0.7 is expected.</p></li><li><h3>Bono and the ONE Campaign case</h3><p>Doerr uses Bono&#x27;s ONE Campaign and the Gates Foundation&#x27;s malaria-eradication work as proof OKRs aren&#x27;t just a tech-company tool.</p></li><li><h3>OKRs are not a to-do list</h3><p>A recurring warning is that Key Results describe outcomes worth celebrating, not tasks to check off.</p></li></ol></section>
+
+    <div class="sm-cols">
+      <section><h2>Try it this week</h2><ol class="sm-steps"><li>Write one Objective for your current quarter as a single punchy sentence with no numbers in it, then attach exactly 3 Key Results that are each a measurable outcome.</li><li>Run a 15-minute OKR post-mortem at quarter&#x27;s end scoring each Key Result 0.0-1.0 and asking whether it measured what actually happened.</li><li>Make your own goals visible to your team for one quarter and see what changes in how people coordinate with you.</li><li>Before finalizing a Key Result, ask if it&#x27;s an output you control or an outcome the business needs -- if it&#x27;s something you&#x27;d do regardless of whether it worked, rewrite it.</li></ol></section>
+      <section><h2>Is it for you?</h2><h3 class="sm-good">Best for</h3><ul><li>A team lead or exec introducing a formal goal-setting cadence for the first time who wants an accessible, story-driven case for transparency.</li><li>Someone who wants the Silicon Valley pedigree as an internal-selling tool to get buy-in from skeptical leadership.</li></ul><h3 class="sm-less">Less useful if</h3><ul><li>Someone who already runs OKRs and needs troubleshooting for common failure modes -- the book is largely silent on these.</li><li>A reader who wants a tight, technical how-to guide -- the book is heavily padded with repetitive guest-contributed case studies.</li></ul></section>
+    </div>
+
+<section class="sm-links"><h2>On this site</h2><div class="sm-chips"><a href="references.html#cat-metrics">OKRs, KPIs &amp; Metrics</a></div></section>
+    <section class="sm-links sm-related"><h2>Pairs well with</h2><ul><li><a href="references.html#book-0593459326">High Output Management</a> <span>High Output Management is where OKRs originated, under Andy Grove at Intel.</span></li><li><a href="references.html#book-0593162927">Good Strategy/Bad Strategy</a> <span>Good Strategy/Bad Strategy offers a diagnostic complement to this book&#x27;s goal-setting mechanics.</span></li></ul></section>
+
+    <footer class="sm-foot">
+      <a class="sm-buy" href="https://www.amazon.com/s?k=John+Doerr+Measure+What+Matters&amp;tag=phoenixjenn-20" target="_blank" rel="noopener">Find the book on Amazon</a>
+      <p>Original summary written for Plan &middot; Do &middot; Reflect. Prepared from the book&rsquo;s ideas and public summaries (<a href="https://www.penguinrandomhouse.com/books/546304/measure-what-matters-by-john-doerr-foreword-by-larry-page/" target="_blank" rel="noopener">Publisher page (Portfolio/Penguin Random House)</a>, <a href="https://www.perdoo.com/resources/blog/two-things-measure-what-matters-got-wrong" target="_blank" rel="noopener">Perdoo critique of the outcome/output conflation</a>), not a substitute for reading it. Links may earn a commission.</p>
+    </footer>
+  </article>
+</main>
+
+<footer class="site-footer">
+  <p>&copy; 2026 Plan-Do-Reflect. <a href="references.html">References &amp; further reading</a></p>
+</footer>
+
+<div class="theme-switch" role="group" aria-label="Style direction">
+  <button data-theme="a" title="Kinetic Signal — black &amp; yellow"></button>
+  <button data-theme="b" title="Studio Ledger — dusty rose"></button>
+  <button data-theme="c" title="Bright Margin — lime"></button>
+  <a class="icon-lib-link" href="icon-library.html" title="Style Guide (internal reference)">
+    <svg width="14" height="14" viewBox="0 0 14 14" aria-hidden="true">
+      <rect x="1" y="1" width="5" height="5" rx="1" fill="currentColor"/>
+      <rect x="8" y="1" width="5" height="5" rx="1" fill="currentColor"/>
+      <rect x="1" y="8" width="5" height="5" rx="1" fill="currentColor"/>
+      <rect x="8" y="8" width="5" height="5" rx="1" fill="currentColor"/>
+    </svg>
+  </a>
+  <a class="icon-lib-link" href="notes.html" title="Notes (working drafts)">
+    <svg width="14" height="14" viewBox="0 0 14 14" aria-hidden="true">
+      <rect x="2" y="1" width="10" height="12" rx="1.5" fill="none" stroke="currentColor" stroke-width="1.3"/>
+      <line x1="4.5" y1="5" x2="9.5" y2="5" stroke="currentColor" stroke-width="1.3" stroke-linecap="round"/>
+      <line x1="4.5" y1="7.5" x2="9.5" y2="7.5" stroke="currentColor" stroke-width="1.3" stroke-linecap="round"/>
+      <line x1="4.5" y1="10" x2="7.5" y2="10" stroke="currentColor" stroke-width="1.3" stroke-linecap="round"/>
+    </svg>
+  </a>
+  <a class="icon-lib-link" href="sitemap.html" title="Sitemap (working draft)">
+    <svg width="14" height="14" viewBox="0 0 14 14" aria-hidden="true">
+      <circle cx="7" cy="2.5" r="1.8" fill="none" stroke="currentColor" stroke-width="1.3"/>
+      <circle cx="3" cy="11" r="1.8" fill="none" stroke="currentColor" stroke-width="1.3"/>
+      <circle cx="11" cy="11" r="1.8" fill="none" stroke="currentColor" stroke-width="1.3"/>
+      <path d="M7 4.3 L7 7 M7 7 L3 9.5 M7 7 L11 9.5" stroke="currentColor" stroke-width="1.3" fill="none" stroke-linecap="round"/>
+    </svg>
+  </a>
+</div>
+
+<!-- Temporary brainstorm control — only restyles the main h1 (.content h1 / .hero-title / .page-title). Remove alongside
+     the "title-font experiment" CSS block and the extra Google Fonts link once
+     a title font is picked. -->
+<div class="title-font-picker">
+  <label for="title-font-select">Title font</label>
+  <button type="button" id="title-font-prev" class="title-font-nav" aria-label="Previous title font">‹</button>
+  <select id="title-font-select">
+    <optgroup label="Round 1 — headline character">
+      <option value="gabarito">Gabarito</option>
+      <option value="chivo">Chivo</option>
+    </optgroup>
+    <optgroup label="Round 2 — Calibri-adjacent">
+      <option value="golos-text">Golos Text</option>
+    </optgroup>
+    <option value="default">Theme default</option>
+  </select>
+  <button type="button" id="title-font-next" class="title-font-nav" aria-label="Next title font">›</button>
+</div>
+
+<script src="js/theme-toggle.js" defer></script>
+<script src="js/title-font-toggle.js" defer></script>
+</body>
+</html>

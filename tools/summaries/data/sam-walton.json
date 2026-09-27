@@ -1,0 +1,77 @@
+{
+  "asin": "B078RPW8GM",
+  "slug": "sam-walton",
+  "read_time": "2 min read",
+  "big_idea": "Walton's own account (published in 1992, the year he died) of building Walmart from a single Ben Franklin variety-store franchise in rural Arkansas into America's largest retailer, crediting relentless frugality, hands-on store visits, and pushing real decision authority down to store managers rather than any single strategic masterstroke.",
+  "tool": {
+    "label": "Saturday morning meetings and management-by-walking-around",
+    "text": "Walton piloted his own small plane to visit stores unannounced, walking the floor and talking directly to associates and customers rather than relying on headquarters reports. He paired this with a mandatory Saturday morning meeting at Bentonville headquarters, where the prior week's store-level sales figures were reviewed openly and merchandising ideas from field visits were shared company-wide within days. He also shared detailed store financials with hourly associates and gave store managers real authority over local merchandising and pricing.",
+    "note": "Walton is candid that this worked partly because of Walmart's small-town, low-cost store locations and non-union workforce; this insider memoir doesn't anticipate the wage and labor-practice controversies that became a major point of public scrutiny for Walmart in the decades after his death."
+  },
+  "ideas": [
+    {
+      "title": "Everyday Low Prices as operational discipline",
+      "text": "Walton describes obsessive cost control -- shared offices, budget motels on business trips even as a billionaire -- as the actual mechanism behind the slogan."
+    },
+    {
+      "title": "Small-town strategy",
+      "text": "Walmart deliberately built stores in towns under 25,000 people that competitors considered too small to bother with."
+    },
+    {
+      "title": "Open-book, profit-sharing culture",
+      "text": "Associates could see store performance data and shared in profits, which Walton credits for lower turnover than typical retail of the era."
+    },
+    {
+      "title": "From franchisee to founder",
+      "text": "Walton started as a J.C. Penney trainee and Ben Franklin franchisee, and describes how franchise fees capping his margins pushed him to start his own chain."
+    },
+    {
+      "title": "Early, expensive logistics bets",
+      "text": "Walton details investment in a private satellite network and cross-docking distribution centers years before they paid off."
+    },
+    {
+      "title": "Family control and succession",
+      "text": "Walton is explicit about keeping majority ownership within the family rather than diluting through outside capital."
+    }
+  ],
+  "try_it": [
+    "Visit your own stores -- wherever the customer interaction actually happens -- unannounced this week and talk to frontline staff directly.",
+    "Share one piece of performance data with your team that they don't currently see, and track whether behavior changes.",
+    "Look for a market or segment competitors consider too small to bother with and estimate what dominating it first would be worth.",
+    "Audit your own travel and overhead spending against the standard you'd expect of a junior employee."
+  ],
+  "best_for": [
+    "Retail and operations leaders interested in logistics and store-economics history from a founder's own perspective.",
+    "Readers who want Walton's own voice and reasoning rather than a journalist's or biographer's account."
+  ],
+  "less_useful": [
+    "Readers seeking a critical account of Walmart's labor and community impact -- this is a sympathetic as-told-to memoir.",
+    "Readers wanting a current picture of Walmart -- it ends with the company and its founder in 1992."
+  ],
+  "site_links": [
+    {
+      "label": "Business Case Studies & Company Stories",
+      "href": "references.html#cat-casestudies"
+    }
+  ],
+  "related": [
+    {
+      "asin": "0062346725",
+      "why": "Built to Last profiles Walmart as one of its 18 visionary-company case studies."
+    },
+    {
+      "asin": "B01CRM17MS",
+      "why": "Shoe Dog shares this book's founder-memoir structure and obsessive cost-discipline theme."
+    }
+  ],
+  "sources": [
+    {
+      "label": "Publisher page (Penguin Random House)",
+      "href": "https://www.penguinrandomhouse.com/books/185485/sam-walton-by-sam-walton/"
+    },
+    {
+      "label": "Edition listing with publisher details",
+      "href": "https://www.amazon.com/Sam-Walton-Made-America-Story/dp/0345538447"
+    }
+  ]
+}

@@ -1,0 +1,77 @@
+{
+  "asin": "B01CRM17MS",
+  "slug": "shoe-dog",
+  "read_time": "2 min read",
+  "big_idea": "Knight's memoir of founding Blue Ribbon Sports/Nike from a $50 loan and a trunk of Japanese running shoes into a global brand, framed around the constant near-bankruptcy cash crunch of a fast-growing but thinly capitalized company rather than a tidy strategic narrative.",
+  "tool": {
+    "label": "The bank line-of-credit tightrope",
+    "text": "Blue Ribbon Sports/Nike's core problem for its first decade wasn't demand -- shoes sold as fast as Knight could import them -- it was cash: the gap between paying suppliers upfront and collecting from retailers months later. Knight repeatedly maxed out bank lines of credit, juggled multiple banks against each other, and was told more than once that the company was over-leveraged and growing too fast to finance safely, nearly forcing him to shut down or sell despite strong sales.",
+    "note": "Knight's admiring, retrospective framing of these aggressive financing tactics has drawn criticism -- reviewers note the memoir is candid about ethically questionable moves but presents them as scrappy founder mythology rather than examining the real risk they posed to employees and lenders."
+  },
+  "ideas": [
+    {
+      "title": "Origin as a grad-school paper",
+      "text": "Knight's initial idea -- importing cheap, high-quality Japanese running shoes to challenge German dominance by Adidas and Puma -- began as a Stanford business school class assignment."
+    },
+    {
+      "title": "The Buttfaces",
+      "text": "Knight's early hires, chosen more for loyalty and grit than polish, including his former track coach and co-founder Bill Bowerman, shaped Nike's scrappy founding culture."
+    },
+    {
+      "title": "The Onitsuka breakup",
+      "text": "Nike's original supplier relationship with Onitsuka collapsed into mutual lawsuits once Knight began developing his own Nike-branded shoes behind Onitsuka's back."
+    },
+    {
+      "title": "Bowerman's waffle iron",
+      "text": "Co-founder Bill Bowerman literally poured rubber into a waffle iron to prototype what became the Waffle sole."
+    },
+    {
+      "title": "The $35 swoosh",
+      "text": "The now-iconic logo was commissioned for $35 from design student Carolyn Davidson."
+    },
+    {
+      "title": "Going public as loss, not triumph",
+      "text": "Knight describes Nike's 1980 IPO with more ambivalence than celebration, framing it as the end of the closely-held, scrappy phase he actually loved."
+    }
+  ],
+  "try_it": [
+    "Model your own venture's cash-conversion cycle and identify where a growth spurt would break it.",
+    "List the people on your team chosen for loyalty and grit over polish, and make sure they know that's valued.",
+    "Write down one supplier or partner relationship you're quietly outgrowing, and plan that conversation before it becomes a legal fight.",
+    "Revisit your own founding story for the parts you've smoothed over, and consider what the messier true version actually teaches."
+  ],
+  "best_for": [
+    "Founders and early operators who want an unvarnished, emotionally honest account of near-failure inside a growth company.",
+    "Readers who prefer narrative memoir over an extractable framework."
+  ],
+  "less_useful": [
+    "Readers looking for prescriptive management or marketing frameworks -- the book is deliberately narrative.",
+    "Readers wanting the book to address Nike's 1990s manufacturing-labor controversies."
+  ],
+  "site_links": [
+    {
+      "label": "Business Case Studies & Company Stories",
+      "href": "references.html#cat-casestudies"
+    }
+  ],
+  "related": [
+    {
+      "asin": "B078RPW8GM",
+      "why": "Sam Walton shares this book's frugal, founder-driven retail growth story from an earlier era."
+    },
+    {
+      "asin": "0525499334",
+      "why": "The Ride of a Lifetime offers a very different, CEO-level counterpart to this book's founder's-eye view."
+    }
+  ],
+  "sources": [
+    {
+      "label": "Official publisher page (Simon & Schuster)",
+      "href": "https://www.simonandschuster.com/books/Shoe-Dog/Phil-Knight/9781501135927"
+    },
+    {
+      "label": "Bill Gates's review",
+      "href": "https://www.gatesnotes.com/Shoe-Dog"
+    }
+  ]
+}

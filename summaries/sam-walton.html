@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="a">
+<head>
+<meta charset="UTF-8">
+<base href="../">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="icon" type="image/svg+xml" href="favicon.svg">
+<title>Sam Walton: One-page summary · Plan · Do · Reflect</title>
+
+<!-- Applied before CSS loads, so the saved theme / title-font choice doesn't flash to the default on reload -->
+<script>
+(function () {
+  try {
+    var savedTheme = localStorage.getItem('pdr-theme');
+    if (['a', 'b', 'c'].indexOf(savedTheme) > -1) {
+      document.documentElement.setAttribute('data-theme', savedTheme);
+    }
+    /* No saved choice yet means a first-time visitor — default them to Golos
+       Text rather than the theme's own heading font. Explicitly picking
+       "Theme default" in the picker stores the literal string 'default',
+       which is the one value that clears the override below. */
+    var savedTitleFont = localStorage.getItem('pdr-title-font');
+    var titleFont = savedTitleFont === null ? 'golos-text' : savedTitleFont;
+    if (titleFont !== 'default') {
+      document.documentElement.setAttribute('data-title-font', titleFont);
+    }
+  } catch (e) {}
+})();
+</script>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=Work+Sans:wght@400;500;600&family=Sora:wght@600;700;800&family=Plus+Jakarta+Sans:wght@500;600;700&family=Patrick+Hand&display=swap" rel="stylesheet">
+
+<!-- Title-font brainstorm candidates — temporary, for the .title-font-picker toggle only.
+     Remove this link once a title font is chosen and folded into tokens.css. -->
+<link href="https://fonts.googleapis.com/css2?family=Gabarito:wght@800&family=Chivo:wght@800&family=Golos+Text:wght@800&display=swap" rel="stylesheet">
+
+<link rel="stylesheet" href="css/tokens.css">
+<link rel="stylesheet" href="css/main.css">
+<link rel="stylesheet" href="css/summary.css">
+</head>
+<body>
+
+<header class="topnav">
+  <a class="logo" href="index.html">Plan·Do·Reflect</a>
+  <nav class="topnav-items">
+    <a class="item" href="framework.html">The Framework</a>
+    <a class="item" href="self-management.html">Self</a>
+    <a class="item" href="team.html">Team</a>
+    <a class="item" href="organization.html">Organization</a>
+    <a class="item" href="core-skills.html">Core Skills</a>
+    <a class="item active" href="references.html">References</a>
+  </nav>
+</header>
+
+<main class="sm">
+  <p class="sm-crumb"><a href="references.html">References &amp; Further Reading</a> &rsaquo; One-page summary</p>
+  <article class="sm-page">
+    <header class="sm-head">
+      <img class="sm-cover" src="images/covers/B078RPW8GM.jpg" data-r="https://m.media-amazon.com/images/I/51Xo0B3uZ5L._SL300_.jpg" alt="Cover of Sam Walton" onerror="if(this.dataset.r&amp;&amp;this.src.indexOf(this.dataset.r)===-1){this.src=this.dataset.r}else{this.style.visibility='hidden'}">
+      <div>
+        <p class="sm-eyebrow">One-page summary &middot; 2 min read</p>
+        <h1 class="page-title">Sam Walton</h1>
+        <p class="sm-sub">Made in America</p>
+        <p class="sm-by">by John Huey, Sam Walton</p>
+        <p class="sm-meta">2018 &middot; 10h 31m audiobook &middot; &#9733; 4.8 Audible</p>
+      </div>
+    </header>
+
+    <section class="sm-idea"><h2>The big idea</h2><p>Walton&#x27;s own account (published in 1992, the year he died) of building Walmart from a single Ben Franklin variety-store franchise in rural Arkansas into America&#x27;s largest retailer, crediting relentless frugality, hands-on store visits, and pushing real decision authority down to store managers rather than any single strategic masterstroke.</p></section>
+
+<section class="sm-tool"><span class="sm-label">Saturday morning meetings and management-by-walking-around</span><blockquote>Walton piloted his own small plane to visit stores unannounced, walking the floor and talking directly to associates and customers rather than relying on headquarters reports. He paired this with a mandatory Saturday morning meeting at Bentonville headquarters, where the prior week&#x27;s store-level sales figures were reviewed openly and merchandising ideas from field visits were shared company-wide within days. He also shared detailed store financials with hourly associates and gave store managers real authority over local merchandising and pricing.</blockquote><p>Walton is candid that this worked partly because of Walmart&#x27;s small-town, low-cost store locations and non-union workforce; this insider memoir doesn&#x27;t anticipate the wage and labor-practice controversies that became a major point of public scrutiny for Walmart in the decades after his death.</p></section>
+
+    <section class="sm-ideas"><h2>Key ideas</h2><ol><li><h3>Everyday Low Prices as operational discipline</h3><p>Walton describes obsessive cost control -- shared offices, budget motels on business trips even as a billionaire -- as the actual mechanism behind the slogan.</p></li><li><h3>Small-town strategy</h3><p>Walmart deliberately built stores in towns under 25,000 people that competitors considered too small to bother with.</p></li><li><h3>Open-book, profit-sharing culture</h3><p>Associates could see store performance data and shared in profits, which Walton credits for lower turnover than typical retail of the era.</p></li><li><h3>From franchisee to founder</h3><p>Walton started as a J.C. Penney trainee and Ben Franklin franchisee, and describes how franchise fees capping his margins pushed him to start his own chain.</p></li><li><h3>Early, expensive logistics bets</h3><p>Walton details investment in a private satellite network and cross-docking distribution centers years before they paid off.</p></li><li><h3>Family control and succession</h3><p>Walton is explicit about keeping majority ownership within the family rather than diluting through outside capital.</p></li></ol></section>
+
+    <div class="sm-cols">
+      <section><h2>Try it this week</h2><ol class="sm-steps"><li>Visit your own stores -- wherever the customer interaction actually happens -- unannounced this week and talk to frontline staff directly.</li><li>Share one piece of performance data with your team that they don&#x27;t currently see, and track whether behavior changes.</li><li>Look for a market or segment competitors consider too small to bother with and estimate what dominating it first would be worth.</li><li>Audit your own travel and overhead spending against the standard you&#x27;d expect of a junior employee.</li></ol></section>
+      <section><h2>Is it for you?</h2><h3 class="sm-good">Best for</h3><ul><li>Retail and operations leaders interested in logistics and store-economics history from a founder&#x27;s own perspective.</li><li>Readers who want Walton&#x27;s own voice and reasoning rather than a journalist&#x27;s or biographer&#x27;s account.</li></ul><h3 class="sm-less">Less useful if</h3><ul><li>Readers seeking a critical account of Walmart&#x27;s labor and community impact -- this is a sympathetic as-told-to memoir.</li><li>Readers wanting a current picture of Walmart -- it ends with the company and its founder in 1992.</li></ul></section>
+    </div>
+
+<section class="sm-links"><h2>On this site</h2><div class="sm-chips"><a href="references.html#cat-casestudies">Business Case Studies &amp; Company Stories</a></div></section>
+    <section class="sm-links sm-related"><h2>Pairs well with</h2><ul><li><a href="references.html#book-0062346725">Built to Last</a> <span>Built to Last profiles Walmart as one of its 18 visionary-company case studies.</span></li><li><a href="references.html#book-B01CRM17MS">Shoe Dog</a> <span>Shoe Dog shares this book&#x27;s founder-memoir structure and obsessive cost-discipline theme.</span></li></ul></section>
+
+    <footer class="sm-foot">
+      <a class="sm-buy" href="https://www.amazon.com/s?k=John+Huey+Sam+Walton&amp;tag=phoenixjenn-20" target="_blank" rel="noopener">Find the book on Amazon</a>
+      <p>Original summary written for Plan &middot; Do &middot; Reflect. Prepared from the book&rsquo;s ideas and public summaries (<a href="https://www.penguinrandomhouse.com/books/185485/sam-walton-by-sam-walton/" target="_blank" rel="noopener">Publisher page (Penguin Random House)</a>, <a href="https://www.amazon.com/Sam-Walton-Made-America-Story/dp/0345538447" target="_blank" rel="noopener">Edition listing with publisher details</a>), not a substitute for reading it. Links may earn a commission.</p>
+    </footer>
+  </article>
+</main>
+
+<footer class="site-footer">
+  <p>&copy; 2026 Plan-Do-Reflect. <a href="references.html">References &amp; further reading</a></p>
+</footer>
+
+<div class="theme-switch" role="group" aria-label="Style direction">
+  <button data-theme="a" title="Kinetic Signal — black &amp; yellow"></button>
+  <button data-theme="b" title="Studio Ledger — dusty rose"></button>
+  <button data-theme="c" title="Bright Margin — lime"></button>
+  <a class="icon-lib-link" href="icon-library.html" title="Style Guide (internal reference)">
+    <svg width="14" height="14" viewBox="0 0 14 14" aria-hidden="true">
+      <rect x="1" y="1" width="5" height="5" rx="1" fill="currentColor"/>
+      <rect x="8" y="1" width="5" height="5" rx="1" fill="currentColor"/>
+      <rect x="1" y="8" width="5" height="5" rx="1" fill="currentColor"/>
+      <rect x="8" y="8" width="5" height="5" rx="1" fill="currentColor"/>
+    </svg>
+  </a>
+  <a class="icon-lib-link" href="notes.html" title="Notes (working drafts)">
+    <svg width="14" height="14" viewBox="0 0 14 14" aria-hidden="true">
+      <rect x="2" y="1" width="10" height="12" rx="1.5" fill="none" stroke="currentColor" stroke-width="1.3"/>
+      <line x1="4.5" y1="5" x2="9.5" y2="5" stroke="currentColor" stroke-width="1.3" stroke-linecap="round"/>
+      <line x1="4.5" y1="7.5" x2="9.5" y2="7.5" stroke="currentColor" stroke-width="1.3" stroke-linecap="round"/>
+      <line x1="4.5" y1="10" x2="7.5" y2="10" stroke="currentColor" stroke-width="1.3" stroke-linecap="round"/>
+    </svg>
+  </a>
+  <a class="icon-lib-link" href="sitemap.html" title="Sitemap (working draft)">
+    <svg width="14" height="14" viewBox="0 0 14 14" aria-hidden="true">
+      <circle cx="7" cy="2.5" r="1.8" fill="none" stroke="currentColor" stroke-width="1.3"/>
+      <circle cx="3" cy="11" r="1.8" fill="none" stroke="currentColor" stroke-width="1.3"/>
+      <circle cx="11" cy="11" r="1.8" fill="none" stroke="currentColor" stroke-width="1.3"/>
+      <path d="M7 4.3 L7 7 M7 7 L3 9.5 M7 7 L11 9.5" stroke="currentColor" stroke-width="1.3" fill="none" stroke-linecap="round"/>
+    </svg>
+  </a>
+</div>
+
+<!-- Temporary brainstorm control — only restyles the main h1 (.content h1 / .hero-title / .page-title). Remove alongside
+     the "title-font experiment" CSS block and the extra Google Fonts link once
+     a title font is picked. -->
+<div class="title-font-picker">
+  <label for="title-font-select">Title font</label>
+  <button type="button" id="title-font-prev" class="title-font-nav" aria-label="Previous title font">‹</button>
+  <select id="title-font-select">
+    <optgroup label="Round 1 — headline character">
+      <option value="gabarito">Gabarito</option>
+      <option value="chivo">Chivo</option>
+    </optgroup>
+    <optgroup label="Round 2 — Calibri-adjacent">
+      <option value="golos-text">Golos Text</option>
+    </optgroup>
+    <option value="default">Theme default</option>
+  </select>
+  <button type="button" id="title-font-next" class="title-font-nav" aria-label="Next title font">›</button>
+</div>
+
+<script src="js/theme-toggle.js" defer></script>
+<script src="js/title-font-toggle.js" defer></script>
+</body>
+</html>

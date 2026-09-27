@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="a">
+<head>
+<meta charset="UTF-8">
+<base href="../">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="icon" type="image/svg+xml" href="favicon.svg">
+<title>Playing to Win: One-page summary · Plan · Do · Reflect</title>
+
+<!-- Applied before CSS loads, so the saved theme / title-font choice doesn't flash to the default on reload -->
+<script>
+(function () {
+  try {
+    var savedTheme = localStorage.getItem('pdr-theme');
+    if (['a', 'b', 'c'].indexOf(savedTheme) > -1) {
+      document.documentElement.setAttribute('data-theme', savedTheme);
+    }
+    /* No saved choice yet means a first-time visitor — default them to Golos
+       Text rather than the theme's own heading font. Explicitly picking
+       "Theme default" in the picker stores the literal string 'default',
+       which is the one value that clears the override below. */
+    var savedTitleFont = localStorage.getItem('pdr-title-font');
+    var titleFont = savedTitleFont === null ? 'golos-text' : savedTitleFont;
+    if (titleFont !== 'default') {
+      document.documentElement.setAttribute('data-title-font', titleFont);
+    }
+  } catch (e) {}
+})();
+</script>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=Work+Sans:wght@400;500;600&family=Sora:wght@600;700;800&family=Plus+Jakarta+Sans:wght@500;600;700&family=Patrick+Hand&display=swap" rel="stylesheet">
+
+<!-- Title-font brainstorm candidates — temporary, for the .title-font-picker toggle only.
+     Remove this link once a title font is chosen and folded into tokens.css. -->
+<link href="https://fonts.googleapis.com/css2?family=Gabarito:wght@800&family=Chivo:wght@800&family=Golos+Text:wght@800&display=swap" rel="stylesheet">
+
+<link rel="stylesheet" href="css/tokens.css">
+<link rel="stylesheet" href="css/main.css">
+<link rel="stylesheet" href="css/summary.css">
+</head>
+<body>
+
+<header class="topnav">
+  <a class="logo" href="index.html">Plan·Do·Reflect</a>
+  <nav class="topnav-items">
+    <a class="item" href="framework.html">The Framework</a>
+    <a class="item" href="self-management.html">Self</a>
+    <a class="item" href="team.html">Team</a>
+    <a class="item" href="organization.html">Organization</a>
+    <a class="item" href="core-skills.html">Core Skills</a>
+    <a class="item active" href="references.html">References</a>
+  </nav>
+</header>
+
+<main class="sm">
+  <p class="sm-crumb"><a href="references.html">References &amp; Further Reading</a> &rsaquo; One-page summary</p>
+  <article class="sm-page">
+    <header class="sm-head">
+      <img class="sm-cover" src="images/covers/B00GP3R02M.jpg" data-r="https://m.media-amazon.com/images/I/51g+-J-995L._SL300_.jpg" alt="Cover of Playing to Win" onerror="if(this.dataset.r&amp;&amp;this.src.indexOf(this.dataset.r)===-1){this.src=this.dataset.r}else{this.style.visibility='hidden'}">
+      <div>
+        <p class="sm-eyebrow">One-page summary &middot; 2 min read</p>
+        <h1 class="page-title">Playing to Win</h1>
+        <p class="sm-sub">How Strategy Really Works</p>
+        <p class="sm-by">by Roger L. Martin, A.G. Lafley</p>
+        <p class="sm-meta">2013 &middot; 7h 9m audiobook &middot; &#9733; 4.4 Audible</p>
+      </div>
+    </header>
+
+    <section class="sm-idea"><h2>The big idea</h2><p>Strategy is not a vision statement or a list of values -- it is a small set of interlocking, hard choices, and the book distills this into a five-question strategy cascade built from Lafley&#x27;s experience turning around Procter &amp; Gamble as CEO.</p></section>
+
+<section class="sm-tool"><span class="sm-label">The Strategic Choice Cascade</span><blockquote>The cascade forces five sequential, interdependent choices: what is our winning aspiration; where will we play; how will we win in the chosen arena; what capabilities must be in place to win that way; and what management systems are needed to build and sustain those capabilities. Each answer constrains the next, and the authors insist the choices must be made together -- a where-to-play choice made without a clear how-to-win is just a target list, not a strategy.</blockquote><p>Because the cascade is built almost entirely from Lafley&#x27;s own P&amp;G tenure, it&#x27;s easier to validate with the benefit of hindsight; the book offers less guidance for situations where resource constraints limit how many of the five boxes a smaller company can realistically fill at once.</p></section>
+
+    <section class="sm-ideas"><h2>Key ideas</h2><ol><li><h3>Strategy is choice, not aspiration</h3><p>The authors explicitly reject vision/mission statements and SWOT-style lists as strategy, insisting real strategy commits to specific, exclusionary choices.</p></li><li><h3>Reverse-engineering where to play, how to win</h3><p>Rather than starting from capabilities and asking what&#x27;s possible, the method starts from winning and works backward to what must be true.</p></li><li><h3>Competitive advantage as the test</h3><p>Every how-to-win choice must be checked against what makes the company distinctively better for its chosen customer, not just adequate.</p></li><li><h3>What would have to be true</h3><p>The book&#x27;s companion methodology asks readers to state the conditions that would have to hold for a strategic option to succeed.</p></li><li><h3>Capabilities must match the chosen how</h3><p>A recurring failure mode is companies picking a competitive advantage their existing capabilities can&#x27;t actually deliver.</p></li><li><h3>Management systems as the hidden strategy layer</h3><p>Metrics, incentives, and governance are treated as part of strategy itself, not an afterthought to implementation.</p></li></ol></section>
+
+    <div class="sm-cols">
+      <section><h2>Try it this week</h2><ol class="sm-steps"><li>Write your team&#x27;s current winning aspiration in one sentence specific enough that it rules out some of what you&#x27;re currently doing.</li><li>List three markets or segments your team should explicitly stop investing in as part of a where-to-play choice.</li><li>State your how-to-win claim and list the two or three capabilities that would have to be true for it to hold.</li><li>Run the what-would-have-to-be-true test on one current strategic bet under debate on your team.</li></ol></section>
+      <section><h2>Is it for you?</h2><h3 class="sm-good">Best for</h3><ul><li>General managers and executives who need a practical, choice-forcing framework rather than an academic theory of strategy.</li><li>Teams stuck producing vision statements and SWOT lists instead of decisions.</li></ul><h3 class="sm-less">Less useful if</h3><ul><li>Readers in fast-moving startups or emergent markets where where-to-play and how-to-win shift too quickly for a cascade built on a large, slow-moving company.</li><li>Anyone looking for rigorous outside evaluation of whether the framework caused P&amp;G&#x27;s results.</li></ul></section>
+    </div>
+
+<section class="sm-links"><h2>On this site</h2><div class="sm-chips"><a href="references.html#cat-strategy">Strategy &amp; Planning</a></div></section>
+    <section class="sm-links sm-related"><h2>Pairs well with</h2><ul><li><a href="references.html#book-0593162927">Good Strategy/Bad Strategy</a> <span>Good Strategy/Bad Strategy shares the same insistence that strategy means hard, exclusionary choices.</span></li><li><a href="references.html#book-1469080966">Blue Ocean Strategy, Expanded Edition</a> <span>Blue Ocean Strategy offers complementary positioning tools for the where-to-play question.</span></li></ul></section>
+
+    <footer class="sm-foot">
+      <a class="sm-buy" href="https://www.amazon.com/s?k=Roger+L.+Martin+Playing+to+Win&amp;tag=phoenixjenn-20" target="_blank" rel="noopener">Find the book on Amazon</a>
+      <p>Original summary written for Plan &middot; Do &middot; Reflect. Prepared from the book&rsquo;s ideas and public summaries (<a href="https://www.caseatlas.org/frameworks/playing-to-win" target="_blank" rel="noopener">CaseAtlas summary of the five-question cascade</a>, <a href="https://rogerlmartin.com/lets-read/playing-to-win" target="_blank" rel="noopener">Roger Martin&#x27;s own site discussing the book</a>), not a substitute for reading it. Links may earn a commission.</p>
+    </footer>
+  </article>
+</main>
+
+<footer class="site-footer">
+  <p>&copy; 2026 Plan-Do-Reflect. <a href="references.html">References &amp; further reading</a></p>
+</footer>
+
+<div class="theme-switch" role="group" aria-label="Style direction">
+  <button data-theme="a" title="Kinetic Signal — black &amp; yellow"></button>
+  <button data-theme="b" title="Studio Ledger — dusty rose"></button>
+  <button data-theme="c" title="Bright Margin — lime"></button>
+  <a class="icon-lib-link" href="icon-library.html" title="Style Guide (internal reference)">
+    <svg width="14" height="14" viewBox="0 0 14 14" aria-hidden="true">
+      <rect x="1" y="1" width="5" height="5" rx="1" fill="currentColor"/>
+      <rect x="8" y="1" width="5" height="5" rx="1" fill="currentColor"/>
+      <rect x="1" y="8" width="5" height="5" rx="1" fill="currentColor"/>
+      <rect x="8" y="8" width="5" height="5" rx="1" fill="currentColor"/>
+    </svg>
+  </a>
+  <a class="icon-lib-link" href="notes.html" title="Notes (working drafts)">
+    <svg width="14" height="14" viewBox="0 0 14 14" aria-hidden="true">
+      <rect x="2" y="1" width="10" height="12" rx="1.5" fill="none" stroke="currentColor" stroke-width="1.3"/>
+      <line x1="4.5" y1="5" x2="9.5" y2="5" stroke="currentColor" stroke-width="1.3" stroke-linecap="round"/>
+      <line x1="4.5" y1="7.5" x2="9.5" y2="7.5" stroke="currentColor" stroke-width="1.3" stroke-linecap="round"/>
+      <line x1="4.5" y1="10" x2="7.5" y2="10" stroke="currentColor" stroke-width="1.3" stroke-linecap="round"/>
+    </svg>
+  </a>
+  <a class="icon-lib-link" href="sitemap.html" title="Sitemap (working draft)">
+    <svg width="14" height="14" viewBox="0 0 14 14" aria-hidden="true">
+      <circle cx="7" cy="2.5" r="1.8" fill="none" stroke="currentColor" stroke-width="1.3"/>
+      <circle cx="3" cy="11" r="1.8" fill="none" stroke="currentColor" stroke-width="1.3"/>
+      <circle cx="11" cy="11" r="1.8" fill="none" stroke="currentColor" stroke-width="1.3"/>
+      <path d="M7 4.3 L7 7 M7 7 L3 9.5 M7 7 L11 9.5" stroke="currentColor" stroke-width="1.3" fill="none" stroke-linecap="round"/>
+    </svg>
+  </a>
+</div>
+
+<!-- Temporary brainstorm control — only restyles the main h1 (.content h1 / .hero-title / .page-title). Remove alongside
+     the "title-font experiment" CSS block and the extra Google Fonts link once
+     a title font is picked. -->
+<div class="title-font-picker">
+  <label for="title-font-select">Title font</label>
+  <button type="button" id="title-font-prev" class="title-font-nav" aria-label="Previous title font">‹</button>
+  <select id="title-font-select">
+    <optgroup label="Round 1 — headline character">
+      <option value="gabarito">Gabarito</option>
+      <option value="chivo">Chivo</option>
+    </optgroup>
+    <optgroup label="Round 2 — Calibri-adjacent">
+      <option value="golos-text">Golos Text</option>
+    </optgroup>
+    <option value="default">Theme default</option>
+  </select>
+  <button type="button" id="title-font-next" class="title-font-nav" aria-label="Next title font">›</button>
+</div>
+
+<script src="js/theme-toggle.js" defer></script>
+<script src="js/title-font-toggle.js" defer></script>
+</body>
+</html>

@@ -1,0 +1,77 @@
+{
+  "asin": "0593459326",
+  "slug": "high-output-management",
+  "read_time": "2 min read",
+  "big_idea": "A manager's output is not their own activity but the output of the organization they supervise and influence, so the job of management is to maximize that collective output through leverage -- training people, gathering information, and making decisions that affect many people at once.",
+  "tool": {
+    "label": "Task-Relevant Maturity (TRM)",
+    "text": "Grove argues a manager's style toward any given person should be set by that person's task-relevant maturity -- their skill and experience on the specific task at hand, not their seniority or title. When TRM is low, the manager gives highly structured, directive instruction. As TRM rises, the manager shifts to a more participative style. At high TRM, the manager delegates almost entirely. Because TRM is task-specific rather than person-specific, the same employee might need close direction on a brand-new assignment while getting full autonomy on work they've mastered.",
+    "note": "TRM descends from Hersey and Blanchard's Situational Leadership model and Grove offers no rigorous way to measure maturity objectively -- in practice it's a manager's subjective read."
+  },
+  "ideas": [
+    {
+      "title": "Output over activity",
+      "text": "Grove insists managers stop measuring their own busyness and instead measure the output of their entire organization, including teams they influence but don't directly command."
+    },
+    {
+      "title": "The breakfast factory",
+      "text": "His extended example of producing a three-minute egg, toast, and coffee breakfast teaches bottleneck identification and trading inventory against capacity as literal operating tools."
+    },
+    {
+      "title": "Meetings as the actual work",
+      "text": "Grove reframes meetings as the medium of management, splitting them into process-oriented and mission-oriented types with different purposes and cadences."
+    },
+    {
+      "title": "The one-on-one as coaching, not status reporting",
+      "text": "Grove prescribes regular one-on-ones run on the subordinate's agenda, where the manager's job is to teach and surface problems early."
+    },
+    {
+      "title": "Hybrid organizations and dual reporting",
+      "text": "He tackles matrixed structures directly, explaining how to keep dual reporting from causing confusion."
+    },
+    {
+      "title": "Peer power and knowledge authority",
+      "text": "Grove describes how modern knowledge-work organizations increasingly run on peer influence and information rather than pure hierarchy."
+    }
+  ],
+  "try_it": [
+    "Run your next round of one-on-ones with the direct report setting the agenda, and close each one by naming that person's current task-relevant maturity on their top project.",
+    "Map one core team workflow as a chain of steps, identify the single limiting step, and redesign the process around it.",
+    "Audit a week of your calendar, label every meeting process-oriented or mission-oriented, and cut or restructure anything that fits neither category.",
+    "Replace one activity metric you currently report with a genuine output metric for your next skip-level update."
+  ],
+  "best_for": [
+    "New or newly promoted managers in engineering, product, or operations who want a systems view of management grounded in production logic.",
+    "Managers running high-throughput, process-heavy teams who need a concrete model for finding bottlenecks and matching management style to skill level."
+  ],
+  "less_useful": [
+    "Readers seeking guidance on culture-building, DEI, or the emotional dynamics of teams.",
+    "Managers at very small startups or single-contributor teams, since the book's structure assumes staff meetings and multiple layers."
+  ],
+  "site_links": [
+    {
+      "label": "People Management (1:1s, feedback, performance)",
+      "href": "references.html#cat-people"
+    }
+  ],
+  "related": [
+    {
+      "asin": "B0CY6F7V18",
+      "why": "The Effective Manager offers a more scripted, habit-based complement to Grove's more conceptual systems view."
+    },
+    {
+      "asin": "1452652171",
+      "why": "The Manager's Path extends similar systems thinking into a stage-by-stage tech management career ladder."
+    }
+  ],
+  "sources": [
+    {
+      "label": "Wikipedia -- publication history and reception",
+      "href": "https://en.wikipedia.org/wiki/High_Output_Management"
+    },
+    {
+      "label": "Nat Eliason's detailed framework breakdown and notes",
+      "href": "https://www.nateliason.com/notes/high-output-management-andy-grove"
+    }
+  ]
+}

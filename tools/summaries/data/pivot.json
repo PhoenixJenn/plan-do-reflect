@@ -1,0 +1,77 @@
+{
+  "asin": "B01KIPHEPA",
+  "slug": "pivot",
+  "read_time": "2 min read",
+  "big_idea": "Career reinvention doesn't require a dramatic leap into the unknown; it works better as a series of small, deliberate experiments launched from your existing strengths, which compound into meaningful change with far less risk than a single big bet.",
+  "tool": {
+    "label": "The Pivot Method (Plant, Scan, Pilot, Launch)",
+    "text": "Blake's four-stage method starts with Plant: taking stock of what's already working and defining what success looks like on a roughly one-year horizon. Scan maps the surrounding landscape of related people, skills, and roles. Pilot is the experimentation stage, designing small, low-risk tests to gather real evidence before committing. Launch means either fully committing or taking a 'little L' launch -- distilling what you learned into one or two next concrete steps. The method is cyclical, looping back through the four stages repeatedly.",
+    "note": "The method is oriented toward people who already have a stable base to pivot from, so it offers less concrete guidance for someone facing an involuntary, urgent transition like a layoff with no runway."
+  },
+  "ideas": [
+    {
+      "title": "Double down before you jump",
+      "text": "Blake argues the biggest pivot mistake is abandoning strengths too early; successful pivots amplify what's already working."
+    },
+    {
+      "title": "Small experiments beat big bets",
+      "text": "Piloting cheap, reversible tests generates better information than committing fully to an unproven direction."
+    },
+    {
+      "title": "Your network is a scanning tool, not just a favor bank",
+      "text": "Blake reframes networking as active research -- talking to people adjacent to a target role or industry."
+    },
+    {
+      "title": "Career change is a practice, not an event",
+      "text": "The book treats pivoting as a repeatable skill to build over a career rather than a rare, high-stakes crisis."
+    },
+    {
+      "title": "Define success narrowly and near-term",
+      "text": "Blake pushes readers to define what a successful pivot looks like within about a year, making progress measurable."
+    },
+    {
+      "title": "A little L launch still counts",
+      "text": "Blake normalizes incremental, low-drama launches as legitimate pivot progress, not just dramatic career overhauls."
+    }
+  ],
+  "try_it": [
+    "Write a one-page Plant audit this week: list what's currently working in your role and one measurable outcome you want in 12 months.",
+    "Identify three people doing adjacent work to a role you're curious about and schedule short conversations with them.",
+    "Design one low-cost pilot experiment you can start within two weeks to test a potential direction.",
+    "Set a recurring monthly review to reassess where you are in the Plant-Scan-Pilot-Launch cycle."
+  ],
+  "best_for": [
+    "Professionals feeling stagnant in a stable job who want to explore a new direction without quitting first.",
+    "People early in a transition who want a structured, low-risk process rather than generic 'follow your passion' advice."
+  ],
+  "less_useful": [
+    "Someone facing an urgent, involuntary transition who needs immediate tactical job-search help rather than an exploratory framework.",
+    "Readers who want hard data or longitudinal outcome studies on career-change success."
+  ],
+  "site_links": [
+    {
+      "label": "Managing Up & Career Navigation",
+      "href": "references.html#cat-managingup"
+    }
+  ],
+  "related": [
+    {
+      "asin": "0241989906",
+      "why": "The Squiggly Career shares the same nonlinear, self-directed approach to career navigation."
+    },
+    {
+      "asin": "B078KF1LZ5",
+      "why": "The Career Manifesto offers a complementary purpose-first planning process for the same audience."
+    }
+  ],
+  "sources": [
+    {
+      "label": "Official Pivot Method site and framework description",
+      "href": "https://www.pivotmethod.com/welcome-pivoters"
+    },
+    {
+      "label": "Author background, former Google career development program manager",
+      "href": "https://www.pivotmethod.com/about-jenny"
+    }
+  ]
+}

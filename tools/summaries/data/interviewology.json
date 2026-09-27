@@ -1,0 +1,77 @@
+{
+  "asin": "B0C4C7JT5P",
+  "slug": "interviewology",
+  "read_time": "2 min read",
+  "big_idea": "Interview performance is shaped less by preparation than by an unconscious, stable interview style every person defaults to under pressure, and once you can name your own style (and read your interviewer's), you can adjust your behavior deliberately instead of being run by instinct.",
+  "tool": {
+    "label": "The Four Interview Styles (Charmer, Challenger, Examiner, Harmonizer)",
+    "text": "Papalia's framework sorts interview behavior into four types. Charmers lead with likability but can underdiscuss qualifications. Challengers assert value by questioning and pushing back, risking dominance. Examiners default to structure and rules, which can make them seem rigid. Harmonizers become deferential and mirror the interviewer, which can read as passive. Readers take a self-assessment to identify their default style, then learn style-specific adjustments and how to read an interviewer's style in real time.",
+    "note": "The framework is built from Papalia's own proprietary coaching research rather than a peer-reviewed academic study, and one review notes the book's style-combination breakdowns become repetitive."
+  },
+  "ideas": [
+    {
+      "title": "Interviewing is a skill, not a talent test",
+      "text": "Papalia reframes interviews as a learnable behavioral skill, arguing most candidates fail from unmanaged style mismatches, not lack of qualifications."
+    },
+    {
+      "title": "Your style shows up everywhere, not just interviews",
+      "text": "She argues the same four styles govern performance reviews, negotiations, and first dates, since they reflect a person's default relationship to authority and approval."
+    },
+    {
+      "title": "Hiring managers have styles too",
+      "text": "The book applies the same framework to interviewers, teaching readers to spot an interviewer's style quickly and adapt their delivery to reduce friction."
+    },
+    {
+      "title": "Self-awareness beats scripted answers",
+      "text": "Rather than memorizing correct answers, Papalia pushes readers to understand why their instinctive answers land the way they do."
+    },
+    {
+      "title": "Likability and competence are separate signals",
+      "text": "She distinguishes being liked in an interview from being seen as capable, arguing candidates often win warmth at the expense of demonstrating qualification."
+    },
+    {
+      "title": "Style flexes under stress, but has a default",
+      "text": "Everyone has a home style they revert to when nervous, which is why generic interview coaching fails to change behavior under actual pressure."
+    }
+  ],
+  "try_it": [
+    "Take the free Interviewology style assessment before your next interview and write down your top two adjustment behaviors for that style.",
+    "Before your next interview, research the interviewer on LinkedIn and predict which of the four styles they're likely to display.",
+    "Record yourself answering a mock interview question and identify which of the four styles your answer pattern matches.",
+    "After your next real interview, note which style you defaulted to under actual pressure versus what you planned."
+  ],
+  "best_for": [
+    "Active or upcoming job seekers who have had multiple interviews go well on rapport but not convert to offers.",
+    "Hiring managers and recruiters who want a concrete vocabulary for why certain candidates click with some interviewers and not others."
+  ],
+  "less_useful": [
+    "Readers wanting hard data or peer-reviewed psychological research behind the four-style model.",
+    "Readers who want scripted answers to specific interview questions rather than a behavioral self-diagnosis framework."
+  ],
+  "site_links": [
+    {
+      "label": "Hiring, Interviewing & Onboarding",
+      "href": "references.html#cat-hiring"
+    }
+  ],
+  "related": [
+    {
+      "asin": "1400229340",
+      "why": "The First-Time Manager offers complementary early-career self-assessment on the other side of the hiring table."
+    },
+    {
+      "asin": "B0BQ1T8WR8",
+      "why": "Managing Up shares the same behavioral-adaptation logic applied to the boss relationship instead of interviews."
+    }
+  ],
+  "sources": [
+    {
+      "label": "Publishers Weekly review",
+      "href": "https://www.publishersweekly.com/978-0-06-332757-3"
+    },
+    {
+      "label": "Author's official bio and background",
+      "href": "https://theinterviewology.com/about-anna-papalia/"
+    }
+  ]
+}

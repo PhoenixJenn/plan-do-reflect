@@ -1,0 +1,77 @@
+{
+  "asin": "B0812C4NC9",
+  "slug": "the-unicorn-project",
+  "read_time": "2 min read",
+  "big_idea": "Developer productivity collapses not because engineers lack skill but because organizations bury them under process, approval chains, and fragile shared architecture; the novel argues that restoring the Five Ideals -- simple, locally-changeable code and healthy organizational flow -- is what unlocks real digital transformation, retelling The Phoenix Project's events from the developer's side of the story.",
+  "tool": {
+    "label": "The Five Ideals",
+    "text": "Locality and Simplicity means a team should be able to make almost any change within their own codebase without waiting on multiple other teams. Focus, Flow, and Joy means making all work, including technical debt, visible so teams aren't silently overloaded. Improvement of Daily Work means treating the improvement of how you work as more important than the work itself. Psychological Safety means people must trust that surfacing problems will be met with support, not blame. Customer Focus means every team should be able to name its actual customer and trace its work to value delivered to them.",
+    "note": "Reviewers have criticized the novel for compressing transformations that take real organizations months or years into a matter of days."
+  },
+  "ideas": [
+    {
+      "title": "Global optimization beats local heroics",
+      "text": "The book repeatedly shows well-intentioned local fixes making the overall system worse."
+    },
+    {
+      "title": "Invisible work is unmanageable work",
+      "text": "Technical debt and platform maintenance that never appears on a roadmap silently consumes capacity and burns teams out."
+    },
+    {
+      "title": "Architecture is an organizational decision",
+      "text": "The novel treats tangled, shared codebases as a direct cause of slow-moving teams, echoing Conway's Law."
+    },
+    {
+      "title": "Bureaucratic change approval can become the actual risk",
+      "text": "A heavyweight, centralized change-approval process causes the outages it was designed to prevent by making change so slow batches grow dangerous."
+    },
+    {
+      "title": "Data platforms need product ownership too",
+      "text": "The novel argues internal platforms fail without the same customer-focus discipline as customer-facing products."
+    },
+    {
+      "title": "Rebellion as a change strategy",
+      "text": "Rather than seeking top-down permission, a renegade team demonstrates a better way of working in a protected pocket first."
+    }
+  ],
+  "try_it": [
+    "Pick one internal platform or shared codebase your team depends on and write down every other team you must currently ask permission from to ship a small change.",
+    "Add a swimlane or explicit backlog category for invisible work so it's visible in planning instead of absorbed silently.",
+    "Name the actual customer of one internal-facing team or platform and check whether its priorities trace back to something that customer needs.",
+    "Audit your team's change-approval process for one system and time how long a low-risk change realistically takes from proposal to production."
+  ],
+  "best_for": [
+    "Software developers and engineering managers who want the Five Ideals framing of flow and architecture from the builder's perspective.",
+    "Leaders sponsoring an internal platform or data-engineering initiative who need a narrative case for giving that team real product ownership."
+  ],
+  "less_useful": [
+    "Readers who already finished The Phoenix Project expecting a genuinely new story rather than the same events retold.",
+    "Practitioners wanting realistic timelines for legacy modernization."
+  ],
+  "site_links": [
+    {
+      "label": "Project & Program Management",
+      "href": "references.html#cat-project"
+    }
+  ],
+  "related": [
+    {
+      "asin": "B00VAZZY32",
+      "why": "The Phoenix Project tells the operations side of this same story."
+    },
+    {
+      "asin": "B07VZ2JKQP",
+      "why": "Team Topologies formalizes the same team-boundary and architecture ideas this novel dramatizes."
+    }
+  ],
+  "sources": [
+    {
+      "label": "Dr. Mik Kersten, 'The Unicorn Project Review: Finding Flow with the Five Ideals,' Planview/Tasktop blog",
+      "href": "https://blog.planview.com/the-unicorn-project-review-finding-flow-with-the-five-ideals/"
+    },
+    {
+      "label": "Faiyaz Engineer, Medium review",
+      "href": "https://medium.com/@faiyazengineer/the-unicorn-project-by-gene-kim-lessons-ideals-and-a-touch-of-la-la-land-b1f9f8f377bb"
+    }
+  ]
+}

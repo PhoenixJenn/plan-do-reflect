@@ -1,0 +1,77 @@
+{
+  "asin": "B0BMDQVWW3",
+  "slug": "hbr-10-must-reads-on-strategy",
+  "read_time": "2 min read",
+  "big_idea": "This Harvard Business Review anthology argues that strategy is not a single technique but a discipline with several distinct, sometimes competing schools -- positioning (Porter), value innovation (Kim/Mauborgne), business-model design (Johnson/Christensen), and execution discipline -- and compiles the articles considered most foundational to each.",
+  "tool": {
+    "label": "Porter's Five Forces / Activity-Fit Framework (from the featured article 'What Is Strategy?')",
+    "text": "The anchor article argues operational effectiveness is not strategy because competitors can copy it; real strategy means choosing a distinct position and making explicit trade-offs -- deliberately choosing not to do certain things. Porter shows this with Southwest Airlines, which forgoes meals and seat assignments to sustain a uniquely low-cost position. The framework's deeper claim is about fit: competitive advantage comes from activities reinforcing one another, which is why rivals struggle to imitate a whole system even when they can copy individual pieces.",
+    "note": "Because this is a curated anthology spanning multiple authors and decades, the tools inside genuinely conflict with each other in places -- Porter's trade-off-driven positioning sits uneasily next to Kim/Mauborgne's value-innovation logic."
+  },
+  "ideas": [
+    {
+      "title": "Strategy vs. operational effectiveness",
+      "text": "Porter's opening distinction -- that doing existing activities better is not the same as choosing a different, defensible position -- sets the frame for the collection."
+    },
+    {
+      "title": "Business model reinvention",
+      "text": "Johnson, Christensen, and Kagermann's article breaks a business model into four interlocking parts as a diagnostic for whether a new opportunity needs a genuinely new model."
+    },
+    {
+      "title": "Blue ocean value curves",
+      "text": "The Kim/Mauborgne article condenses their book's strategy-canvas logic into a standalone piece."
+    },
+    {
+      "title": "Building a durable vision",
+      "text": "Collins and Porras separate a company's timeless core ideology from its changeable strategies and practices."
+    },
+    {
+      "title": "The balanced scorecard as a management system",
+      "text": "Kaplan and Norton's article extends their scorecard into a full system for translating strategy into operational targets."
+    },
+    {
+      "title": "Who has the D (decision rights)",
+      "text": "Rogers and Blenko argue execution fails most often from unclear decision rights, offering the RAPID framework for assigning them."
+    }
+  ],
+  "try_it": [
+    "Read the Porter and Kim/Mauborgne articles back to back and write down where their advice would actually conflict for your specific business.",
+    "Apply the four-part business model framework to a new initiative your team is considering.",
+    "Identify one recurring decision where it's genuinely unclear who has final authority, and propose a RAPID-style assignment for it.",
+    "Separate your team's core purpose from its current tactics using the Collins/Porras lens, and check whether recent changes have blurred the two."
+  ],
+  "best_for": [
+    "MBA students, consultants, or managers who want a single-volume survey of the most-cited strategy frameworks.",
+    "Executives building an internal strategy curriculum who need canonical, HBR-vetted source material to cite."
+  ],
+  "less_useful": [
+    "Readers who want one coherent, end-to-end methodology -- the anthology format means switching frameworks and voices every 20-30 pages.",
+    "Anyone who has already read the original full-length books several of these articles are condensed from."
+  ],
+  "site_links": [
+    {
+      "label": "Strategy & Planning",
+      "href": "references.html#cat-strategy"
+    }
+  ],
+  "related": [
+    {
+      "asin": "1469080966",
+      "why": "Blue Ocean Strategy is the full-length source for one of this anthology's featured articles."
+    },
+    {
+      "asin": "0593162927",
+      "why": "Good Strategy/Bad Strategy complements Porter's positioning logic with a sharper diagnostic method."
+    }
+  ],
+  "sources": [
+    {
+      "label": "HBR Press official product page for the collection",
+      "href": "https://store.hbr.org/product/hbr-s-10-must-reads-on-strategy-updated-and-expanded-featuring-the-five-competitive-forces-that-shape-strategy-by-michael-e-porter/10825"
+    },
+    {
+      "label": "'What Is Strategy?' full article, Harvard Business Review",
+      "href": "https://hbr.org/1996/11/what-is-strategy"
+    }
+  ]
+}

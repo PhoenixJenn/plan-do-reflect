@@ -1,0 +1,77 @@
+{
+  "asin": "B0D5RH8MTX",
+  "slug": "revenge-of-the-tipping-point",
+  "read_time": "2 min read",
+  "big_idea": "A quarter-century after The Tipping Point, Gladwell revisits and complicates his own theory of social epidemics, arguing that tipping points are rarely spontaneous -- they're frequently manufactured deliberately by superspreaders, dominant cultural overstories, and small coordinated groups, and can be engineered for both benign and harmful ends.",
+  "tool": {
+    "label": "The Magic Third",
+    "text": "Drawing on group-dynamics and representation research, Gladwell argues a minority group's presence within a larger group doesn't shift outcomes gradually -- behavior tips sharply once that minority crosses roughly one-third representation. Below that threshold, the minority tends to assimilate to majority norms; above it, the minority begins reshaping the group's overall culture and outcomes. He applies this to school-integration data and to Harvard's discretionary admissions practices.",
+    "note": "Reviewers note Gladwell applies the Magic Third across quite different contexts -- school demographics, Harvard admissions, television writers' rooms -- without demonstrating the same causal mechanism holds in each, a recurring criticism of his method."
+  },
+  "ideas": [
+    {
+      "title": "Overstories",
+      "text": "Dominant cultural narratives that don't just describe a place but actively shape what behavior seems normal or aspirational there."
+    },
+    {
+      "title": "Superspreaders, reframed",
+      "text": "Borrowing epidemiological language, Gladwell profiles individuals and institutions whose outsized influence drove a disproportionate share of a broader epidemic."
+    },
+    {
+      "title": "The Magic Third in practice",
+      "text": "Applied to school desegregation data and Harvard admissions patterns."
+    },
+    {
+      "title": "TV writers' rooms as social engineering",
+      "text": "Case studies on how deliberately changing the composition of creative teams shifted what stories got made and who got hired next."
+    },
+    {
+      "title": "The opioid chapter",
+      "text": "A detailed account of how prescribing patterns clustered around a small number of superspreader doctors rather than spreading evenly."
+    },
+    {
+      "title": "Revising his own theory",
+      "text": "Gladwell explicitly walks back and complicates parts of the original 1999 Tipping Point in light of 25 years of criticism."
+    }
+  ],
+  "try_it": [
+    "Identify the overstory your own team or company tells about itself, and ask whether it's driving behavior you actually want.",
+    "Look for the one or two disproportionate sources of a recurring problem in your organization rather than treating it as evenly distributed.",
+    "Before changing a group's composition, estimate whether you're crossing a meaningful proportion threshold or making a marginal change.",
+    "Pick one belief from an earlier framework you've relied on and actively look for evidence that would update it."
+  ],
+  "best_for": [
+    "Readers who enjoyed the original Tipping Point and want Gladwell's own reassessment of it.",
+    "People interested in how narratives and small groups shape institutions like admissions offices, media, and public health systems."
+  ],
+  "less_useful": [
+    "Readers wanting rigorous, controlled social science rather than narrative-driven pop sociology.",
+    "Readers expecting a business-operations book -- despite appearing on business bestseller lists, it's cultural/sociological analysis."
+  ],
+  "site_links": [
+    {
+      "label": "Business Case Studies & Company Stories",
+      "href": "references.html#cat-casestudies"
+    }
+  ],
+  "related": [
+    {
+      "asin": "0062346725",
+      "why": "Built to Last shares an interest in how small, deliberate design choices compound into large institutional outcomes."
+    },
+    {
+      "asin": "B07C8GVTB5",
+      "why": "Bad Blood offers a case study in how a false overstory can sustain itself for years before collapsing."
+    }
+  ],
+  "sources": [
+    {
+      "label": "Slate review",
+      "href": "https://slate.com/culture/2024/10/malcolm-gladwell-book-revenge-tipping-point-review.html"
+    },
+    {
+      "label": "Kirkus Reviews",
+      "href": "https://www.kirkusreviews.com/book-reviews/malcolm-gladwell/revenge-tipping-point/"
+    }
+  ]
+}

@@ -1,0 +1,67 @@
+{
+  "asin": "B09MJLT1M9",
+  "slug": "the-silva-mind-control-method-for-business-managers",
+  "read_time": "1 min read",
+  "big_idea": "Managers can improve decisions, negotiations, and hiring judgment by training themselves into a deeply relaxed mental state and using guided visualization -- a business-specific adaptation of Jose Silva's broader Silva Method -- to access intuition the authors claim goes beyond ordinary conscious reasoning.",
+  "tool": {
+    "label": "The Alpha Level / Mental Screen Technique",
+    "text": "The core method trains readers to reach the alpha level, a relaxed brainwave state, through a scripted relaxation and countdown exercise practiced twice daily. The practitioner then visualizes a mental screen and projects a specific business problem onto it, such as a hiring decision or negotiation outcome, to surface intuitive solutions the conscious mind misses under stress.",
+    "note": "The book's central claims -- that the alpha state provides access to ESP-like intuition -- have never been validated in controlled scientific research; the relaxation and visualization components function credibly as stress-reduction and mental-rehearsal techniques, but the psychic case-working claims should not be presented to a team as evidence-based."
+  },
+  "ideas": [
+    {
+      "title": "Relaxation as a decision-making edge",
+      "text": "The book reframes stress reduction as a competitive advantage, arguing a calmer mental state produces clearer judgment."
+    },
+    {
+      "title": "Mental rehearsal before high-stakes moments",
+      "text": "Stripped of its psychic framing, the mental screen technique functions as a visualization and rehearsal practice later mainstreamed in sports psychology."
+    },
+    {
+      "title": "Structured case working for recurring problems",
+      "text": "The book turns intuition into a repeatable ritual applied to specific, named business cases."
+    },
+    {
+      "title": "Discipline through repetition",
+      "text": "Much of the method's practical benefit, independent of its ESP claims, comes from the discipline of a twice-daily practice that builds a subjective sense of calm under pressure."
+    }
+  ],
+  "try_it": [
+    "Before a high-stakes decision this week, spend ten minutes on a simple relaxation and visualization exercise and note whether it changes your clarity.",
+    "Keep a brief hunch log for two weeks, writing down gut instincts about business decisions before you know the outcome, then review which proved accurate."
+  ],
+  "best_for": [
+    "Readers curious about the history of 1970s-80s business self-help and its crossover with the human-potential movement.",
+    "Managers who already use visualization techniques and want a relaxation-based variant, with clear eyes about the unproven psychic claims layered on top."
+  ],
+  "less_useful": [
+    "Readers wanting evidence-based management science -- the central ESP claims are unsupported by peer-reviewed research.",
+    "Managers looking for organizational or team-structure guidance -- the entire method is about one individual's internal mental state."
+  ],
+  "site_links": [
+    {
+      "label": "People Management (1:1s, feedback, performance)",
+      "href": "references.html#cat-people"
+    }
+  ],
+  "related": [
+    {
+      "asin": "B09HW8D56M",
+      "why": "The Power of Positive Thinking shares a similar mid-century self-help mindset-over-circumstance approach."
+    },
+    {
+      "asin": "0593459326",
+      "why": "High Output Management offers a rigorously operational contrast to this book's introspective method."
+    }
+  ],
+  "sources": [
+    {
+      "label": "Publisher/edition listing (Prentice-Hall, 1981)",
+      "href": "https://www.amazon.com/Silva-Control-Method-Business-Managers/dp/0671611100"
+    },
+    {
+      "label": "Shortform's overview of the Silva Method's alpha-state technique",
+      "href": "https://www.shortform.com/blog/silva-method-alpha-state/"
+    }
+  ]
+}

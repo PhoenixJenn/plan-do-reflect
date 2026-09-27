@@ -1,0 +1,77 @@
+{
+  "asin": "B00WRCF0RC",
+  "slug": "be-our-guest",
+  "read_time": "2 min read",
+  "big_idea": "Disney's customer-service excellence isn't a personality trait of nice employees -- it's an engineered operational system (hiring, training, environmental design, and decision hierarchies) built and taught by the Disney Institute, the company's internal training and consulting arm.",
+  "tool": {
+    "label": "The Four Quality Standards (Safety, Courtesy, Show, Efficiency)",
+    "text": "Disney trains every Cast Member to run decisions through a fixed priority ladder -- Safety first, then Courtesy, then Show (maintaining the immersive environment), then Efficiency -- so that when two priorities conflict, the ranking decides. A ride operator stopping a smooth-running queue to address a safety issue is following the standard even though it hurts throughput. The standards are paired with a written common-purpose statement that every role is trained to connect their daily work to. The book presents this as a replicable structure taught to non-entertainment clients (hospitals, banks) through Disney Institute programs.",
+    "note": "The book is written and published by Disney's own training arm, which also sells paid corporate consulting built on this exact model -- it presents the system's successes but doesn't examine its costs (labor intensity, turnover among seasonal Cast Members)."
+  },
+  "ideas": [
+    {
+      "title": "Cast Members, not employees",
+      "text": "Every worker is framed as being 'on stage' whenever a guest can see them, with defined backstage areas where the performance ends."
+    },
+    {
+      "title": "Guestology",
+      "text": "Disney's term for systematically studying guests' stated wants, actual behavior, and unstated assumptions rather than assuming management already knows what customers need."
+    },
+    {
+      "title": "Casting, not hiring",
+      "text": "New employees go through a 'Traditions' orientation modeled on theatrical casting -- selecting for role fit and values alignment before technical skill is even assessed."
+    },
+    {
+      "title": "Environmental storytelling",
+      "text": "Physical details (queue theming, trash-can placement based on observed guest walking patterns) are treated as service touchpoints, not just aesthetics."
+    },
+    {
+      "title": "Frontline empowerment",
+      "text": "Cast Members are trained and authorized to resolve guest problems on the spot without escalating to a manager."
+    },
+    {
+      "title": "Consistency across scale",
+      "text": "The book emphasizes systems precisely because Disney parks can't rely on any single employee's judgment at the scale of tens of thousands of daily guest interactions."
+    }
+  ],
+  "try_it": [
+    "Write a one-sentence common purpose for your team and test one real decision against it this week.",
+    "Rank your own team's competing priorities into an explicit hierarchy and post it where decisions actually get made.",
+    "Walk your own workspace or product as a first-time customer and note three friction points you'd normally filter out.",
+    "Give one frontline person explicit authority to resolve a recurring complaint on the spot, up to a defined limit, without asking a manager first."
+  ],
+  "best_for": [
+    "Operations and customer-experience leaders in service-heavy businesses (retail, hospitality, healthcare front desks) who need a trainable system, not inspiration.",
+    "New managers responsible for onboarding and training frontline staff who want a concrete language for customer service beyond 'be friendly.'"
+  ],
+  "less_useful": [
+    "Readers in product-led or engineering-first companies with little face-to-face customer interaction, where the physical/environmental lessons don't transfer.",
+    "Readers wanting Disney insider history or behind-the-scenes narrative -- this is a training manual, not a memoir."
+  ],
+  "site_links": [
+    {
+      "label": "Business Case Studies & Company Stories",
+      "href": "references.html#cat-casestudies"
+    }
+  ],
+  "related": [
+    {
+      "asin": "1250788048",
+      "why": "Working Backwards shares a systems-driven, customer-obsession orientation from a very different company."
+    },
+    {
+      "asin": "B078RPW8GM",
+      "why": "Sam Walton shows a parallel case of operational discipline built around frontline empowerment."
+    }
+  ],
+  "sources": [
+    {
+      "label": "Official publisher page (Disney Institute)",
+      "href": "https://books.disney.com/book/be-our-guest/"
+    },
+    {
+      "label": "Retail/edition listing with publisher details",
+      "href": "https://www.amazon.com/Be-Our-Guest-Perfecting-Institute/dp/1423145844"
+    }
+  ]
+}

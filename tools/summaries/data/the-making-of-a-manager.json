@@ -1,0 +1,77 @@
+{
+  "asin": "0525642218",
+  "slug": "the-making-of-a-manager",
+  "read_time": "2 min read",
+  "big_idea": "Great managers are made, not born, and the job comes down to getting a small team relentlessly focused on three things -- purpose, people, and process -- regardless of the manager's personality or background.",
+  "tool": {
+    "label": "The Purpose, People, Process framework (with a structured 1:1 question set)",
+    "text": "Zhuo organizes the manager's job into three areas: purpose (making sure the team knows what success looks like and cares about it), people (building trusting relationships and making staffing/coaching decisions), and process (running meetings and decisions well enough that the team doesn't repeat past mistakes). She operationalizes the people piece with a weekly one-on-one built around three question phases: what's top of mind, the root cause of what's hard about reaching the ideal outcome, and what the manager can do to help.",
+    "note": "The three-part framework is intentionally broad enough to apply to almost any management situation, which is also its limitation -- it functions more as a lens for reflection than a step-by-step operational system."
+  },
+  "ideas": [
+    {
+      "title": "Management skill is learned, not innate",
+      "text": "Zhuo opens by directly rejecting the idea of a natural-born manager, framing her own early stumbles as evidence the craft is built through deliberate practice."
+    },
+    {
+      "title": "Trust as the core currency of small teams",
+      "text": "She identifies trust as the single most important ingredient for leading a small team well."
+    },
+    {
+      "title": "Feedback calibrated to clear standards",
+      "text": "The book stresses setting explicit expectations for what great, mediocre, and bad performance look like before giving feedback."
+    },
+    {
+      "title": "Task-specific feedback given same-day",
+      "text": "Zhuo recommends delivering feedback on specific actions quickly rather than batching it."
+    },
+    {
+      "title": "Managing your own impostor syndrome",
+      "text": "A notable thread addresses the manager's internal experience directly, including self-doubt and identity shifts."
+    },
+    {
+      "title": "Scaling from managing individuals to managing managers",
+      "text": "Later chapters address the transition to leading through other leaders, a career stage Zhuo experienced directly at Facebook."
+    }
+  ],
+  "try_it": [
+    "Write a one-paragraph definition of what great, mediocre, and bad performance look like for one role on your team.",
+    "Run your next one-on-one using Zhuo's three-phase question set: what's top of mind, what's the root cause, and what can I do to help.",
+    "Give one piece of task-specific feedback the same day you observe the behavior, rather than saving it for a later conversation.",
+    "Ask a peer or your own manager for feedback framed around the purpose/people/process split to identify your weakest area."
+  ],
+  "best_for": [
+    "First-time managers in tech, product, or design roles who want a reflective, narrative-driven book grounded in real internal Facebook examples.",
+    "Managers who value the psychological and identity side of the transition into management as much as the tactical side."
+  ],
+  "less_useful": [
+    "Readers wanting a rigid, checklist-style system rather than a lens for reflection.",
+    "Managers outside fast-growing tech companies who may find the Facebook-specific scaling examples less applicable."
+  ],
+  "site_links": [
+    {
+      "label": "People Management (1:1s, feedback, performance)",
+      "href": "references.html#cat-people"
+    }
+  ],
+  "related": [
+    {
+      "asin": "B0CY6F7V18",
+      "why": "The Effective Manager offers a more scripted counterpart to this book's more reflective one-on-one approach."
+    },
+    {
+      "asin": "1452652171",
+      "why": "The Manager's Path extends the same transition into a fuller tech-industry career ladder."
+    }
+  ],
+  "sources": [
+    {
+      "label": "Julie Zhuo's own book page and background",
+      "href": "https://www.juliezhuo.com/book/manager.html"
+    },
+    {
+      "label": "Fellow.ai's breakdown of the book's frameworks",
+      "href": "https://fellow.ai/blog/julie-zhuo-the-making-of-a-manager/"
+    }
+  ]
+}

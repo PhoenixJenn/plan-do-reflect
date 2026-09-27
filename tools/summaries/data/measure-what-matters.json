@@ -1,0 +1,77 @@
+{
+  "asin": "B07BMHFBCM",
+  "slug": "measure-what-matters",
+  "read_time": "2 min read",
+  "big_idea": "Ambitious organizations succeed by separating what we want to achieve (Objectives) from how we'll know we got there (Key Results), then making those goals transparent and public across the whole organization rather than hidden in a manager's drawer.",
+  "tool": {
+    "label": "OKRs (Objectives and Key Results)",
+    "text": "An Objective is a qualitative, memorable statement of a significant, concrete, action-oriented goal. Each Objective is paired with 3-5 Key Results, which are quantitative and time-bound. Doerr, who learned the system from Andy Grove at Intel and later brought it to Google, argues OKRs work only when set at a cadence, scored openly (0.0-1.0, with 0.7 a healthy stretch score), and visible to everyone rather than tied to bonuses. He distinguishes committed OKRs (must hit 1.0) from aspirational OKRs (0.7 is a win), a distinction many adopters skip.",
+    "note": "Reviewers and OKR consultants note the book frequently blurs its own outcome/output distinction -- several of Doerr's own example Key Results measure activity completed rather than a business result achieved, exactly the failure mode the framework is supposed to prevent."
+  },
+  "ideas": [
+    {
+      "title": "Objectives vs. Key Results, kept separate",
+      "text": "The qualitative what and quantitative how-we'll-know are written and scored separately so teams don't let an easy-to-hit metric quietly redefine an ambitious goal."
+    },
+    {
+      "title": "Transparency over cascading",
+      "text": "Rather than OKRs cascading rigidly top-down, Doerr pushes for a public, searchable list of everyone's goals."
+    },
+    {
+      "title": "CFRs replace the annual review",
+      "text": "Doerr pairs OKRs with Conversations, Feedback, and Recognition -- frequent 1:1 check-ins instead of a once-a-year performance review."
+    },
+    {
+      "title": "Sandbagging is the real enemy",
+      "text": "Because OKRs are visible, managers will unconsciously set easy targets to protect their track record; aspirational OKRs are explicitly scored so a 0.6-0.7 is expected."
+    },
+    {
+      "title": "Bono and the ONE Campaign case",
+      "text": "Doerr uses Bono's ONE Campaign and the Gates Foundation's malaria-eradication work as proof OKRs aren't just a tech-company tool."
+    },
+    {
+      "title": "OKRs are not a to-do list",
+      "text": "A recurring warning is that Key Results describe outcomes worth celebrating, not tasks to check off."
+    }
+  ],
+  "try_it": [
+    "Write one Objective for your current quarter as a single punchy sentence with no numbers in it, then attach exactly 3 Key Results that are each a measurable outcome.",
+    "Run a 15-minute OKR post-mortem at quarter's end scoring each Key Result 0.0-1.0 and asking whether it measured what actually happened.",
+    "Make your own goals visible to your team for one quarter and see what changes in how people coordinate with you.",
+    "Before finalizing a Key Result, ask if it's an output you control or an outcome the business needs -- if it's something you'd do regardless of whether it worked, rewrite it."
+  ],
+  "best_for": [
+    "A team lead or exec introducing a formal goal-setting cadence for the first time who wants an accessible, story-driven case for transparency.",
+    "Someone who wants the Silicon Valley pedigree as an internal-selling tool to get buy-in from skeptical leadership."
+  ],
+  "less_useful": [
+    "Someone who already runs OKRs and needs troubleshooting for common failure modes -- the book is largely silent on these.",
+    "A reader who wants a tight, technical how-to guide -- the book is heavily padded with repetitive guest-contributed case studies."
+  ],
+  "site_links": [
+    {
+      "label": "OKRs, KPIs & Metrics",
+      "href": "references.html#cat-metrics"
+    }
+  ],
+  "related": [
+    {
+      "asin": "0593459326",
+      "why": "High Output Management is where OKRs originated, under Andy Grove at Intel."
+    },
+    {
+      "asin": "0593162927",
+      "why": "Good Strategy/Bad Strategy offers a diagnostic complement to this book's goal-setting mechanics."
+    }
+  ],
+  "sources": [
+    {
+      "label": "Publisher page (Portfolio/Penguin Random House)",
+      "href": "https://www.penguinrandomhouse.com/books/546304/measure-what-matters-by-john-doerr-foreword-by-larry-page/"
+    },
+    {
+      "label": "Perdoo critique of the outcome/output conflation",
+      "href": "https://www.perdoo.com/resources/blog/two-things-measure-what-matters-got-wrong"
+    }
+  ]
+}

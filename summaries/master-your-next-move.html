@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="a">
+<head>
+<meta charset="UTF-8">
+<base href="../">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="icon" type="image/svg+xml" href="favicon.svg">
+<title>Master Your Next Move: One-page summary · Plan · Do · Reflect</title>
+
+<!-- Applied before CSS loads, so the saved theme / title-font choice doesn't flash to the default on reload -->
+<script>
+(function () {
+  try {
+    var savedTheme = localStorage.getItem('pdr-theme');
+    if (['a', 'b', 'c'].indexOf(savedTheme) > -1) {
+      document.documentElement.setAttribute('data-theme', savedTheme);
+    }
+    /* No saved choice yet means a first-time visitor — default them to Golos
+       Text rather than the theme's own heading font. Explicitly picking
+       "Theme default" in the picker stores the literal string 'default',
+       which is the one value that clears the override below. */
+    var savedTitleFont = localStorage.getItem('pdr-title-font');
+    var titleFont = savedTitleFont === null ? 'golos-text' : savedTitleFont;
+    if (titleFont !== 'default') {
+      document.documentElement.setAttribute('data-title-font', titleFont);
+    }
+  } catch (e) {}
+})();
+</script>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=Work+Sans:wght@400;500;600&family=Sora:wght@600;700;800&family=Plus+Jakarta+Sans:wght@500;600;700&family=Patrick+Hand&display=swap" rel="stylesheet">
+
+<!-- Title-font brainstorm candidates — temporary, for the .title-font-picker toggle only.
+     Remove this link once a title font is chosen and folded into tokens.css. -->
+<link href="https://fonts.googleapis.com/css2?family=Gabarito:wght@800&family=Chivo:wght@800&family=Golos+Text:wght@800&display=swap" rel="stylesheet">
+
+<link rel="stylesheet" href="css/tokens.css">
+<link rel="stylesheet" href="css/main.css">
+<link rel="stylesheet" href="css/summary.css">
+</head>
+<body>
+
+<header class="topnav">
+  <a class="logo" href="index.html">Plan·Do·Reflect</a>
+  <nav class="topnav-items">
+    <a class="item" href="framework.html">The Framework</a>
+    <a class="item" href="self-management.html">Self</a>
+    <a class="item" href="team.html">Team</a>
+    <a class="item" href="organization.html">Organization</a>
+    <a class="item" href="core-skills.html">Core Skills</a>
+    <a class="item active" href="references.html">References</a>
+  </nav>
+</header>
+
+<main class="sm">
+  <p class="sm-crumb"><a href="references.html">References &amp; Further Reading</a> &rsaquo; One-page summary</p>
+  <article class="sm-page">
+    <header class="sm-head">
+      <img class="sm-cover" src="images/covers/1469081911.jpg" data-r="https://m.media-amazon.com/images/I/51aXk0xE8cL._SL300_.jpg" alt="Cover of Master Your Next Move" onerror="if(this.dataset.r&amp;&amp;this.src.indexOf(this.dataset.r)===-1){this.src=this.dataset.r}else{this.style.visibility='hidden'}">
+      <div>
+        <p class="sm-eyebrow">One-page summary &middot; 2 min read</p>
+        <h1 class="page-title">Master Your Next Move</h1>
+        <p class="sm-sub">The Essential Companion to &quot;The First 90 Days&quot;</p>
+        <p class="sm-by">by Michael D. Watkins</p>
+        <p class="sm-meta">2020 &middot; 6h 8m audiobook &middot; &#9733; 4.3 Audible</p>
+      </div>
+    </header>
+
+    <section class="sm-idea"><h2>The big idea</h2><p>There is no single universal onboarding plan -- the accelerators Michael Watkins outlined in The First 90 Days have to be applied completely differently depending on which of several distinct transition types you&#x27;re actually facing, from promotion to leading former peers to a turnaround.</p></section>
+
+<section class="sm-tool"><span class="sm-label">The Eight Transition Types (with the STARS model for organizational context)</span><blockquote>Watkins identifies roughly eight recurring transition scenarios -- being promoted, leading former peers, onboarding into a new company, relocating internationally, a politically complex diplomat role, and leading a turnaround, realignment, or sustaining-success situation -- and devotes a chapter to how his original accelerators play out differently in each. He layers in the STARS framework (Start-up, Turnaround, Accelerated growth, Realignment, Sustaining success), arguing the right leadership approach depends heavily on which business situation you&#x27;re stepping into.</blockquote><p>Because the book is explicitly a companion volume, several chapters assume the reader already has The First 90 Days&#x27; base vocabulary -- read cold, some sections feel like an appendix rather than a standalone book.</p></section>
+
+    <section class="sm-ideas"><h2>Key ideas</h2><ol><li><h3>One framework, eight applications</h3><p>Accelerate learning or secure early wins means something completely different for someone promoted internally versus someone leading former peers.</p></li><li><h3>Leading former peers as its own crisis</h3><p>Watkins treats the promoted-from-within-the-team scenario as uniquely hard, requiring an explicit, early conversation that resets the relationship.</p></li><li><h3>STARS dictates leadership style, not values</h3><p>The same leader should act far more directively in a turnaround than in a sustaining-success situation, and misreading which STARS situation you&#x27;re in is a common derailment cause.</p></li><li><h3>International relocation is a distinct skill set</h3><p>The book isolates the added layer of cultural and political learning required as its own transition type.</p></li><li><h3>The diplomat transition</h3><p>Watkins names the scenario of stepping into a highly political, matrixed role as its own category, requiring alliance-building tools.</p></li><li><h3>Early wins have to be recalibrated by context</h3><p>What counts as a credible early win in a turnaround is nearly the opposite of what counts as one in a sustaining-success role.</p></li></ol></section>
+
+    <div class="sm-cols">
+      <section><h2>Try it this week</h2><ol class="sm-steps"><li>Before your next transition, explicitly name which of Watkins&#x27; eight scenarios you&#x27;re in and which STARS category your new team sits in.</li><li>If you&#x27;re newly promoted over former peers, schedule a direct one-on-one with each of them in week one to acknowledge the changed relationship.</li><li>Draft your early-wins list for the next 30 days and test each item against your STARS category.</li><li>If relocating internationally, add a line item to your 90-day plan specifically for learning the local decision-making culture.</li></ol></section>
+      <section><h2>Is it for you?</h2><h3 class="sm-good">Best for</h3><ul><li>A leader who has already read The First 90 Days and is now facing a specific, unusual transition it didn&#x27;t cover in depth.</li><li>An HR or talent-development function building onboarding programs for multiple transition types.</li></ul><h3 class="sm-less">Less useful if</h3><ul><li>Someone who hasn&#x27;t read The First 90 Days -- the book assumes and builds on that framework.</li><li>A reader facing a completely standard, single new-company onboarding.</li></ul></section>
+    </div>
+
+<section class="sm-links"><h2>On this site</h2><div class="sm-chips"><a href="references.html#cat-newmgr">New Manager &amp; Career Progression</a></div></section>
+    <section class="sm-links sm-related"><h2>Pairs well with</h2><ul><li><a href="references.html#book-1452652171">The Manager&#x27;s Path</a> <span>The Manager&#x27;s Path covers a parallel set of stage-specific transitions inside a tech career ladder.</span></li><li><a href="references.html#book-B0C4C63KT2">The Six Disciplines of Strategic Thinking</a> <span>The Six Disciplines of Strategic Thinking shares Watkins&#x27;s trainable-skills approach to leadership.</span></li></ul></section>
+
+    <footer class="sm-foot">
+      <a class="sm-buy" href="https://www.amazon.com/s?k=Michael+D.+Watkins+Master+Your+Next+Move&amp;tag=phoenixjenn-20" target="_blank" rel="noopener">Find the book on Amazon</a>
+      <p>Original summary written for Plan &middot; Do &middot; Reflect. Prepared from the book&rsquo;s ideas and public summaries (<a href="https://www.imd.org/research-knowledge/transition/books/master-your-next-move/" target="_blank" rel="noopener">IMD faculty book page (Watkins is an IMD professor)</a>, <a href="https://store.hbr.org/product/master-your-next-move-with-a-new-introduction-the-essential-companion-to-the-first-90-days/10271" target="_blank" rel="noopener">Publisher listing (Harvard Business Review Press)</a>), not a substitute for reading it. Links may earn a commission.</p>
+    </footer>
+  </article>
+</main>
+
+<footer class="site-footer">
+  <p>&copy; 2026 Plan-Do-Reflect. <a href="references.html">References &amp; further reading</a></p>
+</footer>
+
+<div class="theme-switch" role="group" aria-label="Style direction">
+  <button data-theme="a" title="Kinetic Signal — black &amp; yellow"></button>
+  <button data-theme="b" title="Studio Ledger — dusty rose"></button>
+  <button data-theme="c" title="Bright Margin — lime"></button>
+  <a class="icon-lib-link" href="icon-library.html" title="Style Guide (internal reference)">
+    <svg width="14" height="14" viewBox="0 0 14 14" aria-hidden="true">
+      <rect x="1" y="1" width="5" height="5" rx="1" fill="currentColor"/>
+      <rect x="8" y="1" width="5" height="5" rx="1" fill="currentColor"/>
+      <rect x="1" y="8" width="5" height="5" rx="1" fill="currentColor"/>
+      <rect x="8" y="8" width="5" height="5" rx="1" fill="currentColor"/>
+    </svg>
+  </a>
+  <a class="icon-lib-link" href="notes.html" title="Notes (working drafts)">
+    <svg width="14" height="14" viewBox="0 0 14 14" aria-hidden="true">
+      <rect x="2" y="1" width="10" height="12" rx="1.5" fill="none" stroke="currentColor" stroke-width="1.3"/>
+      <line x1="4.5" y1="5" x2="9.5" y2="5" stroke="currentColor" stroke-width="1.3" stroke-linecap="round"/>
+      <line x1="4.5" y1="7.5" x2="9.5" y2="7.5" stroke="currentColor" stroke-width="1.3" stroke-linecap="round"/>
+      <line x1="4.5" y1="10" x2="7.5" y2="10" stroke="currentColor" stroke-width="1.3" stroke-linecap="round"/>
+    </svg>
+  </a>
+  <a class="icon-lib-link" href="sitemap.html" title="Sitemap (working draft)">
+    <svg width="14" height="14" viewBox="0 0 14 14" aria-hidden="true">
+      <circle cx="7" cy="2.5" r="1.8" fill="none" stroke="currentColor" stroke-width="1.3"/>
+      <circle cx="3" cy="11" r="1.8" fill="none" stroke="currentColor" stroke-width="1.3"/>
+      <circle cx="11" cy="11" r="1.8" fill="none" stroke="currentColor" stroke-width="1.3"/>
+      <path d="M7 4.3 L7 7 M7 7 L3 9.5 M7 7 L11 9.5" stroke="currentColor" stroke-width="1.3" fill="none" stroke-linecap="round"/>
+    </svg>
+  </a>
+</div>
+
+<!-- Temporary brainstorm control — only restyles the main h1 (.content h1 / .hero-title / .page-title). Remove alongside
+     the "title-font experiment" CSS block and the extra Google Fonts link once
+     a title font is picked. -->
+<div class="title-font-picker">
+  <label for="title-font-select">Title font</label>
+  <button type="button" id="title-font-prev" class="title-font-nav" aria-label="Previous title font">‹</button>
+  <select id="title-font-select">
+    <optgroup label="Round 1 — headline character">
+      <option value="gabarito">Gabarito</option>
+      <option value="chivo">Chivo</option>
+    </optgroup>
+    <optgroup label="Round 2 — Calibri-adjacent">
+      <option value="golos-text">Golos Text</option>
+    </optgroup>
+    <option value="default">Theme default</option>
+  </select>
+  <button type="button" id="title-font-next" class="title-font-nav" aria-label="Next title font">›</button>
+</div>
+
+<script src="js/theme-toggle.js" defer></script>
+<script src="js/title-font-toggle.js" defer></script>
+</body>
+</html>

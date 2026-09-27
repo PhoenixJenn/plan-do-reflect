@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="a">
+<head>
+<meta charset="UTF-8">
+<base href="../">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="icon" type="image/svg+xml" href="favicon.svg">
+<title>The Making of a Manager: One-page summary · Plan · Do · Reflect</title>
+
+<!-- Applied before CSS loads, so the saved theme / title-font choice doesn't flash to the default on reload -->
+<script>
+(function () {
+  try {
+    var savedTheme = localStorage.getItem('pdr-theme');
+    if (['a', 'b', 'c'].indexOf(savedTheme) > -1) {
+      document.documentElement.setAttribute('data-theme', savedTheme);
+    }
+    /* No saved choice yet means a first-time visitor — default them to Golos
+       Text rather than the theme's own heading font. Explicitly picking
+       "Theme default" in the picker stores the literal string 'default',
+       which is the one value that clears the override below. */
+    var savedTitleFont = localStorage.getItem('pdr-title-font');
+    var titleFont = savedTitleFont === null ? 'golos-text' : savedTitleFont;
+    if (titleFont !== 'default') {
+      document.documentElement.setAttribute('data-title-font', titleFont);
+    }
+  } catch (e) {}
+})();
+</script>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=Work+Sans:wght@400;500;600&family=Sora:wght@600;700;800&family=Plus+Jakarta+Sans:wght@500;600;700&family=Patrick+Hand&display=swap" rel="stylesheet">
+
+<!-- Title-font brainstorm candidates — temporary, for the .title-font-picker toggle only.
+     Remove this link once a title font is chosen and folded into tokens.css. -->
+<link href="https://fonts.googleapis.com/css2?family=Gabarito:wght@800&family=Chivo:wght@800&family=Golos+Text:wght@800&display=swap" rel="stylesheet">
+
+<link rel="stylesheet" href="css/tokens.css">
+<link rel="stylesheet" href="css/main.css">
+<link rel="stylesheet" href="css/summary.css">
+</head>
+<body>
+
+<header class="topnav">
+  <a class="logo" href="index.html">Plan·Do·Reflect</a>
+  <nav class="topnav-items">
+    <a class="item" href="framework.html">The Framework</a>
+    <a class="item" href="self-management.html">Self</a>
+    <a class="item" href="team.html">Team</a>
+    <a class="item" href="organization.html">Organization</a>
+    <a class="item" href="core-skills.html">Core Skills</a>
+    <a class="item active" href="references.html">References</a>
+  </nav>
+</header>
+
+<main class="sm">
+  <p class="sm-crumb"><a href="references.html">References &amp; Further Reading</a> &rsaquo; One-page summary</p>
+  <article class="sm-page">
+    <header class="sm-head">
+      <img class="sm-cover" src="images/covers/0525642218.jpg" data-r="https://m.media-amazon.com/images/I/41aNxcYP2RL._SL300_.jpg" alt="Cover of The Making of a Manager" onerror="if(this.dataset.r&amp;&amp;this.src.indexOf(this.dataset.r)===-1){this.src=this.dataset.r}else{this.style.visibility='hidden'}">
+      <div>
+        <p class="sm-eyebrow">One-page summary &middot; 2 min read</p>
+        <h1 class="page-title">The Making of a Manager</h1>
+        <p class="sm-sub">What to Do When Everyone Looks to You</p>
+        <p class="sm-by">by Julie Zhuo</p>
+        <p class="sm-meta">2019 &middot; 8h 43m audiobook &middot; &#9733; 4.6 Audible</p>
+      </div>
+    </header>
+
+    <section class="sm-idea"><h2>The big idea</h2><p>Great managers are made, not born, and the job comes down to getting a small team relentlessly focused on three things -- purpose, people, and process -- regardless of the manager&#x27;s personality or background.</p></section>
+
+<section class="sm-tool"><span class="sm-label">The Purpose, People, Process framework (with a structured 1:1 question set)</span><blockquote>Zhuo organizes the manager&#x27;s job into three areas: purpose (making sure the team knows what success looks like and cares about it), people (building trusting relationships and making staffing/coaching decisions), and process (running meetings and decisions well enough that the team doesn&#x27;t repeat past mistakes). She operationalizes the people piece with a weekly one-on-one built around three question phases: what&#x27;s top of mind, the root cause of what&#x27;s hard about reaching the ideal outcome, and what the manager can do to help.</blockquote><p>The three-part framework is intentionally broad enough to apply to almost any management situation, which is also its limitation -- it functions more as a lens for reflection than a step-by-step operational system.</p></section>
+
+    <section class="sm-ideas"><h2>Key ideas</h2><ol><li><h3>Management skill is learned, not innate</h3><p>Zhuo opens by directly rejecting the idea of a natural-born manager, framing her own early stumbles as evidence the craft is built through deliberate practice.</p></li><li><h3>Trust as the core currency of small teams</h3><p>She identifies trust as the single most important ingredient for leading a small team well.</p></li><li><h3>Feedback calibrated to clear standards</h3><p>The book stresses setting explicit expectations for what great, mediocre, and bad performance look like before giving feedback.</p></li><li><h3>Task-specific feedback given same-day</h3><p>Zhuo recommends delivering feedback on specific actions quickly rather than batching it.</p></li><li><h3>Managing your own impostor syndrome</h3><p>A notable thread addresses the manager&#x27;s internal experience directly, including self-doubt and identity shifts.</p></li><li><h3>Scaling from managing individuals to managing managers</h3><p>Later chapters address the transition to leading through other leaders, a career stage Zhuo experienced directly at Facebook.</p></li></ol></section>
+
+    <div class="sm-cols">
+      <section><h2>Try it this week</h2><ol class="sm-steps"><li>Write a one-paragraph definition of what great, mediocre, and bad performance look like for one role on your team.</li><li>Run your next one-on-one using Zhuo&#x27;s three-phase question set: what&#x27;s top of mind, what&#x27;s the root cause, and what can I do to help.</li><li>Give one piece of task-specific feedback the same day you observe the behavior, rather than saving it for a later conversation.</li><li>Ask a peer or your own manager for feedback framed around the purpose/people/process split to identify your weakest area.</li></ol></section>
+      <section><h2>Is it for you?</h2><h3 class="sm-good">Best for</h3><ul><li>First-time managers in tech, product, or design roles who want a reflective, narrative-driven book grounded in real internal Facebook examples.</li><li>Managers who value the psychological and identity side of the transition into management as much as the tactical side.</li></ul><h3 class="sm-less">Less useful if</h3><ul><li>Readers wanting a rigid, checklist-style system rather than a lens for reflection.</li><li>Managers outside fast-growing tech companies who may find the Facebook-specific scaling examples less applicable.</li></ul></section>
+    </div>
+
+<section class="sm-links"><h2>On this site</h2><div class="sm-chips"><a href="references.html#cat-people">People Management (1:1s, feedback, performance)</a></div></section>
+    <section class="sm-links sm-related"><h2>Pairs well with</h2><ul><li><a href="references.html#book-B0CY6F7V18">The Effective Manager</a> <span>The Effective Manager offers a more scripted counterpart to this book&#x27;s more reflective one-on-one approach.</span></li><li><a href="references.html#book-1452652171">The Manager&#x27;s Path</a> <span>The Manager&#x27;s Path extends the same transition into a fuller tech-industry career ladder.</span></li></ul></section>
+
+    <footer class="sm-foot">
+      <a class="sm-buy" href="https://www.amazon.com/s?k=Julie+Zhuo+The+Making+of+a+Manager&amp;tag=phoenixjenn-20" target="_blank" rel="noopener">Find the book on Amazon</a>
+      <p>Original summary written for Plan &middot; Do &middot; Reflect. Prepared from the book&rsquo;s ideas and public summaries (<a href="https://www.juliezhuo.com/book/manager.html" target="_blank" rel="noopener">Julie Zhuo&#x27;s own book page and background</a>, <a href="https://fellow.ai/blog/julie-zhuo-the-making-of-a-manager/" target="_blank" rel="noopener">Fellow.ai&#x27;s breakdown of the book&#x27;s frameworks</a>), not a substitute for reading it. Links may earn a commission.</p>
+    </footer>
+  </article>
+</main>
+
+<footer class="site-footer">
+  <p>&copy; 2026 Plan-Do-Reflect. <a href="references.html">References &amp; further reading</a></p>
+</footer>
+
+<div class="theme-switch" role="group" aria-label="Style direction">
+  <button data-theme="a" title="Kinetic Signal — black &amp; yellow"></button>
+  <button data-theme="b" title="Studio Ledger — dusty rose"></button>
+  <button data-theme="c" title="Bright Margin — lime"></button>
+  <a class="icon-lib-link" href="icon-library.html" title="Style Guide (internal reference)">
+    <svg width="14" height="14" viewBox="0 0 14 14" aria-hidden="true">
+      <rect x="1" y="1" width="5" height="5" rx="1" fill="currentColor"/>
+      <rect x="8" y="1" width="5" height="5" rx="1" fill="currentColor"/>
+      <rect x="1" y="8" width="5" height="5" rx="1" fill="currentColor"/>
+      <rect x="8" y="8" width="5" height="5" rx="1" fill="currentColor"/>
+    </svg>
+  </a>
+  <a class="icon-lib-link" href="notes.html" title="Notes (working drafts)">
+    <svg width="14" height="14" viewBox="0 0 14 14" aria-hidden="true">
+      <rect x="2" y="1" width="10" height="12" rx="1.5" fill="none" stroke="currentColor" stroke-width="1.3"/>
+      <line x1="4.5" y1="5" x2="9.5" y2="5" stroke="currentColor" stroke-width="1.3" stroke-linecap="round"/>
+      <line x1="4.5" y1="7.5" x2="9.5" y2="7.5" stroke="currentColor" stroke-width="1.3" stroke-linecap="round"/>
+      <line x1="4.5" y1="10" x2="7.5" y2="10" stroke="currentColor" stroke-width="1.3" stroke-linecap="round"/>
+    </svg>
+  </a>
+  <a class="icon-lib-link" href="sitemap.html" title="Sitemap (working draft)">
+    <svg width="14" height="14" viewBox="0 0 14 14" aria-hidden="true">
+      <circle cx="7" cy="2.5" r="1.8" fill="none" stroke="currentColor" stroke-width="1.3"/>
+      <circle cx="3" cy="11" r="1.8" fill="none" stroke="currentColor" stroke-width="1.3"/>
+      <circle cx="11" cy="11" r="1.8" fill="none" stroke="currentColor" stroke-width="1.3"/>
+      <path d="M7 4.3 L7 7 M7 7 L3 9.5 M7 7 L11 9.5" stroke="currentColor" stroke-width="1.3" fill="none" stroke-linecap="round"/>
+    </svg>
+  </a>
+</div>
+
+<!-- Temporary brainstorm control — only restyles the main h1 (.content h1 / .hero-title / .page-title). Remove alongside
+     the "title-font experiment" CSS block and the extra Google Fonts link once
+     a title font is picked. -->
+<div class="title-font-picker">
+  <label for="title-font-select">Title font</label>
+  <button type="button" id="title-font-prev" class="title-font-nav" aria-label="Previous title font">‹</button>
+  <select id="title-font-select">
+    <optgroup label="Round 1 — headline character">
+      <option value="gabarito">Gabarito</option>
+      <option value="chivo">Chivo</option>
+    </optgroup>
+    <optgroup label="Round 2 — Calibri-adjacent">
+      <option value="golos-text">Golos Text</option>
+    </optgroup>
+    <option value="default">Theme default</option>
+  </select>
+  <button type="button" id="title-font-next" class="title-font-nav" aria-label="Next title font">›</button>
+</div>
+
+<script src="js/theme-toggle.js" defer></script>
+<script src="js/title-font-toggle.js" defer></script>
+</body>
+</html>

@@ -1,0 +1,77 @@
+{
+  "asin": "B0767PHFYR",
+  "slug": "a-seat-at-the-table",
+  "read_time": "2 min read",
+  "big_idea": "IT leaders won't earn a genuine seat at the executive table by acting as an internal contractor who takes orders from the business -- they earn it by taking direct ownership of business outcomes, treating technology as a continuously evolving enterprise asset, and applying Agile/Lean practices to manage uncertainty rather than eliminate it.",
+  "tool": {
+    "label": "The Nine Roles of Agile IT Leadership",
+    "text": "Schwartz reframes what a CIO or IT leader actually does into nine overlapping functions: driving business outcomes, managing uncertainty through experiments instead of risk logs, stewarding technology as a long-term enterprise asset, staying technically credible, influencing stakeholders, orchestrating organizational complexity, enabling teams to do their best work, removing impediments, and coaching other managers into Agile ways of thinking. The roles are informed by Schwartz's own tenure as CIO of U.S. Citizenship and Immigration Services.",
+    "note": "The nine roles are descriptive categories, not a step-by-step methodology or assessment instrument -- readers looking for a scorable framework will need to build their own around it."
+  },
+  "ideas": [
+    {
+      "title": "Kill the contractor model",
+      "text": "Treating IT as an internal vendor that takes signed-off requirements and delivers against them guarantees IT stays a cost center."
+    },
+    {
+      "title": "Manage uncertainty, don't forecast it away",
+      "text": "Rather than predicting every risk in advance, leaders should run small experiments and adjust course as real information arrives."
+    },
+    {
+      "title": "Enterprise architecture as a living asset",
+      "text": "IT leaders should treat the whole technology estate as an asset with a current and target state that's continuously groomed."
+    },
+    {
+      "title": "Build vs. buy has quietly flipped",
+      "text": "Cloud infrastructure and microservices have collapsed the cost of custom development, so the old default of buying commercial software deserves to be revisited."
+    },
+    {
+      "title": "Value delivery over on-time-on-budget",
+      "text": "Judging IT by whether it hit a project's original schedule rewards hitting a plan, not creating value."
+    },
+    {
+      "title": "Bureaucracy is a design problem, not a character flaw",
+      "text": "Large-organization bureaucracy can be redesigned with better incentives and smaller feedback loops."
+    }
+  ],
+  "try_it": [
+    "Replace one project's traditional risk log with a two-week experiment that tests the riskiest assumption first.",
+    "Draft a one-page as-is/to-be view of a system you own and use it to reframe a backlog conversation around asset stewardship.",
+    "In your next stakeholder update, report the business outcome a recent release produced instead of whether it shipped on schedule.",
+    "Pick one recurring IT-vs.-the-business friction point on your team and rewrite the request as a shared outcome both sides own."
+  ],
+  "best_for": [
+    "Technology leaders in large, bureaucratic, or public-sector organizations trying to shift from an order-taking IT department to a genuine business partner.",
+    "Newly promoted CIOs or VPs of Engineering looking for language to justify Agile and cloud investment to non-technical executives."
+  ],
+  "less_useful": [
+    "Individual contributors or first-time managers without organizational design authority.",
+    "Readers at small startups with no legacy bureaucracy to dismantle."
+  ],
+  "site_links": [
+    {
+      "label": "Project & Program Management",
+      "href": "references.html#cat-project"
+    }
+  ],
+  "related": [
+    {
+      "asin": "B00VAZZY32",
+      "why": "The Phoenix Project dramatizes many of the same flow and bottleneck problems in narrative form."
+    },
+    {
+      "asin": "B0812C4NC9",
+      "why": "The Unicorn Project extends the same case for empowered, product-owned internal platforms."
+    }
+  ],
+  "sources": [
+    {
+      "label": "IT Revolution -- Reader's Guide to A Seat at the Table",
+      "href": "https://itrevolution.com/product/readers-guide-a-seat-at-the-table/"
+    },
+    {
+      "label": "Graham Chastney, book notes on A Seat at the Table",
+      "href": "https://grahamchastney.com/2019/03/18/im-reading-a-seat-at-the-table-it-leadership-in-the-age-of-agility-by-mark-schwartz/"
+    }
+  ]
+}

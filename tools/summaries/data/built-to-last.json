@@ -1,0 +1,77 @@
+{
+  "asin": "0062346725",
+  "slug": "built-to-last",
+  "read_time": "2 min read",
+  "big_idea": "Based on a six-year Stanford study comparing 18 visionary companies to matched, less-exceptional peers, Collins and Porras argue enduring greatness comes from preserving a fixed core ideology while relentlessly stimulating change in everything else -- not from a single visionary product or a charismatic founder.",
+  "tool": {
+    "label": "BHAG -- Big Hairy Audacious Goal",
+    "text": "A BHAG is a huge, clear, long-term (10-30 year) goal so concrete you can tell whether it was hit or missed -- the way NASA's moon landing organized effort without needing extensive explanation. Collins and Porras contrast this with the vague mission statements most companies produce, citing Boeing's mid-1950s bet to dominate commercial aviation and Sam Walton's explicit goal to build a billion-dollar company in under a decade. The visionary companies studied used BHAGs to jolt themselves out of complacency, especially in mature markets.",
+    "note": "The book has drawn a well-known survivorship-bias critique: several of the 18 visionary companies later struggled significantly -- Motorola's decline, Citigroup's near-collapse, and Ford's brush with bankruptcy -- which critics used to argue the traits identified may reflect retrospective narrative-fitting rather than durable, causal predictors."
+  },
+  "ideas": [
+    {
+      "title": "Preserve the core / stimulate progress",
+      "text": "The central paradox -- visionary companies hold near-religious commitment to a small set of core values while aggressively changing strategies and products around that fixed core."
+    },
+    {
+      "title": "Clock building, not time telling",
+      "text": "Great companies build enduring organizational systems that outlast any one leader's individual great decisions."
+    },
+    {
+      "title": "Cult-like cultures",
+      "text": "The visionary companies studied had unusually tight indoctrination that filters out poor fits rather than trying to convert them."
+    },
+    {
+      "title": "Try a lot, keep what works",
+      "text": "Collins and Porras call this branching and pruning -- treating strategy as evolutionary experimentation rather than top-down master planning."
+    },
+    {
+      "title": "The genius of the AND",
+      "text": "Visionary companies reject either/or tradeoffs that comparison companies treated as forced choices."
+    },
+    {
+      "title": "Home-grown management",
+      "text": "The visionary companies overwhelmingly promoted CEOs from within rather than hiring outside saviors."
+    }
+  ],
+  "try_it": [
+    "Write down your team's actual (not aspirational) core values, then flag one current practice that violates each.",
+    "Draft a single-sentence BHAG for your team with a real finish line and date, not a vague aspiration.",
+    "Identify one either/or tradeoff your organization has accepted and ask what an and solution would require.",
+    "Audit your last three leadership hires or promotions for how many came from inside versus outside the organization."
+  ],
+  "best_for": [
+    "Executives and boards thinking about multi-decade institution-building rather than quarterly performance.",
+    "Readers interested in organizational design and how company culture is deliberately engineered over time."
+  ],
+  "less_useful": [
+    "Early-stage founders needing tactical, near-term guidance -- the book's timeframe and examples assume large, mature organizations.",
+    "Readers who want proven, causal management laws rather than case studies whose long-term validity is genuinely contested."
+  ],
+  "site_links": [
+    {
+      "label": "Business Case Studies & Company Stories",
+      "href": "references.html#cat-casestudies"
+    }
+  ],
+  "related": [
+    {
+      "asin": "B078RPW8GM",
+      "why": "Sam Walton is one of this book's own 18 case studies, told in the founder's own words."
+    },
+    {
+      "asin": "1250788048",
+      "why": "Working Backwards shows a more contemporary version of the same institutionalized-mechanism thesis."
+    }
+  ],
+  "sources": [
+    {
+      "label": "Author's own site -- original BHAG article",
+      "href": "https://www.jimcollins.com/article_topics/articles/BHAG.html"
+    },
+    {
+      "label": "Wikipedia (book background, study methodology, reception)",
+      "href": "https://en.wikipedia.org/wiki/Built_to_Last:_Successful_Habits_of_Visionary_Companies"
+    }
+  ]
+}

@@ -1,0 +1,77 @@
+{
+  "asin": "B00GP3R02M",
+  "slug": "playing-to-win",
+  "read_time": "2 min read",
+  "big_idea": "Strategy is not a vision statement or a list of values -- it is a small set of interlocking, hard choices, and the book distills this into a five-question strategy cascade built from Lafley's experience turning around Procter & Gamble as CEO.",
+  "tool": {
+    "label": "The Strategic Choice Cascade",
+    "text": "The cascade forces five sequential, interdependent choices: what is our winning aspiration; where will we play; how will we win in the chosen arena; what capabilities must be in place to win that way; and what management systems are needed to build and sustain those capabilities. Each answer constrains the next, and the authors insist the choices must be made together -- a where-to-play choice made without a clear how-to-win is just a target list, not a strategy.",
+    "note": "Because the cascade is built almost entirely from Lafley's own P&G tenure, it's easier to validate with the benefit of hindsight; the book offers less guidance for situations where resource constraints limit how many of the five boxes a smaller company can realistically fill at once."
+  },
+  "ideas": [
+    {
+      "title": "Strategy is choice, not aspiration",
+      "text": "The authors explicitly reject vision/mission statements and SWOT-style lists as strategy, insisting real strategy commits to specific, exclusionary choices."
+    },
+    {
+      "title": "Reverse-engineering where to play, how to win",
+      "text": "Rather than starting from capabilities and asking what's possible, the method starts from winning and works backward to what must be true."
+    },
+    {
+      "title": "Competitive advantage as the test",
+      "text": "Every how-to-win choice must be checked against what makes the company distinctively better for its chosen customer, not just adequate."
+    },
+    {
+      "title": "What would have to be true",
+      "text": "The book's companion methodology asks readers to state the conditions that would have to hold for a strategic option to succeed."
+    },
+    {
+      "title": "Capabilities must match the chosen how",
+      "text": "A recurring failure mode is companies picking a competitive advantage their existing capabilities can't actually deliver."
+    },
+    {
+      "title": "Management systems as the hidden strategy layer",
+      "text": "Metrics, incentives, and governance are treated as part of strategy itself, not an afterthought to implementation."
+    }
+  ],
+  "try_it": [
+    "Write your team's current winning aspiration in one sentence specific enough that it rules out some of what you're currently doing.",
+    "List three markets or segments your team should explicitly stop investing in as part of a where-to-play choice.",
+    "State your how-to-win claim and list the two or three capabilities that would have to be true for it to hold.",
+    "Run the what-would-have-to-be-true test on one current strategic bet under debate on your team."
+  ],
+  "best_for": [
+    "General managers and executives who need a practical, choice-forcing framework rather than an academic theory of strategy.",
+    "Teams stuck producing vision statements and SWOT lists instead of decisions."
+  ],
+  "less_useful": [
+    "Readers in fast-moving startups or emergent markets where where-to-play and how-to-win shift too quickly for a cascade built on a large, slow-moving company.",
+    "Anyone looking for rigorous outside evaluation of whether the framework caused P&G's results."
+  ],
+  "site_links": [
+    {
+      "label": "Strategy & Planning",
+      "href": "references.html#cat-strategy"
+    }
+  ],
+  "related": [
+    {
+      "asin": "0593162927",
+      "why": "Good Strategy/Bad Strategy shares the same insistence that strategy means hard, exclusionary choices."
+    },
+    {
+      "asin": "1469080966",
+      "why": "Blue Ocean Strategy offers complementary positioning tools for the where-to-play question."
+    }
+  ],
+  "sources": [
+    {
+      "label": "CaseAtlas summary of the five-question cascade",
+      "href": "https://www.caseatlas.org/frameworks/playing-to-win"
+    },
+    {
+      "label": "Roger Martin's own site discussing the book",
+      "href": "https://rogerlmartin.com/lets-read/playing-to-win"
+    }
+  ]
+}

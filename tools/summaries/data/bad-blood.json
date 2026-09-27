@@ -1,0 +1,77 @@
+{
+  "asin": "B07C8GVTB5",
+  "slug": "bad-blood",
+  "read_time": "2 min read",
+  "big_idea": "Investigative reconstruction of how Elizabeth Holmes and Theranos built and sustained a $9 billion fraud around a blood-testing device that never reliably worked, using charisma, secrecy, and aggressive legal intimidation to suppress internal dissent for nearly a decade before Wall Street Journal reporter John Carreyrou exposed it.",
+  "tool": {
+    "label": "Theranos's Pattern of Concealment",
+    "text": "Carreyrou documents a repeatable set of mechanisms Theranos used to delay detection: punishing NDAs and threatened lawsuits against departing employees; a board of prestigious political figures with essentially no biomedical expertise to catch the fraud; demos that secretly ran patient samples on modified commercial analyzers instead of Theranos's own devices; and retaliation against internal dissenters. The pattern shows technical execution risk being hidden behind personal mythology and legal threats rather than surfaced through normal governance.",
+    "note": "This is a narrative pattern reconstructed by a reporter after the fact, not a formal model the author names or offers as a repeatable system -- it's diagnostic and cautionary rather than something to directly apply."
+  },
+  "ideas": [
+    {
+      "title": "Reality distortion, borrowed",
+      "text": "Holmes deliberately modeled her wardrobe, deep public speaking voice, and personal mythology on Steve Jobs."
+    },
+    {
+      "title": "Faked demonstrations",
+      "text": "Investor and partner demos ran finger-stick blood on secretly modified commercial machines rather than Theranos's own unreliable proprietary devices."
+    },
+    {
+      "title": "Legal intimidation as strategy",
+      "text": "Theranos used NDAs, non-disparagement threats, and attorney David Boies to silence more than a dozen former employees."
+    },
+    {
+      "title": "Real patients, unproven devices",
+      "text": "Partnerships with Walgreens and Safeway pushed largely untested tests into live retail clinics."
+    },
+    {
+      "title": "Whistleblowers who paid a price",
+      "text": "Tyler Shultz and Erika Cheung risked family relationships and legal threats to alert regulators and Carreyrou."
+    },
+    {
+      "title": "A board built for prestige, not oversight",
+      "text": "Theranos's board had extraordinary political credibility but almost no one positioned to independently evaluate the underlying lab science."
+    }
+  ],
+  "try_it": [
+    "Before trusting a technical demo, ask what happens to the sample or data after it leaves the room you're standing in.",
+    "Audit your own board or advisory circle for whether anyone actually has the expertise to catch a claim you personally can't verify.",
+    "If you manage whistleblower channels at work, check whether your NDAs would chill a safety-relevant disclosure.",
+    "Before believing a breakthrough claim, look for independent, peer-reviewed validation rather than press coverage alone."
+  ],
+  "best_for": [
+    "Investors, board members, or diligence teams evaluating deep-tech or health-tech claims they can't independently verify.",
+    "Readers interested in Silicon Valley culture and how hype and secrecy can outrun regulatory oversight."
+  ],
+  "less_useful": [
+    "Readers looking for a replicable management framework or playbook -- this is journalism about fraud, not a leadership guide.",
+    "Readers wanting a balanced or sympathetic account of Holmes."
+  ],
+  "site_links": [
+    {
+      "label": "Business Case Studies & Company Stories",
+      "href": "references.html#cat-casestudies"
+    }
+  ],
+  "related": [
+    {
+      "asin": "1797120212",
+      "why": "The Founders offers a very different, more admiring Silicon Valley founding story to contrast against this cautionary tale."
+    },
+    {
+      "asin": "1250788048",
+      "why": "Working Backwards shows a company built on the operational rigor Theranos conspicuously lacked."
+    }
+  ],
+  "sources": [
+    {
+      "label": "Publisher page",
+      "href": "https://www.penguinrandomhouse.com/books/549478/bad-blood-by-john-carreyrou/"
+    },
+    {
+      "label": "Peer-reviewed book review (PMC)",
+      "href": "https://pmc.ncbi.nlm.nih.gov/articles/PMC7273636/"
+    }
+  ]
+}

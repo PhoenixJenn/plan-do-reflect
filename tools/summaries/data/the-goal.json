@@ -1,0 +1,77 @@
+{
+  "asin": "B00IFG88SM",
+  "slug": "the-goal",
+  "read_time": "2 min read",
+  "big_idea": "A production system's overall output is limited entirely by its slowest or most constrained resource, so any improvement effort that doesn't focus on identifying and elevating that bottleneck is wasted effort dressed up as progress.",
+  "tool": {
+    "label": "The Five Focusing Steps (Theory of Constraints)",
+    "text": "Goldratt's Theory of Constraints, taught through plant-manager protagonist Alex Rogo, runs as five cyclical steps: identify the system's constraint; decide how to exploit it without spending capital; subordinate every other decision to that exploitation decision; elevate the constraint by investing in capacity if needed; then return to step one to find the new constraint. The novel uses throughput, inventory, and operating expense to reframe efficiency around whether an action increases the system's ability to make money.",
+    "note": "The framework was built for manufacturing bottlenecks in the 1980s; later editions extend it to project management, but the novel's factory-floor examples read as of their era."
+  },
+  "ideas": [
+    {
+      "title": "Local efficiency can hurt the whole system",
+      "text": "Optimizing every machine or worker for maximum utilization can actually reduce overall output if it's not the bottleneck being optimized."
+    },
+    {
+      "title": "Throughput, not cost-cutting, is the real lever",
+      "text": "The book reframes the goal of a business as maximizing throughput rather than minimizing costs everywhere."
+    },
+    {
+      "title": "The Boy Scout hike as a systems metaphor",
+      "text": "A scene where Alex leads a hiking troop illustrates how dependent, sequential steps combined with random variation cause a line to stretch out."
+    },
+    {
+      "title": "Statistical fluctuations compound through dependent steps",
+      "text": "Variability in a sequence of dependent processes doesn't average out -- it accumulates, which is why buffers around the constraint matter."
+    },
+    {
+      "title": "Non-bottleneck resources should not run at full utilization",
+      "text": "Keeping non-constraint machines running at 100% capacity just builds excess inventory rather than helping the system."
+    },
+    {
+      "title": "Continuous improvement is a repeating loop",
+      "text": "Once a constraint is resolved, the next constraint must be identified again -- operational improvement is ongoing, not a one-time fix."
+    }
+  ],
+  "try_it": [
+    "Map your own team's or project's workflow this week and identify the single step that most limits overall throughput -- the actual constraint, not the busiest-looking one.",
+    "For that identified constraint, list one way to 'exploit' it better (reduce idle time, remove low-value work from it) without spending any budget.",
+    "Audit one process where you or your team are optimizing local efficiency (staying 'busy') in a way that may not actually speed up the end-to-end output.",
+    "After improving your current bottleneck, deliberately re-run the identification step to find the next constraint rather than assuming the system is now optimized."
+  ],
+  "best_for": [
+    "Operations, manufacturing, or supply chain managers who want the foundational text behind Theory of Constraints and lean/Six Sigma-adjacent thinking.",
+    "Anyone managing a multi-step process (software delivery, project pipelines) who wants an intuitive, narrative introduction to systems and bottleneck thinking."
+  ],
+  "less_useful": [
+    "Readers seeking a fast reference or executive summary, since the book is a full novel with dialogue and subplot rather than a direct business how-to guide.",
+    "Readers sensitive to dated workplace and family dynamics, as the 1984 novel's depiction of gender roles and office culture has aged noticeably."
+  ],
+  "site_links": [
+    {
+      "label": "Quality & Problem-Solving",
+      "href": "references.html#cat-quality"
+    }
+  ],
+  "related": [
+    {
+      "asin": "B00VAZZY32",
+      "why": "The Phoenix Project directly applies the Theory of Constraints from The Goal to an IT organization."
+    },
+    {
+      "asin": "0593459326",
+      "why": "High Output Management shares a systems and bottleneck-oriented view of operations."
+    }
+  ],
+  "sources": [
+    {
+      "label": "Theory of Constraints Institute summary of the book's framework",
+      "href": "https://www.tocinstitute.org/the-goal-summary.html"
+    },
+    {
+      "label": "Wikipedia entry with publication history and reception",
+      "href": "https://en.wikipedia.org/wiki/The_Goal_(novel)"
+    }
+  ]
+}

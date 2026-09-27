@@ -1,0 +1,77 @@
+{
+  "asin": "x-it-worked-for-me",
+  "slug": "it-worked-for-me",
+  "read_time": "2 min read",
+  "big_idea": "Effective leadership isn't a grand theory -- it's built from small, repeatable habits of character (optimism, ownership, attention to detail, treating people well) that Colin Powell distilled over a military and diplomatic career spanning four presidential administrations, illustrated through 45 short personal stories rather than a single continuous argument.",
+  "tool": {
+    "label": "Powell's Thirteen Rules of Leadership",
+    "text": "The Thirteen Rules are leadership aphorisms Powell developed earlier in his career and revisits throughout the book, each expanded into a short chapter built around a personal story. They range from mindset rules like 'It ain't as bad as you think -- it will look better in the morning' and 'Perpetual optimism is a force multiplier,' to accountability rules like owning decisions rather than deferring blame, to practical operating rules like sweating the details and being generous with credit.",
+    "note": "The rules are memorable aphorisms rather than an analytical framework -- they don't decompose into steps or diagnostics, so readers looking for a rigorous leadership model may find them thin on their own without the surrounding anecdotes."
+  },
+  "ideas": [
+    {
+      "title": "Optimism as a force multiplier",
+      "text": "Powell treats visible, communicated optimism from a leader as an operational asset that changes how hard a team fights through setbacks."
+    },
+    {
+      "title": "Own your call, publicly",
+      "text": "Several stories center on Powell taking sole responsibility for decisions that went badly rather than distributing blame across the chain of command."
+    },
+    {
+      "title": "Detail work is leadership work",
+      "text": "Powell repeatedly credits mundane attentiveness -- knowing logistics, schedules, and small facts cold -- as what let him make faster, better high-level judgment calls."
+    },
+    {
+      "title": "The U.N. speech as a case study in institutional trust",
+      "text": "Powell directly revisits his 2003 U.N. presentation on Iraqi weapons of mass destruction, calling the episode 'a blot' on his record."
+    },
+    {
+      "title": "Anger has a shelf life",
+      "text": "One rule explicitly instructs getting angry, then deliberately moving past it, treating prolonged anger as a leadership liability."
+    },
+    {
+      "title": "Separate ego from position",
+      "text": "Powell warns that tying self-worth to title or rank makes a leader fragile and defensive exactly when they most need to accept hard feedback."
+    }
+  ],
+  "try_it": [
+    "The next time a decision you made goes wrong, state ownership of it directly to your team before explaining context or mitigating factors.",
+    "Pick one recurring meeting and prepare with one more layer of logistical detail than you normally would, and notice whether it changes the discussion.",
+    "After your next frustrating conflict at work, set a personal time limit for how long you'll let it affect your mood or decisions.",
+    "In your next team win, write down every person who contributed before you write down what you personally did."
+  ],
+  "best_for": [
+    "Early- to mid-career managers who want an accessible, story-driven introduction to leadership character rather than a management textbook.",
+    "Readers interested in Powell's own reflections on accountability and institutional trust, including his direct account of the 2003 U.N. Iraq speech."
+  ],
+  "less_useful": [
+    "Readers seeking a structured, research-backed leadership methodology -- the book is anecdotal and aphoristic rather than analytical.",
+    "Readers only interested in strict military strategy or foreign-policy history."
+  ],
+  "site_links": [
+    {
+      "label": "Project & Program Management",
+      "href": "references.html#cat-project"
+    }
+  ],
+  "related": [
+    {
+      "asin": "0525499334",
+      "why": "The Ride of a Lifetime offers a parallel first-person leadership memoir distilled into named principles."
+    },
+    {
+      "asin": "B002UUFW5G",
+      "why": "How to Become CEO shares this book's aphoristic, rule-by-rule structure for character-driven leadership advice."
+    }
+  ],
+  "sources": [
+    {
+      "label": "Defense Media Network, book review of It Worked for Me",
+      "href": "https://www.defensemedianetwork.com/stories/it-worked-for-me-in-life-and-leadership/"
+    },
+    {
+      "label": "NPR, 'It Worked For Me: Life Lessons From Colin Powell' (interview)",
+      "href": "https://www.npr.org/2012/05/22/153296714/it-worked-for-me-life-lessons-from-colin-powell"
+    }
+  ]
+}

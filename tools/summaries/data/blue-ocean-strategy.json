@@ -1,0 +1,77 @@
+{
+  "asin": "1469080966",
+  "slug": "blue-ocean-strategy",
+  "read_time": "2 min read",
+  "big_idea": "Instead of fighting rivals in overcrowded red oceans of existing demand, companies should pursue value innovation -- simultaneously pursuing differentiation and low cost to open uncontested blue ocean market space where competition is irrelevant.",
+  "tool": {
+    "label": "The Four Actions Framework (Eliminate-Reduce-Raise-Create Grid)",
+    "text": "Plotted against a strategy canvas that graphs how competitors perform on the same buying factors, the grid forces four questions: which factors should be eliminated, reduced, raised, or created. Answering all four simultaneously lets a company break the traditional trade-off between low cost and differentiation. Cirque du Soleil is the book's signature example: it eliminated star performers and animal acts, reduced multi-ring spectacle, raised artistic production values, and created a theatrical narrative format.",
+    "note": "The methodology has no control group -- Kim and Mauborgne selected companies retrospectively because they succeeded; critics argue the theory is close to unfalsifiable and that market boundaries are more fluid in practice than the framework assumes."
+  },
+  "ideas": [
+    {
+      "title": "Red ocean vs. blue ocean",
+      "text": "Red oceans are known market spaces where firms compete for a shrinking profit pool; blue oceans are unknown spaces where demand is created rather than fought over."
+    },
+    {
+      "title": "Value innovation, not technology innovation",
+      "text": "Breakthrough value rarely comes from superior technology alone -- it comes from aligning what buyers value with what the company costs to deliver."
+    },
+    {
+      "title": "Noncustomers over customers",
+      "text": "Rather than researching existing customers more deeply, the book directs companies toward three tiers of noncustomers as the source of untapped demand."
+    },
+    {
+      "title": "Buyer utility map",
+      "text": "A tool for auditing the buyer experience against six utility levers to find where painful friction points signal blue-ocean opportunity."
+    },
+    {
+      "title": "Tipping point leadership",
+      "text": "A change-management approach for executing blue ocean shifts with limited resources, focusing disproportionate effort on a small number of visible hotspots."
+    },
+    {
+      "title": "Fair process",
+      "text": "The authors argue execution fails without engagement, explanation, and clarity of expectations in the strategy-making process itself."
+    }
+  ],
+  "try_it": [
+    "Draw a strategy canvas for your own product/industry, plotting your offering and two to three competitors across the factors customers actually pay for.",
+    "Run the eliminate-reduce-raise-create grid against that canvas and identify one factor in each category before your next planning meeting.",
+    "Identify one tier of noncustomer your industry currently ignores and spend one week interviewing three people from that group.",
+    "Map the full buyer experience cycle for your product end-to-end and flag the single biggest pain point you've never addressed."
+  ],
+  "best_for": [
+    "Product and innovation leaders looking for a structured, visual way to challenge assumed industry trade-offs.",
+    "Founders or strategists entering a saturated category who need a repeatable process for finding differentiation angles."
+  ],
+  "less_useful": [
+    "Readers wanting rigorous, peer-reviewed evidence that the framework reliably produces successful outcomes.",
+    "Operators in heavily regulated or commodity industries where cost/differentiation trade-offs are structurally fixed."
+  ],
+  "site_links": [
+    {
+      "label": "Strategy & Planning",
+      "href": "references.html#cat-strategy"
+    }
+  ],
+  "related": [
+    {
+      "asin": "0593162927",
+      "why": "Good Strategy/Bad Strategy offers a sharper diagnostic lens that complements this book's more generative approach."
+    },
+    {
+      "asin": "B00GP3R02M",
+      "why": "Playing to Win offers a choice-cascade method that pairs well with this book's positioning tools."
+    }
+  ],
+  "sources": [
+    {
+      "label": "INSEAD faculty bios (Kim, Mauborgne)",
+      "href": "https://www.insead.edu/faculty/w-chan-kim"
+    },
+    {
+      "label": "Blue Ocean Strategy -- Wikipedia (reception, criticism, sales)",
+      "href": "https://en.wikipedia.org/wiki/Blue_Ocean_Strategy"
+    }
+  ]
+}

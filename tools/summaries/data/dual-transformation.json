@@ -1,0 +1,77 @@
+{
+  "asin": "B0779LJ33G",
+  "slug": "dual-transformation",
+  "read_time": "2 min read",
+  "big_idea": "Companies facing disruption shouldn't choose between defending their current business and building a new one -- they need to run both transformations simultaneously, repositioning the core for resilience while separately building a new growth engine, connected by a shared capabilities link.",
+  "tool": {
+    "label": "The Dual Transformation Framework (Transformation A / Transformation B)",
+    "text": "Transformation A repositions the core business to maximize its resilience as its industry shifts, reallocating investment even if it means cutting product lines. Transformation B builds a new, separate growth engine based on a genuinely different business model, run outside the core organization's existing structure and metrics. The capabilities link is the deliberate mechanism connecting the two -- identifying which hard-to-replicate assets from the core can accelerate Transformation B without letting B's different pace destabilize A.",
+    "note": "Because the framework requires running two very differently-paced organizational efforts at once with real executive attention split between them, under-resourcing either side is a common failure mode the book flags but doesn't fully solve for resource-constrained companies."
+  },
+  "ideas": [
+    {
+      "title": "Repositioning is not retreat",
+      "text": "Transformation A is framed as proactively reallocating a still-valuable core business's resources toward its most durable segments, not managing decline."
+    },
+    {
+      "title": "Structural separation for Transformation B",
+      "text": "New-growth efforts need their own metrics, incentives, and often physical separation from the core to avoid being judged by the wrong yardsticks."
+    },
+    {
+      "title": "The capabilities link as competitive moat",
+      "text": "The specific assets transferred between A and B are what make dual transformation defensible rather than just running two unrelated businesses."
+    },
+    {
+      "title": "Sequencing and timing",
+      "text": "Waiting until the core business visibly declines to start Transformation B is typically too late, given how long new engines take to reach scale."
+    },
+    {
+      "title": "Leadership's split-attention problem",
+      "text": "CEOs must personally sponsor both transformations, since middle management alone can't resolve the resource conflicts between them."
+    },
+    {
+      "title": "Case-based validation",
+      "text": "Drawing on real companies (Adobe, Netflix's shift from DVD to streaming) rather than purely theoretical modeling."
+    }
+  ],
+  "try_it": [
+    "List which parts of your current core business deserve more investment vs. which are candidates for reduction, as a first Transformation A pass.",
+    "Identify one nascent growth bet currently being evaluated by the same metrics as the core business, and propose separate success metrics for it.",
+    "Name one hard-to-replicate asset your core business has that a new-growth effort could legitimately borrow.",
+    "Set a specific trigger point that would tell you it's time to start a Transformation B effort."
+  ],
+  "best_for": [
+    "Executives at established, mid-to-large companies facing visible industry disruption who need to fund innovation without abandoning a still-profitable core.",
+    "Corporate innovation and strategy teams looking for a structured model for running an internal venture alongside the main business."
+  ],
+  "less_useful": [
+    "Early-stage startups or small businesses with no legacy core to reposition.",
+    "Readers wanting quantitative, ROI-driven guidance on how to split limited capital between A and B."
+  ],
+  "site_links": [
+    {
+      "label": "Strategy & Planning",
+      "href": "references.html#cat-strategy"
+    }
+  ],
+  "related": [
+    {
+      "asin": "1469080966",
+      "why": "Blue Ocean Strategy shares the same instinct to build genuinely new value rather than compete head-on."
+    },
+    {
+      "asin": "0593162927",
+      "why": "Good Strategy/Bad Strategy offers complementary diagnostic rigor for deciding what the core should keep."
+    }
+  ],
+  "sources": [
+    {
+      "label": "Harvard Business Review Press official product page",
+      "href": "https://store.hbr.org/product/dual-transformation-how-to-reposition-today-s-business-while-creating-the-future/10091"
+    },
+    {
+      "label": "Scott Anthony's APQC profile (Innosight, Christensen connection)",
+      "href": "https://www.apqc.org/profile/scott-anthony"
+    }
+  ]
+}

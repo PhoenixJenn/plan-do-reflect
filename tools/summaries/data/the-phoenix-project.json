@@ -1,0 +1,77 @@
+{
+  "asin": "B00VAZZY32",
+  "slug": "the-phoenix-project",
+  "read_time": "2 min read",
+  "big_idea": "IT operations behaves like a manufacturing plant, not a black box of unpredictable work -- once you make the flow of work visible and manage it like a production line, protecting the organization's bottleneck instead of overloading it, chronic firefighting and blown deadlines become solvable operational problems rather than inevitable chaos.",
+  "tool": {
+    "label": "The Three Ways",
+    "text": "The First Way (Flow) says optimize the performance of the entire system -- never a single silo -- and stop defects from moving downstream. The Second Way (Feedback) means building fast, amplified feedback loops running right-to-left, from operations back to development. The Third Way (Continual Learning and Experimentation) means building a culture that rewards calculated risk-taking and treats failure as a source of mastery. The novel dramatizes all three as protagonist Bill's IT organization applies the Theory of Constraints -- identifying an overloaded single point of failure -- to unstick the company's flagship Phoenix Project.",
+    "note": "The Three Ways are principles, not a step-by-step implementation plan; the book leaves the mechanics to its nonfiction companion, The DevOps Handbook."
+  },
+  "ideas": [
+    {
+      "title": "Find your Brent",
+      "text": "Every overloaded organization has a single irreplaceable person or team who becomes an undocumented bottleneck; you must protect and offload that constraint first."
+    },
+    {
+      "title": "Work-in-progress is the enemy",
+      "text": "Multitasking across too many active projects at once, not lack of effort, is the primary cause of missed deadlines and burnout."
+    },
+    {
+      "title": "Unplanned work crowds out planned work",
+      "text": "Every outage or fire drill displaces scheduled project work; reducing unplanned work is a leading indicator of organizational health."
+    },
+    {
+      "title": "Business and IT share one fate",
+      "text": "The novel rejects treating IT as a support function, showing IT decisions directly threatening the company's survival."
+    },
+    {
+      "title": "Make work visible",
+      "text": "A kanban board that shows all work in progress, including invisible off-the-books work, exposes where flow is breaking down."
+    },
+    {
+      "title": "Change management as a safety system, not a stall tactic",
+      "text": "Structured change review is reframed as an operational safety discipline rather than corporate red tape."
+    }
+  ],
+  "try_it": [
+    "Map your team's current work-in-progress across every active project and cap the number of simultaneous initiatives.",
+    "Identify the one person or system your team can't function without for a day, and start documenting or offloading part of what only they know.",
+    "Track unplanned/interrupt-driven work for one sprint and report the percentage back to your team as a health metric.",
+    "Set up a visible kanban board for one workflow that currently has no visibility into what's in progress versus stuck."
+  ],
+  "best_for": [
+    "IT operations, infrastructure, or DevOps managers who need a narrative case for why flow and bottleneck management matter more than individual heroics.",
+    "Non-technical executives who want an accessible, story-driven introduction to why IT reliability is a business survival issue."
+  ],
+  "less_useful": [
+    "Experienced DevOps practitioners who already know the Three Ways and want deep technical implementation detail.",
+    "Readers who dislike the business-novel format."
+  ],
+  "site_links": [
+    {
+      "label": "Project & Program Management",
+      "href": "references.html#cat-project"
+    }
+  ],
+  "related": [
+    {
+      "asin": "B0812C4NC9",
+      "why": "The Unicorn Project retells these same events from the developer's point of view."
+    },
+    {
+      "asin": "B00IFG88SM",
+      "why": "The Goal is the manufacturing-floor novel this book directly adapts Theory of Constraints from."
+    }
+  ],
+  "sources": [
+    {
+      "label": "IT Revolution -- official product page for The Phoenix Project",
+      "href": "https://itrevolution.com/product/the-phoenix-project/"
+    },
+    {
+      "label": "'The Three Ways: The Principles Underpinning DevOps,' IT Revolution",
+      "href": "https://itrevolution.com/articles/the-three-ways-principles-underpinning-devops/"
+    }
+  ]
+}

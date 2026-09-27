@@ -1,0 +1,77 @@
+{
+  "asin": "0593162927",
+  "slug": "good-strategy-bad-strategy",
+  "read_time": "2 min read",
+  "big_idea": "Most organizational strategy is actually fluff, goal-setting, or a list of aspirations dressed up as strategy; real strategy is a coherent response built on an honest diagnosis of the specific obstacle standing in the way.",
+  "tool": {
+    "label": "The Kernel of Good Strategy",
+    "text": "Rumelt argues every good strategy has the same three-part structure. First, a diagnosis that simplifies a complex situation down to the one or two critical factors actually determining outcomes -- Rumelt claims 80% of strategy work is in the diagnosis. Second, a guiding policy -- a general approach for dealing with the obstacle, like highway guardrails that channel action. Third, coherent actions -- coordinated, mutually reinforcing steps that carry out the guiding policy, rather than a wish list of disconnected initiatives.",
+    "note": "The book is much stronger at diagnosing bad strategy than at teaching readers to construct good strategy from scratch -- it reads more like a rigorous critique toolkit than a step-by-step generative method."
+  },
+  "ideas": [
+    {
+      "title": "The four hallmarks of bad strategy",
+      "text": "Fluff, failure to face the challenge, mistaking goals for strategy, and bad strategic objectives that are either too vague or an unprioritized laundry list."
+    },
+    {
+      "title": "Strategy as leverage",
+      "text": "Good strategy concentrates limited resources and attention at a pivot point where a small, well-aimed push produces disproportionate results."
+    },
+    {
+      "title": "The importance of a proximate objective",
+      "text": "When a problem is too complex or uncertain, strong strategy narrows focus to an achievable near-term objective."
+    },
+    {
+      "title": "Chain-link systems",
+      "text": "Some organizations' performance is governed by their weakest link, not their average performance."
+    },
+    {
+      "title": "Using your advantage / exploiting inertia",
+      "text": "Good strategy often works by identifying where competitors are structurally slow or unable to respond."
+    },
+    {
+      "title": "Strategic vs. administrative thinking",
+      "text": "Rumelt distinguishes strategy (choosing where and how to compete) from mere planning and budgeting."
+    }
+  ],
+  "try_it": [
+    "Write a one-paragraph diagnosis of the single biggest obstacle facing your team or business right now, without listing any solutions yet.",
+    "Audit your last strategy document for fluff -- buzzwords or restated goals with no actual causal logic -- and cut anything that doesn't survive.",
+    "Pick one current initiative and check whether its stated actions are actually coordinated with each other, or just a bundled wish list.",
+    "Identify the weakest link constraining your team's output and redirect one resource allocation toward it instead of your strongest area."
+  ],
+  "best_for": [
+    "Senior operators and executives who already write strategy documents but suspect their own strategy is really just a budget and aspirational goals.",
+    "Consultants and strategy leads who need a sharp, repeatable diagnostic lens for critiquing weak plans."
+  ],
+  "less_useful": [
+    "First-time managers with no existing strategy process to critique, who need step-by-step how-to guidance more.",
+    "Readers hoping for a workbook-style, fill-in-the-template approach."
+  ],
+  "site_links": [
+    {
+      "label": "Strategy & Planning",
+      "href": "references.html#cat-strategy"
+    }
+  ],
+  "related": [
+    {
+      "asin": "1469080966",
+      "why": "Blue Ocean Strategy offers a more generative counterpart to this book's diagnostic rigor."
+    },
+    {
+      "asin": "B00GP3R02M",
+      "why": "Playing to Win shares Rumelt's insistence that strategy means hard, exclusionary choices."
+    }
+  ],
+  "sources": [
+    {
+      "label": "Richard Rumelt UCLA Anderson faculty bio and CV",
+      "href": "https://www.anderson.ucla.edu/faculty-and-research/strategy/faculty/rumelt"
+    },
+    {
+      "label": "Perdoo book review -- kernel framework and critique",
+      "href": "https://www.perdoo.com/resources/blog/book-review-good-strategy-bad-strategy-by-richard-rumelt"
+    }
+  ]
+}

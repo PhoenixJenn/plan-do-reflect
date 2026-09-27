@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="a">
+<head>
+<meta charset="UTF-8">
+<base href="../">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="icon" type="image/svg+xml" href="favicon.svg">
+<title>Bad Blood: One-page summary · Plan · Do · Reflect</title>
+
+<!-- Applied before CSS loads, so the saved theme / title-font choice doesn't flash to the default on reload -->
+<script>
+(function () {
+  try {
+    var savedTheme = localStorage.getItem('pdr-theme');
+    if (['a', 'b', 'c'].indexOf(savedTheme) > -1) {
+      document.documentElement.setAttribute('data-theme', savedTheme);
+    }
+    /* No saved choice yet means a first-time visitor — default them to Golos
+       Text rather than the theme's own heading font. Explicitly picking
+       "Theme default" in the picker stores the literal string 'default',
+       which is the one value that clears the override below. */
+    var savedTitleFont = localStorage.getItem('pdr-title-font');
+    var titleFont = savedTitleFont === null ? 'golos-text' : savedTitleFont;
+    if (titleFont !== 'default') {
+      document.documentElement.setAttribute('data-title-font', titleFont);
+    }
+  } catch (e) {}
+})();
+</script>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=Work+Sans:wght@400;500;600&family=Sora:wght@600;700;800&family=Plus+Jakarta+Sans:wght@500;600;700&family=Patrick+Hand&display=swap" rel="stylesheet">
+
+<!-- Title-font brainstorm candidates — temporary, for the .title-font-picker toggle only.
+     Remove this link once a title font is chosen and folded into tokens.css. -->
+<link href="https://fonts.googleapis.com/css2?family=Gabarito:wght@800&family=Chivo:wght@800&family=Golos+Text:wght@800&display=swap" rel="stylesheet">
+
+<link rel="stylesheet" href="css/tokens.css">
+<link rel="stylesheet" href="css/main.css">
+<link rel="stylesheet" href="css/summary.css">
+</head>
+<body>
+
+<header class="topnav">
+  <a class="logo" href="index.html">Plan·Do·Reflect</a>
+  <nav class="topnav-items">
+    <a class="item" href="framework.html">The Framework</a>
+    <a class="item" href="self-management.html">Self</a>
+    <a class="item" href="team.html">Team</a>
+    <a class="item" href="organization.html">Organization</a>
+    <a class="item" href="core-skills.html">Core Skills</a>
+    <a class="item active" href="references.html">References</a>
+  </nav>
+</header>
+
+<main class="sm">
+  <p class="sm-crumb"><a href="references.html">References &amp; Further Reading</a> &rsaquo; One-page summary</p>
+  <article class="sm-page">
+    <header class="sm-head">
+      <img class="sm-cover" src="images/covers/B07C8GVTB5.jpg" data-r="https://m.media-amazon.com/images/I/41AbpgAXGoL._SL300_.jpg" alt="Cover of Bad Blood" onerror="if(this.dataset.r&amp;&amp;this.src.indexOf(this.dataset.r)===-1){this.src=this.dataset.r}else{this.style.visibility='hidden'}">
+      <div>
+        <p class="sm-eyebrow">One-page summary &middot; 2 min read</p>
+        <h1 class="page-title">Bad Blood</h1>
+        <p class="sm-sub">Secrets and Lies in a Silicon Valley Startup</p>
+        <p class="sm-by">by John Carreyrou</p>
+        <p class="sm-meta">2018 &middot; 11h 37m audiobook &middot; &#9733; 4.8 Audible</p>
+      </div>
+    </header>
+
+    <section class="sm-idea"><h2>The big idea</h2><p>Investigative reconstruction of how Elizabeth Holmes and Theranos built and sustained a $9 billion fraud around a blood-testing device that never reliably worked, using charisma, secrecy, and aggressive legal intimidation to suppress internal dissent for nearly a decade before Wall Street Journal reporter John Carreyrou exposed it.</p></section>
+
+<section class="sm-tool"><span class="sm-label">Theranos&#x27;s Pattern of Concealment</span><blockquote>Carreyrou documents a repeatable set of mechanisms Theranos used to delay detection: punishing NDAs and threatened lawsuits against departing employees; a board of prestigious political figures with essentially no biomedical expertise to catch the fraud; demos that secretly ran patient samples on modified commercial analyzers instead of Theranos&#x27;s own devices; and retaliation against internal dissenters. The pattern shows technical execution risk being hidden behind personal mythology and legal threats rather than surfaced through normal governance.</blockquote><p>This is a narrative pattern reconstructed by a reporter after the fact, not a formal model the author names or offers as a repeatable system -- it&#x27;s diagnostic and cautionary rather than something to directly apply.</p></section>
+
+    <section class="sm-ideas"><h2>Key ideas</h2><ol><li><h3>Reality distortion, borrowed</h3><p>Holmes deliberately modeled her wardrobe, deep public speaking voice, and personal mythology on Steve Jobs.</p></li><li><h3>Faked demonstrations</h3><p>Investor and partner demos ran finger-stick blood on secretly modified commercial machines rather than Theranos&#x27;s own unreliable proprietary devices.</p></li><li><h3>Legal intimidation as strategy</h3><p>Theranos used NDAs, non-disparagement threats, and attorney David Boies to silence more than a dozen former employees.</p></li><li><h3>Real patients, unproven devices</h3><p>Partnerships with Walgreens and Safeway pushed largely untested tests into live retail clinics.</p></li><li><h3>Whistleblowers who paid a price</h3><p>Tyler Shultz and Erika Cheung risked family relationships and legal threats to alert regulators and Carreyrou.</p></li><li><h3>A board built for prestige, not oversight</h3><p>Theranos&#x27;s board had extraordinary political credibility but almost no one positioned to independently evaluate the underlying lab science.</p></li></ol></section>
+
+    <div class="sm-cols">
+      <section><h2>Try it this week</h2><ol class="sm-steps"><li>Before trusting a technical demo, ask what happens to the sample or data after it leaves the room you&#x27;re standing in.</li><li>Audit your own board or advisory circle for whether anyone actually has the expertise to catch a claim you personally can&#x27;t verify.</li><li>If you manage whistleblower channels at work, check whether your NDAs would chill a safety-relevant disclosure.</li><li>Before believing a breakthrough claim, look for independent, peer-reviewed validation rather than press coverage alone.</li></ol></section>
+      <section><h2>Is it for you?</h2><h3 class="sm-good">Best for</h3><ul><li>Investors, board members, or diligence teams evaluating deep-tech or health-tech claims they can&#x27;t independently verify.</li><li>Readers interested in Silicon Valley culture and how hype and secrecy can outrun regulatory oversight.</li></ul><h3 class="sm-less">Less useful if</h3><ul><li>Readers looking for a replicable management framework or playbook -- this is journalism about fraud, not a leadership guide.</li><li>Readers wanting a balanced or sympathetic account of Holmes.</li></ul></section>
+    </div>
+
+<section class="sm-links"><h2>On this site</h2><div class="sm-chips"><a href="references.html#cat-casestudies">Business Case Studies &amp; Company Stories</a></div></section>
+    <section class="sm-links sm-related"><h2>Pairs well with</h2><ul><li><a href="references.html#book-1797120212">The Founders</a> <span>The Founders offers a very different, more admiring Silicon Valley founding story to contrast against this cautionary tale.</span></li><li><a href="references.html#book-1250788048">Working Backwards</a> <span>Working Backwards shows a company built on the operational rigor Theranos conspicuously lacked.</span></li></ul></section>
+
+    <footer class="sm-foot">
+      <a class="sm-buy" href="https://www.amazon.com/s?k=John+Carreyrou+Bad+Blood&amp;tag=phoenixjenn-20" target="_blank" rel="noopener">Find the book on Amazon</a>
+      <p>Original summary written for Plan &middot; Do &middot; Reflect. Prepared from the book&rsquo;s ideas and public summaries (<a href="https://www.penguinrandomhouse.com/books/549478/bad-blood-by-john-carreyrou/" target="_blank" rel="noopener">Publisher page</a>, <a href="https://pmc.ncbi.nlm.nih.gov/articles/PMC7273636/" target="_blank" rel="noopener">Peer-reviewed book review (PMC)</a>), not a substitute for reading it. Links may earn a commission.</p>
+    </footer>
+  </article>
+</main>
+
+<footer class="site-footer">
+  <p>&copy; 2026 Plan-Do-Reflect. <a href="references.html">References &amp; further reading</a></p>
+</footer>
+
+<div class="theme-switch" role="group" aria-label="Style direction">
+  <button data-theme="a" title="Kinetic Signal — black &amp; yellow"></button>
+  <button data-theme="b" title="Studio Ledger — dusty rose"></button>
+  <button data-theme="c" title="Bright Margin — lime"></button>
+  <a class="icon-lib-link" href="icon-library.html" title="Style Guide (internal reference)">
+    <svg width="14" height="14" viewBox="0 0 14 14" aria-hidden="true">
+      <rect x="1" y="1" width="5" height="5" rx="1" fill="currentColor"/>
+      <rect x="8" y="1" width="5" height="5" rx="1" fill="currentColor"/>
+      <rect x="1" y="8" width="5" height="5" rx="1" fill="currentColor"/>
+      <rect x="8" y="8" width="5" height="5" rx="1" fill="currentColor"/>
+    </svg>
+  </a>
+  <a class="icon-lib-link" href="notes.html" title="Notes (working drafts)">
+    <svg width="14" height="14" viewBox="0 0 14 14" aria-hidden="true">
+      <rect x="2" y="1" width="10" height="12" rx="1.5" fill="none" stroke="currentColor" stroke-width="1.3"/>
+      <line x1="4.5" y1="5" x2="9.5" y2="5" stroke="currentColor" stroke-width="1.3" stroke-linecap="round"/>
+      <line x1="4.5" y1="7.5" x2="9.5" y2="7.5" stroke="currentColor" stroke-width="1.3" stroke-linecap="round"/>
+      <line x1="4.5" y1="10" x2="7.5" y2="10" stroke="currentColor" stroke-width="1.3" stroke-linecap="round"/>
+    </svg>
+  </a>
+  <a class="icon-lib-link" href="sitemap.html" title="Sitemap (working draft)">
+    <svg width="14" height="14" viewBox="0 0 14 14" aria-hidden="true">
+      <circle cx="7" cy="2.5" r="1.8" fill="none" stroke="currentColor" stroke-width="1.3"/>
+      <circle cx="3" cy="11" r="1.8" fill="none" stroke="currentColor" stroke-width="1.3"/>
+      <circle cx="11" cy="11" r="1.8" fill="none" stroke="currentColor" stroke-width="1.3"/>
+      <path d="M7 4.3 L7 7 M7 7 L3 9.5 M7 7 L11 9.5" stroke="currentColor" stroke-width="1.3" fill="none" stroke-linecap="round"/>
+    </svg>
+  </a>
+</div>
+
+<!-- Temporary brainstorm control — only restyles the main h1 (.content h1 / .hero-title / .page-title). Remove alongside
+     the "title-font experiment" CSS block and the extra Google Fonts link once
+     a title font is picked. -->
+<div class="title-font-picker">
+  <label for="title-font-select">Title font</label>
+  <button type="button" id="title-font-prev" class="title-font-nav" aria-label="Previous title font">‹</button>
+  <select id="title-font-select">
+    <optgroup label="Round 1 — headline character">
+      <option value="gabarito">Gabarito</option>
+      <option value="chivo">Chivo</option>
+    </optgroup>
+    <optgroup label="Round 2 — Calibri-adjacent">
+      <option value="golos-text">Golos Text</option>
+    </optgroup>
+    <option value="default">Theme default</option>
+  </select>
+  <button type="button" id="title-font-next" class="title-font-nav" aria-label="Next title font">›</button>
+</div>
+
+<script src="js/theme-toggle.js" defer></script>
+<script src="js/title-font-toggle.js" defer></script>
+</body>
+</html>

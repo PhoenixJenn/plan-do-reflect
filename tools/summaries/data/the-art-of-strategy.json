@@ -1,0 +1,77 @@
+{
+  "asin": "B00DP5FPRK",
+  "slug": "the-art-of-strategy",
+  "read_time": "2 min read",
+  "big_idea": "Game theory -- the formal study of strategic interaction between rational actors -- is not just an academic tool but a practical lens for everyday competitive and cooperative decisions, from business negotiation to poker to parenting, and this book by two leading economists translates its core results into plain language.",
+  "tool": {
+    "label": "Nash Equilibrium and Dominant Strategy Analysis",
+    "text": "The book teaches readers to map a strategic situation as a game -- the players, their moves, and their payoffs -- and then find a Nash equilibrium: a set of choices where no player can improve their outcome by unilaterally switching. A dominant strategy is a stronger case: a move that's best no matter what opponents do. The authors use the prisoner's dilemma to show how individually dominant strategies can produce a collectively worse outcome, and pair this with commitment strategy -- deliberately limiting your own future options to make a threat or promise credible.",
+    "note": "Reviewers note the 'art' framing oversells how directly game theory applies to messy real-world negotiations -- clean game-theoretic models require well-defined players, moves, and payoffs that rarely exist that cleanly in practice."
+  },
+  "ideas": [
+    {
+      "title": "Sequential vs. simultaneous games",
+      "text": "The book distinguishes games where players move in turn, where backward induction and foresight matter, from games where everyone moves at once."
+    },
+    {
+      "title": "Mixed strategies",
+      "text": "When no pure choice is optimal, the book explains randomizing choices according to specific probabilities to avoid being predictably exploited."
+    },
+    {
+      "title": "Credible commitment and threats",
+      "text": "A threat or promise only changes behavior if the other side believes you'll follow through -- the book catalogs real tactics for making commitments credible."
+    },
+    {
+      "title": "The focal point",
+      "text": "In games with multiple possible equilibria, players often coordinate on a salient, obvious option even without communication."
+    },
+    {
+      "title": "Auction design and bidding traps",
+      "text": "The book walks through the winner's curse -- why winning an auction for an uncertain-value item is itself evidence you overpaid."
+    },
+    {
+      "title": "Brinkmanship and escalation",
+      "text": "Gradually escalating risk, rather than an all-or-nothing threat, can be used to extract concessions while limiting downside."
+    }
+  ],
+  "try_it": [
+    "Before your next negotiation, write out the other side's likely payoffs for each of their possible moves, not just your own.",
+    "Identify one recurring price-war dynamic on your team or with a competitor and check whether it matches the prisoner's dilemma payoff structure.",
+    "Practice making one commitment this week specifically to make a promise credible to a counterpart.",
+    "Before entering a bid or auction situation, calculate what your win would tell you about whether you overvalued the item."
+  ],
+  "best_for": [
+    "Readers with genuine intellectual curiosity about the underlying math/logic of strategic decision-making.",
+    "Negotiators and dealmakers who want a rigorous framework for anticipating counterparties' incentives."
+  ],
+  "less_useful": [
+    "Readers wanting quick, tactical business advice -- this is closer to an accessible economics textbook than a management how-to guide.",
+    "Anyone allergic to math notation or formal logic puzzles."
+  ],
+  "site_links": [
+    {
+      "label": "Strategy & Planning",
+      "href": "references.html#cat-strategy"
+    }
+  ],
+  "related": [
+    {
+      "asin": "179711333X",
+      "why": "Your Next Five Moves shares a chess-like, several-moves-ahead approach to business competition."
+    },
+    {
+      "asin": "0593162927",
+      "why": "Good Strategy/Bad Strategy offers a complementary, less mathematical view of competitive positioning."
+    }
+  ],
+  "sources": [
+    {
+      "label": "Avinash Dixit's Princeton faculty CV",
+      "href": "https://www.princeton.edu/~dixitak/home/Dixit_CV.pdf"
+    },
+    {
+      "label": "Barry Nalebuff Wikipedia (Yale School of Management, Honest Tea co-founder)",
+      "href": "https://en.wikipedia.org/wiki/Barry_Nalebuff"
+    }
+  ]
+}

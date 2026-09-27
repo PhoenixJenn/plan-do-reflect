@@ -1,0 +1,77 @@
+{
+  "asin": "B0C4C63KT2",
+  "slug": "the-six-disciplines-of-strategic-thinking",
+  "read_time": "2 min read",
+  "big_idea": "Strategic thinking is a learnable cognitive skillset, not an innate trait -- Watkins breaks it into six specific mental disciplines that separate leaders who can navigate complexity and uncertainty from those who can't, split evenly between seeing disciplines and mobilizing disciplines.",
+  "tool": {
+    "label": "The Six Disciplines Framework",
+    "text": "The first three disciplines govern recognizing what matters: pattern recognition, systems analysis, and mental agility (level-shifting and anticipating others' moves). The final three govern mobilizing an organization: structured problem-solving, visioning through powerful simplification, and political savvy -- reading stakeholder interests and building the alliances needed to implement a strategy. Watkins, best known for The First 90 Days, frames the six as trainable habits leaders can deliberately practice.",
+    "note": "Published in 2024, the book is new enough that it hasn't accumulated years of independent case-study validation or academic critique the way older strategy classics have."
+  },
+  "ideas": [
+    {
+      "title": "Pattern recognition under uncertainty",
+      "text": "The discipline of extracting signal from a noisy, fast-changing environment rather than overreacting to every data point or missing the real shift."
+    },
+    {
+      "title": "Systems analysis and simplification",
+      "text": "Building deliberately simplified models of a complex reality so decisions can be made despite incomplete information."
+    },
+    {
+      "title": "Mental agility's two components",
+      "text": "Level-shifting and anticipatory thinking are treated as a single trainable skill pairing."
+    },
+    {
+      "title": "Structured problem-solving as a team process",
+      "text": "Helping a team collaboratively frame and converge on a problem's real shape before jumping to solutions."
+    },
+    {
+      "title": "Visioning through powerful simplification",
+      "text": "The best visions aren't the most detailed -- they're the most simplified into something a whole organization can hold and act on."
+    },
+    {
+      "title": "Political savvy as legitimate, not cynical",
+      "text": "Watkins frames stakeholder navigation and alliance-building as a necessary, authentic leadership skill rather than manipulation."
+    }
+  ],
+  "try_it": [
+    "Pick one of the six disciplines you're weakest in and identify one recurring meeting where you'll deliberately practice it this week.",
+    "Build a one-page simplified system map of your business's key drivers and test whether it actually helps you make one pending decision.",
+    "Before your next competitive move, write down your best guess at how two key stakeholders or rivals will respond, then check your prediction.",
+    "Draft a one-sentence vision for your team using Watkins's powerful-simplification standard, then test whether a colleague could restate it from memory."
+  ],
+  "best_for": [
+    "Mid-to-senior leaders who want a structured, self-assessable framework for developing their own strategic thinking.",
+    "Leadership development and L&D programs looking for a trainable skills model to build workshops around."
+  ],
+  "less_useful": [
+    "Readers seeking a company-level strategic planning methodology rather than a personal cognitive-skills framework.",
+    "Those who prefer frameworks with a long track record of independent scrutiny, given the book's recent publication."
+  ],
+  "site_links": [
+    {
+      "label": "Strategy & Planning",
+      "href": "references.html#cat-strategy"
+    }
+  ],
+  "related": [
+    {
+      "asin": "1469081911",
+      "why": "Master Your Next Move shares Watkins's transition-focused leadership lens applied to a different problem."
+    },
+    {
+      "asin": "0593162927",
+      "why": "Good Strategy/Bad Strategy offers a complementary organizational-level diagnostic discipline."
+    }
+  ],
+  "sources": [
+    {
+      "label": "Michael Watkins Wikipedia (Harvard PhD, IMD professor, First 90 Days)",
+      "href": "https://en.wikipedia.org/wiki/Michael_D._Watkins"
+    },
+    {
+      "label": "Big Think detailed breakdown of the six disciplines",
+      "href": "https://bigthink.com/plus/the-6-disciplines-of-strategic-thinking/"
+    }
+  ]
+}

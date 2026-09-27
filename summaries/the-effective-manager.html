@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="a">
+<head>
+<meta charset="UTF-8">
+<base href="../">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="icon" type="image/svg+xml" href="favicon.svg">
+<title>The Effective Manager: One-page summary · Plan · Do · Reflect</title>
+
+<!-- Applied before CSS loads, so the saved theme / title-font choice doesn't flash to the default on reload -->
+<script>
+(function () {
+  try {
+    var savedTheme = localStorage.getItem('pdr-theme');
+    if (['a', 'b', 'c'].indexOf(savedTheme) > -1) {
+      document.documentElement.setAttribute('data-theme', savedTheme);
+    }
+    /* No saved choice yet means a first-time visitor — default them to Golos
+       Text rather than the theme's own heading font. Explicitly picking
+       "Theme default" in the picker stores the literal string 'default',
+       which is the one value that clears the override below. */
+    var savedTitleFont = localStorage.getItem('pdr-title-font');
+    var titleFont = savedTitleFont === null ? 'golos-text' : savedTitleFont;
+    if (titleFont !== 'default') {
+      document.documentElement.setAttribute('data-title-font', titleFont);
+    }
+  } catch (e) {}
+})();
+</script>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=Work+Sans:wght@400;500;600&family=Sora:wght@600;700;800&family=Plus+Jakarta+Sans:wght@500;600;700&family=Patrick+Hand&display=swap" rel="stylesheet">
+
+<!-- Title-font brainstorm candidates — temporary, for the .title-font-picker toggle only.
+     Remove this link once a title font is chosen and folded into tokens.css. -->
+<link href="https://fonts.googleapis.com/css2?family=Gabarito:wght@800&family=Chivo:wght@800&family=Golos+Text:wght@800&display=swap" rel="stylesheet">
+
+<link rel="stylesheet" href="css/tokens.css">
+<link rel="stylesheet" href="css/main.css">
+<link rel="stylesheet" href="css/summary.css">
+</head>
+<body>
+
+<header class="topnav">
+  <a class="logo" href="index.html">Plan·Do·Reflect</a>
+  <nav class="topnav-items">
+    <a class="item" href="framework.html">The Framework</a>
+    <a class="item" href="self-management.html">Self</a>
+    <a class="item" href="team.html">Team</a>
+    <a class="item" href="organization.html">Organization</a>
+    <a class="item" href="core-skills.html">Core Skills</a>
+    <a class="item active" href="references.html">References</a>
+  </nav>
+</header>
+
+<main class="sm">
+  <p class="sm-crumb"><a href="references.html">References &amp; Further Reading</a> &rsaquo; One-page summary</p>
+  <article class="sm-page">
+    <header class="sm-head">
+      <img class="sm-cover" src="images/covers/B0CY6F7V18.jpg" data-r="https://m.media-amazon.com/images/I/41nW4qomz5L._SL300_.jpg" alt="Cover of The Effective Manager" onerror="if(this.dataset.r&amp;&amp;this.src.indexOf(this.dataset.r)===-1){this.src=this.dataset.r}else{this.style.visibility='hidden'}">
+      <div>
+        <p class="sm-eyebrow">One-page summary &middot; 2 min read</p>
+        <h1 class="page-title">The Effective Manager</h1>
+        <p class="sm-sub"></p>
+        <p class="sm-by">by Mark Horstman, Kate Braun, Sarah Sentes</p>
+        <p class="sm-meta">2024 &middot; 7h 53m audiobook &middot; &#9733; 4.6 Audible</p>
+      </div>
+    </header>
+
+    <section class="sm-idea"><h2>The big idea</h2><p>Most management failure comes from skipping a small number of basic, learnable behaviors -- regular one-on-ones, frequent feedback, and real delegation -- not from lacking charisma or strategic vision, and doing these consistently produces outsized results.</p></section>
+
+<section class="sm-tool"><span class="sm-label">O3s (weekly One-on-Ones) and the Four Critical Behaviors</span><blockquote>Horstman&#x27;s Manager Tools methodology centers on a weekly, 30-minute one-on-one with every direct report, structured into three segments: the direct&#x27;s priorities first, the manager&#x27;s items second, and forward-looking coaching last. This sits inside the Four Critical Behaviors: getting to know your people personally, communicating regularly about performance, asking directs to stretch, and pushing work down to develop the team. The feedback component follows a short, repeatable script -- asking permission, describing the behavior, stating its impact, and asking for future behavior.</blockquote><p>The system is rigid and habit-based by design, and some managers find the scripted feedback language stilted at first; Horstman argues the seeming artificiality fades with repetition.</p></section>
+
+    <section class="sm-ideas"><h2>Key ideas</h2><ol><li><h3>Relationships as the highest-leverage behavior</h3><p>Horstman puts get to know your people first among the Four Critical Behaviors, arguing managers who skip relationship-building undercut every other technique they try.</p></li><li><h3>Feedback as a high-frequency habit, not an event</h3><p>The book pushes managers toward giving brief feedback multiple times a week rather than saving it for annual reviews.</p></li><li><h3>The direct sets the one-on-one agenda</h3><p>O3s are built around the report&#x27;s priorities first, reversing the common pattern where the manager dictates the meeting.</p></li><li><h3>Delegation as capability-building, not offloading</h3><p>Push work down is framed as a developmental tool for the team, not simply a way to lighten the manager&#x27;s own workload.</p></li><li><h3>Coaching only after trust is established</h3><p>Horstman sequences the four behaviors deliberately -- coaching is meant to follow weeks of consistent one-on-ones and feedback.</p></li><li><h3>A repeatable script over improvisation</h3><p>The insistence on nearly memorized phrasing is a deliberate choice to make good management practice teachable and consistent across an organization.</p></li></ol></section>
+
+    <div class="sm-cols">
+      <section><h2>Try it this week</h2><ol class="sm-steps"><li>Start a weekly 30-minute one-on-one with each direct report this month, letting them set the first two-thirds of the agenda.</li><li>Give one piece of specific, behavior-and-impact feedback this week using the ask-permission/describe/impact/request structure.</li><li>Identify one task you&#x27;re currently doing yourself that a direct report could take on, and delegate it as a development opportunity.</li><li>Keep a simple running note for each direct report after every one-on-one, tracking commitments and recurring themes over a month.</li></ol></section>
+      <section><h2>Is it for you?</h2><h3 class="sm-good">Best for</h3><ul><li>New managers who want a concrete, script-based starting point for one-on-ones and feedback.</li><li>Managers in larger organizations who want a consistent, teachable system that scales across many first-line managers.</li></ul><h3 class="sm-less">Less useful if</h3><ul><li>Highly experienced managers who already have a strong personal feedback and coaching style.</li><li>Readers looking for strategic or organizational-design guidance rather than the individual manager-to-report relationship.</li></ul></section>
+    </div>
+
+<section class="sm-links"><h2>On this site</h2><div class="sm-chips"><a href="references.html#cat-people">People Management (1:1s, feedback, performance)</a></div></section>
+    <section class="sm-links sm-related"><h2>Pairs well with</h2><ul><li><a href="references.html#book-0593459326">High Output Management</a> <span>High Output Management shares the same one-on-one-centered management philosophy at a more conceptual level.</span></li><li><a href="references.html#book-0525642218">The Making of a Manager</a> <span>The Making of a Manager offers a similar structured question set for one-on-ones from a different vantage point.</span></li></ul></section>
+
+    <footer class="sm-foot">
+      <a class="sm-buy" href="https://www.amazon.com/s?k=Mark+Horstman+The+Effective+Manager&amp;tag=phoenixjenn-20" target="_blank" rel="noopener">Find the book on Amazon</a>
+      <p>Original summary written for Plan &middot; Do &middot; Reflect. Prepared from the book&rsquo;s ideas and public summaries (<a href="https://en.wikipedia.org/wiki/Manager_Tools_Podcast" target="_blank" rel="noopener">Manager Tools Podcast background (Wikipedia)</a>, <a href="https://tylerdevries.com/book-summaries/the-effective-manager/" target="_blank" rel="noopener">Tyler DeVries&#x27;s chapter-by-chapter summary</a>), not a substitute for reading it. Links may earn a commission.</p>
+    </footer>
+  </article>
+</main>
+
+<footer class="site-footer">
+  <p>&copy; 2026 Plan-Do-Reflect. <a href="references.html">References &amp; further reading</a></p>
+</footer>
+
+<div class="theme-switch" role="group" aria-label="Style direction">
+  <button data-theme="a" title="Kinetic Signal — black &amp; yellow"></button>
+  <button data-theme="b" title="Studio Ledger — dusty rose"></button>
+  <button data-theme="c" title="Bright Margin — lime"></button>
+  <a class="icon-lib-link" href="icon-library.html" title="Style Guide (internal reference)">
+    <svg width="14" height="14" viewBox="0 0 14 14" aria-hidden="true">
+      <rect x="1" y="1" width="5" height="5" rx="1" fill="currentColor"/>
+      <rect x="8" y="1" width="5" height="5" rx="1" fill="currentColor"/>
+      <rect x="1" y="8" width="5" height="5" rx="1" fill="currentColor"/>
+      <rect x="8" y="8" width="5" height="5" rx="1" fill="currentColor"/>
+    </svg>
+  </a>
+  <a class="icon-lib-link" href="notes.html" title="Notes (working drafts)">
+    <svg width="14" height="14" viewBox="0 0 14 14" aria-hidden="true">
+      <rect x="2" y="1" width="10" height="12" rx="1.5" fill="none" stroke="currentColor" stroke-width="1.3"/>
+      <line x1="4.5" y1="5" x2="9.5" y2="5" stroke="currentColor" stroke-width="1.3" stroke-linecap="round"/>
+      <line x1="4.5" y1="7.5" x2="9.5" y2="7.5" stroke="currentColor" stroke-width="1.3" stroke-linecap="round"/>
+      <line x1="4.5" y1="10" x2="7.5" y2="10" stroke="currentColor" stroke-width="1.3" stroke-linecap="round"/>
+    </svg>
+  </a>
+  <a class="icon-lib-link" href="sitemap.html" title="Sitemap (working draft)">
+    <svg width="14" height="14" viewBox="0 0 14 14" aria-hidden="true">
+      <circle cx="7" cy="2.5" r="1.8" fill="none" stroke="currentColor" stroke-width="1.3"/>
+      <circle cx="3" cy="11" r="1.8" fill="none" stroke="currentColor" stroke-width="1.3"/>
+      <circle cx="11" cy="11" r="1.8" fill="none" stroke="currentColor" stroke-width="1.3"/>
+      <path d="M7 4.3 L7 7 M7 7 L3 9.5 M7 7 L11 9.5" stroke="currentColor" stroke-width="1.3" fill="none" stroke-linecap="round"/>
+    </svg>
+  </a>
+</div>
+
+<!-- Temporary brainstorm control — only restyles the main h1 (.content h1 / .hero-title / .page-title). Remove alongside
+     the "title-font experiment" CSS block and the extra Google Fonts link once
+     a title font is picked. -->
+<div class="title-font-picker">
+  <label for="title-font-select">Title font</label>
+  <button type="button" id="title-font-prev" class="title-font-nav" aria-label="Previous title font">‹</button>
+  <select id="title-font-select">
+    <optgroup label="Round 1 — headline character">
+      <option value="gabarito">Gabarito</option>
+      <option value="chivo">Chivo</option>
+    </optgroup>
+    <optgroup label="Round 2 — Calibri-adjacent">
+      <option value="golos-text">Golos Text</option>
+    </optgroup>
+    <option value="default">Theme default</option>
+  </select>
+  <button type="button" id="title-font-next" class="title-font-nav" aria-label="Next title font">›</button>
+</div>
+
+<script src="js/theme-toggle.js" defer></script>
+<script src="js/title-font-toggle.js" defer></script>
+</body>
+</html>

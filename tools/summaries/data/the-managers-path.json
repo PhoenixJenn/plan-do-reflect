@@ -1,0 +1,77 @@
+{
+  "asin": "1452652171",
+  "slug": "the-managers-path",
+  "read_time": "2 min read",
+  "big_idea": "Management in a technical organization is itself a discipline that has to be learned in stages -- mentor, tech lead, new manager, manager of managers, senior exec -- and most engineers-turned-managers fail not from lack of talent but because no one taught them the specific skills each stage requires.",
+  "tool": {
+    "label": "The Management Career Ladder (stage-by-stage role map)",
+    "text": "Fournier structures the book as a literal ladder of roles, each with its own chapter: mentoring, tech lead, managing one team, managing managers, and 'the big leagues' (VP/CTO-level scope). For each rung she defines what changes in your actual daily work -- a tech lead still writes code but now owns technical direction; a manager of managers no longer solves technical problems directly but must judge whether their reports' teams are healthy without doing the work themselves. The framework's core claim is that skills don't automatically transfer upward, so each transition needs deliberate new learning.",
+    "note": "The book is explicitly scoped to the tech/software industry -- its org-chart assumptions (clear tech lead / EM split, formal skip-levels) fit mid-size-to-large tech companies better than small startups or non-tech companies."
+  },
+  "ideas": [
+    {
+      "title": "The tech lead is not a manager",
+      "text": "Fournier draws a hard line between the tech lead role (technical ownership, no formal authority) and the engineering manager role (people ownership), arguing conflating the two is a common early-career mistake."
+    },
+    {
+      "title": "Mentoring is management practice, not a favor",
+      "text": "She frames one-on-one mentoring of junior engineers as the lowest-stakes place to build the listening and feedback skills that later management requires."
+    },
+    {
+      "title": "Managing your own manager",
+      "text": "A full chapter is devoted to managing up -- reading your manager's priorities and constraints and proactively surfacing what they need to know."
+    },
+    {
+      "title": "Skip-level meetings as a diagnostic tool",
+      "text": "For managers of managers, Fournier recommends structured skip-levels to sense-check whether a directly-reporting manager's account of their team's health matches what the team itself feels."
+    },
+    {
+      "title": "Bootstrapping culture deliberately",
+      "text": "The book argues culture is something a leader actively designs and reinforces through concrete rituals, not a byproduct of hiring good people."
+    },
+    {
+      "title": "The big leagues require giving up technical depth",
+      "text": "At VP/CTO scope, Fournier is candid that you will lose hands-on technical currency and have to build new judgment for evaluating decisions you can no longer personally verify."
+    }
+  ],
+  "try_it": [
+    "Identify which rung of Fournier's ladder you're actually on right now (not your title) and read only that chapter plus the one above it this week.",
+    "Schedule one skip-level conversation with someone two levels below you, using it purely to listen rather than to solve anything.",
+    "Write down the one thing you did this week that was 'still doing the job' rather than 'managing the job,' and consciously hand it off.",
+    "In your next 1:1 with your own manager, proactively state what you think their top priority is and ask if you're reading it right."
+  ],
+  "best_for": [
+    "A software engineer who has just become a tech lead or first-time engineering manager and needs a map of what's coming next, not just the current role.",
+    "An engineering manager stepping up to manage other managers for the first time and unsure how their day-to-day should change."
+  ],
+  "less_useful": [
+    "A manager outside the tech industry -- the examples and org structures assume a software engineering context throughout.",
+    "Someone looking for deep research or academic grounding in management theory -- this is a practitioner's field guide."
+  ],
+  "site_links": [
+    {
+      "label": "New Manager & Career Progression",
+      "href": "references.html#cat-newmgr"
+    }
+  ],
+  "related": [
+    {
+      "asin": "0525642218",
+      "why": "The Making of a Manager covers similar ground from a Facebook design/product leader's perspective."
+    },
+    {
+      "asin": "B0CY6F7V18",
+      "why": "The Effective Manager offers a more scripted, habit-based system for the individual-manager relationship this book also covers."
+    }
+  ],
+  "sources": [
+    {
+      "label": "O'Reilly publisher page",
+      "href": "https://www.oreilly.com/library/view/the-managers-path/9781491973882/"
+    },
+    {
+      "label": "Camille Fournier background",
+      "href": "https://en.wikipedia.org/wiki/Camille_Fournier"
+    }
+  ]
+}

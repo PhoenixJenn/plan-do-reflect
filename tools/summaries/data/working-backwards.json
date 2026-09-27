@@ -1,0 +1,77 @@
+{
+  "asin": "1250788048",
+  "slug": "working-backwards",
+  "read_time": "2 min read",
+  "big_idea": "Amazon's execution advantage comes less from any single genius insight than from a small number of institutionalized mechanisms -- most notably working backwards from the customer via an internal press release before writing any code -- that force clarity before resources are committed.",
+  "tool": {
+    "label": "The PR/FAQ (Press Release / Frequently Asked Questions) process",
+    "text": "Before building anything, an Amazon team writes an internal press release announcing the finished product as if it were launching today, plus an FAQ addressing likely objections. Review meetings open with a silent start -- everyone reads the document quietly for 15-20 minutes rather than sitting through a slide presentation. The document goes through many drafts until customer benefit is concrete and specific. Only once the PR/FAQ survives scrutiny does the team scope actual engineering work, meaning failure happens cheaply on paper instead of expensively in production.",
+    "note": "The process assumes a strong writing culture and significant senior-leader time for multi-draft document review -- some former Amazon employees note it can slow launches or produce narrative theater around ideas leadership already favors."
+  },
+  "ideas": [
+    {
+      "title": "Silent-start meetings",
+      "text": "Six-page narrative memos read silently at the start of a meeting replace PowerPoint decks, rewarding clear thinking over presentation charisma."
+    },
+    {
+      "title": "Single-threaded leadership",
+      "text": "One leader, one team, one clear mandate per major initiative, deliberately reducing the shared ownership the authors say causes diffusion of responsibility."
+    },
+    {
+      "title": "Bar Raisers",
+      "text": "A specially trained, cross-team interviewer with veto power sits on every hiring loop specifically to protect hiring quality."
+    },
+    {
+      "title": "Kindle and Prime as PR/FAQ case studies",
+      "text": "Both major products were born from press releases leadership initially doubted, showing the process forcing a case beyond gut instinct."
+    },
+    {
+      "title": "The 14 Leadership Principles as daily operating rules",
+      "text": "The book shows the principles cited explicitly in real meetings as decision rules, not wall art."
+    },
+    {
+      "title": "Input metrics over output metrics",
+      "text": "Teams are measured on controllable inputs rather than lagging outputs like revenue, on the theory that inputs drive outputs."
+    }
+  ],
+  "try_it": [
+    "Write a one-page press release for your next project's launch before scoping any engineering or design work.",
+    "Run your next status meeting with a 15-minute silent read of a written memo instead of a slide deck.",
+    "Identify one initiative with too many owners and name a single directly responsible leader for it.",
+    "Replace one lagging output metric your team tracks with two controllable input metrics for a month."
+  ],
+  "best_for": [
+    "Product and program leaders at scaling companies who want concrete, adoptable decision-making mechanisms rather than culture platitudes.",
+    "Operators studying how large organizations preserve startup-like decision speed."
+  ],
+  "less_useful": [
+    "Solo founders or very small teams without the headcount or time to run multi-draft document reviews.",
+    "Readers hoping for a critical, warts-and-all account of Amazon's labor practices."
+  ],
+  "site_links": [
+    {
+      "label": "Business Case Studies & Company Stories",
+      "href": "references.html#cat-casestudies"
+    }
+  ],
+  "related": [
+    {
+      "asin": "1797120212",
+      "why": "The Founders shows a scrappier, less process-driven version of company-building this book's discipline contrasts with."
+    },
+    {
+      "asin": "0062346725",
+      "why": "Built to Last shares this book's interest in the durable mechanisms behind a company's execution advantage."
+    }
+  ],
+  "sources": [
+    {
+      "label": "Authors' official site",
+      "href": "https://workingbackwards.com/"
+    },
+    {
+      "label": "About Amazon (official company write-up)",
+      "href": "https://www.aboutamazon.com/news/workplace/an-insider-look-at-amazons-culture-and-processes"
+    }
+  ]
+}

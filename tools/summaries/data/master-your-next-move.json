@@ -1,0 +1,77 @@
+{
+  "asin": "1469081911",
+  "slug": "master-your-next-move",
+  "read_time": "2 min read",
+  "big_idea": "There is no single universal onboarding plan -- the accelerators Michael Watkins outlined in The First 90 Days have to be applied completely differently depending on which of several distinct transition types you're actually facing, from promotion to leading former peers to a turnaround.",
+  "tool": {
+    "label": "The Eight Transition Types (with the STARS model for organizational context)",
+    "text": "Watkins identifies roughly eight recurring transition scenarios -- being promoted, leading former peers, onboarding into a new company, relocating internationally, a politically complex diplomat role, and leading a turnaround, realignment, or sustaining-success situation -- and devotes a chapter to how his original accelerators play out differently in each. He layers in the STARS framework (Start-up, Turnaround, Accelerated growth, Realignment, Sustaining success), arguing the right leadership approach depends heavily on which business situation you're stepping into.",
+    "note": "Because the book is explicitly a companion volume, several chapters assume the reader already has The First 90 Days' base vocabulary -- read cold, some sections feel like an appendix rather than a standalone book."
+  },
+  "ideas": [
+    {
+      "title": "One framework, eight applications",
+      "text": "Accelerate learning or secure early wins means something completely different for someone promoted internally versus someone leading former peers."
+    },
+    {
+      "title": "Leading former peers as its own crisis",
+      "text": "Watkins treats the promoted-from-within-the-team scenario as uniquely hard, requiring an explicit, early conversation that resets the relationship."
+    },
+    {
+      "title": "STARS dictates leadership style, not values",
+      "text": "The same leader should act far more directively in a turnaround than in a sustaining-success situation, and misreading which STARS situation you're in is a common derailment cause."
+    },
+    {
+      "title": "International relocation is a distinct skill set",
+      "text": "The book isolates the added layer of cultural and political learning required as its own transition type."
+    },
+    {
+      "title": "The diplomat transition",
+      "text": "Watkins names the scenario of stepping into a highly political, matrixed role as its own category, requiring alliance-building tools."
+    },
+    {
+      "title": "Early wins have to be recalibrated by context",
+      "text": "What counts as a credible early win in a turnaround is nearly the opposite of what counts as one in a sustaining-success role."
+    }
+  ],
+  "try_it": [
+    "Before your next transition, explicitly name which of Watkins' eight scenarios you're in and which STARS category your new team sits in.",
+    "If you're newly promoted over former peers, schedule a direct one-on-one with each of them in week one to acknowledge the changed relationship.",
+    "Draft your early-wins list for the next 30 days and test each item against your STARS category.",
+    "If relocating internationally, add a line item to your 90-day plan specifically for learning the local decision-making culture."
+  ],
+  "best_for": [
+    "A leader who has already read The First 90 Days and is now facing a specific, unusual transition it didn't cover in depth.",
+    "An HR or talent-development function building onboarding programs for multiple transition types."
+  ],
+  "less_useful": [
+    "Someone who hasn't read The First 90 Days -- the book assumes and builds on that framework.",
+    "A reader facing a completely standard, single new-company onboarding."
+  ],
+  "site_links": [
+    {
+      "label": "New Manager & Career Progression",
+      "href": "references.html#cat-newmgr"
+    }
+  ],
+  "related": [
+    {
+      "asin": "1452652171",
+      "why": "The Manager's Path covers a parallel set of stage-specific transitions inside a tech career ladder."
+    },
+    {
+      "asin": "B0C4C63KT2",
+      "why": "The Six Disciplines of Strategic Thinking shares Watkins's trainable-skills approach to leadership."
+    }
+  ],
+  "sources": [
+    {
+      "label": "IMD faculty book page (Watkins is an IMD professor)",
+      "href": "https://www.imd.org/research-knowledge/transition/books/master-your-next-move/"
+    },
+    {
+      "label": "Publisher listing (Harvard Business Review Press)",
+      "href": "https://store.hbr.org/product/master-your-next-move-with-a-new-introduction-the-essential-companion-to-the-first-90-days/10271"
+    }
+  ]
+}

@@ -1,0 +1,77 @@
+{
+  "asin": "B078KF1LZ5",
+  "slug": "the-career-manifesto",
+  "read_time": "2 min read",
+  "big_idea": "A fulfilling career comes from deliberately architecting your work and life around a defined sense of impact, using concrete planning tools and accountability structures rather than waiting for a calling to reveal itself.",
+  "tool": {
+    "label": "The Five P's (Purpose, Plan, Productivity, People, Presence)",
+    "text": "Steib organizes the book around five interlocking components. Purpose uses exercises like an Impact Map to articulate the specific difference readers want their work to make. Plan translates that purpose into a concrete roadmap. Productivity covers habits and systems that sustain the energy needed to execute the plan. People addresses building and leveraging relationships and mentorship deliberately. Presence focuses on being intentional in the day-to-day experience of the work itself. The book is built as a workbook, with exercises including a Happiness Matrix and a written personal eulogy.",
+    "note": "A Library Journal review flags that the book's exercises require writing directly in the book itself, making it a poor fit for shared or library copies."
+  },
+  "ideas": [
+    {
+      "title": "Impact before job title",
+      "text": "Steib's Impact Map exercise asks readers to define the specific effect they want their work to have on others before choosing a role or industry."
+    },
+    {
+      "title": "A written eulogy as a planning tool",
+      "text": "The book uses a personal eulogy-writing exercise to surface what readers actually want to be known for."
+    },
+    {
+      "title": "Happiness is measurable, not just felt",
+      "text": "The Happiness Matrix exercise has readers plot activities against energy and fulfillment to identify what to double down on or cut."
+    },
+    {
+      "title": "Draws on CEO-level pattern recognition",
+      "text": "Steib built the book from his experience as a public company CEO and board director."
+    },
+    {
+      "title": "Productivity habits are framed as career infrastructure",
+      "text": "The book treats sleep, gratitude, and personal energy management as legitimate career tools."
+    },
+    {
+      "title": "Accountability structures close the gap between plan and action",
+      "text": "Beyond goal-setting, the book emphasizes building explicit accountability mechanisms to keep a career plan from staying theoretical."
+    }
+  ],
+  "try_it": [
+    "Complete a one-page Impact Map this week: write the specific groups of people you want your work to affect and how.",
+    "Draft a short personal eulogy focused only on your professional life, then extract the top two priorities it reveals.",
+    "Plot your current daily work tasks on a 2x2 energy/fulfillment matrix and identify one task to delegate or cut this month.",
+    "Identify one person to serve as an accountability check-in for a specific career goal over the next 90 days."
+  ],
+  "best_for": [
+    "Mid-career professionals who feel successful on paper but lack a clear sense of purpose behind their work.",
+    "Readers who respond well to structured workbook exercises and want a step-by-step planning process."
+  ],
+  "less_useful": [
+    "Readers early in their careers with little work experience to draw the exercises from.",
+    "Someone wanting a purely tactical job-search or resume guide rather than a values-and-purpose-oriented planning book."
+  ],
+  "site_links": [
+    {
+      "label": "Managing Up & Career Navigation",
+      "href": "references.html#cat-managingup"
+    }
+  ],
+  "related": [
+    {
+      "asin": "B01KIPHEPA",
+      "why": "Pivot offers a complementary experiment-driven method for acting on the purpose this book helps clarify."
+    },
+    {
+      "asin": "0241989906",
+      "why": "The Squiggly Career shares a similar self-assessment-driven approach to career design."
+    }
+  ],
+  "sources": [
+    {
+      "label": "Publisher page, Penguin Random House",
+      "href": "https://www.penguinrandomhouse.com/books/540935/the-career-manifesto-by-mike-steib/"
+    },
+    {
+      "label": "Library Journal review",
+      "href": "https://www.libraryjournal.com/review/the-career-manifesto-discover-your-calling-and-create-an-extraordinary-life"
+    }
+  ]
+}
