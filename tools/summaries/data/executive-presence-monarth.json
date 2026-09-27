@@ -1,0 +1,77 @@
+{
+  "asin": "1639291814",
+  "slug": "executive-presence-monarth",
+  "read_time": "2 min read",
+  "big_idea": "Career advancement depends heavily on perception management, deliberately shaping how others read your competence, character, and value through communication, personal branding, and reputation, not on talent or connections alone.",
+  "tool": {
+    "label": "The Personal Branding & Reputation Audit",
+    "text": "Monarth has readers deliberately define a personal brand, the specific handful of qualities they want to be known for, and then audit how consistently their communication, online presence, and behavior reinforce or undercut that brand. The tool extends into digital reputation management: proactively building a positive online footprint and having a plan for responding if that reputation is challenged.",
+    "note": "none"
+  },
+  "ideas": [
+    {
+      "title": "Perception is managed, not accidental",
+      "text": "Executives who advance treat how they're perceived as a deliberate strategy, not a byproduct of doing good work."
+    },
+    {
+      "title": "Social intelligence as a skill",
+      "text": "Accurately reading people's motives, concerns, and communication style is presented as a learnable foundation for influence."
+    },
+    {
+      "title": "Storytelling drives buy-in",
+      "text": "Framing ideas as stories rather than data dumps is presented as a primary tool for winning support."
+    },
+    {
+      "title": "Personal branding",
+      "text": "Defining a specific, consistent professional identity makes a leader more memorable and easier for others to advocate for."
+    },
+    {
+      "title": "Media and public profile",
+      "text": "The book devotes real attention to handling media exposure and building a public profile as an extension of presence."
+    },
+    {
+      "title": "Difficult conversations test presence",
+      "text": "The book offers scripts and approaches for staying credible through conflict and hard conversations."
+    }
+  ],
+  "try_it": [
+    "Write one sentence describing the professional brand you want to be known for, then check whether your last three emails or meetings reinforced it.",
+    "Before your next pitch, rewrite your key point as a short story with a concrete example instead of a bullet list.",
+    "Search your own name online and note one thing in your digital footprint you'd want to change or add.",
+    "Identify one upcoming difficult conversation and script your opening line in advance so you can stay composed."
+  ],
+  "best_for": [
+    "Professionals who want a communication- and branding-centric approach to advancement",
+    "People preparing for higher public visibility"
+  ],
+  "less_useful": [
+    "Readers looking for Sylvia Ann Hewlett's gravitas, communication, appearance research framework, this is a different, same-titled book by a different author",
+    "Readers uncomfortable with a heavily perception-focused approach as opposed to a substance-first one"
+  ],
+  "site_links": [
+    {
+      "label": "Executive Presence",
+      "href": "references.html#cat-presence"
+    }
+  ],
+  "related": [
+    {
+      "asin": "B00K58XOIW",
+      "why": "A different, research-based framework under the same title, built on gravitas, communication, and appearance"
+    },
+    {
+      "asin": "B09ZF93BWC",
+      "why": "A more tactical, candid look at building the influence a strong personal brand depends on"
+    }
+  ],
+  "sources": [
+    {
+      "label": "O'Reilly book listing",
+      "href": "https://www.oreilly.com/library/view/executive-presence-the/9780071632874/"
+    },
+    {
+      "label": "Life and Leadership summary",
+      "href": "https://lifeandleadership.com/book-summaries/monarth-executive-presence-commanding-respect-like-a-ceo/"
+    }
+  ]
+}

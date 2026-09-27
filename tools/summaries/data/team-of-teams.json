@@ -1,0 +1,77 @@
+{
+  "asin": "B00UVX3HRE",
+  "slug": "team-of-teams",
+  "read_time": "2 min read",
+  "big_idea": "Stanley McChrystal argues that hierarchical, command-and-control organizations built for predictable problems fail against fast-moving, interconnected ones, so organizations must restructure into a network of empowered, transparent small teams that operate with the intimacy of a single team at scale.",
+  "tool": {
+    "label": "Shared Consciousness via the O&I Brief",
+    "text": "To defeat a decentralized enemy network, McChrystal's Task Force replaced siloed intelligence-sharing with a daily Operations and Intelligence briefing that eventually included thousands of participants across every unit and agency, radically over-sharing context that used to be restricted. The goal was shared consciousness, giving people across the organization the same big-picture understanding of the mission, as the precondition for pushing decisions down to those closest to the action.",
+    "note": "The O&I model was built for a wartime intelligence task force with extraordinary resources; most organizations adapt the underlying principle, radical information transparency, rather than replicate the literal scale of the briefing."
+  },
+  "ideas": [
+    {
+      "title": "Complicated vs. complex",
+      "text": "Complicated systems have many parts but predictable cause-and-effect; complex systems have dense, non-linear interactions where small changes cascade unpredictably, most modern organizations misdiagnose complex problems as merely complicated."
+    },
+    {
+      "title": "Efficiency vs. adaptability",
+      "text": "Industrial-era management optimized for efficiency and standardization; in complex environments, resilience and the ability to reconfigure quickly matter more."
+    },
+    {
+      "title": "From chess master to gardener",
+      "text": "Leaders can't dictate every move in a complex system; instead they should cultivate the conditions in which good decisions emerge from the team."
+    },
+    {
+      "title": "Decentralized decision-making",
+      "text": "Once shared consciousness exists, authority should move to wherever the relevant information and context sit, rather than staying with formal rank."
+    },
+    {
+      "title": "Structure as strategy",
+      "text": "Physical space, embedded liaisons between units, and information-sharing systems are themselves strategic choices that either enable or block cross-team coordination."
+    },
+    {
+      "title": "Trust over control",
+      "text": "Leaders must be willing to say I don't know and tolerate the discomfort of relinquishing direct control in order to unlock faster, more locally-informed action."
+    }
+  ],
+  "try_it": [
+    "Start a short recurring cross-team briefing where teams that don't normally talk share what they're working on and why.",
+    "Identify one decision you currently approve personally that could be pushed to the person closest to the information, and delegate it this week.",
+    "Map which of your teams operate like isolated silos and introduce one liaison or embedded role between two of them.",
+    "Replace one status report with a conversation: ask a team to explain the why behind their current priorities, not just the what."
+  ],
+  "best_for": [
+    "Leaders of large, siloed organizations navigating fast-changing, unpredictable environments",
+    "Executives redesigning cross-functional collaboration and information flow"
+  ],
+  "less_useful": [
+    "Small teams or stable businesses where lightweight coordination already works fine",
+    "Readers wanting quick tactical tips rather than a deeper organizational-design rethink"
+  ],
+  "site_links": [
+    {
+      "label": "Leadership Styles & Principles",
+      "href": "references.html#cat-leadstyle"
+    }
+  ],
+  "related": [
+    {
+      "asin": "B0F71ZM8YL",
+      "why": "A complementary case for the shared purpose that makes this kind of decentralization hold together"
+    },
+    {
+      "asin": "B002V0KT8K",
+      "why": "A more theoretical treatment of the systems thinking behind managing complexity"
+    }
+  ],
+  "sources": [
+    {
+      "label": "ReadingGraphics: Book Summary – Team of Teams",
+      "href": "https://readingraphics.com/book-summary-team-of-teams/"
+    },
+    {
+      "label": "Next Level Coaching: Team of Teams Book Summary",
+      "href": "https://www.nextlevel.coach/blog/team-of-teams-book-summary"
+    }
+  ]
+}

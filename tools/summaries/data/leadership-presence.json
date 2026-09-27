@@ -1,0 +1,67 @@
+{
+  "asin": "B0BJ7N3QXZ",
+  "slug": "leadership-presence",
+  "read_time": "1 min read",
+  "big_idea": "Leadership presence is a learnable blend of confidence, connection, and communication skill that determines whether others recognize someone as ready to lead; this HBR collection gathers research-backed articles on what builds, and undermines, that perception.",
+  "tool": {
+    "label": "Connect, Then Lead (warmth before strength)",
+    "text": "This model holds that people judge leaders on two axes, warmth and strength, and that leaders who display warmth first are judged more favorably than those who lead with strength alone. Establishing warmth makes a later display of competence land as confidence rather than arrogance.",
+    "note": "This framework comes from one article in the anthology rather than a single unifying model, since the book compiles several authors' independent pieces."
+  },
+  "ideas": [
+    {
+      "title": "Deconstructing executive presence",
+      "text": "Presence combines substance, a clear point of view and sound judgment, with style, how you deliver it, both are required."
+    },
+    {
+      "title": "Connect before you lead",
+      "text": "Warmth is judged before competence, so leading with warmth earns the benefit of the doubt on strength."
+    },
+    {
+      "title": "New managers send signals",
+      "text": "Small early choices, handling your first meeting, your first disagreement, set a leadership signal that sticks."
+    },
+    {
+      "title": "Who gets heard and why",
+      "text": "Conversational style shapes whose ideas get credit, often along gender lines."
+    }
+  ],
+  "try_it": [
+    "In your next meeting, spend the first two minutes building genuine rapport before making your substantive point.",
+    "Before a high-visibility presentation, write your point of view in one sentence to sharpen the substance half of your presence."
+  ],
+  "best_for": [
+    "New or newly promoted managers building a leadership signal",
+    "Readers who want a fast, research-grounded primer rather than a single-author book"
+  ],
+  "less_useful": [
+    "Readers wanting one cohesive narrative or long case studies, it's a compilation of shorter HBR articles",
+    "Very senior executives may find the new-manager framing basic"
+  ],
+  "site_links": [
+    {
+      "label": "Executive Presence",
+      "href": "references.html#cat-presence"
+    }
+  ],
+  "related": [
+    {
+      "asin": "B00K58XOIW",
+      "why": "A fuller, research-based framework on the same executive-presence pillars"
+    },
+    {
+      "asin": "1469076535",
+      "why": "A companion HBR collection on wielding influence and power well"
+    }
+  ],
+  "sources": [
+    {
+      "label": "HBR Store product page",
+      "href": "https://store.hbr.org/product/leadership-presence-hbr-emotional-intelligence-series/10212"
+    },
+    {
+      "label": "O'Reilly book listing",
+      "href": "https://www.oreilly.com/library/view/leadership-presence-hbr/9781633696259/"
+    }
+  ]
+}

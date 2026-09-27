@@ -1,0 +1,77 @@
+{
+  "asin": "B01F47CEN4",
+  "slug": "thats-not-how-we-do-it-here",
+  "read_time": "2 min read",
+  "big_idea": "Told as a fable about a meerkat clan, the book argues that organizations which once thrived on well-honed routines can be destroyed by those same routines when conditions change, unless they deliberately build a dual operating system of both disciplined management and adaptive leadership.",
+  "tool": {
+    "label": "The Dual Operating System (management + leadership)",
+    "text": "Kotter and Rathgeber argue mature organizations need two systems running side by side: a management hierarchy that keeps daily operations efficient and reliable, and a more informal, volunteer-driven leadership network that senses change and drives new ideas. In the fable, the meerkat clan's rigid procedures, originally a source of strength, become a liability once the environment shifts, and the clan only recovers by building a parallel structure that lets urgent new ideas move fast without dismantling the operational system that still works.",
+    "note": "This tool is Kotter's own reframing of the 8-step model from Leading Change into a fable aimed at a broader, non-executive audience, the underlying idea is the same, packaged differently."
+  },
+  "ideas": [
+    {
+      "title": "Success can breed rigidity",
+      "text": "Standardized practices that made an organization efficient in stable times can become exactly what prevents it from noticing or responding to real threats."
+    },
+    {
+      "title": "One character challenges the status quo",
+      "text": "The fable follows a meerkat who becomes frustrated by leadership's reflexive that's-not-how-we-do-it-here response to new ideas from the front line."
+    },
+    {
+      "title": "Learning from other colonies",
+      "text": "Traveling to see how other groups operate, some well-managed but poorly led, others the reverse, helps the protagonist recognize that management and leadership are separate capabilities."
+    },
+    {
+      "title": "Most organizations lean one way",
+      "text": "Kotter and Rathgeber argue most companies land in one of two default states, well-managed but unable to innovate, or full of ideas but operationally chaotic, and rarely achieve both at once."
+    },
+    {
+      "title": "Renewal is possible",
+      "text": "The clan's eventual recovery models how a change-resistant culture can rebuild adaptive capacity without abandoning what makes its operations reliable."
+    },
+    {
+      "title": "Fable format as a teaching tool",
+      "text": "The book is designed to make change-management concepts accessible to non-specialist audiences and easy to discuss as a team."
+    }
+  ],
+  "try_it": [
+    "Name one that's-not-how-we-do-it-here response your team has given to a new idea in the last few months, and ask whether the underlying rule still serves its purpose.",
+    "List which of your team's processes exist to keep operations reliable versus which exist to sense and drive change, and notice if one list is much longer.",
+    "Identify one colleague who consistently pushes new ideas and consider what would happen if you routed one live problem through them outside the normal hierarchy.",
+    "Read or assign the fable as a team discussion piece and ask each person to name one rigid process worth questioning."
+  ],
+  "best_for": [
+    "Teams and leaders newer to change-management concepts who want an accessible, story-based entry point",
+    "Middle managers trying to explain the tension between how we operate and how we adapt to their own teams"
+  ],
+  "less_useful": [
+    "Readers who've already read Leading Change and want new analytical depth rather than the same ideas in fable form",
+    "Anyone looking for step-by-step implementation detail rather than a narrative illustration"
+  ],
+  "site_links": [
+    {
+      "label": "Change Management",
+      "href": "references.html#cat-change"
+    }
+  ],
+  "related": [
+    {
+      "asin": "B004YDJJEC",
+      "why": "The same author's original, non-fable framework this story dramatizes"
+    },
+    {
+      "asin": "B07F77R461",
+      "why": "Another short business fable on adapting quickly to change"
+    }
+  ],
+  "sources": [
+    {
+      "label": "getAbstract, That's Not How We Do It Here! summary",
+      "href": "https://www.getabstract.com/en/summary/thats-not-how-we-do-it-here/28522"
+    },
+    {
+      "label": "Making Business Matter, Book Review",
+      "href": "https://www.makingbusinessmatter.co.uk/thats-not-how-we-do-it-here/"
+    }
+  ]
+}

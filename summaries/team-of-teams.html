@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="a">
+<head>
+<meta charset="UTF-8">
+<base href="../">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="icon" type="image/svg+xml" href="favicon.svg">
+<title>Team of Teams: One-page summary · Plan · Do · Reflect</title>
+
+<!-- Applied before CSS loads, so the saved theme / title-font choice doesn't flash to the default on reload -->
+<script>
+(function () {
+  try {
+    var savedTheme = localStorage.getItem('pdr-theme');
+    if (['a', 'b', 'c'].indexOf(savedTheme) > -1) {
+      document.documentElement.setAttribute('data-theme', savedTheme);
+    }
+    /* No saved choice yet means a first-time visitor — default them to Golos
+       Text rather than the theme's own heading font. Explicitly picking
+       "Theme default" in the picker stores the literal string 'default',
+       which is the one value that clears the override below. */
+    var savedTitleFont = localStorage.getItem('pdr-title-font');
+    var titleFont = savedTitleFont === null ? 'golos-text' : savedTitleFont;
+    if (titleFont !== 'default') {
+      document.documentElement.setAttribute('data-title-font', titleFont);
+    }
+  } catch (e) {}
+})();
+</script>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=Work+Sans:wght@400;500;600&family=Sora:wght@600;700;800&family=Plus+Jakarta+Sans:wght@500;600;700&family=Patrick+Hand&display=swap" rel="stylesheet">
+
+<!-- Title-font brainstorm candidates — temporary, for the .title-font-picker toggle only.
+     Remove this link once a title font is chosen and folded into tokens.css. -->
+<link href="https://fonts.googleapis.com/css2?family=Gabarito:wght@800&family=Chivo:wght@800&family=Golos+Text:wght@800&display=swap" rel="stylesheet">
+
+<link rel="stylesheet" href="css/tokens.css">
+<link rel="stylesheet" href="css/main.css">
+<link rel="stylesheet" href="css/summary.css">
+</head>
+<body>
+
+<header class="topnav">
+  <a class="logo" href="index.html">Plan·Do·Reflect</a>
+  <nav class="topnav-items">
+    <a class="item" href="framework.html">The Framework</a>
+    <a class="item" href="self-management.html">Self</a>
+    <a class="item" href="team.html">Team</a>
+    <a class="item" href="organization.html">Organization</a>
+    <a class="item" href="core-skills.html">Core Skills</a>
+    <a class="item active" href="references.html">References</a>
+  </nav>
+</header>
+
+<main class="sm">
+  <p class="sm-crumb"><a href="references.html">References &amp; Further Reading</a> &rsaquo; One-page summary</p>
+  <article class="sm-page">
+    <header class="sm-head">
+      <img class="sm-cover" src="images/covers/B00UVX3HRE.jpg" data-r="https://m.media-amazon.com/images/I/51-DGYCqHYL._SL300_.jpg" alt="Cover of Team of Teams" onerror="if(this.dataset.r&amp;&amp;this.src.indexOf(this.dataset.r)===-1){this.src=this.dataset.r}else{this.style.visibility='hidden'}">
+      <div>
+        <p class="sm-eyebrow">One-page summary &middot; 2 min read</p>
+        <h1 class="page-title">Team of Teams</h1>
+        <p class="sm-sub">New Rules of Engagement for a Complex World</p>
+        <p class="sm-by">by Stanley McChrystal, Tantum Collins, David Silverman</p>
+        <p class="sm-meta">2015 &middot; 12h 6m audiobook &middot; &#9733; 4.6 Audible</p>
+      </div>
+    </header>
+
+    <section class="sm-idea"><h2>The big idea</h2><p>Stanley McChrystal argues that hierarchical, command-and-control organizations built for predictable problems fail against fast-moving, interconnected ones, so organizations must restructure into a network of empowered, transparent small teams that operate with the intimacy of a single team at scale.</p></section>
+
+<section class="sm-tool"><span class="sm-label">Shared Consciousness via the O&amp;I Brief</span><blockquote>To defeat a decentralized enemy network, McChrystal&#x27;s Task Force replaced siloed intelligence-sharing with a daily Operations and Intelligence briefing that eventually included thousands of participants across every unit and agency, radically over-sharing context that used to be restricted. The goal was shared consciousness, giving people across the organization the same big-picture understanding of the mission, as the precondition for pushing decisions down to those closest to the action.</blockquote><p>The O&amp;I model was built for a wartime intelligence task force with extraordinary resources; most organizations adapt the underlying principle, radical information transparency, rather than replicate the literal scale of the briefing.</p></section>
+
+    <section class="sm-ideas"><h2>Key ideas</h2><ol><li><h3>Complicated vs. complex</h3><p>Complicated systems have many parts but predictable cause-and-effect; complex systems have dense, non-linear interactions where small changes cascade unpredictably, most modern organizations misdiagnose complex problems as merely complicated.</p></li><li><h3>Efficiency vs. adaptability</h3><p>Industrial-era management optimized for efficiency and standardization; in complex environments, resilience and the ability to reconfigure quickly matter more.</p></li><li><h3>From chess master to gardener</h3><p>Leaders can&#x27;t dictate every move in a complex system; instead they should cultivate the conditions in which good decisions emerge from the team.</p></li><li><h3>Decentralized decision-making</h3><p>Once shared consciousness exists, authority should move to wherever the relevant information and context sit, rather than staying with formal rank.</p></li><li><h3>Structure as strategy</h3><p>Physical space, embedded liaisons between units, and information-sharing systems are themselves strategic choices that either enable or block cross-team coordination.</p></li><li><h3>Trust over control</h3><p>Leaders must be willing to say I don&#x27;t know and tolerate the discomfort of relinquishing direct control in order to unlock faster, more locally-informed action.</p></li></ol></section>
+
+    <div class="sm-cols">
+      <section><h2>Try it this week</h2><ol class="sm-steps"><li>Start a short recurring cross-team briefing where teams that don&#x27;t normally talk share what they&#x27;re working on and why.</li><li>Identify one decision you currently approve personally that could be pushed to the person closest to the information, and delegate it this week.</li><li>Map which of your teams operate like isolated silos and introduce one liaison or embedded role between two of them.</li><li>Replace one status report with a conversation: ask a team to explain the why behind their current priorities, not just the what.</li></ol></section>
+      <section><h2>Is it for you?</h2><h3 class="sm-good">Best for</h3><ul><li>Leaders of large, siloed organizations navigating fast-changing, unpredictable environments</li><li>Executives redesigning cross-functional collaboration and information flow</li></ul><h3 class="sm-less">Less useful if</h3><ul><li>Small teams or stable businesses where lightweight coordination already works fine</li><li>Readers wanting quick tactical tips rather than a deeper organizational-design rethink</li></ul></section>
+    </div>
+
+<section class="sm-links"><h2>On this site</h2><div class="sm-chips"><a href="references.html#cat-leadstyle">Leadership Styles &amp; Principles</a></div></section>
+    <section class="sm-links sm-related"><h2>Pairs well with</h2><ul><li><a href="references.html#book-B0F71ZM8YL">Start with Why</a> <span>A complementary case for the shared purpose that makes this kind of decentralization hold together</span></li><li><a href="references.html#book-B002V0KT8K">The Fifth Discipline</a> <span>A more theoretical treatment of the systems thinking behind managing complexity</span></li></ul></section>
+
+    <footer class="sm-foot">
+      <a class="sm-buy" href="https://www.amazon.com/s?k=Stanley+McChrystal+Team+of+Teams&amp;tag=phoenixjenn-20" target="_blank" rel="noopener">Find the book on Amazon</a>
+      <p>Original summary written for Plan &middot; Do &middot; Reflect. Prepared from the book&rsquo;s ideas and public summaries (<a href="https://readingraphics.com/book-summary-team-of-teams/" target="_blank" rel="noopener">ReadingGraphics: Book Summary – Team of Teams</a>, <a href="https://www.nextlevel.coach/blog/team-of-teams-book-summary" target="_blank" rel="noopener">Next Level Coaching: Team of Teams Book Summary</a>), not a substitute for reading it. Links may earn a commission.</p>
+    </footer>
+  </article>
+</main>
+
+<footer class="site-footer">
+  <p>&copy; 2026 Plan-Do-Reflect. <a href="references.html">References &amp; further reading</a></p>
+</footer>
+
+<div class="theme-switch" role="group" aria-label="Style direction">
+  <button data-theme="a" title="Kinetic Signal — black &amp; yellow"></button>
+  <button data-theme="b" title="Studio Ledger — dusty rose"></button>
+  <button data-theme="c" title="Bright Margin — lime"></button>
+  <a class="icon-lib-link" href="icon-library.html" title="Style Guide (internal reference)">
+    <svg width="14" height="14" viewBox="0 0 14 14" aria-hidden="true">
+      <rect x="1" y="1" width="5" height="5" rx="1" fill="currentColor"/>
+      <rect x="8" y="1" width="5" height="5" rx="1" fill="currentColor"/>
+      <rect x="1" y="8" width="5" height="5" rx="1" fill="currentColor"/>
+      <rect x="8" y="8" width="5" height="5" rx="1" fill="currentColor"/>
+    </svg>
+  </a>
+  <a class="icon-lib-link" href="notes.html" title="Notes (working drafts)">
+    <svg width="14" height="14" viewBox="0 0 14 14" aria-hidden="true">
+      <rect x="2" y="1" width="10" height="12" rx="1.5" fill="none" stroke="currentColor" stroke-width="1.3"/>
+      <line x1="4.5" y1="5" x2="9.5" y2="5" stroke="currentColor" stroke-width="1.3" stroke-linecap="round"/>
+      <line x1="4.5" y1="7.5" x2="9.5" y2="7.5" stroke="currentColor" stroke-width="1.3" stroke-linecap="round"/>
+      <line x1="4.5" y1="10" x2="7.5" y2="10" stroke="currentColor" stroke-width="1.3" stroke-linecap="round"/>
+    </svg>
+  </a>
+  <a class="icon-lib-link" href="sitemap.html" title="Sitemap (working draft)">
+    <svg width="14" height="14" viewBox="0 0 14 14" aria-hidden="true">
+      <circle cx="7" cy="2.5" r="1.8" fill="none" stroke="currentColor" stroke-width="1.3"/>
+      <circle cx="3" cy="11" r="1.8" fill="none" stroke="currentColor" stroke-width="1.3"/>
+      <circle cx="11" cy="11" r="1.8" fill="none" stroke="currentColor" stroke-width="1.3"/>
+      <path d="M7 4.3 L7 7 M7 7 L3 9.5 M7 7 L11 9.5" stroke="currentColor" stroke-width="1.3" fill="none" stroke-linecap="round"/>
+    </svg>
+  </a>
+</div>
+
+<!-- Temporary brainstorm control — only restyles the main h1 (.content h1 / .hero-title / .page-title). Remove alongside
+     the "title-font experiment" CSS block and the extra Google Fonts link once
+     a title font is picked. -->
+<div class="title-font-picker">
+  <label for="title-font-select">Title font</label>
+  <button type="button" id="title-font-prev" class="title-font-nav" aria-label="Previous title font">‹</button>
+  <select id="title-font-select">
+    <optgroup label="Round 1 — headline character">
+      <option value="gabarito">Gabarito</option>
+      <option value="chivo">Chivo</option>
+    </optgroup>
+    <optgroup label="Round 2 — Calibri-adjacent">
+      <option value="golos-text">Golos Text</option>
+    </optgroup>
+    <option value="default">Theme default</option>
+  </select>
+  <button type="button" id="title-font-next" class="title-font-nav" aria-label="Next title font">›</button>
+</div>
+
+<script src="js/theme-toggle.js" defer></script>
+<script src="js/title-font-toggle.js" defer></script>
+</body>
+</html>

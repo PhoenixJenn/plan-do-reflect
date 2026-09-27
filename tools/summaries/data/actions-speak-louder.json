@@ -1,0 +1,77 @@
+{
+  "asin": "B09GPX6PFJ",
+  "slug": "actions-speak-louder",
+  "read_time": "2 min read",
+  "big_idea": "Building an inclusive workplace is not about good intentions, mission statements, or one-off listening sessions; it requires organizations to redesign concrete systems, recruitment, hiring, retention, and culture, so equity is built into how decisions actually get made.",
+  "tool": {
+    "label": "The Four-Area DEI Audit",
+    "text": "Singh structures the book's action steps around four organizational areas where exclusion typically hides: recruitment, hiring, retention, and day-to-day culture. Readers are guided to examine each area individually and identify specific, fixable practices reinforcing exclusion rather than treating diversity as one abstract problem.",
+    "note": "none"
+  },
+  "ideas": [
+    {
+      "title": "Diversity, equity, and inclusion form a progression, not synonyms",
+      "text": "Diversity brings different perspectives into the room, equity builds the systems that let them stay, and inclusion is reached only when those employees can actually help shape decisions."
+    },
+    {
+      "title": "Passive assumptions are themselves a form of exclusion",
+      "text": "Recruitment has to be actively redesigned to reach different candidate pools rather than assuming underrepresented candidates just don't apply here."
+    },
+    {
+      "title": "Interview processes often default to rewarding people who resemble existing employees",
+      "text": "Structured, standardized interview questions are offered as a countermeasure to that status-quo bias."
+    },
+    {
+      "title": "Retention needs to be deliberately designed around underrepresented employees' actual needs",
+      "text": "Since default systems tend to reproduce existing patterns of who stays and who leaves."
+    },
+    {
+      "title": "Inclusive meetings depend on deliberately inviting dissent",
+      "text": "And amplifying quieter or marginalized voices, not just inviting diverse people into the room and hoping they speak up."
+    },
+    {
+      "title": "The book uses a marathon-training analogy",
+      "text": "Lasting inclusion needs formal plans, structures, and support systems, not just individual willpower or good intentions."
+    }
+  ],
+  "try_it": [
+    "This week, review the wording of your team's most recent job posting for language or channels that may be narrowing the applicant pool.",
+    "In your next round of interviews, write out identical, structured questions in advance for every candidate rather than improvising based on the conversation.",
+    "In your next team meeting, name one colleague whose perspective is usually underrepresented and directly ask for their view before the group moves to a decision.",
+    "Ask one underrepresented colleague this week, privately, what would most help them bring their full perspective to the team, and act on one piece of that feedback."
+  ],
+  "best_for": [
+    "Managers and DEI practitioners who want a practical, step-by-step workbook rather than a theory-first book",
+    "Teams ready to audit specific practices rather than debate concepts"
+  ],
+  "less_useful": [
+    "Readers looking for a research-heavy or academic treatment of workplace inclusion",
+    "Organizations at a very early why-does-this-matter stage, since the book assumes buy-in and moves quickly into implementation"
+  ],
+  "site_links": [
+    {
+      "label": "Culture & Psychological Safety",
+      "href": "references.html#cat-culture"
+    }
+  ],
+  "related": [
+    {
+      "asin": "B09M6DZ8PL",
+      "why": "A broader, domain-by-domain companion covering inclusion across media, education, and more"
+    },
+    {
+      "asin": "B076PN6ZM7",
+      "why": "A business-case-driven complement making the case for why this work matters"
+    }
+  ],
+  "sources": [
+    {
+      "label": "Penguin Random House, publisher page",
+      "href": "https://www.penguinrandomhouse.com/books/672975/actions-speak-louder-by-deanna-singh/"
+    },
+    {
+      "label": "WholeWorks, book excerpt",
+      "href": "https://www.wholeworks.com/blog/actions-speak-louder-book-excerpt"
+    }
+  ]
+}

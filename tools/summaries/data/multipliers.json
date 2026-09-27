@@ -1,0 +1,77 @@
+{
+  "asin": "B06XY5L8GZ",
+  "slug": "multipliers",
+  "read_time": "2 min read",
+  "big_idea": "Research across 150+ executives found that Multiplier leaders access nearly double the intelligence and capability of their teams compared to Diminisher leaders, by believing people are inherently smart and capable and leading in ways that draw that out rather than shut it down.",
+  "tool": {
+    "label": "The Challenger discipline",
+    "text": "Instead of handing out solutions, a Diminisher move that keeps people dependent, a Challenger identifies a real opportunity and reframes it as a stretch challenge for the team to solve themselves, often opening with a provocative question like what would it take to double our output. This forces people to generate their own solutions and builds genuine capability rather than reliance on the leader's answers.",
+    "note": "none"
+  },
+  "ideas": [
+    {
+      "title": "The Talent Magnet",
+      "text": "Attracts talented people, identifies their native genius, and puts it to full use rather than hoarding talent or leaving it underutilized."
+    },
+    {
+      "title": "The Liberator",
+      "text": "Creates an intense environment that demands people's best thinking while removing the fear that shuts thinking down, high standards plus psychological safety together."
+    },
+    {
+      "title": "The Debate Maker",
+      "text": "Forces rigorous, fact-based debate before a decision, rather than deciding with a small inner circle and announcing it to everyone else."
+    },
+    {
+      "title": "The Investor",
+      "text": "Gives people real ownership and accountability for outcomes, providing resources and coaching rather than micromanaging execution."
+    },
+    {
+      "title": "Accidental Diminishers",
+      "text": "Well-intentioned leaders, often former high performers, unknowingly diminish their teams, like an Idea Fountain who generates so many ideas that others stop generating their own."
+    },
+    {
+      "title": "The math of intelligence",
+      "text": "It's less about how smart you personally are and more about how much of other people's intelligence you can access and use, roughly 2x the output from the same headcount."
+    }
+  ],
+  "try_it": [
+    "On your next team problem, ask what would it take to instead of proposing the solution yourself, and let the team work it before you weigh in.",
+    "Identify one Accidental Diminisher habit you might have and consciously hold back once this week.",
+    "Before your next big decision, run it through a structured debate with dissenting views represented, rather than deciding solo or with just your inner circle.",
+    "Give one direct report a piece of ownership this week, a decision or deliverable you'd normally keep, along with the resources to run with it."
+  ],
+  "best_for": [
+    "Managers who suspect they, or a peer, are unintentionally suppressing team output despite good intentions",
+    "Leaders scaling a team who need more leverage from the same headcount"
+  ],
+  "less_useful": [
+    "Individual contributors without direct reports, since the framework centers on managing others' thinking",
+    "Readers wanting hard numeric ROI data rather than qualitative, research-based case studies"
+  ],
+  "site_links": [
+    {
+      "label": "Leadership Styles & Principles",
+      "href": "references.html#cat-leadstyle"
+    }
+  ],
+  "related": [
+    {
+      "asin": "B002V0A7X2",
+      "why": "A complementary framework for engineering the behavior change Multipliers are trying to unlock"
+    },
+    {
+      "asin": "1984842005",
+      "why": "A closer look at the specific language that turns a Diminisher's habits into a Multiplier's"
+    }
+  ],
+  "sources": [
+    {
+      "label": "ReadingGraphics book summary",
+      "href": "https://readingraphics.com/book-summary-multipliers/"
+    },
+    {
+      "label": "The Wiseman Group official book page",
+      "href": "https://thewisemangroup.com/books/multipliers/"
+    }
+  ]
+}

@@ -1,0 +1,77 @@
+{
+  "asin": "B077BPKPZQ",
+  "slug": "the-culture-code",
+  "read_time": "2 min read",
+  "big_idea": "Coyle argues group excellence isn't about the raw talent in the room but about three learnable skills, building safety, sharing vulnerability, and establishing purpose, that shape how members interact with each other.",
+  "tool": {
+    "label": "The Vulnerability Loop",
+    "text": "A vulnerability loop starts when one person, often a leader, openly admits a weakness, mistake, or need for help. This signal invites a reciprocal admission from others, and the exchange of small honest admissions compounds into a norm of cooperation and trust that wouldn't emerge if everyone was just trying to look competent.",
+    "note": "none"
+  },
+  "ideas": [
+    {
+      "title": "Belonging cues",
+      "text": "Small, repeated signals, eye contact, proximity, follow-up questions, tell people they're safe and valued; Coyle argues cultures are built from hundreds of these tiny cues, not one mission statement."
+    },
+    {
+      "title": "High-purpose environments",
+      "text": "Successful groups make their priorities and identity visible everywhere so members can make micro-decisions aligned with the group's purpose without asking permission."
+    },
+    {
+      "title": "Catchphrases and stories over rules",
+      "text": "High-performing cultures use memorable phrases and origin stories to encode how we do things here in a way people actually remember and repeat."
+    },
+    {
+      "title": "After-action reviews",
+      "text": "Groups that regularly and candidly debrief what happened, without blame, build faster shared learning than groups that move straight to the next task."
+    },
+    {
+      "title": "Leaders go first with vulnerability",
+      "text": "Coyle's research across Navy SEALs, Pixar, and IDEO found a leader admitting fallibility early is one of the strongest safety signals a group can receive."
+    },
+    {
+      "title": "Threshold moments",
+      "text": "Onboarding, promotions, or a team's first meeting carry outsized weight in setting cultural expectations."
+    }
+  ],
+  "try_it": [
+    "In your next team meeting, name one thing you got wrong or don't know before asking others to share their own uncertainties.",
+    "Run a short after-action review on a recently finished project: what was supposed to happen, what actually happened, what you'll change.",
+    "Write down the one or two priorities your team should use to make decisions without asking you, and repeat them explicitly for a month.",
+    "Add one small belonging cue to a recurring meeting, a personal check-in, or naming a specific contribution someone made."
+  ],
+  "best_for": [
+    "Team leads and middle managers who want concrete, research-backed behaviors rather than abstract culture talk",
+    "Readers who like case-study-driven business books"
+  ],
+  "less_useful": [
+    "Readers wanting one company's deep narrative, this jumps across many organizations",
+    "Offers little individual career advice, since it's about group dynamics, not personal advancement"
+  ],
+  "site_links": [
+    {
+      "label": "Culture & Psychological Safety",
+      "href": "references.html#cat-culture"
+    }
+  ],
+  "related": [
+    {
+      "asin": "1984891170",
+      "why": "A single-company deep dive into the same trust-and-culture dynamics"
+    },
+    {
+      "asin": "0593171004",
+      "why": "The same author's companion book on how deliberate practice, not talent, builds skill"
+    }
+  ],
+  "sources": [
+    {
+      "label": "The Culture Code summary, Shortform",
+      "href": "https://www.shortform.com/summary/the-culture-code-summary-daniel-coyle"
+    },
+    {
+      "label": "Book Summary, ReadingGraphics",
+      "href": "https://readingraphics.com/book-summary-the-culture-code-the-secrets-of-highly-successful-groups/"
+    }
+  ]
+}

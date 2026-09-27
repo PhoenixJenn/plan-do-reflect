@@ -1,0 +1,77 @@
+{
+  "asin": "B002V0A7X2",
+  "slug": "influencer",
+  "read_time": "2 min read",
+  "big_idea": "Behavior change isn't about willpower, it comes from deliberately identifying the few vital behaviors that drive a result and then engineering personal, social, and structural forces so the new behavior becomes easier than the old one.",
+  "tool": {
+    "label": "The Six Sources of Influence Model",
+    "text": "Map any change effort across two drivers (motivation, ability) and three domains (personal, social, structural) to build a six-cell grid. For each vital behavior, ask whether people want to do it and can do it, personally, socially, and structurally, then design at least three or four of the six sources into the plan rather than relying on a single lever like a memo or an incentive.",
+    "note": "The framework was developed collectively by the authors as a synthesis of decades of behavioral-science research rather than one novel technique invented from scratch."
+  },
+  "ideas": [
+    {
+      "title": "Find Vital Behaviors",
+      "text": "Out of dozens of possible actions, identify the 2-3 vital behaviors that will produce the majority of the desired result and concentrate influence effort there."
+    },
+    {
+      "title": "Personal Motivation",
+      "text": "Make an unpleasant necessary behavior intrinsically satisfying by connecting it to a compelling value, direct experience, or small win, rather than arguing people into caring."
+    },
+    {
+      "title": "Personal Ability",
+      "text": "Build people's actual capability through deliberate practice, since willpower fails when someone genuinely doesn't yet know how to perform the target behavior."
+    },
+    {
+      "title": "Social Motivation and Ability",
+      "text": "Identify formal and informal opinion leaders and enlist them, peer example and group norms move behavior more powerfully than top-down directives."
+    },
+    {
+      "title": "Structural Motivation",
+      "text": "Align formal rewards and consequences with the vital behavior, but only after intrinsic and social motivation are addressed, since incentives alone can crowd out genuine commitment."
+    },
+    {
+      "title": "Structural Ability",
+      "text": "Redesign the physical or process environment so the desired behavior becomes the path of least resistance."
+    }
+  ],
+  "try_it": [
+    "Pick one change you're struggling to make happen and write down the single vital behavior that would move the needle most.",
+    "Identify one positive deviant already succeeding at the behavior you want more of and interview them for the specific tactic that works.",
+    "Redesign one piece of your physical or digital environment this week to make the wanted behavior the default.",
+    "Find one informal opinion leader on your team and ask them to model the vital behavior publicly before announcing any formal policy."
+  ],
+  "best_for": [
+    "Managers and change leaders shifting team or organizational behavior, not just individual habits",
+    "Readers who want an evidence-based framework rather than motivational slogans"
+  ],
+  "less_useful": [
+    "Readers wanting quick one-on-one persuasion tactics, since this is a large-scale change-management framework",
+    "Case studies skew toward public health and corporate turnaround, requiring translation for personal use"
+  ],
+  "site_links": [
+    {
+      "label": "Influence & Persuasion",
+      "href": "references.html#cat-influence"
+    }
+  ],
+  "related": [
+    {
+      "asin": "B06XY5L8GZ",
+      "why": "A complementary look at unlocking a team's existing capability rather than just changing behavior"
+    },
+    {
+      "asin": "B004YDJJEC",
+      "why": "A larger-scale sequential model for organizational change this book's tactics can plug into"
+    }
+  ],
+  "sources": [
+    {
+      "label": "Reading Graphics book summary",
+      "href": "https://readingraphics.com/book-summary-influencer/"
+    },
+    {
+      "label": "Blinkist summary",
+      "href": "https://www.blinkist.com/en/books/influencer-en"
+    }
+  ]
+}

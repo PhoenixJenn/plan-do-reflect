@@ -1,0 +1,77 @@
+{
+  "asin": "0063097796",
+  "slug": "influence-psychology-of-persuasion",
+  "read_time": "2 min read",
+  "big_idea": "People rely on a small set of automatic, evolved mental shortcuts to decide when to comply with a request, and Cialdini's six principles, reciprocity, commitment and consistency, social proof, liking, authority, and scarcity, explain both why persuasion works and how to recognize and resist manipulation.",
+  "tool": {
+    "label": "Reject-Then-Retreat (Door-in-the-Face)",
+    "text": "Open with a large request you expect to be refused, then follow it with the smaller request you actually wanted. The refusal of the first request triggers a reciprocal sense that the requester has conceded, making the target more likely to accept the second, smaller ask as a fair compromise, and often more likely to agree to related requests later too.",
+    "note": "Cialdini presents this as an effective persuasion tactic but also explicitly warns readers to watch for it as a manipulation tactic used against them, for example in retail and negotiation settings."
+  },
+  "ideas": [
+    {
+      "title": "Reciprocity",
+      "text": "Giving first, even something small and unsolicited, creates an obligation for the other person to give back."
+    },
+    {
+      "title": "Commitment and Consistency",
+      "text": "After taking a small, especially public or effortful stand, people feel pressure to keep acting consistently with it."
+    },
+    {
+      "title": "Social Proof",
+      "text": "Uncertainty pushes people to copy what others, especially similar others, are doing, powerful, but it can misfire dangerously in emergencies."
+    },
+    {
+      "title": "Liking",
+      "text": "We say yes more readily to people we like, built through similarity, compliments, cooperation, and familiarity."
+    },
+    {
+      "title": "Authority",
+      "text": "Titles, uniforms, and credentials trigger near-automatic deference, sometimes overriding a person's own judgment."
+    },
+    {
+      "title": "Scarcity",
+      "text": "Limited availability or time pressure increases perceived value and urgency to act."
+    }
+  ],
+  "try_it": [
+    "Before agreeing to a request this week, pause and name which of the six principles, if any, is driving your instinct to say yes.",
+    "Practice reciprocity deliberately: do one small, genuine favor for a colleague with no ask attached.",
+    "Notice one instance of everyone's doing it marketing this week and evaluate the choice independently of that cue.",
+    "Before a negotiation, decide your real target ask in advance so a generous concession from the other side doesn't sway you past it."
+  ],
+  "best_for": [
+    "Anyone in sales, marketing, negotiation, or leadership who wants to understand or ethically apply persuasion",
+    "People who want to recognize and resist manipulative sales or negotiation tactics"
+  ],
+  "less_useful": [
+    "Readers looking for cutting-edge research, since the core studies are decades old",
+    "Those wanting a step-by-step negotiation playbook rather than a psychology-of-influence explainer"
+  ],
+  "site_links": [
+    {
+      "label": "Influence & Persuasion",
+      "href": "references.html#cat-influence"
+    }
+  ],
+  "related": [
+    {
+      "asin": "B01JB2JQE8",
+      "why": "Cialdini's own follow-up on shaping the moments right before a request"
+    },
+    {
+      "asin": "B00DBBK9K6",
+      "why": "A broader catalog of persuasion laws building on several of these same principles"
+    }
+  ],
+  "sources": [
+    {
+      "label": "Farnam Street: The Psychology of Persuasion",
+      "href": "https://fs.blog/influence-psychology-persuasion/"
+    },
+    {
+      "label": "Reading Graphics book summary",
+      "href": "https://readingraphics.com/book-summary-influence-psychology-of-persuasion/"
+    }
+  ]
+}

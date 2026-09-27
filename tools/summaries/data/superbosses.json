@@ -1,0 +1,77 @@
+{
+  "asin": "B01AKIYNZE",
+  "slug": "superbosses",
+  "read_time": "2 min read",
+  "big_idea": "A small number of leaders, superbosses, produce a disproportionate share of the top talent in their industries, and Finkelstein argues this comes from identifiable, learnable practices in how they hire, mentor, and develop people, not from luck or charisma alone.",
+  "tool": {
+    "label": "The Three Superboss Archetypes",
+    "text": "Finkelstein categorizes superbosses into three styles: Iconoclasts, visionaries who mentor almost by osmosis, drawing talent into their creative orbit; intensely competitive, demanding leaders who push people past what they think they can do; and Nurturers, supportive mentors who deliberately develop people's careers. The framework helps a leader recognize which style fits their own temperament rather than copying one style wholesale.",
+    "note": "Secondary sources render the second archetype's label slightly differently across summaries; treat the exact wording as approximate to the original text."
+  },
+  "ideas": [
+    {
+      "title": "Hire for potential and fit, not credentials",
+      "text": "Superbosses often recruit unconventional candidates, students, career-changers, unproven talent, betting on raw ability and drive over a polished resume."
+    },
+    {
+      "title": "Customize roles around people",
+      "text": "Rather than hiring into a fixed job description, superbosses reshape roles and responsibilities to fit an exceptional person's specific strengths."
+    },
+    {
+      "title": "Master-apprentice teaching",
+      "text": "Superbosses teach through direct, hands-on collaboration and close observation, similar to a trade apprenticeship, rather than delegating training to HR programs."
+    },
+    {
+      "title": "Set audaciously high performance standards",
+      "text": "Superbosses consistently push people to attempt things beyond their current skill level, treating stretch assignments as the primary development tool."
+    },
+    {
+      "title": "Build lasting alumni networks",
+      "text": "Superbosses maintain active relationships with former employees after they leave, creating extended professional talent trees that continue to benefit both sides."
+    },
+    {
+      "title": "Give people real ownership early",
+      "text": "Superbosses hand significant responsibility and visible projects to junior people far sooner than typical management practice would suggest is safe."
+    }
+  ],
+  "try_it": [
+    "Give one direct report a stretch assignment this month that is a genuine reach beyond their current role.",
+    "Reach out to one former employee or colleague you've lost touch with, treating your professional network as a lasting resource, not a one-way exit.",
+    "For your next hire, consider one candidate whose background doesn't match the standard job description but shows raw drive or adaptability.",
+    "Identify which superboss style is closest to your natural instinct, and borrow one specific behavior from a different style."
+  ],
+  "best_for": [
+    "Leaders responsible for building a team pipeline, not just filling roles",
+    "Anyone interested in the career patterns behind famous talent trees in sports, business, and entertainment"
+  ],
+  "less_useful": [
+    "Individual contributors looking for how to manage up or grow their own career",
+    "Leaders of small or flat teams without much room to offer the outsized stretch roles the book describes"
+  ],
+  "site_links": [
+    {
+      "label": "Coaching & Mentoring",
+      "href": "references.html#cat-coach"
+    }
+  ],
+  "related": [
+    {
+      "asin": "B01EGCAWQO",
+      "why": "A complementary framework for identifying the kind of teammate worth this level of investment"
+    },
+    {
+      "asin": "0593171004",
+      "why": "A deeper look at the deliberate-practice mechanics behind the skill superbosses help develop"
+    }
+  ],
+  "sources": [
+    {
+      "label": "Secrets of the Superbosses, Harvard Business Review",
+      "href": "https://hbr.org/2016/01/secrets-of-the-superbosses"
+    },
+    {
+      "label": "Superbosses book summary, Allen Cheng",
+      "href": "https://www.allencheng.com/superbosses-book-summary-sydney-finkelstein/"
+    }
+  ]
+}

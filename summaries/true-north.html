@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="a">
+<head>
+<meta charset="UTF-8">
+<base href="../">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="icon" type="image/svg+xml" href="favicon.svg">
+<title>True North: One-page summary · Plan · Do · Reflect</title>
+
+<!-- Applied before CSS loads, so the saved theme / title-font choice doesn't flash to the default on reload -->
+<script>
+(function () {
+  try {
+    var savedTheme = localStorage.getItem('pdr-theme');
+    if (['a', 'b', 'c'].indexOf(savedTheme) > -1) {
+      document.documentElement.setAttribute('data-theme', savedTheme);
+    }
+    /* No saved choice yet means a first-time visitor — default them to Golos
+       Text rather than the theme's own heading font. Explicitly picking
+       "Theme default" in the picker stores the literal string 'default',
+       which is the one value that clears the override below. */
+    var savedTitleFont = localStorage.getItem('pdr-title-font');
+    var titleFont = savedTitleFont === null ? 'golos-text' : savedTitleFont;
+    if (titleFont !== 'default') {
+      document.documentElement.setAttribute('data-title-font', titleFont);
+    }
+  } catch (e) {}
+})();
+</script>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=Work+Sans:wght@400;500;600&family=Sora:wght@600;700;800&family=Plus+Jakarta+Sans:wght@500;600;700&family=Patrick+Hand&display=swap" rel="stylesheet">
+
+<!-- Title-font brainstorm candidates — temporary, for the .title-font-picker toggle only.
+     Remove this link once a title font is chosen and folded into tokens.css. -->
+<link href="https://fonts.googleapis.com/css2?family=Gabarito:wght@800&family=Chivo:wght@800&family=Golos+Text:wght@800&display=swap" rel="stylesheet">
+
+<link rel="stylesheet" href="css/tokens.css">
+<link rel="stylesheet" href="css/main.css">
+<link rel="stylesheet" href="css/summary.css">
+</head>
+<body>
+
+<header class="topnav">
+  <a class="logo" href="index.html">Plan·Do·Reflect</a>
+  <nav class="topnav-items">
+    <a class="item" href="framework.html">The Framework</a>
+    <a class="item" href="self-management.html">Self</a>
+    <a class="item" href="team.html">Team</a>
+    <a class="item" href="organization.html">Organization</a>
+    <a class="item" href="core-skills.html">Core Skills</a>
+    <a class="item active" href="references.html">References</a>
+  </nav>
+</header>
+
+<main class="sm">
+  <p class="sm-crumb"><a href="references.html">References &amp; Further Reading</a> &rsaquo; One-page summary</p>
+  <article class="sm-page">
+    <header class="sm-head">
+      <img class="sm-cover" src="images/covers/B002V8KQEY.jpg" data-r="https://m.media-amazon.com/images/I/51EOHbES9aL._SL300_.jpg" alt="Cover of True North" onerror="if(this.dataset.r&amp;&amp;this.src.indexOf(this.dataset.r)===-1){this.src=this.dataset.r}else{this.style.visibility='hidden'}">
+      <div>
+        <p class="sm-eyebrow">One-page summary &middot; 2 min read</p>
+        <h1 class="page-title">True North</h1>
+        <p class="sm-sub">Discover Your Authentic Leadership</p>
+        <p class="sm-by">by Bill George, Peter Sims</p>
+        <p class="sm-meta">2007 &middot; 7h 53m audiobook &middot; &#9733; 4.1 Audible</p>
+      </div>
+    </header>
+
+    <section class="sm-idea"><h2>The big idea</h2><p>Authentic leadership comes from self-knowledge, not from copying admired leaders&#x27; styles, the most effective leaders lead from their own life story and values, especially the difficult crucible experiences that reveal who they really are.</p></section>
+
+<section class="sm-tool"><span class="sm-label">The Five Dimensions of Authentic Leadership</span><blockquote>George identifies five interlocking qualities authentic leaders develop: a clear sense of Purpose, solid Values tested under pressure, Heart, genuine passion and compassion for the people you lead, enduring Relationships, and Self-Discipline, consistently holding yourself and others to high standards. The book includes a related self-assessment for readers to map their own leadership development against these five dimensions.</blockquote><p>none</p></section>
+
+    <section class="sm-ideas"><h2>Key ideas</h2><ol><li><h3>The crucible concept</h3><p>Many authentic leaders point to a defining hardship, job loss, illness, failure, as the experience that forced them to discover their true values and voice.</p></li><li><h3>From I to We</h3><p>Leadership shouldn&#x27;t rest solely on a charismatic CEO; the goal is embedding leadership capability and purpose throughout the whole organization.</p></li><li><h3>Four Liberating Laws</h3><p>You don&#x27;t need to be born with innate traits, wait for a title or promotion, be at the very top, or wait for perfect timing in order to start leading.</p></li><li><h3>Leadership as a system, not a person</h3><p>George&#x27;s Medtronic example shows how connecting all employees&#x27; daily work to a shared organizational mission scales leadership beyond any one individual.</p></li><li><h3>Values under pressure, not on paper</h3><p>A leader&#x27;s stated values only matter if they hold up during a real test, a crisis, a financial pressure, a hard personnel call.</p></li><li><h3>Empowerment paired with accountability</h3><p>Authentic leaders combine giving people real autonomy with maintaining relentless standards for execution, one without the other fails.</p></li></ol></section>
+
+    <div class="sm-cols">
+      <section><h2>Try it this week</h2><ol class="sm-steps"><li>Write down one crucible experience from your own life and one specific value it revealed or hardened in you.</li><li>Identify which of the five dimensions is currently your weakest and name one action to strengthen it this week.</li><li>Ask one person on your team what they believe your leadership purpose is, and compare it to how you&#x27;d describe it yourself.</li><li>Pick one team ritual or process that could better connect a frontline employee&#x27;s daily work to your organization&#x27;s larger mission.</li></ol></section>
+      <section><h2>Is it for you?</h2><h3 class="sm-good">Best for</h3><ul><li>Leaders working through a personal leadership-identity question</li><li>Leaders coming out of a difficult professional setback</li></ul><h3 class="sm-less">Less useful if</h3><ul><li>Built heavily on interviews with 125 mostly senior, high-profile corporate leaders, so some examples can feel distant from early-career readers</li><li>The introspective, story-driven approach offers less concrete day-to-day management tooling than more tactical leadership books</li></ul></section>
+    </div>
+
+<section class="sm-links"><h2>On this site</h2><div class="sm-chips"><a href="references.html#cat-leadstyle">Leadership Styles &amp; Principles</a></div></section>
+    <section class="sm-links sm-related"><h2>Pairs well with</h2><ul><li><a href="references.html#book-B0F71ZM8YL">Start with Why</a> <span>A complementary case for leading from a clear purpose rather than copying another leader&#x27;s style</span></li><li><a href="references.html#book-B00839289G">How Will You Measure Your Life?</a> <span>A related framework for auditing whether your daily choices match your stated values</span></li></ul></section>
+
+    <footer class="sm-foot">
+      <a class="sm-buy" href="https://www.amazon.com/s?k=Bill+George+True+North&amp;tag=phoenixjenn-20" target="_blank" rel="noopener">Find the book on Amazon</a>
+      <p>Original summary written for Plan &middot; Do &middot; Reflect. Prepared from the book&rsquo;s ideas and public summaries (<a href="https://billgeorge.org/article/book-club-true-north/" target="_blank" rel="noopener">Bill George: Book Club: True North</a>, <a href="https://en.wikipedia.org/wiki/True_North_(2007_book)" target="_blank" rel="noopener">Wikipedia: True North (2007 book)</a>), not a substitute for reading it. Links may earn a commission.</p>
+    </footer>
+  </article>
+</main>
+
+<footer class="site-footer">
+  <p>&copy; 2026 Plan-Do-Reflect. <a href="references.html">References &amp; further reading</a></p>
+</footer>
+
+<div class="theme-switch" role="group" aria-label="Style direction">
+  <button data-theme="a" title="Kinetic Signal — black &amp; yellow"></button>
+  <button data-theme="b" title="Studio Ledger — dusty rose"></button>
+  <button data-theme="c" title="Bright Margin — lime"></button>
+  <a class="icon-lib-link" href="icon-library.html" title="Style Guide (internal reference)">
+    <svg width="14" height="14" viewBox="0 0 14 14" aria-hidden="true">
+      <rect x="1" y="1" width="5" height="5" rx="1" fill="currentColor"/>
+      <rect x="8" y="1" width="5" height="5" rx="1" fill="currentColor"/>
+      <rect x="1" y="8" width="5" height="5" rx="1" fill="currentColor"/>
+      <rect x="8" y="8" width="5" height="5" rx="1" fill="currentColor"/>
+    </svg>
+  </a>
+  <a class="icon-lib-link" href="notes.html" title="Notes (working drafts)">
+    <svg width="14" height="14" viewBox="0 0 14 14" aria-hidden="true">
+      <rect x="2" y="1" width="10" height="12" rx="1.5" fill="none" stroke="currentColor" stroke-width="1.3"/>
+      <line x1="4.5" y1="5" x2="9.5" y2="5" stroke="currentColor" stroke-width="1.3" stroke-linecap="round"/>
+      <line x1="4.5" y1="7.5" x2="9.5" y2="7.5" stroke="currentColor" stroke-width="1.3" stroke-linecap="round"/>
+      <line x1="4.5" y1="10" x2="7.5" y2="10" stroke="currentColor" stroke-width="1.3" stroke-linecap="round"/>
+    </svg>
+  </a>
+  <a class="icon-lib-link" href="sitemap.html" title="Sitemap (working draft)">
+    <svg width="14" height="14" viewBox="0 0 14 14" aria-hidden="true">
+      <circle cx="7" cy="2.5" r="1.8" fill="none" stroke="currentColor" stroke-width="1.3"/>
+      <circle cx="3" cy="11" r="1.8" fill="none" stroke="currentColor" stroke-width="1.3"/>
+      <circle cx="11" cy="11" r="1.8" fill="none" stroke="currentColor" stroke-width="1.3"/>
+      <path d="M7 4.3 L7 7 M7 7 L3 9.5 M7 7 L11 9.5" stroke="currentColor" stroke-width="1.3" fill="none" stroke-linecap="round"/>
+    </svg>
+  </a>
+</div>
+
+<!-- Temporary brainstorm control — only restyles the main h1 (.content h1 / .hero-title / .page-title). Remove alongside
+     the "title-font experiment" CSS block and the extra Google Fonts link once
+     a title font is picked. -->
+<div class="title-font-picker">
+  <label for="title-font-select">Title font</label>
+  <button type="button" id="title-font-prev" class="title-font-nav" aria-label="Previous title font">‹</button>
+  <select id="title-font-select">
+    <optgroup label="Round 1 — headline character">
+      <option value="gabarito">Gabarito</option>
+      <option value="chivo">Chivo</option>
+    </optgroup>
+    <optgroup label="Round 2 — Calibri-adjacent">
+      <option value="golos-text">Golos Text</option>
+    </optgroup>
+    <option value="default">Theme default</option>
+  </select>
+  <button type="button" id="title-font-next" class="title-font-nav" aria-label="Next title font">›</button>
+</div>
+
+<script src="js/theme-toggle.js" defer></script>
+<script src="js/title-font-toggle.js" defer></script>
+</body>
+</html>

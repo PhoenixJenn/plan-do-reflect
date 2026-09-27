@@ -1,0 +1,77 @@
+{
+  "asin": "B01MZ6RMS4",
+  "slug": "radical-candor",
+  "read_time": "2 min read",
+  "big_idea": "The best bosses combine caring personally about the people who work for them with challenging them directly, most feedback failures happen because managers over-index on only one of those two dimensions.",
+  "tool": {
+    "label": "The Radical Candor Framework (four quadrants)",
+    "text": "Plot every feedback interaction along two axes: how much you're caring personally and how directly you're challenging. Radical Candor sits in the high-high quadrant, specific, sincere praise and kind, clear criticism; Ruinous Empathy is high care and low challenge; Obnoxious Aggression is low care and high challenge; Manipulative Insincerity is low on both. Scott frames it as a compass, not a label, for a single interaction, not a permanent judgment of a person.",
+    "note": "Scott developed the framework from her own management experience at Google and Apple, not academic research, so it's a practitioner's heuristic rather than an empirically validated model."
+  },
+  "ideas": [
+    {
+      "title": "Career conversations",
+      "text": "A three-part conversation series run over several weeks helps managers understand what actually motivates each report before assigning growth work."
+    },
+    {
+      "title": "Rock stars and superstars",
+      "text": "Not every high performer wants a promotion track; rock stars want to master and stabilize in a role while superstars want continuous new challenges, and both need different management."
+    },
+    {
+      "title": "Praise publicly, criticize privately",
+      "text": "Public recognition reinforces good work in front of peers, while corrective feedback delivered one-on-one avoids humiliation that shuts down learning."
+    },
+    {
+      "title": "Feedback as a two-way habit",
+      "text": "Scott frames get, give, encourage feedback as an ongoing loop, soliciting criticism of yourself first makes it easier to give it to others."
+    },
+    {
+      "title": "1:1s belong to the employee",
+      "text": "The most useful one-on-ones are run on the report's agenda, with the manager mostly listening and asking how can I help rather than delivering status updates."
+    },
+    {
+      "title": "Don't force passion",
+      "text": "Scott pushes back on the idea that everyone needs a grand passion for their work, arguing genuine vocation is rare and competence plus growth can be enough."
+    }
+  ],
+  "try_it": [
+    "Before your next piece of feedback, mentally place it on the two-axis grid and check you're not sliding into Ruinous Empathy or Obnoxious Aggression.",
+    "Ask one direct report the life story question this week: what shaped what they want from their career.",
+    "In your next 1:1, let the other person set the agenda and ask only how can I help and follow-up questions.",
+    "Identify one report who is a rock star rather than a superstar and adjust what kind of growth you offer them accordingly."
+  ],
+  "best_for": [
+    "New and mid-level managers building their first feedback habits",
+    "Leaders who tend toward Ruinous Empathy, avoiding hard conversations to be nice"
+  ],
+  "less_useful": [
+    "Cultures where the direct, personal style Scott describes reads as inappropriately blunt or overly familiar for a manager-report relationship",
+    "Readers wanting a rigorously researched model rather than an anecdote- and experience-driven one"
+  ],
+  "site_links": [
+    {
+      "label": "Coaching & Mentoring",
+      "href": "references.html#cat-coach"
+    }
+  ],
+  "related": [
+    {
+      "asin": "0593290097",
+      "why": "A closely related framework for diagnosing what kind of feedback a person actually needs"
+    },
+    {
+      "asin": "B0753W43B1",
+      "why": "A complementary case for the vulnerability that makes this kind of direct feedback land"
+    }
+  ],
+  "sources": [
+    {
+      "label": "Radical Candor, Our Approach, official site",
+      "href": "https://www.radicalcandor.com/our-approach"
+    },
+    {
+      "label": "Graham Mann, Radical Candor: Summary & Notes",
+      "href": "https://grahammann.net/book-notes/radical-candor-kim-scott"
+    }
+  ]
+}

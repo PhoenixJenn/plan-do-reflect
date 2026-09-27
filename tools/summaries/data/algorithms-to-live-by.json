@@ -1,0 +1,77 @@
+{
+  "asin": "B01D24NLWO",
+  "slug": "algorithms-to-live-by",
+  "read_time": "2 min read",
+  "big_idea": "Many everyday decision problems, when to stop searching, how to organize a closet, how to schedule tasks, have exact analogs in computer science, and the algorithms built to make computers fast and effective can guide smarter, less anxious human decisions.",
+  "tool": {
+    "label": "The 37% Rule (Optimal Stopping)",
+    "text": "When choosing sequentially among options you must decide on as you encounter them, apartments, job candidates, even romantic partners, and can't go back once you pass on one, spend the first 37% of your expected search purely gathering information without committing, then choose the very next option that beats everything seen in that first phase. Drawn from the mathematics of the secretary problem, this maximizes your odds of landing the single best option under those constraints.",
+    "note": "The 37% figure assumes you roughly know how many total options you'll consider and must decide on each as it appears; real searches rarely fit those assumptions exactly, so treat it as a directional guide rather than a literal formula."
+  },
+  "ideas": [
+    {
+      "title": "Explore/Exploit Tradeoff",
+      "text": "Balancing trying new options against sticking with a known good one, weighted toward more exploring early and more exploiting later."
+    },
+    {
+      "title": "Caching (Least Recently Used)",
+      "text": "Keep your most-used items or information closest at hand, and periodically clear out what you haven't touched in a long time."
+    },
+    {
+      "title": "Scheduling",
+      "text": "When you have more tasks than time, tackling the soonest-due or quickest task first reduces overall lateness, and sometimes deliberately dropping a task beats doing everything poorly."
+    },
+    {
+      "title": "Bayesian prediction",
+      "text": "Combine what you already believed with new evidence to update your best guess, rather than treating each new data point in isolation."
+    },
+    {
+      "title": "Relaxation",
+      "text": "When a problem feels impossible, temporarily drop one hard constraint, solve the easier version, then use that solution as a starting point for the real problem."
+    },
+    {
+      "title": "Randomized algorithms",
+      "text": "Deliberately injecting randomness, trying something a bit different on purpose, can escape stuck patterns that a purely systematic approach can't break out of."
+    }
+  ],
+  "try_it": [
+    "Next time you're apartment- or job-hunting with a roughly fixed number of options, treat the first third as look only, then commit to the first one after that beats them all.",
+    "Reorganize one drawer, folder, or inbox using most recently used goes in front.",
+    "When your to-do list is overloaded, sort by earliest deadline instead of by dread or size for one day and see what changes.",
+    "When stuck on a hard decision, write down a version of the problem with one constraint removed and solve that first."
+  ],
+  "best_for": [
+    "Analytically minded readers who enjoy seeing rigorous math translated into daily-life heuristics",
+    "Anyone facing concrete choice-under-uncertainty decisions like hiring, apartment hunting, or time management"
+  ],
+  "less_useful": [
+    "Readers who dislike technical, computer-science-heavy explanations woven through the narrative",
+    "Those wanting purely psychological or interpersonal, rather than mathematical, decision-making advice"
+  ],
+  "site_links": [
+    {
+      "label": "Decision-Making",
+      "href": "references.html#cat-decisions"
+    }
+  ],
+  "related": [
+    {
+      "asin": "B00CICE248",
+      "why": "A complementary catalog of the psychological biases that this book's algorithms help correct for"
+    },
+    {
+      "asin": "B096KYWQLP",
+      "why": "A shorter, more practical companion on making fast, safe decisions under pressure"
+    }
+  ],
+  "sources": [
+    {
+      "label": "Shortform book summary",
+      "href": "https://www.shortform.com/summary/algorithms-to-live-by-summary-brian-christian-and-tom-griffiths"
+    },
+    {
+      "label": "Deploy Yourself book review and summary",
+      "href": "https://www.deployyourself.com/book-review/algorithms-to-live-by-brian-christian-tom-griffiths-summary/"
+    }
+  ]
+}

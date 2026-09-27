@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="a">
+<head>
+<meta charset="UTF-8">
+<base href="../">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="icon" type="image/svg+xml" href="favicon.svg">
+<title>Algorithms to Live By: One-page summary · Plan · Do · Reflect</title>
+
+<!-- Applied before CSS loads, so the saved theme / title-font choice doesn't flash to the default on reload -->
+<script>
+(function () {
+  try {
+    var savedTheme = localStorage.getItem('pdr-theme');
+    if (['a', 'b', 'c'].indexOf(savedTheme) > -1) {
+      document.documentElement.setAttribute('data-theme', savedTheme);
+    }
+    /* No saved choice yet means a first-time visitor — default them to Golos
+       Text rather than the theme's own heading font. Explicitly picking
+       "Theme default" in the picker stores the literal string 'default',
+       which is the one value that clears the override below. */
+    var savedTitleFont = localStorage.getItem('pdr-title-font');
+    var titleFont = savedTitleFont === null ? 'golos-text' : savedTitleFont;
+    if (titleFont !== 'default') {
+      document.documentElement.setAttribute('data-title-font', titleFont);
+    }
+  } catch (e) {}
+})();
+</script>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=Work+Sans:wght@400;500;600&family=Sora:wght@600;700;800&family=Plus+Jakarta+Sans:wght@500;600;700&family=Patrick+Hand&display=swap" rel="stylesheet">
+
+<!-- Title-font brainstorm candidates — temporary, for the .title-font-picker toggle only.
+     Remove this link once a title font is chosen and folded into tokens.css. -->
+<link href="https://fonts.googleapis.com/css2?family=Gabarito:wght@800&family=Chivo:wght@800&family=Golos+Text:wght@800&display=swap" rel="stylesheet">
+
+<link rel="stylesheet" href="css/tokens.css">
+<link rel="stylesheet" href="css/main.css">
+<link rel="stylesheet" href="css/summary.css">
+</head>
+<body>
+
+<header class="topnav">
+  <a class="logo" href="index.html">Plan·Do·Reflect</a>
+  <nav class="topnav-items">
+    <a class="item" href="framework.html">The Framework</a>
+    <a class="item" href="self-management.html">Self</a>
+    <a class="item" href="team.html">Team</a>
+    <a class="item" href="organization.html">Organization</a>
+    <a class="item" href="core-skills.html">Core Skills</a>
+    <a class="item active" href="references.html">References</a>
+  </nav>
+</header>
+
+<main class="sm">
+  <p class="sm-crumb"><a href="references.html">References &amp; Further Reading</a> &rsaquo; One-page summary</p>
+  <article class="sm-page">
+    <header class="sm-head">
+      <img class="sm-cover" src="images/covers/B01D24NLWO.jpg" data-r="https://m.media-amazon.com/images/I/51HiU+5mTwL._SL300_.jpg" alt="Cover of Algorithms to Live By" onerror="if(this.dataset.r&amp;&amp;this.src.indexOf(this.dataset.r)===-1){this.src=this.dataset.r}else{this.style.visibility='hidden'}">
+      <div>
+        <p class="sm-eyebrow">One-page summary &middot; 2 min read</p>
+        <h1 class="page-title">Algorithms to Live By</h1>
+        <p class="sm-sub">The Computer Science of Human Decisions</p>
+        <p class="sm-by">by Brian Christian, Tom Griffiths</p>
+        <p class="sm-meta">2016 &middot; 11h 50m audiobook &middot; &#9733; 4.4 Audible</p>
+      </div>
+    </header>
+
+    <section class="sm-idea"><h2>The big idea</h2><p>Many everyday decision problems, when to stop searching, how to organize a closet, how to schedule tasks, have exact analogs in computer science, and the algorithms built to make computers fast and effective can guide smarter, less anxious human decisions.</p></section>
+
+<section class="sm-tool"><span class="sm-label">The 37% Rule (Optimal Stopping)</span><blockquote>When choosing sequentially among options you must decide on as you encounter them, apartments, job candidates, even romantic partners, and can&#x27;t go back once you pass on one, spend the first 37% of your expected search purely gathering information without committing, then choose the very next option that beats everything seen in that first phase. Drawn from the mathematics of the secretary problem, this maximizes your odds of landing the single best option under those constraints.</blockquote><p>The 37% figure assumes you roughly know how many total options you&#x27;ll consider and must decide on each as it appears; real searches rarely fit those assumptions exactly, so treat it as a directional guide rather than a literal formula.</p></section>
+
+    <section class="sm-ideas"><h2>Key ideas</h2><ol><li><h3>Explore/Exploit Tradeoff</h3><p>Balancing trying new options against sticking with a known good one, weighted toward more exploring early and more exploiting later.</p></li><li><h3>Caching (Least Recently Used)</h3><p>Keep your most-used items or information closest at hand, and periodically clear out what you haven&#x27;t touched in a long time.</p></li><li><h3>Scheduling</h3><p>When you have more tasks than time, tackling the soonest-due or quickest task first reduces overall lateness, and sometimes deliberately dropping a task beats doing everything poorly.</p></li><li><h3>Bayesian prediction</h3><p>Combine what you already believed with new evidence to update your best guess, rather than treating each new data point in isolation.</p></li><li><h3>Relaxation</h3><p>When a problem feels impossible, temporarily drop one hard constraint, solve the easier version, then use that solution as a starting point for the real problem.</p></li><li><h3>Randomized algorithms</h3><p>Deliberately injecting randomness, trying something a bit different on purpose, can escape stuck patterns that a purely systematic approach can&#x27;t break out of.</p></li></ol></section>
+
+    <div class="sm-cols">
+      <section><h2>Try it this week</h2><ol class="sm-steps"><li>Next time you&#x27;re apartment- or job-hunting with a roughly fixed number of options, treat the first third as look only, then commit to the first one after that beats them all.</li><li>Reorganize one drawer, folder, or inbox using most recently used goes in front.</li><li>When your to-do list is overloaded, sort by earliest deadline instead of by dread or size for one day and see what changes.</li><li>When stuck on a hard decision, write down a version of the problem with one constraint removed and solve that first.</li></ol></section>
+      <section><h2>Is it for you?</h2><h3 class="sm-good">Best for</h3><ul><li>Analytically minded readers who enjoy seeing rigorous math translated into daily-life heuristics</li><li>Anyone facing concrete choice-under-uncertainty decisions like hiring, apartment hunting, or time management</li></ul><h3 class="sm-less">Less useful if</h3><ul><li>Readers who dislike technical, computer-science-heavy explanations woven through the narrative</li><li>Those wanting purely psychological or interpersonal, rather than mathematical, decision-making advice</li></ul></section>
+    </div>
+
+<section class="sm-links"><h2>On this site</h2><div class="sm-chips"><a href="references.html#cat-decisions">Decision-Making</a></div></section>
+    <section class="sm-links sm-related"><h2>Pairs well with</h2><ul><li><a href="references.html#book-B00CICE248">The Art of Thinking Clearly</a> <span>A complementary catalog of the psychological biases that this book&#x27;s algorithms help correct for</span></li><li><a href="references.html#book-B096KYWQLP">The Art of Strategic Decision-Making</a> <span>A shorter, more practical companion on making fast, safe decisions under pressure</span></li></ul></section>
+
+    <footer class="sm-foot">
+      <a class="sm-buy" href="https://www.amazon.com/s?k=Brian+Christian+Algorithms+to+Live+By&amp;tag=phoenixjenn-20" target="_blank" rel="noopener">Find the book on Amazon</a>
+      <p>Original summary written for Plan &middot; Do &middot; Reflect. Prepared from the book&rsquo;s ideas and public summaries (<a href="https://www.shortform.com/summary/algorithms-to-live-by-summary-brian-christian-and-tom-griffiths" target="_blank" rel="noopener">Shortform book summary</a>, <a href="https://www.deployyourself.com/book-review/algorithms-to-live-by-brian-christian-tom-griffiths-summary/" target="_blank" rel="noopener">Deploy Yourself book review and summary</a>), not a substitute for reading it. Links may earn a commission.</p>
+    </footer>
+  </article>
+</main>
+
+<footer class="site-footer">
+  <p>&copy; 2026 Plan-Do-Reflect. <a href="references.html">References &amp; further reading</a></p>
+</footer>
+
+<div class="theme-switch" role="group" aria-label="Style direction">
+  <button data-theme="a" title="Kinetic Signal — black &amp; yellow"></button>
+  <button data-theme="b" title="Studio Ledger — dusty rose"></button>
+  <button data-theme="c" title="Bright Margin — lime"></button>
+  <a class="icon-lib-link" href="icon-library.html" title="Style Guide (internal reference)">
+    <svg width="14" height="14" viewBox="0 0 14 14" aria-hidden="true">
+      <rect x="1" y="1" width="5" height="5" rx="1" fill="currentColor"/>
+      <rect x="8" y="1" width="5" height="5" rx="1" fill="currentColor"/>
+      <rect x="1" y="8" width="5" height="5" rx="1" fill="currentColor"/>
+      <rect x="8" y="8" width="5" height="5" rx="1" fill="currentColor"/>
+    </svg>
+  </a>
+  <a class="icon-lib-link" href="notes.html" title="Notes (working drafts)">
+    <svg width="14" height="14" viewBox="0 0 14 14" aria-hidden="true">
+      <rect x="2" y="1" width="10" height="12" rx="1.5" fill="none" stroke="currentColor" stroke-width="1.3"/>
+      <line x1="4.5" y1="5" x2="9.5" y2="5" stroke="currentColor" stroke-width="1.3" stroke-linecap="round"/>
+      <line x1="4.5" y1="7.5" x2="9.5" y2="7.5" stroke="currentColor" stroke-width="1.3" stroke-linecap="round"/>
+      <line x1="4.5" y1="10" x2="7.5" y2="10" stroke="currentColor" stroke-width="1.3" stroke-linecap="round"/>
+    </svg>
+  </a>
+  <a class="icon-lib-link" href="sitemap.html" title="Sitemap (working draft)">
+    <svg width="14" height="14" viewBox="0 0 14 14" aria-hidden="true">
+      <circle cx="7" cy="2.5" r="1.8" fill="none" stroke="currentColor" stroke-width="1.3"/>
+      <circle cx="3" cy="11" r="1.8" fill="none" stroke="currentColor" stroke-width="1.3"/>
+      <circle cx="11" cy="11" r="1.8" fill="none" stroke="currentColor" stroke-width="1.3"/>
+      <path d="M7 4.3 L7 7 M7 7 L3 9.5 M7 7 L11 9.5" stroke="currentColor" stroke-width="1.3" fill="none" stroke-linecap="round"/>
+    </svg>
+  </a>
+</div>
+
+<!-- Temporary brainstorm control — only restyles the main h1 (.content h1 / .hero-title / .page-title). Remove alongside
+     the "title-font experiment" CSS block and the extra Google Fonts link once
+     a title font is picked. -->
+<div class="title-font-picker">
+  <label for="title-font-select">Title font</label>
+  <button type="button" id="title-font-prev" class="title-font-nav" aria-label="Previous title font">‹</button>
+  <select id="title-font-select">
+    <optgroup label="Round 1 — headline character">
+      <option value="gabarito">Gabarito</option>
+      <option value="chivo">Chivo</option>
+    </optgroup>
+    <optgroup label="Round 2 — Calibri-adjacent">
+      <option value="golos-text">Golos Text</option>
+    </optgroup>
+    <option value="default">Theme default</option>
+  </select>
+  <button type="button" id="title-font-next" class="title-font-nav" aria-label="Next title font">›</button>
+</div>
+
+<script src="js/theme-toggle.js" defer></script>
+<script src="js/title-font-toggle.js" defer></script>
+</body>
+</html>

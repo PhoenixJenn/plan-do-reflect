@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="a">
+<head>
+<meta charset="UTF-8">
+<base href="../">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="icon" type="image/svg+xml" href="favicon.svg">
+<title>Creating Magic: One-page summary · Plan · Do · Reflect</title>
+
+<!-- Applied before CSS loads, so the saved theme / title-font choice doesn't flash to the default on reload -->
+<script>
+(function () {
+  try {
+    var savedTheme = localStorage.getItem('pdr-theme');
+    if (['a', 'b', 'c'].indexOf(savedTheme) > -1) {
+      document.documentElement.setAttribute('data-theme', savedTheme);
+    }
+    /* No saved choice yet means a first-time visitor — default them to Golos
+       Text rather than the theme's own heading font. Explicitly picking
+       "Theme default" in the picker stores the literal string 'default',
+       which is the one value that clears the override below. */
+    var savedTitleFont = localStorage.getItem('pdr-title-font');
+    var titleFont = savedTitleFont === null ? 'golos-text' : savedTitleFont;
+    if (titleFont !== 'default') {
+      document.documentElement.setAttribute('data-title-font', titleFont);
+    }
+  } catch (e) {}
+})();
+</script>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=Work+Sans:wght@400;500;600&family=Sora:wght@600;700;800&family=Plus+Jakarta+Sans:wght@500;600;700&family=Patrick+Hand&display=swap" rel="stylesheet">
+
+<!-- Title-font brainstorm candidates — temporary, for the .title-font-picker toggle only.
+     Remove this link once a title font is chosen and folded into tokens.css. -->
+<link href="https://fonts.googleapis.com/css2?family=Gabarito:wght@800&family=Chivo:wght@800&family=Golos+Text:wght@800&display=swap" rel="stylesheet">
+
+<link rel="stylesheet" href="css/tokens.css">
+<link rel="stylesheet" href="css/main.css">
+<link rel="stylesheet" href="css/summary.css">
+</head>
+<body>
+
+<header class="topnav">
+  <a class="logo" href="index.html">Plan·Do·Reflect</a>
+  <nav class="topnav-items">
+    <a class="item" href="framework.html">The Framework</a>
+    <a class="item" href="self-management.html">Self</a>
+    <a class="item" href="team.html">Team</a>
+    <a class="item" href="organization.html">Organization</a>
+    <a class="item" href="core-skills.html">Core Skills</a>
+    <a class="item active" href="references.html">References</a>
+  </nav>
+</header>
+
+<main class="sm">
+  <p class="sm-crumb"><a href="references.html">References &amp; Further Reading</a> &rsaquo; One-page summary</p>
+  <article class="sm-page">
+    <header class="sm-head">
+      <img class="sm-cover" src="images/covers/B002V0JWP6.jpg" data-r="https://m.media-amazon.com/images/I/51GeSeOJryL._SL300_.jpg" alt="Cover of Creating Magic" onerror="if(this.dataset.r&amp;&amp;this.src.indexOf(this.dataset.r)===-1){this.src=this.dataset.r}else{this.style.visibility='hidden'}">
+      <div>
+        <p class="sm-eyebrow">One-page summary &middot; 2 min read</p>
+        <h1 class="page-title">Creating Magic</h1>
+        <p class="sm-sub">10 Common Sense Leadership Strategies from a Life at Disney</p>
+        <p class="sm-by">by Lee Cockerell</p>
+        <p class="sm-meta">2008 &middot; 7h 36m audiobook &middot; &#9733; 4.7 Audible</p>
+      </div>
+    </header>
+
+    <section class="sm-idea"><h2>The big idea</h2><p>Great customer experiences are not created by focusing on customers first, they&#x27;re the byproduct of leadership that makes employees feel respected, valued, and equipped to do great work, which in turn drives guest satisfaction and business results.</p></section>
+
+<section class="sm-tool"><span class="sm-label">RAVE (Respect, Appreciate, Value Everyone)</span><blockquote>RAVE is Cockerell&#x27;s shorthand for treating every employee, regardless of role or rank, as genuinely important to the operation. In practice it means involving frontline staff in decisions that affect them, thanking people specifically and often, and building a culture where custodians and executives are held to the same standard of respect. It&#x27;s paired with a companion idea, free fuel, appreciation, recognition, encouragement, for motivating people at zero cost.</blockquote><p>Different summaries render the acronym slightly differently, so treat the acronym&#x27;s exact letters as a memory aid rather than a verbatim quote from the book.</p></section>
+
+    <section class="sm-ideas"><h2>Key ideas</h2><ol><li><h3>The Disney Leadership Formula</h3><p>Cockerell frames leadership as a chain, leadership quality produces employee excellence, which produces guest satisfaction, which drives business results, arguing most leaders wrongly start the chain at the customer instead of the employee.</p></li><li><h3>Break the Mold</h3><p>Leaders should regularly question inherited organizational structures and processes rather than assuming how we&#x27;ve always done it is still the right design.</p></li><li><h3>Make Your People Your Brand</h3><p>Hire people who are as good as or better than you, and involve your team in hiring decisions rather than treating it as solely a manager&#x27;s call.</p></li><li><h3>Create Magic Through Training</h3><p>Training is framed as a core leadership responsibility, not an HR checkbox, how well people are trained directly shows up in customer experience.</p></li><li><h3>Eliminate Hassles</h3><p>When something goes wrong, ask what went wrong before who failed, fixing broken processes instead of defaulting to blame.</p></li><li><h3>Learn the Truth</h3><p>Leaders need multiple, honest channels of information, since formal reporting chains tend to filter out bad news.</p></li></ol></section>
+
+    <div class="sm-cols">
+      <section><h2>Try it this week</h2><ol class="sm-steps"><li>Ask three frontline employees this week, what&#x27;s one hassle in your day I could remove, and act on at least one answer.</li><li>Give one specific, no-cost piece of recognition, naming exactly what someone did well, to a team member today.</li><li>Spend 30 minutes this week walking your team&#x27;s actual workspace with no agenda except listening.</li><li>Find one process that currently blames individuals when it fails, and redesign the process itself instead.</li></ol></section>
+      <section><h2>Is it for you?</h2><h3 class="sm-good">Best for</h3><ul><li>New and mid-level managers who want concrete, service-culture leadership habits</li><li>Leaders in hospitality, retail, or other customer-facing industries</li></ul><h3 class="sm-less">Less useful if</h3><ul><li>Leaders seeking an academic or research-based leadership theory</li><li>Readers in highly technical or research-driven fields who may find the Disney-park analogies a stretch</li></ul></section>
+    </div>
+
+<section class="sm-links"><h2>On this site</h2><div class="sm-chips"><a href="references.html#cat-leadstyle">Leadership Styles &amp; Principles</a></div></section>
+    <section class="sm-links sm-related"><h2>Pairs well with</h2><ul><li><a href="references.html#book-B01MZ6RMS4">Radical Candor</a> <span>A complementary framework for the direct, caring feedback this kind of respect-driven culture depends on</span></li><li><a href="references.html#book-B077BPKPZQ">The Culture Code</a> <span>A research-backed look at the small daily cues that build this kind of workplace culture</span></li></ul></section>
+
+    <footer class="sm-foot">
+      <a class="sm-buy" href="https://www.amazon.com/s?k=Lee+Cockerell+Creating+Magic&amp;tag=phoenixjenn-20" target="_blank" rel="noopener">Find the book on Amazon</a>
+      <p>Original summary written for Plan &middot; Do &middot; Reflect. Prepared from the book&rsquo;s ideas and public summaries (<a href="https://www.supersummary.com/creating-magic/summary/" target="_blank" rel="noopener">SuperSummary: Creating Magic Summary</a>, <a href="https://www.mindtools.com/a2sn312/creating-magic" target="_blank" rel="noopener">MindTools: Creating Magic</a>), not a substitute for reading it. Links may earn a commission.</p>
+    </footer>
+  </article>
+</main>
+
+<footer class="site-footer">
+  <p>&copy; 2026 Plan-Do-Reflect. <a href="references.html">References &amp; further reading</a></p>
+</footer>
+
+<div class="theme-switch" role="group" aria-label="Style direction">
+  <button data-theme="a" title="Kinetic Signal — black &amp; yellow"></button>
+  <button data-theme="b" title="Studio Ledger — dusty rose"></button>
+  <button data-theme="c" title="Bright Margin — lime"></button>
+  <a class="icon-lib-link" href="icon-library.html" title="Style Guide (internal reference)">
+    <svg width="14" height="14" viewBox="0 0 14 14" aria-hidden="true">
+      <rect x="1" y="1" width="5" height="5" rx="1" fill="currentColor"/>
+      <rect x="8" y="1" width="5" height="5" rx="1" fill="currentColor"/>
+      <rect x="1" y="8" width="5" height="5" rx="1" fill="currentColor"/>
+      <rect x="8" y="8" width="5" height="5" rx="1" fill="currentColor"/>
+    </svg>
+  </a>
+  <a class="icon-lib-link" href="notes.html" title="Notes (working drafts)">
+    <svg width="14" height="14" viewBox="0 0 14 14" aria-hidden="true">
+      <rect x="2" y="1" width="10" height="12" rx="1.5" fill="none" stroke="currentColor" stroke-width="1.3"/>
+      <line x1="4.5" y1="5" x2="9.5" y2="5" stroke="currentColor" stroke-width="1.3" stroke-linecap="round"/>
+      <line x1="4.5" y1="7.5" x2="9.5" y2="7.5" stroke="currentColor" stroke-width="1.3" stroke-linecap="round"/>
+      <line x1="4.5" y1="10" x2="7.5" y2="10" stroke="currentColor" stroke-width="1.3" stroke-linecap="round"/>
+    </svg>
+  </a>
+  <a class="icon-lib-link" href="sitemap.html" title="Sitemap (working draft)">
+    <svg width="14" height="14" viewBox="0 0 14 14" aria-hidden="true">
+      <circle cx="7" cy="2.5" r="1.8" fill="none" stroke="currentColor" stroke-width="1.3"/>
+      <circle cx="3" cy="11" r="1.8" fill="none" stroke="currentColor" stroke-width="1.3"/>
+      <circle cx="11" cy="11" r="1.8" fill="none" stroke="currentColor" stroke-width="1.3"/>
+      <path d="M7 4.3 L7 7 M7 7 L3 9.5 M7 7 L11 9.5" stroke="currentColor" stroke-width="1.3" fill="none" stroke-linecap="round"/>
+    </svg>
+  </a>
+</div>
+
+<!-- Temporary brainstorm control — only restyles the main h1 (.content h1 / .hero-title / .page-title). Remove alongside
+     the "title-font experiment" CSS block and the extra Google Fonts link once
+     a title font is picked. -->
+<div class="title-font-picker">
+  <label for="title-font-select">Title font</label>
+  <button type="button" id="title-font-prev" class="title-font-nav" aria-label="Previous title font">‹</button>
+  <select id="title-font-select">
+    <optgroup label="Round 1 — headline character">
+      <option value="gabarito">Gabarito</option>
+      <option value="chivo">Chivo</option>
+    </optgroup>
+    <optgroup label="Round 2 — Calibri-adjacent">
+      <option value="golos-text">Golos Text</option>
+    </optgroup>
+    <option value="default">Theme default</option>
+  </select>
+  <button type="button" id="title-font-next" class="title-font-nav" aria-label="Next title font">›</button>
+</div>
+
+<script src="js/theme-toggle.js" defer></script>
+<script src="js/title-font-toggle.js" defer></script>
+</body>
+</html>

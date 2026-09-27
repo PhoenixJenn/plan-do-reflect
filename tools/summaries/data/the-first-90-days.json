@@ -1,0 +1,77 @@
+{
+  "asin": "B00CDVYKUA",
+  "slug": "the-first-90-days",
+  "read_time": "2 min read",
+  "big_idea": "Michael Watkins argues that the actions a leader takes in the first few months of a new role disproportionately determine long-term success or failure, and that deliberately managing this transition period, rather than relying on what worked in a past role, can significantly accelerate the time to full productivity.",
+  "tool": {
+    "label": "The STARS Model",
+    "text": "STARS categorizes the business situation a new leader is stepping into as Start-up, Turnaround, Accelerated growth, Realignment, or Sustaining success, each demanding a different strategy, pace, and set of priorities. Watkins pairs STARS with the 5 Ps (products, processes, projects, plants and facilities, and people) so leaders can diagnose which situation they're actually in across each dimension, since a single unit can be a turnaround in one area and sustaining success in another.",
+    "note": "Watkins later expanded STARS in subsequent editions to note that leaders often face a portfolio of several STARS situations simultaneously across different parts of their remit, rather than one clean category for the whole role."
+  },
+  "ideas": [
+    {
+      "title": "Break-even point",
+      "text": "New leaders typically take months to reach the point where they've contributed as much value as they've consumed in support and resources; deliberate transition management shortens this window."
+    },
+    {
+      "title": "The 30-30-30 structure",
+      "text": "Watkins recommends breaking the 90 days into roughly month-long phases, learning and building credibility, generating early wins, and then deepening and consolidating change."
+    },
+    {
+      "title": "Negotiating success with your boss",
+      "text": "Early, explicit conversations about situational diagnosis, expectations, resources, and working style prevent misalignment that surfaces later as conflict."
+    },
+    {
+      "title": "Securing early wins",
+      "text": "Identifying a few visible, meaningful improvements in the first weeks builds credibility and momentum for tackling harder, longer-term challenges."
+    },
+    {
+      "title": "Matching strategy to situation",
+      "text": "A strategy that worked in a turnaround can actively damage a sustaining-success situation, leaders must diagnose before acting."
+    },
+    {
+      "title": "Building your team early",
+      "text": "New leaders should assess existing team members quickly, decide who stays, who moves, and who needs support, rather than deferring people decisions indefinitely."
+    }
+  ],
+  "try_it": [
+    "Before or right after starting a new role, write down which STARS situation you believe you're stepping into for each major area of responsibility.",
+    "Schedule an explicit expectations conversation with your new manager in your first two weeks, covering how they define success in 90 days.",
+    "Identify one visible, achievable win you could deliver in your first 30 days and start on it immediately.",
+    "List your new team members and rate, even roughly, who you believe is a keep, develop, or move decision, revisiting the list after 60 days."
+  ],
+  "best_for": [
+    "Anyone starting a new leadership role, promotion, or job in the coming months",
+    "HR and onboarding teams designing transition-support programs"
+  ],
+  "less_useful": [
+    "Individual contributors without team or organizational responsibility, since the STARS/5Ps framework is built around managing people and units",
+    "Readers wanting a light read, as the book is dense with checklists and frameworks"
+  ],
+  "site_links": [
+    {
+      "label": "Leadership Styles & Principles",
+      "href": "references.html#cat-leadstyle"
+    }
+  ],
+  "related": [
+    {
+      "asin": "1469081393",
+      "why": "A complementary look at the deeper managerial imperatives a new leader has to master beyond the first 90 days"
+    },
+    {
+      "asin": "B002V08E64",
+      "why": "A closer look at assessing and building the team a new leader inherits"
+    }
+  ],
+  "sources": [
+    {
+      "label": "ReadingGraphics: Book Summary – The First 90 Days",
+      "href": "https://readingraphics.com/book-summary-the-first-90-days/"
+    },
+    {
+      "label": "Four Minute Books: The First 90 Days Summary",
+      "href": "https://fourminutebooks.com/the-first-90-days-summary/"
+    }
+  ]
+}

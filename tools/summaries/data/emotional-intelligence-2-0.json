@@ -1,0 +1,77 @@
+{
+  "asin": "B003HU6KLI",
+  "slug": "emotional-intelligence-2-0",
+  "read_time": "2 min read",
+  "big_idea": "Emotional intelligence (EQ), the ability to recognize and manage emotions in yourself and others, is a skill, not a fixed trait, and it is a stronger predictor of workplace performance than IQ; the book presents a structured, strategy-based program to raise it.",
+  "tool": {
+    "label": "The Four-Skill EQ Model + Strategy Selection Method",
+    "text": "The book organizes EQ into four skills, Self-Awareness, Self-Management, Social Awareness, and Relationship Management, and pairs each with roughly 15-17 concrete strategies (66 total). The recommended method: take the accompanying online EQ assessment to find your weakest skill, pick up to three strategies for that skill, recruit an EQ mentor to give you feedback, practice for several weeks, then reassess your score.",
+    "note": "The full assessment requires purchasing the book's access code, so a website summary can only describe the framework, not administer the actual test."
+  },
+  "ideas": [
+    {
+      "title": "Self-Awareness comes first",
+      "text": "You can't manage or use emotions well until you can accurately name what you're feeling and recognize your personal emotional triggers in the moment."
+    },
+    {
+      "title": "Self-Management is redirection, not suppression",
+      "text": "The goal is to notice an impulsive reaction and consciously redirect it toward a longer-term goal rather than acting on it immediately."
+    },
+    {
+      "title": "Social Awareness requires active observation",
+      "text": "Reading other people's emotions accurately means putting your own agenda aside temporarily to watch body language, tone, and context rather than assuming."
+    },
+    {
+      "title": "Relationship Management builds on the other three",
+      "text": "Once you understand your own emotions and can read others', you can use that insight to communicate clearly, resolve conflict, and deepen trust."
+    },
+    {
+      "title": "The emotion vs. reason list technique",
+      "text": "When a decision feels emotionally charged, writing the emotional argument and the logical argument side by side helps separate the two and clarify judgment."
+    },
+    {
+      "title": "EQ is trainable through neuroplasticity",
+      "text": "The book argues the brain's emotional pathways can be reshaped with repeated practice, which is why the strategies are meant to be drilled like habits, not just read once."
+    }
+  ],
+  "try_it": [
+    "Run a one-week trigger log: each time you feel a strong emotional reaction at work, jot down the trigger, the feeling, and your response, then look for a pattern at week's end.",
+    "Before your next high-stakes email or conversation, write a quick two-column list, what I feel versus what the facts say, before deciding what to do.",
+    "Pick one recurring meeting this week and spend it deliberately observing others' body language and tone instead of planning what you'll say next.",
+    "Ask one trusted colleague to flag it, in the moment, the next time your tone doesn't match what you intend to communicate."
+  ],
+  "best_for": [
+    "Managers and individual contributors who want a structured, checklist-driven way to build EQ habits",
+    "People who respond well to self-assessment scores and measurable improvement"
+  ],
+  "less_useful": [
+    "Readers looking for deep psychological or neuroscience explanation rather than applied strategies",
+    "Anyone skeptical of proprietary self-report EQ tests, since independent psychometricians have raised validity questions about commercial EQ assessments like this one"
+  ],
+  "site_links": [
+    {
+      "label": "Emotional Intelligence & Self-Knowledge",
+      "href": "references.html#cat-eq"
+    }
+  ],
+  "related": [
+    {
+      "asin": "B0C8PY2XLV",
+      "why": "The same authors' companion book turning this framework into daily habits"
+    },
+    {
+      "asin": "B0BQZD7C3J",
+      "why": "A shorter HBR collection on a related EQ skill, confidence"
+    }
+  ],
+  "sources": [
+    {
+      "label": "ReadingGraphics book summary",
+      "href": "https://readingraphics.com/book-summary-emotional-intelligence-2-0/"
+    },
+    {
+      "label": "Shortform book summary",
+      "href": "https://www.shortform.com/summary/emotional-intelligence-2-0-vb13747-g-summary-travis-bradberry-jean-greaves"
+    }
+  ]
+}

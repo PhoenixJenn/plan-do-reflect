@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="a">
+<head>
+<meta charset="UTF-8">
+<base href="../">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="icon" type="image/svg+xml" href="favicon.svg">
+<title>The Culture Code: One-page summary · Plan · Do · Reflect</title>
+
+<!-- Applied before CSS loads, so the saved theme / title-font choice doesn't flash to the default on reload -->
+<script>
+(function () {
+  try {
+    var savedTheme = localStorage.getItem('pdr-theme');
+    if (['a', 'b', 'c'].indexOf(savedTheme) > -1) {
+      document.documentElement.setAttribute('data-theme', savedTheme);
+    }
+    /* No saved choice yet means a first-time visitor — default them to Golos
+       Text rather than the theme's own heading font. Explicitly picking
+       "Theme default" in the picker stores the literal string 'default',
+       which is the one value that clears the override below. */
+    var savedTitleFont = localStorage.getItem('pdr-title-font');
+    var titleFont = savedTitleFont === null ? 'golos-text' : savedTitleFont;
+    if (titleFont !== 'default') {
+      document.documentElement.setAttribute('data-title-font', titleFont);
+    }
+  } catch (e) {}
+})();
+</script>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=Work+Sans:wght@400;500;600&family=Sora:wght@600;700;800&family=Plus+Jakarta+Sans:wght@500;600;700&family=Patrick+Hand&display=swap" rel="stylesheet">
+
+<!-- Title-font brainstorm candidates — temporary, for the .title-font-picker toggle only.
+     Remove this link once a title font is chosen and folded into tokens.css. -->
+<link href="https://fonts.googleapis.com/css2?family=Gabarito:wght@800&family=Chivo:wght@800&family=Golos+Text:wght@800&display=swap" rel="stylesheet">
+
+<link rel="stylesheet" href="css/tokens.css">
+<link rel="stylesheet" href="css/main.css">
+<link rel="stylesheet" href="css/summary.css">
+</head>
+<body>
+
+<header class="topnav">
+  <a class="logo" href="index.html">Plan·Do·Reflect</a>
+  <nav class="topnav-items">
+    <a class="item" href="framework.html">The Framework</a>
+    <a class="item" href="self-management.html">Self</a>
+    <a class="item" href="team.html">Team</a>
+    <a class="item" href="organization.html">Organization</a>
+    <a class="item" href="core-skills.html">Core Skills</a>
+    <a class="item active" href="references.html">References</a>
+  </nav>
+</header>
+
+<main class="sm">
+  <p class="sm-crumb"><a href="references.html">References &amp; Further Reading</a> &rsaquo; One-page summary</p>
+  <article class="sm-page">
+    <header class="sm-head">
+      <img class="sm-cover" src="images/covers/B077BPKPZQ.jpg" data-r="https://m.media-amazon.com/images/I/41lsdCJDPzL._SL300_.jpg" alt="Cover of The Culture Code" onerror="if(this.dataset.r&amp;&amp;this.src.indexOf(this.dataset.r)===-1){this.src=this.dataset.r}else{this.style.visibility='hidden'}">
+      <div>
+        <p class="sm-eyebrow">One-page summary &middot; 2 min read</p>
+        <h1 class="page-title">The Culture Code</h1>
+        <p class="sm-sub">The Secrets of Highly Successful Groups</p>
+        <p class="sm-by">by Daniel Coyle</p>
+        <p class="sm-meta">2018 &middot; 7h 13m audiobook &middot; &#9733; 4.7 Audible</p>
+      </div>
+    </header>
+
+    <section class="sm-idea"><h2>The big idea</h2><p>Coyle argues group excellence isn&#x27;t about the raw talent in the room but about three learnable skills, building safety, sharing vulnerability, and establishing purpose, that shape how members interact with each other.</p></section>
+
+<section class="sm-tool"><span class="sm-label">The Vulnerability Loop</span><blockquote>A vulnerability loop starts when one person, often a leader, openly admits a weakness, mistake, or need for help. This signal invites a reciprocal admission from others, and the exchange of small honest admissions compounds into a norm of cooperation and trust that wouldn&#x27;t emerge if everyone was just trying to look competent.</blockquote><p>none</p></section>
+
+    <section class="sm-ideas"><h2>Key ideas</h2><ol><li><h3>Belonging cues</h3><p>Small, repeated signals, eye contact, proximity, follow-up questions, tell people they&#x27;re safe and valued; Coyle argues cultures are built from hundreds of these tiny cues, not one mission statement.</p></li><li><h3>High-purpose environments</h3><p>Successful groups make their priorities and identity visible everywhere so members can make micro-decisions aligned with the group&#x27;s purpose without asking permission.</p></li><li><h3>Catchphrases and stories over rules</h3><p>High-performing cultures use memorable phrases and origin stories to encode how we do things here in a way people actually remember and repeat.</p></li><li><h3>After-action reviews</h3><p>Groups that regularly and candidly debrief what happened, without blame, build faster shared learning than groups that move straight to the next task.</p></li><li><h3>Leaders go first with vulnerability</h3><p>Coyle&#x27;s research across Navy SEALs, Pixar, and IDEO found a leader admitting fallibility early is one of the strongest safety signals a group can receive.</p></li><li><h3>Threshold moments</h3><p>Onboarding, promotions, or a team&#x27;s first meeting carry outsized weight in setting cultural expectations.</p></li></ol></section>
+
+    <div class="sm-cols">
+      <section><h2>Try it this week</h2><ol class="sm-steps"><li>In your next team meeting, name one thing you got wrong or don&#x27;t know before asking others to share their own uncertainties.</li><li>Run a short after-action review on a recently finished project: what was supposed to happen, what actually happened, what you&#x27;ll change.</li><li>Write down the one or two priorities your team should use to make decisions without asking you, and repeat them explicitly for a month.</li><li>Add one small belonging cue to a recurring meeting, a personal check-in, or naming a specific contribution someone made.</li></ol></section>
+      <section><h2>Is it for you?</h2><h3 class="sm-good">Best for</h3><ul><li>Team leads and middle managers who want concrete, research-backed behaviors rather than abstract culture talk</li><li>Readers who like case-study-driven business books</li></ul><h3 class="sm-less">Less useful if</h3><ul><li>Readers wanting one company&#x27;s deep narrative, this jumps across many organizations</li><li>Offers little individual career advice, since it&#x27;s about group dynamics, not personal advancement</li></ul></section>
+    </div>
+
+<section class="sm-links"><h2>On this site</h2><div class="sm-chips"><a href="references.html#cat-culture">Culture &amp; Psychological Safety</a></div></section>
+    <section class="sm-links sm-related"><h2>Pairs well with</h2><ul><li><a href="references.html#book-1984891170">No Rules Rules</a> <span>A single-company deep dive into the same trust-and-culture dynamics</span></li><li><a href="references.html#book-0593171004">The Talent Code</a> <span>The same author&#x27;s companion book on how deliberate practice, not talent, builds skill</span></li></ul></section>
+
+    <footer class="sm-foot">
+      <a class="sm-buy" href="https://www.amazon.com/s?k=Daniel+Coyle+The+Culture+Code&amp;tag=phoenixjenn-20" target="_blank" rel="noopener">Find the book on Amazon</a>
+      <p>Original summary written for Plan &middot; Do &middot; Reflect. Prepared from the book&rsquo;s ideas and public summaries (<a href="https://www.shortform.com/summary/the-culture-code-summary-daniel-coyle" target="_blank" rel="noopener">The Culture Code summary, Shortform</a>, <a href="https://readingraphics.com/book-summary-the-culture-code-the-secrets-of-highly-successful-groups/" target="_blank" rel="noopener">Book Summary, ReadingGraphics</a>), not a substitute for reading it. Links may earn a commission.</p>
+    </footer>
+  </article>
+</main>
+
+<footer class="site-footer">
+  <p>&copy; 2026 Plan-Do-Reflect. <a href="references.html">References &amp; further reading</a></p>
+</footer>
+
+<div class="theme-switch" role="group" aria-label="Style direction">
+  <button data-theme="a" title="Kinetic Signal — black &amp; yellow"></button>
+  <button data-theme="b" title="Studio Ledger — dusty rose"></button>
+  <button data-theme="c" title="Bright Margin — lime"></button>
+  <a class="icon-lib-link" href="icon-library.html" title="Style Guide (internal reference)">
+    <svg width="14" height="14" viewBox="0 0 14 14" aria-hidden="true">
+      <rect x="1" y="1" width="5" height="5" rx="1" fill="currentColor"/>
+      <rect x="8" y="1" width="5" height="5" rx="1" fill="currentColor"/>
+      <rect x="1" y="8" width="5" height="5" rx="1" fill="currentColor"/>
+      <rect x="8" y="8" width="5" height="5" rx="1" fill="currentColor"/>
+    </svg>
+  </a>
+  <a class="icon-lib-link" href="notes.html" title="Notes (working drafts)">
+    <svg width="14" height="14" viewBox="0 0 14 14" aria-hidden="true">
+      <rect x="2" y="1" width="10" height="12" rx="1.5" fill="none" stroke="currentColor" stroke-width="1.3"/>
+      <line x1="4.5" y1="5" x2="9.5" y2="5" stroke="currentColor" stroke-width="1.3" stroke-linecap="round"/>
+      <line x1="4.5" y1="7.5" x2="9.5" y2="7.5" stroke="currentColor" stroke-width="1.3" stroke-linecap="round"/>
+      <line x1="4.5" y1="10" x2="7.5" y2="10" stroke="currentColor" stroke-width="1.3" stroke-linecap="round"/>
+    </svg>
+  </a>
+  <a class="icon-lib-link" href="sitemap.html" title="Sitemap (working draft)">
+    <svg width="14" height="14" viewBox="0 0 14 14" aria-hidden="true">
+      <circle cx="7" cy="2.5" r="1.8" fill="none" stroke="currentColor" stroke-width="1.3"/>
+      <circle cx="3" cy="11" r="1.8" fill="none" stroke="currentColor" stroke-width="1.3"/>
+      <circle cx="11" cy="11" r="1.8" fill="none" stroke="currentColor" stroke-width="1.3"/>
+      <path d="M7 4.3 L7 7 M7 7 L3 9.5 M7 7 L11 9.5" stroke="currentColor" stroke-width="1.3" fill="none" stroke-linecap="round"/>
+    </svg>
+  </a>
+</div>
+
+<!-- Temporary brainstorm control — only restyles the main h1 (.content h1 / .hero-title / .page-title). Remove alongside
+     the "title-font experiment" CSS block and the extra Google Fonts link once
+     a title font is picked. -->
+<div class="title-font-picker">
+  <label for="title-font-select">Title font</label>
+  <button type="button" id="title-font-prev" class="title-font-nav" aria-label="Previous title font">‹</button>
+  <select id="title-font-select">
+    <optgroup label="Round 1 — headline character">
+      <option value="gabarito">Gabarito</option>
+      <option value="chivo">Chivo</option>
+    </optgroup>
+    <optgroup label="Round 2 — Calibri-adjacent">
+      <option value="golos-text">Golos Text</option>
+    </optgroup>
+    <option value="default">Theme default</option>
+  </select>
+  <button type="button" id="title-font-next" class="title-font-nav" aria-label="Next title font">›</button>
+</div>
+
+<script src="js/theme-toggle.js" defer></script>
+<script src="js/title-font-toggle.js" defer></script>
+</body>
+</html>

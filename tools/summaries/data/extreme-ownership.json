@@ -1,0 +1,77 @@
+{
+  "asin": "B015TVHUA2",
+  "slug": "extreme-ownership",
+  "read_time": "2 min read",
+  "big_idea": "The single most important trait of an effective leader is taking complete responsibility for every outcome in their team's world, including failures caused by subordinates, because total ownership is what actually drives a team to fix problems and improve.",
+  "tool": {
+    "label": "The Four Laws of Combat",
+    "text": "Four battlefield-derived principles for executing under pressure: Cover and Move, teams and departments support each other toward one shared goal instead of competing in silos; Keep It Simple, plans and communication are stripped down so they still work when things go wrong; Prioritize and Execute, in a crisis, identify the single highest-priority problem, solve it, then move to the next; and Decentralized Command, break into small teams led by an empowered leader who understands the mission's intent well enough to make decisions without waiting for approval.",
+    "note": "none"
+  },
+  "ideas": [
+    {
+      "title": "Extreme Ownership",
+      "text": "Leaders own every outcome in their world with no exceptions, including blaming a subordinate's mistake, which the authors treat as still the leader's failure to train or brief."
+    },
+    {
+      "title": "Check the Ego",
+      "text": "Personal ambition and the need to be right must be subordinated to the mission and the team, or judgment gets clouded."
+    },
+    {
+      "title": "Believe in the Mission",
+      "text": "Leaders must genuinely understand and believe in the why behind an order before they can convince a team to commit to it."
+    },
+    {
+      "title": "Cover and Move",
+      "text": "Cross-team cooperation toward a shared objective beats departments competing or operating in isolation."
+    },
+    {
+      "title": "Prioritize and Execute",
+      "text": "Under pressure, tackle the single highest-priority problem first instead of trying to solve everything at once."
+    },
+    {
+      "title": "Decentralized Command",
+      "text": "Push decision-making authority down to small, empowered teams who understand the commander's intent rather than requiring central approval for every move."
+    }
+  ],
+  "try_it": [
+    "After your next setback at work, write down what YOU could have done differently before assigning blame elsewhere.",
+    "Identify the single highest-priority problem on your plate right now and work only that until it's resolved.",
+    "Delegate one decision this week to a direct report, explaining the why behind it instead of giving step-by-step instructions.",
+    "In your next cross-team friction point, ask how can my team support theirs instead of defending your team's territory."
+  ],
+  "best_for": [
+    "Managers who tend to default to blaming external factors or subordinates",
+    "Leaders in high-stakes, fast-moving execution environments"
+  ],
+  "less_useful": [
+    "Readers put off by heavy military framing and analogies",
+    "Taken too literally, the own everything mindset can tip into self-blame or overwork if the book's points on delegation and trust get skipped"
+  ],
+  "site_links": [
+    {
+      "label": "Leadership Styles & Principles",
+      "href": "references.html#cat-leadstyle"
+    }
+  ],
+  "related": [
+    {
+      "asin": "B07BN2GNQQ",
+      "why": "The same authors' follow-up on where these principles need deliberate balance"
+    },
+    {
+      "asin": "1250259932",
+      "why": "A scenario-based field manual applying the same principles to everyday workplace situations"
+    }
+  ],
+  "sources": [
+    {
+      "label": "Shortform: Extreme Ownership Book Summary",
+      "href": "https://www.shortform.com/summary/extreme-ownership-summary-jocko-willink-leif-babin"
+    },
+    {
+      "label": "ReadingGraphics: Book Summary",
+      "href": "https://readingraphics.com/book-summary-extreme-ownership/"
+    }
+  ]
+}

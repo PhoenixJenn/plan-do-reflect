@@ -1,0 +1,77 @@
+{
+  "asin": "1250259932",
+  "slug": "leadership-strategy-and-tactics",
+  "read_time": "2 min read",
+  "big_idea": "Unlike Extreme Ownership's foundational principles, this is a practical, scenario-based field manual, short, situation-specific chapters give leaders at any level immediately actionable tactics for real day-to-day problems: managing up, down, and sideways, and staying level-headed under pressure.",
+  "tool": {
+    "label": "Detach (within Prioritize and Execute)",
+    "text": "When a leader is hit with multiple problems at once, Willink prescribes literally and mentally stepping back from the tactical noise to gain a wider view, rank the problems by priority, and tackle only the single highest-priority issue before returning to the rest. In a team setting this might mean physically stepping out of the immediate action; in an office setting it might mean pausing before reacting to a flood of demands. The habit keeps a leader from getting pulled into one problem's vortex while a bigger one goes unaddressed.",
+    "note": "Prioritize and Execute is one of Willink's Four Laws of Combat, introduced conceptually in Extreme Ownership, this Field Manual's distinct contribution is walking through concrete, non-combat workplace scenarios for applying it."
+  },
+  "ideas": [
+    {
+      "title": "Scenario-based structure",
+      "text": "Short chapters tackle specific situational problems, a micromanaging boss, an underperforming peer, imposter syndrome, rather than laying out abstract theory."
+    },
+    {
+      "title": "Leading down",
+      "text": "Build people up by identifying their individual strengths, pushing them outside their comfort zone deliberately, and letting them build their own plans rather than dictating solutions."
+    },
+    {
+      "title": "Leading sideways",
+      "text": "Manage peer relationships by picking battles carefully and building trust and influence without relying on formal authority or ego."
+    },
+    {
+      "title": "Leading up",
+      "text": "Specific tactics for handling different types of difficult bosses without damaging the relationship."
+    },
+    {
+      "title": "Default: Aggressive mindset",
+      "text": "A bias toward proactively engaging problems, balanced against the Dichotomy of Leadership's need for restraint."
+    },
+    {
+      "title": "Managing praise, criticism, and hope tactically",
+      "text": "Deliberately calibrating how and when to give feedback or encouragement to a specific person and situation, not a one-size-fits-all approach."
+    }
+  ],
+  "try_it": [
+    "Next time you're hit with simultaneous problems, physically step back for two minutes, rank them, and attack only the top one first.",
+    "Identify a peer relationship where you're avoiding a small conflict, and pick that one battle to address directly this week.",
+    "If you have a difficult boss, identify which type fits best and apply one specific tactic for that type.",
+    "Give one team member a stretch assignment this week and let them build their own plan for it instead of handing them the steps."
+  ],
+  "best_for": [
+    "Frontline and mid-level managers who want concrete, situation-by-situation tactics rather than philosophy",
+    "Readers who've already read Extreme Ownership and want the how layered onto the why"
+  ],
+  "less_useful": [
+    "Readers new to Willink who haven't read Extreme Ownership first, since this book assumes familiarity with the Four Laws of Combat",
+    "Readers wanting research citations rather than military-anecdote-driven advice"
+  ],
+  "site_links": [
+    {
+      "label": "Leadership Styles & Principles",
+      "href": "references.html#cat-leadstyle"
+    }
+  ],
+  "related": [
+    {
+      "asin": "B015TVHUA2",
+      "why": "The foundational principles this field manual applies to specific scenarios"
+    },
+    {
+      "asin": "B07BN2GNQQ",
+      "why": "The same authors' follow-up on where these principles need to be balanced against their opposite"
+    }
+  ],
+  "sources": [
+    {
+      "label": "ReadingGraphics book summary",
+      "href": "https://readingraphics.com/book-summary-leadership-strategy-and-tactics-field-manual/"
+    },
+    {
+      "label": "Echelon Front official page",
+      "href": "https://echelonfront.com/leadership-books/leadership-strategy-and-tactics/"
+    }
+  ]
+}

@@ -1,0 +1,77 @@
+{
+  "asin": "B004YDJJEC",
+  "slug": "leading-change",
+  "read_time": "2 min read",
+  "big_idea": "Large-scale organizational change fails or succeeds based on following a specific sequence of eight steps, and skipping steps or moving too fast is the most common reason transformations stall.",
+  "tool": {
+    "label": "The 8-Step Process for Leading Change",
+    "text": "Kotter's eight steps run in sequence: create a sense of urgency; build a guiding coalition; form a strategic vision; enlist a volunteer army; enable action by removing barriers; generate short-term wins; sustain acceleration; and institute change by embedding it in culture. Each step builds on the last, a guiding coalition can't recruit a volunteer army until urgency and vision are already established, and Kotter's research found that skipping steps or declaring victory too early is the most common cause of failed change efforts.",
+    "note": "none"
+  },
+  "ideas": [
+    {
+      "title": "Sense of urgency",
+      "text": "Change fails when people feel comfortable; leaders must surface a genuine, compelling reason to act now, not manufactured panic."
+    },
+    {
+      "title": "Guiding coalition",
+      "text": "A single leader can't drive major change alone, it requires a cross-functional team with enough power, credibility, and trust to lead it."
+    },
+    {
+      "title": "Strategic vision",
+      "text": "A clear, simple picture of how the future will differ from the present gives people something concrete to move toward and evaluate decisions against."
+    },
+    {
+      "title": "Volunteer army",
+      "text": "Broad-based buy-in, a large number of people who genuinely want the change, not just comply with it, is what gives transformation its momentum."
+    },
+    {
+      "title": "Removing barriers",
+      "text": "Structures, incentives, or managers that block the new direction have to be actively dismantled, not just tolerated alongside the old way."
+    },
+    {
+      "title": "Short-term wins",
+      "text": "Visible, unambiguous early successes build credibility and quiet skeptics, which is why manufacturing and celebrating them deliberately matters."
+    }
+  ],
+  "try_it": [
+    "Write a one-paragraph case for urgency for a change you're trying to drive, using a concrete fact or comparison rather than abstract language.",
+    "List the 3-5 people whose support you'd need on a guiding coalition for your current change effort, and note what each currently thinks.",
+    "Identify one structural or process barrier actively blocking your team's new direction and name what removing it would require.",
+    "Plan one short-term win you could generate and publicize within 60-90 days of starting a change effort."
+  ],
+  "best_for": [
+    "Executives and project leaders driving formal, large-scale organizational change",
+    "Anyone who has seen a change initiative stall and wants to diagnose why"
+  ],
+  "less_useful": [
+    "Readers wanting quick tactical tips for small-team or personal change, the book is written at enterprise-transformation scale",
+    "Those wanting the emotional and storytelling companion, Kotter's own follow-up The Heart of Change fits that better"
+  ],
+  "site_links": [
+    {
+      "label": "Change Management",
+      "href": "references.html#cat-change"
+    }
+  ],
+  "related": [
+    {
+      "asin": "B002V01GWS",
+      "why": "The author's own emotional companion book retelling these same eight steps through real stories"
+    },
+    {
+      "asin": "B01F47CEN4",
+      "why": "The same author's fable version of this framework for a broader, non-executive audience"
+    }
+  ],
+  "sources": [
+    {
+      "label": "Kotter Inc., The 8-Step Process for Leading Change",
+      "href": "https://www.kotterinc.com/methodology/8-steps/"
+    },
+    {
+      "label": "Kotter Inc., Leading Change bookshelf page",
+      "href": "https://www.kotterinc.com/bookshelf/leading-change/"
+    }
+  ]
+}

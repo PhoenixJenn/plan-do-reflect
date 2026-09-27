@@ -1,0 +1,77 @@
+{
+  "asin": "B00PX8F266",
+  "slug": "magic-words",
+  "read_time": "2 min read",
+  "big_idea": "A handful of specific, ordinary-seeming words, used deliberately and paired with genuine relationship-building, can measurably shift how motivated, connected, and cooperative other people feel, because each triggers a well-documented psychological response.",
+  "tool": {
+    "label": "The Because Justification Trigger",
+    "text": "Adding the word because plus any reason, even a weak one, before a request substantially increases compliance, since people respond to the presence of a justification more than to its actual logical strength. David ties this to the classic Ellen Langer copier-line study and applies it to workplace requests, delegation asks, and sales language.",
+    "note": "The underlying research predates the book by decades; David's contribution is packaging it as one of seven practical everyday words rather than originating the finding."
+  },
+  "ideas": [
+    {
+      "title": "Yes",
+      "text": "Getting a small, genuine yes early in an interaction builds momentum and psychological consistency toward a bigger yes later."
+    },
+    {
+      "title": "But",
+      "text": "What follows but carries the real weight of a sentence in the listener's mind, so reordering critique-then-praise into praise-then-but changes what people actually remember."
+    },
+    {
+      "title": "Someone's Name",
+      "text": "Using a person's name activates automatic attention, making them feel individually seen rather than addressed as part of a group."
+    },
+    {
+      "title": "If",
+      "text": "Framing a request as a hypothetical lowers defensiveness and lets people explore an idea without feeling cornered."
+    },
+    {
+      "title": "Help",
+      "text": "Asking someone for help, rather than assigning a task, activates their sense of competence and social value, increasing engagement."
+    },
+    {
+      "title": "Thanks",
+      "text": "Specific, timely gratitude reinforces the exact behavior you want repeated and strengthens the relationship at low cost."
+    }
+  ],
+  "try_it": [
+    "In your next request, add a because clause, even a minor one, and notice whether compliance feels easier to get.",
+    "Rewrite one piece of feedback this week so praise comes first and any but critique comes second.",
+    "Use a colleague's or family member's name explicitly the next time you need their attention in a conversation or email.",
+    "Replace one task assignment this week with a request framed as can you help me with."
+  ],
+  "best_for": [
+    "Managers, salespeople, and communicators wanting small, immediately testable language tweaks",
+    "Readers who like short, actionable chapters over dense theory"
+  ],
+  "less_useful": [
+    "Readers wanting a rigorous academic treatment of persuasion research, since this is a practical, popular guide",
+    "The techniques are interpersonal micro-tactics rather than a strategic influence framework"
+  ],
+  "site_links": [
+    {
+      "label": "Influence & Persuasion",
+      "href": "references.html#cat-influence"
+    }
+  ],
+  "related": [
+    {
+      "asin": "B004Y6M18U",
+      "why": "Another fast, conversation-level technique for shifting someone's motivation"
+    },
+    {
+      "asin": "0063097796",
+      "why": "The deeper research behind why small verbal cues like these work"
+    }
+  ],
+  "sources": [
+    {
+      "label": "Blinkist summary",
+      "href": "https://www.blinkist.com/en/books/magic-words-en"
+    },
+    {
+      "label": "Book summary by Rishi Bardoloi",
+      "href": "https://bardoloi.com/blog/2015/08/13/book-summary-magic-words/"
+    }
+  ]
+}

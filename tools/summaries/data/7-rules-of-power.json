@@ -1,0 +1,77 @@
+{
+  "asin": "B09ZF93BWC",
+  "slug": "7-rules-of-power",
+  "read_time": "2 min read",
+  "big_idea": "Power is a neutral tool, neither inherently good nor bad, that operates by identifiable, research-backed rules, and Pfeffer argues that acquiring and using it deliberately, rather than assuming merit alone will be recognized, is essential to getting things done and advancing your career.",
+  "tool": {
+    "label": "Rule 4: Build a Powerful Brand",
+    "text": "Pfeffer argues that power accrues to people who develop and consistently repeat a coherent personal narrative connecting their expertise, experience, and story, rather than assuming good work speaks for itself. His example: a Facebook executive who built outsized credit for solving mobile monetization largely by repeatedly and consistently telling that specific story, reinforcing the same narrative until it became attached to her name.",
+    "note": "Pfeffer is explicit that this involves actively taking credit for accomplishments, which he acknowledges some readers will find uncomfortable or self-promotional, he frames it as a description of how power actually works, not a moral endorsement of self-promotion for its own sake."
+  },
+  "ideas": [
+    {
+      "title": "Get out of your own way",
+      "text": "Self-imposed barriers, hesitation, imposter syndrome, waiting to be noticed, block people from power more often than external obstacles do."
+    },
+    {
+      "title": "Break the rules",
+      "text": "Established norms tend to favor people who already hold power, so deliberately violating minor conventions, like asking directly for something without waiting for an invitation, can signal strength and create opportunity."
+    },
+    {
+      "title": "Show up in powerful fashion",
+      "text": "How you appear and behave, confidence, composure, even appropriately timed displays of anger, shapes how much authority others attribute to you, sometimes more than your actual track record does."
+    },
+    {
+      "title": "Network relentlessly, especially weak ties",
+      "text": "Pfeffer cites research showing casual acquaintances are often more valuable for career opportunities than close friends and family, because they connect you to different information and networks."
+    },
+    {
+      "title": "Use your power once you have it",
+      "text": "Pfeffer argues power isn't depleted by exercising it, visible, decisive action after gaining authority tends to consolidate rather than drain it."
+    },
+    {
+      "title": "Success excuses almost everything",
+      "text": "Once someone is successful, Pfeffer argues the methods they used to get there are often forgiven or simply forgotten, while the same methods used by someone who fails are judged harshly."
+    }
+  ],
+  "try_it": [
+    "Identify one accomplishment you haven't actively claimed credit for, and mention it directly and specifically the next time it's relevant in a meeting or review.",
+    "Reach out this week to one weak tie, a former colleague or casual acquaintance you haven't talked to in over a year, just to reconnect, not to ask for anything yet.",
+    "Before your next ask, practice stating it directly without prefacing it with an apology or hedge.",
+    "Draft a two-sentence version of your own professional story, the throughline connecting your experience, and use the same wording the next three times you introduce yourself professionally."
+  ],
+  "best_for": [
+    "Ambitious professionals and managers who feel their good work isn't being recognized and want a candid, tactics-first take on organizational politics",
+    "Readers open to a more Machiavellian, descriptive-rather-than-aspirational view of how power works"
+  ],
+  "less_useful": [
+    "Readers looking for an ethics-first or purely collaborative leadership philosophy",
+    "Anyone in a highly rules-bound or compliance-heavy environment where several of the tactics carry real professional risk"
+  ],
+  "site_links": [
+    {
+      "label": "Executive Presence",
+      "href": "references.html#cat-presence"
+    }
+  ],
+  "related": [
+    {
+      "asin": "1469076535",
+      "why": "An HBR collection on wielding power and influence more ethically"
+    },
+    {
+      "asin": "0063097796",
+      "why": "The classic research behind the persuasion tactics that make a personal brand stick"
+    }
+  ],
+  "sources": [
+    {
+      "label": "Jeffrey Pfeffer's official author site",
+      "href": "https://jeffreypfeffer.com/books/7-rules-of-power/"
+    },
+    {
+      "label": "Sameer Bajaj summary and notes",
+      "href": "https://sameerbajaj.com/7rules/"
+    }
+  ]
+}

@@ -1,0 +1,77 @@
+{
+  "asin": "B002V59XXW",
+  "slug": "tribes",
+  "read_time": "2 min read",
+  "big_idea": "The internet has removed the old barriers to leadership, so anyone with a genuine idea and the willingness to be criticized can find and lead a tribe of people who share a belief, rather than waiting for permission from a traditional hierarchy.",
+  "tool": {
+    "label": "Heretics vs. Sheepwalkers",
+    "text": "Godin contrasts sheepwalkers, people trained to follow instructions and avoid rocking the boat, with heretics, people willing to challenge the status quo and propose a new idea despite the risk of criticism. He argues movements only move forward when someone is willing to be the heretic; used as a self-check, the question in any meeting or decision becomes: am I sheepwalking or leading?",
+    "note": "This is Godin's own framing device rather than a step-by-step process, so it works better as a lens for self-reflection than a checklist to follow."
+  },
+  "ideas": [
+    {
+      "title": "A tribe needs only two things",
+      "text": "A shared interest and a way for members to communicate with each other, not just with the leader."
+    },
+    {
+      "title": "Fear of criticism, not fear of failure",
+      "text": "Is what stops most people from leading; remarkable ideas invite being noticed and judged."
+    },
+    {
+      "title": "Mass-market thinking is a trap",
+      "text": "Trying to appeal to everyone dilutes an idea, while designing for a smaller, specific, passionate group creates something worth following."
+    },
+    {
+      "title": "Leadership requires only attitude and a vision",
+      "text": "Not a title, budget, or organizational authority."
+    },
+    {
+      "title": "Curiosity and generosity, not selfish ambition",
+      "text": "Are what sustain a leader's credibility with their tribe over time."
+    },
+    {
+      "title": "Movements grow through the connections tribe members make with each other",
+      "text": "Not just through top-down communication from the leader."
+    }
+  ],
+  "try_it": [
+    "Pick one idea you've been sitting on because you feared criticism, and share it with a small trusted group this week instead of waiting for full confidence.",
+    "Identify the smallest, most specific group of people who would care deeply about a project you're leading, and write one message speaking directly to them instead of a broad audience.",
+    "In your next team meeting, deliberately voice one dissenting or heretical opinion instead of defaulting to sheepwalking agreement.",
+    "Create one new way for members of a group you lead to talk to each other directly rather than routing everything through you."
+  ],
+  "best_for": [
+    "Entrepreneurs, community builders, and marketers looking for a quick, energizing case for starting a movement without waiting for permission",
+    "Readers who like Godin's punchy, manifesto-style short chapters"
+  ],
+  "less_useful": [
+    "Readers wanting concrete organizational or people-management tactics for leading an existing corporate team",
+    "Anyone looking for current digital-platform specifics, given the book's 2008 publication"
+  ],
+  "site_links": [
+    {
+      "label": "Leadership Styles & Principles",
+      "href": "references.html#cat-leadstyle"
+    }
+  ],
+  "related": [
+    {
+      "asin": "B002VA3GQW",
+      "why": "A complementary case that leading a tribe requires no formal title"
+    },
+    {
+      "asin": "B0F71ZM8YL",
+      "why": "A related framework for the shared belief that gives a tribe its purpose"
+    }
+  ],
+  "sources": [
+    {
+      "label": "Shortform, Tribes Book Summary by Seth Godin",
+      "href": "https://www.shortform.com/summary/tribes-summary-seth-godin"
+    },
+    {
+      "label": "Calvin Rosser, Tribes: Summary & Notes",
+      "href": "https://calvinrosser.com/notes/tribes-seth-godin/"
+    }
+  ]
+}

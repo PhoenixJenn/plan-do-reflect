@@ -1,0 +1,77 @@
+{
+  "asin": "B0C1HLWXS2",
+  "slug": "hbr-guide-to-critical-thinking",
+  "read_time": "2 min read",
+  "big_idea": "Critical thinking is a learnable professional skill, not a fixed trait, it's built by deliberately questioning assumptions, gathering diverse perspectives, and slowing down enough to reason well under pressure rather than reacting on instinct.",
+  "tool": {
+    "label": "The Outside View",
+    "text": "Instead of reasoning only from the specifics in front of you, deliberately look at how similar situations played out elsewhere and use those base rates to check your own optimism or assumptions. For example, before committing to a project timeline, review how comparable past projects actually finished rather than trusting your gut estimate.",
+    "note": "The outside-view technique traces back to Kahneman and Tversky's research on the planning fallacy; the guide adapts it for workplace use rather than originating it."
+  },
+  "ideas": [
+    {
+      "title": "Reflective urgency",
+      "text": "Distinguish real time pressure from perceived urgency, and build in a deliberate pause before reacting to urgent situations."
+    },
+    {
+      "title": "Question assumptions",
+      "text": "Actively seek disconfirming evidence and assign someone, or yourself, to play devil's advocate on major calls."
+    },
+    {
+      "title": "Reframe problems",
+      "text": "Examine a situation from multiple stakeholders' viewpoints and deliberately zoom in on details and out to the bigger picture."
+    },
+    {
+      "title": "Recognize cognitive biases",
+      "text": "Watch for confirmation bias, anchoring, availability bias, and sunk-cost thinking creeping into everyday decisions."
+    },
+    {
+      "title": "Seek cognitive diversity",
+      "text": "Bring in cross-functional voices and treat dissent as useful signal rather than a threat to resolve quickly."
+    },
+    {
+      "title": "Build decision architecture",
+      "text": "Use scenario planning, decision trees, and criteria set before comparing options, so evaluation doesn't bend to whichever option you already favor."
+    }
+  ],
+  "try_it": [
+    "Before your next big decision, write down three concrete reasons you might be wrong.",
+    "Run a 5 Whys pass on one recurring workplace problem to find its root cause.",
+    "Keep a one-week decision journal logging major choices and the reasoning behind each.",
+    "In your next planning meeting, explicitly ask one person to argue against the leading proposal."
+  ],
+  "best_for": [
+    "Managers and team leads who want a structured, reference-style toolkit for reasoning",
+    "Professionals who prefer quick, applicable frameworks over long-form theory"
+  ],
+  "less_useful": [
+    "Readers wanting deep academic grounding in cognitive science research",
+    "Those who prefer narrative-driven business books to a guide-style reference format"
+  ],
+  "site_links": [
+    {
+      "label": "Critical & Strategic Thinking",
+      "href": "references.html#cat-thinking"
+    }
+  ],
+  "related": [
+    {
+      "asin": "B00CICE248",
+      "why": "A companion catalog of the specific cognitive biases this guide's assumption-checking is designed to catch"
+    },
+    {
+      "asin": "B01D24NLWO",
+      "why": "A complementary, more mathematical approach to reasoning well under uncertainty"
+    }
+  ],
+  "sources": [
+    {
+      "label": "HBR Store product page",
+      "href": "https://store.hbr.org/product/hbr-guide-to-critical-thinking/10587"
+    },
+    {
+      "label": "Sobrief book summary",
+      "href": "https://sobrief.com/books/hbr-guide-to-critical-thinking"
+    }
+  ]
+}

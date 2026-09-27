@@ -1,0 +1,77 @@
+{
+  "asin": "0593290097",
+  "slug": "lets-talk",
+  "read_time": "2 min read",
+  "big_idea": "Feedback conversations fail not because managers lack good intentions but because they skip a step: figuring out which of three things the other person actually needs, appreciation, coaching, or evaluation, before speaking.",
+  "tool": {
+    "label": "The Three Types of Feedback (Appreciation / Coaching / Evaluation)",
+    "text": "Huston argues most people conflate all feedback into one bucket, but employees are actually asking for one of three distinct things: appreciation, recognition that their effort was seen; coaching, concrete suggestions to improve; or evaluation, where they stand against a standard. Before giving feedback, ask which of these three the person is looking for and match your delivery to the answer; giving evaluation when someone wanted appreciation, or vice versa, is a primary reason feedback lands badly.",
+    "note": "Huston recommends appreciation weekly, coaching regularly, and evaluation at least twice a year, not just at annual review time."
+  },
+  "ideas": [
+    {
+      "title": "Listening before speaking",
+      "text": "Effective feedback starts with understanding what kind of input the person is seeking, not with rehearsing what you plan to say."
+    },
+    {
+      "title": "State your good intent",
+      "text": "Explicitly naming a constructive intention up front reduces defensiveness before the substance of the feedback arrives."
+    },
+    {
+      "title": "Critique the behavior, not the person",
+      "text": "Framing feedback around specific actions and their impact, rather than character, keeps the conversation about something changeable."
+    },
+    {
+      "title": "Avoid why questions",
+      "text": "Questions like why did you do that tend to trigger defensiveness rather than reflection; Huston suggests alternative phrasing that invites problem-solving."
+    },
+    {
+      "title": "Let the receiver talk back",
+      "text": "Good feedback conversations leave room for the other person to correct inaccuracies or add context, rather than being one-way pronouncements."
+    },
+    {
+      "title": "Model receiving feedback publicly",
+      "text": "Leaders who visibly share feedback they've gotten and what they're doing about it make it safer for others to hear and act on feedback too."
+    }
+  ],
+  "try_it": [
+    "Before your next feedback conversation, ask the person directly: are you looking for appreciation, coaching, or an honest read on where you stand?",
+    "Rewrite one piece of planned feedback to remove any why question and replace it with a specific, observable behavior.",
+    "State your positive intent out loud in the first sentence of your next difficult feedback conversation.",
+    "Schedule one appreciation-only check-in this week with someone you usually only coach or evaluate."
+  ],
+  "best_for": [
+    "Managers who dread or avoid giving feedback and want a low-friction way to start",
+    "Anyone whose feedback keeps landing wrong despite good intentions"
+  ],
+  "less_useful": [
+    "Readers looking for a research-heavy academic treatment rather than an accessible, anecdote-driven management guide",
+    "Teams where the core problem is a lack of any feedback culture at all rather than technique"
+  ],
+  "site_links": [
+    {
+      "label": "Coaching & Mentoring",
+      "href": "references.html#cat-coach"
+    }
+  ],
+  "related": [
+    {
+      "asin": "B01MZ6RMS4",
+      "why": "A closely related framework combining direct challenge with genuine care in feedback"
+    },
+    {
+      "asin": "B01N22A4JH",
+      "why": "A complementary listening-based approach for change conversations that resist direct feedback"
+    }
+  ],
+  "sources": [
+    {
+      "label": "Porchlight Books, publisher page",
+      "href": "https://www.porchlightbooks.com/products/lets-talk-therese-huston-9780593086629"
+    },
+    {
+      "label": "ASCD, Therese Huston on Giving Better Feedback",
+      "href": "https://ascd.org/el/articles/therese-huston-on-giving-better-feedback"
+    }
+  ]
+}

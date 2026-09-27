@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="a">
+<head>
+<meta charset="UTF-8">
+<base href="../">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="icon" type="image/svg+xml" href="favicon.svg">
+<title>That&#x27;s Not How We Do It Here!: One-page summary · Plan · Do · Reflect</title>
+
+<!-- Applied before CSS loads, so the saved theme / title-font choice doesn't flash to the default on reload -->
+<script>
+(function () {
+  try {
+    var savedTheme = localStorage.getItem('pdr-theme');
+    if (['a', 'b', 'c'].indexOf(savedTheme) > -1) {
+      document.documentElement.setAttribute('data-theme', savedTheme);
+    }
+    /* No saved choice yet means a first-time visitor — default them to Golos
+       Text rather than the theme's own heading font. Explicitly picking
+       "Theme default" in the picker stores the literal string 'default',
+       which is the one value that clears the override below. */
+    var savedTitleFont = localStorage.getItem('pdr-title-font');
+    var titleFont = savedTitleFont === null ? 'golos-text' : savedTitleFont;
+    if (titleFont !== 'default') {
+      document.documentElement.setAttribute('data-title-font', titleFont);
+    }
+  } catch (e) {}
+})();
+</script>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=Work+Sans:wght@400;500;600&family=Sora:wght@600;700;800&family=Plus+Jakarta+Sans:wght@500;600;700&family=Patrick+Hand&display=swap" rel="stylesheet">
+
+<!-- Title-font brainstorm candidates — temporary, for the .title-font-picker toggle only.
+     Remove this link once a title font is chosen and folded into tokens.css. -->
+<link href="https://fonts.googleapis.com/css2?family=Gabarito:wght@800&family=Chivo:wght@800&family=Golos+Text:wght@800&display=swap" rel="stylesheet">
+
+<link rel="stylesheet" href="css/tokens.css">
+<link rel="stylesheet" href="css/main.css">
+<link rel="stylesheet" href="css/summary.css">
+</head>
+<body>
+
+<header class="topnav">
+  <a class="logo" href="index.html">Plan·Do·Reflect</a>
+  <nav class="topnav-items">
+    <a class="item" href="framework.html">The Framework</a>
+    <a class="item" href="self-management.html">Self</a>
+    <a class="item" href="team.html">Team</a>
+    <a class="item" href="organization.html">Organization</a>
+    <a class="item" href="core-skills.html">Core Skills</a>
+    <a class="item active" href="references.html">References</a>
+  </nav>
+</header>
+
+<main class="sm">
+  <p class="sm-crumb"><a href="references.html">References &amp; Further Reading</a> &rsaquo; One-page summary</p>
+  <article class="sm-page">
+    <header class="sm-head">
+      <img class="sm-cover" src="images/covers/B01F47CEN4.jpg" data-r="https://m.media-amazon.com/images/I/51xAzTF9ZoL._SL300_.jpg" alt="Cover of That&#x27;s Not How We Do It Here!" onerror="if(this.dataset.r&amp;&amp;this.src.indexOf(this.dataset.r)===-1){this.src=this.dataset.r}else{this.style.visibility='hidden'}">
+      <div>
+        <p class="sm-eyebrow">One-page summary &middot; 2 min read</p>
+        <h1 class="page-title">That&#x27;s Not How We Do It Here!</h1>
+        <p class="sm-sub">A Story about How Organizations Rise and Fall--and Can Rise Again</p>
+        <p class="sm-by">by John Kotter, Holger Rathgeber</p>
+        <p class="sm-meta">2016 &middot; 2h 53m audiobook &middot; &#9733; 4.2 Audible</p>
+      </div>
+    </header>
+
+    <section class="sm-idea"><h2>The big idea</h2><p>Told as a fable about a meerkat clan, the book argues that organizations which once thrived on well-honed routines can be destroyed by those same routines when conditions change, unless they deliberately build a dual operating system of both disciplined management and adaptive leadership.</p></section>
+
+<section class="sm-tool"><span class="sm-label">The Dual Operating System (management + leadership)</span><blockquote>Kotter and Rathgeber argue mature organizations need two systems running side by side: a management hierarchy that keeps daily operations efficient and reliable, and a more informal, volunteer-driven leadership network that senses change and drives new ideas. In the fable, the meerkat clan&#x27;s rigid procedures, originally a source of strength, become a liability once the environment shifts, and the clan only recovers by building a parallel structure that lets urgent new ideas move fast without dismantling the operational system that still works.</blockquote><p>This tool is Kotter&#x27;s own reframing of the 8-step model from Leading Change into a fable aimed at a broader, non-executive audience, the underlying idea is the same, packaged differently.</p></section>
+
+    <section class="sm-ideas"><h2>Key ideas</h2><ol><li><h3>Success can breed rigidity</h3><p>Standardized practices that made an organization efficient in stable times can become exactly what prevents it from noticing or responding to real threats.</p></li><li><h3>One character challenges the status quo</h3><p>The fable follows a meerkat who becomes frustrated by leadership&#x27;s reflexive that&#x27;s-not-how-we-do-it-here response to new ideas from the front line.</p></li><li><h3>Learning from other colonies</h3><p>Traveling to see how other groups operate, some well-managed but poorly led, others the reverse, helps the protagonist recognize that management and leadership are separate capabilities.</p></li><li><h3>Most organizations lean one way</h3><p>Kotter and Rathgeber argue most companies land in one of two default states, well-managed but unable to innovate, or full of ideas but operationally chaotic, and rarely achieve both at once.</p></li><li><h3>Renewal is possible</h3><p>The clan&#x27;s eventual recovery models how a change-resistant culture can rebuild adaptive capacity without abandoning what makes its operations reliable.</p></li><li><h3>Fable format as a teaching tool</h3><p>The book is designed to make change-management concepts accessible to non-specialist audiences and easy to discuss as a team.</p></li></ol></section>
+
+    <div class="sm-cols">
+      <section><h2>Try it this week</h2><ol class="sm-steps"><li>Name one that&#x27;s-not-how-we-do-it-here response your team has given to a new idea in the last few months, and ask whether the underlying rule still serves its purpose.</li><li>List which of your team&#x27;s processes exist to keep operations reliable versus which exist to sense and drive change, and notice if one list is much longer.</li><li>Identify one colleague who consistently pushes new ideas and consider what would happen if you routed one live problem through them outside the normal hierarchy.</li><li>Read or assign the fable as a team discussion piece and ask each person to name one rigid process worth questioning.</li></ol></section>
+      <section><h2>Is it for you?</h2><h3 class="sm-good">Best for</h3><ul><li>Teams and leaders newer to change-management concepts who want an accessible, story-based entry point</li><li>Middle managers trying to explain the tension between how we operate and how we adapt to their own teams</li></ul><h3 class="sm-less">Less useful if</h3><ul><li>Readers who&#x27;ve already read Leading Change and want new analytical depth rather than the same ideas in fable form</li><li>Anyone looking for step-by-step implementation detail rather than a narrative illustration</li></ul></section>
+    </div>
+
+<section class="sm-links"><h2>On this site</h2><div class="sm-chips"><a href="references.html#cat-change">Change Management</a></div></section>
+    <section class="sm-links sm-related"><h2>Pairs well with</h2><ul><li><a href="references.html#book-B004YDJJEC">Leading Change</a> <span>The same author&#x27;s original, non-fable framework this story dramatizes</span></li><li><a href="references.html#book-B07F77R461">Who Moved My Cheese?</a> <span>Another short business fable on adapting quickly to change</span></li></ul></section>
+
+    <footer class="sm-foot">
+      <a class="sm-buy" href="https://www.amazon.com/s?k=John+Kotter+That&#x27;s+Not+How+We+Do+It+Here!&amp;tag=phoenixjenn-20" target="_blank" rel="noopener">Find the book on Amazon</a>
+      <p>Original summary written for Plan &middot; Do &middot; Reflect. Prepared from the book&rsquo;s ideas and public summaries (<a href="https://www.getabstract.com/en/summary/thats-not-how-we-do-it-here/28522" target="_blank" rel="noopener">getAbstract, That&#x27;s Not How We Do It Here! summary</a>, <a href="https://www.makingbusinessmatter.co.uk/thats-not-how-we-do-it-here/" target="_blank" rel="noopener">Making Business Matter, Book Review</a>), not a substitute for reading it. Links may earn a commission.</p>
+    </footer>
+  </article>
+</main>
+
+<footer class="site-footer">
+  <p>&copy; 2026 Plan-Do-Reflect. <a href="references.html">References &amp; further reading</a></p>
+</footer>
+
+<div class="theme-switch" role="group" aria-label="Style direction">
+  <button data-theme="a" title="Kinetic Signal — black &amp; yellow"></button>
+  <button data-theme="b" title="Studio Ledger — dusty rose"></button>
+  <button data-theme="c" title="Bright Margin — lime"></button>
+  <a class="icon-lib-link" href="icon-library.html" title="Style Guide (internal reference)">
+    <svg width="14" height="14" viewBox="0 0 14 14" aria-hidden="true">
+      <rect x="1" y="1" width="5" height="5" rx="1" fill="currentColor"/>
+      <rect x="8" y="1" width="5" height="5" rx="1" fill="currentColor"/>
+      <rect x="1" y="8" width="5" height="5" rx="1" fill="currentColor"/>
+      <rect x="8" y="8" width="5" height="5" rx="1" fill="currentColor"/>
+    </svg>
+  </a>
+  <a class="icon-lib-link" href="notes.html" title="Notes (working drafts)">
+    <svg width="14" height="14" viewBox="0 0 14 14" aria-hidden="true">
+      <rect x="2" y="1" width="10" height="12" rx="1.5" fill="none" stroke="currentColor" stroke-width="1.3"/>
+      <line x1="4.5" y1="5" x2="9.5" y2="5" stroke="currentColor" stroke-width="1.3" stroke-linecap="round"/>
+      <line x1="4.5" y1="7.5" x2="9.5" y2="7.5" stroke="currentColor" stroke-width="1.3" stroke-linecap="round"/>
+      <line x1="4.5" y1="10" x2="7.5" y2="10" stroke="currentColor" stroke-width="1.3" stroke-linecap="round"/>
+    </svg>
+  </a>
+  <a class="icon-lib-link" href="sitemap.html" title="Sitemap (working draft)">
+    <svg width="14" height="14" viewBox="0 0 14 14" aria-hidden="true">
+      <circle cx="7" cy="2.5" r="1.8" fill="none" stroke="currentColor" stroke-width="1.3"/>
+      <circle cx="3" cy="11" r="1.8" fill="none" stroke="currentColor" stroke-width="1.3"/>
+      <circle cx="11" cy="11" r="1.8" fill="none" stroke="currentColor" stroke-width="1.3"/>
+      <path d="M7 4.3 L7 7 M7 7 L3 9.5 M7 7 L11 9.5" stroke="currentColor" stroke-width="1.3" fill="none" stroke-linecap="round"/>
+    </svg>
+  </a>
+</div>
+
+<!-- Temporary brainstorm control — only restyles the main h1 (.content h1 / .hero-title / .page-title). Remove alongside
+     the "title-font experiment" CSS block and the extra Google Fonts link once
+     a title font is picked. -->
+<div class="title-font-picker">
+  <label for="title-font-select">Title font</label>
+  <button type="button" id="title-font-prev" class="title-font-nav" aria-label="Previous title font">‹</button>
+  <select id="title-font-select">
+    <optgroup label="Round 1 — headline character">
+      <option value="gabarito">Gabarito</option>
+      <option value="chivo">Chivo</option>
+    </optgroup>
+    <optgroup label="Round 2 — Calibri-adjacent">
+      <option value="golos-text">Golos Text</option>
+    </optgroup>
+    <option value="default">Theme default</option>
+  </select>
+  <button type="button" id="title-font-next" class="title-font-nav" aria-label="Next title font">›</button>
+</div>
+
+<script src="js/theme-toggle.js" defer></script>
+<script src="js/title-font-toggle.js" defer></script>
+</body>
+</html>

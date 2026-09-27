@@ -1,0 +1,77 @@
+{
+  "asin": "B00CFND1RE",
+  "slug": "louder-than-words",
+  "read_time": "2 min read",
+  "big_idea": "Nonverbal communication, posture, gesture, facial expression, and appearance, is a distinct form of intelligence that most professionals underuse, and Navarro, a former FBI agent, argues that learning to read and manage it deliberately can meaningfully change how competent and trustworthy you appear at work.",
+  "tool": {
+    "label": "The Comfort/Discomfort Paradigm",
+    "text": "Navarro's central diagnostic tool is reading whether a person's body is displaying comfort or discomfort, rooted in the limbic brain's fight-flight-freeze response. Instead of memorizing a dictionary of gestures, the method is to establish someone's relaxed baseline behavior, then watch for deviations, tension around the eyes, blading the body away, foot withdrawal, that signal rising discomfort, stress, or disagreement in real time.",
+    "note": "Navarro explicitly warns this paradigm should not be used as a simple lie detector, discomfort signals reflect stress or anxiety broadly, not necessarily deception, and he cautions readers against over-interpreting a single cue in isolation."
+  },
+  "ideas": [
+    {
+      "title": "Nonverbal communication is constant and largely involuntary",
+      "text": "Clothing, posture, facial micro-expressions, and even how you arrange your workspace send messages whether or not you intend them to."
+    },
+    {
+      "title": "Baseline-then-deviation is the correct reading method",
+      "text": "The book argues most people misuse body language by looking for universal tells instead of first learning an individual's normal baseline and then watching for changes from it."
+    },
+    {
+      "title": "Your own nonverbals shape how others perceive your leadership",
+      "text": "Open posture, steady eye contact, and controlled gestures are described as signaling authority and calm, while slumping or fidgeting undercuts credibility even when your words are strong."
+    },
+    {
+      "title": "Curbside appeal applies to organizations, not just individuals",
+      "text": "Navarro extends the framework to how a company's physical environment and public-facing details nonverbally communicate its culture and competence to outsiders."
+    },
+    {
+      "title": "Emotional nonverbals often leak out despite verbal control",
+      "text": "Even skilled communicators show brief, involuntary physical signs that reveal true feelings underneath a composed verbal message."
+    },
+    {
+      "title": "Situational nonverbal awareness changes across contexts",
+      "text": "The book argues the best-practice body language for a negotiation, an interview, and a casual team meeting differ, so situational awareness matters as much as general skill."
+    }
+  ],
+  "try_it": [
+    "In your next one-on-one meeting, spend the first two minutes just establishing the other person's relaxed baseline posture and expression before reading anything into their behavior.",
+    "Before a presentation or interview this week, deliberately practice open posture and steady eye contact for the first thirty seconds, since first-impression nonverbals set the tone.",
+    "During a routine meeting, watch for one specific deviation from someone's baseline and note the topic being discussed when it happened.",
+    "Walk through your own workspace or how your team presents itself to outsiders and identify one nonverbal signal that may be sending an unintended message."
+  ],
+  "best_for": [
+    "People preparing for interviews, presentations, or negotiations who want to consciously manage how they come across",
+    "Managers who want a framework for reading unspoken tension or disengagement in meetings"
+  ],
+  "less_useful": [
+    "Readers hoping for a quick cheat sheet of gesture-to-meaning translations, since the book explicitly argues against that approach",
+    "Anyone looking to use nonverbal cues as a reliable deception-detection tool, which Navarro himself cautions against"
+  ],
+  "site_links": [
+    {
+      "label": "Executive Presence",
+      "href": "references.html#cat-presence"
+    }
+  ],
+  "related": [
+    {
+      "asin": "1797100475",
+      "why": "A Secret Service agent's complementary approach to reading people and staying composed under pressure"
+    },
+    {
+      "asin": "1250802873",
+      "why": "A look at how the same trust-building signals translate to digital, rather than in-person, communication"
+    }
+  ],
+  "sources": [
+    {
+      "label": "Shortform book summary",
+      "href": "https://www.shortform.com/summary/louder-than-words-summary-joe-navarro"
+    },
+    {
+      "label": "O'Reilly table of contents",
+      "href": "https://www.oreilly.com/library/view/louder-than-words/9780061969867/004-TOC.html"
+    }
+  ]
+}

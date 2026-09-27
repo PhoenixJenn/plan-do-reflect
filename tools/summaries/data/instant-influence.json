@@ -1,0 +1,77 @@
+{
+  "asin": "B004Y6M18U",
+  "slug": "instant-influence",
+  "read_time": "2 min read",
+  "big_idea": "People are far more persuadable when they discover and voice their own reasons for changing than when they're told to change; a short structured series of questions grounded in motivational interviewing can unlock existing, if buried, motivation in minutes.",
+  "tool": {
+    "label": "The 6-Question Instant Influence Method",
+    "text": "Ask, in order: on a scale of 1-10, how ready are you to do X; why didn't you pick a lower number; imagine you did decide to do it, what would be the positive outcomes; why are those outcomes important to you personally; what's the next step, if any. The pivot question, why not a lower number, is the core mechanism: it forces the person to generate their own reasons for change out loud, which is more persuasive than being handed reasons by someone else.",
+    "note": "Pantalon adapts this from established Motivational Interviewing research developed by Miller and Rollnick; he condensed it into this six-question version rather than originating MI itself."
+  },
+  "ideas": [
+    {
+      "title": "Psychological Reactance",
+      "text": "Telling someone what to do, even about something they'd otherwise enjoy, triggers instinctive resistance; preserving their sense of choice is what makes the questions work."
+    },
+    {
+      "title": "Everyone Has Some Readiness",
+      "text": "Even a 1 or 2 on a readiness scale is never a true zero; the method finds and amplifies that small existing spark rather than manufacturing motivation from nothing."
+    },
+    {
+      "title": "The Paradoxical Question",
+      "text": "Asking why didn't you choose a lower number is more effective than why should you change, because it has the person defend the change rather than defend the status quo."
+    },
+    {
+      "title": "Speed Matters",
+      "text": "The technique is designed to work in about seven minutes, making it usable in real-world moments rather than requiring a lengthy session."
+    },
+    {
+      "title": "From Talk to Commitment",
+      "text": "The later questions push past insight toward a concrete next step, turning verbalized motivation into an actual, time-bound action."
+    },
+    {
+      "title": "Works Across Contexts",
+      "text": "Developed in clinical and addiction-treatment settings, Pantalon extends the approach to parenting, sales, and workplace situations."
+    }
+  ],
+  "try_it": [
+    "Next time you need someone, or yourself, to act, ask the readiness question first, 1 to 10, how ready are you, before making any argument for why they should do it.",
+    "When you get a number, follow immediately with why not a lower number and just listen, resisting the urge to add your own reasons.",
+    "Use the method on yourself for one task you've been avoiding this week, writing your own answers down.",
+    "End any change conversation you have this week with what's the next step, if any, instead of assigning the next step yourself."
+  ],
+  "best_for": [
+    "Managers, coaches, and parents needing a fast technique for one-on-one conversations",
+    "People who find they over-argue to persuade others and get resistance in return"
+  ],
+  "less_useful": [
+    "Readers looking for organizational or large-scale change strategy rather than individual conversations",
+    "Can feel scripted or manipulative if used without genuine curiosity about the other person's answer"
+  ],
+  "site_links": [
+    {
+      "label": "Influence & Persuasion",
+      "href": "references.html#cat-influence"
+    }
+  ],
+  "related": [
+    {
+      "asin": "B01N22A4JH",
+      "why": "The full motivational-interviewing framework this book's questions are condensed from"
+    },
+    {
+      "asin": "0063097796",
+      "why": "A broader catalog of the psychological levers behind why the readiness question works"
+    }
+  ],
+  "sources": [
+    {
+      "label": "Institute of Coaching resource summary",
+      "href": "https://instituteofcoaching.org/resources/instant-influence-michael-pantalons-6-questions-7-minutes"
+    },
+    {
+      "label": "Heroic book summary",
+      "href": "https://legacy.heroic.us/pn/instant-influence-michael-pantalon"
+    }
+  ]
+}

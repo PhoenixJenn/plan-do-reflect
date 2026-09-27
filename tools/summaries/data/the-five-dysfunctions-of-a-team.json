@@ -1,0 +1,77 @@
+{
+  "asin": "B002V08E64",
+  "slug": "the-five-dysfunctions-of-a-team",
+  "read_time": "2 min read",
+  "big_idea": "Team dysfunction is hierarchical, a team's five failures, absence of trust, fear of conflict, lack of commitment, avoidance of accountability, inattention to results, stack on top of each other like a pyramid, so a leader must repair the foundation before higher-level problems can ever be fixed.",
+  "tool": {
+    "label": "The Personal Histories Exercise",
+    "text": "A short, low-risk trust-building activity for a team's first meeting: each person answers five prompts aloud, where they grew up, number of siblings, a childhood challenge, their first job, and one unique fact nobody else knows, while the rest of the team listens without interrupting or reacting. It typically takes under an hour and is designed to build vulnerability-based trust before deeper conflict work is attempted.",
+    "note": "Lencioni presents this as an entry point, not a fix on its own; teams with deep-seated distrust may need repeated or more structured exercises to get real traction."
+  },
+  "ideas": [
+    {
+      "title": "Vulnerability-based trust",
+      "text": "Trust here isn't about predictability or competence, it's teammates being willing to say I was wrong, I need help, or I don't know, without fear of judgment."
+    },
+    {
+      "title": "Mining for conflict",
+      "text": "Teams that avoid disagreement aren't harmonious, they're unhealthy; leaders must actively surface buried disagreements through structured, ideological debate rather than personal attacks."
+    },
+    {
+      "title": "Commitment comes from being heard, not consensus",
+      "text": "People will commit to a decision they disagree with if they know their view was genuinely considered, ambiguity, not disagreement, kills buy-in."
+    },
+    {
+      "title": "Peer-to-peer accountability",
+      "text": "The most effective accountability isn't top-down from the leader; it's team members holding each other to shared standards directly and uncomfortably."
+    },
+    {
+      "title": "Inattention to results",
+      "text": "When individuals protect personal ego, status, or their own department's metrics over the team's collective scoreboard, the whole team's outcomes suffer."
+    },
+    {
+      "title": "The cascading pyramid model",
+      "text": "Each dysfunction causes the one above it, so diagnosing where a team is stuck matters more than attacking symptoms at the top."
+    }
+  ],
+  "try_it": [
+    "Run the Personal Histories Exercise at your next team meeting, giving each person 2-3 minutes to answer the five prompts.",
+    "Before ending your next decision-making meeting, explicitly restate the decision reached and ask each person to voice any lingering disagreement in the room, not later in the hallway.",
+    "Identify one issue your team has been avoiding and put it on the agenda as a structured debate, not a passing comment.",
+    "Create one shared, visible team scoreboard metric and review it as a group weekly."
+  ],
+  "best_for": [
+    "New leaders standing up a team from scratch",
+    "Leaders who sense artificial harmony, a team that never disagrees but also never gets much done"
+  ],
+  "less_useful": [
+    "The fable format, roughly two-thirds of the book is a fictional story, can feel slow for readers who want a dense, non-narrative how-to guide",
+    "The model is built around a single intact team with one clear leader, so it translates less directly to loosely-coupled cross-functional groups"
+  ],
+  "site_links": [
+    {
+      "label": "Leadership Styles & Principles",
+      "href": "references.html#cat-leadstyle"
+    }
+  ],
+  "related": [
+    {
+      "asin": "B01EGCAWQO",
+      "why": "The same author's companion framework for hiring and coaching the kind of teammate who avoids these dysfunctions"
+    },
+    {
+      "asin": "B01MZ6RMS4",
+      "why": "A complementary framework for the direct, caring feedback that mining for conflict requires"
+    }
+  ],
+  "sources": [
+    {
+      "label": "BiteSize Learning: Five Dysfunctions of a Team Summary & Pyramid",
+      "href": "https://www.bitesizelearning.co.uk/resources/five-dysfunctions-of-a-team-summary-pyramid"
+    },
+    {
+      "label": "The Table Group / Ninety.io: Building Team Trust with the Personal Histories Exercise",
+      "href": "https://www.ninety.io/blog/building-team-trust-personal-histories-exercise"
+    }
+  ]
+}

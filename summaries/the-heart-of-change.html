@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="a">
+<head>
+<meta charset="UTF-8">
+<base href="../">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="icon" type="image/svg+xml" href="favicon.svg">
+<title>The Heart of Change: One-page summary · Plan · Do · Reflect</title>
+
+<!-- Applied before CSS loads, so the saved theme / title-font choice doesn't flash to the default on reload -->
+<script>
+(function () {
+  try {
+    var savedTheme = localStorage.getItem('pdr-theme');
+    if (['a', 'b', 'c'].indexOf(savedTheme) > -1) {
+      document.documentElement.setAttribute('data-theme', savedTheme);
+    }
+    /* No saved choice yet means a first-time visitor — default them to Golos
+       Text rather than the theme's own heading font. Explicitly picking
+       "Theme default" in the picker stores the literal string 'default',
+       which is the one value that clears the override below. */
+    var savedTitleFont = localStorage.getItem('pdr-title-font');
+    var titleFont = savedTitleFont === null ? 'golos-text' : savedTitleFont;
+    if (titleFont !== 'default') {
+      document.documentElement.setAttribute('data-title-font', titleFont);
+    }
+  } catch (e) {}
+})();
+</script>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=Work+Sans:wght@400;500;600&family=Sora:wght@600;700;800&family=Plus+Jakarta+Sans:wght@500;600;700&family=Patrick+Hand&display=swap" rel="stylesheet">
+
+<!-- Title-font brainstorm candidates — temporary, for the .title-font-picker toggle only.
+     Remove this link once a title font is chosen and folded into tokens.css. -->
+<link href="https://fonts.googleapis.com/css2?family=Gabarito:wght@800&family=Chivo:wght@800&family=Golos+Text:wght@800&display=swap" rel="stylesheet">
+
+<link rel="stylesheet" href="css/tokens.css">
+<link rel="stylesheet" href="css/main.css">
+<link rel="stylesheet" href="css/summary.css">
+</head>
+<body>
+
+<header class="topnav">
+  <a class="logo" href="index.html">Plan·Do·Reflect</a>
+  <nav class="topnav-items">
+    <a class="item" href="framework.html">The Framework</a>
+    <a class="item" href="self-management.html">Self</a>
+    <a class="item" href="team.html">Team</a>
+    <a class="item" href="organization.html">Organization</a>
+    <a class="item" href="core-skills.html">Core Skills</a>
+    <a class="item active" href="references.html">References</a>
+  </nav>
+</header>
+
+<main class="sm">
+  <p class="sm-crumb"><a href="references.html">References &amp; Further Reading</a> &rsaquo; One-page summary</p>
+  <article class="sm-page">
+    <header class="sm-head">
+      <img class="sm-cover" src="images/covers/B002V01GWS.jpg" data-r="https://m.media-amazon.com/images/I/51Q1Yd3deuL._SL300_.jpg" alt="Cover of The Heart of Change" onerror="if(this.dataset.r&amp;&amp;this.src.indexOf(this.dataset.r)===-1){this.src=this.dataset.r}else{this.style.visibility='hidden'}">
+      <div>
+        <p class="sm-eyebrow">One-page summary &middot; 2 min read</p>
+        <h1 class="page-title">The Heart of Change</h1>
+        <p class="sm-sub">Real-Life Stories of How People Change Their Organizations</p>
+        <p class="sm-by">by John Kotter, Dan Cohen</p>
+        <p class="sm-meta">2008 &middot; 5h 33m audiobook &middot; &#9733; 4.1 Audible</p>
+      </div>
+    </header>
+
+    <section class="sm-idea"><h2>The big idea</h2><p>People change their behavior less because they&#x27;re given a compelling analysis and more because they&#x27;re shown a vivid truth that changes how they feel, so successful change efforts have to appeal to emotion, not just logic.</p></section>
+
+<section class="sm-tool"><span class="sm-label">See-Feel-Change</span><blockquote>Instead of building the case for change through reports and data, Kotter and Cohen argue leaders should create a vivid, concrete experience that makes people feel the problem or opportunity directly, because emotion, not analysis, is what actually shifts behavior. Their signature example: rather than presenting a memo about wasteful purchasing, one leader piled 424 different glove types the company was separately buying onto a boardroom table, making the dysfunction impossible to ignore or rationalize away.</blockquote><p>The book is a direct companion to Kotter&#x27;s Leading Change, it retells the same eight-step model through real-company stories, so the two books cover the same structure with a different emphasis.</p></section>
+
+    <section class="sm-ideas"><h2>Key ideas</h2><ol><li><h3>Show, don&#x27;t tell</h3><p>Concrete, visual, or experiential evidence of a problem moves people to act faster than a written analysis does.</p></li><li><h3>The eight steps, retold emotionally</h3><p>Each of Kotter&#x27;s original eight change steps is reframed here around what people need to feel at each stage, not just do.</p></li><li><h3>Storytelling for buy-in</h3><p>Communicating a vision through stories that speak to people&#x27;s anxieties and aspirations builds commitment more effectively than one-way announcements.</p></li><li><h3>Short-term wins build emotional momentum</h3><p>Visible early successes don&#x27;t just prove the strategy works, they generate the confidence and energy needed to keep going.</p></li><li><h3>Removing blinders</h3><p>Leaders have to actively counter both false urgency and complacency, comfort that blocks any urgency at all.</p></li><li><h3>Culture change comes last, not first</h3><p>New behaviors have to visibly produce results before they get embedded into how we do things, so cultural change follows action rather than preceding it.</p></li></ol></section>
+
+    <div class="sm-cols">
+      <section><h2>Try it this week</h2><ol class="sm-steps"><li>Find one concrete, visual way to demonstrate a problem you&#x27;re trying to fix instead of writing another memo about it.</li><li>Draft the emotional core of your change story: what do people stand to feel, pride, relief, excitement, if the change succeeds?</li><li>Identify a false-urgency or complacency blinder currently affecting your team, and name one action that would counter it.</li><li>Plan how you&#x27;ll visibly celebrate your next short-term win in a way people will feel, not just read about in a status update.</li></ol></section>
+      <section><h2>Is it for you?</h2><h3 class="sm-good">Best for</h3><ul><li>Leaders who have the analytical case for change but are struggling to get genuine buy-in</li><li>Anyone using Leading Change who wants real-company stories showing the emotional side of each step</li></ul><h3 class="sm-less">Less useful if</h3><ul><li>Readers who want a purely conceptual or analytical model rather than illustrative case narratives</li><li>Those looking for new frameworks beyond Kotter&#x27;s original eight steps, since this book largely retells rather than extends them</li></ul></section>
+    </div>
+
+<section class="sm-links"><h2>On this site</h2><div class="sm-chips"><a href="references.html#cat-change">Change Management</a></div></section>
+    <section class="sm-links sm-related"><h2>Pairs well with</h2><ul><li><a href="references.html#book-B004YDJJEC">Leading Change</a> <span>The original, more analytical eight-step framework this book retells emotionally</span></li><li><a href="references.html#book-B07F77R461">Who Moved My Cheese?</a> <span>A shorter, parable-style companion on the emotional side of facing change</span></li></ul></section>
+
+    <footer class="sm-foot">
+      <a class="sm-buy" href="https://www.amazon.com/s?k=John+Kotter+The+Heart+of+Change&amp;tag=phoenixjenn-20" target="_blank" rel="noopener">Find the book on Amazon</a>
+      <p>Original summary written for Plan &middot; Do &middot; Reflect. Prepared from the book&rsquo;s ideas and public summaries (<a href="https://sobrief.com/books/the-heart-of-change" target="_blank" rel="noopener">Sobrief, The Heart of Change summary</a>, <a href="https://whatwillmatter.com/2012/01/worth-reading-heart-of-change-by-john-p-kotter/" target="_blank" rel="noopener">What Will Matter, Worth Reading: Heart of Change</a>), not a substitute for reading it. Links may earn a commission.</p>
+    </footer>
+  </article>
+</main>
+
+<footer class="site-footer">
+  <p>&copy; 2026 Plan-Do-Reflect. <a href="references.html">References &amp; further reading</a></p>
+</footer>
+
+<div class="theme-switch" role="group" aria-label="Style direction">
+  <button data-theme="a" title="Kinetic Signal — black &amp; yellow"></button>
+  <button data-theme="b" title="Studio Ledger — dusty rose"></button>
+  <button data-theme="c" title="Bright Margin — lime"></button>
+  <a class="icon-lib-link" href="icon-library.html" title="Style Guide (internal reference)">
+    <svg width="14" height="14" viewBox="0 0 14 14" aria-hidden="true">
+      <rect x="1" y="1" width="5" height="5" rx="1" fill="currentColor"/>
+      <rect x="8" y="1" width="5" height="5" rx="1" fill="currentColor"/>
+      <rect x="1" y="8" width="5" height="5" rx="1" fill="currentColor"/>
+      <rect x="8" y="8" width="5" height="5" rx="1" fill="currentColor"/>
+    </svg>
+  </a>
+  <a class="icon-lib-link" href="notes.html" title="Notes (working drafts)">
+    <svg width="14" height="14" viewBox="0 0 14 14" aria-hidden="true">
+      <rect x="2" y="1" width="10" height="12" rx="1.5" fill="none" stroke="currentColor" stroke-width="1.3"/>
+      <line x1="4.5" y1="5" x2="9.5" y2="5" stroke="currentColor" stroke-width="1.3" stroke-linecap="round"/>
+      <line x1="4.5" y1="7.5" x2="9.5" y2="7.5" stroke="currentColor" stroke-width="1.3" stroke-linecap="round"/>
+      <line x1="4.5" y1="10" x2="7.5" y2="10" stroke="currentColor" stroke-width="1.3" stroke-linecap="round"/>
+    </svg>
+  </a>
+  <a class="icon-lib-link" href="sitemap.html" title="Sitemap (working draft)">
+    <svg width="14" height="14" viewBox="0 0 14 14" aria-hidden="true">
+      <circle cx="7" cy="2.5" r="1.8" fill="none" stroke="currentColor" stroke-width="1.3"/>
+      <circle cx="3" cy="11" r="1.8" fill="none" stroke="currentColor" stroke-width="1.3"/>
+      <circle cx="11" cy="11" r="1.8" fill="none" stroke="currentColor" stroke-width="1.3"/>
+      <path d="M7 4.3 L7 7 M7 7 L3 9.5 M7 7 L11 9.5" stroke="currentColor" stroke-width="1.3" fill="none" stroke-linecap="round"/>
+    </svg>
+  </a>
+</div>
+
+<!-- Temporary brainstorm control — only restyles the main h1 (.content h1 / .hero-title / .page-title). Remove alongside
+     the "title-font experiment" CSS block and the extra Google Fonts link once
+     a title font is picked. -->
+<div class="title-font-picker">
+  <label for="title-font-select">Title font</label>
+  <button type="button" id="title-font-prev" class="title-font-nav" aria-label="Previous title font">‹</button>
+  <select id="title-font-select">
+    <optgroup label="Round 1 — headline character">
+      <option value="gabarito">Gabarito</option>
+      <option value="chivo">Chivo</option>
+    </optgroup>
+    <optgroup label="Round 2 — Calibri-adjacent">
+      <option value="golos-text">Golos Text</option>
+    </optgroup>
+    <option value="default">Theme default</option>
+  </select>
+  <button type="button" id="title-font-next" class="title-font-nav" aria-label="Next title font">›</button>
+</div>
+
+<script src="js/theme-toggle.js" defer></script>
+<script src="js/title-font-toggle.js" defer></script>
+</body>
+</html>

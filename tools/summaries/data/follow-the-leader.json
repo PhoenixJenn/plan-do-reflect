@@ -1,0 +1,67 @@
+{
+  "asin": "1662141130",
+  "slug": "follow-the-leader",
+  "read_time": "1 min read",
+  "big_idea": "Across six speakers, leadership is treated less as a title and more as a practiced discipline, communicating purpose clearly, adapting as conditions change, genuinely caring for the people you lead, and speaking in ways that earn trust, themes drawn from each speaker's independently documented public talks and writing.",
+  "tool": {
+    "label": "Torres's Three Leadership Questions",
+    "text": "From Roselinde Torres's widely-viewed TED talk on great leadership: ask yourself where are you looking to anticipate change, what is the diversity measure of your network, and are you courageous enough to abandon a practice that made you successful in the past. Used together, they function as a periodic self-check on whether a leader is still adapting or coasting on past success.",
+    "note": "This title is an audiobook compilation bundling separate lectures by six named speakers rather than one authored book with editorial continuity. I could not verify that the material is identical to each speaker's widely-known public talks versus original material recorded for this product, so what follows synthesizes each speaker's well-documented, independently-sourced public leadership material as the most reliable proxy for common threads across the collection."
+  },
+  "ideas": [
+    {
+      "title": "Purpose-driven leadership (Sinek)",
+      "text": "People follow leaders for the why behind the work, not just the what, a theme central to Sinek's broader, independently documented public speaking."
+    },
+    {
+      "title": "Vocal executive presence (Sicola)",
+      "text": "How a leader sounds, pace, pitch, filler words, vocal energy, shapes whether others perceive them as credible and in command, independent of the words used."
+    },
+    {
+      "title": "Mission-focused, people-first command (Mattis)",
+      "text": "Mattis's public speeches emphasize continuous self-improvement, genuine care for the people under your command rather than popularity, and reading widely so you're not surprised by problems others have already faced."
+    },
+    {
+      "title": "Adaptive self-audit (Torres)",
+      "text": "Great leaders periodically question whether their past playbook still fits a changed environment, using the three-questions check described above."
+    }
+  ],
+  "try_it": [
+    "Before your next team update, write one sentence on WHY the work matters, not just what needs to get done, and lead with it.",
+    "Run Torres's three questions on yourself this month: where are you looking for signals of change, and what's one past practice you might need to abandon?"
+  ],
+  "best_for": [
+    "Listeners who want a short, varied sampler of different leadership voices and styles rather than one deep framework",
+    "Commuters or audiobook listeners wanting bite-sized leadership talks"
+  ],
+  "less_useful": [
+    "Readers wanting one coherent, extensively-argued thesis, this is a grab-bag of separate short talks, not a unified book",
+    "Anyone needing to cite precise, verifiable claims from the collection's exact audio content"
+  ],
+  "site_links": [
+    {
+      "label": "Leadership Styles & Principles",
+      "href": "references.html#cat-leadstyle"
+    }
+  ],
+  "related": [
+    {
+      "asin": "B0F71ZM8YL",
+      "why": "A fuller treatment of one contributor's purpose-driven leadership framework"
+    },
+    {
+      "asin": "B00NT9CPFM",
+      "why": "Another contributor's fuller book on leading through questions"
+    }
+  ],
+  "sources": [
+    {
+      "label": "Audible product page",
+      "href": "https://www.audible.com/pd/Follow-the-Leader-a-Collection-of-the-Best-Lectures-on-Leadership-Audiobook/1662141130"
+    },
+    {
+      "label": "TED: Roselinde Torres, What it takes to be a great leader",
+      "href": "https://www.ted.com/talks/roselinde_torres_what_it_takes_to_be_a_great_leader"
+    }
+  ]
+}

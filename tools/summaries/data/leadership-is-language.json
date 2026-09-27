@@ -1,0 +1,77 @@
+{
+  "asin": "1984842005",
+  "slug": "leadership-is-language",
+  "read_time": "2 min read",
+  "big_idea": "The specific words leaders use either reinforce top-down control behavior that silences good information, or unlock collaborative thinking and ownership across a team; leadership, Marquet argues, is best practiced as a deliberate discipline of language.",
+  "tool": {
+    "label": "Red Work / Blue Work",
+    "text": "Blue Work is thinking mode, planning, deciding, reflecting, debating options, while Red Work is doing mode, executing a plan with discipline. Marquet argues most organizations default to constant Red Work and treat thinking as a rare luxury, which drives people to plow ahead on flawed plans. His fix is deliberate, pre-planned pauses where a team shifts into Blue Work to reassess before resuming execution.",
+    "note": "none"
+  },
+  "ideas": [
+    {
+      "title": "Six leadership plays for shifting language",
+      "text": "Control the Clock (not obey it), Collaborate (not coerce), Commit (not comply), Complete (not continue), Improve (not prove), Connect (not conform)."
+    },
+    {
+      "title": "Language of control vs. language of leadership",
+      "text": "Phrases like I intend to replace passive, permission-seeking language and redistribute thinking and ownership downward."
+    },
+    {
+      "title": "Scaling questions over binary ones",
+      "text": "Asking how confident are you, 1-10, instead of does this sound right surfaces real uncertainty a yes/no answer would hide."
+    },
+    {
+      "title": "Certainty is dangerous",
+      "text": "Leaders who speak with excess confidence unintentionally shut down dissent and unwelcome information from their team."
+    },
+    {
+      "title": "The Red Work/Blue Work imbalance is an organizational design problem",
+      "text": "Not just a personal communication habit, teams need built-in structures that force the pause."
+    },
+    {
+      "title": "Builds on Marquet's own submarine command experience",
+      "text": "From his earlier book Turn the Ship Around!, extended here into a broader theory of workplace language."
+    }
+  ],
+  "try_it": [
+    "In your next status update, replace I think we should maybe try X with I intend to do X and invite input before proceeding.",
+    "Add one scheduled pause point into a current project before the team moves to full execution.",
+    "Ask a team member a scaling question instead of a yes/no question in your next 1:1.",
+    "Notice one instance this week where you asked for compliance and reframe it as a request for commitment by explaining the why first."
+  ],
+  "best_for": [
+    "Managers running technical or execution-heavy teams who want to reduce single-point-of-failure decision-making",
+    "Leaders who suspect their team is telling them what they want to hear"
+  ],
+  "less_useful": [
+    "Very small or already-flat teams where hierarchy isn't the bottleneck",
+    "Readers looking for quick one-liners rather than a systematic framework that takes practice to internalize"
+  ],
+  "site_links": [
+    {
+      "label": "Leadership Styles & Principles",
+      "href": "references.html#cat-leadstyle"
+    }
+  ],
+  "related": [
+    {
+      "asin": "B015TVHUA2",
+      "why": "A complementary military-derived framework for decentralizing decisions under pressure"
+    },
+    {
+      "asin": "B06XY5L8GZ",
+      "why": "A related look at the specific leader behaviors that unlock, or shut down, a team's thinking"
+    }
+  ],
+  "sources": [
+    {
+      "label": "ReadingGraphics book summary",
+      "href": "https://readingraphics.com/book-summary-leadership-is-language/"
+    },
+    {
+      "label": "David Marquet's official site",
+      "href": "https://davidmarquet.com/books/leadership-is-language/"
+    }
+  ]
+}

@@ -1,0 +1,67 @@
+{
+  "asin": "1469076535",
+  "slug": "power-and-impact",
+  "read_time": "1 min read",
+  "big_idea": "Power at work is inevitable and can be wielded well or badly; this collection examines how to build influence ethically, avoid being corrupted by power, and use it to lift others rather than just yourself.",
+  "tool": {
+    "label": "Power Styles Self-Assessment",
+    "text": "One article frames power as coming from different sources, formal authority, expertise, relationships, or reputation, and asks readers to identify their own dominant power style to see both its natural leverage and its blind spots. A leader who relies mainly on formal authority, for example, may need to deliberately build relational or expert power to influence people outside their direct chain of command.",
+    "note": "Power style is this collection's reflective framing, not a single validated psychometric instrument, treat it as a discussion tool rather than a scored test."
+  },
+  "ideas": [
+    {
+      "title": "Power corrupts unless checked",
+      "text": "Power tends to erode empathy and self-monitoring, so leaders need deliberate checks."
+    },
+    {
+      "title": "Power styles vary",
+      "text": "People draw influence from different sources, authority, expertise, relationships, reputation, and should know which one they lean on."
+    },
+    {
+      "title": "Leaders leak power in avoidable ways",
+      "text": "Habits like over-apologizing, hedging, or not taking credit quietly erode influence over time."
+    },
+    {
+      "title": "Shared power multiplies impact",
+      "text": "Giving a team real authority and visible credit boosts collective performance more than hoarding control."
+    }
+  ],
+  "try_it": [
+    "Identify your dominant power source and deliberately draw on a different one this week.",
+    "In your next team meeting, delegate one piece of real decision-making authority, not just a task."
+  ],
+  "best_for": [
+    "Leaders who already hold formal authority and want to use it more ethically",
+    "Managers concerned about becoming, or working for, a power-corrupted boss"
+  ],
+  "less_useful": [
+    "Readers wanting a single sustained argument rather than a curated article set with varied authors and tones",
+    "Early-career readers with little positional power yet may find some pieces less directly applicable"
+  ],
+  "site_links": [
+    {
+      "label": "Executive Presence",
+      "href": "references.html#cat-presence"
+    }
+  ],
+  "related": [
+    {
+      "asin": "B09ZF93BWC",
+      "why": "A more tactical, individual-focused take on acquiring and using power"
+    },
+    {
+      "asin": "B0BJ7N3QXZ",
+      "why": "A companion HBR collection on the closely related skill of leadership presence"
+    }
+  ],
+  "sources": [
+    {
+      "label": "O'Reilly Table of Contents",
+      "href": "https://www.oreilly.com/library/view/power-and-impact/9781633697959/Text/02_HBR_Emotional_Intelligence_Serie.html"
+    },
+    {
+      "label": "HBR Store product page",
+      "href": "https://store.hbr.org/product/power-and-impact-hbr-emotional-intelligence-series/10287"
+    }
+  ]
+}

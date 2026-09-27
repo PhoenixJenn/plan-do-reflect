@@ -1,0 +1,77 @@
+{
+  "asin": "1250802873",
+  "slug": "digital-body-language",
+  "read_time": "2 min read",
+  "big_idea": "In a mostly-virtual work world, the subtle nonverbal cues that once built trust in person, tone, timing, eye contact, now have to be replaced with intentional digital signals, or misunderstandings and eroded trust become the default.",
+  "tool": {
+    "label": "The 4 Laws of Digital Body Language",
+    "text": "Dhawan organizes practical guidance around four building-block laws: Value Visibly, show explicit appreciation and respect since it can't be read from body language; Communicate Carefully, over-clarify to eliminate ambiguity that used to be resolved by tone or facial expression; Collaborate Confidently, build psychological safety into virtual teamwork; and Trust Totally, the outcome built on the first three. Each law comes with specific behaviors readers can apply immediately.",
+    "note": "none"
+  },
+  "ideas": [
+    {
+      "title": "We're all immigrants in digital communication",
+      "text": "Unlike in-person body language, developed over millennia, digital norms are new and unevenly understood, so miscommunication is common rather than a personal failing."
+    },
+    {
+      "title": "Choice of medium itself signals priority and urgency",
+      "text": "So picking the wrong channel can misrepresent how important a message actually is."
+    },
+    {
+      "title": "Punctuation and small symbols carry emotional weight online",
+      "text": "That they wouldn't in speech, and different generations read them differently."
+    },
+    {
+      "title": "Response time functions as a stand-in for respect and attention",
+      "text": "A slow reply can be read as dismissal even when it isn't intended that way."
+    },
+    {
+      "title": "Who's included on a message sends a signal about hierarchy and inclusion",
+      "text": "And mishandling it can unintentionally exclude or offend colleagues."
+    },
+    {
+      "title": "Gender, generational, and cultural differences in communication style are amplified in digital channels",
+      "text": "So leaders need to actively adapt rather than assume one style works for everyone."
+    }
+  ],
+  "try_it": [
+    "Before sending your next ambiguous or high-stakes message, ask whether the medium matches the urgency and sensitivity of the content, and switch if it doesn't.",
+    "Set and state an explicit response-time expectation on your next few emails to reduce anxiety for the recipient.",
+    "Reread your last three messages to a direct report or colleague and check whether your punctuation or brevity could be misread as curt, then rewrite one with more explicit warmth.",
+    "In your next virtual meeting, explicitly restate the goal, the norms, and the next steps out loud, rather than assuming they're understood."
+  ],
+  "best_for": [
+    "Managers of remote or hybrid teams who want concrete communication norms to set with their team",
+    "Anyone who's had a message misread over email or Slack and wants a framework to prevent it happening again"
+  ],
+  "less_useful": [
+    "Fully in-person teams with little digital or asynchronous communication, since the advice is specific to virtual and written channels",
+    "Readers looking for deep research citations rather than practical, anecdote-driven guidance"
+  ],
+  "site_links": [
+    {
+      "label": "Culture & Psychological Safety",
+      "href": "references.html#cat-culture"
+    }
+  ],
+  "related": [
+    {
+      "asin": "B00CFND1RE",
+      "why": "A companion framework for reading the in-person nonverbal cues this book replaces for virtual work"
+    },
+    {
+      "asin": "1984842005",
+      "why": "A related look at how the specific words leaders use shape trust and ownership"
+    }
+  ],
+  "sources": [
+    {
+      "label": "ReadingGraphics, Book Summary",
+      "href": "https://readingraphics.com/book-summary-digital-body-language/"
+    },
+    {
+      "label": "Shortform, Digital Body Language Book Summary",
+      "href": "https://www.shortform.com/summary/digital-body-language-summary-erica-dhawan"
+    }
+  ]
+}

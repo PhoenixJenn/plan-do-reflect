@@ -1,0 +1,77 @@
+{
+  "asin": "1984891170",
+  "slug": "no-rules-rules",
+  "read_time": "2 min read",
+  "big_idea": "Netflix's outsized ability to innovate comes from deliberately increasing talent density and then removing traditional controls, replacing them with radical candor and context-setting so a smaller number of exceptional people can move fast without permission-seeking.",
+  "tool": {
+    "label": "The 4A Feedback Model",
+    "text": "Netflix trains employees to give feedback by Aiming to Assist and making it Actionable; recipients are asked to Appreciate the feedback rather than getting defensive, then decide whether to Accept or Discard it, since not every piece of feedback must be acted on. The model is taught explicitly during onboarding and modeled publicly by leaders.",
+    "note": "Erin Meyer's chapters caution that candor norms calibrated for U.S./Netflix culture can misfire in higher-context cultures and need local adaptation, which is a distinct contribution of her co-authorship."
+  },
+  "ideas": [
+    {
+      "title": "Talent density over scale",
+      "text": "Hastings argues a small team of top performers outperforms a larger team of average ones, so Netflix pays top-of-market to keep density high rather than growing headcount broadly."
+    },
+    {
+      "title": "No formal vacation policy",
+      "text": "Netflix abolished vacation tracking and expense-approval limits, trusting employees to use judgment in Netflix's best interest, framed as a downstream benefit of high talent density."
+    },
+    {
+      "title": "Lead with context, not control",
+      "text": "Senior leaders are told to over-communicate strategy and context so employees can make the same call a leader would, then step back from approving decisions directly."
+    },
+    {
+      "title": "Sunshining mistakes",
+      "text": "Netflix surfaces failures publicly, including executives' own, so error becomes normal, discussable information rather than something hidden."
+    },
+    {
+      "title": "Farming for dissent",
+      "text": "Leaders are expected to actively solicit disagreement before big decisions rather than assuming silence means consent."
+    },
+    {
+      "title": "Adequate performance gets a generous severance",
+      "text": "The book's most debated stance, even solid, not just poor, performers may be let go with generous packages if they're not top performers for the role, to preserve talent density."
+    }
+  ],
+  "try_it": [
+    "Run one meeting this week where you explicitly ask for one piece of critical feedback, using Aim to Assist framing before you ask.",
+    "Write a one-page context memo explaining the strategic reasoning behind a current team priority, instead of issuing a directive.",
+    "Identify one internal approval step you require and pilot removing it for two weeks with one trusted person.",
+    "After your next mistake at work, name it to your team within 48 hours instead of quietly fixing it."
+  ],
+  "best_for": [
+    "Founders and senior leaders at companies with a genuinely high hiring bar who want to reduce process",
+    "Managers curious about the reasoning behind Netflix's famous culture deck"
+  ],
+  "less_useful": [
+    "Leaders at organizations that can't pay top-of-market or remove job-security safety nets, since the approach assumes both are already in place",
+    "Not a fit for regulated or safety-critical industries where controls exist for compliance, not just distrust"
+  ],
+  "site_links": [
+    {
+      "label": "Culture & Psychological Safety",
+      "href": "references.html#cat-culture"
+    }
+  ],
+  "related": [
+    {
+      "asin": "B078F6154Q",
+      "why": "The Netflix co-creator's own, more HR-practitioner take on the same culture"
+    },
+    {
+      "asin": "B01MZ6RMS4",
+      "why": "A complementary framework for the direct, caring feedback this culture depends on"
+    }
+  ],
+  "sources": [
+    {
+      "label": "No Rules Rules official book site",
+      "href": "https://www.norulesrules.com/"
+    },
+    {
+      "label": "Blinkist summary and review",
+      "href": "https://www.blinkist.com/en/books/no-rules-rules-en"
+    }
+  ]
+}

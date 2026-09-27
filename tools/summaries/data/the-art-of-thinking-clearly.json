@@ -1,0 +1,77 @@
+{
+  "asin": "B00CICE248",
+  "slug": "the-art-of-thinking-clearly",
+  "read_time": "2 min read",
+  "big_idea": "Rolf Dobelli argues that avoiding a catalog of roughly 100 recurring cognitive and behavioral errors does more for good decisions than acquiring more positive knowledge, subtracting bad thinking habits beats adding new information.",
+  "tool": {
+    "label": "The Survivorship-Bias Check",
+    "text": "When evaluating advice from winners, a successful founder's habits, a stock that soared, a diet that worked for someone, deliberately go looking for the people who did the same thing and failed, since failures are invisible in most success stories. Only if the failures' approach looks meaningfully different from the winners' does the strategy look causally credible rather than just lucky.",
+    "note": "none"
+  },
+  "ideas": [
+    {
+      "title": "Survivorship Bias",
+      "text": "Overestimating a strategy's odds of success because failures quietly disappear from the visible sample, as in business-advice books."
+    },
+    {
+      "title": "Confirmation Bias",
+      "text": "Gravitating toward information that supports what you already believe and discounting what doesn't."
+    },
+    {
+      "title": "Availability Bias",
+      "text": "Judging how common or risky something is by how easily examples spring to mind rather than by actual frequency."
+    },
+    {
+      "title": "Loss Aversion",
+      "text": "Losses feel roughly twice as painful as equivalent gains feel good, which skews everyday risk-taking toward caution or paralysis."
+    },
+    {
+      "title": "Sunk Cost Fallacy",
+      "text": "Continuing a failing project, purchase, or relationship because of what's already been invested rather than its future value."
+    },
+    {
+      "title": "Story Bias",
+      "text": "Our attraction to tidy narratives causes us to accept oversimplified explanations for outcomes that actually have many causes."
+    }
+  ],
+  "try_it": [
+    "Before adopting a best practice you just read about, list three people who followed it and still failed.",
+    "Next time you feel obligated to finish something you regret starting, name the sunk cost out loud and decide based only on future value.",
+    "Track one recurring worry for a week and compare its actual statistical likelihood to how much mental space you gave it.",
+    "Before a big purchase, write the two strongest arguments against it before you decide."
+  ],
+  "best_for": [
+    "Readers who like short, bite-sized chapters they can dip into one at a time",
+    "Anyone wanting a broad primer on behavioral-economics-style biases for everyday and business decisions"
+  ],
+  "less_useful": [
+    "Readers wanting one unifying framework or model, it's a catalog, not a system",
+    "Those wanting heavily-cited academic rigor, since some entries lean on informal illustration rather than deep sourcing"
+  ],
+  "site_links": [
+    {
+      "label": "Decision-Making",
+      "href": "references.html#cat-decisions"
+    }
+  ],
+  "related": [
+    {
+      "asin": "B0C1HLWXS2",
+      "why": "A workplace-oriented companion on the disciplines that guard against these same biases"
+    },
+    {
+      "asin": "B01D24NLWO",
+      "why": "A complementary, computer-science-based take on making better decisions under uncertainty"
+    }
+  ],
+  "sources": [
+    {
+      "label": "Reading Graphics book summary and review",
+      "href": "https://readingraphics.com/book-summary-review-the-art-of-thinking-clearly/"
+    },
+    {
+      "label": "Sloww: 25 Cognitive Concepts from the book",
+      "href": "https://www.sloww.co/art-thinking-clearly-book/"
+    }
+  ]
+}

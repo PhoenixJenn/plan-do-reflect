@@ -1,0 +1,77 @@
+{
+  "asin": "B002VA3GQW",
+  "slug": "you-dont-need-a-title-to-be-a-leader",
+  "read_time": "2 min read",
+  "big_idea": "Leadership is an act of everyday influence available to anyone, regardless of formal position, what Sanborn calls leadership with a little l, and it's demonstrated through consistent behavior, not authority.",
+  "tool": {
+    "label": "The Six Practices of Little L Leadership",
+    "text": "Sanborn outlines six practices anyone can apply without a title: Self-Mastery, leading yourself first by clarifying your own purpose; Focus, intentionally prioritizing rather than drifting; Power With People, achieving goals through collaboration rather than command; Persuasive Communication, prioritizing being understood over simply transmitting information; Execution, turning ideas into consistent action; and Giving, making things better for others as a way of making things better for yourself.",
+    "note": "none"
+  },
+  "ideas": [
+    {
+      "title": "Little l vs. Big L leadership",
+      "text": "Formal, titled authority is only one form of leadership; everyday influence anyone can exercise is available regardless of rank."
+    },
+    {
+      "title": "Self-mastery first",
+      "text": "You must lead yourself, clarify your own values and purpose, before you can credibly influence anyone else."
+    },
+    {
+      "title": "Power with, not power over",
+      "text": "Effective influence comes from collaboration and shared purpose, not command-and-control authority."
+    },
+    {
+      "title": "Communication as understanding, not transmission",
+      "text": "The goal of communicating isn't to have spoken, it's to have been genuinely understood by the other person."
+    },
+    {
+      "title": "Execution as active practice",
+      "text": "Sanborn treats vision as a continuous verb, something practiced daily, rather than a static statement made once."
+    },
+    {
+      "title": "Legacy through giving",
+      "text": "The book frames leadership's ultimate measure as the positive difference left in other people's lives, not formal recognition or career status."
+    }
+  ],
+  "try_it": [
+    "Pick one interaction this week where you have no formal authority and practice power with, ask for input and build a shared plan instead of directing the outcome.",
+    "Before your next presentation or email, rewrite one sentence to prioritize whether the reader will understand it, not just whether it's technically correct.",
+    "Identify one small, specific way you can make someone else's day or work easier this week, without being asked.",
+    "Spend 15 minutes writing down your own definition of why you lead, independent of your job title."
+  ],
+  "best_for": [
+    "Individual contributors or early-career professionals who want to build influence without waiting for a promotion",
+    "Anyone leading volunteers, peers, or informal groups"
+  ],
+  "less_useful": [
+    "The six practices are broad and motivational rather than tactically detailed, so readers wanting specific frameworks may find it thinner than more process-driven leadership books",
+    "At roughly 100 pages it's light on depth for readers wanting an in-depth treatment of any single practice"
+  ],
+  "site_links": [
+    {
+      "label": "Leadership Styles & Principles",
+      "href": "references.html#cat-leadstyle"
+    }
+  ],
+  "related": [
+    {
+      "asin": "B002V59XXW",
+      "why": "A complementary manifesto on leading a group of people who share a belief, with or without a title"
+    },
+    {
+      "asin": "B002V8KQEY",
+      "why": "A deeper look at the self-knowledge this book's self-mastery practice depends on"
+    }
+  ],
+  "sources": [
+    {
+      "label": "Mark Sanborn: You Don't Need a Title to Be a Leader",
+      "href": "https://marksanborn.com/ydnat/"
+    },
+    {
+      "label": "Society of Actuaries: Book Review",
+      "href": "https://www.soa.org/globalassets/assets/files/sections/mpd-book-review-leader.pdf"
+    }
+  ]
+}

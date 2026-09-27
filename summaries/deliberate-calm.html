@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="a">
+<head>
+<meta charset="UTF-8">
+<base href="../">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="icon" type="image/svg+xml" href="favicon.svg">
+<title>Deliberate Calm: One-page summary · Plan · Do · Reflect</title>
+
+<!-- Applied before CSS loads, so the saved theme / title-font choice doesn't flash to the default on reload -->
+<script>
+(function () {
+  try {
+    var savedTheme = localStorage.getItem('pdr-theme');
+    if (['a', 'b', 'c'].indexOf(savedTheme) > -1) {
+      document.documentElement.setAttribute('data-theme', savedTheme);
+    }
+    /* No saved choice yet means a first-time visitor — default them to Golos
+       Text rather than the theme's own heading font. Explicitly picking
+       "Theme default" in the picker stores the literal string 'default',
+       which is the one value that clears the override below. */
+    var savedTitleFont = localStorage.getItem('pdr-title-font');
+    var titleFont = savedTitleFont === null ? 'golos-text' : savedTitleFont;
+    if (titleFont !== 'default') {
+      document.documentElement.setAttribute('data-title-font', titleFont);
+    }
+  } catch (e) {}
+})();
+</script>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=Work+Sans:wght@400;500;600&family=Sora:wght@600;700;800&family=Plus+Jakarta+Sans:wght@500;600;700&family=Patrick+Hand&display=swap" rel="stylesheet">
+
+<!-- Title-font brainstorm candidates — temporary, for the .title-font-picker toggle only.
+     Remove this link once a title font is chosen and folded into tokens.css. -->
+<link href="https://fonts.googleapis.com/css2?family=Gabarito:wght@800&family=Chivo:wght@800&family=Golos+Text:wght@800&display=swap" rel="stylesheet">
+
+<link rel="stylesheet" href="css/tokens.css">
+<link rel="stylesheet" href="css/main.css">
+<link rel="stylesheet" href="css/summary.css">
+</head>
+<body>
+
+<header class="topnav">
+  <a class="logo" href="index.html">Plan·Do·Reflect</a>
+  <nav class="topnav-items">
+    <a class="item" href="framework.html">The Framework</a>
+    <a class="item" href="self-management.html">Self</a>
+    <a class="item" href="team.html">Team</a>
+    <a class="item" href="organization.html">Organization</a>
+    <a class="item" href="core-skills.html">Core Skills</a>
+    <a class="item active" href="references.html">References</a>
+  </nav>
+</header>
+
+<main class="sm">
+  <p class="sm-crumb"><a href="references.html">References &amp; Further Reading</a> &rsaquo; One-page summary</p>
+  <article class="sm-page">
+    <header class="sm-head">
+      <img class="sm-cover" src="images/covers/B09V1X5QC1.jpg" data-r="https://m.media-amazon.com/images/I/41ooZTUpP0L._SL300_.jpg" alt="Cover of Deliberate Calm" onerror="if(this.dataset.r&amp;&amp;this.src.indexOf(this.dataset.r)===-1){this.src=this.dataset.r}else{this.style.visibility='hidden'}">
+      <div>
+        <p class="sm-eyebrow">One-page summary &middot; 2 min read</p>
+        <h1 class="page-title">Deliberate Calm</h1>
+        <p class="sm-sub">How to Learn and Lead in a Volatile World</p>
+        <p class="sm-by">by Jacqueline Brassey, Aaron De Smet, Michiel Kruyt</p>
+        <p class="sm-meta">2022 &middot; 9h 10m audiobook &middot; &#9733; 4.5 Audible</p>
+      </div>
+    </header>
+
+    <section class="sm-idea"><h2>The big idea</h2><p>Leaders can deliberately build the capacity to stay calm and think clearly amid volatility by developing dual awareness of their inner and outer world, rather than simply trying to push through pressure with willpower.</p></section>
+
+<section class="sm-tool"><span class="sm-label">Dual Awareness Practice</span><blockquote>Dual awareness means simultaneously tracking two things in a high-stakes moment: your external environment and your internal state, the emotions, assumptions, and bodily reactions driving your response. The authors argue most people default into a fixed habitual zone of reaction under stress; dual awareness creates a pause between trigger and response, opening space to shift into a more flexible adaptive zone and choose a deliberate reaction instead of a reflexive one.</blockquote><p>One secondary summary cites a statistic that executives trained in this approach performed dramatically better under stress than a control group; this figure comes from a single secondary source and could not be independently corroborated, so treat it cautiously rather than as a verified research claim.</p></section>
+
+    <section class="sm-ideas"><h2>Key ideas</h2><ol><li><h3>Habitual Zone vs. Adaptive Zone</h3><p>Under pressure, people tend to fall back on fixed, familiar patterns; deliberate calm is about consciously shifting into a more flexible, experimental mode.</p></li><li><h3>The Iceberg Principle</h3><p>Visible behavior is only about 10% of the picture, the other 90% is made up of hidden beliefs, assumptions, and mental models that actually drive how someone reacts.</p></li><li><h3>Four Supporting Mindsets</h3><p>A growth mindset, a curious mindset, a creative mindset, and an agent mindset, believing you can influence outcomes.</p></li><li><h3>Learning Agility</h3><p>Treating stressful, high-stakes moments as data to extract lessons from afterward, not just events to survive in the moment.</p></li><li><h3>A Four-Week Self-Governance Protocol</h3><p>A staged practice, first identifying emotional triggers, then building baseline awareness, then adding calming practices, then actively replacing self-defeating patterns.</p></li><li><h3>The Sully Sullenberger Case</h3><p>The emergency Hudson River landing is used as the book&#x27;s central illustration of composure and clear decision-making under extreme, sudden pressure.</p></li></ol></section>
+
+    <div class="sm-cols">
+      <section><h2>Try it this week</h2><ol class="sm-steps"><li>For one week, log four moments a day when you felt emotionally triggered, noting what set it off and how you responded.</li><li>Before reacting to stressful news this week, pause and name, even silently, what&#x27;s happening in your body and mind before you respond.</li><li>Open one meeting this week with 60 seconds of deep breathing or intention-setting before diving into the agenda.</li><li>Pick one recurring stress trigger, write down the assumption driving your usual reaction to it, and test an alternative interpretation next time it happens.</li></ol></section>
+      <section><h2>Is it for you?</h2><h3 class="sm-good">Best for</h3><ul><li>Leaders navigating sustained uncertainty or crisis</li><li>People who want a research-framed approach to emotional regulation at work</li></ul><h3 class="sm-less">Less useful if</h3><ul><li>Readers wanting quick tactical tips rather than a multi-week self-development program</li><li>Those already well-versed in mindfulness or somatic practices may find the core ideas familiar under new labels</li></ul></section>
+    </div>
+
+<section class="sm-links"><h2>On this site</h2><div class="sm-chips"><a href="references.html#cat-leadstyle">Leadership Styles &amp; Principles</a></div></section>
+    <section class="sm-links sm-related"><h2>Pairs well with</h2><ul><li><a href="references.html#book-B015TVHUA2">Extreme Ownership</a> <span>A complementary, military-derived case for staying composed and decisive under pressure</span></li><li><a href="references.html#book-B07BN2GNQQ">The Dichotomy of Leadership</a> <span>A related look at the balancing act between pushing hard and staying sustainable</span></li></ul></section>
+
+    <footer class="sm-foot">
+      <a class="sm-buy" href="https://www.amazon.com/s?k=Jacqueline+Brassey+Deliberate+Calm&amp;tag=phoenixjenn-20" target="_blank" rel="noopener">Find the book on Amazon</a>
+      <p>Original summary written for Plan &middot; Do &middot; Reflect. Prepared from the book&rsquo;s ideas and public summaries (<a href="https://www.getabstract.com/en/summary/deliberate-calm/46178" target="_blank" rel="noopener">getAbstract: Deliberate Calm summary</a>, <a href="https://paminy.com/book-summary-deliberate-calm/" target="_blank" rel="noopener">Paminy: Deliberate Calm book summary</a>), not a substitute for reading it. Links may earn a commission.</p>
+    </footer>
+  </article>
+</main>
+
+<footer class="site-footer">
+  <p>&copy; 2026 Plan-Do-Reflect. <a href="references.html">References &amp; further reading</a></p>
+</footer>
+
+<div class="theme-switch" role="group" aria-label="Style direction">
+  <button data-theme="a" title="Kinetic Signal — black &amp; yellow"></button>
+  <button data-theme="b" title="Studio Ledger — dusty rose"></button>
+  <button data-theme="c" title="Bright Margin — lime"></button>
+  <a class="icon-lib-link" href="icon-library.html" title="Style Guide (internal reference)">
+    <svg width="14" height="14" viewBox="0 0 14 14" aria-hidden="true">
+      <rect x="1" y="1" width="5" height="5" rx="1" fill="currentColor"/>
+      <rect x="8" y="1" width="5" height="5" rx="1" fill="currentColor"/>
+      <rect x="1" y="8" width="5" height="5" rx="1" fill="currentColor"/>
+      <rect x="8" y="8" width="5" height="5" rx="1" fill="currentColor"/>
+    </svg>
+  </a>
+  <a class="icon-lib-link" href="notes.html" title="Notes (working drafts)">
+    <svg width="14" height="14" viewBox="0 0 14 14" aria-hidden="true">
+      <rect x="2" y="1" width="10" height="12" rx="1.5" fill="none" stroke="currentColor" stroke-width="1.3"/>
+      <line x1="4.5" y1="5" x2="9.5" y2="5" stroke="currentColor" stroke-width="1.3" stroke-linecap="round"/>
+      <line x1="4.5" y1="7.5" x2="9.5" y2="7.5" stroke="currentColor" stroke-width="1.3" stroke-linecap="round"/>
+      <line x1="4.5" y1="10" x2="7.5" y2="10" stroke="currentColor" stroke-width="1.3" stroke-linecap="round"/>
+    </svg>
+  </a>
+  <a class="icon-lib-link" href="sitemap.html" title="Sitemap (working draft)">
+    <svg width="14" height="14" viewBox="0 0 14 14" aria-hidden="true">
+      <circle cx="7" cy="2.5" r="1.8" fill="none" stroke="currentColor" stroke-width="1.3"/>
+      <circle cx="3" cy="11" r="1.8" fill="none" stroke="currentColor" stroke-width="1.3"/>
+      <circle cx="11" cy="11" r="1.8" fill="none" stroke="currentColor" stroke-width="1.3"/>
+      <path d="M7 4.3 L7 7 M7 7 L3 9.5 M7 7 L11 9.5" stroke="currentColor" stroke-width="1.3" fill="none" stroke-linecap="round"/>
+    </svg>
+  </a>
+</div>
+
+<!-- Temporary brainstorm control — only restyles the main h1 (.content h1 / .hero-title / .page-title). Remove alongside
+     the "title-font experiment" CSS block and the extra Google Fonts link once
+     a title font is picked. -->
+<div class="title-font-picker">
+  <label for="title-font-select">Title font</label>
+  <button type="button" id="title-font-prev" class="title-font-nav" aria-label="Previous title font">‹</button>
+  <select id="title-font-select">
+    <optgroup label="Round 1 — headline character">
+      <option value="gabarito">Gabarito</option>
+      <option value="chivo">Chivo</option>
+    </optgroup>
+    <optgroup label="Round 2 — Calibri-adjacent">
+      <option value="golos-text">Golos Text</option>
+    </optgroup>
+    <option value="default">Theme default</option>
+  </select>
+  <button type="button" id="title-font-next" class="title-font-nav" aria-label="Next title font">›</button>
+</div>
+
+<script src="js/theme-toggle.js" defer></script>
+<script src="js/title-font-toggle.js" defer></script>
+</body>
+</html>

@@ -1,0 +1,77 @@
+{
+  "asin": "B09MGC94DG",
+  "slug": "the-21-irrefutable-laws-of-leadership",
+  "read_time": "2 min read",
+  "big_idea": "Leadership is not a title or position but the capacity to influence others, and it can be learned and grown by consistently practicing a set of 21 timeless, interlocking principles.",
+  "tool": {
+    "label": "The 5 Phases of Leadership Growth",
+    "text": "Maxwell maps how leadership skill develops through five stages: not knowing what you don't know, realizing you need to learn, consciously acquiring knowledge and skill, using new skills until they feel natural, and finally leading almost unconsciously out of habit. The model frames leadership growth as a slow, practiced climb rather than a trait some people are simply born with.",
+    "note": "This growth model appears throughout Maxwell's broader teaching and is presented here as the engine behind mastering all 21 laws, so treat it as a supporting framework rather than one of the 21 laws itself."
+  },
+  "ideas": [
+    {
+      "title": "Law of the Lid",
+      "text": "A person's leadership ability, not their skill or effort elsewhere, sets the ceiling on how effective and successful they and their organization can become."
+    },
+    {
+      "title": "Law of Process",
+      "text": "Leadership is developed daily, not in a day; it's the sum of small, deliberate choices and lessons compounded over years."
+    },
+    {
+      "title": "Law of Solid Ground",
+      "text": "Trust is the foundation of leadership, built through consistent competence, connection, and character rather than granted by title."
+    },
+    {
+      "title": "Law of the Inner Circle",
+      "text": "A leader's potential is determined by the people closest to them, so who you invite in matters as much as your own ability."
+    },
+    {
+      "title": "Law of Empowerment",
+      "text": "Secure leaders give power to others instead of hoarding it; insecure leaders sabotage their own team by holding on too tight."
+    },
+    {
+      "title": "Law of Legacy",
+      "text": "A leader's lasting value is measured by succession, by whether the organization can succeed without them."
+    }
+  ],
+  "try_it": [
+    "Identify your current lid: name the one leadership skill most limiting your team's output right now, and put 30 minutes on the calendar this week to work on just that one.",
+    "Audit your inner circle: list the 5 people you consult most on decisions and note what you actually gain from each one; find at least one gap to fill.",
+    "Practice the Law of Addition this week: in one meeting, deliberately ask how can I add value to this person's work before asking what they can do for you.",
+    "Have one conversation this week aimed at transferring a responsibility you currently hold to someone you're developing, as a small test of the Law of Empowerment."
+  ],
+  "best_for": [
+    "First-time or aspiring managers who want a foundational, vocabulary-building overview of leadership principles",
+    "Readers who prefer short, story-driven chapters over one continuous argument"
+  ],
+  "less_useful": [
+    "Experienced executives looking for cutting-edge or research-heavy leadership theory, since the laws are broad and anecdote-driven",
+    "Readers who find Maxwell's homespun, faith-inflected business-book style repetitive across his catalog"
+  ],
+  "site_links": [
+    {
+      "label": "Leadership Styles & Principles",
+      "href": "references.html#cat-leadstyle"
+    }
+  ],
+  "related": [
+    {
+      "asin": "B0786WJCDC",
+      "why": "The same author's companion book on developing the inner qualities behind these laws"
+    },
+    {
+      "asin": "B00NT9CPFM",
+      "why": "A related book on the specific habit of asking good questions that several of these laws depend on"
+    }
+  ],
+  "sources": [
+    {
+      "label": "Shortform, The 21 Irrefutable Laws of Leadership: Book Overview",
+      "href": "https://www.shortform.com/blog/the-21-irrefutable-laws-of-leadership/"
+    },
+    {
+      "label": "ReadingGraphics, Book Summary",
+      "href": "https://readingraphics.com/book-summary-the-21-irrefutable-laws-of-leadership/"
+    }
+  ]
+}

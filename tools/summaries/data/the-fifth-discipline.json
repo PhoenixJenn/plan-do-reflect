@@ -1,0 +1,77 @@
+{
+  "asin": "B002V0KT8K",
+  "slug": "the-fifth-discipline",
+  "read_time": "2 min read",
+  "big_idea": "Peter Senge argues that in a complex, interconnected world, an organization's ability to learn faster than its competitors is its only sustainable advantage, and that most organizational failures stem from learning disabilities caused by fragmented, linear thinking rather than seeing the whole system.",
+  "tool": {
+    "label": "The Ladder of Inference",
+    "text": "The Ladder of Inference is a tool for examining mental models: it traces the often invisible steps from observing raw data, to selecting which data we notice, adding meaning, making assumptions, drawing conclusions, and finally acting, all in a split second. By consciously climbing back down the ladder and questioning the assumptions at each rung, teams can surface hidden beliefs driving disagreement and test them against reality rather than arguing past each other.",
+    "note": "The Ladder of Inference originates with organizational theorist Chris Argyris; Senge popularized and integrated it into his mental models discipline rather than inventing it himself."
+  },
+  "ideas": [
+    {
+      "title": "Systems thinking as the integrating discipline",
+      "text": "Rather than isolating parts of a problem, systems thinking looks at feedback loops and interdependencies, revealing why well-intentioned fixes often create new problems elsewhere."
+    },
+    {
+      "title": "Personal mastery",
+      "text": "Organizational learning requires individuals committed to their own ongoing growth, clarity of purpose, and honest self-assessment, treated as a discipline, not a personality trait."
+    },
+    {
+      "title": "Mental models",
+      "text": "Deeply held, often unexamined assumptions shape what we notice and how we interpret it; surfacing and testing these models is necessary before real change is possible."
+    },
+    {
+      "title": "Shared vision",
+      "text": "A genuinely learning organization needs a picture of the future that people commit to because it connects to their own aspirations, not one merely handed down from leadership."
+    },
+    {
+      "title": "Team learning",
+      "text": "Teams can achieve insight and coordinated action beyond what any individual member could reach alone, but this requires practiced dialogue, not just discussion or debate."
+    },
+    {
+      "title": "The boiling frog and systems archetypes",
+      "text": "Senge describes recurring structural patterns that produce predictable dysfunction, and argues leaders must learn to recognize these archetypes to intervene earlier."
+    }
+  ],
+  "try_it": [
+    "Next time you disagree with a colleague, ask what data and assumptions led each of you up your own ladder of inference before arguing your conclusion.",
+    "Pick one recurring problem at work and map it as a loop instead of assigning it to a single cause.",
+    "Draft a one-paragraph vision of your team's future and check it against each team member's own stated goals for genuine overlap, not just stated buy-in.",
+    "In your next team meeting, practice suspending your own certainty for five minutes and simply asking questions to understand others' mental models."
+  ],
+  "best_for": [
+    "Organizational leaders and consultants designing learning-culture or systems-thinking initiatives",
+    "Readers drawn to conceptual, theory-driven frameworks"
+  ],
+  "less_useful": [
+    "Readers wanting quick, tactical takeaways, since the book is dense and academic in style",
+    "Newer managers who may find the systems vocabulary abstract without guided practice"
+  ],
+  "site_links": [
+    {
+      "label": "Leadership Styles & Principles",
+      "href": "references.html#cat-leadstyle"
+    }
+  ],
+  "related": [
+    {
+      "asin": "B00UVX3HRE",
+      "why": "A more contemporary, military-derived case for the same systems-level organizational rethink"
+    },
+    {
+      "asin": "B002V08E64",
+      "why": "A narrower, team-level look at the dysfunctions this systems view is meant to catch"
+    }
+  ],
+  "sources": [
+    {
+      "label": "ReadingGraphics: Book Summary – The Fifth Discipline",
+      "href": "https://readingraphics.com/book-summary-the-fifth-discipline/"
+    },
+    {
+      "label": "Wikipedia: The Fifth Discipline",
+      "href": "https://en.wikipedia.org/wiki/The_Fifth_Discipline"
+    }
+  ]
+}

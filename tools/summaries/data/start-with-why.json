@@ -1,0 +1,77 @@
+{
+  "asin": "B0F71ZM8YL",
+  "slug": "start-with-why",
+  "read_time": "2 min read",
+  "big_idea": "Simon Sinek argues that the most inspiring leaders and organizations communicate from the inside out, starting with WHY they do what they do, rather than leading with WHAT they do, because this is what earns loyalty and inspires action instead of merely prompting transactions.",
+  "tool": {
+    "label": "The Golden Circle",
+    "text": "The Golden Circle is a three-ring model, WHY at the center, HOW in the middle, WHAT on the outside, that maps how most organizations communicate (outside-in, from What to Why) versus how inspiring ones communicate (inside-out, from Why to What). Sinek ties this to brain anatomy: the WHY and HOW speak to the limbic brain, while the WHAT speaks to the rational neocortex, which is why people often feel a decision is right before they can explain it.",
+    "note": "The Golden Circle is often repackaged as a marketing or branding tool, but Sinek frames it primarily as a leadership and organizational-culture concept, not a slogan-writing exercise."
+  },
+  "ideas": [
+    {
+      "title": "People buy why, not what",
+      "text": "Customers and employees are drawn to organizations whose beliefs mirror their own, not simply to product features or price."
+    },
+    {
+      "title": "Manipulation vs. inspiration",
+      "text": "There are only two ways to influence behavior, manipulation drives short-term transactions, while inspiration built on shared belief drives lasting loyalty."
+    },
+    {
+      "title": "The Law of Diffusion of Innovation",
+      "text": "Sinek borrows this adoption curve to argue that reaching the tipping point requires speaking to believers first, not chasing the mass middle."
+    },
+    {
+      "title": "Clarity, Discipline, Consistency",
+      "text": "Sustained impact requires a leader who is clear on the WHY, disciplined in the HOW, and consistent in the WHAT, misalignment among the three erodes trust."
+    },
+    {
+      "title": "The megaphone effect",
+      "text": "When leadership communicates the why clearly and it's reinforced through middle management to the frontline, the message amplifies outward to customers and partners."
+    },
+    {
+      "title": "Why fades as organizations scale",
+      "text": "As companies grow past their founders, the organization often gets louder about WHAT it sells while its founding WHY quietly erodes, causing a loss of differentiation and morale."
+    }
+  ],
+  "try_it": [
+    "Write a one-sentence draft of your team's or your own why and test it against your last three major decisions, did they align?",
+    "In your next team meeting, open with the purpose behind the project before describing tasks or deliverables, and notice how the discussion changes.",
+    "Audit one piece of your own communication and rewrite it starting with why instead of what.",
+    "Identify one believer on your team or in your customer base and ask them directly what belief of theirs your work speaks to."
+  ],
+  "best_for": [
+    "Founders and leaders crafting mission and vision messaging",
+    "Communicators and marketers wanting a framework for purpose-driven storytelling"
+  ],
+  "less_useful": [
+    "Readers wanting tactical, day-to-day management techniques, the book stays conceptual, not operational",
+    "Those already fatigued by Sinek's anecdote-heavy, somewhat repetitive style across his other books and TED talk"
+  ],
+  "site_links": [
+    {
+      "label": "Leadership Styles & Principles",
+      "href": "references.html#cat-leadstyle"
+    }
+  ],
+  "related": [
+    {
+      "asin": "0593291352",
+      "why": "The same author's deeper look at the trust-based culture a clear why makes possible"
+    },
+    {
+      "asin": "B00UVX3HRE",
+      "why": "A complementary look at aligning a whole organization, not just its message, around shared purpose"
+    }
+  ],
+  "sources": [
+    {
+      "label": "Shortform: Simon Sinek's Golden Circle",
+      "href": "https://www.shortform.com/blog/simon-sinek-golden-circle/"
+    },
+    {
+      "label": "Graham Mann Book Notes: Start With Why",
+      "href": "https://grahammann.net/book-notes/start-with-why-simon-sinek"
+    }
+  ]
+}

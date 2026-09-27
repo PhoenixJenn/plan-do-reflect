@@ -1,0 +1,77 @@
+{
+  "asin": "B07BN2GNQQ",
+  "slug": "the-dichotomy-of-leadership",
+  "read_time": "2 min read",
+  "big_idea": "Willink and Babin argue that every strength of a good leader becomes a weakness when taken to an extreme, so effective leadership is less about following fixed principles and more about continuously finding balance between opposing, equally valid leadership demands.",
+  "tool": {
+    "label": "The Leadership Dichotomy List",
+    "text": "The book presents twelve paired opposites, such as care about your people, but don't care about them so much that you fail to accomplish the mission, organized into balancing your people, balancing the mission, and balancing yourself. Leaders use the list as a self-diagnostic: for a given breakdown, identify which quality you're over-indexing on and consciously pull back toward the opposite pole, rather than assuming more of a good trait is always better.",
+    "note": "This is explicitly a sequel to Extreme Ownership's principles, not a standalone framework, the authors assume readers already accept Extreme Ownership as the foundation and are here to learn where applying it rigidly backfires."
+  },
+  "ideas": [
+    {
+      "title": "Individual care vs. group sacrifice",
+      "text": "Leaders should build genuine bonds with team members while still being willing to make hard calls that serve the larger mission over any one person's preference."
+    },
+    {
+      "title": "Ownership vs. micromanagement",
+      "text": "Taking extreme ownership doesn't mean controlling every detail, leaders must delegate and empower without disappearing into passivity."
+    },
+    {
+      "title": "Discipline vs. flexibility",
+      "text": "Rigid adherence to plans and standards must bend when reality changes, but too much flexibility erodes the discipline that makes execution reliable."
+    },
+    {
+      "title": "Aggressiveness vs. calculated risk",
+      "text": "Leaders must drive urgency and momentum while still evaluating risk carefully enough to avoid preventable disasters."
+    },
+    {
+      "title": "Confidence vs. humility",
+      "text": "Leaders need conviction in their own judgment but must remain genuinely open to being wrong and to input from subordinates."
+    },
+    {
+      "title": "Training hard vs. sustainable pressure",
+      "text": "Pushing a team to high standards accelerates performance, but pushing without limit toward perfect burns people out and can backfire."
+    }
+  ],
+  "try_it": [
+    "Pick one leadership quality you're proud of and ask a trusted colleague where you might be overdoing it.",
+    "Before your next tough call, write down the two competing goods in tension instead of treating it as a single right answer.",
+    "In your next 1:1, practice deliberately holding back an instinct to jump in and fix something, and instead ask a question that lets the other person own it.",
+    "After a decision that didn't land well this month, revisit it using the dichotomy lens: were you too far toward one pole?"
+  ],
+  "best_for": [
+    "Readers who've already internalized Extreme Ownership and are ready to troubleshoot where its principles backfire in practice",
+    "Managers who tend toward over-control or under-control"
+  ],
+  "less_useful": [
+    "Readers who haven't read Extreme Ownership first, since this book assumes that foundation",
+    "Those put off by heavy military-anecdote framing applied to business, a critique multiple reviewers raised"
+  ],
+  "site_links": [
+    {
+      "label": "Leadership Styles & Principles",
+      "href": "references.html#cat-leadstyle"
+    }
+  ],
+  "related": [
+    {
+      "asin": "B015TVHUA2",
+      "why": "The foundational principles this book teaches leaders when to pull back from"
+    },
+    {
+      "asin": "1250259932",
+      "why": "A scenario-based companion applying the same authors' ideas to everyday workplace situations"
+    }
+  ],
+  "sources": [
+    {
+      "label": "ReadingGraphics: Book Summary – The Dichotomy of Leadership",
+      "href": "https://readingraphics.com/book-summary-the-dichotomy-of-leadership/"
+    },
+    {
+      "label": "Shortform: The Dichotomy of Leadership Book Summary",
+      "href": "https://www.shortform.com/summary/the-dichotomy-of-leadership-summary-jocko-willink-and-leif-babin"
+    }
+  ]
+}

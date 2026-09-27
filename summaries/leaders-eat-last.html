@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="a">
+<head>
+<meta charset="UTF-8">
+<base href="../">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="icon" type="image/svg+xml" href="favicon.svg">
+<title>Leaders Eat Last: One-page summary · Plan · Do · Reflect</title>
+
+<!-- Applied before CSS loads, so the saved theme / title-font choice doesn't flash to the default on reload -->
+<script>
+(function () {
+  try {
+    var savedTheme = localStorage.getItem('pdr-theme');
+    if (['a', 'b', 'c'].indexOf(savedTheme) > -1) {
+      document.documentElement.setAttribute('data-theme', savedTheme);
+    }
+    /* No saved choice yet means a first-time visitor — default them to Golos
+       Text rather than the theme's own heading font. Explicitly picking
+       "Theme default" in the picker stores the literal string 'default',
+       which is the one value that clears the override below. */
+    var savedTitleFont = localStorage.getItem('pdr-title-font');
+    var titleFont = savedTitleFont === null ? 'golos-text' : savedTitleFont;
+    if (titleFont !== 'default') {
+      document.documentElement.setAttribute('data-title-font', titleFont);
+    }
+  } catch (e) {}
+})();
+</script>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=Work+Sans:wght@400;500;600&family=Sora:wght@600;700;800&family=Plus+Jakarta+Sans:wght@500;600;700&family=Patrick+Hand&display=swap" rel="stylesheet">
+
+<!-- Title-font brainstorm candidates — temporary, for the .title-font-picker toggle only.
+     Remove this link once a title font is chosen and folded into tokens.css. -->
+<link href="https://fonts.googleapis.com/css2?family=Gabarito:wght@800&family=Chivo:wght@800&family=Golos+Text:wght@800&display=swap" rel="stylesheet">
+
+<link rel="stylesheet" href="css/tokens.css">
+<link rel="stylesheet" href="css/main.css">
+<link rel="stylesheet" href="css/summary.css">
+</head>
+<body>
+
+<header class="topnav">
+  <a class="logo" href="index.html">Plan·Do·Reflect</a>
+  <nav class="topnav-items">
+    <a class="item" href="framework.html">The Framework</a>
+    <a class="item" href="self-management.html">Self</a>
+    <a class="item" href="team.html">Team</a>
+    <a class="item" href="organization.html">Organization</a>
+    <a class="item" href="core-skills.html">Core Skills</a>
+    <a class="item active" href="references.html">References</a>
+  </nav>
+</header>
+
+<main class="sm">
+  <p class="sm-crumb"><a href="references.html">References &amp; Further Reading</a> &rsaquo; One-page summary</p>
+  <article class="sm-page">
+    <header class="sm-head">
+      <img class="sm-cover" src="images/covers/0593291352.jpg" data-r="https://m.media-amazon.com/images/I/516OBygEerL._SL300_.jpg" alt="Cover of Leaders Eat Last" onerror="if(this.dataset.r&amp;&amp;this.src.indexOf(this.dataset.r)===-1){this.src=this.dataset.r}else{this.style.visibility='hidden'}">
+      <div>
+        <p class="sm-eyebrow">One-page summary &middot; 2 min read</p>
+        <h1 class="page-title">Leaders Eat Last</h1>
+        <p class="sm-sub">Why Some Teams Pull Together and Others Don&#x27;t</p>
+        <p class="sm-by">by Simon Sinek</p>
+        <p class="sm-meta">2020 &middot; 9h 23m audiobook &middot; &#9733; 4.7 Audible</p>
+      </div>
+    </header>
+
+    <section class="sm-idea"><h2>The big idea</h2><p>Great organizations build a Circle of Safety where leaders put their people&#x27;s wellbeing ahead of short-term numbers, and it&#x27;s this safety, not incentives or metrics, that makes people willingly trust, cooperate with, and perform for each other.</p></section>
+
+<section class="sm-tool"><span class="sm-label">Circle of Safety</span><blockquote>The Circle of Safety is the psychological boundary a leader draws around their team by absorbing external pressure and internal risk so people don&#x27;t have to protect themselves from each other. Inside it, people spend their energy on outside threats and opportunities instead of internal politics and self-protection. Sinek ties this to brain chemistry: cortisol rises when the circle feels threatened, while oxytocin and serotonin rise when people feel protected and valued.</blockquote><p>Sinek synthesizes this from existing evolutionary biology, anthropology, and neuroscience research rather than original studies of his own, it&#x27;s a popularization of the science, not new research.</p></section>
+
+    <section class="sm-ideas"><h2>Key ideas</h2><ol><li><h3>The Circle of Safety</h3><p>Leaders absorb danger and uncertainty from outside the group so people inside don&#x27;t turn on each other.</p></li><li><h3>Four leadership chemicals</h3><p>Endorphins and dopamine drive individual achievement and grit; serotonin and oxytocin drive social trust and bonding; cortisol signals danger and erodes trust when chronic.</p></li><li><h3>Empathy and distance</h3><p>As organizations scale and leaders grow physically or emotionally distant from front-line consequences, empathetic, responsible decision-making erodes.</p></li><li><h3>Abstraction and dehumanization</h3><p>Treating people as line items makes it psychologically easier to harm them.</p></li><li><h3>The addiction to more</h3><p>Chasing quarterly numbers and instant dopamine hits destabilizes the long-term trust and stability a culture needs.</p></li><li><h3>Leadership is a choice to serve, not a rank</h3><p>Real authority is granted by the people being led and is earned through sacrifice, not seniority or title.</p></li></ol></section>
+
+    <div class="sm-cols">
+      <section><h2>Try it this week</h2><ol class="sm-steps"><li>Before your next hard business decision, ask who bears the human cost and how you&#x27;d explain it to that person face to face.</li><li>Open one meeting this week by asking a team member how they&#x27;re actually doing before discussing tasks.</li><li>Identify one place your team is protecting itself internally rather than focusing outward, and address it directly.</li><li>Publicly credit someone else for a win this week instead of taking the credit yourself.</li></ol></section>
+      <section><h2>Is it for you?</h2><h3 class="sm-good">Best for</h3><ul><li>Leaders scaling a team past the point of knowing everyone personally</li><li>Managers wanting a values-first, culture-driven case for people-first leadership</li></ul><h3 class="sm-less">Less useful if</h3><ul><li>Readers wanting hands-on tactical scripts or a step-by-step how-to framework, this is narrative and philosophical rather than a workbook</li><li>Readers skeptical of pop-science framing may want to independently vet the simplified neuroscience claims</li></ul></section>
+    </div>
+
+<section class="sm-links"><h2>On this site</h2><div class="sm-chips"><a href="references.html#cat-leadstyle">Leadership Styles &amp; Principles</a></div></section>
+    <section class="sm-links sm-related"><h2>Pairs well with</h2><ul><li><a href="references.html#book-B0F71ZM8YL">Start with Why</a> <span>The same author&#x27;s companion book on communicating the purpose behind this kind of leadership</span></li><li><a href="references.html#book-B077BPKPZQ">The Culture Code</a> <span>A research-driven look at the same trust-and-safety dynamics inside high-performing groups</span></li></ul></section>
+
+    <footer class="sm-foot">
+      <a class="sm-buy" href="https://www.amazon.com/s?k=Simon+Sinek+Leaders+Eat+Last&amp;tag=phoenixjenn-20" target="_blank" rel="noopener">Find the book on Amazon</a>
+      <p>Original summary written for Plan &middot; Do &middot; Reflect. Prepared from the book&rsquo;s ideas and public summaries (<a href="https://readingraphics.com/book-summary-leaders-eat-last/" target="_blank" rel="noopener">ReadingGraphics book summary</a>, <a href="https://www.blinkist.com/en/books/leaders-eat-last-en" target="_blank" rel="noopener">Blinkist summary and review</a>), not a substitute for reading it. Links may earn a commission.</p>
+    </footer>
+  </article>
+</main>
+
+<footer class="site-footer">
+  <p>&copy; 2026 Plan-Do-Reflect. <a href="references.html">References &amp; further reading</a></p>
+</footer>
+
+<div class="theme-switch" role="group" aria-label="Style direction">
+  <button data-theme="a" title="Kinetic Signal — black &amp; yellow"></button>
+  <button data-theme="b" title="Studio Ledger — dusty rose"></button>
+  <button data-theme="c" title="Bright Margin — lime"></button>
+  <a class="icon-lib-link" href="icon-library.html" title="Style Guide (internal reference)">
+    <svg width="14" height="14" viewBox="0 0 14 14" aria-hidden="true">
+      <rect x="1" y="1" width="5" height="5" rx="1" fill="currentColor"/>
+      <rect x="8" y="1" width="5" height="5" rx="1" fill="currentColor"/>
+      <rect x="1" y="8" width="5" height="5" rx="1" fill="currentColor"/>
+      <rect x="8" y="8" width="5" height="5" rx="1" fill="currentColor"/>
+    </svg>
+  </a>
+  <a class="icon-lib-link" href="notes.html" title="Notes (working drafts)">
+    <svg width="14" height="14" viewBox="0 0 14 14" aria-hidden="true">
+      <rect x="2" y="1" width="10" height="12" rx="1.5" fill="none" stroke="currentColor" stroke-width="1.3"/>
+      <line x1="4.5" y1="5" x2="9.5" y2="5" stroke="currentColor" stroke-width="1.3" stroke-linecap="round"/>
+      <line x1="4.5" y1="7.5" x2="9.5" y2="7.5" stroke="currentColor" stroke-width="1.3" stroke-linecap="round"/>
+      <line x1="4.5" y1="10" x2="7.5" y2="10" stroke="currentColor" stroke-width="1.3" stroke-linecap="round"/>
+    </svg>
+  </a>
+  <a class="icon-lib-link" href="sitemap.html" title="Sitemap (working draft)">
+    <svg width="14" height="14" viewBox="0 0 14 14" aria-hidden="true">
+      <circle cx="7" cy="2.5" r="1.8" fill="none" stroke="currentColor" stroke-width="1.3"/>
+      <circle cx="3" cy="11" r="1.8" fill="none" stroke="currentColor" stroke-width="1.3"/>
+      <circle cx="11" cy="11" r="1.8" fill="none" stroke="currentColor" stroke-width="1.3"/>
+      <path d="M7 4.3 L7 7 M7 7 L3 9.5 M7 7 L11 9.5" stroke="currentColor" stroke-width="1.3" fill="none" stroke-linecap="round"/>
+    </svg>
+  </a>
+</div>
+
+<!-- Temporary brainstorm control — only restyles the main h1 (.content h1 / .hero-title / .page-title). Remove alongside
+     the "title-font experiment" CSS block and the extra Google Fonts link once
+     a title font is picked. -->
+<div class="title-font-picker">
+  <label for="title-font-select">Title font</label>
+  <button type="button" id="title-font-prev" class="title-font-nav" aria-label="Previous title font">‹</button>
+  <select id="title-font-select">
+    <optgroup label="Round 1 — headline character">
+      <option value="gabarito">Gabarito</option>
+      <option value="chivo">Chivo</option>
+    </optgroup>
+    <optgroup label="Round 2 — Calibri-adjacent">
+      <option value="golos-text">Golos Text</option>
+    </optgroup>
+    <option value="default">Theme default</option>
+  </select>
+  <button type="button" id="title-font-next" class="title-font-nav" aria-label="Next title font">›</button>
+</div>
+
+<script src="js/theme-toggle.js" defer></script>
+<script src="js/title-font-toggle.js" defer></script>
+</body>
+</html>

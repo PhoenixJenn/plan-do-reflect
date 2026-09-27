@@ -1,0 +1,77 @@
+{
+  "asin": "B002V01GWS",
+  "slug": "the-heart-of-change",
+  "read_time": "2 min read",
+  "big_idea": "People change their behavior less because they're given a compelling analysis and more because they're shown a vivid truth that changes how they feel, so successful change efforts have to appeal to emotion, not just logic.",
+  "tool": {
+    "label": "See-Feel-Change",
+    "text": "Instead of building the case for change through reports and data, Kotter and Cohen argue leaders should create a vivid, concrete experience that makes people feel the problem or opportunity directly, because emotion, not analysis, is what actually shifts behavior. Their signature example: rather than presenting a memo about wasteful purchasing, one leader piled 424 different glove types the company was separately buying onto a boardroom table, making the dysfunction impossible to ignore or rationalize away.",
+    "note": "The book is a direct companion to Kotter's Leading Change, it retells the same eight-step model through real-company stories, so the two books cover the same structure with a different emphasis."
+  },
+  "ideas": [
+    {
+      "title": "Show, don't tell",
+      "text": "Concrete, visual, or experiential evidence of a problem moves people to act faster than a written analysis does."
+    },
+    {
+      "title": "The eight steps, retold emotionally",
+      "text": "Each of Kotter's original eight change steps is reframed here around what people need to feel at each stage, not just do."
+    },
+    {
+      "title": "Storytelling for buy-in",
+      "text": "Communicating a vision through stories that speak to people's anxieties and aspirations builds commitment more effectively than one-way announcements."
+    },
+    {
+      "title": "Short-term wins build emotional momentum",
+      "text": "Visible early successes don't just prove the strategy works, they generate the confidence and energy needed to keep going."
+    },
+    {
+      "title": "Removing blinders",
+      "text": "Leaders have to actively counter both false urgency and complacency, comfort that blocks any urgency at all."
+    },
+    {
+      "title": "Culture change comes last, not first",
+      "text": "New behaviors have to visibly produce results before they get embedded into how we do things, so cultural change follows action rather than preceding it."
+    }
+  ],
+  "try_it": [
+    "Find one concrete, visual way to demonstrate a problem you're trying to fix instead of writing another memo about it.",
+    "Draft the emotional core of your change story: what do people stand to feel, pride, relief, excitement, if the change succeeds?",
+    "Identify a false-urgency or complacency blinder currently affecting your team, and name one action that would counter it.",
+    "Plan how you'll visibly celebrate your next short-term win in a way people will feel, not just read about in a status update."
+  ],
+  "best_for": [
+    "Leaders who have the analytical case for change but are struggling to get genuine buy-in",
+    "Anyone using Leading Change who wants real-company stories showing the emotional side of each step"
+  ],
+  "less_useful": [
+    "Readers who want a purely conceptual or analytical model rather than illustrative case narratives",
+    "Those looking for new frameworks beyond Kotter's original eight steps, since this book largely retells rather than extends them"
+  ],
+  "site_links": [
+    {
+      "label": "Change Management",
+      "href": "references.html#cat-change"
+    }
+  ],
+  "related": [
+    {
+      "asin": "B004YDJJEC",
+      "why": "The original, more analytical eight-step framework this book retells emotionally"
+    },
+    {
+      "asin": "B07F77R461",
+      "why": "A shorter, parable-style companion on the emotional side of facing change"
+    }
+  ],
+  "sources": [
+    {
+      "label": "Sobrief, The Heart of Change summary",
+      "href": "https://sobrief.com/books/the-heart-of-change"
+    },
+    {
+      "label": "What Will Matter, Worth Reading: Heart of Change",
+      "href": "https://whatwillmatter.com/2012/01/worth-reading-heart-of-change-by-john-p-kotter/"
+    }
+  ]
+}

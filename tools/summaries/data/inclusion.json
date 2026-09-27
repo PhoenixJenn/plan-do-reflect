@@ -1,0 +1,77 @@
+{
+  "asin": "B076PN6ZM7",
+  "slug": "inclusion",
+  "read_time": "2 min read",
+  "big_idea": "Building an inclusive workplace is a business imperative, not just a moral one; organizations that shift from command-and-control management to genuinely welcoming and valuing diverse talent become more resilient, innovative, and better positioned for the future of work.",
+  "tool": {
+    "label": "The Diversity & Inclusion Self-Assessment",
+    "text": "The book includes a self-assessment tool that helps readers evaluate their own organization's, and their own, inclusive leadership capabilities against time-tested strategies drawn from Fortune 500 implementations. It's designed as a starting diagnostic, helping a leader or team identify where they currently stand before applying the book's broader strategies for change.",
+    "note": "none"
+  },
+  "ideas": [
+    {
+      "title": "Diversity is defined broadly in the book",
+      "text": "Spanning identity, background, thought, style, approach, and experience, not just legally protected categories, widening what inclusion work actually covers."
+    },
+    {
+      "title": "Traditional command-and-control management styles actively work against inclusion",
+      "text": "Because they concentrate voice and decision-making in a few people rather than drawing on the whole team."
+    },
+    {
+      "title": "Diverse workforces are framed as more resilient, not just more innovative",
+      "text": "The argument is tied to organizational survival and adaptability, not only to creativity metrics."
+    },
+    {
+      "title": "Genuine inclusion requires moving past aspirational statements and diversity goals",
+      "text": "Into actual behavior change and implementation."
+    },
+    {
+      "title": "There's a reciprocal benefit to inclusion work",
+      "text": "As leaders make space for other people's identities and stories, they often uncover and better understand their own."
+    },
+    {
+      "title": "The book draws on time-tested strategies already implemented at Fortune 500 companies",
+      "text": "Positioning itself as practically grounded rather than purely theoretical."
+    }
+  ],
+  "try_it": [
+    "Take the book's self-assessment, or write your own honest version, of your inclusive leadership capabilities before starting any new diversity initiative.",
+    "Identify one recurring decision in your team where a command-and-control habit could be replaced with an actual group discussion this week.",
+    "In one upcoming meeting, track who speaks and for how long, then use that to actively invite input from those who spoke least.",
+    "Write down one goal your organization has stated about diversity, then identify a single concrete behavior change needed to move it from aspiration to practice."
+  ],
+  "best_for": [
+    "Executives and HR leaders looking for a business-case-driven argument for inclusion they can bring to leadership",
+    "Readers newer to DEI work who want foundational grounding before moving to more tactical books"
+  ],
+  "less_useful": [
+    "Readers who already know the business case for diversity and want granular, step-by-step tactics",
+    "Anyone looking for the most current statistics, since some data points reflect the book's original mid-2010s publication"
+  ],
+  "site_links": [
+    {
+      "label": "Culture & Psychological Safety",
+      "href": "references.html#cat-culture"
+    }
+  ],
+  "related": [
+    {
+      "asin": "B09GPX6PFJ",
+      "why": "A more tactical, step-by-step companion for implementing this book's business case"
+    },
+    {
+      "asin": "B09M6DZ8PL",
+      "why": "A broader, domain-by-domain look at where exclusion happens beyond the workplace"
+    }
+  ],
+  "sources": [
+    {
+      "label": "Jennifer Brown Speaks, official book page",
+      "href": "https://jenniferbrownspeaks.com/inclusion-book/"
+    },
+    {
+      "label": "Penn State Rock Ethics Institute, review",
+      "href": "https://implicitbias.psu.edu/2017/10/16/inclusion-diversity-the-new-workplace-the-will-to-change"
+    }
+  ]
+}

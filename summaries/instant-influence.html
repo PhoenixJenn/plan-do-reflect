@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="a">
+<head>
+<meta charset="UTF-8">
+<base href="../">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="icon" type="image/svg+xml" href="favicon.svg">
+<title>Instant Influence: One-page summary · Plan · Do · Reflect</title>
+
+<!-- Applied before CSS loads, so the saved theme / title-font choice doesn't flash to the default on reload -->
+<script>
+(function () {
+  try {
+    var savedTheme = localStorage.getItem('pdr-theme');
+    if (['a', 'b', 'c'].indexOf(savedTheme) > -1) {
+      document.documentElement.setAttribute('data-theme', savedTheme);
+    }
+    /* No saved choice yet means a first-time visitor — default them to Golos
+       Text rather than the theme's own heading font. Explicitly picking
+       "Theme default" in the picker stores the literal string 'default',
+       which is the one value that clears the override below. */
+    var savedTitleFont = localStorage.getItem('pdr-title-font');
+    var titleFont = savedTitleFont === null ? 'golos-text' : savedTitleFont;
+    if (titleFont !== 'default') {
+      document.documentElement.setAttribute('data-title-font', titleFont);
+    }
+  } catch (e) {}
+})();
+</script>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=Work+Sans:wght@400;500;600&family=Sora:wght@600;700;800&family=Plus+Jakarta+Sans:wght@500;600;700&family=Patrick+Hand&display=swap" rel="stylesheet">
+
+<!-- Title-font brainstorm candidates — temporary, for the .title-font-picker toggle only.
+     Remove this link once a title font is chosen and folded into tokens.css. -->
+<link href="https://fonts.googleapis.com/css2?family=Gabarito:wght@800&family=Chivo:wght@800&family=Golos+Text:wght@800&display=swap" rel="stylesheet">
+
+<link rel="stylesheet" href="css/tokens.css">
+<link rel="stylesheet" href="css/main.css">
+<link rel="stylesheet" href="css/summary.css">
+</head>
+<body>
+
+<header class="topnav">
+  <a class="logo" href="index.html">Plan·Do·Reflect</a>
+  <nav class="topnav-items">
+    <a class="item" href="framework.html">The Framework</a>
+    <a class="item" href="self-management.html">Self</a>
+    <a class="item" href="team.html">Team</a>
+    <a class="item" href="organization.html">Organization</a>
+    <a class="item" href="core-skills.html">Core Skills</a>
+    <a class="item active" href="references.html">References</a>
+  </nav>
+</header>
+
+<main class="sm">
+  <p class="sm-crumb"><a href="references.html">References &amp; Further Reading</a> &rsaquo; One-page summary</p>
+  <article class="sm-page">
+    <header class="sm-head">
+      <img class="sm-cover" src="images/covers/B004Y6M18U.jpg" data-r="https://m.media-amazon.com/images/I/51dTcSvoJtL._SL300_.jpg" alt="Cover of Instant Influence" onerror="if(this.dataset.r&amp;&amp;this.src.indexOf(this.dataset.r)===-1){this.src=this.dataset.r}else{this.style.visibility='hidden'}">
+      <div>
+        <p class="sm-eyebrow">One-page summary &middot; 2 min read</p>
+        <h1 class="page-title">Instant Influence</h1>
+        <p class="sm-sub">How to Get Anyone to Do Anything--Fast</p>
+        <p class="sm-by">by Michael Pantalon</p>
+        <p class="sm-meta">2011 &middot; 6h 57m audiobook &middot; &#9733; 4.5 Audible</p>
+      </div>
+    </header>
+
+    <section class="sm-idea"><h2>The big idea</h2><p>People are far more persuadable when they discover and voice their own reasons for changing than when they&#x27;re told to change; a short structured series of questions grounded in motivational interviewing can unlock existing, if buried, motivation in minutes.</p></section>
+
+<section class="sm-tool"><span class="sm-label">The 6-Question Instant Influence Method</span><blockquote>Ask, in order: on a scale of 1-10, how ready are you to do X; why didn&#x27;t you pick a lower number; imagine you did decide to do it, what would be the positive outcomes; why are those outcomes important to you personally; what&#x27;s the next step, if any. The pivot question, why not a lower number, is the core mechanism: it forces the person to generate their own reasons for change out loud, which is more persuasive than being handed reasons by someone else.</blockquote><p>Pantalon adapts this from established Motivational Interviewing research developed by Miller and Rollnick; he condensed it into this six-question version rather than originating MI itself.</p></section>
+
+    <section class="sm-ideas"><h2>Key ideas</h2><ol><li><h3>Psychological Reactance</h3><p>Telling someone what to do, even about something they&#x27;d otherwise enjoy, triggers instinctive resistance; preserving their sense of choice is what makes the questions work.</p></li><li><h3>Everyone Has Some Readiness</h3><p>Even a 1 or 2 on a readiness scale is never a true zero; the method finds and amplifies that small existing spark rather than manufacturing motivation from nothing.</p></li><li><h3>The Paradoxical Question</h3><p>Asking why didn&#x27;t you choose a lower number is more effective than why should you change, because it has the person defend the change rather than defend the status quo.</p></li><li><h3>Speed Matters</h3><p>The technique is designed to work in about seven minutes, making it usable in real-world moments rather than requiring a lengthy session.</p></li><li><h3>From Talk to Commitment</h3><p>The later questions push past insight toward a concrete next step, turning verbalized motivation into an actual, time-bound action.</p></li><li><h3>Works Across Contexts</h3><p>Developed in clinical and addiction-treatment settings, Pantalon extends the approach to parenting, sales, and workplace situations.</p></li></ol></section>
+
+    <div class="sm-cols">
+      <section><h2>Try it this week</h2><ol class="sm-steps"><li>Next time you need someone, or yourself, to act, ask the readiness question first, 1 to 10, how ready are you, before making any argument for why they should do it.</li><li>When you get a number, follow immediately with why not a lower number and just listen, resisting the urge to add your own reasons.</li><li>Use the method on yourself for one task you&#x27;ve been avoiding this week, writing your own answers down.</li><li>End any change conversation you have this week with what&#x27;s the next step, if any, instead of assigning the next step yourself.</li></ol></section>
+      <section><h2>Is it for you?</h2><h3 class="sm-good">Best for</h3><ul><li>Managers, coaches, and parents needing a fast technique for one-on-one conversations</li><li>People who find they over-argue to persuade others and get resistance in return</li></ul><h3 class="sm-less">Less useful if</h3><ul><li>Readers looking for organizational or large-scale change strategy rather than individual conversations</li><li>Can feel scripted or manipulative if used without genuine curiosity about the other person&#x27;s answer</li></ul></section>
+    </div>
+
+<section class="sm-links"><h2>On this site</h2><div class="sm-chips"><a href="references.html#cat-influence">Influence &amp; Persuasion</a></div></section>
+    <section class="sm-links sm-related"><h2>Pairs well with</h2><ul><li><a href="references.html#book-B01N22A4JH">How to Do Motivational Interviewing</a> <span>The full motivational-interviewing framework this book&#x27;s questions are condensed from</span></li><li><a href="references.html#book-0063097796">Influence</a> <span>A broader catalog of the psychological levers behind why the readiness question works</span></li></ul></section>
+
+    <footer class="sm-foot">
+      <a class="sm-buy" href="https://www.amazon.com/s?k=Michael+Pantalon+Instant+Influence&amp;tag=phoenixjenn-20" target="_blank" rel="noopener">Find the book on Amazon</a>
+      <p>Original summary written for Plan &middot; Do &middot; Reflect. Prepared from the book&rsquo;s ideas and public summaries (<a href="https://instituteofcoaching.org/resources/instant-influence-michael-pantalons-6-questions-7-minutes" target="_blank" rel="noopener">Institute of Coaching resource summary</a>, <a href="https://legacy.heroic.us/pn/instant-influence-michael-pantalon" target="_blank" rel="noopener">Heroic book summary</a>), not a substitute for reading it. Links may earn a commission.</p>
+    </footer>
+  </article>
+</main>
+
+<footer class="site-footer">
+  <p>&copy; 2026 Plan-Do-Reflect. <a href="references.html">References &amp; further reading</a></p>
+</footer>
+
+<div class="theme-switch" role="group" aria-label="Style direction">
+  <button data-theme="a" title="Kinetic Signal — black &amp; yellow"></button>
+  <button data-theme="b" title="Studio Ledger — dusty rose"></button>
+  <button data-theme="c" title="Bright Margin — lime"></button>
+  <a class="icon-lib-link" href="icon-library.html" title="Style Guide (internal reference)">
+    <svg width="14" height="14" viewBox="0 0 14 14" aria-hidden="true">
+      <rect x="1" y="1" width="5" height="5" rx="1" fill="currentColor"/>
+      <rect x="8" y="1" width="5" height="5" rx="1" fill="currentColor"/>
+      <rect x="1" y="8" width="5" height="5" rx="1" fill="currentColor"/>
+      <rect x="8" y="8" width="5" height="5" rx="1" fill="currentColor"/>
+    </svg>
+  </a>
+  <a class="icon-lib-link" href="notes.html" title="Notes (working drafts)">
+    <svg width="14" height="14" viewBox="0 0 14 14" aria-hidden="true">
+      <rect x="2" y="1" width="10" height="12" rx="1.5" fill="none" stroke="currentColor" stroke-width="1.3"/>
+      <line x1="4.5" y1="5" x2="9.5" y2="5" stroke="currentColor" stroke-width="1.3" stroke-linecap="round"/>
+      <line x1="4.5" y1="7.5" x2="9.5" y2="7.5" stroke="currentColor" stroke-width="1.3" stroke-linecap="round"/>
+      <line x1="4.5" y1="10" x2="7.5" y2="10" stroke="currentColor" stroke-width="1.3" stroke-linecap="round"/>
+    </svg>
+  </a>
+  <a class="icon-lib-link" href="sitemap.html" title="Sitemap (working draft)">
+    <svg width="14" height="14" viewBox="0 0 14 14" aria-hidden="true">
+      <circle cx="7" cy="2.5" r="1.8" fill="none" stroke="currentColor" stroke-width="1.3"/>
+      <circle cx="3" cy="11" r="1.8" fill="none" stroke="currentColor" stroke-width="1.3"/>
+      <circle cx="11" cy="11" r="1.8" fill="none" stroke="currentColor" stroke-width="1.3"/>
+      <path d="M7 4.3 L7 7 M7 7 L3 9.5 M7 7 L11 9.5" stroke="currentColor" stroke-width="1.3" fill="none" stroke-linecap="round"/>
+    </svg>
+  </a>
+</div>
+
+<!-- Temporary brainstorm control — only restyles the main h1 (.content h1 / .hero-title / .page-title). Remove alongside
+     the "title-font experiment" CSS block and the extra Google Fonts link once
+     a title font is picked. -->
+<div class="title-font-picker">
+  <label for="title-font-select">Title font</label>
+  <button type="button" id="title-font-prev" class="title-font-nav" aria-label="Previous title font">‹</button>
+  <select id="title-font-select">
+    <optgroup label="Round 1 — headline character">
+      <option value="gabarito">Gabarito</option>
+      <option value="chivo">Chivo</option>
+    </optgroup>
+    <optgroup label="Round 2 — Calibri-adjacent">
+      <option value="golos-text">Golos Text</option>
+    </optgroup>
+    <option value="default">Theme default</option>
+  </select>
+  <button type="button" id="title-font-next" class="title-font-nav" aria-label="Next title font">›</button>
+</div>
+
+<script src="js/theme-toggle.js" defer></script>
+<script src="js/title-font-toggle.js" defer></script>
+</body>
+</html>

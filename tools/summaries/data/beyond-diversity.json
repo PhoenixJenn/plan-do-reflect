@@ -1,0 +1,77 @@
+{
+  "asin": "B09M6DZ8PL",
+  "slug": "beyond-diversity",
+  "read_time": "2 min read",
+  "big_idea": "Real inclusion progress happens when people move past abstract conversations about diversity and instead examine, domain by domain, media, family, education, workplace, technology, government, where exclusion actually occurs, then apply a repeatable process to design something better.",
+  "tool": {
+    "label": "The Current Picture / What's Possible / What It Takes Framework",
+    "text": "Each of the book's 12 chapters follows the same three-part structure: first describing the current picture of where inclusion breaks down in that domain, then painting what's possible if it were fixed, then laying out concretely what it takes to get there. The consistent structure turns diversity from one abstract topic into 12 specific, actionable problem spaces.",
+    "note": "The framework and content were built from a crowdsourced research process; the authors synthesized insights from 203 experts, 75% from underrepresented groups, across 53 discussion sessions rather than relying on their own opinions alone."
+  },
+  "ideas": [
+    {
+      "title": "Diversity work is organized by life domain",
+      "text": "Rather than by identity category, so readers can find the area most relevant to their own role."
+    },
+    {
+      "title": "Underrepresentation in media and storytelling shapes bias long before people reach the workplace",
+      "text": "Making narrative one of the least obvious but most powerful levers for change."
+    },
+    {
+      "title": "Tokenism can reinforce the very biases it's meant to fix",
+      "text": "Unless paired with actual decision-making power."
+    },
+    {
+      "title": "Funding and pipeline gaps are structural barriers",
+      "text": "That block underrepresented people well before culture fit ever becomes an issue."
+    },
+    {
+      "title": "Dominant cultures have historically suppressed minority customs and languages through assimilation",
+      "text": "Undoing that requires active cultural recovery, not just passive tolerance."
+    },
+    {
+      "title": "The book is designed for group learning",
+      "text": "Each chapter ends with discussion questions, reflecting the authors' view that inclusion progress is inherently collaborative."
+    }
+  ],
+  "try_it": [
+    "Pick one of the book's 12 domains most relevant to your own work, read just that chapter first, and apply its what it takes section to one decision you're currently making.",
+    "Audit one piece of media, marketing material, or internal communication your organization produced recently for whose stories and images are represented and whose are missing.",
+    "Identify one talent pipeline or entry program you could open up or point an underrepresented candidate toward this month.",
+    "Use the book's discussion questions with your team or a small group instead of reading it solo, since it's built for shared conversation."
+  ],
+  "best_for": [
+    "Teams or classrooms wanting a structured, discussion-friendly curriculum on inclusion across many life domains",
+    "Readers who want concrete, sector-specific examples rather than one unified theory"
+  ],
+  "less_useful": [
+    "Readers wanting deep expertise in a single domain, since covering 12 domains means each gets relatively brief treatment",
+    "Anyone looking for a fast, single-sitting read, given its wide scope and workbook-like structure"
+  ],
+  "site_links": [
+    {
+      "label": "Culture & Psychological Safety",
+      "href": "references.html#cat-culture"
+    }
+  ],
+  "related": [
+    {
+      "asin": "B09GPX6PFJ",
+      "why": "A more step-by-step companion workbook for auditing your own workplace's practices"
+    },
+    {
+      "asin": "B076PN6ZM7",
+      "why": "An earlier business-case-driven book on the same broad inclusion agenda"
+    }
+  ],
+  "sources": [
+    {
+      "label": "Non-Obvious, official book site",
+      "href": "https://nonobvious.com/beyond-diversity"
+    },
+    {
+      "label": "Simon & Schuster, publisher page",
+      "href": "https://www.simonandschuster.com/books/Beyond-Diversity/Rohit-Bhargava/9781646871094"
+    }
+  ]
+}

@@ -1,0 +1,77 @@
+{
+  "asin": "B002V0JWP6",
+  "slug": "creating-magic",
+  "read_time": "2 min read",
+  "big_idea": "Great customer experiences are not created by focusing on customers first, they're the byproduct of leadership that makes employees feel respected, valued, and equipped to do great work, which in turn drives guest satisfaction and business results.",
+  "tool": {
+    "label": "RAVE (Respect, Appreciate, Value Everyone)",
+    "text": "RAVE is Cockerell's shorthand for treating every employee, regardless of role or rank, as genuinely important to the operation. In practice it means involving frontline staff in decisions that affect them, thanking people specifically and often, and building a culture where custodians and executives are held to the same standard of respect. It's paired with a companion idea, free fuel, appreciation, recognition, encouragement, for motivating people at zero cost.",
+    "note": "Different summaries render the acronym slightly differently, so treat the acronym's exact letters as a memory aid rather than a verbatim quote from the book."
+  },
+  "ideas": [
+    {
+      "title": "The Disney Leadership Formula",
+      "text": "Cockerell frames leadership as a chain, leadership quality produces employee excellence, which produces guest satisfaction, which drives business results, arguing most leaders wrongly start the chain at the customer instead of the employee."
+    },
+    {
+      "title": "Break the Mold",
+      "text": "Leaders should regularly question inherited organizational structures and processes rather than assuming how we've always done it is still the right design."
+    },
+    {
+      "title": "Make Your People Your Brand",
+      "text": "Hire people who are as good as or better than you, and involve your team in hiring decisions rather than treating it as solely a manager's call."
+    },
+    {
+      "title": "Create Magic Through Training",
+      "text": "Training is framed as a core leadership responsibility, not an HR checkbox, how well people are trained directly shows up in customer experience."
+    },
+    {
+      "title": "Eliminate Hassles",
+      "text": "When something goes wrong, ask what went wrong before who failed, fixing broken processes instead of defaulting to blame."
+    },
+    {
+      "title": "Learn the Truth",
+      "text": "Leaders need multiple, honest channels of information, since formal reporting chains tend to filter out bad news."
+    }
+  ],
+  "try_it": [
+    "Ask three frontline employees this week, what's one hassle in your day I could remove, and act on at least one answer.",
+    "Give one specific, no-cost piece of recognition, naming exactly what someone did well, to a team member today.",
+    "Spend 30 minutes this week walking your team's actual workspace with no agenda except listening.",
+    "Find one process that currently blames individuals when it fails, and redesign the process itself instead."
+  ],
+  "best_for": [
+    "New and mid-level managers who want concrete, service-culture leadership habits",
+    "Leaders in hospitality, retail, or other customer-facing industries"
+  ],
+  "less_useful": [
+    "Leaders seeking an academic or research-based leadership theory",
+    "Readers in highly technical or research-driven fields who may find the Disney-park analogies a stretch"
+  ],
+  "site_links": [
+    {
+      "label": "Leadership Styles & Principles",
+      "href": "references.html#cat-leadstyle"
+    }
+  ],
+  "related": [
+    {
+      "asin": "B01MZ6RMS4",
+      "why": "A complementary framework for the direct, caring feedback this kind of respect-driven culture depends on"
+    },
+    {
+      "asin": "B077BPKPZQ",
+      "why": "A research-backed look at the small daily cues that build this kind of workplace culture"
+    }
+  ],
+  "sources": [
+    {
+      "label": "SuperSummary: Creating Magic Summary",
+      "href": "https://www.supersummary.com/creating-magic/summary/"
+    },
+    {
+      "label": "MindTools: Creating Magic",
+      "href": "https://www.mindtools.com/a2sn312/creating-magic"
+    }
+  ]
+}

@@ -1,0 +1,67 @@
+{
+  "asin": "B0F4NRP9T2",
+  "slug": "the-7-habits-of-highly-successful-leaders",
+  "read_time": "1 min read",
+  "big_idea": "Per the author's own description, Nawaz frames leadership scaling as an architectural and structural problem rather than a behavioral one, his stated thesis is what happens when behaviour is no longer enough, arguing leaders must redesign systems and decision rights around themselves rather than simply try harder or adopt better habits.",
+  "tool": {
+    "label": "The Constraint Self-Audit (as described by the author)",
+    "text": "According to the author's own writing, one habit involves leaders explicitly identifying where they personally have become the constraint, the bottleneck the organization depends on, and then re-designing workflows and decision rights so fewer decisions require their direct involvement.",
+    "note": "Independent verification was not possible. No reputable third-party book-summary sites, professional reviews, or substantive Goodreads coverage were found for this specific, self-published title, only Amazon retail listings and the author's own promotional Medium posts. Worse, two of the author's own Medium posts describe the book's seven habits completely differently from each other, which undermines confidence in what the book actually contains. The content here reflects only what the author himself has publicly claimed, is unverified by any independent source, and should be treated with caution, and should not be confused with Stephen Covey's well-established The 7 Habits of Highly Effective People."
+  },
+  "ideas": [
+    {
+      "title": "Seeing yourself as the constraint",
+      "text": "One of the author's stated habits is recognizing when a leader has personally become the bottleneck the team depends on."
+    },
+    {
+      "title": "Designing before deciding",
+      "text": "The author describes building systems that reduce how many decisions require the leader's personal involvement, rather than making more decisions faster."
+    },
+    {
+      "title": "Letting power travel away from you",
+      "text": "A stated habit of distributing authority to wherever information exists rather than wherever formal rank sits."
+    },
+    {
+      "title": "Making yourself non-essential",
+      "text": "The author frames the end-goal habit as designing an organization that functions without depending on the leader's ongoing presence."
+    }
+  ],
+  "try_it": [
+    "Before adopting further specifics from this book, look for a library copy, sample chapter, or independent review to verify its content matches the author's own description.",
+    "If you do read it, list the decisions in your own team that currently require your personal sign-off and ask which ones could be reassigned."
+  ],
+  "best_for": [
+    "Readers specifically curious how the author positions this book against Covey's classic",
+    "Anyone who understands going in that it's self-published and largely unreviewed"
+  ],
+  "less_useful": [
+    "Anyone wanting an independently vetted or widely reviewed leadership text, since none could be found",
+    "Readers who might confuse this for Stephen Covey's well-established The 7 Habits of Highly Effective People"
+  ],
+  "site_links": [
+    {
+      "label": "Leadership Styles & Principles",
+      "href": "references.html#cat-leadstyle"
+    }
+  ],
+  "related": [
+    {
+      "asin": "B09MGC94DG",
+      "why": "A far more independently established, laws-based leadership framework for comparison"
+    },
+    {
+      "asin": "B0786WJCDC",
+      "why": "A well-documented alternative on scaling a leader's own development"
+    }
+  ],
+  "sources": [
+    {
+      "label": "Amazon listing",
+      "href": "https://www.amazon.com/Habits-Highly-Successful-Leaders-Indispensable/dp/B0DB16LX3C"
+    },
+    {
+      "label": "Author's own Medium post: The 7 Habits Showdown",
+      "href": "https://medium.com/@moenawaz/the-7-habits-showdown-why-coveys-timeless-wisdom-needed-a-modern-update-933a18761021"
+    }
+  ]
+}

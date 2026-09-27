@@ -1,0 +1,67 @@
+{
+  "asin": "B096KYWQLP",
+  "slug": "the-art-of-strategic-decision-making",
+  "read_time": "1 min read",
+  "big_idea": "Good strategic decisions under pressure come from recognizing and correcting the subconscious shortcuts and biases that cause either analysis paralysis or rushed choices, using structured frameworks to decide quickly, intelligently, and safely.",
+  "tool": {
+    "label": "The WRAP Method (as applied in the book)",
+    "text": "A four-step check before finalizing a decision: Widen your options beyond the first ones that come to mind, Reality-test your assumptions against outside evidence, Attain distance before deciding, and Prepare to be wrong by naming in advance what would signal the decision is failing. The book applies this sequence to help readers avoid both impulsive and paralyzed choices.",
+    "note": "Peter Hollins publishes a large catalog of similarly-titled self-help books, and independent verification of this specific title was limited to consistent retailer and publisher descriptions rather than a full third-party book-summary site, so the content below reflects only what's directly confirmed across those sources. The WRAP framework itself originates in Chip and Dan Heath's book Decisive; this book applies and repackages it rather than originating it."
+  },
+  "ideas": [
+    {
+      "title": "Decision fatigue",
+      "text": "Repeated decision-making depletes mental resources over a day, making later choices more impulsive or lower-quality."
+    },
+    {
+      "title": "Six Thinking Hats",
+      "text": "Deliberately rotating through different perspectives, facts, emotion, caution, optimism, creativity, process, before settling on a decision."
+    },
+    {
+      "title": "Cognitive and decision traps",
+      "text": "The book catalogs a set of specific biases and traps that distort judgment when decisions must be made under pressure."
+    },
+    {
+      "title": "Pros/cons list optimization",
+      "text": "Refining the traditional pros-and-cons list so it accounts for weighting and likelihood, not just a raw tally."
+    }
+  ],
+  "try_it": [
+    "Before your next hard decision, run it explicitly through Widen, Reality-test, Attain distance, Prepare to be wrong.",
+    "Notice when you're deciding late in a long, decision-heavy day and defer non-urgent choices to a fresher moment where possible."
+  ],
+  "best_for": [
+    "Readers wanting a short, direct, tactic-focused primer on decision frameworks",
+    "Those newer to decision-science concepts who want an accessible, condensed entry point"
+  ],
+  "less_useful": [
+    "Readers who already know frameworks like WRAP or Six Thinking Hats from their original sources",
+    "Anyone wanting heavily-cited, research-driven depth rather than a practical, condensed self-help treatment"
+  ],
+  "site_links": [
+    {
+      "label": "Decision-Making",
+      "href": "references.html#cat-decisions"
+    }
+  ],
+  "related": [
+    {
+      "asin": "B01D24NLWO",
+      "why": "A deeper, research-driven treatment of making good decisions under uncertainty"
+    },
+    {
+      "asin": "B0C1HLWXS2",
+      "why": "A workplace-focused companion on the assumption-checking habits behind good decisions"
+    }
+  ],
+  "sources": [
+    {
+      "label": "Amazon product listing",
+      "href": "https://www.amazon.com/Art-Strategic-Decision-Making-Decisions-Intelligently/dp/1647432847"
+    },
+    {
+      "label": "Goodreads book page",
+      "href": "https://www.goodreads.com/book/show/58148950-the-art-of-strategic-decision-making"
+    }
+  ]
+}

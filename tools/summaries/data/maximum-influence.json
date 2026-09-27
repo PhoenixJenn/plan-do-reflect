@@ -1,0 +1,77 @@
+{
+  "asin": "B00DBBK9K6",
+  "slug": "maximum-influence",
+  "read_time": "2 min read",
+  "big_idea": "Persuasion is a learnable, morally neutral skill built on a consistent set of psychological laws governing how people decide, and stacking multiple laws together in a single interaction dramatically increases the odds of a yes.",
+  "tool": {
+    "label": "The Law of Dissonance (Consistency Principle)",
+    "text": "People have a deep need to keep their actions consistent with previously stated attitudes and commitments; once a small initial commitment is secured, even a verbal agreement or minor written yes, the discomfort of acting inconsistently with it pulls people toward larger, related requests later. Mortensen frames this as especially reliable because it works through internal psychological pressure rather than external argument.",
+    "note": "This principle overlaps substantially with Robert Cialdini's earlier consistency and commitment principle from Influence; Mortensen presents it as one of his twelve laws without crediting a single named originator."
+  },
+  "ideas": [
+    {
+      "title": "Law of Obligation",
+      "text": "People feel a strong pull to repay favors, gifts, or concessions, so giving something of value first tends to be reciprocated."
+    },
+    {
+      "title": "Law of Social Validation",
+      "text": "People look to others' behavior, especially similar peers, to decide what's correct in ambiguous situations."
+    },
+    {
+      "title": "Law of Scarcity",
+      "text": "Options perceived as limited or time-bound are valued more highly and motivate faster decisions."
+    },
+    {
+      "title": "Law of Verbal Packaging",
+      "text": "The specific words, framing, and story used to present an idea change how persuasive it is, independent of the offer's substance."
+    },
+    {
+      "title": "Law of Contrast",
+      "text": "A choice or price presented immediately after a more extreme comparison point is judged very differently than in isolation."
+    },
+    {
+      "title": "Law of Involvement",
+      "text": "Getting people to actively participate makes them more invested in the outcome than passively receiving information."
+    }
+  ],
+  "try_it": [
+    "Before your next ask, get one small, explicit agreement from the other person first, then build your larger request on top of it.",
+    "Test a because or story-based frame for a request you'd normally state as a flat instruction.",
+    "Present your main option next to a clearly less attractive alternative to create a contrast effect before your next proposal.",
+    "Notice one place this week where you could highlight genuine scarcity, a real deadline or limited slots, rather than an artificial one."
+  ],
+  "best_for": [
+    "Salespeople, marketers, and negotiators wanting a broad toolkit of classic persuasion principles",
+    "Readers who like numbered, checklist-style frameworks"
+  ],
+  "less_useful": [
+    "Readers who've already read Cialdini's Influence closely, since several laws cover similar ground under different names",
+    "Anyone uncomfortable with a frankly sales- and self-interest-oriented framing"
+  ],
+  "site_links": [
+    {
+      "label": "Influence & Persuasion",
+      "href": "references.html#cat-influence"
+    }
+  ],
+  "related": [
+    {
+      "asin": "0063097796",
+      "why": "The earlier, more thoroughly researched book several of these laws draw from"
+    },
+    {
+      "asin": "B01JB2JQE8",
+      "why": "A closer look at the moment right before a request that makes these laws land"
+    }
+  ],
+  "sources": [
+    {
+      "label": "getAbstract summary",
+      "href": "https://www.getabstract.com/en/summary/maximum-influence/4126"
+    },
+    {
+      "label": "12min blog summary",
+      "href": "https://blog.12min.com/maximum-influence-summary/"
+    }
+  ]
+}

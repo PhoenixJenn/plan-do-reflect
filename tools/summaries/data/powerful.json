@@ -1,0 +1,77 @@
+{
+  "asin": "B078F6154Q",
+  "slug": "powerful",
+  "read_time": "2 min read",
+  "big_idea": "McCord argues most HR practices, annual reviews, engagement perks, approval chains, exist to manage the assumption that employees can't be trusted, and that treating people like responsible adults with full information produces a more honest culture and better performance.",
+  "tool": {
+    "label": "The Keeper Test",
+    "text": "Managers are told to regularly ask, of each person on their team, if this person told me they were leaving for a similar job elsewhere, would I fight to keep them. If the honest answer is no, McCord argues the manager owes that person a severance package and the chance to find a role where the answer would be yes, rather than keeping them in a job that isn't a strong fit.",
+    "note": "The keeper test is closely associated with Netflix's original culture deck, which McCord co-created as Chief Talent Officer; it appears in both this book and Reed Hastings' No Rules Rules, so treat it as a shared Netflix-era artifact rather than unique to either author."
+  },
+  "ideas": [
+    {
+      "title": "Business is a team, not a family",
+      "text": "McCord explicitly rejects the we're a family metaphor, arguing it obscures the transactional, performance-based nature of employment."
+    },
+    {
+      "title": "Radical financial transparency",
+      "text": "Netflix shared profit-and-loss details broadly with employees so business decisions, including layoffs, were understandable rather than a surprise handed down from above."
+    },
+    {
+      "title": "Managers own hiring, not HR",
+      "text": "The hiring manager, not a centralized HR function, should be accountable for finding, interviewing, and deciding on their own hires."
+    },
+    {
+      "title": "Kill the annual review",
+      "text": "Formal, once-a-year performance reviews are replaced with frequent, specific, in-the-moment feedback modeled on how sports coaches talk to athletes."
+    },
+    {
+      "title": "Pay people what they're worth in the market",
+      "text": "Rather than standardized bands, McCord advocates researching what a role would pay elsewhere and matching it."
+    },
+    {
+      "title": "Communicate the why relentlessly",
+      "text": "McCord argues leaders chronically under-explain business reasoning, and that repeating context until it feels excessive is usually still the right amount."
+    }
+  ],
+  "try_it": [
+    "Apply the keeper test silently to each of your direct reports this week and note where the honest answer surprises you.",
+    "Share one piece of financial or strategic context with your team this week that you'd normally keep at the manager level.",
+    "Replace your next scheduled check-in with specific, actionable feedback on one recent piece of work, delivered the way a coach would.",
+    "If you're hiring, write the job requirements yourself this week instead of handing the task entirely to a recruiter."
+  ],
+  "best_for": [
+    "HR and people leaders questioning whether their performance-management process actually improves performance",
+    "Managers who want McCord's more personal, HR-practitioner take alongside Hastings' CEO-level account"
+  ],
+  "less_useful": [
+    "Anyone needing legal or compliance-safe HR practice, since some recommendations create documentation and legal exposure many companies can't accept",
+    "Not aimed at unionized or heavily regulated workplaces"
+  ],
+  "site_links": [
+    {
+      "label": "Culture & Psychological Safety",
+      "href": "references.html#cat-culture"
+    }
+  ],
+  "related": [
+    {
+      "asin": "1984891170",
+      "why": "The CEO-level companion account of the same Netflix culture"
+    },
+    {
+      "asin": "B00CDVYKUA",
+      "why": "A complementary look at how a new leader should assess and build their team"
+    }
+  ],
+  "sources": [
+    {
+      "label": "Blinkist summary and review",
+      "href": "https://www.blinkist.com/en/books/powerful-en"
+    },
+    {
+      "label": "Powerful book summary, BrainyHR",
+      "href": "https://brainyhr.io/blog/patty-mccord-powerful-book-summary.html"
+    }
+  ]
+}

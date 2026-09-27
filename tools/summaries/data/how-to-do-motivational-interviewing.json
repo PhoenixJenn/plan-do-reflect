@@ -1,0 +1,67 @@
+{
+  "asin": "B01N22A4JH",
+  "slug": "how-to-do-motivational-interviewing",
+  "read_time": "1 min read",
+  "big_idea": "Motivational Interviewing (MI) is a collaborative, client-centered counseling style for strengthening a person's own motivation for change by exploring and resolving their ambivalence, rather than persuading, lecturing, or arguing them into it.",
+  "tool": {
+    "label": "OARS",
+    "text": "OARS stands for Open-ended questions, Affirmations, Reflective listening, and Summarizing, the four core communication skills MI practitioners use to draw out a client's own reasons for change. Reflective listening in particular means restating what the person said, sometimes surfacing a deeper meaning, rather than debating or advising, which keeps the person talking and thinking instead of getting defensive.",
+    "note": "This is a short, self-published guidebook with very limited independent secondary coverage; the author, Bill Matulich, is independently verifiable as a real, practicing clinical psychologist and long-time member of the Motivational Interviewing Network of Trainers, but the book's specific content beyond its own publisher description could not be independently verified through outside reviews, so treat the specifics below as drawn from his verified professional background and the established MI framework rather than independent analysis of his unique text."
+  },
+  "ideas": [
+    {
+      "title": "Spirit of MI",
+      "text": "The underlying stance of partnership, acceptance, compassion, and evocation matters more than any single technique."
+    },
+    {
+      "title": "Change talk vs. sustain talk",
+      "text": "Practitioners learn to listen for and reinforce a person's own statements favoring change rather than over-focusing on their resistance."
+    },
+    {
+      "title": "The righting reflex",
+      "text": "The instinct to argue, persuade, or fix someone tends to backfire by triggering defensiveness; MI trains practitioners to resist it."
+    },
+    {
+      "title": "Practical session structure",
+      "text": "The guidebook covers preparing for sessions, assessing a person's readiness to change, working with resistance, and framing questions that elicit change talk."
+    }
+  ],
+  "try_it": [
+    "In your next conversation where you want someone to change, ask one open-ended question and then simply reflect back what they say instead of offering a solution.",
+    "Notice one moment this week you feel the urge to fix or persuade someone, and pause before acting on it."
+  ],
+  "best_for": [
+    "Managers, coaches, or clinicians who need to have change conversations with people who feel judged or lectured",
+    "Anyone managing a team member who is resistant to a needed change"
+  ],
+  "less_useful": [
+    "Readers wanting a broad leadership philosophy book, this is a narrow clinical-communication skills manual",
+    "Readers wanting a widely-reviewed bestseller with extensive independent critical coverage"
+  ],
+  "site_links": [
+    {
+      "label": "Leadership Styles & Principles",
+      "href": "references.html#cat-leadstyle"
+    }
+  ],
+  "related": [
+    {
+      "asin": "B004Y6M18U",
+      "why": "A faster, six-question version of a similar motivational-interviewing approach"
+    },
+    {
+      "asin": "0593290097",
+      "why": "A complementary framework for the feedback conversations that often follow this kind of listening"
+    }
+  ],
+  "sources": [
+    {
+      "label": "Motivational Interviewing Network of Trainers, William Matulich profile",
+      "href": "https://motivationalinterviewing.org/profile/williammatulich"
+    },
+    {
+      "label": "Apple Books listing",
+      "href": "https://books.apple.com/us/book/how-to-do-motivational-interviewing-a-guidebook-for/id543048543"
+    }
+  ]
+}

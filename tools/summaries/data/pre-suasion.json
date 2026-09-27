@@ -1,0 +1,77 @@
+{
+  "asin": "B01JB2JQE8",
+  "slug": "pre-suasion",
+  "read_time": "2 min read",
+  "big_idea": "The moments and context immediately before you make a request shape whether it succeeds more than the content of the request itself, because whatever holds someone's attention right before a decision gets treated as disproportionately relevant to that decision.",
+  "tool": {
+    "label": "Privileged Moments (Pre-Suasive Priming)",
+    "text": "Deliberately create a brief window right before your actual ask where you direct the other person's attention toward an idea, question, or image that primes the response you want, for example asking someone about times they've been generous right before requesting a donation. Because people assume whatever occupies their attention in that moment is meaningfully connected to the decision at hand, the primed concept quietly increases receptiveness to the request that follows.",
+    "note": "none"
+  },
+  "ideas": [
+    {
+      "title": "Attention Equals Importance",
+      "text": "People treat whatever currently has their focused attention as more causally important to a decision than it may actually be, why what happens right before an ask matters so much."
+    },
+    {
+      "title": "Association Networks",
+      "text": "Words, images, and environmental cues activate linked concepts in memory; a communicator can shape a decision by triggering associated ideas rather than only presenting direct arguments."
+    },
+    {
+      "title": "Unity as an Added Principle",
+      "text": "Beyond Cialdini's original six principles of influence, Pre-Suasion introduces Unity, shared identity, as an especially strong driver of cooperation."
+    },
+    {
+      "title": "Commitment Devices",
+      "text": "When people take an action requiring effort or self-authorship, such as writing their own appointment reminder, the resulting behavior change is more durable."
+    },
+    {
+      "title": "Language and Environment of Attention",
+      "text": "Subtle cues, specific survey wording, a background image, or a room's physical arrangement, can shift decisions well before any persuasive argument is made."
+    },
+    {
+      "title": "Ethical Guardrails",
+      "text": "Cialdini emphasizes that pre-suasive techniques should highlight genuinely relevant, true features of an offer, distinguishing legitimate priming from deceptive manipulation."
+    }
+  ],
+  "try_it": [
+    "Before your next important ask, plan one specific question or comment to raise 60 seconds beforehand that primes the value most relevant to your request.",
+    "Audit one piece of your own environment for what it's unintentionally priming.",
+    "Have someone write their own reminder or commitment in their own words instead of you providing it for them.",
+    "Before asking for a favor this week, ask a short lead-in question that gets the person thinking about a relevant value first."
+  ],
+  "best_for": [
+    "Marketers, negotiators, and communicators who already understand basic persuasion principles and want the setup layer that precedes them",
+    "Readers of Cialdini's earlier Influence looking for the follow-up"
+  ],
+  "less_useful": [
+    "Readers new to persuasion research who haven't read Cialdini's original Influence, since this book builds on that foundation",
+    "Not a book of scripts or one-liners, so it reads more research-dense than tactical"
+  ],
+  "site_links": [
+    {
+      "label": "Influence & Persuasion",
+      "href": "references.html#cat-influence"
+    }
+  ],
+  "related": [
+    {
+      "asin": "0063097796",
+      "why": "Cialdini's original six principles this book builds on"
+    },
+    {
+      "asin": "B00DBBK9K6",
+      "why": "A broader catalog of persuasion laws that overlaps with several ideas here"
+    }
+  ],
+  "sources": [
+    {
+      "label": "Reading Graphics book summary",
+      "href": "https://readingraphics.com/book-summary-pre-suasion/"
+    },
+    {
+      "label": "Shortform summary",
+      "href": "https://www.shortform.com/summary/pre-suasion-summary-robert-cialdini"
+    }
+  ]
+}

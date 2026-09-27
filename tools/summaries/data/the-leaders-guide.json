@@ -1,0 +1,67 @@
+{
+  "asin": "B07K8X8P3F",
+  "slug": "the-leaders-guide",
+  "read_time": "1 min read",
+  "big_idea": "Established organizations, not just startups, can and must practice continuous innovation, and doing so requires leaders to build new management systems, accounting, staffing, incentives, rather than simply running more experiments inside an unchanged bureaucracy.",
+  "tool": {
+    "label": "Innovation Accounting",
+    "text": "Ries argues traditional financial accounting can't fairly judge early-stage innovation projects, since by design they haven't proven a business model yet. He proposes leaders create a separate, explicit accounting framework for innovation teams, one that measures validated learning and progress toward de-risking a hypothesis, so those teams aren't killed prematurely by being held to the same metrics as mature business lines.",
+    "note": "This title began life as a 2015 Kickstarter backer-exclusive audio release and was later published more broadly as an Audible Original audiobook, a shorter, practitioner-focused companion to Ries's Lean Startup work rather than a fully independent book; it received far less independent press coverage than The Lean Startup, so content below is drawn from the publisher's own description and one independent blog review."
+  },
+  "ideas": [
+    {
+      "title": "Perpetual reinvention",
+      "text": "Successful organizations are, by their own success, sowing the seeds of eventual disruption, leaders must treat continuous change as normal, not exceptional."
+    },
+    {
+      "title": "Continuous transformation, not a one-time initiative",
+      "text": "Practicing ongoing innovation requires ongoing organizational change in parallel, not a single innovation lab bolted onto an unchanged structure."
+    },
+    {
+      "title": "Balancing speed and vision",
+      "text": "Leaders must decide how much to expose early, unfinished products to real customers without compromising quality or long-term vision."
+    },
+    {
+      "title": "Engaging functional partners early",
+      "text": "IT, HR, legal, and finance need to be brought in as innovation partners from the start, not treated as approval gates at the end."
+    }
+  ],
+  "try_it": [
+    "Draft one alternative metric, beyond revenue, you could use to judge a new initiative's progress this quarter, something that measures learning, not just output.",
+    "Identify one functional partner you typically loop in last, and invite them into your next early-stage project conversation instead."
+  ],
+  "best_for": [
+    "Leaders inside large, established organizations trying to build internal innovation capability",
+    "Managers already familiar with Lean Startup basics looking for implementation-level guidance"
+  ],
+  "less_useful": [
+    "Not a good starting point for anyone new to Lean Startup concepts, it assumes familiarity with Ries's earlier framework",
+    "Its audiobook-first origin means the print and formatting experience is less polished than a book written for the page"
+  ],
+  "site_links": [
+    {
+      "label": "Leadership Styles & Principles",
+      "href": "references.html#cat-leadstyle"
+    }
+  ],
+  "related": [
+    {
+      "asin": "B005LXV0HI",
+      "why": "The author's earlier, foundational book this guide assumes readers already know"
+    },
+    {
+      "asin": "B00UVX3HRE",
+      "why": "A complementary look at restructuring a large organization to move and learn faster"
+    }
+  ],
+  "sources": [
+    {
+      "label": "Audible: The Leader's Guide by Eric Ries",
+      "href": "https://www.audible.com/pd/The-Leaders-Guide-Audiobook/B07K8X8P3F"
+    },
+    {
+      "label": "Edison Growth: Book Review of The Leader's Guide",
+      "href": "https://www.edisongrowth.com.au/books/general-business-books/book-review-of-the-leaders-guide-by-eric-ries/"
+    }
+  ]
+}

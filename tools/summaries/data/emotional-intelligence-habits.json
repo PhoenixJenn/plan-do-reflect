@@ -1,0 +1,77 @@
+{
+  "asin": "B0C8PY2XLV",
+  "slug": "emotional-intelligence-habits",
+  "read_time": "2 min read",
+  "big_idea": "Building on Bradberry's earlier EQ 2.0 framework, this book argues that high-EQ people share a specific set of daily habits, not just insight, across sleep, self-awareness, body language, conflict, and life balance, and that these habits, more than raw intelligence, predict success.",
+  "tool": {
+    "label": "The Habit-Stacking Approach to EQ (Emotion, Impulse, and Social Journals)",
+    "text": "Rather than a single test-and-strategy cycle, the book recommends keeping short daily journals to build EQ habits: an emotion journal (trigger, feeling, reaction), an impulse journal (impulsive decisions and their triggers, used to practice delaying gratification), and a social journal (interactions and the nonverbal cues you noticed in others). The idea is that writing these down repeatedly turns one-off insight into an automatic habit.",
+    "note": "This is a synthesis drawn from third-party chapter summaries of the book rather than a single named framework the publisher promotes as a trademarked tool, so treat the journal names as descriptive rather than the author's exact terminology."
+  },
+  "ideas": [
+    {
+      "title": "Sleep as an EQ foundation",
+      "text": "The book treats consistent sleep (regular wake times, cutting afternoon caffeine, limiting blue light, cooling the bedroom) as a prerequisite for emotional regulation, not a separate wellness topic."
+    },
+    {
+      "title": "Self-awareness is real-time, not retrospective",
+      "text": "The habit is catching your emotional state as it's happening, not just reflecting on it afterward."
+    },
+    {
+      "title": "Body language is a two-way skill",
+      "text": "High-EQ people both read others' nonverbal cues and consciously manage their own, since nonverbal signals shape how colleagues perceive competence."
+    },
+    {
+      "title": "Conflict tolerance correlates with advancement",
+      "text": "The book cites research linking how gracefully someone handles workplace conflict to career progression."
+    },
+    {
+      "title": "Life balance is framed as a performance lever, not a trade-off",
+      "text": "The claim is that integrating renewal and relationships into a demanding career improves performance rather than diluting it."
+    },
+    {
+      "title": "Emotionally intelligent people still feel friction",
+      "text": "The book is explicit that high EQ doesn't mean an absence of stress or conflict, it means handling the same friction with more poise."
+    }
+  ],
+  "try_it": [
+    "Pick one weeknight this week to set a fixed wind-down time and cut caffeine after noon, then note the next morning whether your emotional reactivity feels different.",
+    "For three days, keep a one-line impulse journal, write down any decision made in the heat of the moment and what triggered it.",
+    "In your next disagreement at work, consciously pause for three seconds before responding, and note afterward whether that changed the outcome.",
+    "Send one specific, personal appreciation note to a colleague or direct report this week instead of a generic thanks."
+  ],
+  "best_for": [
+    "Readers who already know the basic EQ framework and want daily-habit mechanics",
+    "People who like journaling-based self-improvement systems"
+  ],
+  "less_useful": [
+    "Readers wanting a first introduction to emotional intelligence theory",
+    "Anyone looking for a rigorously peer-reviewed research base rather than a practitioner-style pop-business synthesis"
+  ],
+  "site_links": [
+    {
+      "label": "Emotional Intelligence & Self-Knowledge",
+      "href": "references.html#cat-eq"
+    }
+  ],
+  "related": [
+    {
+      "asin": "B003HU6KLI",
+      "why": "The original framework this book turns into daily habits"
+    },
+    {
+      "asin": "B01MZ6RMS4",
+      "why": "A complementary read on turning EQ into direct, caring feedback conversations"
+    }
+  ],
+  "sources": [
+    {
+      "label": "Shortform book summary",
+      "href": "https://www.shortform.com/summary/emotional-intelligence-habits-summary-travis-bradberry"
+    },
+    {
+      "label": "Blinkist key-ideas summary",
+      "href": "https://www.blinkist.com/en/books/emotional-intelligence-habits-en"
+    }
+  ]
+}

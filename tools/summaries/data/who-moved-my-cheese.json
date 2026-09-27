@@ -1,0 +1,77 @@
+{
+  "asin": "B07F77R461",
+  "slug": "who-moved-my-cheese",
+  "read_time": "2 min read",
+  "big_idea": "Told as a simple parable about two mice and two littlepeople searching a maze for cheese, the book argues that change is inevitable, and the people who thrive are the ones who anticipate it, let go of what worked before quickly, and move toward the new situation instead of clinging to the old one.",
+  "tool": {
+    "label": "The Wall Writings",
+    "text": "As the character Haw searches the maze for new cheese, he writes short reflections on the walls as he goes, tracking his own shift from denial to action, lines like old beliefs do not lead you to new cheese and movement in a new direction helps you find new cheese. The device works as a simple self-coaching tool: writing down the insight in the moment it's learned, so it can be revisited later or shared with others facing the same maze.",
+    "note": "none"
+  },
+  "ideas": [
+    {
+      "title": "Change is coming whether you're ready or not",
+      "text": "The story opens with the shared cheese supply disappearing without warning, standing in for any disruption that arrives regardless of preparation."
+    },
+    {
+      "title": "Two responses to loss",
+      "text": "Sniff and Scurry react instinctively and start searching immediately, while Hem and Haw overthink, deny, and delay, illustrating two default styles of handling disruption."
+    },
+    {
+      "title": "Anticipate change before it happens",
+      "text": "Smell the cheese often is the book's shorthand for regularly checking whether your current situation is still working, instead of waiting for it to disappear."
+    },
+    {
+      "title": "Fear is often the real obstacle",
+      "text": "Haw recognizes that his fear of the unknown maze, more than the actual search, is what's kept him stuck at the empty cheese station."
+    },
+    {
+      "title": "Movement precedes clarity",
+      "text": "Haw finds that taking action, moving into the maze, reduces his fear faster than waiting until he feels ready does."
+    },
+    {
+      "title": "Letting go of how it used to be",
+      "text": "Hem's refusal to leave the empty station represents the cost of holding onto outdated assumptions about how things are supposed to work."
+    }
+  ],
+  "try_it": [
+    "Write one wall writing of your own: a single sentence capturing a lesson you've learned from a recent change you resisted.",
+    "Pick one area of your work or life and smell the cheese this week, actively check for early signs it may be about to change.",
+    "Name one fear that's keeping you at an empty cheese station and take one small step into the unknown despite it.",
+    "Identify a colleague or friend playing Hem in a current situation and share the parable's core question with them: what would you do if you weren't afraid?"
+  ],
+  "best_for": [
+    "Individuals or teams facing an imminent, concrete change who want a quick, shareable framing rather than a deep framework",
+    "Readers who respond well to parable and allegory format over business-book prose"
+  ],
+  "less_useful": [
+    "Readers or employees skeptical of corporate messaging, since critics have characterized the book as convenient downsizing propaganda",
+    "Anyone wanting practical tactics rather than a motivational allegory"
+  ],
+  "site_links": [
+    {
+      "label": "Change Management",
+      "href": "references.html#cat-change"
+    }
+  ],
+  "related": [
+    {
+      "asin": "B01F47CEN4",
+      "why": "A similar business fable on organizations, rather than individuals, adapting to change"
+    },
+    {
+      "asin": "B09V1X5QC1",
+      "why": "A more research-grounded look at staying calm and adaptive under the same kind of pressure"
+    }
+  ],
+  "sources": [
+    {
+      "label": "Wikipedia, Who Moved My Cheese?",
+      "href": "https://en.wikipedia.org/wiki/Who_Moved_My_Cheese"
+    },
+    {
+      "label": "ClickUp, Who Moved My Cheese Summary",
+      "href": "https://clickup.com/blog/who-moved-my-cheese-summary/"
+    }
+  ]
+}

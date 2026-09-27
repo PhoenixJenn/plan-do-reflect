@@ -1,0 +1,77 @@
+{
+  "asin": "1469081393",
+  "slug": "being-the-boss",
+  "read_time": "2 min read",
+  "big_idea": "Becoming a genuinely effective manager is a difficult, learned developmental journey, not a natural extension of being good at your own work, that requires mastering three simultaneous imperatives: managing yourself, your network, and your team.",
+  "tool": {
+    "label": "The Three Imperatives Framework",
+    "text": "Hill and Lineback organize management development into three simultaneous, ongoing jobs: Manage Yourself (developing the self-awareness, values, and character that shape how you lead), Manage Your Network (building the web of lateral and upward relationships needed to get things done across organizational boundaries), and Manage Your Team (creating a real team with shared purpose, not just a set of one-on-one relationships with direct reports). The authors argue new managers instinctively focus only on the third and neglect the first two, which is why so many struggle.",
+    "note": "none"
+  },
+  "ideas": [
+    {
+      "title": "Management Is Not About You",
+      "text": "New managers often cling to being the top individual performer; the required shift is from personal achievement to enabling others' achievement, which many find identity-threatening."
+    },
+    {
+      "title": "The Paradoxes of Management",
+      "text": "Effective managers hold competing tensions at once, for example being both close to and appropriately distant from direct reports, rather than resolving them into one simple style."
+    },
+    {
+      "title": "Network Isn't Optional",
+      "text": "Building relationships with peers, other departments, and superiors is core management work, not a political distraction from real managing."
+    },
+    {
+      "title": "Team Versus Group of Individuals",
+      "text": "A collection of strong one-on-one relationships with direct reports isn't the same as a team; leaders must deliberately build shared identity, norms, and collective goals."
+    },
+    {
+      "title": "Trust Rests on Competence and Character",
+      "text": "People extend trust to a manager based on demonstrated capability plus consistent, principled behavior, losing either undermines authority."
+    },
+    {
+      "title": "Leaders as Gardeners",
+      "text": "The authors use a gardener metaphor for senior leadership, cultivating conditions for others to grow, rather than directing every outcome personally."
+    }
+  ],
+  "try_it": [
+    "Write down one belief or habit from your individual-contributor days that you're still holding onto as a manager, and name what you'd need to let go of.",
+    "Map your current network of peer and cross-functional relationships and identify one important connection you've been neglecting.",
+    "Ask your direct reports this week what they believe the team's shared purpose is, and compare the answers for consistency.",
+    "Identify one management paradox you're currently experiencing and name explicitly how you're balancing it rather than picking one side."
+  ],
+  "best_for": [
+    "New and first-time people managers navigating the transition from individual contributor",
+    "Managers who feel they're doing everything right one-on-one but the team still isn't functioning well collectively"
+  ],
+  "less_useful": [
+    "Very senior executives looking for enterprise-level strategy content, since the focus is on the frontline management transition",
+    "Readers wanting a quick tactical checklist rather than a research-grounded, case-study-heavy treatment"
+  ],
+  "site_links": [
+    {
+      "label": "Leadership Styles & Principles",
+      "href": "references.html#cat-leadstyle"
+    }
+  ],
+  "related": [
+    {
+      "asin": "B00CDVYKUA",
+      "why": "A companion guide to the first 90 days of the same management transition"
+    },
+    {
+      "asin": "B002V08E64",
+      "why": "A closer look at building the real team this book argues new managers neglect"
+    }
+  ],
+  "sources": [
+    {
+      "label": "Harvard Business Review Press product page",
+      "href": "https://store.hbr.org/product/being-the-boss-with-a-new-preface-the-3-imperatives-for-becoming-a-great-leader/10239"
+    },
+    {
+      "label": "Networlding review by Bob Morris",
+      "href": "https://networlding.com/being-the-boss-a-book-review-by-bob-morris/"
+    }
+  ]
+}

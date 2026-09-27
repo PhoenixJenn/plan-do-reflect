@@ -1,0 +1,67 @@
+{
+  "asin": "B0C1KWHFKG",
+  "slug": "hbr-ei-influence-persuasion",
+  "read_time": "1 min read",
+  "big_idea": "Influence and persuasion are learnable, research-backed skills built on both broad frameworks and small, specific tactics, and this HBR collection's throughline is that emotional appeal, not just logic and data, is often what makes a persuasive message land.",
+  "tool": {
+    "label": "Cialdini's Principles of Persuasion (as applied in the collection)",
+    "text": "The anthology includes Robert Cialdini's Harnessing the Science of Persuasion, which lays out research-based levers of influence such as reciprocity, social proof, authority, consistency, liking, and scarcity. The collection frames these as tools to combine deliberately, for example pairing a small favor with visible evidence that respected peers already agree, rather than relying on any single lever alone.",
+    "note": "Cialdini's principles are broader work of his own reprinted and summarized in this HBR article; this booklet is not the original source of the framework, just one place it's collected."
+  },
+  "ideas": [
+    {
+      "title": "Influence has identifiable components",
+      "text": "One piece breaks influence down into specific components leaders can practice individually rather than treating it as one vague trait."
+    },
+    {
+      "title": "A handwritten note measurably increases compliance",
+      "text": "One piece cites research that adding a small personal touch to a routine request significantly raises the odds someone follows through."
+    },
+    {
+      "title": "Charisma can be taught, not just inherited",
+      "text": "Specific, learnable behaviors, like using rhetorical devices and confident nonverbal delivery, create the perception of charisma."
+    },
+    {
+      "title": "Storytelling changes how people receive information",
+      "text": "A well-told story bypasses resistance that a fact-based pitch alone triggers, because it engages emotion alongside logic."
+    }
+  ],
+  "try_it": [
+    "In your next request for help or buy-in, add one small personal touch, a handwritten note or a specific personal reference, rather than sending a generic ask.",
+    "Pick one recurring update or proposal and rewrite it once as pure data and once as a short story, then decide which fits the audience and stakes better."
+  ],
+  "best_for": [
+    "Managers who want tactical, article-length techniques for a specific presentation, pitch, or negotiation",
+    "People who want Cialdini's persuasion research summarized alongside practical workplace applications"
+  ],
+  "less_useful": [
+    "Readers wanting a single coherent authorial voice or a from-scratch education in persuasion theory",
+    "Anyone uncomfortable with the collection's frank how-to-get-people-to-say-yes framing"
+  ],
+  "site_links": [
+    {
+      "label": "Emotional Intelligence & Self-Knowledge",
+      "href": "references.html#cat-eq"
+    }
+  ],
+  "related": [
+    {
+      "asin": "0063097796",
+      "why": "Cialdini's full-length treatment of the same six persuasion principles"
+    },
+    {
+      "asin": "B01JB2JQE8",
+      "why": "Cialdini's follow-up on shaping the moments right before an ask"
+    }
+  ],
+  "sources": [
+    {
+      "label": "HBR Store product page and table of contents",
+      "href": "https://store.hbr.org/product/influence-and-persuasion-hbr-emotional-intelligence-series/10165"
+    },
+    {
+      "label": "Duarte.com book review",
+      "href": "https://www.duarte.com/blog/book-review-influence-persuasion-hbr-emotional-intelligence-series/"
+    }
+  ]
+}

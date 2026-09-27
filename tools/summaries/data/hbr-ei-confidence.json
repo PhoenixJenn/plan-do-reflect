@@ -1,0 +1,67 @@
+{
+  "asin": "B0BQZD7C3J",
+  "slug": "hbr-ei-confidence",
+  "read_time": "1 min read",
+  "big_idea": "Confidence is a buildable skill rather than a fixed trait: the collected HBR articles argue that it comes from deliberate practice, mental preparation, and honest self-assessment, and that both too little confidence and too much undermine leadership effectiveness.",
+  "tool": {
+    "label": "The Confidence-Competence Practice Loop",
+    "text": "Several articles in the collection converge on the same mechanism: confidence grows from a cycle of attempting a task, getting feedback, and incrementally improving competence, not from positive thinking alone. Applied version: set a small, specific challenge slightly outside your comfort zone, get real feedback on the attempt, and repeat, so confidence tracks actual demonstrated skill rather than outrunning it.",
+    "note": "This is not a single-author book but an HBR-curated anthology of previously published articles by different contributors, so treat the synthesis below as common threads across its articles rather than one author's unified claim."
+  },
+  "ideas": [
+    {
+      "title": "Imposter syndrome is near-universal",
+      "text": "Even highly accomplished professionals routinely doubt their qualifications, and normalizing this doubt, rather than treating it as a personal flaw, is the first step to managing it."
+    },
+    {
+      "title": "The beginner's bubble is a real risk",
+      "text": "Research cited in the collection found novices sometimes rate their own performance far higher than actual performance, showing early overconfidence can block real learning."
+    },
+    {
+      "title": "Mental preparation techniques from athletes transfer to work",
+      "text": "Visualization, controlled breathing, positive self-talk, and pre-performance rituals are presented as ways to manage performance anxiety before high-stakes moments."
+    },
+    {
+      "title": "Confidence and competence aren't the same thing",
+      "text": "One widely cited piece asks why so many incompetent people become leaders, arguing organizations often mistake confident behavior for actual competence."
+    }
+  ],
+  "try_it": [
+    "Before your next presentation, use one athlete-style ritual: a two-minute breathing routine plus a specific visualization of the opening thirty seconds going well.",
+    "Identify one task this week where your actual skill likely exceeds your stated confidence, and consciously advocate for yourself as capably as you'd advocate for a colleague."
+  ],
+  "best_for": [
+    "Managers who want short, article-length reads on a single theme rather than a full book",
+    "People specifically wrestling with imposter syndrome or preparing for a high-stakes presentation or interview"
+  ],
+  "less_useful": [
+    "Readers wanting one continuous argument or narrative voice, since this is a multi-author anthology",
+    "Anyone wanting deep academic rigor on confidence research rather than HBR's magazine-style practitioner treatment"
+  ],
+  "site_links": [
+    {
+      "label": "Emotional Intelligence & Self-Knowledge",
+      "href": "references.html#cat-eq"
+    }
+  ],
+  "related": [
+    {
+      "asin": "B0BJ7N3QXZ",
+      "why": "A companion HBR EI volume on the related skill of leadership presence"
+    },
+    {
+      "asin": "0593555570",
+      "why": "A complementary look at using regret, rather than confidence alone, to guide better decisions"
+    }
+  ],
+  "sources": [
+    {
+      "label": "HBR Store product page and table of contents",
+      "href": "https://store.hbr.org/product/confidence-hbr-emotional-intelligence-series/10228"
+    },
+    {
+      "label": "O'Reilly Learning platform listing",
+      "href": "https://www.oreilly.com/library/view/confidence-hbr-emotional/9781633696655/"
+    }
+  ]
+}

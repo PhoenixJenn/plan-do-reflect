@@ -1,0 +1,77 @@
+{
+  "asin": "0593555570",
+  "slug": "the-power-of-regret",
+  "read_time": "2 min read",
+  "big_idea": "Regret isn't a mistake to avoid, it's a universal, valuable emotion that, when examined rather than suppressed, reveals what people truly value and can be converted into better future decisions.",
+  "tool": {
+    "label": "The Four Core Regrets Framework",
+    "text": "Pink's analysis of tens of thousands of regrets worldwide finds they cluster into four categories: Foundation regrets (failing to do the steady work), Boldness regrets (not taking a chance), Moral regrets (choosing wrong over right in an ethical moment), and Connection regrets (letting a relationship lapse without reaching out). Each maps to a core human need, stability, growth, goodness, and love, so naming which type a regret falls into clarifies what to actually change.",
+    "note": "none"
+  },
+  "ideas": [
+    {
+      "title": "No regrets is bad advice",
+      "text": "Suppressing or denying regret forfeits its value as a signal of what matters."
+    },
+    {
+      "title": "Regret is an upward counterfactual",
+      "text": "Imagining a better alternative past deliberately makes you feel worse now so you perform better later."
+    },
+    {
+      "title": "Four regret categories map to four core needs",
+      "text": "Stability, growth, goodness, and love."
+    },
+    {
+      "title": "A three-step process for using regret productively",
+      "text": "Self-disclosure, self-compassion, and self-distancing, analyzing it as an advisor would, then extracting a lesson."
+    },
+    {
+      "title": "Regrets of inaction outlast regrets of action",
+      "text": "Over time people regret chances not taken more than mistakes made, because inaction leaves the what-if unresolved."
+    },
+    {
+      "title": "Regret is nearly universal",
+      "text": "Large surveys find the vast majority of people report regret regularly."
+    }
+  ],
+  "try_it": [
+    "Write down one specific regret in a few sentences, as if describing it to a friend, then name which of the four categories it fits.",
+    "For one connection regret, send a specific, low-stakes message this week to the person you've lost touch with.",
+    "Pick one recurring foundation regret and commit to one small, concrete weekly habit that addresses it.",
+    "Next time you feel regret, reframe the question from why did I do that to what would I tell a friend in this situation."
+  ],
+  "best_for": [
+    "Anyone facing a decision point who wants a structured way to learn from past choices",
+    "Leaders and coaches wanting a research-backed vocabulary for reflection"
+  ],
+  "less_useful": [
+    "Readers wanting a purely tactical business framework rather than a psychology-and-research narrative",
+    "Those in acute grief or crisis, for whom the reflective exercises may feel premature"
+  ],
+  "site_links": [
+    {
+      "label": "Executive Presence",
+      "href": "references.html#cat-presence"
+    }
+  ],
+  "related": [
+    {
+      "asin": "B09HW8D56M",
+      "why": "An older, contrasting classic on the power of looking forward rather than back"
+    },
+    {
+      "asin": "B00839289G",
+      "why": "A complementary framework for auditing whether your life's priorities match how you actually spend your time"
+    }
+  ],
+  "sources": [
+    {
+      "label": "Dan Pink's official book page",
+      "href": "https://www.danpink.com/books/the-power-of-regret/"
+    },
+    {
+      "label": "Four Minute Books summary",
+      "href": "https://fourminutebooks.com/the-power-of-regret-summary/"
+    }
+  ]
+}

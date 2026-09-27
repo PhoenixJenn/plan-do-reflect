@@ -1,0 +1,77 @@
+{
+  "asin": "0593291352",
+  "slug": "leaders-eat-last",
+  "read_time": "2 min read",
+  "big_idea": "Great organizations build a Circle of Safety where leaders put their people's wellbeing ahead of short-term numbers, and it's this safety, not incentives or metrics, that makes people willingly trust, cooperate with, and perform for each other.",
+  "tool": {
+    "label": "Circle of Safety",
+    "text": "The Circle of Safety is the psychological boundary a leader draws around their team by absorbing external pressure and internal risk so people don't have to protect themselves from each other. Inside it, people spend their energy on outside threats and opportunities instead of internal politics and self-protection. Sinek ties this to brain chemistry: cortisol rises when the circle feels threatened, while oxytocin and serotonin rise when people feel protected and valued.",
+    "note": "Sinek synthesizes this from existing evolutionary biology, anthropology, and neuroscience research rather than original studies of his own, it's a popularization of the science, not new research."
+  },
+  "ideas": [
+    {
+      "title": "The Circle of Safety",
+      "text": "Leaders absorb danger and uncertainty from outside the group so people inside don't turn on each other."
+    },
+    {
+      "title": "Four leadership chemicals",
+      "text": "Endorphins and dopamine drive individual achievement and grit; serotonin and oxytocin drive social trust and bonding; cortisol signals danger and erodes trust when chronic."
+    },
+    {
+      "title": "Empathy and distance",
+      "text": "As organizations scale and leaders grow physically or emotionally distant from front-line consequences, empathetic, responsible decision-making erodes."
+    },
+    {
+      "title": "Abstraction and dehumanization",
+      "text": "Treating people as line items makes it psychologically easier to harm them."
+    },
+    {
+      "title": "The addiction to more",
+      "text": "Chasing quarterly numbers and instant dopamine hits destabilizes the long-term trust and stability a culture needs."
+    },
+    {
+      "title": "Leadership is a choice to serve, not a rank",
+      "text": "Real authority is granted by the people being led and is earned through sacrifice, not seniority or title."
+    }
+  ],
+  "try_it": [
+    "Before your next hard business decision, ask who bears the human cost and how you'd explain it to that person face to face.",
+    "Open one meeting this week by asking a team member how they're actually doing before discussing tasks.",
+    "Identify one place your team is protecting itself internally rather than focusing outward, and address it directly.",
+    "Publicly credit someone else for a win this week instead of taking the credit yourself."
+  ],
+  "best_for": [
+    "Leaders scaling a team past the point of knowing everyone personally",
+    "Managers wanting a values-first, culture-driven case for people-first leadership"
+  ],
+  "less_useful": [
+    "Readers wanting hands-on tactical scripts or a step-by-step how-to framework, this is narrative and philosophical rather than a workbook",
+    "Readers skeptical of pop-science framing may want to independently vet the simplified neuroscience claims"
+  ],
+  "site_links": [
+    {
+      "label": "Leadership Styles & Principles",
+      "href": "references.html#cat-leadstyle"
+    }
+  ],
+  "related": [
+    {
+      "asin": "B0F71ZM8YL",
+      "why": "The same author's companion book on communicating the purpose behind this kind of leadership"
+    },
+    {
+      "asin": "B077BPKPZQ",
+      "why": "A research-driven look at the same trust-and-safety dynamics inside high-performing groups"
+    }
+  ],
+  "sources": [
+    {
+      "label": "ReadingGraphics book summary",
+      "href": "https://readingraphics.com/book-summary-leaders-eat-last/"
+    },
+    {
+      "label": "Blinkist summary and review",
+      "href": "https://www.blinkist.com/en/books/leaders-eat-last-en"
+    }
+  ]
+}

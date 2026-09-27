@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="a">
+<head>
+<meta charset="UTF-8">
+<base href="../">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="icon" type="image/svg+xml" href="favicon.svg">
+<title>Louder Than Words: One-page summary · Plan · Do · Reflect</title>
+
+<!-- Applied before CSS loads, so the saved theme / title-font choice doesn't flash to the default on reload -->
+<script>
+(function () {
+  try {
+    var savedTheme = localStorage.getItem('pdr-theme');
+    if (['a', 'b', 'c'].indexOf(savedTheme) > -1) {
+      document.documentElement.setAttribute('data-theme', savedTheme);
+    }
+    /* No saved choice yet means a first-time visitor — default them to Golos
+       Text rather than the theme's own heading font. Explicitly picking
+       "Theme default" in the picker stores the literal string 'default',
+       which is the one value that clears the override below. */
+    var savedTitleFont = localStorage.getItem('pdr-title-font');
+    var titleFont = savedTitleFont === null ? 'golos-text' : savedTitleFont;
+    if (titleFont !== 'default') {
+      document.documentElement.setAttribute('data-title-font', titleFont);
+    }
+  } catch (e) {}
+})();
+</script>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=Work+Sans:wght@400;500;600&family=Sora:wght@600;700;800&family=Plus+Jakarta+Sans:wght@500;600;700&family=Patrick+Hand&display=swap" rel="stylesheet">
+
+<!-- Title-font brainstorm candidates — temporary, for the .title-font-picker toggle only.
+     Remove this link once a title font is chosen and folded into tokens.css. -->
+<link href="https://fonts.googleapis.com/css2?family=Gabarito:wght@800&family=Chivo:wght@800&family=Golos+Text:wght@800&display=swap" rel="stylesheet">
+
+<link rel="stylesheet" href="css/tokens.css">
+<link rel="stylesheet" href="css/main.css">
+<link rel="stylesheet" href="css/summary.css">
+</head>
+<body>
+
+<header class="topnav">
+  <a class="logo" href="index.html">Plan·Do·Reflect</a>
+  <nav class="topnav-items">
+    <a class="item" href="framework.html">The Framework</a>
+    <a class="item" href="self-management.html">Self</a>
+    <a class="item" href="team.html">Team</a>
+    <a class="item" href="organization.html">Organization</a>
+    <a class="item" href="core-skills.html">Core Skills</a>
+    <a class="item active" href="references.html">References</a>
+  </nav>
+</header>
+
+<main class="sm">
+  <p class="sm-crumb"><a href="references.html">References &amp; Further Reading</a> &rsaquo; One-page summary</p>
+  <article class="sm-page">
+    <header class="sm-head">
+      <img class="sm-cover" src="images/covers/B00CFND1RE.jpg" data-r="https://m.media-amazon.com/images/I/51MRbyUYr2L._SL300_.jpg" alt="Cover of Louder Than Words" onerror="if(this.dataset.r&amp;&amp;this.src.indexOf(this.dataset.r)===-1){this.src=this.dataset.r}else{this.style.visibility='hidden'}">
+      <div>
+        <p class="sm-eyebrow">One-page summary &middot; 2 min read</p>
+        <h1 class="page-title">Louder Than Words</h1>
+        <p class="sm-sub">Take Your Career from Average to Exceptional with the Hidden Power of Nonverbal Intelligence</p>
+        <p class="sm-by">by Joe Navarro, Toni Sciarra Poynter</p>
+        <p class="sm-meta">2013 &middot; 6h 49m audiobook &middot; &#9733; 4.5 Audible</p>
+      </div>
+    </header>
+
+    <section class="sm-idea"><h2>The big idea</h2><p>Nonverbal communication, posture, gesture, facial expression, and appearance, is a distinct form of intelligence that most professionals underuse, and Navarro, a former FBI agent, argues that learning to read and manage it deliberately can meaningfully change how competent and trustworthy you appear at work.</p></section>
+
+<section class="sm-tool"><span class="sm-label">The Comfort/Discomfort Paradigm</span><blockquote>Navarro&#x27;s central diagnostic tool is reading whether a person&#x27;s body is displaying comfort or discomfort, rooted in the limbic brain&#x27;s fight-flight-freeze response. Instead of memorizing a dictionary of gestures, the method is to establish someone&#x27;s relaxed baseline behavior, then watch for deviations, tension around the eyes, blading the body away, foot withdrawal, that signal rising discomfort, stress, or disagreement in real time.</blockquote><p>Navarro explicitly warns this paradigm should not be used as a simple lie detector, discomfort signals reflect stress or anxiety broadly, not necessarily deception, and he cautions readers against over-interpreting a single cue in isolation.</p></section>
+
+    <section class="sm-ideas"><h2>Key ideas</h2><ol><li><h3>Nonverbal communication is constant and largely involuntary</h3><p>Clothing, posture, facial micro-expressions, and even how you arrange your workspace send messages whether or not you intend them to.</p></li><li><h3>Baseline-then-deviation is the correct reading method</h3><p>The book argues most people misuse body language by looking for universal tells instead of first learning an individual&#x27;s normal baseline and then watching for changes from it.</p></li><li><h3>Your own nonverbals shape how others perceive your leadership</h3><p>Open posture, steady eye contact, and controlled gestures are described as signaling authority and calm, while slumping or fidgeting undercuts credibility even when your words are strong.</p></li><li><h3>Curbside appeal applies to organizations, not just individuals</h3><p>Navarro extends the framework to how a company&#x27;s physical environment and public-facing details nonverbally communicate its culture and competence to outsiders.</p></li><li><h3>Emotional nonverbals often leak out despite verbal control</h3><p>Even skilled communicators show brief, involuntary physical signs that reveal true feelings underneath a composed verbal message.</p></li><li><h3>Situational nonverbal awareness changes across contexts</h3><p>The book argues the best-practice body language for a negotiation, an interview, and a casual team meeting differ, so situational awareness matters as much as general skill.</p></li></ol></section>
+
+    <div class="sm-cols">
+      <section><h2>Try it this week</h2><ol class="sm-steps"><li>In your next one-on-one meeting, spend the first two minutes just establishing the other person&#x27;s relaxed baseline posture and expression before reading anything into their behavior.</li><li>Before a presentation or interview this week, deliberately practice open posture and steady eye contact for the first thirty seconds, since first-impression nonverbals set the tone.</li><li>During a routine meeting, watch for one specific deviation from someone&#x27;s baseline and note the topic being discussed when it happened.</li><li>Walk through your own workspace or how your team presents itself to outsiders and identify one nonverbal signal that may be sending an unintended message.</li></ol></section>
+      <section><h2>Is it for you?</h2><h3 class="sm-good">Best for</h3><ul><li>People preparing for interviews, presentations, or negotiations who want to consciously manage how they come across</li><li>Managers who want a framework for reading unspoken tension or disengagement in meetings</li></ul><h3 class="sm-less">Less useful if</h3><ul><li>Readers hoping for a quick cheat sheet of gesture-to-meaning translations, since the book explicitly argues against that approach</li><li>Anyone looking to use nonverbal cues as a reliable deception-detection tool, which Navarro himself cautions against</li></ul></section>
+    </div>
+
+<section class="sm-links"><h2>On this site</h2><div class="sm-chips"><a href="references.html#cat-presence">Executive Presence</a></div></section>
+    <section class="sm-links sm-related"><h2>Pairs well with</h2><ul><li><a href="references.html#book-1797100475">Becoming Bulletproof</a> <span>A Secret Service agent&#x27;s complementary approach to reading people and staying composed under pressure</span></li><li><a href="references.html#book-1250802873">Digital Body Language</a> <span>A look at how the same trust-building signals translate to digital, rather than in-person, communication</span></li></ul></section>
+
+    <footer class="sm-foot">
+      <a class="sm-buy" href="https://www.amazon.com/s?k=Joe+Navarro+Louder+Than+Words&amp;tag=phoenixjenn-20" target="_blank" rel="noopener">Find the book on Amazon</a>
+      <p>Original summary written for Plan &middot; Do &middot; Reflect. Prepared from the book&rsquo;s ideas and public summaries (<a href="https://www.shortform.com/summary/louder-than-words-summary-joe-navarro" target="_blank" rel="noopener">Shortform book summary</a>, <a href="https://www.oreilly.com/library/view/louder-than-words/9780061969867/004-TOC.html" target="_blank" rel="noopener">O&#x27;Reilly table of contents</a>), not a substitute for reading it. Links may earn a commission.</p>
+    </footer>
+  </article>
+</main>
+
+<footer class="site-footer">
+  <p>&copy; 2026 Plan-Do-Reflect. <a href="references.html">References &amp; further reading</a></p>
+</footer>
+
+<div class="theme-switch" role="group" aria-label="Style direction">
+  <button data-theme="a" title="Kinetic Signal — black &amp; yellow"></button>
+  <button data-theme="b" title="Studio Ledger — dusty rose"></button>
+  <button data-theme="c" title="Bright Margin — lime"></button>
+  <a class="icon-lib-link" href="icon-library.html" title="Style Guide (internal reference)">
+    <svg width="14" height="14" viewBox="0 0 14 14" aria-hidden="true">
+      <rect x="1" y="1" width="5" height="5" rx="1" fill="currentColor"/>
+      <rect x="8" y="1" width="5" height="5" rx="1" fill="currentColor"/>
+      <rect x="1" y="8" width="5" height="5" rx="1" fill="currentColor"/>
+      <rect x="8" y="8" width="5" height="5" rx="1" fill="currentColor"/>
+    </svg>
+  </a>
+  <a class="icon-lib-link" href="notes.html" title="Notes (working drafts)">
+    <svg width="14" height="14" viewBox="0 0 14 14" aria-hidden="true">
+      <rect x="2" y="1" width="10" height="12" rx="1.5" fill="none" stroke="currentColor" stroke-width="1.3"/>
+      <line x1="4.5" y1="5" x2="9.5" y2="5" stroke="currentColor" stroke-width="1.3" stroke-linecap="round"/>
+      <line x1="4.5" y1="7.5" x2="9.5" y2="7.5" stroke="currentColor" stroke-width="1.3" stroke-linecap="round"/>
+      <line x1="4.5" y1="10" x2="7.5" y2="10" stroke="currentColor" stroke-width="1.3" stroke-linecap="round"/>
+    </svg>
+  </a>
+  <a class="icon-lib-link" href="sitemap.html" title="Sitemap (working draft)">
+    <svg width="14" height="14" viewBox="0 0 14 14" aria-hidden="true">
+      <circle cx="7" cy="2.5" r="1.8" fill="none" stroke="currentColor" stroke-width="1.3"/>
+      <circle cx="3" cy="11" r="1.8" fill="none" stroke="currentColor" stroke-width="1.3"/>
+      <circle cx="11" cy="11" r="1.8" fill="none" stroke="currentColor" stroke-width="1.3"/>
+      <path d="M7 4.3 L7 7 M7 7 L3 9.5 M7 7 L11 9.5" stroke="currentColor" stroke-width="1.3" fill="none" stroke-linecap="round"/>
+    </svg>
+  </a>
+</div>
+
+<!-- Temporary brainstorm control — only restyles the main h1 (.content h1 / .hero-title / .page-title). Remove alongside
+     the "title-font experiment" CSS block and the extra Google Fonts link once
+     a title font is picked. -->
+<div class="title-font-picker">
+  <label for="title-font-select">Title font</label>
+  <button type="button" id="title-font-prev" class="title-font-nav" aria-label="Previous title font">‹</button>
+  <select id="title-font-select">
+    <optgroup label="Round 1 — headline character">
+      <option value="gabarito">Gabarito</option>
+      <option value="chivo">Chivo</option>
+    </optgroup>
+    <optgroup label="Round 2 — Calibri-adjacent">
+      <option value="golos-text">Golos Text</option>
+    </optgroup>
+    <option value="default">Theme default</option>
+  </select>
+  <button type="button" id="title-font-next" class="title-font-nav" aria-label="Next title font">›</button>
+</div>
+
+<script src="js/theme-toggle.js" defer></script>
+<script src="js/title-font-toggle.js" defer></script>
+</body>
+</html>
