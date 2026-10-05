@@ -1,0 +1,76 @@
+/* Course lesson pages (course/*.html) — full instructional content linked
+   from a module's syllabus entry on ai-beyond-fundamentals.html. Reads
+   only tokens.css custom properties. */
+
+.lesson { max-width: 860px; margin: 0 auto; padding: 32px 24px 56px; color: var(--text-body); font-family: var(--font-body); }
+.lesson-crumb { font-size: .8rem; color: var(--text-caption); margin-bottom: 14px; }
+.lesson-crumb a { color: var(--accent-strong); }
+.lesson-page { background: var(--bg-content); border: 1px solid var(--border); border-radius: 16px; padding: 30px 32px; }
+
+.lesson-head { padding-bottom: 20px; border-bottom: 1px solid var(--border); }
+.lesson-eyebrow { font-size: .72rem; font-weight: 700; letter-spacing: .06em; text-transform: uppercase; color: var(--text-caption); }
+.lesson-head .page-title { margin: 4px 0 8px; font-size: 2rem; line-height: 1.1; }
+.lesson-sub { font-size: .95rem; color: var(--text-body); line-height: 1.5; max-width: 640px; }
+
+.lesson-section { margin-top: 28px; }
+.lesson-section > h2 { font-family: var(--font-heading); font-size: .78rem; font-weight: 700; letter-spacing: .07em; text-transform: uppercase; color: var(--text-caption); margin-bottom: 14px; }
+
+.lesson-concepts { display: flex; flex-direction: column; gap: 20px; }
+.lesson-concept { border-left: 3px solid var(--border); padding-left: 16px; }
+.lesson-concept h3 { font-family: var(--font-heading); font-size: 1.02rem; color: var(--text-heading); margin-bottom: 6px; }
+.lesson-concept p { font-size: .9rem; line-height: 1.6; }
+.lesson-concept p + p { margin-top: 8px; }
+
+.lesson-labs { display: flex; flex-direction: column; gap: 24px; }
+
+/* .lab-card doubles as a .framework-item.is-accordion (reuses
+   js/framework-accordion.js and its .fw-toggle/.fw-body mechanics verbatim)
+   — collapsed by default, since four full labs of code on one page is too
+   much to scroll past. Only the open-state max-height needs raising: the
+   site-wide default (3200px) and even .course-module's (12000px) clip a lab
+   this code-heavy, Lab 4 especially. */
+.lab-card { background: var(--bg-sidebar); }
+.is-accordion.is-open.lab-card .fw-body { max-height: 40000px; }
+.lab-num { font-family: var(--font-heading); font-weight: 800; font-size: .74rem; color: var(--accent-strong); background: var(--accent); border-radius: 999px; padding: 2px 10px; flex-shrink: 0; margin-top: 2px; }
+.lab-card h3 { font-family: var(--font-heading); font-size: 1rem; color: var(--text-heading); }
+.lab-steps { padding-left: 20px; font-size: .88rem; line-height: 1.65; display: flex; flex-direction: column; gap: 10px; margin: 0; }
+.lab-steps > li::marker { font-weight: 700; color: var(--accent-strong); }
+.lab-steps p { margin: 0; }
+.lab-check { margin-top: 14px; padding: 10px 14px; border-left: 3px solid var(--status-green); background: var(--bg-content); border-radius: 0 6px 6px 0; font-size: .85rem; line-height: 1.5; }
+.lab-check strong { color: var(--text-heading); }
+
+.code-block { position: relative; background: var(--code-bg); border-radius: 8px; padding: 12px 40px 12px 14px; overflow-x: auto; margin: 2px 0; }
+.code-block code { font-family: var(--font-mono); font-size: .8rem; line-height: 1.55; color: var(--code-text); white-space: pre; }
+.code-comment { color: var(--code-text-dim); }
+
+/* Injected by js/code-copy.js into every .code-block — not written in markup
+   per block, so adding a new code block anywhere never needs its own button. */
+.code-copy-btn {
+  position: absolute; top: 8px; right: 8px;
+  display: inline-flex; align-items: center; justify-content: center;
+  width: 26px; height: 26px; padding: 0;
+  border: 1px solid rgba(255, 255, 255, 0.16);
+  border-radius: 6px;
+  background: rgba(255, 255, 255, 0.06);
+  color: var(--code-text-dim);
+  cursor: pointer;
+}
+.code-copy-btn:hover { background: rgba(255, 255, 255, 0.14); color: var(--code-text); }
+.code-copy-btn.is-copied { color: var(--status-green); border-color: var(--status-green); }
+code.inline { font-family: var(--font-mono); font-size: .86em; background: var(--bg-content); border: 1px solid var(--border); border-radius: 4px; padding: 1px 5px; }
+.lab-card code.inline { background: var(--bg-content); }
+
+.lesson-labs .try-it-prompt { margin: 10px 0 0; }
+.lesson-labs .try-it-copy { margin-top: 8px; }
+.agent-prompt-label { display: block; font-family: var(--font-heading); font-size: .72rem; font-weight: 700; letter-spacing: .05em; text-transform: uppercase; color: var(--text-caption); margin: 12px 0 6px; }
+
+.lesson-checklist { list-style: none; padding: 0; margin: 10px 0 0; display: flex; flex-direction: column; gap: 6px; font-size: .88rem; }
+.lesson-checklist li { padding-left: 22px; position: relative; }
+.lesson-checklist li::before { content: ''; position: absolute; left: 0; top: 3px; width: 13px; height: 13px; border: 2px solid var(--accent-strong); border-radius: 3px; }
+
+.lesson-foot { margin-top: 30px; padding-top: 18px; border-top: 1px solid var(--border); font-size: .85rem; }
+.lesson-foot a { color: var(--accent-strong); font-weight: 600; }
+
+@media (max-width: 720px) {
+  .lesson-page { padding: 22px 18px; }
+}

@@ -1,0 +1,661 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="a">
+<head>
+<meta charset="UTF-8">
+<base href="../../">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="icon" type="image/svg+xml" href="favicon.svg">
+<title>Setup and the Course Repo: Lesson · Plan · Do · Reflect</title>
+
+<!-- Applied before CSS loads, so the saved theme / title-font choice doesn't flash to the default on reload -->
+<script>
+(function () {
+  try {
+    var savedTheme = localStorage.getItem('pdr-theme');
+    if (['a', 'b', 'c'].indexOf(savedTheme) > -1) {
+      document.documentElement.setAttribute('data-theme', savedTheme);
+    }
+    var savedTitleFont = localStorage.getItem('pdr-title-font');
+    var titleFont = savedTitleFont === null ? 'golos-text' : savedTitleFont;
+    if (titleFont !== 'default') {
+      document.documentElement.setAttribute('data-title-font', titleFont);
+    }
+  } catch (e) {}
+})();
+</script>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=Work+Sans:wght@400;500;600&family=Sora:wght@600;700;800&family=Plus+Jakarta+Sans:wght@500;600;700&family=Patrick+Hand&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Gabarito:wght@800&family=Chivo:wght@800&family=Golos+Text:wght@800&display=swap" rel="stylesheet">
+
+<link rel="stylesheet" href="css/tokens.css">
+<link rel="stylesheet" href="css/main.css">
+<link rel="stylesheet" href="css/lesson.css">
+</head>
+<body>
+
+<header class="topnav">
+  <a class="logo" href="index.html">Plan·Do·Reflect</a>
+  <nav class="topnav-items">
+    <a class="item" href="framework.html">The Framework</a>
+    <a class="item" href="self-management.html">Self</a>
+    <a class="item" href="team.html">Team</a>
+    <a class="item" href="organization.html">Organization</a>
+    <a class="item active" href="core-skills.html">Core Skills</a>
+    <a class="item" href="references.html">References</a>
+  </nav>
+</header>
+
+<main class="lesson">
+  <p class="lesson-crumb"><a href="ai-beyond-fundamentals.html">AI Beyond Fundamentals</a> &rsaquo; Module 0 &rsaquo; Lesson</p>
+  <article class="lesson-page">
+    <header class="lesson-head">
+      <p class="lesson-eyebrow">Module 0 &middot; Setup</p>
+      <h1 class="page-title">Setup and the Course Repo</h1>
+      <p class="lesson-sub">This module doesn't ship a feature &mdash; it builds the infrastructure every later module stands on. The folder layout, the <code class="inline">.env</code> convention, and above all <code class="inline">shared/llm_client.py</code> (one function that calls any provider and logs every call) aren't throwaway setup steps; they're the shared architecture that Module 1's cost meter, Module 4's budget alerts, and every project after that will import and extend instead of rebuilding. Get this module right and the rest of the course gets easier, not harder.</p>
+      <p class="lesson-sub" style="margin-top: 10px;">Everything below assumes Python 3.11+ and a terminal. Unless a step says otherwise, run every command from the <code class="inline">ai-beyond-fundamentals/</code> repo root you create in Lab 1, with its venv activated &mdash; that's what makes relative paths like <code class="inline">chatbot/three_providers.py</code> resolve correctly. Work through the concepts once, then do the labs in order &mdash; each one builds on the last.</p>
+    </header>
+
+    <section class="lesson-section">
+      <h2>Concepts</h2>
+      <div class="lesson-concepts">
+
+        <div class="lesson-concept">
+          <h3>Keep API keys in environment files, never in code</h3>
+          <p>A provider API key is a bearer credential: whoever holds the string can spend money on your account. If it's typed directly into a <code class="inline">.py</code> file, it ships the moment that file is committed to git &mdash; including to a public GitHub repo, a screen share, or a zip you email someone. Leaked keys get scraped by bots within minutes and run up real charges.</p>
+          <p>The fix is a <code class="inline">.env</code> file at the repo root holding <code class="inline">NAME=value</code> pairs, loaded at runtime by a library like <code class="inline">python-dotenv</code>. The file never gets committed &mdash; it's listed in <code class="inline">.gitignore</code> before it ever holds a real key. Collaborators instead get a <code class="inline">.env.example</code> with the same variable names and blank or placeholder values, committed normally, so they know what to fill in without ever seeing yours.</p>
+        </div>
+
+        <div class="lesson-concept">
+          <h3>Python environments with venv and pip, in a monorepo layout</h3>
+          <p><strong>venv</strong> is Python's built-in tool for creating an isolated environment so this project's packages don't collide with anything else installed on your machine. <strong>pip</strong> installs into it.</p>
+          <p>If you write <code class="inline">anthropic</code> in a requirements file with no version attached, <code class="inline">pip install</code> grabs whatever the newest release happens to be on the day it runs &mdash; today that might work, three months from now a new major version could change the SDK's method names and break every lab that imports it, with no code change on your end to explain why. "Pinning" means locking each package to the exact version number you tested with, so installing never silently changes what you're running.</p>
+          <p>Neither <code class="inline">venv</code> nor <code class="inline">pip</code> tracks those exact versions for you automatically (this is what uv or poetry would do instead). You do it by hand with <code class="inline">pip freeze</code>, which inspects everything currently installed in the active environment and prints each package with an exact <code class="inline">==</code> version:</p>
+          <div class="code-block"><code>$ pip freeze
+anthropic==0.69.0
+openai==1.54.3
+google-genai==0.3.0
+python-dotenv==1.0.1
+<span class="code-comment">...</span></code></div>
+          <p>Redirecting that output into <code class="inline">requirements.txt</code> and committing the file turns it into the pin list. From then on, <code class="inline">pip install -r requirements.txt</code> installs exactly those versions, so your setup, your collaborator's, and the one this checklist describes all run identical code.</p>
+          <p>A <strong>monorepo</strong> here just means one repository, one <code class="inline">pyproject.toml</code>, and one lockfile for every project this course builds &mdash; the chatbot, the extraction tool, the RAG app, the eval suite, the agent, and the RAG-vs-fine-tune comparison &mdash; each in its own folder, plus a <code class="inline">shared/</code> folder for code every project reuses. One environment to install instead of seven, and one place to fix a dependency problem instead of seven.</p>
+        </div>
+
+        <div class="lesson-concept">
+          <h3>A shared client wrapper that logs every call</h3>
+          <p>Every lab from here on calls a model. If each lab calls the provider SDK directly, cost and latency tracking has to be rebuilt seven times &mdash; or, more likely, never gets built at all. Instead, this module produces one function, <code class="inline">call(prompt, model)</code>, that every later lab imports from <code class="inline">shared/</code>. It hides which provider you're talking to and silently appends a row &mdash; model, tokens in, tokens out, milliseconds, dollars &mdash; to a shared log file on every call.</p>
+          <p>That log file is what makes Module 1's cost meter, Module 4's budget alerts, and Module 4's regression tests possible without extra plumbing. You're building the instrument panel before you need to read it.</p>
+        </div>
+
+      </div>
+    </section>
+
+    <section class="lesson-section">
+      <h2>Hands-on Labs</h2>
+      <div class="lesson-labs">
+
+        <div class="lab-card framework-item is-accordion" id="lab-1">
+          <button class="fw-toggle" type="button" aria-expanded="false" aria-controls="lab-1-body">
+            <span class="lab-num">LAB 1</span>
+            <div class="fw-toggle-text">
+              <h3>Scaffold the repo</h3>
+              <p class="fw-teaser">One folder per project, one shared environment, keys kept out of git from the first commit.</p>
+            </div>
+            <svg class="fw-chevron" width="18" height="18" viewBox="0 0 20 20" aria-hidden="true">
+              <path d="M5 7.5 L10 12.5 L15 7.5" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+          </button>
+          <div class="fw-body" id="lab-1-body">
+          <ol class="lab-steps">
+            <li>Create the repo and one virtual environment at the root &mdash; every project folder below shares it, so you activate it once per terminal session, not once per folder.
+              <div class="code-block"><code>mkdir ai-beyond-fundamentals
+cd ai-beyond-fundamentals
+
+<span class="code-comment"># macOS / Linux</span>
+python3 -m venv .venv
+source .venv/bin/activate
+
+<span class="code-comment"># Windows (PowerShell)</span>
+python -m venv .venv
+.venv\Scripts\Activate.ps1</code></div>
+            </li>
+            <li>Build the project skeleton. Deliberately no <code class="inline">shared/__init__.py</code> here &mdash; every file inside <code class="inline">shared/</code> imports its siblings with bare names like <code class="inline">from llm_log import log_call</code>, which only resolves if <code class="inline">shared/</code> itself sits directly on <code class="inline">sys.path</code>. Adding <code class="inline">__init__.py</code> turns <code class="inline">shared</code> into a real package, which changes how <code class="inline">pytest</code> resolves its imports in Lab 4 and breaks exactly that.
+              <div class="code-block"><code><span class="code-comment"># macOS / Linux</span>
+mkdir -p shared chatbot extraction rag evals agent ragvsfinetune
+
+<span class="code-comment"># Windows (PowerShell)</span>
+mkdir shared, chatbot, extraction, rag, evals, agent, ragvsfinetune</code></div>
+            </li>
+            <li>Install the packages every later module needs, then freeze the exact versions so the repo pins what you tested with.
+              <div class="code-block"><code>pip install anthropic openai google-genai python-dotenv pyyaml pytest
+pip freeze &gt; requirements.txt</code></div>
+            </li>
+            <li>Now three separate files, all at the repo root (<code class="inline">ai-beyond-fundamentals/</code>, next to <code class="inline">.venv</code>). Start with <code class="inline">.gitignore</code>, so the next two are already covered by it the moment they exist.
+              <div class="code-block"><code><span class="code-comment"># macOS / Linux</span>
+cat &gt; .gitignore &lt;&lt;'EOF'
+.env
+.venv
+__pycache__/
+*.log
+*.jsonl
+EOF
+
+<span class="code-comment"># Windows (PowerShell)</span>
+@'
+.env
+.venv
+__pycache__/
+*.log
+*.jsonl
+'@ | Set-Content .gitignore</code></div>
+            </li>
+            <li><code class="inline">.env.example</code> &mdash; the committed template, values left blank, so a collaborator knows which keys to set without ever seeing yours.
+              <div class="code-block"><code><span class="code-comment"># macOS / Linux</span>
+cat &gt; .env.example &lt;&lt;'EOF'
+ANTHROPIC_API_KEY=
+OPENAI_API_KEY=
+GEMINI_API_KEY=
+EOF
+
+<span class="code-comment"># Windows (PowerShell)</span>
+@'
+ANTHROPIC_API_KEY=
+OPENAI_API_KEY=
+GEMINI_API_KEY=
+'@ | Set-Content .env.example</code></div>
+            </li>
+            <li>Get a key from each provider's dashboard before you can fill in <code class="inline">.env</code>. Each needs its own account; Anthropic and OpenAI also require billing to be set up before a new key will actually work.
+              <ul style="padding-left: 18px; margin-top: 8px; display: flex; flex-direction: column; gap: 6px; font-size: .88rem; line-height: 1.5;">
+                <li><strong>Anthropic</strong> &mdash; <a href="https://console.anthropic.com/settings/keys" target="_blank" rel="noopener">console.anthropic.com &rsaquo; Settings &rsaquo; API Keys</a>, then "Create Key".</li>
+                <li><strong>OpenAI</strong> &mdash; <a href="https://platform.openai.com/api-keys" target="_blank" rel="noopener">platform.openai.com/api-keys</a>, then "Create new secret key".</li>
+                <li><strong>Gemini</strong> &mdash; <a href="https://aistudio.google.com/apikey" target="_blank" rel="noopener">aistudio.google.com/apikey</a> (Google AI Studio), then "Create API key". No billing needed to start on the free tier.</li>
+              </ul>
+              <p style="margin-top: 8px;">Each key is shown to you once. Copy it somewhere safe immediately &mdash; if you lose it, the dashboard can only let you revoke it and create a new one, not show it to you again.</p>
+            </li>
+            <li><code class="inline">.env</code> &mdash; your real keys. Copy the template, then open the copy directly from the terminal &mdash; a filename starting with a dot is hidden by default in Finder and File Explorer, so double-clicking to find it in a file browser often won't work.
+              <div class="code-block"><code><span class="code-comment"># macOS / Linux</span>
+cp .env.example .env
+code .env       <span class="code-comment"># VS Code
+# or: nano .env    (terminal editor, Ctrl+O to save, Ctrl+X to exit)
+# or: open .env    (macOS — opens in whatever app handles plain text)</span>
+
+<span class="code-comment"># Windows (PowerShell)</span>
+Copy-Item .env.example .env
+code .env       <span class="code-comment"># VS Code
+# or: notepad .env</span></code></div>
+              Paste each key in after its <code class="inline">=</code>, one per line, no quotes and no spaces around the <code class="inline">=</code>, so it reads:
+              <div class="code-block"><code>ANTHROPIC_API_KEY=sk-ant-api03-...
+OPENAI_API_KEY=sk-proj-...
+GEMINI_API_KEY=AIza...</code></div>
+              Save the file. It's never committed &mdash; <code class="inline">.gitignore</code> already excludes it.
+            </li>
+            <li>Commit the skeleton.
+              <div class="code-block"><code>git init
+git add .
+git commit -m "Scaffold course repo"</code></div>
+            </li>
+          </ol>
+          <span class="agent-prompt-label">Using a coding agent instead? Hand it this:</span>
+          <div class="try-it-prompt" id="lab1-prompt">Scaffold a Python monorepo called ai-beyond-fundamentals with a single venv at the repo root, created with whichever Python command is correct for my OS. Create these folders: shared, chatbot, extraction, rag, evals, agent, ragvsfinetune. Install these dependencies with pip and freeze them into requirements.txt: anthropic, openai, google-genai, python-dotenv, pyyaml, pytest. Create a .gitignore that excludes .env, .venv, __pycache__ and log files, then a .env.example with blank ANTHROPIC_API_KEY, OPENAI_API_KEY and GEMINI_API_KEY entries so I know which keys to fill in. Do not create a .env file yourself — you don't have my real API keys, so leave that file for me to create by copying .env.example and filling it in by hand.</div>
+          <button class="try-it-copy" type="button" data-copy-target="lab1-prompt">Copy prompt</button>
+          <div class="lab-check"><strong>Check:</strong> <code class="inline">git status</code> shows <code class="inline">.env</code> as ignored, not untracked. If it shows up as untracked, fix <code class="inline">.gitignore</code> before continuing &mdash; don't just avoid committing it this once.</div>
+          </div>
+        </div>
+
+        <div class="lab-card framework-item is-accordion" id="lab-2">
+          <button class="fw-toggle" type="button" aria-expanded="false" aria-controls="lab-2-body">
+            <span class="lab-num">LAB 2</span>
+            <div class="fw-toggle-text">
+              <h3>Three providers, one prompt</h3>
+              <p class="fw-teaser">Call Claude, OpenAI and Gemini with the same prompt, read each one's actual answer, and find the token counts in each raw response.</p>
+            </div>
+            <svg class="fw-chevron" width="18" height="18" viewBox="0 0 20 20" aria-hidden="true">
+              <path d="M5 7.5 L10 12.5 L15 7.5" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+          </button>
+          <div class="fw-body" id="lab-2-body">
+
+          <div class="insight-aside" style="margin-bottom: 14px;">
+            <svg width="26" height="26" viewBox="0 0 26 26" aria-hidden="true">
+              <circle cx="13" cy="13" r="10" fill="none" stroke="var(--border)" stroke-width="2"/>
+              <path d="M13 7 L13 14" stroke="var(--accent-strong)" stroke-width="2.4" stroke-linecap="round"/>
+              <circle cx="13" cy="18.5" r="1.6" fill="var(--accent-strong)"/>
+            </svg>
+            <div class="insight-aside-body">
+              <span class="insight-aside-label">Check before you paste</span>
+              <p>Model names below can go stale within weeks &mdash; providers rename, deprecate and retire models on their own schedule, not this lesson's. Writing this exact lab, we hit both a deprecated Claude model and a Gemini model that 404'd for new accounts. Check each provider's current model list first (<a href="https://docs.anthropic.com/en/docs/about-claude/models" target="_blank" rel="noopener">Anthropic</a>, <a href="https://platform.openai.com/docs/models" target="_blank" rel="noopener">OpenAI</a>, <a href="https://ai.google.dev/gemini-api/docs/models" target="_blank" rel="noopener">Gemini</a>) &mdash; or skip the docs and ask the SDK directly, the trick that found this lesson's working Gemini model after <code class="inline">gemini-2.5-flash</code> 404'd on us:</p>
+              <div class="code-block"><code>from google import genai
+client = genai.Client(api_key="...")
+for m in client.models.list():
+    print(m.name)</code></div>
+              <p>If a model name anywhere in this module throws a <code class="inline">404</code> or a deprecation warning, swap in whatever's current and keep going &mdash; nothing in the lesson's logic depends on the exact name.</p>
+            </div>
+          </div>
+
+          <ol class="lab-steps">
+            <li>Create a new file at <code class="inline">chatbot/three_providers.py</code> (from the repo root: <code class="inline">code chatbot/three_providers.py</code> for VS Code, <code class="inline">nano chatbot/three_providers.py</code> for a terminal editor, or <code class="inline">touch chatbot/three_providers.py</code> on macOS/Linux / <code class="inline">New-Item chatbot\three_providers.py</code> on Windows then open it in your editor &mdash; <code class="inline">code</code> and <code class="inline">nano</code> both create the file themselves, no <code class="inline">touch</code> needed first). Paste in one function per provider. Each prints the model's actual reply &mdash; not just its usage &mdash; so a wrong or empty answer is visible immediately instead of hiding behind a token count that looks fine on its own.
+              <div class="code-block"><code>import os
+from dotenv import load_dotenv
+load_dotenv()
+
+PROMPT = "Explain what a token is, in three sentences."
+
+def call_anthropic():
+    from anthropic import Anthropic
+    client = Anthropic(api_key=os.environ["ANTHROPIC_API_KEY"])
+    resp = client.messages.create(
+        model="claude-sonnet-5",
+        max_tokens=200,
+        messages=[{"role": "user", "content": PROMPT}],
+    )
+    <span class="code-comment"># a "thinking" response can put a ThinkingBlock before the text block,
+    # so pick the block that actually is text rather than assuming index 0</span>
+    text = next(b.text for b in resp.content if b.type == "text")
+    print("Claude  :", text)
+    print("  usage :", resp.usage)
+
+def call_openai():
+    from openai import OpenAI
+    client = OpenAI(api_key=os.environ["OPENAI_API_KEY"])
+    resp = client.chat.completions.create(
+        model="gpt-4.1-mini",
+        messages=[{"role": "user", "content": PROMPT}],
+    )
+    print("OpenAI  :", resp.choices[0].message.content)
+    print("  usage :", resp.usage)
+
+def call_gemini():
+    from google import genai
+    client = genai.Client(api_key=os.environ["GEMINI_API_KEY"])
+    resp = client.models.generate_content(model="gemini-flash-latest", contents=PROMPT)
+    print("Gemini  :", resp.text)
+    print("  usage :", resp.usage_metadata)
+
+if __name__ == "__main__":
+    call_anthropic()
+    call_openai()
+    call_gemini()</code></div>
+            </li>
+            <li>Run it and read all three answers, then the three usage objects beneath them.
+              <div class="code-block"><code>python chatbot/three_providers.py</code></div>
+              If <code class="inline">gemini-flash-latest</code> fails with a <code class="inline">503</code> ("high demand"), that's the model being temporarily overloaded, not your code &mdash; wait a few seconds and rerun.
+            </li>
+            <li>Each SDK names its fields differently. At the bottom of <code class="inline">chatbot/three_providers.py</code>, add a comment recording all three shapes exactly as printed &mdash; you'll be back in this file for Lab 4, writing the code that normalizes them into one shape.
+              <div class="code-block"><code><span class="code-comment"># usage field names, from the printed output above:
+#   anthropic: input_tokens / output_tokens
+#   openai:    prompt_tokens / completion_tokens
+#   gemini:    prompt_token_count / candidates_token_count</span></code></div>
+            </li>
+          </ol>
+          <div class="lab-check"><strong>Check:</strong> all three answers actually explain what a token is (not an error message or an empty string), and each usage object shows a non-zero input token count. A <code class="inline">401</code> means the key name in <code class="inline">.env</code> doesn't match what the code reads; a <code class="inline">429</code> means you're rate-limited &mdash; wait a minute and retry.</div>
+          </div>
+        </div>
+
+        <div class="lab-card framework-item is-accordion" id="lab-3">
+          <button class="fw-toggle" type="button" aria-expanded="false" aria-controls="lab-3-body">
+            <span class="lab-num">LAB 3</span>
+            <div class="fw-toggle-text">
+              <h3>Run a model locally</h3>
+              <p class="fw-teaser">Install Ollama, pull a small open model, and call it through its OpenAI-compatible endpoint &mdash; no API key, no per-token cost.</p>
+            </div>
+            <svg class="fw-chevron" width="18" height="18" viewBox="0 0 20 20" aria-hidden="true">
+              <path d="M5 7.5 L10 12.5 L15 7.5" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+          </button>
+          <div class="fw-body" id="lab-3-body">
+          <ol class="lab-steps">
+            <li>Install Ollama.
+              <div class="code-block"><code><span class="code-comment"># macOS, via Homebrew</span>
+brew install ollama
+ollama serve   <span class="code-comment"># leave running in its own terminal</span>
+
+<span class="code-comment"># Linux</span>
+curl -fsSL https://ollama.com/install.sh | sh
+ollama serve   <span class="code-comment"># leave running in its own terminal</span>
+
+<span class="code-comment"># Windows
+# Download the installer from ollama.com/download and run it —
+# it installs Ollama and starts it running in the background automatically.</span></code></div>
+            </li>
+            <li>Pull a small model and sanity-check it from the command line. <code class="inline">llama3.2</code> downloads about 2 GB (it defaults to the 3B variant); check you have that much free disk space first, or pull the smaller <code class="inline">llama3.2:1b</code> tag instead (about 1.3 GB) if you're tight on room. This can be run from any directory &mdash; Ollama stores pulled models once in your home directory (<code class="inline">~/.ollama</code> on macOS/Linux, <code class="inline">%USERPROFILE%\.ollama</code> on Windows), not inside the project repo, so it doesn't matter where your terminal's <code class="inline">cwd</code> is for this step.
+              <div class="code-block"><code>ollama pull llama3.2
+ollama run llama3.2 "Explain what a token is, in three sentences."</code></div>
+            </li>
+            <li>Back in <code class="inline">chatbot/three_providers.py</code>, add a fourth function, <code class="inline">call_ollama()</code>, alongside the three from Lab 2 &mdash; same SDK as <code class="inline">call_openai</code>, pointed at a different <code class="inline">base_url</code> so it talks to your local Ollama server instead of OpenAI's. Call it from the <code class="inline">__main__</code> block along with the other three.
+              <div class="code-block"><code>def call_ollama():
+    from openai import OpenAI
+    local = OpenAI(base_url="http://localhost:11434/v1", api_key="ollama")  <span class="code-comment"># key is unused but required by the SDK</span>
+    resp = local.chat.completions.create(
+        model="llama3.2",
+        messages=[{"role": "user", "content": PROMPT}],
+    )
+    print("Ollama  :", resp.choices[0].message.content)
+    print("  usage :", resp.usage)</code></div>
+            </li>
+          </ol>
+          <div class="lab-check"><strong>Check:</strong> the local call returns a real answer with no network call to a provider &mdash; turn off Wi-Fi and rerun it to prove it. Note whether <code class="inline">resp.usage</code> comes back populated; some local setups return <code class="inline">None</code>, which the logger in Lab 4 needs to handle without crashing.</div>
+          </div>
+        </div>
+
+        <div class="lab-card framework-item is-accordion" id="lab-4">
+          <button class="fw-toggle" type="button" aria-expanded="false" aria-controls="lab-4-body">
+            <span class="lab-num">LAB 4</span>
+            <div class="fw-toggle-text">
+              <h3>Build the logger</h3>
+              <p class="fw-teaser">One function, reused by every later module, that appends model, tokens, latency and cost to a log file on every call.</p>
+            </div>
+            <svg class="fw-chevron" width="18" height="18" viewBox="0 0 20 20" aria-hidden="true">
+              <path d="M5 7.5 L10 12.5 L15 7.5" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+          </button>
+          <div class="fw-body" id="lab-4-body">
+          <ol class="lab-steps">
+            <li>Create a new file at <code class="inline">shared/llm_log.py</code> (<code class="inline">code shared/llm_log.py</code>, <code class="inline">nano shared/llm_log.py</code>, or <code class="inline">touch shared/llm_log.py</code> / <code class="inline">New-Item shared\llm_log.py</code> then open it) and paste in:
+              <div class="code-block"><code>import json, time, pathlib
+
+LOG_PATH = pathlib.Path(__file__).parent / "calls.jsonl"
+
+def log_call(provider, model, input_tokens, output_tokens, elapsed_ms, cost_usd):
+    row = {
+        "ts": time.time(),
+        "provider": provider,
+        "model": model,
+        "input_tokens": input_tokens or 0,
+        "output_tokens": output_tokens or 0,
+        "elapsed_ms": round(elapsed_ms, 1),
+        "cost_usd": round(cost_usd, 6),
+    }
+    with LOG_PATH.open("a") as f:
+        f.write(json.dumps(row) + "\n")</code></div>
+            </li>
+            <li>Open <code class="inline">chatbot/three_providers.py</code> again. Because <code class="inline">log_call</code> lives in <code class="inline">shared/</code>, a sibling folder, add these two lines near the top of the file so Python can find it:
+              <div class="code-block"><code><span class="code-comment"># top of chatbot/three_providers.py, added in Lab 4</span>
+import sys, pathlib, time
+sys.path.insert(0, str(pathlib.Path(__file__).resolve().parent.parent / "shared"))
+from llm_log import log_call</code></div>
+              Then wrap each of the four functions the same way: start a timer, call the SDK, normalize that provider's usage object into plain ints using the field names from your Lab 2 comment, and call <code class="inline">log_call(...)</code> with a flat <code class="inline">cost_usd=0</code> for now (the project below replaces that with a real number). Keep the existing text print &mdash; logging is in addition to seeing the answer, not instead of it. Here's <code class="inline">call_anthropic</code> before and after &mdash; apply the same change to <code class="inline">call_openai</code>, <code class="inline">call_gemini</code> and <code class="inline">call_ollama</code>, each with its own field names:
+              <div class="code-block"><code><span class="code-comment"># before (Lab 2)</span>
+def call_anthropic():
+    from anthropic import Anthropic
+    client = Anthropic(api_key=os.environ["ANTHROPIC_API_KEY"])
+    resp = client.messages.create(
+        model="claude-sonnet-5",
+        max_tokens=200,
+        messages=[{"role": "user", "content": PROMPT}],
+    )
+    text = next(b.text for b in resp.content if b.type == "text")
+    print("Claude  :", text)
+    print("  usage :", resp.usage)
+
+<span class="code-comment"># after (Lab 4)</span>
+def call_anthropic():
+    from anthropic import Anthropic
+    client = Anthropic(api_key=os.environ["ANTHROPIC_API_KEY"])
+    start = time.time()
+    resp = client.messages.create(
+        model="claude-sonnet-5",
+        max_tokens=200,
+        messages=[{"role": "user", "content": PROMPT}],
+    )
+    elapsed_ms = (time.time() - start) * 1000
+    text = next(b.text for b in resp.content if b.type == "text")
+    log_call("anthropic", "claude-sonnet-5", resp.usage.input_tokens, resp.usage.output_tokens, elapsed_ms, cost_usd=0)
+    print("Claude  :", text)
+    print("  usage :", resp.usage)</code></div>
+              <code class="inline">call_ollama</code> needs one extra guard. Ollama's OpenAI-compatible endpoint sometimes returns <code class="inline">resp.usage</code> as <code class="inline">None</code> instead of a real usage object (unlike OpenAI itself, which always fills it in) &mdash; and reading <code class="inline">resp.usage.prompt_tokens</code> straight off a <code class="inline">None</code> crashes with <code class="inline">AttributeError: 'NoneType' object has no attribute 'prompt_tokens'</code>. The fix is to check <code class="inline">resp.usage</code> before reading a field off it, and fall back to <code class="inline">0</code> when it's missing. <code class="inline">X if condition else Y</code> is Python's inline if/else &mdash; it does that check in one line instead of a separate <code class="inline">if</code> block:
+              <div class="code-block"><code><span class="code-comment"># call_ollama, with the Lab 4 timer/logging added</span>
+def call_ollama():
+    from openai import OpenAI
+    local = OpenAI(base_url="http://localhost:11434/v1", api_key="ollama")
+    start = time.time()
+    resp = local.chat.completions.create(
+        model="llama3.2",
+        messages=[{"role": "user", "content": PROMPT}],
+    )
+    elapsed_ms = (time.time() - start) * 1000
+    input_tokens = resp.usage.prompt_tokens if resp.usage else 0
+    output_tokens = resp.usage.completion_tokens if resp.usage else 0
+    log_call("ollama", "llama3.2", input_tokens, output_tokens, elapsed_ms, cost_usd=0)
+    print("Ollama  :", resp.choices[0].message.content)
+    print("  usage :", resp.usage)</code></div>
+            </li>
+            <li>Create <code class="inline">shared/test_logger.py</code> the same way, and paste in a checkpoint test.
+              <div class="code-block"><code><span class="code-comment"># shared/test_logger.py</span>
+import json
+from llm_log import LOG_PATH
+
+def test_all_providers_logged():
+    rows = [json.loads(line) for line in LOG_PATH.read_text().splitlines()]
+    providers = {row["provider"] for row in rows}
+    assert providers == {"anthropic", "openai", "gemini", "ollama"}</code></div>
+            </li>
+            <li>Run everything and then the test.
+              <div class="code-block"><code>python chatbot/three_providers.py
+pytest shared/test_logger.py</code></div>
+            </li>
+          </ol>
+          <div class="lab-check"><strong>Check:</strong> <code class="inline">cat shared/calls.jsonl</code> shows four lines, one per provider, and <code class="inline">pytest</code> passes.</div>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <section class="lesson-section" id="lesson-project">
+      <h2>Project</h2>
+      <div class="lab-card framework-item is-accordion" id="project-card">
+        <button class="fw-toggle" type="button" aria-expanded="false" aria-controls="project-card-body">
+          <span class="lab-num">PROJECT</span>
+          <div class="fw-toggle-text">
+            <h3>One client, four providers</h3>
+            <p class="fw-teaser">Combine the four labs into one file, <code class="inline">shared/llm_client.py</code> &mdash; a single <code class="inline">call(prompt, model)</code> across all four providers, with retry/backoff and real cost tracking.</p>
+          </div>
+          <svg class="fw-chevron" width="18" height="18" viewBox="0 0 20 20" aria-hidden="true">
+            <path d="M5 7.5 L10 12.5 L15 7.5" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+        </button>
+        <div class="fw-body" id="project-card-body">
+      <div class="course-project">
+        <span class="course-project-label">Project &middot; One client, four providers</span>
+        <p>Combine the four labs into one file, <code class="inline">shared/llm_client.py</code>: a single <code class="inline">call(prompt, model)</code> function that looks up the provider for a given model name in a config file, dispatches to the right SDK, times the call, computes real cost, and logs it through <code class="inline">log_call</code> from Lab 4. The five steps below build it piece by piece.</p>
+      </div>
+      <ol class="lab-steps" style="margin-top: 14px;">
+        <li>Create <code class="inline">shared/models.yaml</code> (<code class="inline">code shared/models.yaml</code>, <code class="inline">nano shared/models.yaml</code>, or <code class="inline">touch shared/models.yaml</code> / <code class="inline">New-Item shared\models.yaml</code> then open it) and paste in one entry per model. Prices are illustrative &mdash; check each provider's current pricing page before trusting them.
+          <div class="code-block"><code><span class="code-comment"># shared/models.yaml</span>
+claude-sonnet-5:
+  provider: anthropic
+  price_in: 3.00    <span class="code-comment"># $ per 1M input tokens</span>
+  price_out: 15.00  <span class="code-comment"># $ per 1M output tokens</span>
+gpt-4.1-mini:
+  provider: openai
+  price_in: 0.40
+  price_out: 1.60
+gemini-flash-latest:
+  provider: gemini
+  price_in: 0.30
+  price_out: 2.50
+llama3.2:
+  provider: ollama
+  price_in: 0
+  price_out: 0</code></div>
+          Use whatever model name you actually pulled in Lab 3 and have been calling since &mdash; if you swapped away from <code class="inline">llama3.2</code> there, use that same name here and in every file below, not the name printed in this lesson.
+        </li>
+        <li>Create <code class="inline">shared/llm_client.py</code> the same way, and paste in the client itself.
+          <div class="code-block"><code><span class="code-comment"># shared/llm_client.py</span>
+import os, time, random, pathlib, yaml
+from llm_log import log_call
+
+CONFIG = yaml.safe_load((pathlib.Path(__file__).parent / "models.yaml").read_text())
+RATE_LIMIT_ERRORS = ()  <span class="code-comment"># fill in with each SDK's RateLimitError class</span>
+
+def call(prompt, model, max_attempts=5):
+    cfg = CONFIG[model]
+    start = time.time()
+    for attempt in range(max_attempts):
+        try:
+            text, usage = _dispatch(cfg["provider"], model, prompt)
+            break
+        except RATE_LIMIT_ERRORS:
+            if attempt == max_attempts - 1:
+                raise
+            time.sleep(2 ** attempt + random.random())
+    elapsed_ms = (time.time() - start) * 1000
+    cost = (usage["input_tokens"] / 1_000_000 * cfg["price_in"]
+            + usage["output_tokens"] / 1_000_000 * cfg["price_out"])
+    log_call(cfg["provider"], model, usage["input_tokens"], usage["output_tokens"], elapsed_ms, cost)
+    return text
+
+def _dispatch(provider, model, prompt):
+    <span class="code-comment"># one branch per provider, reusing the call_* functions from Lab 2 &amp; 3 &mdash;
+    # each must return (text, {"input_tokens": int, "output_tokens": int})
+    ...</span></code></div>
+        </li>
+        <li>Fill in <code class="inline">_dispatch</code>. Copy the logic from the four <code class="inline">call_*</code> functions in <code class="inline">chatbot/three_providers.py</code> (Labs 2 &amp; 3) into one <code class="inline">if provider == "..."</code> branch each &mdash; you can leave the originals in <code class="inline">three_providers.py</code> alone, they still work as a standalone reference. Two changes on the way in: drop the timer/<code class="inline">log_call</code>/print lines you added in Lab 4 (this file's <code class="inline">call()</code> already times and logs centrally, so keeping both would log every call twice), and return the actual reply text alongside a plain usage dict instead of printing.
+          <div class="code-block"><code><span class="code-comment"># shared/llm_client.py — _dispatch, filled in</span>
+def _dispatch(provider, model, prompt):
+    if provider == "anthropic":
+        from anthropic import Anthropic
+        client = Anthropic(api_key=os.environ["ANTHROPIC_API_KEY"])
+        resp = client.messages.create(
+            model=model, max_tokens=200,
+            messages=[{"role": "user", "content": prompt}],
+        )
+        <span class="code-comment"># same ThinkingBlock gotcha as Lab 2 &mdash; don't assume index 0 is the text block</span>
+        text = next(b.text for b in resp.content if b.type == "text")
+        return text, {
+            "input_tokens": resp.usage.input_tokens,
+            "output_tokens": resp.usage.output_tokens,
+        }
+
+    if provider == "openai":
+        from openai import OpenAI
+        client = OpenAI(api_key=os.environ["OPENAI_API_KEY"])
+        resp = client.chat.completions.create(
+            model=model, messages=[{"role": "user", "content": prompt}],
+        )
+        return resp.choices[0].message.content, {
+            "input_tokens": resp.usage.prompt_tokens,
+            "output_tokens": resp.usage.completion_tokens,
+        }
+
+    if provider == "gemini":
+        from google import genai
+        client = genai.Client(api_key=os.environ["GEMINI_API_KEY"])
+        resp = client.models.generate_content(model=model, contents=prompt)
+        return resp.text, {
+            "input_tokens": resp.usage_metadata.prompt_token_count,
+            "output_tokens": resp.usage_metadata.candidates_token_count,
+        }
+
+    if provider == "ollama":
+        from openai import OpenAI
+        local = OpenAI(base_url="http://localhost:11434/v1", api_key="ollama")
+        resp = local.chat.completions.create(
+            model=model, messages=[{"role": "user", "content": prompt}],
+        )
+        usage = resp.usage
+        return resp.choices[0].message.content, {
+            "input_tokens": usage.prompt_tokens if usage else 0,
+            "output_tokens": usage.completion_tokens if usage else 0,
+        }
+
+    raise ValueError(f"Unknown provider: {provider}")</code></div>
+        </li>
+        <li>Fill in <code class="inline">RATE_LIMIT_ERRORS</code> at the top of the file, above <code class="inline">CONFIG</code>, with the real rate-limit exception class from each SDK.
+          <div class="code-block"><code><span class="code-comment"># shared/llm_client.py — add near the top, replacing the placeholder</span>
+from anthropic import RateLimitError as AnthropicRateLimitError
+from openai import RateLimitError as OpenAIRateLimitError
+from google.genai.errors import ClientError as GeminiClientError
+
+RATE_LIMIT_ERRORS = (AnthropicRateLimitError, OpenAIRateLimitError, GeminiClientError)
+<span class="code-comment"># GeminiClientError covers other 4xx errors too (bad request, auth), not
+# just 429 — check e.code == 429 inside the except block if you want to be
+# precise. Good enough to make the retry loop fire for this exercise.</span></code></div>
+          The agent prompt below can do this step for you if you'd rather not hunt through each SDK's docs for the exact class names.
+        </li>
+        <li>Test it end to end. Write a one-off script that calls <code class="inline">call(prompt, model)</code> once for each of the four models. <code class="inline">call()</code> <em>returns</em> the reply instead of printing it &mdash; that's the point, so other code can use the answer instead of just displaying it &mdash; so this script's own <code class="inline">print(...)</code> is the only place any of these four answers actually reaches your terminal. If you want to see what a provider is really responding with, this is where you look; nothing upstream in <code class="inline">_dispatch</code> prints anything.
+          <div class="code-block"><code><span class="code-comment"># shared/try_client.py — delete once it passes</span>
+from llm_client import call
+
+for model in ["claude-sonnet-5", "gpt-4.1-mini", "gemini-flash-latest", "llama3.2"]:
+    print(model, "->", call("Say hello in five words.", model))</code></div>
+          <div class="code-block"><code>python shared/try_client.py
+cat shared/calls.jsonl</code></div>
+          Read the four printed replies first &mdash; five actual words back from each model, not an error string or an empty reply &mdash; then confirm <code class="inline">calls.jsonl</code> has four new rows with a real, non-zero <code class="inline">cost_usd</code> for every model except <code class="inline">llama3.2</code>, which should show <code class="inline">0</code>.
+        </li>
+      </ol>
+
+      <div class="insight-aside" style="margin-top: 14px;">
+        <svg width="26" height="26" viewBox="0 0 26 26" aria-hidden="true">
+          <circle cx="13" cy="13" r="10" fill="none" stroke="var(--border)" stroke-width="2"/>
+          <path d="M13 7 L13 14" stroke="var(--accent-strong)" stroke-width="2.4" stroke-linecap="round"/>
+          <circle cx="13" cy="18.5" r="1.6" fill="var(--accent-strong)"/>
+        </svg>
+        <div class="insight-aside-body">
+          <span class="insight-aside-label">Worth knowing</span>
+          <p>You just hand-built a small version of what <strong>LiteLLM</strong> is as a library: one <code class="inline">call()</code> across 100+ providers, with cost tracking, retries and logging already built in. A real production codebase would likely reach for LiteLLM (or something like it) instead of this file. You built it by hand here so that choice is a shortcut once you understand what it's hiding, not a black box you're trusting blind.</p>
+        </div>
+      </div>
+
+      <span class="agent-prompt-label">Stuck on the retry/backoff branch? Hand your agent this:</span>
+      <div class="try-it-prompt" id="project-prompt">Here is my shared/llm_client.py (paste the file). It should retry on a 429 rate-limit error from any of the anthropic, openai, or google-genai SDKs with exponential backoff, and give up after 5 attempts by re-raising the original error. Fill in RATE_LIMIT_ERRORS with the correct exception classes for all three SDKs and fix _dispatch so it calls the right one based on cfg["provider"]. Don't change the function signatures in llm_log.py or models.yaml.</div>
+      <button class="try-it-copy" type="button" data-copy-target="project-prompt">Copy prompt</button>
+
+      <p style="margin-top: 14px; font-size: .9rem;"><strong>Done when:</strong></p>
+      <ul class="lesson-checklist">
+        <li>Swapping providers means changing one line in <code class="inline">models.yaml</code>, not code.</li>
+        <li><code class="inline">pytest shared/test_logger.py</code> passes, showing a log row for all four providers.</li>
+        <li>A simulated 429 (raise the error manually in a test) triggers a retry with increasing delay, and a 6th consecutive failure still raises.</li>
+        <li>A README in the repo root explains the folder layout well enough that Module 1 can start from it without asking you a question.</li>
+      </ul>
+        </div>
+      </div>
+    </section>
+
+    <div class="lesson-foot">
+      <a href="ai-beyond-fundamentals.html#setup">&larr; Back to the course map</a>
+    </div>
+  </article>
+</main>
+
+<footer class="site-footer">
+  <p>&copy; 2026 Plan-Do-Reflect. <a href="references.html">References &amp; further reading</a></p>
+</footer>
+
+<div class="theme-switch" role="group" aria-label="Style direction">
+  <button data-theme="a" title="Kinetic Signal — black &amp; yellow"></button>
+  <button data-theme="b" title="Studio Ledger — dusty rose"></button>
+  <button data-theme="c" title="Bright Margin — lime"></button>
+  <a class="icon-lib-link" href="icon-library.html" title="Style Guide (internal reference)">
+    <svg width="14" height="14" viewBox="0 0 14 14" aria-hidden="true">
+      <rect x="1" y="1" width="5" height="5" rx="1" fill="currentColor"/>
+      <rect x="8" y="1" width="5" height="5" rx="1" fill="currentColor"/>
+      <rect x="1" y="8" width="5" height="5" rx="1" fill="currentColor"/>
+      <rect x="8" y="8" width="5" height="5" rx="1" fill="currentColor"/>
+    </svg>
+  </a>
+  <a class="icon-lib-link" href="notes.html" title="Notes (working drafts)">
+    <svg width="14" height="14" viewBox="0 0 14 14" aria-hidden="true">
+      <rect x="2" y="1" width="10" height="12" rx="1.5" fill="none" stroke="currentColor" stroke-width="1.3"/>
+      <line x1="4.5" y1="5" x2="9.5" y2="5" stroke="currentColor" stroke-width="1.3" stroke-linecap="round"/>
+      <line x1="4.5" y1="7.5" x2="9.5" y2="7.5" stroke="currentColor" stroke-width="1.3" stroke-linecap="round"/>
+      <line x1="4.5" y1="10" x2="7.5" y2="10" stroke="currentColor" stroke-width="1.3" stroke-linecap="round"/>
+    </svg>
+  </a>
+  <a class="icon-lib-link" href="sitemap.html" title="Sitemap (working draft)">
+    <svg width="14" height="14" viewBox="0 0 14 14" aria-hidden="true">
+      <circle cx="7" cy="2.5" r="1.8" fill="none" stroke="currentColor" stroke-width="1.3"/>
+      <circle cx="3" cy="11" r="1.8" fill="none" stroke="currentColor" stroke-width="1.3"/>
+      <circle cx="11" cy="11" r="1.8" fill="none" stroke="currentColor" stroke-width="1.3"/>
+      <path d="M7 4.3 L7 7 M7 7 L3 9.5 M7 7 L11 9.5" stroke="currentColor" stroke-width="1.3" fill="none" stroke-linecap="round"/>
+    </svg>
+  </a>
+</div>
+
+<script src="js/theme-toggle.js" defer></script>
+<script src="js/title-font-toggle.js" defer></script>
+<script src="js/try-it.js" defer></script>
+<script src="js/framework-accordion.js" defer></script>
+<script src="js/code-copy.js" defer></script>
+</body>
+</html>

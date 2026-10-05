@@ -153,10 +153,16 @@
           </svg>
         </button>
         <div class="fw-body" id="setup-body">
+          <a class="try-it-quicklink" href="course/ai-beyond-fundamentals/setup.html">
+            <svg width="14" height="14" viewBox="0 0 24 24" aria-hidden="true">
+              <path d="M12 2 L14.2 9 L21 11 L14.2 13 L12 20 L9.8 13 L3 11 L9.8 9 Z" fill="currentColor"/>
+            </svg>
+            Open the full lesson
+          </a>
           <h4 class="course-subhead">What you'll learn</h4>
           <ul class="explainer-list is-bulleted">
             <li>Keeping API keys in environment files, never in code</li>
-            <li>Python environments with <code>uv</code> and a monorepo layout</li>
+            <li>Python environments with <code>venv</code> and <code>pip</code>, in a monorepo layout</li>
             <li>A shared client wrapper that logs tokens, cost and latency for every call</li>
           </ul>
           <h4 class="course-subhead">Hands-on labs</h4>
@@ -167,8 +173,9 @@
             <li><strong>Build the logger.</strong> Every call appends model, input tokens, output tokens, milliseconds and dollars to a log file. Every later module reuses it.</li>
           </ol>
           <div class="course-project">
-            <span class="course-project-label">Checkpoint</span>
-            <p>A test that calls all four providers and confirms a log row exists for each.</p>
+            <span class="course-project-label">Project · One client, four providers</span>
+            <p>A small <code>llm_client</code> package that wraps Claude, OpenAI, Gemini and your local Ollama model behind a single <code>call(prompt, model)</code> function, reading model names and prices from one config file and logging every call through the logger you just built.</p>
+            <p><strong>Done when:</strong> swapping providers means changing one config value, not code; a test calls all four providers and confirms a log row exists for each; and the README explains the repo layout well enough that Module 1 can start from it without asking you a question.</p>
           </div>
           <a class="back-to-top" href="#setup"><svg width="9" height="9" viewBox="0 0 12 12" aria-hidden="true"><path d="M6 10 L6 2 M2.5 5.5 L6 2 L9.5 5.5" stroke="var(--accent-strong)" stroke-width="1.8" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg>Top</a>
         </div>

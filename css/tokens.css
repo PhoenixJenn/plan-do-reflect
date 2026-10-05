@@ -26,6 +26,19 @@
      what happened once already; load it everywhere so it can't recur. */
   --font-hand: 'Patrick Hand', cursive;
 
+  /* System monospace stack for code/commands in lesson pages. Not a themed
+     design choice (unlike --font-heading/--font-body), so defined once
+     here rather than per [data-theme]. */
+  --font-mono: 'SFMono-Regular', Consolas, 'Liberation Mono', Menlo, monospace;
+
+  /* Terminal-style surface for code blocks. Fixed across all three theme
+     directions — same reasoning as the status colors below: a code block
+     should read as a code block regardless of the active theme, not shift
+     to a light background under Studio Ledger. */
+  --code-bg: #1e1e24;
+  --code-text: #e7e7e2;
+  --code-text-dim: #9a9aa0;
+
   /* Red/Amber/Green status convention — universal traffic-light meaning,
      so unlike --accent these stay fixed across all three theme directions
      rather than being redefined per [data-theme]. */
