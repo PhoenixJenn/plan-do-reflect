@@ -1,0 +1,776 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="a">
+<head>
+<meta charset="UTF-8">
+<base href="../../">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="icon" type="image/svg+xml" href="favicon.svg">
+<title>LLM Fundamentals: Lesson · Plan · Do · Reflect</title>
+
+<!-- Applied before CSS loads, so the saved theme / title-font choice doesn't flash to the default on reload -->
+<script>
+(function () {
+  try {
+    var savedTheme = localStorage.getItem('pdr-theme');
+    if (['a', 'b', 'c'].indexOf(savedTheme) > -1) {
+      document.documentElement.setAttribute('data-theme', savedTheme);
+    }
+    var savedTitleFont = localStorage.getItem('pdr-title-font');
+    var titleFont = savedTitleFont === null ? 'golos-text' : savedTitleFont;
+    if (titleFont !== 'default') {
+      document.documentElement.setAttribute('data-title-font', titleFont);
+    }
+  } catch (e) {}
+})();
+</script>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=Work+Sans:wght@400;500;600&family=Sora:wght@600;700;800&family=Plus+Jakarta+Sans:wght@500;600;700&family=Patrick+Hand&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Gabarito:wght@800&family=Chivo:wght@800&family=Golos+Text:wght@800&display=swap" rel="stylesheet">
+
+<link rel="stylesheet" href="css/tokens.css">
+<link rel="stylesheet" href="css/main.css">
+<link rel="stylesheet" href="css/lesson.css">
+</head>
+<body>
+
+<header class="topnav">
+  <a class="logo" href="index.html">Plan·Do·Reflect</a>
+  <nav class="topnav-items">
+    <a class="item" href="framework.html">The Framework</a>
+    <a class="item" href="self-management.html">Self</a>
+    <a class="item" href="team.html">Team</a>
+    <a class="item" href="organization.html">Organization</a>
+    <a class="item active" href="core-skills.html">Core Skills</a>
+    <a class="item" href="references.html">References</a>
+  </nav>
+</header>
+
+<main class="lesson">
+  <p class="lesson-crumb"><a href="ai-beyond-fundamentals.html">AI Beyond Fundamentals</a> &rsaquo; Module 1 &rsaquo; Lesson</p>
+  <article class="lesson-page">
+    <header class="lesson-head">
+      <p class="lesson-eyebrow">Module 1 &middot; LLM Fundamentals</p>
+      <h1 class="page-title">LLM Fundamentals</h1>
+      <p class="lesson-sub">Module 0 gave you <code class="inline">shared/llm_client.py</code> &mdash; one function that calls any provider and logs what it cost. This module is about understanding what's actually happening inside that call well enough to <strong>predict</strong> the cost and the latency before you make it, not just read them off afterward: what a token is, what temperature and streaming actually change, and the two completely different kinds of caching that cut cost without you noticing.</p>
+      <p class="lesson-sub" style="margin-top: 10px;">Same assumptions as Module 0: everything runs from the <code class="inline">ai-beyond-fundamentals/</code> repo root with the venv activated. The model names below (<code class="inline">claude-sonnet-5</code>, <code class="inline">gpt-4.1-mini</code>, <code class="inline">gemini-flash-lite-latest</code>) are the same "check before you paste" caveat from Module 0 &mdash; they will go stale, so verify before trusting them.</p>
+    </header>
+
+    <section class="lesson-section">
+      <h2>Concepts</h2>
+      <div class="lesson-concepts">
+
+        <div class="lesson-concept">
+          <h3>Messages, roles, and system prompts &mdash; and why the shapes differ</h3>
+          <p>Every provider's chat API takes a list of turns, each tagged with a <strong>role</strong>: <code class="inline">user</code> for what you send, <code class="inline">assistant</code> for what the model said, and a <strong>system prompt</strong> that sets standing behavior ("answer only from the provided text," "respond in JSON") before the conversation starts.</p>
+          <p>Where that system prompt goes is the one thing that genuinely differs per provider, and it's exactly what <code class="inline">_dispatch</code> in Module 0's <code class="inline">llm_client.py</code> is hiding from you: Anthropic takes <code class="inline">system</code> as its own top-level parameter, separate from <code class="inline">messages</code>. OpenAI (and Ollama, through the same OpenAI-compatible SDK) treats it as just another message with <code class="inline">role: "system"</code>. Gemini uses neither &mdash; its own role for the model's own turns is <code class="inline">"model"</code>, not <code class="inline">"assistant"</code>, which trips people up the first time they build multi-turn history by hand.</p>
+        </div>
+
+        <div class="lesson-concept">
+          <h3>Tokens, context windows, and cost</h3>
+          <p>A <strong>token</strong> is the unit a model actually reads and writes &mdash; usually a few characters or a word-piece, not a whole word. Different providers use different tokenizers, so the same sentence costs a different number of tokens depending on who's counting; Lab 1 makes that concrete instead of abstract.</p>
+          <p>The <strong>context window</strong> is the most tokens a single call can hold &mdash; input and output combined, for most providers. Go over it and the call fails outright; it doesn't quietly truncate for you. Cost is just arithmetic on top of the token count, and it's the exact formula already sitting in Module 0's <code class="inline">call()</code>: <code class="inline">input_tokens / 1_000_000 * price_in + output_tokens / 1_000_000 * price_out</code>. Output tokens are usually the expensive half of that sum &mdash; providers price them several times higher than input, because generating a token costs more compute than reading one.</p>
+        </div>
+
+        <div class="lesson-concept">
+          <h3>Sampling settings: temperature, top-p, max tokens, stop sequences</h3>
+          <p><strong>Temperature</strong> controls how much the model is allowed to deviate from its single most-likely next token &mdash; near 0 it's close to deterministic, higher values let lower-probability tokens win sometimes. <strong>top-p</strong> is a second, related knob (nucleus sampling: only consider tokens whose combined probability covers the top <em>p</em>) &mdash; most people pick one of the two to tune and leave the other at its default rather than fighting both at once.</p>
+          <p><strong>max_tokens</strong> is a hard ceiling on the reply's length, not a target &mdash; the model can stop earlier on its own, but never later. It doesn't affect input cost at all, only caps how much output you could be charged for. <strong>Stop sequences</strong> end generation early the instant a given string appears, useful for formats where you know the reply should end at a specific marker.</p>
+        </div>
+
+        <div class="lesson-concept">
+          <h3>Streaming: time to first token vs. total latency</h3>
+          <p>A blocking call waits for the entire reply before returning anything. A streaming call returns the first chunk as soon as the model has generated it, then keeps delivering chunks as they're produced. <strong>Time to first token (TTFT)</strong> is how long the first chunk takes; <strong>total latency</strong> is how long the whole reply takes either way. Streaming barely changes total latency &mdash; the model still has to generate every token &mdash; but it changes what the <em>user</em> experiences: they see something moving almost immediately instead of staring at a blank screen for the full duration.</p>
+          <p>The object you iterate to get those chunks is different per SDK: Anthropic gives you a context manager with a <code class="inline">.text_stream</code> you loop over; OpenAI (and Ollama) give you an iterator of chunk objects where the text lives at <code class="inline">chunk.choices[0].delta.content</code>; Gemini gives you an iterator where it's just <code class="inline">chunk.text</code>.</p>
+        </div>
+
+        <div class="lesson-concept">
+          <h3>Caching: two different mechanisms, easy to conflate</h3>
+          <p><strong>Prompt caching</strong> is the provider reusing its own internal computation (the "KV cache") for a prefix of tokens it has already processed, so a second call that repeats the same long system prompt or document doesn't re-pay for reprocessing it. It requires an <em>identical</em> prefix &mdash; one character different and it's a cache miss. Anthropic requires you to mark the cacheable block explicitly with <code class="inline">cache_control</code>; OpenAI does it automatically for any prompt over roughly 1,024 tokens, no code change required.</p>
+          <p><strong>Semantic caching</strong> is a completely different, application-level idea: you embed the <em>question itself</em> and compare it by similarity to questions you've answered before, returning the stored answer if it's close enough &mdash; even if the wording doesn't match at all. It catches paraphrases that prompt caching can't touch, because prompt caching never looks at whether two questions mean the same thing, only whether the bytes match.</p>
+        </div>
+
+        <div class="lesson-concept">
+          <h3>Picking a model: quality, speed, cost &mdash; pick two</h3>
+          <p>There's no universally "best" model, only a triangle you're trading off inside: bigger and smarter models cost more and respond slower; smaller "lite" or "mini" variants are cheaper and faster but weaker on hard tasks. The practical move (and the subject of Module 6's router lab) is routing easy requests to a cheap model and reserving the expensive one for requests that actually need it.</p>
+          <p>That tradeoff isn't hypothetical here: this module's labs use <code class="inline">gemini-flash-lite-latest</code> rather than Module 0's <code class="inline">gemini-flash-latest</code>, specifically because the lite variant streamed reliably and about twice as fast under real testing, while the full flash model was intermittently overloaded. Cheaper and faster isn't always a downgrade &mdash; sometimes it's just the better fit for what you're doing.</p>
+        </div>
+
+      </div>
+    </section>
+
+    <section class="lesson-section">
+      <h2>Hands-on Labs</h2>
+      <div class="lesson-labs">
+
+        <div class="lab-card framework-item is-accordion" id="lab-1">
+          <button class="fw-toggle" type="button" aria-expanded="false" aria-controls="lab-1-body">
+            <span class="lab-num">LAB 1</span>
+            <div class="fw-toggle-text">
+              <h3>Token intuition</h3>
+              <p class="fw-teaser">Guess the token count for English, code, JSON, emoji and Japanese, then check against three providers' own tokenizers.</p>
+            </div>
+            <svg class="fw-chevron" width="18" height="18" viewBox="0 0 20 20" aria-hidden="true">
+              <path d="M5 7.5 L10 12.5 L15 7.5" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+          </button>
+          <div class="fw-body" id="lab-1-body">
+          <ol class="lab-steps">
+            <li>Install <code class="inline">tiktoken</code> &mdash; it's OpenAI's own tokenizer library, the only way to count OpenAI-style tokens without making a real API call.
+              <div class="code-block"><code>pip install tiktoken
+pip freeze &gt; requirements.txt</code></div>
+            </li>
+            <li>Create <code class="inline">chatbot/token_intuition.py</code> (<code class="inline">code chatbot/token_intuition.py</code>, or <code class="inline">nano</code>). <strong>Before running anything</strong>, write your own guess for each sample as a comment &mdash; the point of this lab is checking your intuition, not just reading numbers off a script.
+              <div class="code-block"><code><span class="code-comment"># Guess first! Write your estimate for each sample below, then run this
+# file and see how close you were.
+#   English: ?    Code: ?    JSON: ?    Emoji: ?    Japanese: ?</span>
+
+import os
+from dotenv import load_dotenv
+load_dotenv()
+
+SAMPLES = {
+    "English": "The quick brown fox jumps over the lazy dog.",
+    "Code": "def fib(n):\n    return n if n &lt; 2 else fib(n-1) + fib(n-2)",
+    "JSON": '{"name": "Ada", "age": 36, "skills": ["math", "engineering"]}',
+    "Emoji": "🚀🔥😂👍💯🎉😍🙌✨🤔",
+    "Japanese": "猫はかわいいです。今日は良い天気ですね。",
+}
+
+def anthropic_tokens(text):
+    from anthropic import Anthropic
+    client = Anthropic(api_key=os.environ["ANTHROPIC_API_KEY"])
+    resp = client.messages.count_tokens(
+        model="claude-sonnet-5", messages=[{"role": "user", "content": text}],
+    )
+    return resp.input_tokens
+
+def openai_tokens(text):
+    import tiktoken
+    enc = tiktoken.encoding_for_model("gpt-4.1-mini")
+    return len(enc.encode(text))
+
+def gemini_tokens(text):
+    from google import genai
+    client = genai.Client(api_key=os.environ["GEMINI_API_KEY"])
+    resp = client.models.count_tokens(model="gemini-flash-lite-latest", contents=text)
+    return resp.total_tokens
+
+if __name__ == "__main__":
+    for label, text in SAMPLES.items():
+        a, o, g = anthropic_tokens(text), openai_tokens(text), gemini_tokens(text)
+        print(f"{label:10} anthropic={a:3}  openai={o:3}  gemini={g:3}")</code></div>
+            </li>
+            <li>Run it and compare the three columns, then compare them to your own guesses.
+              <div class="code-block"><code>python chatbot/token_intuition.py</code></div>
+            </li>
+          </ol>
+          <div class="lab-check"><strong>Check:</strong> emoji and Japanese should cost noticeably more tokens per character than English &mdash; both get split into several token pieces per visible character under most tokenizers, while common English words are often a single token. Anthropic's count typically comes in a bit higher than the other two for the same text; that's conversation-structure overhead from counting a full message, not a different tokenizer being "wrong." In our own run: English came out <code class="inline">anthropic=24 openai=10 gemini=11</code>, Japanese came out <code class="inline">anthropic=26 openai=13 gemini=11</code> &mdash; expect your numbers to be close, not identical, since tokenizers change between model versions.</div>
+          </div>
+        </div>
+
+        <div class="lab-card framework-item is-accordion" id="lab-2">
+          <button class="fw-toggle" type="button" aria-expanded="false" aria-controls="lab-2-body">
+            <span class="lab-num">LAB 2</span>
+            <div class="fw-toggle-text">
+              <h3>Temperature sweep</h3>
+              <p class="fw-teaser">Run one prompt 10 times at three temperatures and count how many distinct answers you get.</p>
+            </div>
+            <svg class="fw-chevron" width="18" height="18" viewBox="0 0 20 20" aria-hidden="true">
+              <path d="M5 7.5 L10 12.5 L15 7.5" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+          </button>
+          <div class="fw-body" id="lab-2-body">
+          <ol class="lab-steps">
+            <li>Create <code class="inline">chatbot/temperature_sweep.py</code> and paste in a function that calls the same prompt <code class="inline">n</code> times at a given temperature and collects the answers.
+              <div class="code-block"><code>import os
+from dotenv import load_dotenv
+load_dotenv()
+from openai import OpenAI
+
+client = OpenAI(api_key=os.environ["OPENAI_API_KEY"])
+PROMPT = "Name an animal. Reply with just the word."
+
+def sweep(temperature, n=10):
+    answers = []
+    for _ in range(n):
+        resp = client.chat.completions.create(
+            model="gpt-4.1-mini", max_tokens=15, temperature=temperature,
+            messages=[{"role": "user", "content": PROMPT}],
+        )
+        answers.append(resp.choices[0].message.content.strip())
+    return answers
+
+if __name__ == "__main__":
+    for temp in [0, 1, 1.8]:
+        answers = sweep(temp)
+        print(f"temp={temp}: {answers} -&gt; {len(set(answers))} distinct")</code></div>
+            </li>
+            <li>Run it. Prompt choice matters here more than you'd expect: a narrowly-biased prompt like <em>"name one primary color"</em> stays stuck on whichever answer the model considers overwhelmingly likely (almost always "Red") even at the highest temperature, across all 10 tries &mdash; that's a real result if it happens to you, not a bug, it just doesn't make for an interesting lab. "Name an animal" has enough plausible alternatives that temperature actually has room to work.
+              <div class="code-block"><code>python chatbot/temperature_sweep.py</code></div>
+            </li>
+          </ol>
+          <div class="lab-check"><strong>Check:</strong> distinct-answer count should rise with temperature, not stay flat. In our own run: <code class="inline">temp=0</code> &rarr; 1 distinct (10/10 "Elephant"); <code class="inline">temp=1</code> &rarr; 2 distinct (mostly "Elephant", two "Dolphin"); <code class="inline">temp=1.8</code> &rarr; 4 distinct ("Elephant", "Dolphin", "Tiger", "Monkey"). Don't expect <code class="inline">temp=0</code> to be perfectly identical every single run forever; providers don't guarantee strict determinism even at 0.</div>
+          </div>
+        </div>
+
+        <div class="lab-card framework-item is-accordion" id="lab-3">
+          <button class="fw-toggle" type="button" aria-expanded="false" aria-controls="lab-3-body">
+            <span class="lab-num">LAB 3</span>
+            <div class="fw-toggle-text">
+              <h3>Streaming vs. blocking</h3>
+              <p class="fw-teaser">Time the same long answer both ways and compare time-to-first-token against total latency.</p>
+            </div>
+            <svg class="fw-chevron" width="18" height="18" viewBox="0 0 20 20" aria-hidden="true">
+              <path d="M5 7.5 L10 12.5 L15 7.5" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+          </button>
+          <div class="fw-body" id="lab-3-body">
+          <ol class="lab-steps">
+            <li>Create <code class="inline">chatbot/streaming_vs_blocking.py</code> and paste in both versions of the same call.
+              <div class="code-block"><code>import os, time
+from dotenv import load_dotenv
+load_dotenv()
+from anthropic import Anthropic
+
+client = Anthropic(api_key=os.environ["ANTHROPIC_API_KEY"])
+PROMPT = "Write a 300-word story about a lighthouse keeper."
+
+def call_blocking():
+    start = time.time()
+    client.messages.create(
+        model="claude-sonnet-5", max_tokens=500,
+        messages=[{"role": "user", "content": PROMPT}],
+    )
+    return time.time() - start
+
+def call_streaming():
+    start = time.time()
+    ttft = None
+    with client.messages.stream(
+        model="claude-sonnet-5", max_tokens=500,
+        messages=[{"role": "user", "content": PROMPT}],
+    ) as stream:
+        for _ in stream.text_stream:
+            if ttft is None:
+                ttft = time.time() - start
+    return ttft, time.time() - start
+
+if __name__ == "__main__":
+    for i in range(3):
+        blocking_total = call_blocking()
+        ttft, streaming_total = call_streaming()
+        print(f"run {i+1}: blocking={blocking_total:.2f}s  |  "
+              f"streaming ttft={ttft:.2f}s total={streaming_total:.2f}s")</code></div>
+            </li>
+            <li>Run it three times and look at the gap between <code class="inline">blocking</code> and <code class="inline">ttft</code> &mdash; that gap is exactly how much sooner a streaming UI would show the user something.
+              <div class="code-block"><code>python chatbot/streaming_vs_blocking.py</code></div>
+            </li>
+          </ol>
+          <div class="lab-check"><strong>Check:</strong> <code class="inline">ttft</code> should be noticeably smaller than <code class="inline">blocking</code>'s total time, while <code class="inline">streaming total</code> should land close to <code class="inline">blocking</code>'s time &mdash; streaming doesn't make the model faster, it just shows you the result sooner. In our own run, across three repeats: blocking averaged ~7.9s total; streaming's first token consistently arrived in well under a second (0.67&ndash;0.77s). Same total work, over 10&times; difference in how long it feels.</div>
+          </div>
+        </div>
+
+        <div class="lab-card framework-item is-accordion" id="lab-4">
+          <button class="fw-toggle" type="button" aria-expanded="false" aria-controls="lab-4-body">
+            <span class="lab-num">LAB 4</span>
+            <div class="fw-toggle-text">
+              <h3>Prompt caching</h3>
+              <p class="fw-teaser">Ask five questions about one long document, with and without caching, and compare cost and latency from your own log.</p>
+            </div>
+            <svg class="fw-chevron" width="18" height="18" viewBox="0 0 20 20" aria-hidden="true">
+              <path d="M5 7.5 L10 12.5 L15 7.5" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+          </button>
+          <div class="fw-body" id="lab-4-body">
+          <ol class="lab-steps">
+            <li>Grab a real document &mdash; any article, README, or chapter, at least a few hundred words across multiple paragraphs &mdash; and save it as <code class="inline">chatbot/long_doc.txt</code>. Caching only kicks in above roughly 1,024 tokens on Claude's smaller models, so a single short paragraph won't show anything; a ~700-word piece of ordinary prose already clears that comfortably (English runs roughly 2 tokens per word).</li>
+            <li>Create <code class="inline">chatbot/prompt_caching.py</code>. It asks the same five questions about the document twice &mdash; once with <code class="inline">cache_control</code> set, once without &mdash; and logs every call through Module 0's <code class="inline">log_call</code> so the comparison lives in <code class="inline">shared/calls.jsonl</code>, not just stdout.
+              <div class="code-block"><code>import os, sys, time, pathlib
+from dotenv import load_dotenv
+load_dotenv()
+
+sys.path.insert(0, str(pathlib.Path(__file__).resolve().parent.parent / "shared"))
+from llm_log import log_call
+
+DOC = pathlib.Path(__file__).parent.joinpath("long_doc.txt").read_text()
+QUESTIONS = [
+    "What is the main topic of this document?",
+    "Summarize it in one sentence.",
+    "What is the second paragraph about?",
+    "Does it mention any numbers? Which ones?",
+    "What tone does it use?",
+]
+
+def ask(cached):
+    from anthropic import Anthropic
+    client = Anthropic(api_key=os.environ["ANTHROPIC_API_KEY"])
+    system = [{"type": "text", "text": DOC}]
+    if cached:
+        system[0]["cache_control"] = {"type": "ephemeral"}
+
+    label = "claude-sonnet-5-cached" if cached else "claude-sonnet-5-uncached"
+    for q in QUESTIONS:
+        start = time.time()
+        resp = client.messages.create(
+            model="claude-sonnet-5", max_tokens=100,
+            system=system, messages=[{"role": "user", "content": q}],
+        )
+        elapsed_ms = (time.time() - start) * 1000
+        cost = (resp.usage.input_tokens / 1_000_000 * 3.00
+                + resp.usage.output_tokens / 1_000_000 * 15.00)
+        log_call("anthropic", label, resp.usage.input_tokens, resp.usage.output_tokens, elapsed_ms, cost)
+        print(f"  cache_read={resp.usage.cache_read_input_tokens:5}  "
+              f"cache_write={resp.usage.cache_creation_input_tokens:5}  {elapsed_ms:.0f}ms")
+
+if __name__ == "__main__":
+    print("--- without caching ---")
+    ask(cached=False)
+    print("--- with caching ---")
+    ask(cached=True)</code></div>
+            </li>
+            <li>Run it, then pull the two batches out of the log and compare total cost.
+              <div class="code-block"><code>python chatbot/prompt_caching.py
+python -c "
+import json
+rows = [json.loads(l) for l in open('shared/calls.jsonl')]
+for label in ['claude-sonnet-5-uncached', 'claude-sonnet-5-cached']:
+    batch = [r for r in rows if r['model'] == label]
+    print(label, 'total cost:', sum(r['cost_usd'] for r in batch))
+"</code></div>
+            </li>
+          </ol>
+          <div class="lab-check"><strong>Check:</strong> the uncached run should show <code class="inline">cache_read=0</code> on every question &mdash; no caching ever happens without <code class="inline">cache_control</code>, no matter how many times you repeat the document. The cached run should show <code class="inline">cache_write</code> on question 1 only, then <code class="inline">cache_read</code> equal to roughly the document's token count on questions 2&ndash;5. In our own run against a 716-word document: question 1 wrote 1,462 tokens to cache; every question after it read all 1,462 back instead of reprocessing them. The token savings are unambiguous &mdash; don't expect the same clarity from <code class="inline">elapsed_ms</code> at this document size, though: in our run the cached and uncached latencies actually overlapped (roughly 1,300&ndash;2,000ms either way), because ordinary network and generation variance was bigger than the time saved on reprocessing ~1,500 tokens. Prompt caching's latency win shows up clearly on much longer documents; at modest sizes, trust the token counts and the cost over the stopwatch &mdash; in our run the comparison script printed <code class="inline">uncached total cost: 0.029634</code> vs. <code class="inline">cached total cost: 0.007704</code>, nearly 4&times; cheaper for the identical five questions.</div>
+          </div>
+        </div>
+
+        <div class="lab-card framework-item is-accordion" id="lab-5">
+          <button class="fw-toggle" type="button" aria-expanded="false" aria-controls="lab-5-body">
+            <span class="lab-num">LAB 5</span>
+            <div class="fw-toggle-text">
+              <h3>Semantic cache</h3>
+              <p class="fw-teaser">Test 20 paraphrased questions and find the similarity threshold where wrong answers start slipping through.</p>
+            </div>
+            <svg class="fw-chevron" width="18" height="18" viewBox="0 0 20 20" aria-hidden="true">
+              <path d="M5 7.5 L10 12.5 L15 7.5" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+          </button>
+          <div class="fw-body" id="lab-5-body">
+          <ol class="lab-steps">
+            <li>Create <code class="inline">chatbot/semantic_cache.py</code>. It embeds a small seed set of question/answer pairs, then for any new question finds the closest seed by cosine similarity (plain Python &mdash; no numpy needed for three vectors) and returns its answer if the similarity clears a threshold.
+              <div class="code-block"><code>import os, math
+from dotenv import load_dotenv
+load_dotenv()
+from openai import OpenAI
+
+client = OpenAI(api_key=os.environ["OPENAI_API_KEY"])
+
+def embed(texts):
+    resp = client.embeddings.create(model="text-embedding-3-small", input=texts)
+    return [d.embedding for d in resp.data]
+
+def cosine_similarity(a, b):
+    dot = sum(x * y for x, y in zip(a, b))
+    na = math.sqrt(sum(x * x for x in a))
+    nb = math.sqrt(sum(x * x for x in b))
+    return dot / (na * nb)
+
+SEED = {
+    "What is the capital of France?": "Paris.",
+    "How many legs does a spider have?": "Eight.",
+    "What's the boiling point of water in Celsius?": "100 degrees.",
+}
+seed_questions = list(SEED.keys())
+seed_vecs = embed(seed_questions)
+
+def lookup(question, threshold):
+    q_vec = embed([question])[0]
+    best_score, best_q = 0, None
+    for sq, sv in zip(seed_questions, seed_vecs):
+        score = cosine_similarity(q_vec, sv)
+        if score &gt; best_score:
+            best_score, best_q = score, sq
+    if best_score &gt;= threshold:
+        return SEED[best_q], best_score, best_q
+    return None, best_score, best_q</code></div>
+            </li>
+            <li>Add a test set deliberately mixing three kinds of question &mdash; true paraphrases of a seed, questions on the <em>same topic</em> as a seed but asking something different, and fully unrelated questions &mdash; then sweep a few thresholds and print every score.
+              <div class="code-block"><code>TEST_QUESTIONS = [
+    <span class="code-comment"># paraphrases -- should hit</span>
+    "Which city is the capital of France?",
+    "What's France's capital city?",
+    "How many legs do spiders have?",
+    "What temperature does water boil at, in Celsius?",
+    <span class="code-comment"># same topic, different question -- should NOT hit</span>
+    "What is the population of France?",
+    "How many eyes does a spider have?",
+    "What's the freezing point of water in Celsius?",
+    <span class="code-comment"># unrelated -- should NOT hit</span>
+    "How do I bake a chocolate cake?",
+    "What's the capital of Japan?",
+]
+
+if __name__ == "__main__":
+    for threshold in [0.95, 0.85, 0.75, 0.6]:
+        print(f"--- threshold={threshold} ---")
+        hits = 0
+        for q in TEST_QUESTIONS:
+            answer, score, matched = lookup(q, threshold)
+            status = f"HIT (matched {matched!r})" if answer else "miss"
+            print(f"  {score:.3f}  {q!r} -&gt; {status}")
+            if answer:
+                hits += 1
+        print(f"  {hits}/{len(TEST_QUESTIONS)} hits\n")</code></div>
+            </li>
+            <li>Run it and read every threshold's printout, not just the hit count &mdash; the bug you're hunting for is a same-topic question matching a seed it shouldn't.
+              <div class="code-block"><code>python chatbot/semantic_cache.py</code></div>
+            </li>
+          </ol>
+          <div class="lab-check"><strong>Check:</strong> in our own run, <code class="inline">threshold=0.95</code> was too strict (1/9 hits &mdash; real paraphrases missed); <code class="inline">threshold=0.85</code> landed cleanly (3/9 hits, all genuine paraphrases, zero wrong matches); dropping to <code class="inline">threshold=0.75</code> picked up two more hits that were the real failure mode &mdash; "How many eyes does a spider have?" scored 0.790 against the legs question and would have served the wrong answer. That's the exact thing this lab is designed to surface: somewhere between 0.75 and 0.85, wrong answers start slipping through. Confirm it against your own printout rather than trusting this number &mdash; it depends on the exact wording of your seed and test questions.</div>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <section class="lesson-section" id="lesson-project">
+      <h2>Project</h2>
+      <div class="lab-card framework-item is-accordion" id="project-card">
+        <button class="fw-toggle" type="button" aria-expanded="false" aria-controls="project-card-body">
+          <span class="lab-num">PROJECT</span>
+          <div class="fw-toggle-text">
+            <h3>Chatbot with a live cost meter</h3>
+            <p class="fw-teaser">A streaming, multi-turn chat with a model picker and a running cost/latency readout &mdash; first as a terminal app, then as a minimal local web app.</p>
+          </div>
+          <svg class="fw-chevron" width="18" height="18" viewBox="0 0 20 20" aria-hidden="true">
+            <path d="M5 7.5 L10 12.5 L15 7.5" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+        </button>
+        <div class="fw-body" id="project-card-body">
+      <div class="course-project">
+        <span class="course-project-label">Project &middot; Chatbot with a live cost meter</span>
+        <p>Module 0's <code class="inline">call(prompt, model)</code> only handles one-shot, non-streaming calls &mdash; a chat app needs two things it doesn't have: a full conversation history instead of a single prompt, and streaming instead of waiting for the whole reply. Part 1 builds that as a terminal app. Part 2 is the same logic behind a minimal local web page, which is also where the one genuinely tricky bit of this project lives.</p>
+      </div>
+
+      <h4 class="course-subhead" style="margin-top: 20px;">Part 1 &middot; Terminal REPL</h4>
+      <ol class="lab-steps">
+        <li>Extend <code class="inline">shared/llm_client.py</code> with a streaming, multi-turn sibling to <code class="inline">call()</code>. It takes a full <code class="inline">[{"role", "content"}, ...]</code> history instead of one prompt string, and an <code class="inline">on_chunk</code> callback it calls once per piece of text as it streams &mdash; so a caller can print each piece the moment it arrives instead of waiting for the full reply.
+          <div class="code-block"><code><span class="code-comment"># shared/llm_client.py -- add below the existing call()/_dispatch()</span>
+def stream_chat(messages, model, on_chunk=None, max_attempts=5):
+    cfg = CONFIG[model]
+    start = time.time()
+    for attempt in range(max_attempts):
+        try:
+            text, usage = _dispatch_stream(cfg["provider"], model, messages, on_chunk)
+            break
+        except RATE_LIMIT_ERRORS:
+            if attempt == max_attempts - 1:
+                raise
+            time.sleep(2 ** attempt + random.random())
+    elapsed_ms = (time.time() - start) * 1000
+    cost = (usage["input_tokens"] / 1_000_000 * cfg["price_in"]
+            + usage["output_tokens"] / 1_000_000 * cfg["price_out"])
+    log_call(cfg["provider"], model, usage["input_tokens"], usage["output_tokens"], elapsed_ms, cost)
+    return text, cost, elapsed_ms</code></div>
+        </li>
+        <li>Fill in <code class="inline">_dispatch_stream</code>, one branch per provider &mdash; the same four branches as <code class="inline">_dispatch</code>, but each accumulates the streamed text and calls <code class="inline">on_chunk</code> as it goes instead of returning the whole reply at once. Gemini needs its own role remapped (<code class="inline">"assistant"</code> &rarr; <code class="inline">"model"</code>) since it doesn't use OpenAI/Anthropic's role names.
+          <div class="code-block"><code>def _dispatch_stream(provider, model, messages, on_chunk):
+    if provider == "anthropic":
+        from anthropic import Anthropic
+        client = Anthropic(api_key=os.environ["ANTHROPIC_API_KEY"])
+        text = ""
+        with client.messages.stream(model=model, max_tokens=500, messages=messages) as stream:
+            for chunk in stream.text_stream:
+                text += chunk
+                if on_chunk:
+                    on_chunk(chunk)
+            final = stream.get_final_message()
+        return text, {
+            "input_tokens": final.usage.input_tokens,
+            "output_tokens": final.usage.output_tokens,
+        }
+
+    if provider in ("openai", "ollama"):
+        from openai import OpenAI
+        if provider == "ollama":
+            client = OpenAI(base_url="http://localhost:11434/v1", api_key="ollama")
+        else:
+            client = OpenAI(api_key=os.environ["OPENAI_API_KEY"])
+        resp = client.chat.completions.create(
+            model=model, messages=messages,
+            stream=True, stream_options={"include_usage": True},
+        )
+        text = ""
+        input_tokens = output_tokens = 0
+        for chunk in resp:
+            if chunk.choices and chunk.choices[0].delta.content:
+                piece = chunk.choices[0].delta.content
+                text += piece
+                if on_chunk:
+                    on_chunk(piece)
+            if chunk.usage:
+                input_tokens = chunk.usage.prompt_tokens
+                output_tokens = chunk.usage.completion_tokens
+        return text, {"input_tokens": input_tokens, "output_tokens": output_tokens}
+
+    if provider == "gemini":
+        from google import genai
+        client = genai.Client(api_key=os.environ["GEMINI_API_KEY"])
+        <span class="code-comment"># Gemini uses "model" instead of "assistant" for its own turns</span>
+        contents = [
+            {"role": "model" if m["role"] == "assistant" else m["role"], "parts": [{"text": m["content"]}]}
+            for m in messages
+        ]
+        text = ""
+        last_chunk = None
+        for chunk in client.models.generate_content_stream(model=model, contents=contents):
+            if chunk.text:
+                text += chunk.text
+                if on_chunk:
+                    on_chunk(chunk.text)
+            last_chunk = chunk
+        usage = last_chunk.usage_metadata if last_chunk else None
+        return text, {
+            "input_tokens": usage.prompt_token_count if usage else 0,
+            "output_tokens": usage.candidates_token_count if usage else 0,
+        }
+
+    raise ValueError(f"Unknown provider: {provider}")</code></div>
+        </li>
+        <li>Create <code class="inline">chatbot/chat_cli.py</code>: a model picker, a loop that keeps growing the message history each turn, and a cost readout after every reply.
+          <div class="code-block"><code>import sys, pathlib
+sys.path.insert(0, str(pathlib.Path(__file__).resolve().parent.parent / "shared"))
+from llm_client import stream_chat, CONFIG
+
+MODELS = list(CONFIG.keys())
+
+def pick_model():
+    print("Models:")
+    for i, name in enumerate(MODELS, 1):
+        print(f"  {i}. {name}")
+    choice = input(f"Pick a model [1-{len(MODELS)}]: ").strip()
+    try:
+        return MODELS[int(choice) - 1]
+    except (ValueError, IndexError):
+        print("Not a valid choice, defaulting to the first model.")
+        return MODELS[0]
+
+def main():
+    model = pick_model()
+    print(f"\nChatting with {model}. Type 'quit' to exit.\n")
+    messages = []
+    session_cost = 0.0
+
+    while True:
+        user_input = input("You: ").strip()
+        if user_input.lower() in ("quit", "exit"):
+            break
+        if not user_input:
+            continue
+        messages.append({"role": "user", "content": user_input})
+
+        print(f"{model}: ", end="", flush=True)
+        text, cost, elapsed_ms = stream_chat(
+            messages, model, on_chunk=lambda c: print(c, end="", flush=True)
+        )
+        print()
+        messages.append({"role": "assistant", "content": text})
+        session_cost += cost
+        print(f"  [turn: ${cost:.6f}, {elapsed_ms:.0f}ms | session total: ${session_cost:.6f}]\n")
+
+    print(f"\nSession total: ${session_cost:.6f}")
+
+if __name__ == "__main__":
+    main()</code></div>
+        </li>
+        <li>Run it and have an actual back-and-forth &mdash; ask it something, then ask a follow-up that only makes sense if it remembered the first answer.
+          <div class="code-block"><code>python chatbot/chat_cli.py</code></div>
+        </li>
+      </ol>
+      <div class="lab-check"><strong>Check:</strong> tokens print as they arrive, not all at once; a follow-up question that depends on earlier context gets answered correctly, proving <code class="inline">messages</code> is actually accumulating; and the session total only goes up, never resets, across the whole conversation.</div>
+
+      <h4 class="course-subhead" style="margin-top: 26px;">Part 2 (Advanced) &middot; Minimal local web app</h4>
+      <p style="font-size: .9rem; line-height: 1.6; margin-bottom: 4px;">Same chat, same <code class="inline">stream_chat</code>, running behind a one-page local Flask app instead of a terminal. The interesting problem here isn't the UI &mdash; it's that <code class="inline">on_chunk</code> is a plain callback with no way to pause itself and hand control back to Flask, which is exactly what an HTTP response generator needs to do between chunks.</p>
+      <ol class="lab-steps" style="margin-top: 14px;">
+        <li>Install Flask.
+          <div class="code-block"><code>pip install flask
+pip freeze &gt; requirements.txt</code></div>
+        </li>
+        <li>Create <code class="inline">chatbot/chat_web.py</code>. The fix for the callback problem: run <code class="inline">stream_chat</code> on a background thread that pushes each chunk onto a <code class="inline">queue.Queue</code>, and let Flask's response generator just drain that queue &mdash; <code class="inline">q.get()</code> blocks until a chunk shows up, which is what turns "a callback fired" into "the generator can yield now."
+          <div class="code-block"><code><span class="code-comment"># chatbot/chat_web.py</span>
+import sys, json, queue, pathlib, threading
+sys.path.insert(0, str(pathlib.Path(__file__).resolve().parent.parent / "shared"))
+from llm_client import stream_chat, CONFIG
+from flask import Flask, request, Response
+
+app = Flask(__name__)
+DONE_MARKER = "\x00DONE\x00"
+ERROR_MARKER = "\x00ERROR\x00"
+
+@app.route("/models")
+def models():
+    return {"models": list(CONFIG.keys())}
+
+@app.route("/chat", methods=["POST"])
+def chat():
+    body = request.get_json()
+    messages, model = body["messages"], body["model"]
+    q = queue.Queue()
+
+    def worker():
+        try:
+            def on_chunk(c):
+                q.put(("chunk", c))
+            text, cost, elapsed_ms = stream_chat(messages, model, on_chunk=on_chunk)
+            q.put(("done", {"cost": cost, "elapsed_ms": elapsed_ms}))
+        except Exception as e:
+            q.put(("error", str(e)))
+
+    threading.Thread(target=worker, daemon=True).start()
+
+    def generate():
+        while True:
+            kind, payload = q.get()
+            if kind == "chunk":
+                yield payload
+            elif kind == "done":
+                yield DONE_MARKER + json.dumps(payload)
+                return
+            elif kind == "error":
+                yield ERROR_MARKER + payload
+                return
+
+    return Response(generate(), mimetype="text/plain")</code></div>
+        </li>
+        <li>Add the <code class="inline">/</code> route and the page itself &mdash; a model <code class="inline">&lt;select&gt;</code>, a log, an input box, and JS that reads the streamed response body chunk by chunk, splitting out the <code class="inline">DONE_MARKER</code> footer to update the cost meter. The marker is a null byte sequence that will never appear in normal model output, so a plain string search finds it reliably.
+          <div class="code-block"><code><span class="code-comment"># add above the two routes in chat_web.py</span>
+INDEX_HTML = """&lt;!doctype html&gt;
+&lt;title&gt;Cost-Meter Chat&lt;/title&gt;
+&lt;select id="model"&gt;&lt;/select&gt;
+&lt;div id="log" style="white-space:pre-wrap;border:1px solid #ccc;height:320px;overflow-y:auto;padding:10px"&gt;&lt;/div&gt;
+&lt;input id="input"&gt;&lt;button id="send"&gt;Send&lt;/button&gt;
+&lt;div id="meter"&gt;&lt;/div&gt;
+&lt;script&gt;
+let messages = [], sessionCost = 0;
+fetch('/models').then(r =&gt; r.json()).then(d =&gt; {
+  d.models.forEach(m =&gt; document.getElementById('model')
+    .appendChild(new Option(m, m)));
+});
+
+async function send() {
+  const input = document.getElementById('input');
+  const text = input.value.trim();
+  if (!text) return;
+  input.value = '';
+  messages.push({role: 'user', content: text});
+  const log = document.getElementById('log');
+  const model = document.getElementById('model').value;
+  log.textContent += 'You: ' + text + '\\n' + model + ': ';
+
+  const resp = await fetch('/chat', {
+    method: 'POST', headers: {'Content-Type': 'application/json'},
+    body: JSON.stringify({messages, model}),
+  });
+  const reader = resp.body.getReader();
+  const decoder = new TextDecoder();
+  let full = '', buffer = '';
+  while (true) {
+    const {done, value} = await reader.read();
+    if (done) break;
+    buffer += decoder.decode(value, {stream: true});
+    const doneIdx = buffer.indexOf('\\x00DONE\\x00');
+    if (doneIdx !== -1) {
+      full += buffer.slice(0, doneIdx);
+      log.textContent += buffer.slice(0, doneIdx);
+      const meta = JSON.parse(buffer.slice(doneIdx + 6));
+      sessionCost += meta.cost;
+      document.getElementById('meter').textContent =
+        `turn: $${meta.cost.toFixed(6)}, ${meta.elapsed_ms.toFixed(0)}ms | session: $${sessionCost.toFixed(6)}`;
+      break;
+    }
+    full += buffer; log.textContent += buffer; buffer = '';
+  }
+  messages.push({role: 'assistant', content: full});
+  log.textContent += '\\n';
+}
+document.getElementById('send').onclick = send;
+document.getElementById('input').addEventListener('keydown', e =&gt; { if (e.key === 'Enter') send(); });
+&lt;/script&gt;
+"""
+
+@app.route("/")
+def index():
+    return Response(INDEX_HTML, mimetype="text/html")
+
+if __name__ == "__main__":
+    app.run(port=5050, debug=True)</code></div>
+        </li>
+        <li>Run it and open the page.
+          <div class="code-block"><code>python chatbot/chat_web.py
+<span class="code-comment"># then open http://localhost:5050</span></code></div>
+        </li>
+      </ol>
+      <span class="agent-prompt-label">Stuck wiring the queue to the generator? Hand your agent this:</span>
+      <div class="try-it-prompt" id="webapp-prompt">Here is my chat_web.py (paste the file). The /chat route should stream a reply from stream_chat(messages, model, on_chunk=...) back to the browser as it's generated, not all at once at the end. stream_chat's on_chunk callback is called synchronously from inside a loop I don't control, so I can't turn it into a generator directly. Show me how to bridge it using a background thread that pushes chunks onto a queue.Queue, with the Flask response generator draining that queue with q.get() until it sees a "done" or "error" sentinel. Keep the DONE_MARKER/ERROR_MARKER text-based scheme I'm already using, don't switch to Server-Sent Events.</div>
+      <button class="try-it-copy" type="button" data-copy-target="webapp-prompt">Copy prompt</button>
+
+      <div class="lab-check" style="margin-top: 14px;"><strong>Check:</strong> test the backend directly before trusting the page &mdash; <code class="inline">curl -N -X POST http://localhost:5050/chat -H "Content-Type: application/json" -d '{"messages":[{"role":"user","content":"hi"}],"model":"gpt-4.1-mini"}'</code> should print text followed immediately by a <code class="inline">DONE</code> marker and a JSON cost footer, with no delay between the text ending and the marker appearing. If the whole reply arrives in one burst instead of gradually, the queue isn't actually streaming &mdash; check that <code class="inline">on_chunk</code> is wired into the worker thread, not called after <code class="inline">stream_chat</code> returns.</div>
+
+      <p style="margin-top: 14px; font-size: .9rem;"><strong>Done when:</strong></p>
+      <ul class="lesson-checklist">
+        <li>Part 1 (terminal): tokens visibly stream in as they arrive, a multi-turn follow-up gets answered using earlier context, and the session cost total only increases.</li>
+        <li>Part 2 (web): the same conversation works in the browser, cost matches what the terminal version would have charged for the same exchange, and the model picker includes the local Ollama model alongside the cloud ones.</li>
+        <li>Cost matches the provider's own pricing within 5% &mdash; spot-check one turn's <code class="inline">cost_usd</code> in <code class="inline">shared/calls.jsonl</code> against the provider's pricing page by hand.</li>
+        <li>A README section (or comment block) compares the same 10 questions across three models &mdash; cost, latency, and your read on answer quality, side by side.</li>
+      </ul>
+        </div>
+      </div>
+    </section>
+
+    <div class="lesson-foot">
+      <a href="ai-beyond-fundamentals.html#llm-fundamentals">&larr; Back to the course map</a>
+    </div>
+  </article>
+</main>
+
+<footer class="site-footer">
+  <p>&copy; 2026 Plan-Do-Reflect. <a href="references.html">References &amp; further reading</a></p>
+</footer>
+
+<div class="theme-switch" role="group" aria-label="Style direction">
+  <button data-theme="a" title="Kinetic Signal — black &amp; yellow"></button>
+  <button data-theme="b" title="Studio Ledger — dusty rose"></button>
+  <button data-theme="c" title="Bright Margin — lime"></button>
+  <a class="icon-lib-link" href="icon-library.html" title="Style Guide (internal reference)">
+    <svg width="14" height="14" viewBox="0 0 14 14" aria-hidden="true">
+      <rect x="1" y="1" width="5" height="5" rx="1" fill="currentColor"/>
+      <rect x="8" y="1" width="5" height="5" rx="1" fill="currentColor"/>
+      <rect x="1" y="8" width="5" height="5" rx="1" fill="currentColor"/>
+      <rect x="8" y="8" width="5" height="5" rx="1" fill="currentColor"/>
+    </svg>
+  </a>
+  <a class="icon-lib-link" href="notes.html" title="Notes (working drafts)">
+    <svg width="14" height="14" viewBox="0 0 14 14" aria-hidden="true">
+      <rect x="2" y="1" width="10" height="12" rx="1.5" fill="none" stroke="currentColor" stroke-width="1.3"/>
+      <line x1="4.5" y1="5" x2="9.5" y2="5" stroke="currentColor" stroke-width="1.3" stroke-linecap="round"/>
+      <line x1="4.5" y1="7.5" x2="9.5" y2="7.5" stroke="currentColor" stroke-width="1.3" stroke-linecap="round"/>
+      <line x1="4.5" y1="10" x2="7.5" y2="10" stroke="currentColor" stroke-width="1.3" stroke-linecap="round"/>
+    </svg>
+  </a>
+  <a class="icon-lib-link" href="sitemap.html" title="Sitemap (working draft)">
+    <svg width="14" height="14" viewBox="0 0 14 14" aria-hidden="true">
+      <circle cx="7" cy="2.5" r="1.8" fill="none" stroke="currentColor" stroke-width="1.3"/>
+      <circle cx="3" cy="11" r="1.8" fill="none" stroke="currentColor" stroke-width="1.3"/>
+      <circle cx="11" cy="11" r="1.8" fill="none" stroke="currentColor" stroke-width="1.3"/>
+      <path d="M7 4.3 L7 7 M7 7 L3 9.5 M7 7 L11 9.5" stroke="currentColor" stroke-width="1.3" fill="none" stroke-linecap="round"/>
+    </svg>
+  </a>
+</div>
+
+<script src="js/theme-toggle.js" defer></script>
+<script src="js/title-font-toggle.js" defer></script>
+<script src="js/try-it.js" defer></script>
+<script src="js/framework-accordion.js" defer></script>
+<script src="js/code-copy.js" defer></script>
+</body>
+</html>
