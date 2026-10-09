@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="a">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="icon" type="image/svg+xml" href="favicon.svg">
+<title>Monthly Log · Plan · Do · Reflect</title>
+
+<!-- Applied before CSS loads, so the saved theme / title-font choice doesn't flash to the default on reload -->
+<script>
+(function () {
+  try {
+    var savedTheme = localStorage.getItem('pdr-theme');
+    if (['a', 'b', 'c'].indexOf(savedTheme) > -1) {
+      document.documentElement.setAttribute('data-theme', savedTheme);
+    }
+    var savedTitleFont = localStorage.getItem('pdr-title-font');
+    var titleFont = savedTitleFont === null ? 'golos-text' : savedTitleFont;
+    if (titleFont !== 'default') {
+      document.documentElement.setAttribute('data-title-font', titleFont);
+    }
+  } catch (e) {}
+})();
+</script>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=Work+Sans:wght@400;500;600&family=Sora:wght@600;700;800&family=Plus+Jakarta+Sans:wght@500;600;700&family=Patrick+Hand&display=swap" rel="stylesheet">
+
+<!-- Title-font brainstorm candidates — temporary, for the .title-font-picker toggle only.
+     Remove this link once a title font is chosen and folded into tokens.css. -->
+<link href="https://fonts.googleapis.com/css2?family=Gabarito:wght@800&family=Chivo:wght@800&family=Golos+Text:wght@800&display=swap" rel="stylesheet">
+
+<link rel="stylesheet" href="css/tokens.css">
+<link rel="stylesheet" href="css/main.css">
+</head>
+<body data-nav="self">
+
+<div id="site-topnav"></div>
+
+<div class="layout">
+  <aside class="sidebar">
+    <div class="sec-title">Self</div>
+    <a class="sub-item" href="self-management.html">Overview</a>
+
+    <div class="sidebar-group">
+      <div class="group-label">Plan</div>
+      <a class="sub-item" href="goal-setting-priorities.html">Goal Setting &amp; Priorities</a>
+    </div>
+
+    <div class="sidebar-group">
+      <div class="group-label">Do</div>
+      <a class="sub-item" href="focus-deep-work.html">Focus &amp; Deep Work</a>
+      <a class="sub-item" href="time-management.html">Time Management</a>
+      <a class="sub-item" href="habit-building.html">Habit-Building</a>
+    </div>
+
+    <div class="sidebar-group">
+      <div class="group-label">Reflect</div>
+      <div class="sub-item-group">
+        <a class="sub-item active" href="reflection-practice.html">Reflection Practice</a>
+        <div class="sub-sub-list">
+          <a class="sub-sub-item" href="daily-reflection.html">Daily Reflection</a>
+          <a class="sub-sub-item" href="end-of-week.html">End of Week</a>
+          <a class="sub-sub-item active" href="monthly-log.html">Monthly Log</a>
+          <a class="sub-sub-item" href="quarterly-review.html">Quarterly Review</a>
+          <a class="sub-sub-item" href="capturing-impact.html">Capturing Impact</a>
+        </div>
+      </div>
+    </div>
+
+  </aside>
+
+  <main class="content">
+    <div class="page-hero">
+      <h1>Monthly Log</h1>
+      <p class="lede">A once-a-month check-in, built with work in mind — but the shape works for anything.</p>
+      <div class="tag-row" style="margin-top: 14px; margin-bottom: 0;">
+        <span class="tag primary">Reflection Practice</span>
+        <span class="tag secondary">Monthly cadence</span>
+        <a class="try-it-quicklink" href="#try-it">
+          <svg width="14" height="14" viewBox="0 0 24 24" aria-hidden="true">
+            <path d="M12 2 L14.2 9 L21 11 L14.2 13 L12 20 L9.8 13 L3 11 L9.8 9 Z" fill="currentColor"/>
+          </svg>
+          Try It
+        </a>
+      </div>
+    </div>
+
+    <div class="section-block" style="max-width: 640px;">
+      <p style="margin-bottom: 10px;">Four prompts, once a month:</p>
+      <ul class="explainer-list is-bulleted">
+        <li><strong>Core Goals</strong> (pick 2) — what are the two outcomes that would make this month count?</li>
+        <li><strong>Growth Goals</strong> (pick 2) — what two things do you want to be measurably better at by the end of the month?</li>
+        <li><strong>Ideas &amp; Open Threads</strong> — what's worth capturing now so it doesn't get lost: frustrations, ideas, things to revisit?</li>
+        <li><strong>End-of-Month Wins</strong> — what actually happened? Be specific: what got done, who helped, what's the evidence?</li>
+      </ul>
+      <p style="margin-top: 10px;">Built with work in mind, but the shape doesn't care what you're doing — a training block, a semester, a creative project all fit the same four questions.</p>
+      <div class="reflect-callout">
+        <svg class="reflect-callout-icon" width="20" height="20" viewBox="0 0 20 20" aria-hidden="true">
+          <path d="M15 6 L15 10 Q15 13 12 13 L6 13" stroke="var(--stage-plan)" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+          <path d="M9 10 L6 13 L9 16" stroke="var(--stage-plan)" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
+        <p><strong>Core &amp; Growth Goals</strong> — carry them straight into next month's <a href="goal-setting-priorities.html">Goal Setting &amp; Priorities</a>.</p>
+      </div>
+    </div>
+
+    <div class="try-it-box" id="try-it">
+      <div class="try-it-header">
+        <svg width="24" height="24" viewBox="0 0 24 24" aria-hidden="true">
+          <path d="M12 2 L14.2 9 L21 11 L14.2 13 L12 20 L9.8 13 L3 11 L9.8 9 Z" fill="var(--accent)"/>
+        </svg>
+        <h2>Try It</h2>
+      </div>
+      <p>Paste this into ChatGPT, Claude, or whatever AI tool you use:</p>
+      <div class="try-it-prompt" id="try-it-prompt">Help me write a Monthly Log using four prompts: two Core Goals, two Growth Goals, Ideas &amp; Open Threads, and End-of-Month Wins. Ask me one at a time, and push me to pick exactly two goals in each category, not a longer list.</div>
+      <button class="try-it-copy" type="button" data-copy-target="try-it-prompt">Copy prompt</button>
+    </div>
+  </main>
+</div>
+
+<div id="site-footer"></div>
+
+<script src="js/site-chrome.js" defer></script>
+<script src="js/theme-toggle.js" defer></script>
+<script src="js/title-font-toggle.js" defer></script>
+<script src="js/try-it.js" defer></script>
+</body>
+</html>

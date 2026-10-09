@@ -33,33 +33,31 @@
 <link rel="stylesheet" href="css/tokens.css">
 <link rel="stylesheet" href="css/main.css">
 </head>
-<body>
+<body data-nav="team">
 
-<header class="topnav">
-  <a class="logo" href="index.html">Plan·Do·Reflect</a>
-  <nav class="topnav-items">
-    <a class="item" href="framework.html">The Framework</a>
-    <a class="item" href="self-management.html">Self</a>
-    <a class="item active" href="team.html">Team</a>
-    <a class="item" href="organization.html">Organization</a>
-    <a class="item" href="core-skills.html">Core Skills</a>
-    <a class="item" href="references.html">References</a>
-  </nav>
-</header>
+<div id="site-topnav"></div>
 
 <div class="layout">
   <aside class="sidebar">
     <div class="sec-title">Team</div>
     <a class="sub-item active" href="team.html">Overview</a>
+    <a class="sub-item" href="#">Team Operating Rhythm &amp; Cadence</a>
 
     <div class="sidebar-group">
-      <div class="group-label">Initiative Lifecycle</div>
-      <a class="sub-item" href="#">Team Operating Rhythm &amp; Cadence</a>
+      <div class="group-label">Plan</div>
       <a class="sub-item" href="research.html">Research</a>
       <a class="sub-item" href="product-management.html">Product Management</a>
       <a class="sub-item" href="project-program-management.html">Project &amp; Program Management</a>
+    </div>
+
+    <div class="sidebar-group">
+      <div class="group-label">Do</div>
       <a class="sub-item" href="#">Agile / Delivery Process</a>
       <a class="sub-item" href="#">Technical / Engineering Process</a>
+    </div>
+
+    <div class="sidebar-group">
+      <div class="group-label">Reflect</div>
       <a class="sub-item" href="#">Quality &amp; Problem-Solving</a>
     </div>
 
@@ -67,7 +65,7 @@
 
   <main class="content">
     <h1>Team</h1>
-    <p class="lede">Self, and Organization's Leading and Managing, are about how you operate. This is about how the work itself gets organized — the recurring rhythms, planning structures, and execution methods that hold regardless of who's running them.</p>
+    <p class="lede">Self, and Leadership's Leading and Managing, are about how you operate. This is about how the work itself gets organized — the recurring rhythms, planning structures, and execution methods that hold regardless of who's running them.</p>
 
     <div class="tag-row">
       <span class="tag primary">Root category</span>
@@ -75,101 +73,77 @@
     </div>
 
     <div class="section-block">
-      <p>Ordered as an initiative's actual lifecycle rather than alphabetically: the ambient rhythm it happens inside, planning it, executing it, building it, and troubleshooting when it breaks.</p>
+      <p>Ordered by where it sits in the cycle, not alphabetically: the ambient rhythm everything happens inside, then planning an initiative, doing the work, and reflecting on what broke.</p>
     </div>
 
     <div class="stage-box" style="margin-bottom: 16px;">
       <div class="stage-box-header">
-        <h2>An Initiative's Lifecycle</h2>
+        <h2 class="is-crosscutting">Team Operating Rhythm &amp; Cadence</h2>
       </div>
-      <p class="stage-box-intro">From the ambient rhythm everything else happens inside, through planning, execution, and what to do when it breaks.</p>
-      <div class="stage-box-list">
-        <a class="stage-box-item" href="#">
-          <h3>Team Operating Rhythm &amp; Cadence</h3>
-          <p>Standups, retros, and status reporting — the ambient cycle everything else happens inside.</p>
-        </a>
-        <a class="stage-box-item" href="research.html">
-          <h3>Research</h3>
-          <p>Customer discovery, interviews, and Jobs to Be Done — building real understanding of the customer, not the fast intake version Product Management uses to get started.</p>
-        </a>
-        <a class="stage-box-item" href="product-management.html">
-          <h3>Product Management</h3>
-          <p>Product strategy, roadmapping, and prioritization — defining what to build and why, before Project &amp; Program Management figures out how.</p>
-        </a>
-        <a class="stage-box-item" href="project-program-management.html">
-          <h3>Project &amp; Program Management</h3>
-          <p>Project Charter, RACI/DACI, Critical Path, Risk Management, and more — planning a specific initiative before you run it.</p>
-        </a>
-        <a class="stage-box-item" href="#">
-          <h3>Agile / Delivery Process</h3>
-          <p>Scrum, Kanban, and sprint ceremonies — how the plan actually gets executed, cycle by cycle. Also home to Retrospectives, Post-Mortems, and Pre-Mortems.</p>
-        </a>
-        <a class="stage-box-item" href="#">
-          <h3>Technical / Engineering Process</h3>
-          <p>Design docs, code review, and technical design — how the thing itself gets built.</p>
-        </a>
-        <a class="stage-box-item" href="#">
-          <h3>Quality &amp; Problem-Solving</h3>
-          <p>Root Cause Analysis, Lean, and Six Sigma — what to run when something breaks.</p>
-        </a>
+      <p class="stage-box-intro" style="margin-bottom: 0;">Standups, retros, and status reporting — the ambient cycle everything else happens inside, running underneath Plan, Do, and Reflect rather than as a phase of its own.</p>
+    </div>
+
+    <div class="stage-boxes">
+      <div class="stage-box" id="plan-stage">
+        <div class="stage-box-header" style="--stage-color: var(--stage-plan)">
+          <span class="stage-dot"></span>
+          <h2>Plan</h2>
+        </div>
+        <p class="stage-box-intro">Build real understanding of the customer, decide what to build and why, then plan the specific initiative before you run it.</p>
+        <div class="stage-box-list">
+          <a class="stage-box-item" href="research.html">
+            <h3>Research</h3>
+            <p>Customer discovery, interviews, and Jobs to Be Done — building real understanding of the customer, not the fast intake version Product Management uses to get started.</p>
+          </a>
+          <a class="stage-box-item" href="product-management.html">
+            <h3>Product Management</h3>
+            <p>Product strategy, roadmapping, and prioritization — defining what to build and why, before Project &amp; Program Management figures out how.</p>
+          </a>
+          <a class="stage-box-item" href="project-program-management.html">
+            <h3>Project &amp; Program Management</h3>
+            <p>Project Charter, RACI/DACI, Critical Path, Risk Management, and more — planning a specific initiative before you run it.</p>
+          </a>
+        </div>
+      </div>
+
+      <div class="stage-box" id="do-stage">
+        <div class="stage-box-header" style="--stage-color: var(--stage-do)">
+          <span class="stage-dot"></span>
+          <h2>Do</h2>
+        </div>
+        <p class="stage-box-intro">Turn the plan into the thing itself, cycle by cycle.</p>
+        <div class="stage-box-list">
+          <a class="stage-box-item" href="#">
+            <h3>Agile / Delivery Process</h3>
+            <p>Scrum, Kanban, and sprint ceremonies — how the plan actually gets executed, cycle by cycle. Also home to Retrospectives, Post-Mortems, and Pre-Mortems.</p>
+          </a>
+          <a class="stage-box-item" href="#">
+            <h3>Technical / Engineering Process</h3>
+            <p>Design docs, code review, and technical design — how the thing itself gets built.</p>
+          </a>
+        </div>
+      </div>
+
+      <div class="stage-box" id="reflect-stage">
+        <div class="stage-box-header" style="--stage-color: var(--stage-reflect)">
+          <span class="stage-dot"></span>
+          <h2>Reflect</h2>
+        </div>
+        <p class="stage-box-intro">Figure out what broke and why.</p>
+        <div class="stage-box-list">
+          <a class="stage-box-item" href="#">
+            <h3>Quality &amp; Problem-Solving</h3>
+            <p>Root Cause Analysis, Lean, and Six Sigma — what to run when something breaks.</p>
+          </a>
+        </div>
       </div>
     </div>
   </main>
 </div>
 
-<footer class="site-footer">
-  <p>&copy; 2026 Plan-Do-Reflect. <a href="references.html">References &amp; further reading</a></p>
-</footer>
+<div id="site-footer"></div>
 
-<div class="theme-switch" role="group" aria-label="Style direction">
-  <button data-theme="a" title="Kinetic Signal — black &amp; yellow"></button>
-  <button data-theme="b" title="Studio Ledger — dusty rose"></button>
-  <button data-theme="c" title="Bright Margin — lime"></button>
-  <a class="icon-lib-link" href="icon-library.html" title="Style Guide (internal reference)">
-    <svg width="14" height="14" viewBox="0 0 14 14" aria-hidden="true">
-      <rect x="1" y="1" width="5" height="5" rx="1" fill="currentColor"/>
-      <rect x="8" y="1" width="5" height="5" rx="1" fill="currentColor"/>
-      <rect x="1" y="8" width="5" height="5" rx="1" fill="currentColor"/>
-      <rect x="8" y="8" width="5" height="5" rx="1" fill="currentColor"/>
-    </svg>
-  </a>
-  <a class="icon-lib-link" href="notes.html" title="Notes (working drafts)">
-    <svg width="14" height="14" viewBox="0 0 14 14" aria-hidden="true">
-      <rect x="2" y="1" width="10" height="12" rx="1.5" fill="none" stroke="currentColor" stroke-width="1.3"/>
-      <line x1="4.5" y1="5" x2="9.5" y2="5" stroke="currentColor" stroke-width="1.3" stroke-linecap="round"/>
-      <line x1="4.5" y1="7.5" x2="9.5" y2="7.5" stroke="currentColor" stroke-width="1.3" stroke-linecap="round"/>
-      <line x1="4.5" y1="10" x2="7.5" y2="10" stroke="currentColor" stroke-width="1.3" stroke-linecap="round"/>
-    </svg>
-  </a>
-  <a class="icon-lib-link" href="sitemap.html" title="Sitemap (working draft)">
-    <svg width="14" height="14" viewBox="0 0 14 14" aria-hidden="true">
-      <circle cx="7" cy="2.5" r="1.8" fill="none" stroke="currentColor" stroke-width="1.3"/>
-      <circle cx="3" cy="11" r="1.8" fill="none" stroke="currentColor" stroke-width="1.3"/>
-      <circle cx="11" cy="11" r="1.8" fill="none" stroke="currentColor" stroke-width="1.3"/>
-      <path d="M7 4.3 L7 7 M7 7 L3 9.5 M7 7 L11 9.5" stroke="currentColor" stroke-width="1.3" fill="none" stroke-linecap="round"/>
-    </svg>
-  </a>
-</div>
-
-<!-- Temporary brainstorm control — only restyles .content h1. Remove alongside
-     the "title-font experiment" CSS block and the extra Google Fonts link once
-     a title font is picked. -->
-<div class="title-font-picker">
-  <label for="title-font-select">Title font</label>
-  <button type="button" id="title-font-prev" class="title-font-nav" aria-label="Previous title font">‹</button>
-  <select id="title-font-select">
-    <optgroup label="Round 1 — headline character">
-      <option value="gabarito">Gabarito</option>
-      <option value="chivo">Chivo</option>
-    </optgroup>
-    <optgroup label="Round 2 — Calibri-adjacent">
-      <option value="golos-text">Golos Text</option>
-    </optgroup>
-    <option value="default">Theme default</option>
-  </select>
-  <button type="button" id="title-font-next" class="title-font-nav" aria-label="Next title font">›</button>
-</div>
-
+<script src="js/site-chrome.js" defer></script>
 <script src="js/theme-toggle.js" defer></script>
 <script src="js/title-font-toggle.js" defer></script>
 </body>

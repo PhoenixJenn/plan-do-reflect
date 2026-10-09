@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="a">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="icon" type="image/svg+xml" href="favicon.svg">
+<title>Quarterly Review · Plan · Do · Reflect</title>
+
+<!-- Applied before CSS loads, so the saved theme / title-font choice doesn't flash to the default on reload -->
+<script>
+(function () {
+  try {
+    var savedTheme = localStorage.getItem('pdr-theme');
+    if (['a', 'b', 'c'].indexOf(savedTheme) > -1) {
+      document.documentElement.setAttribute('data-theme', savedTheme);
+    }
+    var savedTitleFont = localStorage.getItem('pdr-title-font');
+    var titleFont = savedTitleFont === null ? 'golos-text' : savedTitleFont;
+    if (titleFont !== 'default') {
+      document.documentElement.setAttribute('data-title-font', titleFont);
+    }
+  } catch (e) {}
+})();
+</script>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=Work+Sans:wght@400;500;600&family=Sora:wght@600;700;800&family=Plus+Jakarta+Sans:wght@500;600;700&family=Patrick+Hand&display=swap" rel="stylesheet">
+
+<!-- Title-font brainstorm candidates — temporary, for the .title-font-picker toggle only.
+     Remove this link once a title font is chosen and folded into tokens.css. -->
+<link href="https://fonts.googleapis.com/css2?family=Gabarito:wght@800&family=Chivo:wght@800&family=Golos+Text:wght@800&display=swap" rel="stylesheet">
+
+<link rel="stylesheet" href="css/tokens.css">
+<link rel="stylesheet" href="css/main.css">
+</head>
+<body data-nav="self">
+
+<div id="site-topnav"></div>
+
+<div class="layout">
+  <aside class="sidebar">
+    <div class="sec-title">Self</div>
+    <a class="sub-item" href="self-management.html">Overview</a>
+
+    <div class="sidebar-group">
+      <div class="group-label">Plan</div>
+      <a class="sub-item" href="goal-setting-priorities.html">Goal Setting &amp; Priorities</a>
+    </div>
+
+    <div class="sidebar-group">
+      <div class="group-label">Do</div>
+      <a class="sub-item" href="focus-deep-work.html">Focus &amp; Deep Work</a>
+      <a class="sub-item" href="time-management.html">Time Management</a>
+      <a class="sub-item" href="habit-building.html">Habit-Building</a>
+    </div>
+
+    <div class="sidebar-group">
+      <div class="group-label">Reflect</div>
+      <div class="sub-item-group">
+        <a class="sub-item active" href="reflection-practice.html">Reflection Practice</a>
+        <div class="sub-sub-list">
+          <a class="sub-sub-item" href="daily-reflection.html">Daily Reflection</a>
+          <a class="sub-sub-item" href="end-of-week.html">End of Week</a>
+          <a class="sub-sub-item" href="monthly-log.html">Monthly Log</a>
+          <a class="sub-sub-item active" href="quarterly-review.html">Quarterly Review</a>
+          <a class="sub-sub-item" href="capturing-impact.html">Capturing Impact</a>
+        </div>
+      </div>
+    </div>
+
+  </aside>
+
+  <main class="content">
+    <div class="page-hero">
+      <h1>Quarterly Review</h1>
+      <p class="lede">Same shape as Monthly, zoomed out — for a quarter, a half, or a full year.</p>
+      <div class="tag-row" style="margin-top: 14px; margin-bottom: 0;">
+        <span class="tag primary">Reflection Practice</span>
+        <span class="tag secondary">Quarterly cadence</span>
+        <a class="try-it-quicklink" href="#try-it">
+          <svg width="14" height="14" viewBox="0 0 24 24" aria-hidden="true">
+            <path d="M12 2 L14.2 9 L21 11 L14.2 13 L12 20 L9.8 13 L3 11 L9.8 9 Z" fill="currentColor"/>
+          </svg>
+          Try It
+        </a>
+      </div>
+    </div>
+
+    <div class="section-block" style="max-width: 640px;">
+      <p style="margin-bottom: 10px;">Three prompts, zoomed out:</p>
+      <ul class="explainer-list is-bulleted">
+        <li><strong>Highlights</strong> — what went well this period? What are you proud of?</li>
+        <li><strong>What Slipped</strong> — which goals or projects didn't get done, and why?</li>
+        <li><strong>What You Learned</strong> — new skills, experiments, things you tried for the first time.</li>
+      </ul>
+      <div class="reflect-callout">
+        <svg class="reflect-callout-icon" width="20" height="20" viewBox="0 0 20 20" aria-hidden="true">
+          <path d="M15 6 L15 10 Q15 13 12 13 L6 13" stroke="var(--stage-plan)" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+          <path d="M9 10 L6 13 L9 16" stroke="var(--stage-plan)" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
+        <p><strong>Action Items</strong> — what will you actually do differently next period? Turn the big ones into <a href="okrs.html">OKRs</a> for next quarter.</p>
+      </div>
+    </div>
+
+    <div class="try-it-box" id="try-it">
+      <div class="try-it-header">
+        <svg width="24" height="24" viewBox="0 0 24 24" aria-hidden="true">
+          <path d="M12 2 L14.2 9 L21 11 L14.2 13 L12 20 L9.8 13 L3 11 L9.8 9 Z" fill="var(--accent)"/>
+        </svg>
+        <h2>Try It</h2>
+      </div>
+      <p>Paste this into ChatGPT, Claude, or whatever AI tool you use:</p>
+      <div class="try-it-prompt" id="try-it-prompt">Help me write a Quarterly Review using three prompts: Highlights, What Slipped, and What You Learned. Then help me turn the biggest Action Items into OKRs for next quarter.</div>
+      <button class="try-it-copy" type="button" data-copy-target="try-it-prompt">Copy prompt</button>
+    </div>
+  </main>
+</div>
+
+<div id="site-footer"></div>
+
+<script src="js/site-chrome.js" defer></script>
+<script src="js/theme-toggle.js" defer></script>
+<script src="js/title-font-toggle.js" defer></script>
+<script src="js/try-it.js" defer></script>
+</body>
+</html>

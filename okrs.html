@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="a">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="icon" type="image/svg+xml" href="favicon.svg">
+<title>OKRs · Plan · Do · Reflect</title>
+
+<!-- Applied before CSS loads, so the saved theme / title-font choice doesn't flash to the default on reload -->
+<script>
+(function () {
+  try {
+    var savedTheme = localStorage.getItem('pdr-theme');
+    if (['a', 'b', 'c'].indexOf(savedTheme) > -1) {
+      document.documentElement.setAttribute('data-theme', savedTheme);
+    }
+    var savedTitleFont = localStorage.getItem('pdr-title-font');
+    var titleFont = savedTitleFont === null ? 'golos-text' : savedTitleFont;
+    if (titleFont !== 'default') {
+      document.documentElement.setAttribute('data-title-font', titleFont);
+    }
+  } catch (e) {}
+})();
+</script>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=Work+Sans:wght@400;500;600&family=Sora:wght@600;700;800&family=Plus+Jakarta+Sans:wght@500;600;700&family=Patrick+Hand&display=swap" rel="stylesheet">
+
+<!-- Title-font brainstorm candidates — temporary, for the .title-font-picker toggle only.
+     Remove this link once a title font is chosen and folded into tokens.css. -->
+<link href="https://fonts.googleapis.com/css2?family=Gabarito:wght@800&family=Chivo:wght@800&family=Golos+Text:wght@800&display=swap" rel="stylesheet">
+
+<link rel="stylesheet" href="css/tokens.css">
+<link rel="stylesheet" href="css/main.css">
+</head>
+<body data-nav="organization">
+
+<div id="site-topnav"></div>
+
+<div class="layout">
+  <aside class="sidebar">
+    <div class="sec-title">Organization</div>
+    <a class="sub-item" href="organization.html">Overview</a>
+
+    <div class="sidebar-group">
+      <div class="group-label">Plan</div>
+      <a class="sub-item active" href="okrs.html">OKRs</a>
+      <a class="sub-item" href="#">Strategic Planning</a>
+      <a class="sub-item" href="#">Annual Operating Plan</a>
+    </div>
+
+    <div class="sidebar-group">
+      <div class="group-label">Do</div>
+      <a class="sub-item" href="#">Operational Process</a>
+    </div>
+
+    <div class="sidebar-group">
+      <div class="group-label">Reflect</div>
+      <a class="sub-item" href="#">MBR &amp; QBR</a>
+    </div>
+
+    <div class="sidebar-group">
+      <div class="group-label is-crosscutting">People Leadership</div>
+      <a class="sub-item" href="#">Leading</a>
+      <a class="sub-item" href="#">Managing</a>
+      <a class="sub-item" href="#">People Management</a>
+    </div>
+
+  </aside>
+
+  <main class="content">
+    <div class="page-hero">
+      <h1>OKRs</h1>
+      <p class="lede">Objectives &amp; Key Results — how a goal cascades from the org's, to the team's, to yours.</p>
+      <div class="tag-row" style="margin-top: 14px; margin-bottom: 0;">
+        <span class="tag primary">Organization</span>
+        <span class="tag secondary">Plan</span>
+        <a class="try-it-quicklink" href="#try-it">
+          <svg width="14" height="14" viewBox="0 0 24 24" aria-hidden="true">
+            <path d="M12 2 L14.2 9 L21 11 L14.2 13 L12 20 L9.8 13 L3 11 L9.8 9 Z" fill="currentColor"/>
+          </svg>
+          Try It
+        </a>
+      </div>
+    </div>
+
+    <div class="section-block" style="max-width: 640px;">
+      <p>Native habitat is org or team alignment — a small set of shared objectives with measurable key results everyone can see progress against. The Objective is the <strong>what</strong> — the qualitative direction you're headed. The Key Results are the <strong>how</strong> — the measurable proof you actually got there. Worth borrowing at the individual level too: pick 1–3 personal objectives and 3–5 measurable key results per objective, and a goal stops being a wish the moment it has a number attached. If <a href="set-goals.html">SMART Goals</a> is how you check one goal on your own, OKRs is how a goal cascades — from the org's, to the team's, to yours.</p>
+      <div class="okr-tree" style="margin-top: 16px;">
+        <div class="okr-node okr-objective">Objective</div>
+        <svg viewBox="0 0 300 40" width="100%" style="max-width: 300px;" aria-hidden="true">
+          <path d="M150,0 L150,12 M40,12 L260,12 M40,12 L40,32 M150,12 L150,32 M260,12 L260,32" fill="none" stroke="var(--border)" stroke-width="2"/>
+        </svg>
+        <div class="okr-results">
+          <div class="okr-node okr-result">Key Result</div>
+          <div class="okr-node okr-result">Key Result</div>
+          <div class="okr-node okr-result">Key Result</div>
+        </div>
+      </div>
+      <p style="margin-top: 14px; font-size: 0.9rem; color: var(--text-body);"><strong>The 5 Core Principles of OKRs:</strong></p>
+      <ul class="explainer-list is-bulleted" style="margin-top: 6px; max-width: 560px;">
+        <li><strong>Focus</strong> — limits top priorities to a small number of objectives (usually 3), each with 3–5 key results, so teams don't get distracted by lesser tasks.</li>
+        <li><strong>Alignment</strong> — connects individual and team goals upward to company-wide priorities, so everyone's pulling in the same direction.</li>
+        <li><strong>Commitment</strong> — builds shared agreement and ownership across teams for what actually needs to happen.</li>
+        <li><strong>Tracking</strong> — uses measurable data to check progress and evaluate success continuously, not just at the end.</li>
+        <li><strong>Stretching</strong> — encourages ambitious "moonshot" goals that push teams past their comfort zone to drive real innovation.</li>
+      </ul>
+      <div class="example-box">
+        <div class="example-label">Example</div>
+        <p><strong>Objective:</strong> Make our onboarding experience genuinely great.</p>
+        <p><strong>Key Results:</strong></p>
+        <ul class="explainer-list is-bulleted" style="margin-top: 2px;">
+          <li>Cut time-to-first-commit from 10 days to 4</li>
+          <li>New-hire satisfaction survey hits 9/10</li>
+          <li>90% of new hires ship a real feature in their first two weeks</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="section-block" style="max-width: 640px; margin-top: 8px;">
+      <h2>OKRs vs. SMART Goals</h2>
+      <p style="margin-bottom: 14px;">Not competing frameworks — they answer different questions. See <a href="set-goals.html">Set Goals</a> for SMART's own write-up.</p>
+      <div class="compare-table-wrap">
+        <table class="compare-table">
+          <thead>
+            <tr><th></th><th>OKRs</th><th>SMART Goals</th></tr>
+          </thead>
+          <tbody>
+            <tr><th scope="row">Structure</th><td>A qualitative Objective, plus 3–5 measurable Key Results</td><td>A set of rules for writing one goal well</td></tr>
+            <tr><th scope="row">Target</th><td>Stretch goals — hitting 70–80% is often viewed as a strong win</td><td>Meant to be 100% achievable</td></tr>
+            <tr><th scope="row">Scope</th><td>Scales across teams and orgs, linking daily work to company strategy</td><td>Individual tasks or short-term projects</td></tr>
+            <tr><th scope="row">Tied to</th><td>Business value and strategic priorities — deliberately kept separate from personal compensation, which is what makes high-risk, high-reward targets safe to set</td><td>Individual pay and performance reviews</td></tr>
+            <tr><th scope="row">Use it when</th><td>You want cross-functional alignment, company-wide transparency, and rapid growth over a quarterly cycle</td><td>You need clear direction for an individual task, personal development, or a routine process</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+
+    <div class="try-it-box" id="try-it">
+      <div class="try-it-header">
+        <svg width="24" height="24" viewBox="0 0 24 24" aria-hidden="true">
+          <path d="M12 2 L14.2 9 L21 11 L14.2 13 L12 20 L9.8 13 L3 11 L9.8 9 Z" fill="var(--accent)"/>
+        </svg>
+        <h2>Try It</h2>
+      </div>
+      <p>Paste this into ChatGPT, Claude, or whatever AI tool you use:</p>
+      <div class="try-it-prompt" id="try-it-prompt">Help me draft an OKR for something bigger I'm working on. Ask me what the qualitative Objective is first, then help me define 3 measurable Key Results that would actually prove I got there.</div>
+      <button class="try-it-copy" type="button" data-copy-target="try-it-prompt">Copy prompt</button>
+    </div>
+  </main>
+</div>
+
+<div id="site-footer"></div>
+
+<script src="js/site-chrome.js" defer></script>
+<script src="js/theme-toggle.js" defer></script>
+<script src="js/title-font-toggle.js" defer></script>
+<script src="js/try-it.js" defer></script>
+</body>
+</html>

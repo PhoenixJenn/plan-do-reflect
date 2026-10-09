@@ -33,19 +33,9 @@
 <link rel="stylesheet" href="css/tokens.css">
 <link rel="stylesheet" href="css/main.css">
 </head>
-<body>
+<body data-nav="self">
 
-<header class="topnav">
-  <a class="logo" href="index.html">Plan·Do·Reflect</a>
-  <nav class="topnav-items">
-    <a class="item" href="framework.html">The Framework</a>
-    <a class="item active" href="self-management.html">Self</a>
-    <a class="item" href="team.html">Team</a>
-    <a class="item" href="organization.html">Organization</a>
-    <a class="item" href="core-skills.html">Core Skills</a>
-    <a class="item" href="references.html">References</a>
-  </nav>
-</header>
+<div id="site-topnav"></div>
 
 <div class="layout">
   <aside class="sidebar">
@@ -68,7 +58,6 @@
       <a class="sub-item" href="focus-deep-work.html">Focus &amp; Deep Work</a>
       <a class="sub-item" href="time-management.html">Time Management</a>
       <a class="sub-item" href="habit-building.html">Habit-Building</a>
-      <a class="sub-item" href="motivation-procrastination.html">Motivation &amp; Procrastination</a>
     </div>
 
     <div class="sidebar-group">
@@ -84,7 +73,7 @@
       <p class="lede">Longer-term — deciding where you're actually headed, before you optimize how you get there.</p>
       <div class="tag-row" style="margin-top: 14px; margin-bottom: 0;">
         <span class="tag primary">Goal Setting &amp; Priorities</span>
-        <span class="tag secondary">2 frameworks</span>
+        <span class="tag secondary">1 framework</span>
         <a class="try-it-quicklink" href="#try-it">
           <svg width="14" height="14" viewBox="0 0 24 24" aria-hidden="true">
             <path d="M12 2 L14.2 9 L21 11 L14.2 13 L12 20 L9.8 13 L3 11 L9.8 9 Z" fill="currentColor"/>
@@ -156,61 +145,10 @@
           </div>
         </div>
       </div>
-      <div class="framework-item" id="okrs">
-        <div class="fw-num">2</div>
-        <div>
-          <h3>OKRs (Objectives &amp; Key Results)</h3>
-          <p>Native habitat is org or team alignment — a small set of shared objectives with measurable key results everyone can see progress against. The Objective is the <strong>what</strong> — the qualitative direction you're headed. The Key Results are the <strong>how</strong> — the measurable proof you actually got there. Worth borrowing at the individual level too: pick 1–3 personal objectives and 3–5 measurable key results per objective, and a goal stops being a wish the moment it has a number attached. If SMART Goals is how you check one goal on your own, OKRs is how a goal cascades — from the org's, to the team's, to yours.</p>
-          <div class="okr-tree">
-            <div class="okr-node okr-objective">Objective</div>
-            <svg viewBox="0 0 300 40" width="100%" style="max-width: 300px;" aria-hidden="true">
-              <path d="M150,0 L150,12 M40,12 L260,12 M40,12 L40,32 M150,12 L150,32 M260,12 L260,32" fill="none" stroke="var(--border)" stroke-width="2"/>
-            </svg>
-            <div class="okr-results">
-              <div class="okr-node okr-result">Key Result</div>
-              <div class="okr-node okr-result">Key Result</div>
-              <div class="okr-node okr-result">Key Result</div>
-            </div>
-          </div>
-          <p style="margin-top: 14px; font-size: 0.9rem; color: var(--text-body);"><strong>The 5 Core Principles of OKRs:</strong></p>
-          <ul class="explainer-list is-bulleted" style="margin-top: 6px; max-width: 560px;">
-            <li><strong>Focus</strong> — limits top priorities to a small number of objectives (usually 3), each with 3–5 key results, so teams don't get distracted by lesser tasks.</li>
-            <li><strong>Alignment</strong> — connects individual and team goals upward to company-wide priorities, so everyone's pulling in the same direction.</li>
-            <li><strong>Commitment</strong> — builds shared agreement and ownership across teams for what actually needs to happen.</li>
-            <li><strong>Tracking</strong> — uses measurable data to check progress and evaluate success continuously, not just at the end.</li>
-            <li><strong>Stretching</strong> — encourages ambitious "moonshot" goals that push teams past their comfort zone to drive real innovation.</li>
-          </ul>
-          <div class="example-box">
-            <div class="example-label">Example</div>
-            <p><strong>Objective:</strong> Make our onboarding experience genuinely great.</p>
-            <p><strong>Key Results:</strong></p>
-            <ul class="explainer-list is-bulleted" style="margin-top: 2px;">
-              <li>Cut time-to-first-commit from 10 days to 4</li>
-              <li>New-hire satisfaction survey hits 9/10</li>
-              <li>90% of new hires ship a real feature in their first two weeks</li>
-            </ul>
-          </div>
-        </div>
-      </div>
     </div>
 
     <div class="section-block" style="max-width: 640px; margin-top: 8px;">
-      <h2>SMART Goals vs. OKRs</h2>
-      <p style="margin-bottom: 14px;">Both live on this page for a reason — they're not competing frameworks, they answer different questions.</p>
-      <div class="compare-table-wrap">
-        <table class="compare-table">
-          <thead>
-            <tr><th></th><th>SMART Goals</th><th>OKRs</th></tr>
-          </thead>
-          <tbody>
-            <tr><th scope="row">Structure</th><td>A set of rules for writing one goal well</td><td>A qualitative Objective, plus 3–5 measurable Key Results</td></tr>
-            <tr><th scope="row">Target</th><td>Meant to be 100% achievable</td><td>Stretch goals — hitting 70–80% is often viewed as a strong win</td></tr>
-            <tr><th scope="row">Scope</th><td>Individual tasks or short-term projects</td><td>Scales across teams and orgs, linking daily work to company strategy</td></tr>
-            <tr><th scope="row">Tied to</th><td>Individual pay and performance reviews</td><td>Business value and strategic priorities — deliberately kept separate from personal compensation, which is what makes high-risk, high-reward targets safe to set</td></tr>
-            <tr><th scope="row">Use it when</th><td>You need clear direction for an individual task, personal development, or a routine process</td><td>You want cross-functional alignment, company-wide transparency, and rapid growth over a quarterly cycle</td></tr>
-          </tbody>
-        </table>
-      </div>
+      <p>For the org/team-scale version of goal-setting — Objectives &amp; Key Results, cascaded down to the individual — see <a href="okrs.html"><strong>OKRs</strong></a> under Organization.</p>
     </div>
 
     <div class="try-it-box" id="try-it">
@@ -221,65 +159,15 @@
         <h2>Try It</h2>
       </div>
       <p>Paste this into ChatGPT, Claude, or whatever AI tool you use:</p>
-      <div class="try-it-prompt" id="try-it-prompt">I want to create a SMART goal. Ask me what I'm actually trying to achieve, then help me turn it into a SMART goal — Specific, Measurable, Achievable, Relevant, Time-bound. If it's something bigger that spans a few months, also help me draft it as an Objective with 3 measurable Key Results.</div>
+      <div class="try-it-prompt" id="try-it-prompt">I want to create a SMART goal. Ask me what I'm actually trying to achieve, then help me turn it into a SMART goal — Specific, Measurable, Achievable, Relevant, Time-bound.</div>
       <button class="try-it-copy" type="button" data-copy-target="try-it-prompt">Copy prompt</button>
     </div>
   </main>
 </div>
 
-<footer class="site-footer">
-  <p>&copy; 2026 Plan-Do-Reflect. <a href="references.html">References &amp; further reading</a></p>
-</footer>
+<div id="site-footer"></div>
 
-<div class="theme-switch" role="group" aria-label="Style direction">
-  <button data-theme="a" title="Kinetic Signal — black &amp; yellow"></button>
-  <button data-theme="b" title="Studio Ledger — dusty rose"></button>
-  <button data-theme="c" title="Bright Margin — lime"></button>
-  <a class="icon-lib-link" href="icon-library.html" title="Style Guide (internal reference)">
-    <svg width="14" height="14" viewBox="0 0 14 14" aria-hidden="true">
-      <rect x="1" y="1" width="5" height="5" rx="1" fill="currentColor"/>
-      <rect x="8" y="1" width="5" height="5" rx="1" fill="currentColor"/>
-      <rect x="1" y="8" width="5" height="5" rx="1" fill="currentColor"/>
-      <rect x="8" y="8" width="5" height="5" rx="1" fill="currentColor"/>
-    </svg>
-  </a>
-  <a class="icon-lib-link" href="notes.html" title="Notes (working drafts)">
-    <svg width="14" height="14" viewBox="0 0 14 14" aria-hidden="true">
-      <rect x="2" y="1" width="10" height="12" rx="1.5" fill="none" stroke="currentColor" stroke-width="1.3"/>
-      <line x1="4.5" y1="5" x2="9.5" y2="5" stroke="currentColor" stroke-width="1.3" stroke-linecap="round"/>
-      <line x1="4.5" y1="7.5" x2="9.5" y2="7.5" stroke="currentColor" stroke-width="1.3" stroke-linecap="round"/>
-      <line x1="4.5" y1="10" x2="7.5" y2="10" stroke="currentColor" stroke-width="1.3" stroke-linecap="round"/>
-    </svg>
-  </a>
-  <a class="icon-lib-link" href="sitemap.html" title="Sitemap (working draft)">
-    <svg width="14" height="14" viewBox="0 0 14 14" aria-hidden="true">
-      <circle cx="7" cy="2.5" r="1.8" fill="none" stroke="currentColor" stroke-width="1.3"/>
-      <circle cx="3" cy="11" r="1.8" fill="none" stroke="currentColor" stroke-width="1.3"/>
-      <circle cx="11" cy="11" r="1.8" fill="none" stroke="currentColor" stroke-width="1.3"/>
-      <path d="M7 4.3 L7 7 M7 7 L3 9.5 M7 7 L11 9.5" stroke="currentColor" stroke-width="1.3" fill="none" stroke-linecap="round"/>
-    </svg>
-  </a>
-</div>
-
-<!-- Temporary brainstorm control — only restyles .content h1. Remove alongside
-     the "title-font experiment" CSS block and the extra Google Fonts link once
-     a title font is picked. -->
-<div class="title-font-picker">
-  <label for="title-font-select">Title font</label>
-  <button type="button" id="title-font-prev" class="title-font-nav" aria-label="Previous title font">‹</button>
-  <select id="title-font-select">
-    <optgroup label="Round 1 — headline character">
-      <option value="gabarito">Gabarito</option>
-      <option value="chivo">Chivo</option>
-    </optgroup>
-    <optgroup label="Round 2 — Calibri-adjacent">
-      <option value="golos-text">Golos Text</option>
-    </optgroup>
-    <option value="default">Theme default</option>
-  </select>
-  <button type="button" id="title-font-next" class="title-font-nav" aria-label="Next title font">›</button>
-</div>
-
+<script src="js/site-chrome.js" defer></script>
 <script src="js/theme-toggle.js" defer></script>
 <script src="js/title-font-toggle.js" defer></script>
 <script src="js/try-it.js" defer></script>

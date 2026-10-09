@@ -1177,35 +1177,6 @@ body {
   color: var(--text-caption);
 }
 
-.stage-box-caption {
-  font-size: 0.8rem;
-  font-style: italic;
-  line-height: 1.45;
-  color: var(--text-caption);
-  margin-top: 14px;
-  padding-top: 14px;
-  border-top: 1px solid var(--border);
-}
-
-.stage-box-skills {
-  margin-bottom: 16px;
-}
-
-.stage-box-skills .stage-box-list {
-  display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  gap: 0 24px;
-}
-
-.stage-box-skills .stage-box-item {
-  border-top: none;
-  padding: 6px 0;
-}
-
-@media (max-width: 900px) {
-  .stage-box-skills .stage-box-list { grid-template-columns: 1fr; }
-}
-
 /* ---------- Pomodoro icon (tomato-shaped timer, per the technique's own
    naming — a clock face doubles as the tomato body) ---------- */
 .pomodoro-row {
@@ -1460,32 +1431,6 @@ body {
   font-size: 0.82rem;
   font-weight: 600;
   color: var(--text-caption);
-}
-
-.reflect-index {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 8px;
-  margin-bottom: 20px;
-}
-
-.reflect-index-item {
-  display: inline-flex;
-  align-items: center;
-  font-family: var(--font-body);
-  font-size: 0.82rem;
-  font-weight: 600;
-  padding: 7px 14px;
-  border-radius: 20px;
-  border: 1px solid var(--border);
-  background: var(--bg-content);
-  color: var(--text-body);
-  text-decoration: none;
-}
-
-.reflect-index-item:hover {
-  border-color: var(--accent);
-  color: var(--accent-strong);
 }
 
 .reflect-callout {
@@ -1843,7 +1788,7 @@ body {
 
 /* ---------- Homepage (root index.html) ---------- */
 .home {
-  max-width: 840px;
+  max-width: 1180px;
   margin: 0 auto;
   padding: 64px 24px 80px;
 }
@@ -1918,65 +1863,56 @@ body {
   opacity: 0.88;
 }
 
-.explainer-tabs {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 8px;
-  margin-bottom: 18px;
+/* ---------- Homepage Why/What/How/When cards ---------- */
+.home-explainer-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 22px;
+  align-items: start;
 }
 
-.explainer-tab {
-  display: inline-flex;
-  align-items: center;
-  font-family: var(--font-body);
-  font-size: 0.86rem;
-  font-weight: 600;
-  padding: 9px 16px;
-  border-radius: 20px;
-  border: 1px solid var(--border);
-  background: var(--bg-content);
-  color: var(--text-body);
-  cursor: pointer;
-}
-
-.explainer-tab:hover {
-  border-color: var(--accent);
-}
-
-.explainer-tab.is-active {
-  background: var(--accent);
-  border-color: var(--accent);
-  color: var(--accent-strong);
-}
-
-.explainer-panels {
+.home-explainer-card {
   background: var(--bg-content);
   border: 1px solid var(--border);
   border-radius: 12px;
-  padding: 26px 24px;
-  min-height: 170px;
+  padding: 22px 20px;
 }
 
-.explainer-panel[hidden] {
-  display: none;
-}
-
-.explainer-panel h2 {
+.home-explainer-card h2 {
   font-family: var(--font-heading);
-  font-size: 1.05rem;
+  font-size: 0.98rem;
   font-weight: 700;
-  color: var(--text-heading);
-  margin-bottom: 10px;
+  color: var(--logo-color);
+  background: var(--bg-nav);
+  margin: -22px -20px 14px;
+  padding: 14px 20px;
+  border-radius: 11px 11px 0 0;
 }
 
-.explainer-panel p {
-  font-size: 0.92rem;
-  line-height: 1.6;
+.home-explainer-card p {
+  font-size: 0.84rem;
+  line-height: 1.55;
   color: var(--text-body);
 }
 
-.explainer-panel p + p {
+.home-explainer-card p + p {
   margin-top: 10px;
+}
+
+.home-explainer-card .explainer-list {
+  margin: 10px 0;
+}
+
+.home-explainer-card .explainer-list li {
+  font-size: 0.84rem;
+}
+
+@media (max-width: 900px) {
+  .home-explainer-grid { grid-template-columns: repeat(2, 1fr); }
+}
+
+@media (max-width: 540px) {
+  .home-explainer-grid { grid-template-columns: 1fr; }
 }
 
 .explainer-list {
@@ -2011,11 +1947,6 @@ body {
 
 .explainer-list strong {
   color: var(--text-heading);
-}
-
-@media (max-width: 720px) {
-  .explainer-tabs { gap: 6px; }
-  .explainer-tab { font-size: 0.8rem; padding: 8px 12px; }
 }
 
 /* ---------- Site footer (all pages) ---------- */

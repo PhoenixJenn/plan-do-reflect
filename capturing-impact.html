@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="a">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="icon" type="image/svg+xml" href="favicon.svg">
+<title>Capturing Impact · Plan · Do · Reflect</title>
+
+<!-- Applied before CSS loads, so the saved theme / title-font choice doesn't flash to the default on reload -->
+<script>
+(function () {
+  try {
+    var savedTheme = localStorage.getItem('pdr-theme');
+    if (['a', 'b', 'c'].indexOf(savedTheme) > -1) {
+      document.documentElement.setAttribute('data-theme', savedTheme);
+    }
+    var savedTitleFont = localStorage.getItem('pdr-title-font');
+    var titleFont = savedTitleFont === null ? 'golos-text' : savedTitleFont;
+    if (titleFont !== 'default') {
+      document.documentElement.setAttribute('data-title-font', titleFont);
+    }
+  } catch (e) {}
+})();
+</script>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=Work+Sans:wght@400;500;600&family=Sora:wght@600;700;800&family=Plus+Jakarta+Sans:wght@500;600;700&family=Patrick+Hand&display=swap" rel="stylesheet">
+
+<!-- Title-font brainstorm candidates — temporary, for the .title-font-picker toggle only.
+     Remove this link once a title font is chosen and folded into tokens.css. -->
+<link href="https://fonts.googleapis.com/css2?family=Gabarito:wght@800&family=Chivo:wght@800&family=Golos+Text:wght@800&display=swap" rel="stylesheet">
+
+<link rel="stylesheet" href="css/tokens.css">
+<link rel="stylesheet" href="css/main.css">
+</head>
+<body data-nav="self">
+
+<div id="site-topnav"></div>
+
+<div class="layout">
+  <aside class="sidebar">
+    <div class="sec-title">Self</div>
+    <a class="sub-item" href="self-management.html">Overview</a>
+
+    <div class="sidebar-group">
+      <div class="group-label">Plan</div>
+      <a class="sub-item" href="goal-setting-priorities.html">Goal Setting &amp; Priorities</a>
+    </div>
+
+    <div class="sidebar-group">
+      <div class="group-label">Do</div>
+      <a class="sub-item" href="focus-deep-work.html">Focus &amp; Deep Work</a>
+      <a class="sub-item" href="time-management.html">Time Management</a>
+      <a class="sub-item" href="habit-building.html">Habit-Building</a>
+    </div>
+
+    <div class="sidebar-group">
+      <div class="group-label">Reflect</div>
+      <div class="sub-item-group">
+        <a class="sub-item active" href="reflection-practice.html">Reflection Practice</a>
+        <div class="sub-sub-list">
+          <a class="sub-sub-item" href="daily-reflection.html">Daily Reflection</a>
+          <a class="sub-sub-item" href="end-of-week.html">End of Week</a>
+          <a class="sub-sub-item" href="monthly-log.html">Monthly Log</a>
+          <a class="sub-sub-item" href="quarterly-review.html">Quarterly Review</a>
+          <a class="sub-sub-item active" href="capturing-impact.html">Capturing Impact</a>
+        </div>
+      </div>
+    </div>
+
+  </aside>
+
+  <main class="content">
+    <div class="page-hero">
+      <h1>Capturing Impact</h1>
+      <p class="lede">Two formats for telling the story of what you did — one short, one detailed.</p>
+      <div class="tag-row" style="margin-top: 14px; margin-bottom: 0;">
+        <span class="tag primary">Reflection Practice</span>
+        <span class="tag secondary">2 formats</span>
+        <a class="try-it-quicklink" href="#try-it">
+          <svg width="14" height="14" viewBox="0 0 24 24" aria-hidden="true">
+            <path d="M12 2 L14.2 9 L21 11 L14.2 13 L12 20 L9.8 13 L3 11 L9.8 9 Z" fill="currentColor"/>
+          </svg>
+          Try It
+        </a>
+      </div>
+    </div>
+
+    <div class="section-block" style="max-width: 640px;">
+      <p>The cadences on <a href="reflection-practice.html">Reflection Practice</a> tell you what to write about. These two formats are how to actually write it, when the goal is telling the story of what you did.</p>
+    </div>
+
+    <div class="framework-list">
+      <div class="framework-item" id="sbi">
+        <div class="fw-num">1</div>
+        <div>
+          <h3>SBI (Situation-Behavior-Impact)</h3>
+          <p style="margin-bottom: 10px;">Originally built for giving feedback, but works just as well for telling your own story — the quick, interview-ready version of an accomplishment. Think of the moment someone asks "tell me about a time you..." and you have thirty seconds to answer well:</p>
+          <ul class="explainer-list is-bulleted">
+            <li><strong>Situation</strong> — set the scene in one sentence: what was going on?</li>
+            <li><strong>Behavior</strong> — what did you specifically do? Own it — "I," not "we."</li>
+            <li><strong>Impact</strong> — why did it matter, to the outcome, the team, or the business?</li>
+          </ul>
+        </div>
+      </div>
+      <div class="framework-item" id="starr">
+        <div class="fw-num">2</div>
+        <div>
+          <h3>STARR (Situation-Task-Action-Result-Reflection)</h3>
+          <p style="margin-bottom: 10px;">An extension of the classic STAR interview format, with a Reflection step added — useful for documenting your own accomplishments with enough detail to actually be useful later:</p>
+          <ul class="explainer-list is-bulleted">
+            <li><strong>Situation</strong> — what was the context?</li>
+            <li><strong>Task</strong> — what were you responsible for?</li>
+            <li><strong>Action</strong> — what did you specifically do?</li>
+            <li><strong>Result</strong> — what happened because of it? Be specific — numbers, outcomes, who noticed.</li>
+            <li><strong>Reflection</strong> — what would you do differently, or what did this teach you?</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <div class="try-it-box" id="try-it">
+      <div class="try-it-header">
+        <svg width="24" height="24" viewBox="0 0 24 24" aria-hidden="true">
+          <path d="M12 2 L14.2 9 L21 11 L14.2 13 L12 20 L9.8 13 L3 11 L9.8 9 Z" fill="var(--accent)"/>
+        </svg>
+        <h2>Try It</h2>
+      </div>
+      <p>Paste this into ChatGPT, Claude, or whatever AI tool you use:</p>
+      <div class="try-it-prompt" id="try-it-prompt">Help me turn something I accomplished into a quick SBI story — Situation, Behavior, Impact — I can tell out loud in under thirty seconds. Then help me expand the same accomplishment into a more detailed STARR write-up — Situation, Task, Action, Result, Reflection — I can save for later. Ask me what happened first.</div>
+      <button class="try-it-copy" type="button" data-copy-target="try-it-prompt">Copy prompt</button>
+    </div>
+  </main>
+</div>
+
+<div id="site-footer"></div>
+
+<script src="js/site-chrome.js" defer></script>
+<script src="js/theme-toggle.js" defer></script>
+<script src="js/title-font-toggle.js" defer></script>
+<script src="js/try-it.js" defer></script>
+</body>
+</html>

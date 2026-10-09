@@ -33,19 +33,9 @@
 <link rel="stylesheet" href="css/tokens.css">
 <link rel="stylesheet" href="css/main.css">
 </head>
-<body>
+<body data-nav="organization">
 
-<header class="topnav">
-  <a class="logo" href="index.html">Plan·Do·Reflect</a>
-  <nav class="topnav-items">
-    <a class="item" href="framework.html">The Framework</a>
-    <a class="item" href="self-management.html">Self</a>
-    <a class="item" href="team.html">Team</a>
-    <a class="item active" href="organization.html">Organization</a>
-    <a class="item" href="core-skills.html">Core Skills</a>
-    <a class="item" href="references.html">References</a>
-  </nav>
-</header>
+<div id="site-topnav"></div>
 
 <div class="layout">
   <aside class="sidebar">
@@ -53,130 +43,93 @@
     <a class="sub-item active" href="organization.html">Overview</a>
 
     <div class="sidebar-group">
-      <div class="group-label">Strategy &amp; Cadence</div>
-      <a class="sub-item" href="#">Annual Operating Plan, MBR &amp; QBR</a>
+      <div class="group-label">Plan</div>
+      <a class="sub-item" href="okrs.html">OKRs</a>
       <a class="sub-item" href="#">Strategic Planning</a>
+      <a class="sub-item" href="#">Annual Operating Plan</a>
+    </div>
+
+    <div class="sidebar-group">
+      <div class="group-label">Do</div>
       <a class="sub-item" href="#">Operational Process</a>
     </div>
 
     <div class="sidebar-group">
-      <div class="group-label">People Leadership</div>
-      <a class="sub-item" href="#">Leading</a>
-      <a class="sub-item" href="#">Managing</a>
-      <a class="sub-item" href="#">People Management</a>
+      <div class="group-label">Reflect</div>
+      <a class="sub-item" href="#">MBR &amp; QBR</a>
     </div>
   </aside>
 
   <main class="content">
     <h1>Organization</h1>
-    <p class="lede">The same cycle, run at company scale — where Reflect becomes Inspect, a shared review instead of a private habit, and where the people running it become a job in their own right, not just a side effect of the work.</p>
+    <p class="lede">The same cycle, run at company scale — where Reflect becomes Inspect, a shared review instead of a private habit.</p>
 
     <div class="tag-row">
       <span class="tag primary">Root category</span>
-      <span class="tag secondary">6 categories</span>
+      <span class="tag secondary">5 categories</span>
     </div>
 
     <div class="section-block">
-      <p>Two things live here, not one: the planning-and-review cadence a whole organization runs on, and the people-leadership work that only exists once you're responsible for more than your own output. Strategic Planning and Operational Process moved here from Core Skills and Team respectively — both are already company-scoped, not project-scoped, so they belong with Annual Operating Plan/MBR/QBR rather than sitting one level down.</p>
+      <p>The planning-and-review cadence a whole organization runs on — its own Plan, Do, and Reflect, below. Strategic Planning and Operational Process moved here from Core Skills and Team respectively — both are already company-scoped, not project-scoped, so they belong with the org cadence rather than sitting one level down. The people-leadership side of running an org — Leading, Managing, People Management — moved out to its own <a href="leadership.html">Leadership</a> section instead, since it's about how you operate, the same altitude as Self, not about the org's cadence.</p>
     </div>
 
-    <div class="stage-box" style="margin-bottom: 16px;">
-      <div class="stage-box-header">
-        <h2>Strategy &amp; Cadence</h2>
+    <div class="stage-boxes" style="margin-bottom: 16px;">
+      <div class="stage-box" id="plan-stage">
+        <div class="stage-box-header" style="--stage-color: var(--stage-plan)">
+          <span class="stage-dot"></span>
+          <h2>Plan</h2>
+        </div>
+        <p class="stage-box-intro">Decide the direction and commit it to a plan before the year, or the quarter, runs away from you.</p>
+        <div class="stage-box-list">
+          <a class="stage-box-item" href="okrs.html">
+            <h3>OKRs</h3>
+            <p>Objectives &amp; Key Results — org and team alignment, cascaded down to the individual.</p>
+          </a>
+          <a class="stage-box-item" href="#">
+            <h3>Strategic Planning</h3>
+            <p>The planning cycle zoomed out further still: scan the landscape, formulate, cascade into plans, measure, adjust.</p>
+          </a>
+          <a class="stage-box-item" href="#">
+            <h3>Annual Operating Plan</h3>
+            <p>The planning cycle at company scale — budget, headcount, and priorities set for the year ahead.</p>
+          </a>
+        </div>
       </div>
-      <p class="stage-box-intro">The planning-and-review rhythm a whole organization runs on, not any one project's.</p>
-      <div class="stage-box-list">
-        <a class="stage-box-item" href="#">
-          <h3>Annual Operating Plan, MBR &amp; QBR</h3>
-          <p>The planning cycle at company scale — an annual plan, then Monthly and Quarterly Business Reviews that inspect it against what actually happened.</p>
-        </a>
-        <a class="stage-box-item" href="#">
-          <h3>Strategic Planning</h3>
-          <p>The planning cycle zoomed out further still: scan the landscape, formulate, cascade into plans, measure, adjust.</p>
-        </a>
-        <a class="stage-box-item" href="#">
-          <h3>Operational Process</h3>
-          <p>Procurement &amp; Sourcing — also referenced from Business Acumen, where it's framed around the spend itself rather than the process.</p>
-        </a>
-      </div>
-    </div>
 
-    <div class="stage-box stage-box-skills">
-      <div class="stage-box-header">
-        <h2>People Leadership</h2>
+      <div class="stage-box" id="do-stage">
+        <div class="stage-box-header" style="--stage-color: var(--stage-do)">
+          <span class="stage-dot"></span>
+          <h2>Do</h2>
+        </div>
+        <p class="stage-box-intro">Run the organization day to day, on the plan that was set.</p>
+        <div class="stage-box-list">
+          <a class="stage-box-item" href="#">
+            <h3>Operational Process</h3>
+            <p>Procurement &amp; Sourcing — also referenced from Business Acumen, where it's framed around the spend itself rather than the process.</p>
+          </a>
+        </div>
       </div>
-      <p class="stage-box-intro">The work that only exists once your job is no longer just about your own output.</p>
-      <div class="stage-box-list">
-        <a class="stage-box-item" href="#">
-          <h3>Leading</h3>
-          <p>A developmental arc — know yourself, think clearly, work through others, grow other leaders, lead through hard terrain.</p>
-        </a>
-        <a class="stage-box-item" href="#">
-          <h3>Managing</h3>
-          <p>The operational side of having a team: who's on it, what matters most, how work gets built, how it runs day to day.</p>
-        </a>
-        <a class="stage-box-item" href="#">
-          <h3>People Management</h3>
-          <p>Hiring, onboarding, 1:1s, performance reviews, org design, and comp philosophy — the operational side of having people, not just a team.</p>
-        </a>
+
+      <div class="stage-box" id="reflect-stage">
+        <div class="stage-box-header" style="--stage-color: var(--stage-reflect)">
+          <span class="stage-dot"></span>
+          <h2>Reflect</h2>
+        </div>
+        <p class="stage-box-intro">Inspect what actually happened against the plan, on a regular cadence.</p>
+        <div class="stage-box-list">
+          <a class="stage-box-item" href="#">
+            <h3>MBR &amp; QBR</h3>
+            <p>Monthly and Quarterly Business Reviews that inspect the Annual Operating Plan against what actually happened.</p>
+          </a>
+        </div>
       </div>
     </div>
   </main>
 </div>
 
-<footer class="site-footer">
-  <p>&copy; 2026 Plan-Do-Reflect. <a href="references.html">References &amp; further reading</a></p>
-</footer>
+<div id="site-footer"></div>
 
-<div class="theme-switch" role="group" aria-label="Style direction">
-  <button data-theme="a" title="Kinetic Signal — black &amp; yellow"></button>
-  <button data-theme="b" title="Studio Ledger — dusty rose"></button>
-  <button data-theme="c" title="Bright Margin — lime"></button>
-  <a class="icon-lib-link" href="icon-library.html" title="Style Guide (internal reference)">
-    <svg width="14" height="14" viewBox="0 0 14 14" aria-hidden="true">
-      <rect x="1" y="1" width="5" height="5" rx="1" fill="currentColor"/>
-      <rect x="8" y="1" width="5" height="5" rx="1" fill="currentColor"/>
-      <rect x="1" y="8" width="5" height="5" rx="1" fill="currentColor"/>
-      <rect x="8" y="8" width="5" height="5" rx="1" fill="currentColor"/>
-    </svg>
-  </a>
-  <a class="icon-lib-link" href="notes.html" title="Notes (working drafts)">
-    <svg width="14" height="14" viewBox="0 0 14 14" aria-hidden="true">
-      <rect x="2" y="1" width="10" height="12" rx="1.5" fill="none" stroke="currentColor" stroke-width="1.3"/>
-      <line x1="4.5" y1="5" x2="9.5" y2="5" stroke="currentColor" stroke-width="1.3" stroke-linecap="round"/>
-      <line x1="4.5" y1="7.5" x2="9.5" y2="7.5" stroke="currentColor" stroke-width="1.3" stroke-linecap="round"/>
-      <line x1="4.5" y1="10" x2="7.5" y2="10" stroke="currentColor" stroke-width="1.3" stroke-linecap="round"/>
-    </svg>
-  </a>
-  <a class="icon-lib-link" href="sitemap.html" title="Sitemap (working draft)">
-    <svg width="14" height="14" viewBox="0 0 14 14" aria-hidden="true">
-      <circle cx="7" cy="2.5" r="1.8" fill="none" stroke="currentColor" stroke-width="1.3"/>
-      <circle cx="3" cy="11" r="1.8" fill="none" stroke="currentColor" stroke-width="1.3"/>
-      <circle cx="11" cy="11" r="1.8" fill="none" stroke="currentColor" stroke-width="1.3"/>
-      <path d="M7 4.3 L7 7 M7 7 L3 9.5 M7 7 L11 9.5" stroke="currentColor" stroke-width="1.3" fill="none" stroke-linecap="round"/>
-    </svg>
-  </a>
-</div>
-
-<!-- Temporary brainstorm control — only restyles .content h1. Remove alongside
-     the "title-font experiment" CSS block and the extra Google Fonts link once
-     a title font is picked. -->
-<div class="title-font-picker">
-  <label for="title-font-select">Title font</label>
-  <button type="button" id="title-font-prev" class="title-font-nav" aria-label="Previous title font">‹</button>
-  <select id="title-font-select">
-    <optgroup label="Round 1 — headline character">
-      <option value="gabarito">Gabarito</option>
-      <option value="chivo">Chivo</option>
-    </optgroup>
-    <optgroup label="Round 2 — Calibri-adjacent">
-      <option value="golos-text">Golos Text</option>
-    </optgroup>
-    <option value="default">Theme default</option>
-  </select>
-  <button type="button" id="title-font-next" class="title-font-nav" aria-label="Next title font">›</button>
-</div>
-
+<script src="js/site-chrome.js" defer></script>
 <script src="js/theme-toggle.js" defer></script>
 <script src="js/title-font-toggle.js" defer></script>
 </body>

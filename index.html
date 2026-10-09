@@ -39,17 +39,7 @@
 </head>
 <body>
 
-<header class="topnav">
-  <a class="logo" href="index.html">Plan·Do·Reflect</a>
-  <nav class="topnav-items">
-    <a class="item" href="framework.html">The Framework</a>
-    <a class="item" href="self-management.html">Self</a>
-    <a class="item" href="team.html">Team</a>
-    <a class="item" href="organization.html">Organization</a>
-    <a class="item" href="core-skills.html">Core Skills</a>
-    <a class="item" href="references.html">References</a>
-  </nav>
-</header>
+<div id="site-topnav"></div>
 
 <main class="home">
 
@@ -61,24 +51,17 @@
     <h1 class="hero-title" style="display: none;">Plan <span class="hero-title-arrow">·</span> Do <span class="hero-title-arrow">·</span> Reflect</h1>
     <div class="hero-title-rule" style="display: none;"></div>
     <img class="hero-logo" src="images/plan-do-reflect-logo.png" alt="Plan, Do, Reflect — Think Ahead, Take Action, Keep Improving">
-    <p class="hero-sub">Most advice gives you more to do. This gives you a way to get better at doing it: a simple, repeating cycle that turns raw experience into real progress instead of just letting it pass by.</p>
+    <p class="hero-sub">Most advice gives you more to do. This gives you a way to get better at doing it: a simple, repeating cycle that turns raw experience into real progress.</p>
     <a class="hero-cta" href="reflection-practice.html">Start with Reflection →</a>
   </section>
 
   <section class="home-explainer">
-    <div class="explainer-tabs" role="tablist" aria-label="Why, what, how, and when">
-      <button class="explainer-tab is-active" type="button" role="tab" id="tab-why" aria-controls="panel-why" aria-selected="true" tabindex="0">Why it matters</button>
-      <button class="explainer-tab" type="button" role="tab" id="tab-what" aria-controls="panel-what" aria-selected="false" tabindex="-1">What it is</button>
-      <button class="explainer-tab" type="button" role="tab" id="tab-how" aria-controls="panel-how" aria-selected="false" tabindex="-1">How this site supports it</button>
-      <button class="explainer-tab" type="button" role="tab" id="tab-when" aria-controls="panel-when" aria-selected="false" tabindex="-1">When to use it</button>
-    </div>
-
-    <div class="explainer-panels">
-      <div class="explainer-panel" role="tabpanel" id="panel-why" aria-labelledby="tab-why">
+    <div class="home-explainer-grid">
+      <div class="home-explainer-card">
         <h2>Why it matters</h2>
         <p>Experience alone doesn't make you better. You can spend ten years doing the same one year of work if you never stop to look at it. Researchers who study workplace learning keep finding the same thing: people who pause to think about what they just did outperform people who just keep doing. Reflection is what turns effort into growth. It's the difference between racking up hours and racking up wisdom.</p>
       </div>
-      <div class="explainer-panel" role="tabpanel" id="panel-what" aria-labelledby="tab-what" hidden>
+      <div class="home-explainer-card">
         <h2>What it is</h2>
         <p>Plan-Do-Reflect works as a flywheel, not a checklist: three moves that feed each other in a loop.</p>
         <ul class="explainer-list">
@@ -86,76 +69,22 @@
           <li><strong>Do</strong>: do the actual work, on purpose, not on autopilot.</li>
           <li><strong>Reflect</strong>: stop and ask what happened, what worked, and what to change.</li>
         </ul>
-        <p>Each turn makes the next one easier. Small, consistent rotations build more momentum than one heroic push ever will.</p>
+        <p>Each turn makes the next one easier. Small, consistent rotations build momentum.</p>
       </div>
-      <div class="explainer-panel" role="tabpanel" id="panel-how" aria-labelledby="tab-how" hidden>
-        <h2>How this site supports it</h2>
-        <p>Most resources only help with the Do part. This one is built around all three stages. Browse a growing catalog of frameworks and tools organized by where you are in the cycle and what you're working on, from leading and managing to strategic planning. Get a Tip of the Day worth trying today. Build a Learning Plan that strings the right pieces together for whatever you're actually trying to get better at.</p>
-      </div>
-      <div class="explainer-panel" role="tabpanel" id="panel-when" aria-labelledby="tab-when" hidden>
+      <div class="home-explainer-card">
         <h2>When to use it</h2>
-        <p>The cycle works at any scale: daily, in a two-minute end-of-day check-in; weekly, in a proper review of what moved and what didn't; and at the big turning points, after a launch, a hard conversation, a promotion, or a setback. You don't need a special occasion to start. The best time to run your first cycle is whatever you're doing right now.</p>
+        <p>Use it daily in a two-minute check-in, weekly for a fuller review, or after any big moment: a launch, a hard conversation, a promotion, a setback. No special occasion needed. Start with whatever you're doing right now.</p>
+        <p>Whether it's a paper journal, an Obsidian vault, or an agent with skills, use whatever makes showing up easier.</p>
       </div>
     </div>
   </section>
 
 </main>
 
-<footer class="site-footer">
-  <p>&copy; 2026 Plan-Do-Reflect. <a href="references.html">References &amp; further reading</a></p>
-</footer>
+<div id="site-footer"></div>
 
-<div class="theme-switch" role="group" aria-label="Style direction">
-  <button data-theme="a" title="Kinetic Signal — black &amp; yellow"></button>
-  <button data-theme="b" title="Studio Ledger — dusty rose"></button>
-  <button data-theme="c" title="Bright Margin — lime"></button>
-  <a class="icon-lib-link" href="icon-library.html" title="Style Guide (internal reference)">
-    <svg width="14" height="14" viewBox="0 0 14 14" aria-hidden="true">
-      <rect x="1" y="1" width="5" height="5" rx="1" fill="currentColor"/>
-      <rect x="8" y="1" width="5" height="5" rx="1" fill="currentColor"/>
-      <rect x="1" y="8" width="5" height="5" rx="1" fill="currentColor"/>
-      <rect x="8" y="8" width="5" height="5" rx="1" fill="currentColor"/>
-    </svg>
-  </a>
-  <a class="icon-lib-link" href="notes.html" title="Notes (working drafts)">
-    <svg width="14" height="14" viewBox="0 0 14 14" aria-hidden="true">
-      <rect x="2" y="1" width="10" height="12" rx="1.5" fill="none" stroke="currentColor" stroke-width="1.3"/>
-      <line x1="4.5" y1="5" x2="9.5" y2="5" stroke="currentColor" stroke-width="1.3" stroke-linecap="round"/>
-      <line x1="4.5" y1="7.5" x2="9.5" y2="7.5" stroke="currentColor" stroke-width="1.3" stroke-linecap="round"/>
-      <line x1="4.5" y1="10" x2="7.5" y2="10" stroke="currentColor" stroke-width="1.3" stroke-linecap="round"/>
-    </svg>
-  </a>
-  <a class="icon-lib-link" href="sitemap.html" title="Sitemap (working draft)">
-    <svg width="14" height="14" viewBox="0 0 14 14" aria-hidden="true">
-      <circle cx="7" cy="2.5" r="1.8" fill="none" stroke="currentColor" stroke-width="1.3"/>
-      <circle cx="3" cy="11" r="1.8" fill="none" stroke="currentColor" stroke-width="1.3"/>
-      <circle cx="11" cy="11" r="1.8" fill="none" stroke="currentColor" stroke-width="1.3"/>
-      <path d="M7 4.3 L7 7 M7 7 L3 9.5 M7 7 L11 9.5" stroke="currentColor" stroke-width="1.3" fill="none" stroke-linecap="round"/>
-    </svg>
-  </a>
-</div>
-
-<!-- Temporary brainstorm control — only restyles the main h1 (.content h1 / .hero-title). Remove alongside
-     the "title-font experiment" CSS block and the extra Google Fonts link once
-     a title font is picked. -->
-<div class="title-font-picker">
-  <label for="title-font-select">Title font</label>
-  <button type="button" id="title-font-prev" class="title-font-nav" aria-label="Previous title font">‹</button>
-  <select id="title-font-select">
-    <optgroup label="Round 1 — headline character">
-      <option value="gabarito">Gabarito</option>
-      <option value="chivo">Chivo</option>
-    </optgroup>
-    <optgroup label="Round 2 — Calibri-adjacent">
-      <option value="golos-text">Golos Text</option>
-    </optgroup>
-    <option value="default">Theme default</option>
-  </select>
-  <button type="button" id="title-font-next" class="title-font-nav" aria-label="Next title font">›</button>
-</div>
-
+<script src="js/site-chrome.js" defer></script>
 <script src="js/theme-toggle.js" defer></script>
 <script src="js/title-font-toggle.js" defer></script>
-<script src="js/explainer-tabs.js" defer></script>
 </body>
 </html>
