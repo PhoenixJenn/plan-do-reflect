@@ -1,0 +1,225 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="a">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="icon" type="image/svg+xml" href="favicon.svg">
+<title>Strategic Planning · Plan · Do · Reflect</title>
+
+<!-- Applied before CSS loads, so the saved theme / title-font choice doesn't flash to the default on reload -->
+<script>
+(function () {
+  try {
+    var savedTheme = localStorage.getItem('pdr-theme');
+    if (['a', 'b', 'c'].indexOf(savedTheme) > -1) {
+      document.documentElement.setAttribute('data-theme', savedTheme);
+    }
+    var savedTitleFont = localStorage.getItem('pdr-title-font');
+    var titleFont = savedTitleFont === null ? 'golos-text' : savedTitleFont;
+    if (titleFont !== 'default') {
+      document.documentElement.setAttribute('data-title-font', titleFont);
+    }
+  } catch (e) {}
+})();
+</script>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=Work+Sans:wght@400;500;600&family=Sora:wght@600;700;800&family=Plus+Jakarta+Sans:wght@500;600;700&family=Patrick+Hand&display=swap" rel="stylesheet">
+
+<!-- Title-font brainstorm candidates — temporary, for the .title-font-picker toggle only.
+     Remove this link once a title font is chosen and folded into tokens.css. -->
+<link href="https://fonts.googleapis.com/css2?family=Gabarito:wght@800&family=Chivo:wght@800&family=Golos+Text:wght@800&display=swap" rel="stylesheet">
+
+<link rel="stylesheet" href="css/tokens.css">
+<link rel="stylesheet" href="css/main.css">
+</head>
+<body data-nav="organization">
+
+<div id="site-topnav"></div>
+
+<div class="layout">
+  <aside class="sidebar">
+    <div class="sec-title">Organization</div>
+    <a class="sub-item" href="organization.html">Overview</a>
+
+    <div class="sidebar-group">
+      <div class="group-label">Plan</div>
+      <a class="sub-item" href="okrs.html">OKRs</a>
+      <a class="sub-item active" href="strategic-planning.html">Strategic Planning</a>
+      <a class="sub-item" href="#">Annual Operating Plan</a>
+    </div>
+
+    <div class="sidebar-group">
+      <div class="group-label">Do</div>
+      <a class="sub-item" href="#">Operational Process</a>
+    </div>
+
+    <div class="sidebar-group">
+      <div class="group-label">Reflect</div>
+      <a class="sub-item" href="#">MBR &amp; QBR</a>
+    </div>
+  </aside>
+
+  <main class="content">
+    <div class="page-hero">
+      <h1>Strategic Planning</h1>
+      <p class="lede">The planning cycle zoomed out further still: scan the landscape, formulate, cascade into plans, measure, adjust.</p>
+      <div class="tag-row" style="margin-top: 14px; margin-bottom: 0;">
+        <span class="tag primary">Organization</span>
+        <span class="tag secondary">5 steps</span>
+        <a class="try-it-quicklink" href="#try-it">
+          <svg width="14" height="14" viewBox="0 0 24 24" aria-hidden="true">
+            <path d="M12 2 L14.2 9 L21 11 L14.2 13 L12 20 L9.8 13 L3 11 L9.8 9 Z" fill="currentColor"/>
+          </svg>
+          Try It
+        </a>
+      </div>
+    </div>
+
+    <div class="section-block" style="max-width: 640px;">
+      <p>Not a single framework but a cycle, the same way the rest of this site is. Each step below answers a different question, and skipping one usually shows up as a failure in a later one — a company that never scanned the landscape discovers its "How to Win" doesn't hold up, and one that never cascaded its vision into real choices ends up with a Mission statement nobody can act on.</p>
+    </div>
+
+    <div class="framework-list">
+      <div class="framework-item" id="scan-the-landscape">
+        <div class="fw-num">1</div>
+        <div>
+          <h3>Scan the Landscape</h3>
+          <p style="margin-bottom: 10px;">Two passes: name what you're actually optimizing for, then read the competitive pressure on it.</p>
+
+          <h4 class="fw-subhead" id="strategic-theme">Set the Strategic Theme</h4>
+          <p style="margin-bottom: 10px;">Almost every strategic plan is ultimately in service of one of four value drivers. Naming the one that's primary first keeps the scan, the choices, and the metrics that follow all pointed at the same target instead of pulling four directions at once:</p>
+          <ul class="explainer-list is-bulleted">
+            <li><strong>Grow Revenue</strong> — new markets, new products, pricing.
+              <span class="li-example">Amazon folding Prime into groceries, ads, and healthcare is this at trillion-dollar scale; Microsoft's pivot from on-prem licensing to Azure and, more recently, Copilot/AI is the same driver pursued through outright reinvention.</span>
+            </li>
+            <li><strong>Reduce Cost</strong> — efficiency, automation, supply chain.
+              <span class="li-example">Walmart's decades-long investment in logistics and automation; GE's push to put sensors and predictive software on jet engines and turbines, cutting maintenance costs through data instead of brute-force efficiency.</span>
+            </li>
+            <li><strong>Reduce Risk</strong> — security, compliance, resilience.
+              <span class="li-example">JPMorgan's multi-billion-dollar annual cybersecurity spend; Boeing's post-737 MAX overhaul of its engineering and safety culture — transformation forced by existential risk rather than chosen ahead of it.</span>
+            </li>
+            <li><strong>Improve Customer Experience</strong> — retention, loyalty, satisfaction.
+              <span class="li-example">Costco's near-obsessive focus on its membership renewal rate; Starbucks rebuilding itself around Mobile Order &amp; Pay and its rewards app, turning a coffee line into a data-driven loyalty engine.</span>
+            </li>
+            <li><strong>Other</strong> (AI, emerging tech, etc.) — pressure that doesn't map cleanly to the other four yet.
+              <span class="li-example">Most companies' current AI strategy is driven by "we need a position" more than a proven ROI case — which value driver it actually serves gets sorted out after the capability exists, not before.</span>
+            </li>
+          </ul>
+
+          <h4 class="fw-subhead" id="five-forces">Read the Pressure — Porter's Five Forces</h4>
+          <p style="margin-bottom: 10px;">A framework for reading the competitive pressure on the theme you just picked, not just naming direct competitors:</p>
+          <ul class="explainer-list is-bulleted">
+            <li><strong>Threat of new entrants</strong> — how easily fresh competitors can show up and undercut on price.</li>
+            <li><strong>Supplier power</strong> — how much suppliers can squeeze you on price or quality if you're dependent on them.</li>
+            <li><strong>Buyer power</strong> — how much customers can demand lower prices or better terms.</li>
+            <li><strong>Threat of substitutes</strong> — alternative ways to solve the same problem that aren't direct competitors.</li>
+            <li><strong>Rivalry among existing competitors</strong> — the force at the center, shaped by the other four.</li>
+          </ul>
+          <div class="insight-aside" style="margin-top: 14px;">
+            <svg width="26" height="26" viewBox="0 0 26 26" aria-hidden="true">
+              <circle cx="13" cy="13" r="10" fill="none" stroke="var(--border)" stroke-width="2"/>
+              <path d="M13 7 L13 14" stroke="var(--accent-strong)" stroke-width="2.4" stroke-linecap="round"/>
+              <circle cx="13" cy="18.5" r="1.6" fill="var(--accent-strong)"/>
+            </svg>
+            <div class="insight-aside-body">
+              <span class="insight-aside-label">Watch-out</span>
+              <p>The force actually hurting you isn't always the obvious one. A café losing customers isn't necessarily losing them to other cafés — it might be losing them to delivery apps (a substitute), and the fix is competing on experience and loyalty, not price.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="framework-item" id="formulate">
+        <div class="fw-num">2</div>
+        <div>
+          <h3>Formulate — Mission, Vision &amp; Values</h3>
+          <p style="margin-bottom: 10px;">Three related but distinct statements, usually confused for one another:</p>
+          <ul class="explainer-list is-bulleted">
+            <li><strong>Mission</strong> — why you exist right now: the problem you solve, for whom, today.</li>
+            <li><strong>Vision</strong> — the future state you're working toward if the mission succeeds.</li>
+            <li><strong>Values</strong> — how you operate and make decisions while getting there, especially when holding them is costly.</li>
+          </ul>
+          <p style="margin-top: 10px;">This is one rung above where most individual teams start — Team's <a href="product-management.html#product-vision-strategy">Product Vision &amp; Strategy</a> takes company Mission/Vision/Values as a given and translates them into one product's bets.</p>
+          <div class="example-label" style="margin-top: 14px;">Examples</div>
+          <div class="li-example">
+            <strong>Apple</strong>
+            <ul style="margin: 4px 0 0; padding-left: 18px;">
+              <li><strong>Mission:</strong> make tools that amplify human creativity and capability.</li>
+              <li><strong>Vision:</strong> technology so intuitive it disappears into the experience.</li>
+              <li><strong>Values:</strong> design and privacy held as non-negotiable, even when they slow a launch down.</li>
+            </ul>
+          </div>
+          <div class="li-example">
+            <strong>Patagonia</strong>
+            <ul style="margin: 4px 0 0; padding-left: 18px;">
+              <li><strong>Mission:</strong> in business to save our home planet.</li>
+              <li><strong>Vision:</strong> a future where business gives back more to nature than it takes.</li>
+              <li><strong>Values:</strong> environmental activism over quarterly growth — including its own ads telling customers not to buy a jacket they didn't need.</li>
+            </ul>
+          </div>
+          <div class="li-example">
+            <strong>LEGO</strong>
+            <ul style="margin: 4px 0 0; padding-left: 18px;">
+              <li><strong>Mission:</strong> inspire and develop the builders of tomorrow.</li>
+              <li><strong>Vision:</strong> invent the future of play.</li>
+              <li><strong>Values:</strong> "only the best is good enough" — quality and imagination over shipping fast.</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+
+      <div class="framework-item" id="cascade-into-plans">
+        <div class="fw-num">3</div>
+        <div>
+          <h3>Cascade Into Plans — The Strategic Choice Cascade</h3>
+          <p style="margin-bottom: 10px;">From <a href="summaries/playing-to-win.html">Playing to Win</a> (Lafley &amp; Martin): five sequential, interdependent choices. Each answer constrains the next — a Where-to-Play choice made without a clear How-to-Win is just a target list, not a strategy.</p>
+          <ol class="explainer-list is-numbered">
+            <li><strong>Winning Aspiration</strong> — what does winning actually look like?</li>
+            <li><strong>Where to Play</strong> — which markets, segments, and customers.</li>
+            <li><strong>How to Win</strong> — the specific competitive advantage in that arena.</li>
+            <li><strong>Core Capabilities</strong> — what must be true internally to win that way.</li>
+            <li><strong>Management Systems</strong> — the metrics, incentives, and governance that build and sustain those capabilities.</li>
+          </ol>
+        </div>
+      </div>
+
+      <div class="framework-item" id="measure">
+        <div class="fw-num">4</div>
+        <div>
+          <h3>Measure</h3>
+          <p>The cascade's choices become trackable the moment they're written as <a href="okrs.html">OKRs</a> — Winning Aspiration becomes an Objective, and the capabilities and systems underneath it become Key Results everyone can see progress against.</p>
+        </div>
+      </div>
+
+      <div class="framework-item" id="adjust">
+        <div class="fw-num">5</div>
+        <div>
+          <h3>Adjust</h3>
+          <p>The regular, scheduled check against reality — <a href="organization.html#reflect-stage">MBR &amp; QBR</a> — is what actually closes the loop. A plan that's never revisited against what happened isn't a strategy, it's a prediction nobody checked.</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="try-it-box" id="try-it">
+      <div class="try-it-header">
+        <svg width="24" height="24" viewBox="0 0 24 24" aria-hidden="true">
+          <path d="M12 2 L14.2 9 L21 11 L14.2 13 L12 20 L9.8 13 L3 11 L9.8 9 Z" fill="var(--accent)"/>
+        </svg>
+        <h2>Try It</h2>
+      </div>
+      <p>Paste this into ChatGPT, Claude, or whatever AI tool you use:</p>
+      <div class="try-it-prompt" id="try-it-prompt">Help me run a lightweight strategic planning pass for my team. First ask me which strategic theme is primary right now — Grow Revenue, Reduce Cost, Reduce Risk, Improve Customer Experience, or Other (AI, emerging tech, etc.) — and have me defend the choice. Then ask me questions to scan the landscape through that lens using Porter's Five Forces. Then help me state our Mission, Vision, and Values in one sentence each. Finally, walk me through the Strategic Choice Cascade — Winning Aspiration, Where to Play, How to Win, Core Capabilities, Management Systems — pushing me to make real, exclusionary choices rather than restating my aspirations.</div>
+      <button class="try-it-copy" type="button" data-copy-target="try-it-prompt">Copy prompt</button>
+    </div>
+  </main>
+</div>
+
+<div id="site-footer"></div>
+
+<script src="js/site-chrome.js" defer></script>
+<script src="js/theme-toggle.js" defer></script>
+<script src="js/title-font-toggle.js" defer></script>
+<script src="js/try-it.js" defer></script>
+</body>
+</html>

@@ -1949,6 +1949,20 @@ body {
   color: var(--text-heading);
 }
 
+/* ---------- Inline example — sits under one bullet in an explainer list,
+   citing a real-world instance without cluttering the bullet's own text.
+   Lighter-weight than .example-box (a full worked example): just a citation. ---------- */
+.li-example {
+  display: block;
+  margin-top: 6px;
+  padding: 7px 10px;
+  border-radius: 8px;
+  background: var(--bg-sidebar);
+  font-size: 0.82rem;
+  line-height: 1.45;
+  color: var(--text-body);
+}
+
 /* ---------- Site footer (all pages) ---------- */
 .site-footer {
   text-align: center;
