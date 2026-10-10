@@ -1982,6 +1982,16 @@ body {
   margin-top: 1px;
 }
 
+/* Modifier — a plain dot instead of a number, for a list nested inside an
+   already-numbered framework-item (the item's own fw-num is the one tier
+   of numbering; a second numbered tier inside it reads as two competing
+   sequences). */
+.num-badge.is-dot {
+  width: 10px;
+  height: 10px;
+  margin-top: 7px;
+}
+
 .num-list-item p {
   font-size: 0.92rem;
   line-height: 1.5;

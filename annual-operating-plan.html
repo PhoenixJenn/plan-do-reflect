@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="a">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="icon" type="image/svg+xml" href="favicon.svg">
+<title>Annual Operating Plan · Plan · Do · Reflect</title>
+
+<!-- Applied before CSS loads, so the saved theme / title-font choice doesn't flash to the default on reload -->
+<script>
+(function () {
+  try {
+    var savedTheme = localStorage.getItem('pdr-theme');
+    if (['a', 'b', 'c'].indexOf(savedTheme) > -1) {
+      document.documentElement.setAttribute('data-theme', savedTheme);
+    }
+    var savedTitleFont = localStorage.getItem('pdr-title-font');
+    var titleFont = savedTitleFont === null ? 'golos-text' : savedTitleFont;
+    if (titleFont !== 'default') {
+      document.documentElement.setAttribute('data-title-font', titleFont);
+    }
+  } catch (e) {}
+})();
+</script>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=Work+Sans:wght@400;500;600&family=Sora:wght@600;700;800&family=Plus+Jakarta+Sans:wght@500;600;700&family=Patrick+Hand&display=swap" rel="stylesheet">
+
+<!-- Title-font brainstorm candidates — temporary, for the .title-font-picker toggle only.
+     Remove this link once a title font is chosen and folded into tokens.css. -->
+<link href="https://fonts.googleapis.com/css2?family=Gabarito:wght@800&family=Chivo:wght@800&family=Golos+Text:wght@800&display=swap" rel="stylesheet">
+
+<link rel="stylesheet" href="css/tokens.css">
+<link rel="stylesheet" href="css/main.css">
+</head>
+<body data-nav="organization">
+
+<div id="site-topnav"></div>
+
+<div class="layout">
+  <aside class="sidebar">
+    <div class="sec-title">Organization</div>
+    <a class="sub-item" href="organization.html">Overview</a>
+
+    <div class="sidebar-group">
+      <div class="group-label">Plan</div>
+      <a class="sub-item" href="okrs.html">OKRs</a>
+      <a class="sub-item" href="strategic-planning.html">Strategic Planning</a>
+      <a class="sub-item active" href="annual-operating-plan.html">Annual Operating Plan</a>
+    </div>
+
+    <div class="sidebar-group">
+      <div class="group-label">Do</div>
+      <a class="sub-item" href="#">Operational Process</a>
+    </div>
+
+    <div class="sidebar-group">
+      <div class="group-label">Reflect</div>
+      <a class="sub-item" href="#">MBR &amp; QBR</a>
+    </div>
+  </aside>
+
+  <main class="content">
+    <div class="page-hero">
+      <h1>Annual Operating Plan</h1>
+      <p class="lede">The planning cycle at company scale — budget, headcount, and priorities set for the year ahead.</p>
+      <div class="tag-row" style="margin-top: 14px; margin-bottom: 0;">
+        <span class="tag primary">Organization</span>
+        <span class="tag secondary">Plan</span>
+        <a class="try-it-quicklink" href="#try-it">
+          <svg width="14" height="14" viewBox="0 0 24 24" aria-hidden="true">
+            <path d="M12 2 L14.2 9 L21 11 L14.2 13 L12 20 L9.8 13 L3 11 L9.8 9 Z" fill="currentColor"/>
+          </svg>
+          Try It
+        </a>
+      </div>
+    </div>
+
+    <div class="section-block" style="max-width: 640px;">
+      <p>Where <a href="strategic-planning.html">Strategic Planning</a> sets the direction and <a href="okrs.html">OKRs</a> make it measurable, the Annual Operating Plan is where it actually gets paid for — real dollars assigned to real teams, for a real year. Four pieces make it up:</p>
+    </div>
+
+    <div class="framework-list">
+      <div class="framework-item">
+        <div>
+          <ul class="explainer-list is-bulleted">
+            <li><strong>Budget</strong> — operating and capital spend allocated by team or initiative for the year.
+              <span class="li-example">Set through a mix of top-down targets from Finance and bottom-up asks from each team, reconciled before the plan locks — see Top-Down vs. Bottom-Up below.</span>
+            </li>
+            <li><strong>Headcount Plan</strong> — the people behind the budget: new hires, backfills, and where roles move.
+              <span class="li-example">Usually the most contested line in the whole plan — every initiative wants net-new headcount, and there's rarely enough to fund all of them.</span>
+            </li>
+            <li><strong>Priorities Cascade</strong> — the ranked list of initiatives that actually get funded this year, pulled straight from Strategic Planning's Winning Aspiration and OKRs.
+              <span class="li-example">Not everything that's strategically "nice" makes the cut. This is where ambition meets a finite budget.</span>
+            </li>
+            <li><strong>Calendar &amp; Milestones</strong> — the planning season itself, plus the checkpoints through the year where the plan gets checked against reality.
+              <span class="li-example">Most companies run planning in Q3/Q4 for the following fiscal year, then revisit at the mid-year mark if the landscape has shifted — see Adjust on Strategic Planning.</span>
+            </li>
+          </ul>
+
+          <h4 class="fw-subhead" id="top-down-vs-bottom-up">Top-Down vs. Bottom-Up</h4>
+          <p style="margin-bottom: 10px;">The two ways a budget actually gets built. Most real plans are some blend of both:</p>
+          <ul class="explainer-list is-bulleted">
+            <li><strong>Top-Down</strong> — leadership sets a target first (flat headcount, 10% opex growth) and teams plan within it.
+              <span class="li-example">Faster, but risks setting a number before anyone's checked whether it's actually enough. Zero-based budgeting — building every line from zero instead of last year's number — is a stricter version of this, used aggressively by 3G Capital at Kraft Heinz and Anheuser-Busch InBev.</span>
+            </li>
+            <li><strong>Bottom-Up</strong> — each team builds its own ask from what it actually needs, then those get rolled up and reconciled against what the company can afford.
+              <span class="li-example">More accurate, slower, and almost always needs a top-down number to converge against — otherwise the asks just add up to more than the company can spend.</span>
+            </li>
+          </ul>
+
+          <div class="example-box" style="max-width: 560px;">
+            <div class="example-label">Example</div>
+            <p><strong>Team:</strong> Growth Marketing</p>
+            <p><strong>Ask:</strong> $2.4M budget, 3 net-new FTEs</p>
+            <p><strong>Approved:</strong> $1.8M budget, 1 net-new FTE + 1 backfill</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="try-it-box" id="try-it">
+      <div class="try-it-header">
+        <svg width="24" height="24" viewBox="0 0 24 24" aria-hidden="true">
+          <path d="M12 2 L14.2 9 L21 11 L14.2 13 L12 20 L9.8 13 L3 11 L9.8 9 Z" fill="var(--accent)"/>
+        </svg>
+        <h2>Try It</h2>
+      </div>
+      <p>Paste this into ChatGPT, Claude, or whatever AI tool you use:</p>
+      <div class="try-it-prompt" id="try-it-prompt">Help me sanity-check a budget ask for next year. Ask me what I'm asking for — budget and headcount — and what it's for. Then push me to defend it bottom-up: what specifically breaks if I don't get it? Finally, help me rank my asks in case I only get partial funding, so I know what to protect first.</div>
+      <button class="try-it-copy" type="button" data-copy-target="try-it-prompt">Copy prompt</button>
+    </div>
+  </main>
+</div>
+
+<div id="site-footer"></div>
+
+<script src="js/site-chrome.js" defer></script>
+<script src="js/theme-toggle.js" defer></script>
+<script src="js/title-font-toggle.js" defer></script>
+<script src="js/try-it.js" defer></script>
+</body>
+</html>
