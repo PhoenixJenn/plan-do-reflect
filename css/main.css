@@ -1949,6 +1949,50 @@ body {
   color: var(--text-heading);
 }
 
+/* ---------- Numbered principle list — a short set of named principles,
+   each with a circular accent badge instead of a bullet. Lighter-weight
+   than .framework-item's fw-num (no card border/background), for use
+   inside a section that's already inside its own card or section-block. ---------- */
+.num-list {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+  margin-top: 10px;
+}
+
+.num-list-item {
+  display: flex;
+  gap: 12px;
+  align-items: flex-start;
+}
+
+.num-badge {
+  font-family: var(--font-heading);
+  font-weight: 700;
+  font-size: 0.92rem;
+  color: var(--accent-strong);
+  background: var(--accent);
+  width: 26px;
+  height: 26px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  margin-top: 1px;
+}
+
+.num-list-item p {
+  font-size: 0.92rem;
+  line-height: 1.5;
+  color: var(--text-body);
+  margin: 0;
+}
+
+.num-list-item strong {
+  color: var(--text-heading);
+}
+
 /* ---------- Inline example — sits under one bullet in an explainer list,
    citing a real-world instance without cluttering the bullet's own text.
    Lighter-weight than .example-box (a full worked example): just a citation. ---------- */
