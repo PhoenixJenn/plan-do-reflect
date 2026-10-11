@@ -515,7 +515,7 @@
 
     <div class="lib-component">
       <div class="lib-component-name">Concept Card Grid</div>
-      <div class="lib-component-desc">A grid of icon-led cards, one per concept — turns a flat bulleted list of "N related but distinct things" into something worth looking at. Two uses so far: MVV's 3 cards each get their own --mvv-color (tints the top border + icon, and the worked-example dots below reuse the same three so they tie back to the definitions); Strategic Theme's 5 cards are coequal options in a flat taxonomy, not a sequence, so all 5 share one color instead of inventing arbitrary distinctions. Default grid-template-columns is a fixed 3-up; add the .is-auto modifier for a card count other than 3 — it packs as many 180px+ columns as fit instead of wrapping to an uneven last row (Strategic Theme's 5 cards all sit in one row on a normal laptop width). Use the class, not an inline style, for this: an inline grid-template-columns outranks the mobile collapse rule below and never actually flexes down to one column. Collapses to a single column under 720px.</div>
+      <div class="lib-component-desc">A grid of icon-led cards, one per concept — turns a flat bulleted list of "N related but distinct things" into something worth looking at. Two uses so far: MVV's 3 cards each get their own --mvv-color (tints the top border + icon, and the worked-example dots below reuse the same three so they tie back to the definitions); Strategic Theme's 4 core value drivers are coequal options in a flat taxonomy, not a sequence, so all 4 share one color instead of inventing arbitrary distinctions. Default grid-template-columns is a fixed 3-up; add .is-four for a fixed 4-up, or .is-auto for any other count — it packs as many 180px+ columns as fit instead of wrapping to an uneven last row. Use a class, not an inline style, for this: an inline grid-template-columns outranks the mobile collapse rule below and never actually flexes down to one column. A 5th item that's a catch-all/outlier rather than a true peer (Strategic Theme's "Other") doesn't belong in the grid at all — add it after as a standalone .mvv-card.is-wide instead: same card, laid out as icon / heading+body / worked-example in a horizontal row (stacks on mobile), so it reads as "the exception" rather than silently becoming a 5th grid card. Grid collapses to a single column under 720px.</div>
       <div class="lib-component-demo">
         <div class="mvv-grid" style="max-width: 420px; margin: 0;">
           <div class="mvv-card" style="--mvv-color: var(--accent)">
@@ -532,8 +532,17 @@
             <h3 style="font-size: 0.9rem;">Values</h3>
           </div>
         </div>
+        <div class="mvv-card is-wide" style="--mvv-color: var(--accent-strong); max-width: 420px; margin: 10px 0 0;">
+          <svg class="mvv-card-icon" width="22" height="22" viewBox="0 0 24 24" aria-hidden="true">
+            <path d="M9 17 H15 M10 20 H14 M12 3 C8.5 3 6 5.5 6 9 C6 11.5 7.5 13 8.5 14.5 C9 15.3 9 16 9 17 H15 C15 16 15 15.3 15.5 14.5 C16.5 13 18 11.5 18 9 C18 5.5 15.5 3 12 3 Z" fill="none" stroke="var(--accent-strong)" stroke-width="2" stroke-linejoin="round" stroke-linecap="round"/>
+          </svg>
+          <div class="mvv-card-body">
+            <h3 style="font-size: 0.9rem;">Other</h3>
+          </div>
+          <div class="li-example" style="font-size: 0.72rem;">The outlier, laid out horizontally instead of stacking as a grid card.</div>
+        </div>
       </div>
-      <div class="lib-component-source">.mvv-grid / .mvv-card — vision-mission.html, strategic-planning.html (Strategic Theme). Worked examples on vision-mission.html use the parallel .mvv-example-grid / .mvv-example-card / .mvv-example-row / .mvv-example-dot.</div>
+      <div class="lib-component-source">.mvv-grid (.is-four / .is-auto) / .mvv-card (.is-wide) — vision-mission.html, strategic-planning.html (Strategic Theme). Worked examples on vision-mission.html use the parallel .mvv-example-grid / .mvv-example-card / .mvv-example-row / .mvv-example-dot.</div>
     </div>
 
     <div class="lib-component">
@@ -995,7 +1004,7 @@
   </div>
 
   <div class="lib-group-title">Strategic Theme icons</div>
-  <div class="lib-group-note">The five value-driver cards on strategic-planning.html. All one color (--accent-strong) rather than per-card colors — these are 5 coequal options in a flat taxonomy, not a sequence or hierarchy like MVV, so there's no principled way to assign them 5 distinct colors.</div>
+  <div class="lib-group-note">The four core value-driver cards plus the standalone "Other" row on strategic-planning.html. All one color (--accent-strong) rather than per-card colors — these are coequal options in a flat taxonomy, not a sequence or hierarchy like MVV, so there's no principled way to assign distinct colors per card. "Other" is laid out with .mvv-card.is-wide specifically because it isn't a peer of the four — see Concept Card Grid in Components above.</div>
   <div class="lib-grid">
     <div class="lib-card">
       <div class="lib-icon-box">

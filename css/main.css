@@ -2449,12 +2449,52 @@ body {
   grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
 }
 
+/* Modifier — a fixed 4-up row, for a card count that's exactly 4 and
+   should stay that way (e.g. Strategic Theme's four core value drivers,
+   with a 5th "Other" catch-all that deliberately isn't part of this row
+   — see .mvv-card.is-wide below). */
+.mvv-grid.is-four {
+  grid-template-columns: repeat(4, 1fr);
+}
+
 .mvv-card {
   background: var(--bg-content);
   border: 1px solid var(--border);
   border-top: 3px solid var(--mvv-color, var(--accent));
   border-radius: 12px;
   padding: 16px 16px 18px;
+}
+
+/* Modifier — lays a single card out horizontally (icon, heading+body,
+   worked example as three flex columns) instead of the grid's stacked
+   layout. For a catch-all/outlier item that deliberately isn't a peer
+   card in the grid above it (e.g. Strategic Theme's "Other" row). */
+.mvv-card.is-wide {
+  display: flex;
+  align-items: flex-start;
+  gap: 18px;
+  border-top: none;
+  border-left: 3px solid var(--mvv-color, var(--accent));
+}
+
+.mvv-card.is-wide .mvv-card-icon {
+  margin-bottom: 0;
+  margin-top: 2px;
+}
+
+.mvv-card.is-wide .mvv-card-body {
+  flex: 0 1 260px;
+}
+
+.mvv-card.is-wide .li-example {
+  flex: 1;
+  margin-top: 0;
+}
+
+@media (max-width: 720px) {
+  .mvv-card.is-wide {
+    flex-direction: column;
+  }
 }
 
 .mvv-card-icon {
@@ -2538,7 +2578,8 @@ body {
 @media (max-width: 720px) {
   .mvv-grid,
   .mvv-example-grid,
-  .mvv-grid.is-auto {
+  .mvv-grid.is-auto,
+  .mvv-grid.is-four {
     grid-template-columns: 1fr;
   }
 }
