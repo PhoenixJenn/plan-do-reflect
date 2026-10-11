@@ -2506,6 +2506,13 @@ body {
   grid-template-columns: repeat(4, 1fr);
 }
 
+/* Modifier — a fixed 2-up row, for cards carrying enough text (a
+   description plus a .mvv-card-footer) that 3+ across reads cramped —
+   e.g. Goleman's Six on leadership-styles.html. */
+.mvv-grid.is-two {
+  grid-template-columns: repeat(2, 1fr);
+}
+
 .mvv-card {
   background: var(--bg-content);
   border: 1px solid var(--border);
@@ -2649,7 +2656,8 @@ body {
   .mvv-grid,
   .mvv-example-grid,
   .mvv-grid.is-auto,
-  .mvv-grid.is-four {
+  .mvv-grid.is-four,
+  .mvv-grid.is-two {
     grid-template-columns: 1fr;
   }
 }

@@ -47,10 +47,14 @@
 
   /* Red/Amber/Green status convention — universal traffic-light meaning,
      so unlike --accent these stay fixed across all three theme directions
-     rather than being redefined per [data-theme]. */
+     rather than being redefined per [data-theme]. --status-blue added
+     alongside them for the same reason, first used by team-building.html's
+     DISC-style color assessment (Red/Yellow/Green/Blue), where the colors
+     themselves are the content's own vocabulary, not decoration. */
   --status-green: #16a34a;
   --status-amber: #f59e0b;
   --status-red: #dc2626;
+  --status-blue: #2563eb;
 
   /* Fixed marker for cross-cutting content that doesn't belong to any one
      altitude (Personal/Team/Organization) — same "stays fixed across all
