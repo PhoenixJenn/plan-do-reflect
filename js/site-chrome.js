@@ -1,14 +1,12 @@
-/* Injects the shared site chrome -- top nav, footer, theme-switch, and the
-   temporary title-font-picker -- into #site-topnav / #site-footer
-   placeholders, so this markup lives in one file instead of being
-   hand-copied across 260+ pages.
+/* Injects the shared site chrome -- top nav, footer, and theme-switch --
+   into #site-topnav / #site-footer placeholders, so this markup lives in
+   one file instead of being hand-copied across 260+ pages.
 
-   Runs as a `defer` script, placed before theme-toggle.js and
-   title-font-toggle.js in every page. `defer` guarantees the DOM is fully
-   parsed before this script body runs (same guarantee DOMContentLoaded
-   gives those two files internally), so the elements built here already
-   exist by the time theme-toggle.js/title-font-toggle.js look for them on
-   their own DOMContentLoaded handlers -- neither file needed to change.
+   Runs as a `defer` script, placed before theme-toggle.js in every page.
+   `defer` guarantees the DOM is fully parsed before this script body runs
+   (same guarantee DOMContentLoaded gives that file internally), so the
+   elements built here already exist by the time theme-toggle.js looks for
+   them on its own DOMContentLoaded handler -- that file didn't need to change.
 
    Deliberately NOT fetch()-based: opening a page directly via file://
    (this site's whole local-preview workflow -- no server needed) blocks
@@ -77,22 +75,6 @@
       '      <path d="M7 4.3 L7 7 M7 7 L3 9.5 M7 7 L11 9.5" stroke="currentColor" stroke-width="1.3" fill="none" stroke-linecap="round"/>',
       '    </svg>',
       '  </a>',
-      '</div>',
-      '',
-      '<div class="title-font-picker">',
-      '  <label for="title-font-select">Title font</label>',
-      '  <button type="button" id="title-font-prev" class="title-font-nav" aria-label="Previous title font">‹</button>',
-      '  <select id="title-font-select">',
-      '    <optgroup label="Round 1 — headline character">',
-      '      <option value="gabarito">Gabarito</option>',
-      '      <option value="chivo">Chivo</option>',
-      '    </optgroup>',
-      '    <optgroup label="Round 2 — Calibri-adjacent">',
-      '      <option value="golos-text">Golos Text</option>',
-      '    </optgroup>',
-      '    <option value="default">Theme default</option>',
-      '  </select>',
-      '  <button type="button" id="title-font-next" class="title-font-nav" aria-label="Next title font">›</button>',
       '</div>'
     ].join('\n');
   }

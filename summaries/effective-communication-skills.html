@@ -7,7 +7,7 @@
 <link rel="icon" type="image/svg+xml" href="favicon.svg">
 <title>Effective Communication Skills: One-page summary · Plan · Do · Reflect</title>
 
-<!-- Applied before CSS loads, so the saved theme / title-font choice doesn't flash to the default on reload -->
+<!-- Applied before CSS loads, so the saved theme choice doesn't flash to the default on reload -->
 <script>
 (function () {
   try {
@@ -19,21 +19,12 @@
        Text rather than the theme's own heading font. Explicitly picking
        "Theme default" in the picker stores the literal string 'default',
        which is the one value that clears the override below. */
-    var savedTitleFont = localStorage.getItem('pdr-title-font');
-    var titleFont = savedTitleFont === null ? 'golos-text' : savedTitleFont;
-    if (titleFont !== 'default') {
-      document.documentElement.setAttribute('data-title-font', titleFont);
-    }
   } catch (e) {}
 })();
 </script>
 
 <link rel="preconnect" href="https://fonts.googleapis.com">
-<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=Work+Sans:wght@400;500;600&family=Sora:wght@600;700;800&family=Plus+Jakarta+Sans:wght@500;600;700&family=Patrick+Hand&display=swap" rel="stylesheet">
-
-<!-- Title-font brainstorm candidates — temporary, for the .title-font-picker toggle only.
-     Remove this link once a title font is chosen and folded into tokens.css. -->
-<link href="https://fonts.googleapis.com/css2?family=Gabarito:wght@800&family=Chivo:wght@800&family=Golos+Text:wght@800&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=Work+Sans:wght@400;500;600&family=Sora:wght@600;700;800&family=Plus+Jakarta+Sans:wght@500;600;700&family=Patrick+Hand&family=Golos+Text:wght@800&display=swap" rel="stylesheet">
 
 <link rel="stylesheet" href="css/tokens.css">
 <link rel="stylesheet" href="css/main.css">
@@ -82,6 +73,5 @@
 
 <script src="js/site-chrome.js" defer></script>
 <script src="js/theme-toggle.js" defer></script>
-<script src="js/title-font-toggle.js" defer></script>
 </body>
 </html>

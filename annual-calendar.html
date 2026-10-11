@@ -1,0 +1,224 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="a">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="icon" type="image/svg+xml" href="favicon.svg">
+<title>Annual Calendar · Plan · Do · Reflect</title>
+
+<!-- Applied before CSS loads, so the saved theme choice doesn't flash to the default on reload -->
+<script>
+(function () {
+  try {
+    var savedTheme = localStorage.getItem('pdr-theme');
+    if (['a', 'b', 'c'].indexOf(savedTheme) > -1) {
+      document.documentElement.setAttribute('data-theme', savedTheme);
+    }
+  } catch (e) {}
+})();
+</script>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=Work+Sans:wght@400;500;600&family=Sora:wght@600;700;800&family=Plus+Jakarta+Sans:wght@500;600;700&family=Patrick+Hand&family=Golos+Text:wght@800&display=swap" rel="stylesheet">
+
+<link rel="stylesheet" href="css/tokens.css">
+<link rel="stylesheet" href="css/main.css">
+</head>
+<body data-nav="organization">
+
+<div id="site-topnav"></div>
+
+<div class="layout">
+  <aside class="sidebar">
+    <div class="sec-title">Organization</div>
+    <a class="sub-item" href="organization.html">Overview</a>
+    <a class="sub-item active" href="annual-calendar.html">Annual Calendar</a>
+
+    <div class="sidebar-group">
+      <div class="group-label">Plan</div>
+      <a class="sub-item" href="okrs.html">OKRs</a>
+      <a class="sub-item" href="strategic-planning.html">Strategic Planning</a>
+      <a class="sub-item" href="annual-operating-plan.html">Annual Operating Plan</a>
+    </div>
+
+    <div class="sidebar-group">
+      <div class="group-label">Do</div>
+      <a class="sub-item" href="program-increment-cadence.html">Program Increment Cadence</a>
+      <a class="sub-item" href="agile-release-trains.html">Agile Release Trains</a>
+      <a class="sub-item" href="roles-responsibilities.html">Roles &amp; Responsibilities</a>
+    </div>
+
+    <div class="sidebar-group">
+      <div class="group-label">Reflect</div>
+      <a class="sub-item" href="#">MBR &amp; QBR</a>
+    </div>
+  </aside>
+
+  <main class="content">
+    <div class="page-hero">
+      <h1>Annual Calendar</h1>
+      <p class="lede">One year, every cadence that runs on it — Program Increments, the budget cycle, and the people calendar, all in one place.</p>
+      <div class="tag-row" style="margin-top: 14px; margin-bottom: 0;">
+        <span class="tag primary">Organization</span>
+        <span class="tag secondary">Plan + Do + People</span>
+        <a class="try-it-quicklink" href="#try-it">
+          <svg width="14" height="14" viewBox="0 0 24 24" aria-hidden="true">
+            <path d="M12 2 L14.2 9 L21 11 L14.2 13 L12 20 L9.8 13 L3 11 L9.8 9 Z" fill="currentColor"/>
+          </svg>
+          Try It
+        </a>
+      </div>
+    </div>
+
+    <div class="section-block" style="max-width: 640px;">
+      <p>This lives outside Plan/Do/Reflect on purpose: a real year runs the <a href="program-increment-cadence.html">Program Increment Cadence</a>, the <a href="annual-operating-plan.html">Annual Operating Plan</a>'s OP1/OP2 budget cycle, and <a href="leadership.html#do-stage">People Management</a>'s talent calendar all at once, overlapping rather than taking turns. People Management itself isn't built out yet, but its recurring milestones — calibration, reviews, comp planning — are tracked here since they land on the same calendar everything else does.</p>
+    </div>
+
+    <div class="pi-calendar" style="max-width: 720px;">
+      <div class="pi-calendar-year" id="pi-calendar-year">Annual Calendar</div>
+      <div class="pi-calendar-rows">
+        <div class="pi-calendar-row" data-quarter="1">
+          <div class="pi-calendar-row-main">
+            <div class="pi-calendar-row-label">
+              <span class="pi-calendar-q">Q1</span>
+              <span class="pi-calendar-months">Jan&ndash;Mar</span>
+            </div>
+            <div class="pi-calendar-bar">
+              <div class="pi-calendar-segment is-iter" title="Sprint 1">Sprint 1</div>
+              <div class="pi-calendar-segment is-iter" title="Sprint 2">Sprint 2</div>
+              <div class="pi-calendar-segment is-iter" title="Sprint 3">Sprint 3</div>
+              <div class="pi-calendar-segment is-iter" title="Sprint 4">Sprint 4</div>
+              <div class="pi-calendar-segment is-iter" title="Sprint 5">Sprint 5</div>
+              <div class="pi-calendar-segment is-iter" title="Sprint 6">Sprint 6</div>
+              <div class="pi-calendar-segment is-ip" title="Innovation &amp; Planning Week (IP) — PI Planning + Inspect &amp; Adapt">
+                <svg viewBox="0 0 24 24" aria-hidden="true">
+                  <path d="M12 2.5a6.5 6.5 0 0 0-3.7 11.8c.5.4.9 1.1.9 1.8V17h5.6v-.9c0-.7.4-1.4.9-1.8A6.5 6.5 0 0 0 12 2.5Z" fill="none" stroke="var(--bg-content)" stroke-width="1.8" stroke-linejoin="round"/>
+                  <path d="M9.3 20.5h5.4" stroke="var(--bg-content)" stroke-width="1.8" stroke-linecap="round"/>
+                  <path d="M12 6.5v4.3" stroke="var(--bg-content)" stroke-width="1.6" stroke-linecap="round"/>
+                </svg>
+              </div>
+            </div>
+          </div>
+          <div class="pi-calendar-row-milestones"></div>
+        </div>
+
+        <div class="pi-calendar-row" data-quarter="2">
+          <div class="pi-calendar-row-main">
+            <div class="pi-calendar-row-label">
+              <span class="pi-calendar-q">Q2</span>
+              <span class="pi-calendar-months">Apr&ndash;Jun</span>
+            </div>
+            <div class="pi-calendar-bar">
+              <div class="pi-calendar-segment is-iter" title="Sprint 1">Sprint 1</div>
+              <div class="pi-calendar-segment is-iter" title="Sprint 2">Sprint 2</div>
+              <div class="pi-calendar-segment is-iter" title="Sprint 3">Sprint 3</div>
+              <div class="pi-calendar-segment is-iter" title="Sprint 4">Sprint 4</div>
+              <div class="pi-calendar-segment is-iter" title="Sprint 5">Sprint 5</div>
+              <div class="pi-calendar-segment is-iter" title="Sprint 6">Sprint 6</div>
+              <div class="pi-calendar-segment is-ip" title="IP Week — PI Planning + Inspect &amp; Adapt">
+                <svg viewBox="0 0 24 24" aria-hidden="true">
+                  <path d="M12 2.5a6.5 6.5 0 0 0-3.7 11.8c.5.4.9 1.1.9 1.8V17h5.6v-.9c0-.7.4-1.4.9-1.8A6.5 6.5 0 0 0 12 2.5Z" fill="none" stroke="var(--bg-content)" stroke-width="1.8" stroke-linejoin="round"/>
+                  <path d="M9.3 20.5h5.4" stroke="var(--bg-content)" stroke-width="1.8" stroke-linecap="round"/>
+                  <path d="M12 6.5v4.3" stroke="var(--bg-content)" stroke-width="1.6" stroke-linecap="round"/>
+                </svg>
+              </div>
+            </div>
+          </div>
+          <div class="pi-calendar-row-milestones">
+            <span class="pi-calendar-milestone">OP1 forms</span>
+            <span class="pi-calendar-milestone is-people">Talent Calibration</span>
+          </div>
+        </div>
+
+        <div class="pi-calendar-row" data-quarter="3">
+          <div class="pi-calendar-row-main">
+            <div class="pi-calendar-row-label">
+              <span class="pi-calendar-q">Q3</span>
+              <span class="pi-calendar-months">Jul&ndash;Sep</span>
+            </div>
+            <div class="pi-calendar-bar">
+              <div class="pi-calendar-segment is-iter" title="Sprint 1">Sprint 1</div>
+              <div class="pi-calendar-segment is-iter" title="Sprint 2">Sprint 2</div>
+              <div class="pi-calendar-segment is-iter" title="Sprint 3">Sprint 3</div>
+              <div class="pi-calendar-segment is-iter" title="Sprint 4">Sprint 4</div>
+              <div class="pi-calendar-segment is-iter" title="Sprint 5">Sprint 5</div>
+              <div class="pi-calendar-segment is-iter" title="Sprint 6">Sprint 6</div>
+              <div class="pi-calendar-segment is-ip" title="IP Week — PI Planning + Inspect &amp; Adapt">
+                <svg viewBox="0 0 24 24" aria-hidden="true">
+                  <path d="M12 2.5a6.5 6.5 0 0 0-3.7 11.8c.5.4.9 1.1.9 1.8V17h5.6v-.9c0-.7.4-1.4.9-1.8A6.5 6.5 0 0 0 12 2.5Z" fill="none" stroke="var(--bg-content)" stroke-width="1.8" stroke-linejoin="round"/>
+                  <path d="M9.3 20.5h5.4" stroke="var(--bg-content)" stroke-width="1.8" stroke-linecap="round"/>
+                  <path d="M12 6.5v4.3" stroke="var(--bg-content)" stroke-width="1.6" stroke-linecap="round"/>
+                </svg>
+              </div>
+            </div>
+          </div>
+          <div class="pi-calendar-row-milestones">
+            <span class="pi-calendar-milestone is-people">Mid-Year Review</span>
+          </div>
+        </div>
+
+        <div class="pi-calendar-row" data-quarter="4">
+          <div class="pi-calendar-row-main">
+            <div class="pi-calendar-row-label">
+              <span class="pi-calendar-q">Q4</span>
+              <span class="pi-calendar-months">Oct&ndash;Dec</span>
+            </div>
+            <div class="pi-calendar-bar">
+              <div class="pi-calendar-segment is-iter" title="Sprint 1">Sprint 1</div>
+              <div class="pi-calendar-segment is-iter" title="Sprint 2">Sprint 2</div>
+              <div class="pi-calendar-segment is-iter" title="Sprint 3">Sprint 3</div>
+              <div class="pi-calendar-segment is-iter" title="Sprint 4">Sprint 4</div>
+              <div class="pi-calendar-segment is-iter" title="Sprint 5">Sprint 5</div>
+              <div class="pi-calendar-segment is-iter" title="Sprint 6">Sprint 6</div>
+              <div class="pi-calendar-segment is-ip" title="IP Week — PI Planning + Inspect &amp; Adapt">
+                <svg viewBox="0 0 24 24" aria-hidden="true">
+                  <path d="M12 2.5a6.5 6.5 0 0 0-3.7 11.8c.5.4.9 1.1.9 1.8V17h5.6v-.9c0-.7.4-1.4.9-1.8A6.5 6.5 0 0 0 12 2.5Z" fill="none" stroke="var(--bg-content)" stroke-width="1.8" stroke-linejoin="round"/>
+                  <path d="M9.3 20.5h5.4" stroke="var(--bg-content)" stroke-width="1.8" stroke-linecap="round"/>
+                  <path d="M12 6.5v4.3" stroke="var(--bg-content)" stroke-width="1.6" stroke-linecap="round"/>
+                </svg>
+              </div>
+            </div>
+          </div>
+          <div class="pi-calendar-row-milestones">
+            <span class="pi-calendar-milestone">OP2 forms</span>
+            <span class="pi-calendar-milestone is-people">Talent Calibration</span>
+            <span class="pi-calendar-milestone is-people">EOY Review</span>
+            <span class="pi-calendar-milestone is-people">Comp Planning</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="pi-calendar-legend">
+        <span class="pi-calendar-legend-item"><span class="pi-calendar-legend-dot is-ip"></span> Innovation &amp; Planning Week (IP) — PI Planning + Inspect &amp; Adapt</span>
+        <span class="pi-calendar-legend-item"><span class="pi-calendar-legend-dot is-iter"></span> Sprint (2 weeks)</span>
+        <span class="pi-calendar-legend-item"><span class="pi-calendar-legend-dot is-milestone"></span> Org/budget milestone</span>
+        <span class="pi-calendar-legend-item"><span class="pi-calendar-legend-dot is-people-milestone"></span> People calendar milestone</span>
+      </div>
+    </div>
+
+    <div class="section-block" style="max-width: 640px; margin-top: 16px;">
+      <p>Q4 is deliberately the busiest row: EOY Review and Comp Planning are both downstream of Talent Calibration, and OP2 is being built at the same time — the same convergence <a href="organization.html">Organization's Overview</a> flags as "Not One-and-Done."</p>
+    </div>
+
+    <div class="try-it-box" id="try-it">
+      <div class="try-it-header">
+        <svg width="24" height="24" viewBox="0 0 24 24" aria-hidden="true">
+          <path d="M12 2 L14.2 9 L21 11 L14.2 13 L12 20 L9.8 13 L3 11 L9.8 9 Z" fill="var(--accent)"/>
+        </svg>
+        <h2>Try It</h2>
+      </div>
+      <p>Paste this into ChatGPT, Claude, or whatever AI tool you use:</p>
+      <div class="try-it-prompt" id="try-it-prompt">Help me build a one-page annual calendar for my organization. Ask me about my PI/sprint cadence, my budget cycle (when does next year's plan actually get built), and my people calendar (calibration, reviews, comp planning) separately, then lay all three onto one shared timeline so I can see where they collide.</div>
+      <button class="try-it-copy" type="button" data-copy-target="try-it-prompt">Copy prompt</button>
+    </div>
+  </main>
+</div>
+
+<div id="site-footer"></div>
+
+<script src="js/site-chrome.js" defer></script>
+<script src="js/theme-toggle.js" defer></script>
+<script src="js/try-it.js" defer></script>
+<script src="js/annual-calendar.js" defer></script>
+</body>
+</html>

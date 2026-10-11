@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="a">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="icon" type="image/svg+xml" href="favicon.svg">
+<title>Program Increment Cadence · Plan · Do · Reflect</title>
+
+<!-- Applied before CSS loads, so the saved theme choice doesn't flash to the default on reload -->
+<script>
+(function () {
+  try {
+    var savedTheme = localStorage.getItem('pdr-theme');
+    if (['a', 'b', 'c'].indexOf(savedTheme) > -1) {
+      document.documentElement.setAttribute('data-theme', savedTheme);
+    }
+  } catch (e) {}
+})();
+</script>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=Work+Sans:wght@400;500;600&family=Sora:wght@600;700;800&family=Plus+Jakarta+Sans:wght@500;600;700&family=Patrick+Hand&family=Golos+Text:wght@800&display=swap" rel="stylesheet">
+
+<link rel="stylesheet" href="css/tokens.css">
+<link rel="stylesheet" href="css/main.css">
+</head>
+<body data-nav="organization">
+
+<div id="site-topnav"></div>
+
+<div class="layout">
+  <aside class="sidebar">
+    <div class="sec-title">Organization</div>
+    <a class="sub-item" href="organization.html">Overview</a>
+    <a class="sub-item" href="annual-calendar.html">Annual Calendar</a>
+
+    <div class="sidebar-group">
+      <div class="group-label">Plan</div>
+      <a class="sub-item" href="okrs.html">OKRs</a>
+      <a class="sub-item" href="strategic-planning.html">Strategic Planning</a>
+      <a class="sub-item" href="annual-operating-plan.html">Annual Operating Plan</a>
+    </div>
+
+    <div class="sidebar-group">
+      <div class="group-label">Do</div>
+      <a class="sub-item active" href="program-increment-cadence.html">Program Increment Cadence</a>
+      <a class="sub-item" href="agile-release-trains.html">Agile Release Trains</a>
+      <a class="sub-item" href="roles-responsibilities.html">Roles &amp; Responsibilities</a>
+    </div>
+
+    <div class="sidebar-group">
+      <div class="group-label">Reflect</div>
+      <a class="sub-item" href="#">MBR &amp; QBR</a>
+    </div>
+  </aside>
+
+  <main class="content">
+    <div class="page-hero">
+      <h1>Program Increment Cadence</h1>
+      <p class="lede">The org's execution rhythm — how every team's sprints stay in sync once the plan is set.</p>
+      <div class="tag-row" style="margin-top: 14px; margin-bottom: 0;">
+        <span class="tag primary">Organization</span>
+        <span class="tag secondary">Do</span>
+        <a class="try-it-quicklink" href="#try-it">
+          <svg width="14" height="14" viewBox="0 0 24 24" aria-hidden="true">
+            <path d="M12 2 L14.2 9 L21 11 L14.2 13 L12 20 L9.8 13 L3 11 L9.8 9 Z" fill="currentColor"/>
+          </svg>
+          Try It
+        </a>
+      </div>
+    </div>
+
+    <div class="section-block" style="max-width: 640px;">
+      <p>Plan sets the direction and the budget (<a href="okrs.html">OKRs</a>, <a href="strategic-planning.html">Strategic Planning</a>, <a href="annual-operating-plan.html">Annual Operating Plan</a>). Reflect checks it against reality (<a href="organization.html#reflect-stage">MBR &amp; QBR</a>). This is what runs in between: the actual cadence of work, synchronized across every team on the plan at once — not any single team's own sprint mechanics, which is Team's own <a href="team.html#do-stage">Agile / Delivery Process</a>. The standard framework for that synchronization layer is the Scaled Agile Framework (SAFe), run by <a href="agile-release-trains.html">Agile Release Trains</a> and a small set of standing <a href="roles-responsibilities.html">Roles &amp; Responsibilities</a>.</p>
+    </div>
+
+    <div class="framework-list">
+      <div class="framework-item">
+        <div>
+          <h4 class="fw-subhead" id="pi-cadence" style="margin-top: 4px; padding-top: 0; border-top: none;">The Program Increment Cadence</h4>
+          <p style="margin-bottom: 10px;">A repeating cycle, typically 8–12 weeks long, that every team on the train moves through together:</p>
+          <div class="num-list">
+            <div class="num-list-item">
+              <span class="num-badge">1</span>
+              <p><strong>PI Planning</strong> — every team on the train plans the next Program Increment together, against the same backlog, in the same room or call — not separately.</p>
+            </div>
+            <div class="num-list-item">
+              <span class="num-badge">2</span>
+              <p><strong>Iterations</strong> — each team runs its own short sprints inside the Program Increment, executing against the plan they just set together.</p>
+            </div>
+            <div class="num-list-item">
+              <span class="num-badge">3</span>
+              <p><strong>System Demo</strong> — every iteration, the train demos the integrated work across all teams, not just one team's slice, so integration problems surface early.</p>
+            </div>
+            <div class="num-list-item">
+              <span class="num-badge">4</span>
+              <p><strong>Inspect &amp; Adapt</strong> — at the close of the Program Increment, the whole train stops to look at quality and flow together and adjusts before the next PI Planning.</p>
+            </div>
+          </div>
+
+          <div class="insight-aside" style="margin-top: 14px;">
+            <svg width="26" height="26" viewBox="0 0 26 26" aria-hidden="true">
+              <circle cx="13" cy="13" r="10" fill="none" stroke="var(--border)" stroke-width="2"/>
+              <path d="M13 7 L13 14" stroke="var(--accent-strong)" stroke-width="2.4" stroke-linecap="round"/>
+              <circle cx="13" cy="18.5" r="1.6" fill="var(--accent-strong)"/>
+            </svg>
+            <div class="insight-aside-body">
+              <span class="insight-aside-label">Mind the Gap</span>
+              <p>Run PIs on a quarterly cadence and the math doesn't land evenly: six two-week sprints fill 12 weeks, leaving a few spare weeks across the year that don't belong to any sprint. A common pattern is a dedicated gap week between PIs — SAFe calls this an Innovation and Planning (IP) Iteration — used to lock the next PI, secure cross-team dependencies, and refine backlogs before PI Planning starts. It also doubles as a great week for team building, hackathons, learning and development, or a bug bash — work that never fits inside a committed sprint but still needs to happen somewhere.</p>
+            </div>
+          </div>
+
+          <p>See the <a href="annual-calendar.html">Annual Calendar</a> for this cadence laid out across a real year — sprint by sprint, alongside the budget cycle's OP1/OP2 and the people calendar's review and comp-planning milestones.</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="try-it-box" id="try-it">
+      <div class="try-it-header">
+        <svg width="24" height="24" viewBox="0 0 24 24" aria-hidden="true">
+          <path d="M12 2 L14.2 9 L21 11 L14.2 13 L12 20 L9.8 13 L3 11 L9.8 9 Z" fill="var(--accent)"/>
+        </svg>
+        <h2>Try It</h2>
+      </div>
+      <p>Paste this into ChatGPT, Claude, or whatever AI tool you use:</p>
+      <div class="try-it-prompt" id="try-it-prompt">Help me design a Program Increment cadence for my organization. Ask me how many teams are on the train, then walk me through setting PI length, the shape of PI Planning, how often we'll run System Demos, and what Inspect &amp; Adapt should actually cover at the end of each PI.</div>
+      <button class="try-it-copy" type="button" data-copy-target="try-it-prompt">Copy prompt</button>
+    </div>
+  </main>
+</div>
+
+<div id="site-footer"></div>
+
+<script src="js/site-chrome.js" defer></script>
+<script src="js/theme-toggle.js" defer></script>
+<script src="js/try-it.js" defer></script>
+</body>
+</html>

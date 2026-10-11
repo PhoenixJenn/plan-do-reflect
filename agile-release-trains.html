@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="a">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="icon" type="image/svg+xml" href="favicon.svg">
+<title>Agile Release Trains · Plan · Do · Reflect</title>
+
+<!-- Applied before CSS loads, so the saved theme choice doesn't flash to the default on reload -->
+<script>
+(function () {
+  try {
+    var savedTheme = localStorage.getItem('pdr-theme');
+    if (['a', 'b', 'c'].indexOf(savedTheme) > -1) {
+      document.documentElement.setAttribute('data-theme', savedTheme);
+    }
+  } catch (e) {}
+})();
+</script>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=Work+Sans:wght@400;500;600&family=Sora:wght@600;700;800&family=Plus+Jakarta+Sans:wght@500;600;700&family=Patrick+Hand&family=Golos+Text:wght@800&display=swap" rel="stylesheet">
+
+<link rel="stylesheet" href="css/tokens.css">
+<link rel="stylesheet" href="css/main.css">
+</head>
+<body data-nav="organization">
+
+<div id="site-topnav"></div>
+
+<div class="layout">
+  <aside class="sidebar">
+    <div class="sec-title">Organization</div>
+    <a class="sub-item" href="organization.html">Overview</a>
+    <a class="sub-item" href="annual-calendar.html">Annual Calendar</a>
+
+    <div class="sidebar-group">
+      <div class="group-label">Plan</div>
+      <a class="sub-item" href="okrs.html">OKRs</a>
+      <a class="sub-item" href="strategic-planning.html">Strategic Planning</a>
+      <a class="sub-item" href="annual-operating-plan.html">Annual Operating Plan</a>
+    </div>
+
+    <div class="sidebar-group">
+      <div class="group-label">Do</div>
+      <a class="sub-item" href="program-increment-cadence.html">Program Increment Cadence</a>
+      <a class="sub-item active" href="agile-release-trains.html">Agile Release Trains</a>
+      <a class="sub-item" href="roles-responsibilities.html">Roles &amp; Responsibilities</a>
+    </div>
+
+    <div class="sidebar-group">
+      <div class="group-label">Reflect</div>
+      <a class="sub-item" href="#">MBR &amp; QBR</a>
+    </div>
+  </aside>
+
+  <main class="content">
+    <div class="page-hero">
+      <h1>Agile Release Trains</h1>
+      <p class="lede">The long-lived team of teams the Program Increment cadence actually runs inside.</p>
+      <div class="tag-row" style="margin-top: 14px; margin-bottom: 0;">
+        <span class="tag primary">Organization</span>
+        <span class="tag secondary">Do</span>
+        <a class="try-it-quicklink" href="#try-it">
+          <svg width="14" height="14" viewBox="0 0 24 24" aria-hidden="true">
+            <path d="M12 2 L14.2 9 L21 11 L14.2 13 L12 20 L9.8 13 L3 11 L9.8 9 Z" fill="currentColor"/>
+          </svg>
+          Try It
+        </a>
+      </div>
+    </div>
+
+    <div class="section-block" style="max-width: 640px;">
+      <p>The container for the <a href="program-increment-cadence.html">Program Increment Cadence</a>: a long-lived, cross-functional team of teams — roughly 5–12 teams, 50–125 people — organized around one shared value stream, not a single project. Individual initiatives come and go; the train stays:</p>
+      <ul class="explainer-list is-bulleted">
+        <li><strong>Virtual, not org-chart</strong> — a train pulls people from wherever they sit functionally; it's a planning and delivery structure layered on top of reporting lines, not a replacement for them.
+          <span class="li-example">Cisco and John Deere both have public case studies of running multiple ARTs company-wide, each with its own PI cadence running in parallel.</span>
+        </li>
+        <li><strong>Long-lived, not project-scoped</strong> — the train keeps its own cadence indefinitely; what it's building against changes, but the rhythm and the roster mostly don't.
+          <span class="li-example">This is the opposite of standing up a project team and disbanding it at launch — stability is the point, so teams get better at the cadence itself over time.</span>
+        </li>
+      </ul>
+
+      <div class="example-box" style="max-width: 560px;">
+        <div class="example-label">Example</div>
+        <p><strong>Train:</strong> Checkout Experience ART — 6 teams, ~42 people</p>
+        <p><strong>PI length:</strong> 10 weeks</p>
+        <p><strong>Cadence:</strong> 2-day PI Planning → five 2-week iterations, each with a System Demo → 1-day Inspect &amp; Adapt, then repeat</p>
+      </div>
+
+      <p style="margin-top: 14px;">Who actually runs a train day to day is its own topic — see <a href="roles-responsibilities.html">Roles &amp; Responsibilities</a>.</p>
+    </div>
+
+    <div class="try-it-box" id="try-it">
+      <div class="try-it-header">
+        <svg width="24" height="24" viewBox="0 0 24 24" aria-hidden="true">
+          <path d="M12 2 L14.2 9 L21 11 L14.2 13 L12 20 L9.8 13 L3 11 L9.8 9 Z" fill="var(--accent)"/>
+        </svg>
+        <h2>Try It</h2>
+      </div>
+      <p>Paste this into ChatGPT, Claude, or whatever AI tool you use:</p>
+      <div class="try-it-prompt" id="try-it-prompt">Help me think through whether my organization should be structured as one or more Agile Release Trains. Ask me how many teams are working toward a shared outcome and whether they already plan against a shared backlog, then help me decide if a single train makes sense or if the work actually splits into more than one.</div>
+      <button class="try-it-copy" type="button" data-copy-target="try-it-prompt">Copy prompt</button>
+    </div>
+  </main>
+</div>
+
+<div id="site-footer"></div>
+
+<script src="js/site-chrome.js" defer></script>
+<script src="js/theme-toggle.js" defer></script>
+<script src="js/try-it.js" defer></script>
+</body>
+</html>

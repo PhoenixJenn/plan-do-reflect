@@ -6,7 +6,7 @@
 <link rel="icon" type="image/svg+xml" href="favicon.svg">
 <title>Annual Operating Plan · Plan · Do · Reflect</title>
 
-<!-- Applied before CSS loads, so the saved theme / title-font choice doesn't flash to the default on reload -->
+<!-- Applied before CSS loads, so the saved theme choice doesn't flash to the default on reload -->
 <script>
 (function () {
   try {
@@ -14,21 +14,12 @@
     if (['a', 'b', 'c'].indexOf(savedTheme) > -1) {
       document.documentElement.setAttribute('data-theme', savedTheme);
     }
-    var savedTitleFont = localStorage.getItem('pdr-title-font');
-    var titleFont = savedTitleFont === null ? 'golos-text' : savedTitleFont;
-    if (titleFont !== 'default') {
-      document.documentElement.setAttribute('data-title-font', titleFont);
-    }
   } catch (e) {}
 })();
 </script>
 
 <link rel="preconnect" href="https://fonts.googleapis.com">
-<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=Work+Sans:wght@400;500;600&family=Sora:wght@600;700;800&family=Plus+Jakarta+Sans:wght@500;600;700&family=Patrick+Hand&display=swap" rel="stylesheet">
-
-<!-- Title-font brainstorm candidates — temporary, for the .title-font-picker toggle only.
-     Remove this link once a title font is chosen and folded into tokens.css. -->
-<link href="https://fonts.googleapis.com/css2?family=Gabarito:wght@800&family=Chivo:wght@800&family=Golos+Text:wght@800&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=Work+Sans:wght@400;500;600&family=Sora:wght@600;700;800&family=Plus+Jakarta+Sans:wght@500;600;700&family=Patrick+Hand&family=Golos+Text:wght@800&display=swap" rel="stylesheet">
 
 <link rel="stylesheet" href="css/tokens.css">
 <link rel="stylesheet" href="css/main.css">
@@ -41,6 +32,7 @@
   <aside class="sidebar">
     <div class="sec-title">Organization</div>
     <a class="sub-item" href="organization.html">Overview</a>
+    <a class="sub-item" href="annual-calendar.html">Annual Calendar</a>
 
     <div class="sidebar-group">
       <div class="group-label">Plan</div>
@@ -51,7 +43,9 @@
 
     <div class="sidebar-group">
       <div class="group-label">Do</div>
-      <a class="sub-item" href="#">Operational Process</a>
+      <a class="sub-item" href="program-increment-cadence.html">Program Increment Cadence</a>
+      <a class="sub-item" href="agile-release-trains.html">Agile Release Trains</a>
+      <a class="sub-item" href="roles-responsibilities.html">Roles &amp; Responsibilities</a>
     </div>
 
     <div class="sidebar-group">
@@ -94,9 +88,10 @@
               <span class="li-example">Not everything that's strategically "nice" makes the cut. This is where ambition meets a finite budget.</span>
             </li>
             <li><strong>Calendar &amp; Milestones</strong> — the planning season itself, plus the checkpoints through the year where the plan gets checked against reality.
-              <span class="li-example">Most companies run planning in Q3/Q4 for the following fiscal year, then revisit at the mid-year mark if the landscape has shifted — see Adjust on Strategic Planning.</span>
+              <span class="li-example">Most companies run planning in Q3/Q4 for the following fiscal year, then revisit at the mid-year mark if the landscape has shifted — see Adjust on Strategic Planning. Amazon's well-known OP1/OP2 cadence is this same two-pass idea by name: OP1 sets the detailed plan in the fall, OP2 refines it in the winter before the fiscal year starts.</span>
             </li>
           </ul>
+          <p style="margin-top: 10px;">A narrative write-up of where the org or product stands often travels alongside the budget ask in this same planning season — but that status narrative is Strategic Planning's cascade restated for a budget conversation, not a separate artifact. See <a href="strategic-planning.html">Strategic Planning</a>.</p>
 
           <h4 class="fw-subhead" id="top-down-vs-bottom-up">Top-Down vs. Bottom-Up</h4>
           <p style="margin-bottom: 10px;">The two ways a budget actually gets built. Most real plans are some blend of both:</p>
@@ -137,7 +132,6 @@
 
 <script src="js/site-chrome.js" defer></script>
 <script src="js/theme-toggle.js" defer></script>
-<script src="js/title-font-toggle.js" defer></script>
 <script src="js/try-it.js" defer></script>
 </body>
 </html>

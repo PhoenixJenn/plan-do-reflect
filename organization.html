@@ -6,7 +6,7 @@
 <link rel="icon" type="image/svg+xml" href="favicon.svg">
 <title>Organization · Plan · Do · Reflect</title>
 
-<!-- Applied before CSS loads, so the saved theme / title-font choice doesn't flash to the default on reload -->
+<!-- Applied before CSS loads, so the saved theme choice doesn't flash to the default on reload -->
 <script>
 (function () {
   try {
@@ -14,21 +14,12 @@
     if (['a', 'b', 'c'].indexOf(savedTheme) > -1) {
       document.documentElement.setAttribute('data-theme', savedTheme);
     }
-    var savedTitleFont = localStorage.getItem('pdr-title-font');
-    var titleFont = savedTitleFont === null ? 'golos-text' : savedTitleFont;
-    if (titleFont !== 'default') {
-      document.documentElement.setAttribute('data-title-font', titleFont);
-    }
   } catch (e) {}
 })();
 </script>
 
 <link rel="preconnect" href="https://fonts.googleapis.com">
-<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=Work+Sans:wght@400;500;600&family=Sora:wght@600;700;800&family=Plus+Jakarta+Sans:wght@500;600;700&family=Patrick+Hand&display=swap" rel="stylesheet">
-
-<!-- Title-font brainstorm candidates — temporary, for the .title-font-picker toggle only.
-     Remove this link once a title font is chosen and folded into tokens.css. -->
-<link href="https://fonts.googleapis.com/css2?family=Gabarito:wght@800&family=Chivo:wght@800&family=Golos+Text:wght@800&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=Work+Sans:wght@400;500;600&family=Sora:wght@600;700;800&family=Plus+Jakarta+Sans:wght@500;600;700&family=Patrick+Hand&family=Golos+Text:wght@800&display=swap" rel="stylesheet">
 
 <link rel="stylesheet" href="css/tokens.css">
 <link rel="stylesheet" href="css/main.css">
@@ -41,6 +32,7 @@
   <aside class="sidebar">
     <div class="sec-title">Organization</div>
     <a class="sub-item active" href="organization.html">Overview</a>
+    <a class="sub-item" href="annual-calendar.html">Annual Calendar</a>
 
     <div class="sidebar-group">
       <div class="group-label">Plan</div>
@@ -51,7 +43,9 @@
 
     <div class="sidebar-group">
       <div class="group-label">Do</div>
-      <a class="sub-item" href="#">Operational Process</a>
+      <a class="sub-item" href="program-increment-cadence.html">Program Increment Cadence</a>
+      <a class="sub-item" href="agile-release-trains.html">Agile Release Trains</a>
+      <a class="sub-item" href="roles-responsibilities.html">Roles &amp; Responsibilities</a>
     </div>
 
     <div class="sidebar-group">
@@ -70,7 +64,36 @@
     </div>
 
     <div class="section-block">
-      <p>The planning-and-review cadence a whole organization runs on — its own Plan, Do, and Reflect, below. Strategic Planning and Operational Process moved here from Core Skills and Team respectively — both are already company-scoped, not project-scoped, so they belong with the org cadence rather than sitting one level down. The people-leadership side of running an org — Leading, Managing, People Management — moved out to its own <a href="leadership.html">Leadership</a> section instead, since it's about how you operate, the same altitude as Self, not about the org's cadence.</p>
+      <p>The planning-and-review cadence a whole organization runs on — its own Plan, Do, and Reflect, below. Strategic Planning and the Do group's execution-cadence pages moved here from Core Skills and Team respectively — both are already company-scoped, not project-scoped, so they belong with the org cadence rather than sitting one level down. The people-leadership side of running an org — Leading, Managing, People Management — moved out to its own <a href="leadership.html">Leadership</a> section instead, since it's about how you operate, the same altitude as Self, not about the org's cadence.</p>
+
+      <div class="flywheel-track">
+        <div class="flywheel-stop" style="--stage-color: var(--stage-plan)">
+          <span class="flywheel-dot"></span>
+          <h3>Plan</h3>
+          <p>OP1 (H1) &rarr; OP2 (H2/EOY)</p>
+        </div>
+        <div class="flywheel-stop" style="--stage-color: var(--stage-do)">
+          <span class="flywheel-dot"></span>
+          <h3>Do</h3>
+          <p>PI cadence, all year</p>
+        </div>
+        <div class="flywheel-stop" style="--stage-color: var(--stage-reflect)">
+          <span class="flywheel-dot"></span>
+          <h3>Reflect</h3>
+          <p>MBR monthly, QBR quarterly</p>
+        </div>
+      </div>
+
+      <div class="doodle-note" style="margin-top: 10px;">
+        <div class="doodle-row" style="align-items: center;">
+          <svg width="30" height="30" viewBox="0 0 28 28" aria-hidden="true">
+            <path d="M22 8 A10 10 0 1 1 17.5 3.3" fill="none" stroke="var(--accent)" stroke-width="2.2" stroke-linecap="round"/>
+            <path d="M22 3 L22 8 L17 7" stroke="var(--accent-strong)" stroke-width="2.2" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+          <div class="annotation">Not One-and-Done</div>
+        </div>
+        <p>Planning itself is incremental, not a single annual event. <a href="annual-operating-plan.html">OP1</a> shapes the Annual Operating Plan around H1; OP2 refines it at H2/EOY once the year's actuals are in. What Reflect surfaces this quarter feeds next year's OP1 — the wheel keeps turning, it doesn't reset.</p>
+      </div>
     </div>
 
     <div class="stage-boxes" style="margin-bottom: 16px;">
@@ -103,9 +126,17 @@
         </div>
         <p class="stage-box-intro">Run the organization day to day, on the plan that was set.</p>
         <div class="stage-box-list">
-          <a class="stage-box-item" href="#">
-            <h3>Operational Process</h3>
-            <p>Procurement &amp; Sourcing — also referenced from Business Acumen, where it's framed around the spend itself rather than the process.</p>
+          <a class="stage-box-item" href="program-increment-cadence.html">
+            <h3>Program Increment Cadence</h3>
+            <p>PI Planning, sprints, and the Innovation &amp; Planning week that keeps every team's sprints in sync.</p>
+          </a>
+          <a class="stage-box-item" href="agile-release-trains.html">
+            <h3>Agile Release Trains</h3>
+            <p>The long-lived team of teams the Program Increment cadence actually runs inside.</p>
+          </a>
+          <a class="stage-box-item" href="roles-responsibilities.html">
+            <h3>Roles &amp; Responsibilities</h3>
+            <p>Who runs the train — four standing roles, none of which own a single team's day-to-day work.</p>
           </a>
         </div>
       </div>
@@ -131,6 +162,5 @@
 
 <script src="js/site-chrome.js" defer></script>
 <script src="js/theme-toggle.js" defer></script>
-<script src="js/title-font-toggle.js" defer></script>
 </body>
 </html>

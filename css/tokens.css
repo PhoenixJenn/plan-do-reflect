@@ -15,6 +15,12 @@
   --font-heading: 'Sora', sans-serif;
   --font-body: 'Work Sans', sans-serif;
 
+  /* Big page-title elements (page-hero h1, homepage hero-title) use this
+     fixed font across all three themes, chosen after an in-page A/B
+     picker (since removed) — unlike --font-heading, not redefined per
+     [data-theme]. */
+  --font-title: 'Golos Text', sans-serif;
+
   /* For occasional handwritten-style annotations inside visuals only —
      never for real content/body copy. Print-style handwriting, not
      cursive/calligraphy — disconnected letters, stays legible at small

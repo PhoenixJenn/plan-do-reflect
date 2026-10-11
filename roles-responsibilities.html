@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="a">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="icon" type="image/svg+xml" href="favicon.svg">
+<title>Roles &amp; Responsibilities · Plan · Do · Reflect</title>
+
+<!-- Applied before CSS loads, so the saved theme choice doesn't flash to the default on reload -->
+<script>
+(function () {
+  try {
+    var savedTheme = localStorage.getItem('pdr-theme');
+    if (['a', 'b', 'c'].indexOf(savedTheme) > -1) {
+      document.documentElement.setAttribute('data-theme', savedTheme);
+    }
+  } catch (e) {}
+})();
+</script>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=Work+Sans:wght@400;500;600&family=Sora:wght@600;700;800&family=Plus+Jakarta+Sans:wght@500;600;700&family=Patrick+Hand&family=Golos+Text:wght@800&display=swap" rel="stylesheet">
+
+<link rel="stylesheet" href="css/tokens.css">
+<link rel="stylesheet" href="css/main.css">
+</head>
+<body data-nav="organization">
+
+<div id="site-topnav"></div>
+
+<div class="layout">
+  <aside class="sidebar">
+    <div class="sec-title">Organization</div>
+    <a class="sub-item" href="organization.html">Overview</a>
+    <a class="sub-item" href="annual-calendar.html">Annual Calendar</a>
+
+    <div class="sidebar-group">
+      <div class="group-label">Plan</div>
+      <a class="sub-item" href="okrs.html">OKRs</a>
+      <a class="sub-item" href="strategic-planning.html">Strategic Planning</a>
+      <a class="sub-item" href="annual-operating-plan.html">Annual Operating Plan</a>
+    </div>
+
+    <div class="sidebar-group">
+      <div class="group-label">Do</div>
+      <a class="sub-item" href="program-increment-cadence.html">Program Increment Cadence</a>
+      <a class="sub-item" href="agile-release-trains.html">Agile Release Trains</a>
+      <a class="sub-item active" href="roles-responsibilities.html">Roles &amp; Responsibilities</a>
+    </div>
+
+    <div class="sidebar-group">
+      <div class="group-label">Reflect</div>
+      <a class="sub-item" href="#">MBR &amp; QBR</a>
+    </div>
+  </aside>
+
+  <main class="content">
+    <div class="page-hero">
+      <h1>Roles &amp; Responsibilities</h1>
+      <p class="lede">Who runs the train — four standing roles, none of which own a single team's day-to-day work.</p>
+      <div class="tag-row" style="margin-top: 14px; margin-bottom: 0;">
+        <span class="tag primary">Organization</span>
+        <span class="tag secondary">Do</span>
+        <a class="try-it-quicklink" href="#try-it">
+          <svg width="14" height="14" viewBox="0 0 24 24" aria-hidden="true">
+            <path d="M12 2 L14.2 9 L21 11 L14.2 13 L12 20 L9.8 13 L3 11 L9.8 9 Z" fill="currentColor"/>
+          </svg>
+          Try It
+        </a>
+      </div>
+    </div>
+
+    <div class="section-block" style="max-width: 640px;">
+      <p>Four standing roles keep the <a href="agile-release-trains.html">Agile Release Train</a> running — none of them own a single team's day-to-day work, which stays with that team's own Product Owner and Scrum Master:</p>
+      <ul class="explainer-list is-bulleted">
+        <li><strong>Release Train Engineer (RTE)</strong> — the chief Scrum Master for the whole train. Facilitates PI Planning, System Demo, and Inspect &amp; Adapt; tracks and escalates cross-team dependencies and risks.
+          <span class="li-example">Program management for the train itself — the RTE doesn't own any one team's backlog, they own the train's ability to execute as one. Few companies actually use the title "RTE": Amazon runs this same function through Technical Program Managers (TPMs) or a PMO instead — different name, same job of owning the cadence across teams.</span>
+        </li>
+        <li><strong>Product Management</strong> — owns the Program Backlog and the train's vision; decides which features get prioritized across every team on the train.
+          <span class="li-example">Distinct from a single team's Product Owner (see Team's <a href="product-management.html">Product Management</a>): Product Management prioritizes across teams, a Product Owner prioritizes within one team's own backlog.</span>
+        </li>
+        <li><strong>System Architect/Engineer</strong> — owns technical coherence across the train, so independent teams' decisions don't quietly diverge into incompatible systems.
+          <span class="li-example">The role that catches "each team solved this well on its own, and none of the solutions talk to each other" before it becomes a System Demo surprise.</span>
+        </li>
+        <li><strong>Business Owners</strong> — the small group of stakeholders with real business and technical accountability for the train's governance, compliance, and ROI.
+          <span class="li-example">Usually 2–3 people, not a committee — concentrated enough that a real decision can actually get made at Inspect &amp; Adapt, not just discussed.</span>
+        </li>
+      </ul>
+      <p>Team-level roles — Product Owner, Scrum Master — sit one level down, on Team's own <a href="team.html#do-stage">Agile / Delivery Process</a> once that page is built.</p>
+    </div>
+
+    <div class="try-it-box" id="try-it">
+      <div class="try-it-header">
+        <svg width="24" height="24" viewBox="0 0 24 24" aria-hidden="true">
+          <path d="M12 2 L14.2 9 L21 11 L14.2 13 L12 20 L9.8 13 L3 11 L9.8 9 Z" fill="var(--accent)"/>
+        </svg>
+        <h2>Try It</h2>
+      </div>
+      <p>Paste this into ChatGPT, Claude, or whatever AI tool you use:</p>
+      <div class="try-it-prompt" id="try-it-prompt">Help me audit these four roles against my own organization — Release Train Engineer, Product Management, System Architect, Business Owners. Ask me who currently does each job, even informally or under a different title, and flag which ones are missing, overlapping, or sitting with the wrong person.</div>
+      <button class="try-it-copy" type="button" data-copy-target="try-it-prompt">Copy prompt</button>
+    </div>
+  </main>
+</div>
+
+<div id="site-footer"></div>
+
+<script src="js/site-chrome.js" defer></script>
+<script src="js/theme-toggle.js" defer></script>
+<script src="js/try-it.js" defer></script>
+</body>
+</html>
