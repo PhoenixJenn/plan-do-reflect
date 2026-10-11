@@ -265,14 +265,16 @@ body {
   max-width: 640px;
 }
 
-/* Modifier — drops the 640px prose-width cap for a page whose content
-   includes something wider than prose (a card grid, a diagram) that
-   should use the available layout width instead of being squeezed into
-   a reading column. Cap individual paragraphs/lists back to ~640px
-   inline where they're plain prose, so body text doesn't stretch
-   uncomfortably wide just because the page also has a wide diagram. */
+/* Modifier — widens the 640px prose-width cap to 960px for a page whose
+   content includes something wider than prose (a card grid, a diagram)
+   that needs more room than a reading column but still shouldn't sprawl
+   to the full layout width on a large monitor — uncapped read as "too
+   wide" in practice, with a lonely 560px diagram stranded in a sea of
+   whitespace. Cap individual paragraphs/lists back to ~640px inline
+   where they're plain prose, so body text doesn't stretch uncomfortably
+   wide just because the page also has a wide diagram. */
 .framework-list.is-wide {
-  max-width: none;
+  max-width: 960px;
 }
 
 /* Divider between clusters within one framework-list (e.g. "Set Goals" vs.
