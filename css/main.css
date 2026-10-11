@@ -2108,6 +2108,21 @@ body {
   align-items: flex-start;
 }
 
+/* Modifier — wraps each item in its own bordered card and caps the list
+   to the page's prose width (640px), so a sequence of named steps reads
+   as distinct units and never stretches wider than the surrounding
+   paragraphs just because its container has more room. */
+.num-list.is-cards {
+  max-width: 640px;
+}
+
+.num-list.is-cards .num-list-item {
+  background: var(--bg-content);
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  padding: 14px 16px;
+}
+
 .num-badge {
   font-family: var(--font-heading);
   font-weight: 700;

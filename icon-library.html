@@ -629,6 +629,24 @@
       </div>
       <div class="lib-component-source">.stage-box-item.has-icon / .stage-box-item-icon / .stage-box-item-body — organization.html</div>
     </div>
+
+    <div class="lib-component">
+      <div class="lib-component-name">Numbered Principle List</div>
+      <div class="lib-component-desc">A short, named sequence — each item a circular accent badge (number, dot, or icon) plus a label and description. Bare by default (no card/border, for use inside a section that already has its own); add the .is-cards modifier to wrap each item in its own bordered card AND cap the whole list to 640px, so a cascade of worked-example-heavy items reads as distinct units and never stretches wider than the surrounding prose just because its container has more room (established after strategic-planning.html's Strategic Choice Cascade, inside a 960px-wide page, visibly out-stretched the 640px Formulate/Measure text above and below it). Opt-in modifier, not a change to the base class — okrs.html's plain numbered list (no cards) is unaffected.</div>
+      <div class="lib-component-demo">
+        <div class="num-list is-cards" style="max-width: 320px; margin: 0;">
+          <div class="num-list-item">
+            <span class="num-badge">1</span>
+            <p><strong>Step One</strong> — a short description.</p>
+          </div>
+          <div class="num-list-item">
+            <span class="num-badge">2</span>
+            <p><strong>Step Two</strong> — a short description.</p>
+          </div>
+        </div>
+      </div>
+      <div class="lib-component-source">.num-list (.is-cards) / .num-list-item / .num-badge (.is-dot) — okrs.html, program-increment-cadence.html, strategic-planning.html</div>
+    </div>
   </section>
 
   <section class="lib-section" id="icons">
