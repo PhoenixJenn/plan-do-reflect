@@ -487,6 +487,20 @@
     </div>
 
     <div class="lib-component">
+      <div class="lib-component-name">Example Box multi-item list</div>
+      <div class="lib-component-desc">When one <code>.li-example</code> box needs to cite more than one example, list them as gold-dot bullets inside the box (a <code>&lt;ul&gt;</code>) rather than running them together in a semicolon-joined sentence, or splitting into separate gray boxes — too heavy inside a compact card. Opt-in: only kicks in when the content is a <code>&lt;ul&gt;</code>, so a plain-text <code>.li-example</code> citation elsewhere is unaffected. Established on strategic-planning.html's Strategic Theme cards (each core driver cites 2 companies) and its "Other" row (3 labeled sub-themes).</div>
+      <div class="lib-component-demo">
+        <div class="li-example" style="margin-top: 0; max-width: 320px;">
+          <ul>
+            <li>First example, cited on its own line.</li>
+            <li>Second example, same box.</li>
+          </ul>
+        </div>
+      </div>
+      <div class="lib-component-source">.li-example ul / .li-example li — strategic-planning.html</div>
+    </div>
+
+    <div class="lib-component">
       <div class="lib-component-name">Accordion + Try It</div>
       <div class="lib-component-desc">For content-dense pages, each framework is a collapsible <code>.framework-item.is-accordion</code> section. A Try It prompt nests inside as its own independent toggle, collapsed regardless of the parent section's open state. Every Try It prompt must stand alone — see Voice &amp; Tone above — so it's still useful pasted anywhere, with no reference back to this page.</div>
       <div class="lib-component-source">.framework-item.is-accordion, .fw-toggle, .try-it-inline-toggle / .try-it-collapse — project-program-management.html</div>

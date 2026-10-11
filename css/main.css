@@ -2443,6 +2443,38 @@ body {
   color: var(--text-body);
 }
 
+/* When a single .li-example box needs to cite more than one example,
+   list them as gold-dot bullets inside the one box rather than running
+   them together in a semicolon-joined sentence or splitting into
+   separate boxes (too heavy inside a compact card). Opt-in: only kicks
+   in when the content is a <ul>, so plain-text .li-example usages
+   elsewhere are unaffected. */
+.li-example ul {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.li-example li {
+  position: relative;
+  padding-left: 14px;
+}
+
+.li-example li + li {
+  margin-top: 5px;
+}
+
+.li-example li::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 0.55em;
+  width: 5px;
+  height: 5px;
+  border-radius: 999px;
+  background: var(--accent-gold);
+}
+
 /* ---------- MVV cards (vision-mission.html) — three icon-led cards
    replacing a plain bulleted definition list, so Mission/Vision/Values
    read as distinct, memorable ideas instead of one wall of bullets.
