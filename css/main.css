@@ -2047,10 +2047,11 @@ body {
 }
 
 /* ---------- PI Calendar — a year-long Program Increment calendar, one row
-   per quarter, each row an IP week (gold) plus six iterations (stage-do,
-   alternating opacity for a beaded look). The year label and "Today"
-   marker are filled in by js/annual-calendar.js from the visitor's own
-   clock, so this never shows a stale hardcoded year. ---------- */
+   per quarter, each row an IP week (gold) plus six sprints (solid accent
+   color — no alternating shade, which read as bumblebee stripes). The
+   year label, quarter month-labels, and "Today" marker are filled in by
+   js/annual-calendar.js, which also wires up the Year and FY-start-month
+   pickers so the whole thing recomputes for any fiscal calendar. ---------- */
 .pi-calendar {
   margin-top: 14px;
   padding: 18px 20px;
@@ -2060,12 +2061,52 @@ body {
   max-width: 640px;
 }
 
+.pi-calendar-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-bottom: 16px;
+}
+
 .pi-calendar-year {
   font-family: var(--font-heading);
   font-weight: 700;
   font-size: 0.95rem;
   color: var(--text-heading);
-  margin-bottom: 16px;
+}
+
+.pi-calendar-controls {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+.pi-calendar-controls label {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  font-size: 0.7rem;
+  font-weight: 600;
+  color: var(--text-caption);
+}
+
+.pi-calendar-controls select {
+  font-size: 0.74rem;
+  font-family: var(--font-body);
+  padding: 3px 6px;
+  border-radius: 8px;
+  border: 1px solid var(--border);
+  background: var(--bg-sidebar);
+  color: var(--text-body);
+}
+
+.pi-calendar-footnote {
+  margin-top: 14px;
+  font-size: 0.74rem;
+  line-height: 1.5;
+  color: var(--text-caption);
 }
 
 .pi-calendar-rows {
@@ -2145,10 +2186,9 @@ body {
   height: 15px;
 }
 
-/* Iterations alternate the theme's own pop color against its ink color —
-   --accent and --accent-strong are each theme's designed-bright/designed-dark
-   pair, so this stays vivid in every theme direction instead of leaning on
-   a stage-* token that happens to render near-black in one of them. */
+/* Sprints all share the theme's own pop color (--accent) — alternating it
+   with --accent-strong per sprint read as bumblebee stripes rather than
+   one continuous cadence, so every sprint block is the same solid color. */
 .pi-calendar-segment.is-iter {
   background: var(--accent);
   color: var(--accent-strong);
@@ -2158,11 +2198,6 @@ body {
   font-size: 0.6rem;
   white-space: nowrap;
   overflow: hidden;
-}
-
-.pi-calendar-segment.is-iter:nth-child(even) {
-  background: var(--accent-strong);
-  color: var(--bg-content);
 }
 
 .pi-calendar-today {

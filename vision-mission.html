@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="a">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="icon" type="image/svg+xml" href="favicon.svg">
+<title>Vision &amp; Mission · Plan · Do · Reflect</title>
+
+<!-- Applied before CSS loads, so the saved theme choice doesn't flash to the default on reload -->
+<script>
+(function () {
+  try {
+    var savedTheme = localStorage.getItem('pdr-theme');
+    if (['a', 'b', 'c'].indexOf(savedTheme) > -1) {
+      document.documentElement.setAttribute('data-theme', savedTheme);
+    }
+  } catch (e) {}
+})();
+</script>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=Work+Sans:wght@400;500;600&family=Sora:wght@600;700;800&family=Plus+Jakarta+Sans:wght@500;600;700&family=Patrick+Hand&family=Golos+Text:wght@800&display=swap" rel="stylesheet">
+
+<link rel="stylesheet" href="css/tokens.css">
+<link rel="stylesheet" href="css/main.css">
+</head>
+<body data-nav="organization">
+
+<div id="site-topnav"></div>
+
+<div class="layout">
+  <aside class="sidebar">
+    <div class="sec-title">Organization</div>
+    <a class="sub-item" href="organization.html">Overview</a>
+    <a class="sub-item" href="annual-calendar.html">Annual Calendar</a>
+
+    <div class="sidebar-group">
+      <div class="group-label">Plan</div>
+      <a class="sub-item active" href="vision-mission.html">Vision &amp; Mission</a>
+      <a class="sub-item" href="strategic-planning.html">Strategic Planning</a>
+      <a class="sub-item" href="okrs.html">OKRs</a>
+      <a class="sub-item" href="annual-operating-plan.html">Annual Operating Plan</a>
+    </div>
+
+    <div class="sidebar-group">
+      <div class="group-label">Do</div>
+      <a class="sub-item" href="program-increment-cadence.html">Program Increment Cadence</a>
+      <a class="sub-item" href="agile-release-trains.html">Agile Release Trains</a>
+      <a class="sub-item" href="roles-responsibilities.html">Roles &amp; Responsibilities</a>
+    </div>
+
+    <div class="sidebar-group">
+      <div class="group-label">Reflect</div>
+      <a class="sub-item" href="#">MBR &amp; QBR</a>
+    </div>
+  </aside>
+
+  <main class="content">
+    <div class="page-hero">
+      <h1>Vision &amp; Mission</h1>
+      <p class="lede">Why you exist right now, and the future state you're working toward — set once, before anything else cascades from it.</p>
+      <div class="tag-row" style="margin-top: 14px; margin-bottom: 0;">
+        <span class="tag primary">Organization</span>
+        <span class="tag secondary">Plan</span>
+        <a class="try-it-quicklink" href="#try-it">
+          <svg width="14" height="14" viewBox="0 0 24 24" aria-hidden="true">
+            <path d="M12 2 L14.2 9 L21 11 L14.2 13 L12 20 L9.8 13 L3 11 L9.8 9 Z" fill="currentColor"/>
+          </svg>
+          Try It
+        </a>
+      </div>
+    </div>
+
+    <div class="section-block" style="max-width: 640px;">
+      <p>The first thing a Plan group actually needs, before OKRs have anything to cascade from or Strategic Planning has anything to scan the landscape in service of. Three related but distinct statements, usually confused for one another:</p>
+      <ul class="explainer-list is-bulleted">
+        <li><strong>Mission</strong> — why you exist right now: the problem you solve, for whom, today.</li>
+        <li><strong>Vision</strong> — the future state you're working toward if the mission succeeds.</li>
+        <li><strong>Values</strong> — how you operate and make decisions while getting there, especially when holding them is costly.</li>
+      </ul>
+      <p style="margin-top: 10px;">This is one rung above where most individual teams start — Team's <a href="product-management.html#product-vision-strategy">Product Vision &amp; Strategy</a> takes company Mission/Vision/Values as a given and translates them into one product's bets. It's also where <a href="strategic-planning.html">Strategic Planning</a>'s own Formulate step picks up — once Vision and Mission are set here, that cascade carries them forward: scan the landscape, cascade into plans, measure, adjust.</p>
+      <div class="example-label" style="margin-top: 14px;">Examples</div>
+      <div class="li-example">
+        <strong>Apple</strong>
+        <ul style="margin: 4px 0 0; padding-left: 18px;">
+          <li><strong>Mission:</strong> make tools that amplify human creativity and capability.</li>
+          <li><strong>Vision:</strong> technology so intuitive it disappears into the experience.</li>
+          <li><strong>Values:</strong> design and privacy held as non-negotiable, even when they slow a launch down.</li>
+        </ul>
+      </div>
+      <div class="li-example">
+        <strong>Patagonia</strong>
+        <ul style="margin: 4px 0 0; padding-left: 18px;">
+          <li><strong>Mission:</strong> in business to save our home planet.</li>
+          <li><strong>Vision:</strong> a future where business gives back more to nature than it takes.</li>
+          <li><strong>Values:</strong> environmental activism over quarterly growth — including its own ads telling customers not to buy a jacket they didn't need.</li>
+        </ul>
+      </div>
+      <div class="li-example">
+        <strong>LEGO</strong>
+        <ul style="margin: 4px 0 0; padding-left: 18px;">
+          <li><strong>Mission:</strong> inspire and develop the builders of tomorrow.</li>
+          <li><strong>Vision:</strong> invent the future of play.</li>
+          <li><strong>Values:</strong> "only the best is good enough" — quality and imagination over shipping fast.</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="try-it-box" id="try-it">
+      <div class="try-it-header">
+        <svg width="24" height="24" viewBox="0 0 24 24" aria-hidden="true">
+          <path d="M12 2 L14.2 9 L21 11 L14.2 13 L12 20 L9.8 13 L3 11 L9.8 9 Z" fill="var(--accent)"/>
+        </svg>
+        <h2>Try It</h2>
+      </div>
+      <p>Paste this into ChatGPT, Claude, or whatever AI tool you use:</p>
+      <div class="try-it-prompt" id="try-it-prompt">Help me draft Mission, Vision, and Values statements for my organization or team, one sentence each. Ask me what problem we solve and for whom today (Mission), what the future looks like if we succeed (Vision), and one value we'd actually hold even when it costs us something (Values) — push back if my answers are too generic to act on.</div>
+      <button class="try-it-copy" type="button" data-copy-target="try-it-prompt">Copy prompt</button>
+    </div>
+  </main>
+</div>
+
+<div id="site-footer"></div>
+
+<script src="js/site-chrome.js" defer></script>
+<script src="js/theme-toggle.js" defer></script>
+<script src="js/try-it.js" defer></script>
+</body>
+</html>
