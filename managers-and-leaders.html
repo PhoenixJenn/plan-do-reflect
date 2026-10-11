@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="a">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="icon" type="image/svg+xml" href="favicon.svg">
+<title>Managers &amp; Leaders · Plan · Do · Reflect</title>
+
+<!-- Applied before CSS loads, so the saved theme choice doesn't flash to the default on reload -->
+<script>
+(function () {
+  try {
+    var savedTheme = localStorage.getItem('pdr-theme');
+    if (['a', 'b', 'c'].indexOf(savedTheme) > -1) {
+      document.documentElement.setAttribute('data-theme', savedTheme);
+    }
+  } catch (e) {}
+})();
+</script>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=Work+Sans:wght@400;500;600&family=Sora:wght@600;700;800&family=Plus+Jakarta+Sans:wght@500;600;700&family=Patrick+Hand&family=Golos+Text:wght@800&display=swap" rel="stylesheet">
+
+<link rel="stylesheet" href="css/tokens.css">
+<link rel="stylesheet" href="css/main.css">
+</head>
+<body data-nav="leadership">
+
+<div id="site-topnav"></div>
+
+<div class="layout">
+  <aside class="sidebar">
+    <div class="sec-title">Leadership</div>
+    <a class="sub-item" href="leadership.html">Overview</a>
+    <div class="sub-item-group">
+      <a class="sub-item active" href="leading.html">Leading</a>
+      <div class="sub-sub-list">
+        <a class="sub-sub-item" href="knowing-yourself.html">Knowing Yourself</a>
+        <a class="sub-sub-item" href="leadership-styles.html">Leadership Styles</a>
+        <a class="sub-sub-item active" href="managers-and-leaders.html">Managers &amp; Leaders</a>
+      </div>
+    </div>
+
+    <div class="sidebar-group">
+      <div class="group-label">Plan</div>
+      <div class="sub-item-group">
+        <a class="sub-item" href="#">Org Design</a>
+        <div class="sub-sub-list">
+          <a class="sub-sub-item" href="#">Succession Planning</a>
+        </div>
+      </div>
+      <a class="sub-item" href="#">Goal Setting</a>
+      <a class="sub-item" href="#">Development Plans</a>
+    </div>
+
+    <div class="sidebar-group">
+      <div class="group-label">Do</div>
+      <div class="sub-item-group">
+        <a class="sub-item" href="#">Managing</a>
+        <div class="sub-sub-list">
+          <a class="sub-sub-item" href="#">1:1s</a>
+        </div>
+      </div>
+      <a class="sub-item" href="#">People Management</a>
+    </div>
+
+    <div class="sidebar-group">
+      <div class="group-label">Reflect</div>
+      <a class="sub-item" href="#">Performance Reviews</a>
+    </div>
+
+  </aside>
+
+  <main class="content">
+    <div class="page-hero">
+      <h1>Managers &amp; Leaders</h1>
+      <p class="lede">"Manager" is a job title. Leadership is a behavior. The two overlap constantly, but they aren't the same thing — and "manager" itself splits into roles that have almost nothing in common with each other.</p>
+      <div class="tag-row" style="margin-top: 14px; margin-bottom: 0;">
+        <a class="try-it-quicklink" href="#try-it">
+          <svg width="14" height="14" viewBox="0 0 24 24" aria-hidden="true">
+            <path d="M12 2 L14.2 9 L21 11 L14.2 13 L12 20 L9.8 13 L3 11 L9.8 9 Z" fill="currentColor"/>
+          </svg>
+          Try It
+        </a>
+      </div>
+    </div>
+
+    <div class="framework-list is-wide">
+      <div class="framework-item" id="manager-vs-leader">
+        <div class="fw-num">1</div>
+        <div>
+          <h3>Manager vs. Leader</h3>
+          <p style="max-width: 640px;">Management is a formal role: authority over resources, people, process, or budget, granted by the org chart. Leadership is a behavior: setting direction and moving people toward it, with or without that authority. You can hold the title and never really lead. You can lead with no title at all — anyone on a team who moves it forward is leading, whether or not "manager" is anywhere in their job description.</p>
+          <div class="mvv-grid is-auto">
+            <div class="mvv-card" style="--mvv-color: var(--accent-strong)">
+              <h3>Management</h3>
+              <p>A role, granted by the organization. Comes with formal authority over some mix of people, budget, or process — and the accountability that comes with it.</p>
+            </div>
+            <div class="mvv-card" style="--mvv-color: var(--accent-gold)">
+              <h3>Leadership</h3>
+              <p>A behavior, earned through influence. Setting direction and moving people toward it — independent of whether you have formal authority over any of them.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="framework-item" id="work-vs-people">
+        <div class="fw-num">2</div>
+        <div>
+          <h3>Managers of Work vs. People Managers</h3>
+          <p style="max-width: 640px;">"Manager" job titles split into two groups that get conflated constantly. One group owns a piece of work — scope, timeline, dependencies — and typically has no direct reports at all. The other owns people — hiring, growth, performance, comp — and is accountable for the humans regardless of what they're currently working on.</p>
+
+          <h4 class="fw-subhead">Managers of Work <span style="font-weight: 500; color: var(--text-caption);">— usually no direct reports</span></h4>
+          <div class="mvv-grid is-auto">
+            <div class="mvv-card" style="--mvv-color: var(--accent-strong)">
+              <h3>Project Manager</h3>
+              <p>Owns a single initiative end to end — scope, timeline, budget, risk. Drives the plan, not the people executing it.</p>
+            </div>
+            <div class="mvv-card" style="--mvv-color: var(--accent-strong)">
+              <h3>Program Manager</h3>
+              <p>Owns a group of related projects — the dependencies and risk that live between them, not inside any one of them.</p>
+            </div>
+            <div class="mvv-card" style="--mvv-color: var(--accent-strong)">
+              <h3>Technical Program Manager</h3>
+              <p>A Program Manager with deep technical fluency, usually inside engineering — close enough to the system to drive execution across teams that don't report to them.</p>
+            </div>
+          </div>
+
+          <h4 class="fw-subhead" style="margin-top: 18px;">People Managers <span style="font-weight: 500; color: var(--text-caption);">— formal reports, accountable for the humans</span></h4>
+          <div class="mvv-grid is-auto">
+            <div class="mvv-card" style="--mvv-color: var(--accent-gold)">
+              <h3>Engineering Manager</h3>
+              <p>Formal reports: hiring, growth, performance, comp. Usually also carries technical judgment and unblocks the work — a people manager first, a work coordinator second.</p>
+            </div>
+            <div class="mvv-card" style="--mvv-color: var(--accent-gold)">
+              <h3>Director / VP</h3>
+              <p>A people manager of people managers — the scope widens from individuals to the org, but the accountability for the humans underneath doesn't change shape, just size.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="mvv-card is-wide" style="--mvv-color: var(--accent-gold); margin-top: 14px;">
+        <svg class="mvv-card-icon" width="24" height="24" viewBox="0 0 24 24" aria-hidden="true">
+          <path d="M9 17 H15 M10 20 H14 M12 3 C8.5 3 6 5.5 6 9 C6 11.5 7.5 13 8.5 14.5 C9 15.3 9 16 9 17 H15 C15 16 15 15.3 15.5 14.5 C16.5 13 18 11.5 18 9 C18 5.5 15.5 3 12 3 Z" fill="none" stroke="var(--accent-gold)" stroke-width="2" stroke-linejoin="round" stroke-linecap="round"/>
+        </svg>
+        <div class="mvv-card-body">
+          <h3>The Outlier: Product Manager</h3>
+          <p>Has "Manager" in the title, but usually owns neither of the two columns above: no direct reports, and not formally in charge of the engineers or designers doing the work either. A PM moves a team by making the case, not by giving an instruction — the purest example on this page of leadership without any management authority at all.</p>
+        </div>
+        <div class="li-example">That's not a loophole in the title — it's the job. Everything a PM gets done, they get done through influence: a clear enough "why," a credible enough plan, and enough trust that the team wants to follow it.</div>
+      </div>
+    </div>
+
+    <div class="insight-aside" style="margin-top: 14px; max-width: 640px;">
+      <svg width="26" height="26" viewBox="0 0 26 26" aria-hidden="true">
+        <circle cx="13" cy="13" r="10" fill="none" stroke="var(--border)" stroke-width="2"/>
+        <path d="M13 7 L13 14" stroke="var(--accent-strong)" stroke-width="2.4" stroke-linecap="round"/>
+        <circle cx="13" cy="18.5" r="1.6" fill="var(--accent-strong)"/>
+      </svg>
+      <div class="insight-aside-body">
+        <span class="insight-aside-label">Watch-out</span>
+        <p>Knowing which kind of manager you are — or want to become — changes what you should actually practice. Growing as a Project or Program Manager means getting sharper at scope, dependencies, and risk. Growing as an Engineering Manager means getting better at hiring, coaching, and hard conversations. They're different jobs wearing the same job-title word, and conflating them is how a strong IC gets promoted into a people-manager role they never wanted.</p>
+      </div>
+    </div>
+
+    <div class="try-it-box" id="try-it">
+      <div class="try-it-header">
+        <svg width="24" height="24" viewBox="0 0 24 24" aria-hidden="true">
+          <path d="M12 2 L14.2 9 L21 11 L14.2 13 L12 20 L9.8 13 L3 11 L9.8 9 Z" fill="var(--accent)"/>
+        </svg>
+        <h2>Try It</h2>
+      </div>
+      <p>Paste this into ChatGPT, Claude, or whatever AI tool you use:</p>
+      <div class="try-it-prompt" id="try-it-prompt">Help me get clear on whether I'm built for managing work or managing people, or whether I'm actually leading without either kind of formal authority (like a Product Manager does). Ask me about my current role, what parts of it energize me versus drain me, and whether I actually want direct reports — then tell me which track (work-manager, people-manager, or influence-only) fits best and what I should develop next for it.</div>
+      <button class="try-it-copy" type="button" data-copy-target="try-it-prompt">Copy prompt</button>
+    </div>
+  </main>
+</div>
+
+<div id="site-footer"></div>
+
+<script src="js/site-chrome.js" defer></script>
+<script src="js/theme-toggle.js" defer></script>
+<script src="js/try-it.js" defer></script>
+</body>
+</html>

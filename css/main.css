@@ -2514,6 +2514,27 @@ body {
   padding: 16px 16px 18px;
 }
 
+/* Optional footer inside a card — one or two short labeled lines (e.g.
+   "Best when" / "Watch for") appended below a card's own description,
+   set off with a dashed rule so it reads as a quick-reference fact
+   rather than more body copy. Established on leadership-styles.html. */
+.mvv-card-footer {
+  margin-top: 10px;
+  padding-top: 10px;
+  border-top: 1px dashed var(--border);
+  font-size: 0.78rem;
+  line-height: 1.5;
+  color: var(--text-caption);
+}
+
+.mvv-card-footer p + p {
+  margin-top: 3px;
+}
+
+.mvv-card-footer strong {
+  color: var(--text-heading);
+}
+
 /* Modifier — lays a single card out horizontally (icon, heading+body,
    worked example as three flex columns) instead of the grid's stacked
    layout. For a catch-all/outlier item that deliberately isn't a peer
