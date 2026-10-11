@@ -2542,6 +2542,40 @@ body {
   color: var(--text-heading);
 }
 
+/* Title row + info badge — for a card that's a peer in its grid but
+   needs a one-glance flag that it's a special case (e.g. IC Product
+   Manager sitting among Managers of Work despite not owning delivery
+   the way the others do). The badge's title attribute carries the
+   explanation on hover/focus; .mvv-card-footer should still spell it
+   out in the card body too, since hover-only text isn't reliable on
+   touch devices. */
+.mvv-card-title-row {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  margin-bottom: 5px;
+}
+
+.mvv-card-title-row h3 {
+  margin-bottom: 0;
+}
+
+.info-badge {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 15px;
+  height: 15px;
+  border-radius: 50%;
+  background: var(--accent-gold);
+  color: var(--bg-content);
+  font-family: var(--font-heading);
+  font-size: 0.68rem;
+  font-weight: 800;
+  flex-shrink: 0;
+  cursor: help;
+}
+
 /* Modifier — lays a single card out horizontally (icon, heading+body,
    worked example as three flex columns) instead of the grid's stacked
    layout. For a catch-all/outlier item that deliberately isn't a peer
