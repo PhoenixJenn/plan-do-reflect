@@ -493,18 +493,6 @@
     </div>
 
     <div class="lib-component">
-      <div class="lib-component-name">Tags &amp; Pills</div>
-      <div class="lib-component-desc">Small rounded-pill labels for metadata (category tags, framework counts, RAG status). Always <code>inline-flex</code> with <code>align-items: center</code> — a plain inline span inside a flex row will stretch to match its tallest sibling and the text drifts off-center, which is exactly the bug this fixes.</div>
-      <div class="lib-component-demo">
-        <div class="tag-row" style="margin-bottom: 0;">
-          <span class="tag primary">Team</span>
-          <span class="tag secondary">7 frameworks</span>
-        </div>
-      </div>
-      <div class="lib-component-source">.tag, .tag-row — used site-wide</div>
-    </div>
-
-    <div class="lib-component">
       <div class="lib-component-name">RAG status dot</div>
       <div class="lib-component-desc">A small solid circle in Green/Amber/Red, always paired with a text label — never color alone. Used for Health Summary indicators (Project Health, Health Trend, Scope/Schedule/Budget) on the Status Report mockup.</div>
       <div class="lib-component-demo">
@@ -523,6 +511,114 @@
         <a class="back-to-top" href="#" onclick="return false;" style="margin-left: 0;"><svg width="9" height="9" viewBox="0 0 12 12" aria-hidden="true"><path d="M6 10 L6 2 M2.5 5.5 L6 2 L9.5 5.5" stroke="var(--accent-strong)" stroke-width="1.8" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg>Top</a>
       </div>
       <div class="lib-component-source">.back-to-top — project-program-management.html</div>
+    </div>
+
+    <div class="lib-component">
+      <div class="lib-component-name">Concept Card Grid</div>
+      <div class="lib-component-desc">A grid of icon-led cards, one per concept — turns a flat bulleted list of "N related but distinct things" into something worth looking at. Two uses so far: MVV's 3 cards each get their own --mvv-color (tints the top border + icon, and the worked-example dots below reuse the same three so they tie back to the definitions); Strategic Theme's 5 cards are coequal options in a flat taxonomy, not a sequence, so all 5 share one color instead of inventing arbitrary distinctions. Default grid-template-columns is a fixed 3-up; add the .is-auto modifier for a card count other than 3 — it packs as many 180px+ columns as fit instead of wrapping to an uneven last row (Strategic Theme's 5 cards all sit in one row on a normal laptop width). Use the class, not an inline style, for this: an inline grid-template-columns outranks the mobile collapse rule below and never actually flexes down to one column. Collapses to a single column under 720px.</div>
+      <div class="lib-component-demo">
+        <div class="mvv-grid" style="max-width: 420px; margin: 0;">
+          <div class="mvv-card" style="--mvv-color: var(--accent)">
+            <svg class="mvv-card-icon" width="22" height="22" viewBox="0 0 24 24" aria-hidden="true">
+              <path d="M12 3 L14.1 9.1 L20.6 9.2 L15.4 13.1 L17.3 19.3 L12 15.6 L6.7 19.3 L8.6 13.1 L3.4 9.2 L9.9 9.1 Z" fill="var(--accent)"/>
+            </svg>
+            <h3 style="font-size: 0.9rem;">Vision</h3>
+          </div>
+          <div class="mvv-card" style="--mvv-color: var(--accent-gold)">
+            <svg class="mvv-card-icon" width="22" height="22" viewBox="0 0 24 24" aria-hidden="true">
+              <path d="M12 3 L19 6 V11 C19 16 16 19 12 21 C8 19 5 16 5 11 V6 Z" fill="none" stroke="var(--accent-gold)" stroke-width="2" stroke-linejoin="round"/>
+              <path d="M9 12 L11.3 14.3 L15.3 9.5" fill="none" stroke="var(--accent-gold)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+            <h3 style="font-size: 0.9rem;">Values</h3>
+          </div>
+        </div>
+      </div>
+      <div class="lib-component-source">.mvv-grid / .mvv-card — vision-mission.html, strategic-planning.html (Strategic Theme). Worked examples on vision-mission.html use the parallel .mvv-example-grid / .mvv-example-card / .mvv-example-row / .mvv-example-dot.</div>
+    </div>
+
+    <div class="lib-component">
+      <div class="lib-component-name">Matrix Diagram</div>
+      <div class="lib-component-desc">A 2x2 grid with real row/column axis labels — built for the Eisenhower Matrix, but generic to any 2x2 framework. .m-primary/.m-secondary/.m-muted grade the four cells from most to least important by background weight rather than all four looking equal. Real text in a CSS grid, not an image, so it themes automatically with no per-theme variants needed. Narrower axis-label column under 720px.</div>
+      <div class="lib-component-demo">
+        <div class="matrix-diagram" style="max-width: 320px; margin: 0;">
+          <div></div>
+          <div class="m-axis">Urgent</div>
+          <div class="m-axis">Not Urgent</div>
+          <div class="m-axis">Important</div>
+          <div class="m-cell m-primary">
+            <h4>Do It Now</h4>
+          </div>
+          <div class="m-cell m-secondary">
+            <h4>Schedule It</h4>
+          </div>
+          <div class="m-axis">Not Important</div>
+          <div class="m-cell m-secondary">
+            <h4>Delegate It</h4>
+          </div>
+          <div class="m-cell m-muted">
+            <h4>Delete It</h4>
+          </div>
+        </div>
+      </div>
+      <div class="lib-component-source">.matrix-diagram / .m-axis / .m-cell / .m-primary / .m-secondary / .m-muted — prioritize-work.html (Eisenhower Matrix)</div>
+    </div>
+
+    <div class="lib-component">
+      <div class="lib-component-name">Forces Diagram</div>
+      <div class="lib-component-desc">A plus-shaped 5-cell grid — one center cell plus four around it — for any "four things act on one central thing" framework. Built for Porter's Five Forces specifically but the shape is generic: swap the five labels for any other 4-around-1 structure. The four outer cells share one accent-colored background (var(--accent), same "colored card" treatment as .matrix-diagram's .m-primary) since they're coequal forces; the center cell stays var(--accent-strong) to read as the one thing being acted on. A .ff-cell-icon svg above the heading is optional — add it per cell, colored var(--accent-strong) for the outer cells and var(--bg-content) for the center. Real text in a CSS grid, not an image, same approach as the Matrix Diagram above. Collapses to a single stacked column under 640px.</div>
+      <div class="lib-component-demo">
+        <div class="forces-diagram" style="max-width: 320px; margin: 0;">
+          <div class="ff-cell ff-top">
+            <svg class="ff-cell-icon" width="20" height="20" viewBox="0 0 24 24" aria-hidden="true">
+              <path d="M7 3 H15 V21 H7 Z" fill="none" stroke="var(--accent-strong)" stroke-width="1.8" stroke-linejoin="round"/>
+              <circle cx="12.5" cy="12" r="1" fill="var(--accent-strong)"/>
+              <path d="M17 9 L21 12 L17 15" stroke="var(--accent-strong)" stroke-width="1.8" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+            <h4>Top Force</h4>
+          </div>
+          <div class="ff-cell ff-left">
+            <h4>Left</h4>
+          </div>
+          <div class="ff-cell ff-center">
+            <svg class="ff-cell-icon" width="24" height="24" viewBox="0 0 24 24" aria-hidden="true">
+              <path d="M5 19 L18 6" stroke="var(--bg-content)" stroke-width="2.2" stroke-linecap="round"/>
+              <path d="M13.5 5.5 L19 5 L18.5 10.5" stroke="var(--bg-content)" stroke-width="2.2" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+              <circle cx="5" cy="19" r="1.6" fill="var(--bg-content)"/>
+              <path d="M19 19 L6 6" stroke="var(--bg-content)" stroke-width="2.2" stroke-linecap="round"/>
+              <path d="M10.5 5.5 L5 5 L5.5 10.5" stroke="var(--bg-content)" stroke-width="2.2" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+              <circle cx="19" cy="19" r="1.6" fill="var(--bg-content)"/>
+            </svg>
+            <h4>Center</h4>
+          </div>
+          <div class="ff-cell ff-right">
+            <h4>Right</h4>
+          </div>
+          <div class="ff-cell ff-bottom">
+            <h4>Bottom Force</h4>
+          </div>
+        </div>
+      </div>
+      <div class="lib-component-source">.forces-diagram / .ff-cell / .ff-top / .ff-left / .ff-right / .ff-bottom / .ff-center — strategic-planning.html (Porter's Five Forces)</div>
+    </div>
+
+    <div class="lib-component">
+      <div class="lib-component-name">Icon List Item</div>
+      <div class="lib-component-desc">Opt-in modifier on .stage-box-item: add class="has-icon" and wrap the existing h3+p in a .stage-box-item-body, with a .stage-box-item-icon svg before it. Opt-in on purpose — .stage-box-item is reused on team.html, self-management.html, core-skills.html, and leadership.html, and none of those pages get icons unless they add this markup themselves.</div>
+      <div class="lib-component-demo">
+        <div class="stage-box-list" style="max-width: 320px;">
+          <a class="stage-box-item has-icon" href="#" onclick="return false;">
+            <svg class="stage-box-item-icon" width="22" height="22" viewBox="0 0 24 24" aria-hidden="true">
+              <circle cx="10.5" cy="10.5" r="6.5" fill="none" stroke="var(--text-heading)" stroke-width="2"/>
+              <path d="M15.3 15.3 L20.5 20.5" stroke="var(--text-heading)" stroke-width="2" stroke-linecap="round"/>
+            </svg>
+            <div class="stage-box-item-body">
+              <h3>MBR &amp; QBR</h3>
+              <p>Monthly and Quarterly Business Reviews.</p>
+            </div>
+          </a>
+        </div>
+      </div>
+      <div class="lib-component-source">.stage-box-item.has-icon / .stage-box-item-icon / .stage-box-item-body — organization.html</div>
     </div>
   </section>
 
@@ -731,6 +827,365 @@
       <div class="lib-label">"Carry forward" arrow</div>
       <div class="lib-source">reflection-practice.html (×4)</div>
       <span class="lib-verdict flat">functional, low character</span>
+    </div>
+  </div>
+
+  <div class="lib-group-title">Vision &amp; Mission concept icons</div>
+  <div class="lib-group-note">The three MVV cards on vision-mission.html. Color is tied to the concept, not the page — --accent for Vision (filled North Star), --accent-strong for Mission (stroked compass with a filled needle), --accent-gold for Values (stroked shield with a check) — so reuse the shape+color pair together wherever Vision/Mission/Values needs an icon, not just the shape.</div>
+  <div class="lib-grid">
+    <div class="lib-card">
+      <div class="lib-icon-box">
+        <svg width="40" height="40" viewBox="0 0 24 24" aria-hidden="true">
+          <path d="M12 3 L14.1 9.1 L20.6 9.2 L15.4 13.1 L17.3 19.3 L12 15.6 L6.7 19.3 L8.6 13.1 L3.4 9.2 L9.9 9.1 Z" fill="var(--accent)"/>
+        </svg>
+      </div>
+      <div class="lib-label">Vision — North Star</div>
+      <div class="lib-source">vision-mission.html</div>
+      <span class="lib-verdict playful">playful / bold</span>
+    </div>
+    <div class="lib-card">
+      <div class="lib-icon-box">
+        <svg width="40" height="40" viewBox="0 0 24 24" aria-hidden="true">
+          <circle cx="12" cy="12" r="9" fill="none" stroke="var(--accent-strong)" stroke-width="2"/>
+          <path d="M15.3 8.7 L13 13 L8.7 15.3 L11 11 Z" fill="var(--accent-strong)"/>
+          <circle cx="12" cy="12" r="1.3" fill="var(--bg-content)"/>
+        </svg>
+      </div>
+      <div class="lib-label">Mission — Compass</div>
+      <div class="lib-source">vision-mission.html</div>
+      <span class="lib-verdict playful">playful / sketch</span>
+    </div>
+    <div class="lib-card">
+      <div class="lib-icon-box">
+        <svg width="40" height="40" viewBox="0 0 24 24" aria-hidden="true">
+          <path d="M12 3 L19 6 V11 C19 16 16 19 12 21 C8 19 5 16 5 11 V6 Z" fill="none" stroke="var(--accent-gold)" stroke-width="2" stroke-linejoin="round"/>
+          <path d="M9 12 L11.3 14.3 L15.3 9.5" fill="none" stroke="var(--accent-gold)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
+      </div>
+      <div class="lib-label">Values — Shield</div>
+      <div class="lib-source">vision-mission.html</div>
+      <span class="lib-verdict playful">playful / sketch</span>
+    </div>
+  </div>
+
+  <div class="lib-group-title">Company example marks (shaded gold)</div>
+  <div class="lib-group-note">The Apple/Patagonia/LEGO worked examples on vision-mission.html, all recolored to --accent-gold. Apple's is the real mark (MIT-licensed, via the Simple Icons project — built for exactly this kind of reference use). Patagonia and LEGO have no open-licensed vector available anywhere, so those two are generic concept icons (a mountain, an interlocking brick) rather than a hand-reconstruction of their actual trademarks.</div>
+  <div class="lib-grid">
+    <div class="lib-card">
+      <div class="lib-icon-box">
+        <svg width="34" height="34" viewBox="0 0 24 24" aria-hidden="true">
+          <path d="M12.152 6.896c-.948 0-2.415-1.078-3.96-1.04-2.04.027-3.91 1.183-4.961 3.014-2.117 3.675-.546 9.103 1.519 12.09 1.013 1.454 2.208 3.09 3.792 3.039 1.52-.065 2.09-.987 3.935-.987 1.831 0 2.35.987 3.96.948 1.637-.026 2.676-1.48 3.676-2.948 1.156-1.688 1.636-3.325 1.662-3.415-.039-.013-3.182-1.221-3.22-4.857-.026-3.04 2.48-4.494 2.597-4.559-1.429-2.09-3.623-2.324-4.39-2.376-2-.156-3.675 1.09-4.61 1.09zM15.53 3.83c.843-1.012 1.4-2.427 1.245-3.83-1.207.052-2.662.805-3.532 1.818-.78.896-1.454 2.338-1.273 3.714 1.338.104 2.715-.688 3.559-1.701" fill="var(--accent-gold)"/>
+        </svg>
+      </div>
+      <div class="lib-label">Apple (real mark)</div>
+      <div class="lib-source">vision-mission.html</div>
+    </div>
+    <div class="lib-card">
+      <div class="lib-icon-box">
+        <svg width="34" height="34" viewBox="0 0 24 24" aria-hidden="true">
+          <path d="M3 18.5 L8.5 8 L11.5 13 L15 7 L21 18.5 Z" fill="var(--accent-gold)"/>
+        </svg>
+      </div>
+      <div class="lib-label">Patagonia (generic mountain)</div>
+      <div class="lib-source">vision-mission.html</div>
+    </div>
+    <div class="lib-card">
+      <div class="lib-icon-box">
+        <svg width="34" height="34" viewBox="0 0 24 24" aria-hidden="true">
+          <rect x="4" y="10" width="16" height="9" rx="1.5" fill="var(--accent-gold)"/>
+          <circle cx="8.5" cy="7" r="2.1" fill="var(--accent-gold)"/>
+          <circle cx="15.5" cy="7" r="2.1" fill="var(--accent-gold)"/>
+        </svg>
+      </div>
+      <div class="lib-label">LEGO (generic brick)</div>
+      <div class="lib-source">vision-mission.html</div>
+    </div>
+  </div>
+
+  <div class="lib-group-title">Organization stage-item icons</div>
+  <div class="lib-group-note">One icon per Plan/Do/Reflect item on organization.html, added via the Icon List Item component (see Components above). All seven share one color — var(--text-heading) — rather than the per-stage --stage-plan/--stage-do tokens: --stage-reflect in particular is a near-white gray in two of the three themes and nearly invisible on a white card, so the whole set was kept to one reliably-readable color instead of splitting by stage.</div>
+  <div class="lib-grid">
+    <div class="lib-card">
+      <div class="lib-icon-box">
+        <svg width="34" height="34" viewBox="0 0 24 24" aria-hidden="true">
+          <path d="M4 6 L9 4 L15 6 L20 4 V18 L15 20 L9 18 L4 20 Z" fill="none" stroke="var(--text-heading)" stroke-width="2" stroke-linejoin="round"/>
+          <path d="M9 4 V18 M15 6 V20" stroke="var(--text-heading)" stroke-width="2"/>
+          <path d="M7 15 L10.5 11 L13.5 13.5 L17 8.5" fill="none" stroke="var(--text-heading)" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" stroke-dasharray="1.6 2"/>
+        </svg>
+      </div>
+      <div class="lib-label">Strategic Planning — folded map</div>
+      <div class="lib-source">organization.html</div>
+      <span class="lib-verdict playful">playful / sketch</span>
+    </div>
+    <div class="lib-card">
+      <div class="lib-icon-box">
+        <svg width="34" height="34" viewBox="0 0 24 24" aria-hidden="true">
+          <circle cx="10.5" cy="13.5" r="7" fill="none" stroke="var(--text-heading)" stroke-width="2"/>
+          <circle cx="10.5" cy="13.5" r="2.6" fill="var(--text-heading)"/>
+          <path d="M21 3 L13 11 M21 3 L16.5 3.5 M21 3 L20.5 7.5" fill="none" stroke="var(--text-heading)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
+      </div>
+      <div class="lib-label">OKRs — target + arrow</div>
+      <div class="lib-source">organization.html</div>
+      <span class="lib-verdict playful">playful / sketch</span>
+    </div>
+    <div class="lib-card">
+      <div class="lib-icon-box">
+        <svg width="34" height="34" viewBox="0 0 24 24" aria-hidden="true">
+          <rect x="3.5" y="5" width="17" height="15" rx="2" fill="none" stroke="var(--text-heading)" stroke-width="2"/>
+          <path d="M3.5 9.5 H20.5" stroke="var(--text-heading)" stroke-width="2"/>
+          <path d="M8 3 V6.5 M16 3 V6.5" stroke="var(--text-heading)" stroke-width="2" stroke-linecap="round"/>
+        </svg>
+      </div>
+      <div class="lib-label">Annual Operating Plan — calendar</div>
+      <div class="lib-source">organization.html</div>
+      <span class="lib-verdict playful">playful / sketch</span>
+    </div>
+    <div class="lib-card">
+      <div class="lib-icon-box">
+        <svg width="34" height="34" viewBox="0 0 24 24" aria-hidden="true">
+          <circle cx="12" cy="13" r="8" fill="none" stroke="var(--text-heading)" stroke-width="2"/>
+          <path d="M12 13 L12 8.5 M12 13 L15.5 14.5" fill="none" stroke="var(--text-heading)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+          <path d="M9.5 2.5 H14.5" stroke="var(--text-heading)" stroke-width="2" stroke-linecap="round"/>
+          <path d="M18.5 4.5 L19.8 5.8" stroke="var(--text-heading)" stroke-width="2" stroke-linecap="round"/>
+        </svg>
+      </div>
+      <div class="lib-label">Program Increment Cadence — stopwatch</div>
+      <div class="lib-source">organization.html</div>
+      <span class="lib-verdict playful">playful / sketch</span>
+    </div>
+    <div class="lib-card">
+      <div class="lib-icon-box">
+        <svg width="34" height="34" viewBox="0 0 24 24" aria-hidden="true">
+          <rect x="5" y="7" width="14" height="9" rx="2" fill="none" stroke="var(--text-heading)" stroke-width="2"/>
+          <path d="M5 11 H19" stroke="var(--text-heading)" stroke-width="2"/>
+          <path d="M9 7 V4.5 H15 V7" fill="none" stroke="var(--text-heading)" stroke-width="2" stroke-linejoin="round"/>
+          <circle cx="8.5" cy="18.5" r="1.4" fill="var(--text-heading)"/>
+          <circle cx="15.5" cy="18.5" r="1.4" fill="var(--text-heading)"/>
+        </svg>
+      </div>
+      <div class="lib-label">Agile Release Trains — train</div>
+      <div class="lib-source">organization.html</div>
+      <span class="lib-verdict playful">playful / literal</span>
+    </div>
+    <div class="lib-card">
+      <div class="lib-icon-box">
+        <svg width="34" height="34" viewBox="0 0 24 24" aria-hidden="true">
+          <circle cx="8.5" cy="8" r="2.6" fill="none" stroke="var(--text-heading)" stroke-width="2"/>
+          <path d="M3.5 19 C3.5 15 5.8 13 8.5 13 C11.2 13 13.5 15 13.5 19" fill="none" stroke="var(--text-heading)" stroke-width="2" stroke-linecap="round"/>
+          <circle cx="16.5" cy="7" r="2.1" fill="none" stroke="var(--text-heading)" stroke-width="1.8"/>
+          <path d="M13.8 13.3 C16 12.3 19.5 13.3 20.5 17.5" fill="none" stroke="var(--text-heading)" stroke-width="1.8" stroke-linecap="round"/>
+        </svg>
+      </div>
+      <div class="lib-label">Roles &amp; Responsibilities — two people</div>
+      <div class="lib-source">organization.html</div>
+      <span class="lib-verdict playful">playful / sketch</span>
+    </div>
+    <div class="lib-card">
+      <div class="lib-icon-box">
+        <svg width="34" height="34" viewBox="0 0 24 24" aria-hidden="true">
+          <circle cx="10.5" cy="10.5" r="6.5" fill="none" stroke="var(--text-heading)" stroke-width="2"/>
+          <path d="M15.3 15.3 L20.5 20.5" stroke="var(--text-heading)" stroke-width="2" stroke-linecap="round"/>
+        </svg>
+      </div>
+      <div class="lib-label">MBR &amp; QBR — magnifying glass</div>
+      <div class="lib-source">organization.html</div>
+      <span class="lib-verdict playful">playful / sketch</span>
+    </div>
+  </div>
+
+  <div class="lib-group-title">Strategic Theme icons</div>
+  <div class="lib-group-note">The five value-driver cards on strategic-planning.html. All one color (--accent-strong) rather than per-card colors — these are 5 coequal options in a flat taxonomy, not a sequence or hierarchy like MVV, so there's no principled way to assign them 5 distinct colors.</div>
+  <div class="lib-grid">
+    <div class="lib-card">
+      <div class="lib-icon-box">
+        <svg width="34" height="34" viewBox="0 0 24 24" aria-hidden="true">
+          <path d="M3 20 H21" stroke="var(--accent-strong)" stroke-width="2" stroke-linecap="round"/>
+          <rect x="5" y="14" width="3" height="6" fill="var(--accent-strong)"/>
+          <rect x="10.5" y="10" width="3" height="10" fill="var(--accent-strong)"/>
+          <rect x="16" y="5" width="3" height="15" fill="var(--accent-strong)"/>
+        </svg>
+      </div>
+      <div class="lib-label">Grow Revenue — ascending bars</div>
+      <div class="lib-source">strategic-planning.html</div>
+      <span class="lib-verdict flat">flat / geometric</span>
+    </div>
+    <div class="lib-card">
+      <div class="lib-icon-box">
+        <svg width="34" height="34" viewBox="0 0 24 24" aria-hidden="true">
+          <path d="M8.5 4 L7 7 C4.5 8 3 11 3 14 C3 18 7 21 12 21 C17 21 21 18 21 14 C21 11 19.5 8 17 7 L15.5 4 Z" fill="none" stroke="var(--accent-strong)" stroke-width="2" stroke-linejoin="round"/>
+          <path d="M8.5 4 H15.5" stroke="var(--accent-strong)" stroke-width="2" stroke-linecap="round"/>
+          <text x="12" y="17.3" text-anchor="middle" font-family="var(--font-heading)" font-weight="800" font-size="9" fill="var(--accent-strong)">$</text>
+        </svg>
+      </div>
+      <div class="lib-label">Reduce Cost — money bag</div>
+      <div class="lib-source">strategic-planning.html</div>
+      <span class="lib-verdict playful">playful / sketch</span>
+    </div>
+    <div class="lib-card">
+      <div class="lib-icon-box">
+        <svg width="34" height="34" viewBox="0 0 24 24" aria-hidden="true">
+          <rect x="6" y="11" width="12" height="9" rx="1.5" fill="none" stroke="var(--accent-strong)" stroke-width="2"/>
+          <path d="M8.5 11 V8 C8.5 5.5 10 4 12 4 C14 4 15.5 5.5 15.5 8 V11" fill="none" stroke="var(--accent-strong)" stroke-width="2" stroke-linecap="round"/>
+          <circle cx="12" cy="15" r="1.4" fill="var(--accent-strong)"/>
+          <path d="M12 16.4 V18" stroke="var(--accent-strong)" stroke-width="1.6" stroke-linecap="round"/>
+        </svg>
+      </div>
+      <div class="lib-label">Reduce Risk — padlock</div>
+      <div class="lib-source">strategic-planning.html</div>
+      <span class="lib-verdict playful">playful / sketch</span>
+    </div>
+    <div class="lib-card">
+      <div class="lib-icon-box">
+        <svg width="34" height="34" viewBox="0 0 24 24" aria-hidden="true">
+          <path d="M12 19 C5 13.5 2 9.5 2 6 C2 3 4.5 1 7.5 1 C9.5 1 11 2 12 4 C13 2 14.5 1 16.5 1 C19.5 1 22 3 22 6 C22 9.5 19 13.5 12 19 Z" fill="none" stroke="var(--accent-strong)" stroke-width="2" stroke-linejoin="round"/>
+        </svg>
+      </div>
+      <div class="lib-label">Improve Customer Experience — heart</div>
+      <div class="lib-source">strategic-planning.html</div>
+      <span class="lib-verdict playful">playful / sketch</span>
+    </div>
+    <div class="lib-card">
+      <div class="lib-icon-box">
+        <svg width="34" height="34" viewBox="0 0 24 24" aria-hidden="true">
+          <path d="M9 17 H15 M10 20 H14 M12 3 C8.5 3 6 5.5 6 9 C6 11.5 7.5 13 8.5 14.5 C9 15.3 9 16 9 17 H15 C15 16 15 15.3 15.5 14.5 C16.5 13 18 11.5 18 9 C18 5.5 15.5 3 12 3 Z" fill="none" stroke="var(--accent-strong)" stroke-width="2" stroke-linejoin="round" stroke-linecap="round"/>
+        </svg>
+      </div>
+      <div class="lib-label">Other — lightbulb</div>
+      <div class="lib-source">strategic-planning.html</div>
+      <span class="lib-verdict playful">playful / sketch</span>
+    </div>
+  </div>
+
+  <div class="lib-group-title">Five Forces icons</div>
+  <div class="lib-group-note">The five cells of the Forces Diagram on strategic-planning.html. The four outer forces are var(--accent-strong) on their shared yellow cells; Rivalry's crossed swords sit in the dark center cell and are drawn larger (26px vs 20px) with bolder strokes — at icon size, thinner crossed lines read as a plain X rather than swords, so the center icon gets more room and weight to stay legible.</div>
+  <div class="lib-grid">
+    <div class="lib-card">
+      <div class="lib-icon-box">
+        <svg width="34" height="34" viewBox="0 0 24 24" aria-hidden="true">
+          <path d="M7 3 H15 V21 H7 Z" fill="none" stroke="var(--accent-strong)" stroke-width="1.8" stroke-linejoin="round"/>
+          <circle cx="12.5" cy="12" r="1" fill="var(--accent-strong)"/>
+          <path d="M17 9 L21 12 L17 15" stroke="var(--accent-strong)" stroke-width="1.8" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
+      </div>
+      <div class="lib-label">Threat of New Entrants — door</div>
+      <div class="lib-source">strategic-planning.html</div>
+      <span class="lib-verdict playful">playful / sketch</span>
+    </div>
+    <div class="lib-card">
+      <div class="lib-icon-box">
+        <svg width="34" height="34" viewBox="0 0 24 24" aria-hidden="true">
+          <rect x="3" y="10" width="3" height="4" rx="1" fill="var(--accent-strong)"/>
+          <rect x="18" y="10" width="3" height="4" rx="1" fill="var(--accent-strong)"/>
+          <rect x="6" y="9" width="2" height="6" rx="0.6" fill="var(--accent-strong)"/>
+          <rect x="16" y="9" width="2" height="6" rx="0.6" fill="var(--accent-strong)"/>
+          <path d="M8 12 H16" stroke="var(--accent-strong)" stroke-width="2" stroke-linecap="round"/>
+        </svg>
+      </div>
+      <div class="lib-label">Supplier Power — dumbbell</div>
+      <div class="lib-source">strategic-planning.html</div>
+      <span class="lib-verdict flat">flat / geometric</span>
+    </div>
+    <div class="lib-card" style="background: var(--accent-strong);">
+      <div class="lib-icon-box">
+        <svg width="34" height="34" viewBox="0 0 24 24" aria-hidden="true">
+          <path d="M5 19 L18 6" stroke="var(--bg-content)" stroke-width="2.2" stroke-linecap="round"/>
+          <path d="M13.5 5.5 L19 5 L18.5 10.5" stroke="var(--bg-content)" stroke-width="2.2" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+          <circle cx="5" cy="19" r="1.6" fill="var(--bg-content)"/>
+          <path d="M19 19 L6 6" stroke="var(--bg-content)" stroke-width="2.2" stroke-linecap="round"/>
+          <path d="M10.5 5.5 L5 5 L5.5 10.5" stroke="var(--bg-content)" stroke-width="2.2" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+          <circle cx="19" cy="19" r="1.6" fill="var(--bg-content)"/>
+        </svg>
+      </div>
+      <div class="lib-label" style="color: var(--bg-content);">Rivalry — crossed swords</div>
+      <div class="lib-source" style="color: var(--bg-content); opacity: 0.8;">strategic-planning.html</div>
+      <span class="lib-verdict playful">playful / sketch</span>
+    </div>
+    <div class="lib-card">
+      <div class="lib-icon-box">
+        <svg width="34" height="34" viewBox="0 0 24 24" aria-hidden="true">
+          <path d="M3 4 H5 L6.5 14.5 C6.6 15.3 7.3 16 8.1 16 H17 C17.8 16 18.4 15.4 18.5 14.6 L20 7 H6" stroke="var(--accent-strong)" stroke-width="1.8" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+          <circle cx="9" cy="19.5" r="1.3" fill="var(--accent-strong)"/>
+          <circle cx="16" cy="19.5" r="1.3" fill="var(--accent-strong)"/>
+        </svg>
+      </div>
+      <div class="lib-label">Buyer Power — shopping cart</div>
+      <div class="lib-source">strategic-planning.html</div>
+      <span class="lib-verdict playful">playful / sketch</span>
+    </div>
+    <div class="lib-card">
+      <div class="lib-icon-box">
+        <svg width="34" height="34" viewBox="0 0 24 24" aria-hidden="true">
+          <path d="M4 8 H16 M16 8 L13 5 M16 8 L13 11" stroke="var(--accent-strong)" stroke-width="1.8" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+          <path d="M20 16 H8 M8 16 L11 13 M8 16 L11 19" stroke="var(--accent-strong)" stroke-width="1.8" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
+      </div>
+      <div class="lib-label">Threat of Substitutes — swap arrows</div>
+      <div class="lib-source">strategic-planning.html</div>
+      <span class="lib-verdict flat">flat / geometric</span>
+    </div>
+  </div>
+
+  <div class="lib-group-title">Strategic Choice Cascade icons</div>
+  <div class="lib-group-note">The five num-badge circles on strategic-planning.html's P&amp;G/Olay cascade — the plain .is-dot bullet became a concept icon instead, reusing the base .num-badge circle (already accent-colored, built for literal numbers elsewhere like okrs.html) rather than a new component. Core Capabilities reuses the exact gear icon freed up when Reduce Cost became a money bag (see Strategic Theme icons above) — same concept, "the internal machinery," fits both.</div>
+  <div class="lib-grid">
+    <div class="lib-card">
+      <div class="lib-icon-box">
+        <svg width="34" height="34" viewBox="0 0 24 24" aria-hidden="true">
+          <path d="M7 4 H17 V9 C17 12 14.8 14 12 14 C9.2 14 7 12 7 9 Z" fill="none" stroke="var(--accent-strong)" stroke-width="1.8" stroke-linejoin="round"/>
+          <path d="M7 5 H4 C4 8 5.5 9.5 7.5 9.8" stroke="var(--accent-strong)" stroke-width="1.6" fill="none" stroke-linecap="round"/>
+          <path d="M17 5 H20 C20 8 18.5 9.5 16.5 9.8" stroke="var(--accent-strong)" stroke-width="1.6" fill="none" stroke-linecap="round"/>
+          <path d="M12 14 V17 M10 17 H14 V20 H10 Z M9 20 H15" stroke="var(--accent-strong)" stroke-width="1.6" fill="none" stroke-linejoin="round" stroke-linecap="round"/>
+        </svg>
+      </div>
+      <div class="lib-label">Winning Aspiration — trophy</div>
+      <div class="lib-source">strategic-planning.html</div>
+      <span class="lib-verdict playful">playful / sketch</span>
+    </div>
+    <div class="lib-card">
+      <div class="lib-icon-box">
+        <svg width="34" height="34" viewBox="0 0 24 24" aria-hidden="true">
+          <path d="M12 21 C12 21 18 14.5 18 9.5 C18 5.9 15.3 3 12 3 C8.7 3 6 5.9 6 9.5 C6 14.5 12 21 12 21 Z" fill="none" stroke="var(--accent-strong)" stroke-width="1.8" stroke-linejoin="round"/>
+          <circle cx="12" cy="9.5" r="2.3" fill="var(--accent-strong)"/>
+        </svg>
+      </div>
+      <div class="lib-label">Where to Play — map pin</div>
+      <div class="lib-source">strategic-planning.html</div>
+      <span class="lib-verdict playful">playful / sketch</span>
+    </div>
+    <div class="lib-card">
+      <div class="lib-icon-box">
+        <svg width="34" height="34" viewBox="0 0 24 24" aria-hidden="true">
+          <path d="M6 3 V21" stroke="var(--accent-strong)" stroke-width="1.8" stroke-linecap="round"/>
+          <path d="M6 4 L18 4 L15 8 L18 12 L6 12 Z" fill="var(--accent-strong)"/>
+        </svg>
+      </div>
+      <div class="lib-label">How to Win — flag</div>
+      <div class="lib-source">strategic-planning.html</div>
+      <span class="lib-verdict flat">flat / geometric</span>
+    </div>
+    <div class="lib-card">
+      <div class="lib-icon-box">
+        <svg width="34" height="34" viewBox="0 0 24 24" aria-hidden="true">
+          <circle cx="12" cy="12" r="3.2" fill="none" stroke="var(--accent-strong)" stroke-width="2"/>
+          <path d="M12 4.5 V7 M12 17 V19.5 M4.5 12 H7 M17 12 H19.5 M6.5 6.5 L8.3 8.3 M15.7 15.7 L17.5 17.5 M6.5 17.5 L8.3 15.7 M15.7 8.3 L17.5 6.5" stroke="var(--accent-strong)" stroke-width="2" stroke-linecap="round"/>
+        </svg>
+      </div>
+      <div class="lib-label">Core Capabilities — gear</div>
+      <div class="lib-source">strategic-planning.html</div>
+      <span class="lib-verdict playful">playful / sketch</span>
+    </div>
+    <div class="lib-card">
+      <div class="lib-icon-box">
+        <svg width="34" height="34" viewBox="0 0 24 24" aria-hidden="true">
+          <path d="M4 16 A8 8 0 0 1 20 16" fill="none" stroke="var(--accent-strong)" stroke-width="1.8" stroke-linecap="round"/>
+          <path d="M12 16 L16 10" stroke="var(--accent-strong)" stroke-width="1.8" stroke-linecap="round"/>
+          <circle cx="12" cy="16" r="1.3" fill="var(--accent-strong)"/>
+        </svg>
+      </div>
+      <div class="lib-label">Management Systems — gauge</div>
+      <div class="lib-source">strategic-planning.html</div>
+      <span class="lib-verdict playful">playful / sketch</span>
     </div>
   </div>
 

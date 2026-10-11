@@ -132,24 +132,15 @@ body {
   margin-bottom: 22px;
 }
 
+/* .tag / .tag.primary / .tag.secondary (the category + count pills) were
+   retired from every page-hero — Try It is the only pill left, so
+   .tag-row now just wraps that single link. --tag-primary-bg etc. stay in
+   tokens.css; summary.css still reads them for its own unrelated chips. */
 .tag-row {
   display: flex;
   gap: 8px;
   margin-bottom: 30px;
 }
-
-.tag {
-  display: inline-flex;
-  align-items: center;
-  font-size: 0.68rem;
-  font-weight: 700;
-  letter-spacing: 0.02em;
-  padding: 4px 11px;
-  border-radius: 20px;
-}
-
-.tag.primary { background: var(--tag-primary-bg); color: var(--tag-primary-text); }
-.tag.secondary { background: var(--tag-secondary-bg); color: var(--tag-secondary-text); }
 
 /* ---------- Theme switcher (meta-control, intentionally fixed colors) ---------- */
 .theme-switch {
@@ -274,6 +265,16 @@ body {
   max-width: 640px;
 }
 
+/* Modifier — drops the 640px prose-width cap for a page whose content
+   includes something wider than prose (a card grid, a diagram) that
+   should use the available layout width instead of being squeezed into
+   a reading column. Cap individual paragraphs/lists back to ~640px
+   inline where they're plain prose, so body text doesn't stretch
+   uncomfortably wide just because the page also has a wide diagram. */
+.framework-list.is-wide {
+  max-width: none;
+}
+
 /* Divider between clusters within one framework-list (e.g. "Set Goals" vs.
    "Prioritize Work") — lighter than a full .stage-group-header, no color dot,
    since it's a sub-grouping within one page rather than a new stage. */
@@ -395,6 +396,75 @@ body {
 
 @media (max-width: 720px) {
   .matrix-diagram { grid-template-columns: 56px repeat(2, 1fr); }
+}
+
+/* ---------- Porter's Five Forces diagram (strategic-planning.html) — a
+   plus-shaped grid, real text not an image, same "diagram over bullet
+   list" approach as .matrix-diagram above. Rivalry sits in the center
+   cell, highlighted, since the other four forces all act on it. ---------- */
+.forces-diagram {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 10px;
+  max-width: 560px;
+  margin: 14px 0 4px;
+}
+
+.forces-diagram .ff-cell {
+  border-radius: 10px;
+  padding: 12px 14px;
+  background: var(--accent);
+}
+
+.forces-diagram .ff-cell-icon {
+  display: block;
+  margin-bottom: 4px;
+}
+
+.forces-diagram .ff-cell h4 {
+  font-family: var(--font-heading);
+  font-weight: 700;
+  font-size: 0.82rem;
+  margin-bottom: 3px;
+  color: var(--accent-strong);
+}
+
+.forces-diagram .ff-cell p {
+  font-size: 0.72rem;
+  line-height: 1.4;
+  color: var(--accent-strong);
+}
+
+.forces-diagram .ff-top { grid-column: 2; grid-row: 1; }
+.forces-diagram .ff-left { grid-column: 1; grid-row: 2; }
+.forces-diagram .ff-right { grid-column: 3; grid-row: 2; }
+.forces-diagram .ff-bottom { grid-column: 2; grid-row: 3; }
+
+.forces-diagram .ff-center {
+  grid-column: 2;
+  grid-row: 2;
+  background: var(--accent-strong);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+}
+
+.forces-diagram .ff-center h4,
+.forces-diagram .ff-center p {
+  color: var(--bg-content);
+}
+
+@media (max-width: 640px) {
+  .forces-diagram {
+    grid-template-columns: 1fr;
+  }
+  .forces-diagram .ff-cell,
+  .forces-diagram .ff-center {
+    grid-column: 1;
+    grid-row: auto;
+  }
 }
 
 /* ---------- Pareto circles (80/20 Rule) — size shows magnitude, color
@@ -1193,6 +1263,22 @@ body {
 .stage-box-item:first-child {
   border-top: none;
   padding-top: 0;
+}
+
+/* Modifier — a small icon to the left of the title (organization.html).
+   Only applied where the HTML opts in (.has-icon + .stage-box-item-icon +
+   .stage-box-item-body), so pages reusing .stage-box-item without the
+   icon markup — team.html, self-management.html, core-skills.html,
+   leadership.html — render exactly as before. */
+.stage-box-item.has-icon {
+  display: flex;
+  align-items: flex-start;
+  gap: 12px;
+}
+
+.stage-box-item-icon {
+  flex-shrink: 0;
+  margin-top: 2px;
 }
 
 /* Modifier — bullet points instead of horizontal dividers between items */
@@ -2112,17 +2198,31 @@ body {
 .pi-calendar-rows {
   display: flex;
   flex-direction: column;
-  gap: 22px;
 }
 
 /* Each row stacks the label+bar line over a milestones line, so any number
    of org/people-calendar chips can wrap without colliding — replaces an
    earlier version that absolute-positioned a single floating badge, which
-   only worked for exactly one milestone per quarter. */
+   only worked for exactly one milestone per quarter. A thin rule between
+   quarters (not above the first) marks where one PI ends and the next
+   begins. */
 .pi-calendar-row {
   display: flex;
   flex-direction: column;
   gap: 6px;
+  padding: 16px 0;
+}
+
+.pi-calendar-row:first-child {
+  padding-top: 0;
+}
+
+.pi-calendar-row:last-child {
+  padding-bottom: 0;
+}
+
+.pi-calendar-row + .pi-calendar-row {
+  border-top: 1px solid var(--border);
 }
 
 .pi-calendar-row-main {
@@ -2200,6 +2300,37 @@ body {
   overflow: hidden;
 }
 
+/* PI Planning prep — a light-gray band under the bar spanning Sprint 4
+   through Sprint 6, mirroring the bar's own flex ratios (2 per sprint, 1
+   for the IP segment) so it lines up under the right sprints regardless
+   of container width, instead of fragile fixed percentages. The
+   "Continuous PI Planning" pill sits inside the bracket itself, right-
+   aligned under the line, rather than in the milestones row below. */
+.pi-calendar-prep-track {
+  display: flex;
+  gap: 3px;
+  margin-top: 8px;
+  padding-left: 72px;
+}
+
+.pi-calendar-prep-spacer {
+  flex-shrink: 0;
+}
+
+.pi-calendar-prep-bracket {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  gap: 5px;
+}
+
+.pi-calendar-prep-line {
+  width: 100%;
+  height: 5px;
+  background: var(--border);
+  border-radius: 3px;
+}
+
 .pi-calendar-today {
   position: absolute;
   top: -5px;
@@ -2235,6 +2366,11 @@ body {
   background: var(--accent-gold);
 }
 
+.pi-calendar-milestone.is-prep {
+  background: var(--border);
+  color: var(--text-body);
+}
+
 .pi-calendar-legend {
   display: flex;
   flex-wrap: wrap;
@@ -2263,6 +2399,7 @@ body {
 .pi-calendar-legend-dot.is-iter { background: var(--accent); }
 .pi-calendar-legend-dot.is-milestone { background: var(--accent-strong); border-radius: 999px; }
 .pi-calendar-legend-dot.is-people-milestone { background: var(--accent-gold); border-radius: 999px; }
+.pi-calendar-legend-dot.is-prep { background: var(--border); }
 
 .num-list-item p {
   font-size: 0.92rem;
@@ -2287,6 +2424,123 @@ body {
   font-size: 0.82rem;
   line-height: 1.45;
   color: var(--text-body);
+}
+
+/* ---------- MVV cards (vision-mission.html) — three icon-led cards
+   replacing a plain bulleted definition list, so Mission/Vision/Values
+   read as distinct, memorable ideas instead of one wall of bullets.
+   Each card's --mvv-color (set inline) colors its top border and icon;
+   the worked-example cards below reuse the same three colors as dots so
+   Apple/Patagonia/LEGO visually tie back to these. ---------- */
+.mvv-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 14px;
+  margin: 16px 0;
+}
+
+/* Modifier — fills available width instead of a fixed 3-up, for a card
+   count other than 3 (e.g. Strategic Theme's 5). Packs as many 180px+
+   columns as fit rather than wrapping to an uneven last row at a fixed
+   column count. Use a class, not an inline style, for this — an inline
+   grid-template-columns would outrank the mobile collapse rule below
+   and never actually flex down to one column. */
+.mvv-grid.is-auto {
+  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+}
+
+.mvv-card {
+  background: var(--bg-content);
+  border: 1px solid var(--border);
+  border-top: 3px solid var(--mvv-color, var(--accent));
+  border-radius: 12px;
+  padding: 16px 16px 18px;
+}
+
+.mvv-card-icon {
+  display: block;
+  margin-bottom: 10px;
+}
+
+.mvv-card h3 {
+  font-family: var(--font-heading);
+  font-weight: 700;
+  font-size: 1rem;
+  color: var(--text-heading);
+  margin-bottom: 5px;
+}
+
+.mvv-card p {
+  font-size: 0.85rem;
+  line-height: 1.5;
+  color: var(--text-body);
+}
+
+/* ---------- MVV worked examples (vision-mission.html) — a 3-up card
+   grid replacing stacked .li-example boxes, so Apple/Patagonia/LEGO read
+   side by side instead of one under the next. Dot colors reuse the three
+   .mvv-card accent colors above. ---------- */
+.mvv-example-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 14px;
+  margin-top: 10px;
+}
+
+.mvv-example-card {
+  background: var(--bg-content);
+  border: 1px dashed var(--border);
+  border-radius: 12px;
+  padding: 14px 16px;
+}
+
+.mvv-example-header {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-bottom: 9px;
+}
+
+.mvv-example-icon {
+  flex-shrink: 0;
+  display: block;
+}
+
+.mvv-example-header strong {
+  font-family: var(--font-heading);
+  font-weight: 700;
+  font-size: 0.95rem;
+  color: var(--text-heading);
+}
+
+.mvv-example-row {
+  display: flex;
+  align-items: flex-start;
+  gap: 8px;
+  font-size: 0.8rem;
+  line-height: 1.45;
+  color: var(--text-body);
+  margin-top: 7px;
+}
+
+.mvv-example-row:first-of-type {
+  margin-top: 0;
+}
+
+.mvv-example-dot {
+  flex-shrink: 0;
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  margin-top: 5px;
+}
+
+@media (max-width: 720px) {
+  .mvv-grid,
+  .mvv-example-grid,
+  .mvv-grid.is-auto {
+    grid-template-columns: 1fr;
+  }
 }
 
 /* ---------- Site footer (all pages) ---------- */

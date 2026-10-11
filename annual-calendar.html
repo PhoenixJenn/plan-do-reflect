@@ -60,8 +60,6 @@
       <h1>Annual Calendar</h1>
       <p class="lede">One year, every cadence that runs on it — Program Increments, the budget cycle, and the people calendar, all in one place.</p>
       <div class="tag-row" style="margin-top: 14px; margin-bottom: 0;">
-        <span class="tag primary">Organization</span>
-        <span class="tag secondary">Plan + Do + People</span>
         <a class="try-it-quicklink" href="#try-it">
           <svg width="14" height="14" viewBox="0 0 24 24" aria-hidden="true">
             <path d="M12 2 L14.2 9 L21 11 L14.2 13 L12 20 L9.8 13 L3 11 L9.8 9 Z" fill="currentColor"/>
@@ -106,6 +104,14 @@
               </div>
             </div>
           </div>
+          <div class="pi-calendar-prep-track">
+            <div class="pi-calendar-prep-spacer" style="flex: 6;"></div>
+            <div class="pi-calendar-prep-bracket" title="Continuous PI Planning — readiness work (backlog refinement, dependency-mapping) for the next PI Planning event, starting partway through the current one" style="flex: 6;">
+              <div class="pi-calendar-prep-line"></div>
+              <span class="pi-calendar-milestone is-prep">Continuous PI Planning</span>
+            </div>
+            <div class="pi-calendar-prep-spacer" style="flex: 1;"></div>
+          </div>
           <div class="pi-calendar-row-milestones"></div>
         </div>
 
@@ -130,6 +136,14 @@
                 </svg>
               </div>
             </div>
+          </div>
+          <div class="pi-calendar-prep-track">
+            <div class="pi-calendar-prep-spacer" style="flex: 6;"></div>
+            <div class="pi-calendar-prep-bracket" title="Continuous PI Planning — readiness work (backlog refinement, dependency-mapping) for the next PI Planning event, starting partway through the current one" style="flex: 6;">
+              <div class="pi-calendar-prep-line"></div>
+              <span class="pi-calendar-milestone is-prep">Continuous PI Planning</span>
+            </div>
+            <div class="pi-calendar-prep-spacer" style="flex: 1;"></div>
           </div>
           <div class="pi-calendar-row-milestones">
             <span class="pi-calendar-milestone">OP1 forms</span>
@@ -159,6 +173,14 @@
               </div>
             </div>
           </div>
+          <div class="pi-calendar-prep-track">
+            <div class="pi-calendar-prep-spacer" style="flex: 6;"></div>
+            <div class="pi-calendar-prep-bracket" title="Continuous PI Planning — readiness work (backlog refinement, dependency-mapping) for the next PI Planning event, starting partway through the current one" style="flex: 6;">
+              <div class="pi-calendar-prep-line"></div>
+              <span class="pi-calendar-milestone is-prep">Continuous PI Planning</span>
+            </div>
+            <div class="pi-calendar-prep-spacer" style="flex: 1;"></div>
+          </div>
           <div class="pi-calendar-row-milestones">
             <span class="pi-calendar-milestone is-people">Mid-Year Review</span>
           </div>
@@ -186,6 +208,14 @@
               </div>
             </div>
           </div>
+          <div class="pi-calendar-prep-track">
+            <div class="pi-calendar-prep-spacer" style="flex: 6;"></div>
+            <div class="pi-calendar-prep-bracket" title="Continuous PI Planning — readiness work (backlog refinement, dependency-mapping) for the next PI Planning event, starting partway through the current one" style="flex: 6;">
+              <div class="pi-calendar-prep-line"></div>
+              <span class="pi-calendar-milestone is-prep">Continuous PI Planning</span>
+            </div>
+            <div class="pi-calendar-prep-spacer" style="flex: 1;"></div>
+          </div>
           <div class="pi-calendar-row-milestones">
             <span class="pi-calendar-milestone">OP2 forms</span>
             <span class="pi-calendar-milestone is-people">Talent Calibration</span>
@@ -200,6 +230,7 @@
         <span class="pi-calendar-legend-item"><span class="pi-calendar-legend-dot is-iter"></span> Sprint (2 weeks)</span>
         <span class="pi-calendar-legend-item"><span class="pi-calendar-legend-dot is-milestone"></span> Org/budget milestone</span>
         <span class="pi-calendar-legend-item"><span class="pi-calendar-legend-dot is-people-milestone"></span> People calendar milestone</span>
+        <span class="pi-calendar-legend-item"><span class="pi-calendar-legend-dot is-prep"></span> Continuous PI Planning (Sprint 4&ndash;6)</span>
       </div>
 
       <p class="pi-calendar-footnote">* Sprint boundaries here are illustrative (shown as even blocks); many organizations actually run sprints Wednesday–Tuesday rather than Monday–Friday, so ceremonies — planning, demo, retro — cluster mid-week and never fall on a Friday or a Monday.</p>
@@ -217,7 +248,7 @@
         <h2>Try It</h2>
       </div>
       <p>Paste this into ChatGPT, Claude, or whatever AI tool you use:</p>
-      <div class="try-it-prompt" id="try-it-prompt">Help me build a one-page annual calendar for my organization. Ask me about my PI/sprint cadence, my budget cycle (when does next year's plan actually get built), and my people calendar (calibration, reviews, comp planning) separately, then lay all three onto one shared timeline so I can see where they collide.</div>
+      <div class="try-it-prompt" id="try-it-prompt">Help me build a one-page annual calendar for my organization. Target layout: four rows, one per fiscal quarter, each showing six sequential sprints followed by one Innovation &amp; Planning (IP) week for PI Planning and Inspect &amp; Adapt. Under each quarter, list whatever actually lands in it — budget milestones (like when next year's plan gets drafted or finalized) and people-calendar milestones (calibration, performance reviews, comp planning) — and flag a "continuous planning" window over roughly the last half of each quarter's sprints, where prep for the next PI Planning begins. First ask me for the real inputs: my fiscal year's start month, sprint length, how many sprints per PI, and actual dates (or rough timing) for every budget and people milestone I have, including anything I haven't mentioned. Then render the whole thing as a markdown table, one row per quarter, so I get something concrete rather than just a description.</div>
       <button class="try-it-copy" type="button" data-copy-target="try-it-prompt">Copy prompt</button>
     </div>
   </main>
