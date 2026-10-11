@@ -400,6 +400,19 @@ body {
   .matrix-diagram { grid-template-columns: 56px repeat(2, 1fr); }
 }
 
+/* Modifier — a 3x3 grid (the classic 9-box), for a framework with three
+   levels per axis instead of two (e.g. Succession Planning's Performance
+   x Potential grid). Same cell/axis classes, just one more column and a
+   wider cap since there's more to fit. */
+.matrix-diagram.is-three {
+  grid-template-columns: 76px repeat(3, 1fr);
+  max-width: 640px;
+}
+
+@media (max-width: 720px) {
+  .matrix-diagram.is-three { grid-template-columns: 56px repeat(3, 1fr); }
+}
+
 /* ---------- Porter's Five Forces diagram (strategic-planning.html) — a
    plus-shaped grid, real text not an image, same "diagram over bullet
    list" approach as .matrix-diagram above. Rivalry sits in the center
