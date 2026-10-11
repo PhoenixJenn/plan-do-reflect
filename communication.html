@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="a">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="icon" type="image/svg+xml" href="favicon.svg">
+<title>Communication · Plan · Do · Reflect</title>
+
+<!-- Applied before CSS loads, so the saved theme choice doesn't flash to the default on reload -->
+<script>
+(function () {
+  try {
+    var savedTheme = localStorage.getItem('pdr-theme');
+    if (['a', 'b', 'c'].indexOf(savedTheme) > -1) {
+      document.documentElement.setAttribute('data-theme', savedTheme);
+    }
+  } catch (e) {}
+})();
+</script>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=Work+Sans:wght@400;500;600&family=Sora:wght@600;700;800&family=Plus+Jakarta+Sans:wght@500;600;700&family=Patrick+Hand&family=Golos+Text:wght@800&display=swap" rel="stylesheet">
+
+<link rel="stylesheet" href="css/tokens.css">
+<link rel="stylesheet" href="css/main.css">
+</head>
+<body data-nav="core-skills">
+
+<div id="site-topnav"></div>
+
+<div class="layout">
+  <aside class="sidebar">
+    <div class="sec-title">Core Skills</div>
+    <a class="sub-item" href="core-skills.html">Overview</a>
+
+    <div class="sidebar-group">
+      <div class="group-label">Professional Development</div>
+      <div class="sub-item-group">
+        <a class="sub-item active" href="communication.html">Communication</a>
+        <div class="sub-sub-list">
+          <a class="sub-sub-item" href="selling-the-vision.html">Selling the Vision</a>
+        </div>
+      </div>
+      <a class="sub-item" href="#">AI Fundamentals</a>
+      <a class="sub-item" href="ai-beyond-fundamentals.html">AI Beyond Fundamentals</a>
+    </div>
+  </aside>
+
+  <main class="content">
+    <h1>Communication</h1>
+    <p class="lede">Written communication, storytelling, public speaking, and networking — ordered by how a message actually moves from you to someone else.</p>
+
+    <div class="section-block">
+      <p>This page is still being built out. First piece so far:</p>
+    </div>
+
+    <div class="stage-box">
+      <div class="stage-box-header">
+        <span class="stage-dot"></span>
+        <h2>Communication</h2>
+      </div>
+      <div class="stage-box-list">
+        <a class="stage-box-item" href="selling-the-vision.html">
+          <h3>Selling the Vision</h3>
+          <p>Turning a direction into something people choose to follow, not just hear announced — referenced from Leadership Styles' Visionary style.</p>
+        </a>
+        <a class="stage-box-item" href="#">
+          <h3>Written Communication</h3>
+        </a>
+        <a class="stage-box-item" href="#">
+          <h3>Storytelling</h3>
+        </a>
+        <a class="stage-box-item" href="#">
+          <h3>Public Speaking</h3>
+        </a>
+        <a class="stage-box-item" href="#">
+          <h3>Networking</h3>
+        </a>
+      </div>
+    </div>
+  </main>
+</div>
+
+<div id="site-footer"></div>
+
+<script src="js/site-chrome.js" defer></script>
+<script src="js/theme-toggle.js" defer></script>
+</body>
+</html>
