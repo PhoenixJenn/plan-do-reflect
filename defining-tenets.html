@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="a">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="icon" type="image/svg+xml" href="favicon.svg">
+<title>Defining Tenets · Plan · Do · Reflect</title>
+
+<!-- Applied before CSS loads, so the saved theme choice doesn't flash to the default on reload -->
+<script>
+(function () {
+  try {
+    var savedTheme = localStorage.getItem('pdr-theme');
+    if (['a', 'b', 'c'].indexOf(savedTheme) > -1) {
+      document.documentElement.setAttribute('data-theme', savedTheme);
+    }
+  } catch (e) {}
+})();
+</script>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=Work+Sans:wght@400;500;600&family=Sora:wght@600;700;800&family=Plus+Jakarta+Sans:wght@500;600;700&family=Patrick+Hand&family=Golos+Text:wght@800&display=swap" rel="stylesheet">
+
+<link rel="stylesheet" href="css/tokens.css">
+<link rel="stylesheet" href="css/main.css">
+</head>
+<body data-nav="core-skills">
+
+<div id="site-topnav"></div>
+
+<div class="layout">
+  <aside class="sidebar">
+    <div class="sec-title">Core Skills</div>
+    <a class="sub-item" href="core-skills.html">Overview</a>
+
+    <div class="sidebar-group">
+      <div class="group-label">Professional Development</div>
+      <div class="sub-item-group">
+        <a class="sub-item" href="communication.html">Communication</a>
+        <div class="sub-sub-list">
+          <a class="sub-sub-item" href="selling-the-vision.html">Selling the Vision</a>
+        </div>
+      </div>
+      <a class="sub-item" href="#">AI Fundamentals</a>
+      <a class="sub-item" href="ai-beyond-fundamentals.html">AI Beyond Fundamentals</a>
+    </div>
+
+    <div class="sidebar-group">
+      <div class="group-label">Decision-Making</div>
+      <a class="sub-item active" href="defining-tenets.html">Tenets</a>
+    </div>
+  </aside>
+
+  <main class="content">
+    <div class="page-hero">
+      <h1>Defining Tenets</h1>
+      <p class="lede">Short, memorable principles for deciding when nothing else spells it out — for a person, a team, or any other group that needs a shared reflex under pressure.</p>
+      <div class="tag-row" style="margin-top: 14px; margin-bottom: 0;">
+        <a class="try-it-quicklink" href="#try-it">
+          <svg width="14" height="14" viewBox="0 0 24 24" aria-hidden="true">
+            <path d="M12 2 L14.2 9 L21 11 L14.2 13 L12 20 L9.8 13 L3 11 L9.8 9 Z" fill="currentColor"/>
+          </svg>
+          Try It
+        </a>
+      </div>
+    </div>
+
+    <div class="section-block">
+      <p style="max-width: 640px;">Referenced from both <a href="tenets.html">Team's Tenets</a> and <a href="leadership-tenets.html">Leadership Tenets</a> — the underlying idea is the same at every altitude, so it lives here once instead of twice.</p>
+
+      <h4 class="fw-subhead" style="margin-top: 20px;">Tenets vs. Values</h4>
+      <p style="max-width: 640px;">The two describe how a group or a person operates, but at different altitudes. Org-level Values from <a href="vision-mission.html">Vision &amp; Mission</a> are broad and shared — "integrity," "excellence," "ownership" — true for everyone and rarely argued with. Tenets are specific to whoever's actually deciding — a person, a team, or any other group that needs a rule for the moments a value alone doesn't resolve: the thing you reach for mid-decision, worded sharply enough that a plausible alternative is clearly wrong. "Be excellent" is a value nobody disagrees with and nobody can act on directly; "safety first" is a tenet, because it tells a Disney cast member exactly what to do the next time speed and safety pull in different directions.</p>
+
+      <h4 class="fw-subhead" style="margin-top: 20px;">What Makes a Good Tenet</h4>
+      <div class="num-list" style="max-width: 640px;">
+        <div class="num-list-item">
+          <span class="num-badge">1</span>
+          <p><strong>Short and sayable</strong> — if you can't say it from memory in a hallway conversation, it's too long to actually reach for under pressure.</p>
+        </div>
+        <div class="num-list-item">
+          <span class="num-badge">2</span>
+          <p><strong>Specific enough to pick a side</strong> — a real tenet makes one option clearly right and a plausible alternative clearly wrong. "Be excellent" doesn't choose anything; "speed wins over polish before launch" does.</p>
+        </div>
+        <div class="num-list-item">
+          <span class="num-badge">3</span>
+          <p><strong>Earned, not aspirational</strong> — describe how a decision actually gets made, not how you'd like it to look from the outside. A line that's never once been followed under real pressure isn't a tenet yet, it's a hope.</p>
+        </div>
+        <div class="num-list-item">
+          <span class="num-badge">4</span>
+          <p><strong>Few enough to hold at once</strong> — most working sets land around four to six. Past that, they stop functioning as a shared mental model and start reading as a list nobody actually remembers.</p>
+        </div>
+        <div class="num-list-item">
+          <span class="num-badge">5</span>
+          <p><strong>Revisited, not static</strong> — the right call during a scrappy launch isn't always the right call at scale, and the right call for a person at 25 isn't always the right call at 45. Treat them as a living guide you update, not a plaque you hang once.</p>
+        </div>
+      </div>
+
+      <div class="example-label" style="margin-top: 22px;">Example</div>
+      <p style="max-width: 640px; margin-top: 6px;">The sharpest real-world example isn't a leadership team's offsite poster — it's Disney Parks' Five Keys, the ranked priority order every cast member is trained to fall back on. Ranking them, not just naming them, is what makes this a genuine example of criterion 2 above: when two keys pull in different directions, the one listed first wins, no judgment call required.</p>
+
+      <div class="num-list is-cards" style="margin-top: 10px;">
+        <div class="num-list-item">
+          <span class="num-badge">1</span>
+          <p><strong>Safety</strong> — never traded away for anything else on this list, no matter how reasonable the tradeoff sounds in the moment.</p>
+        </div>
+        <div class="num-list-item">
+          <span class="num-badge">2</span>
+          <p><strong>Courtesy</strong> — genuine warmth and respect in every guest interaction.</p>
+        </div>
+        <div class="num-list-item">
+          <span class="num-badge">3</span>
+          <p><strong>Inclusion</strong> — welcoming and respecting every guest and cast member, added as its own key in 2021; ranked here because it shapes how the keys below it get applied, not as an afterthought.</p>
+        </div>
+        <div class="num-list-item">
+          <span class="num-badge">4</span>
+          <p><strong>Show</strong> — the atmosphere and experience guests actually came for.</p>
+        </div>
+        <div class="num-list-item">
+          <span class="num-badge">5</span>
+          <p><strong>Efficiency</strong> — working quickly and smoothly, but never ahead of the four keys above it.</p>
+        </div>
+      </div>
+      <p style="max-width: 640px; margin-top: 10px;">A long line (Efficiency) versus a guest who needs a full, unhurried explanation (Courtesy) isn't a judgment call a cast member has to improvise alone — Courtesy outranks Efficiency, so the line waits. That's the entire value of a tenet: not inspiration, but a tie-breaker someone can actually use in the moment, without having to ask a manager first.</p>
+    </div>
+
+    <div class="insight-aside" style="margin-top: 18px; max-width: 640px;">
+      <svg width="26" height="26" viewBox="0 0 26 26" aria-hidden="true">
+        <circle cx="13" cy="13" r="10" fill="none" stroke="var(--border)" stroke-width="2"/>
+        <path d="M13 7 L13 14" stroke="var(--accent-strong)" stroke-width="2.4" stroke-linecap="round"/>
+        <circle cx="13" cy="18.5" r="1.6" fill="var(--accent-strong)"/>
+      </svg>
+      <div class="insight-aside-body">
+        <span class="insight-aside-label">Watch-out</span>
+        <p>A tenet that sounds good on a wall but has never once changed what someone actually did in the room isn't a tenet — it's wall art. Test any candidate the same way Disney's Five Keys hold up: can you point to a real moment where it broke a tie, not just a quality you'd like to be associated with?</p>
+      </div>
+    </div>
+
+    <div class="try-it-box" id="try-it">
+      <div class="try-it-header">
+        <svg width="24" height="24" viewBox="0 0 24 24" aria-hidden="true">
+          <path d="M12 2 L14.2 9 L21 11 L14.2 13 L12 20 L9.8 13 L3 11 L9.8 9 Z" fill="var(--accent)"/>
+        </svg>
+        <h2>Try It</h2>
+      </div>
+      <p>Paste this into ChatGPT, Claude, or whatever AI tool you use:</p>
+      <div class="try-it-prompt" id="try-it-prompt">Help me draft 4-6 tenets — short, memorable principles for deciding when nothing else spells it out. Ask me first whether these are for me personally, for a team, or for a specific project, then ask about real moments two good options were in tension and how it actually got resolved. For each candidate tenet, push back unless I can point to a real moment it would have broken the tie — and if two things might reasonably conflict, ask me which one should win, the way Disney ranks Safety over Efficiency.</div>
+      <button class="try-it-copy" type="button" data-copy-target="try-it-prompt">Copy prompt</button>
+    </div>
+  </main>
+</div>
+
+<div id="site-footer"></div>
+
+<script src="js/site-chrome.js" defer></script>
+<script src="js/theme-toggle.js" defer></script>
+<script src="js/try-it.js" defer></script>
+</body>
+</html>
