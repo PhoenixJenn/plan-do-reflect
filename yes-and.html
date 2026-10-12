@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="a">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="icon" type="image/svg+xml" href="favicon.svg">
+<title>Yes, And · Plan · Do · Reflect</title>
+
+<!-- Applied before CSS loads, so the saved theme choice doesn't flash to the default on reload -->
+<script>
+(function () {
+  try {
+    var savedTheme = localStorage.getItem('pdr-theme');
+    if (['a', 'b', 'c'].indexOf(savedTheme) > -1) {
+      document.documentElement.setAttribute('data-theme', savedTheme);
+    }
+  } catch (e) {}
+})();
+</script>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=Work+Sans:wght@400;500;600&family=Sora:wght@600;700;800&family=Plus+Jakarta+Sans:wght@500;600;700&family=Patrick+Hand&family=Golos+Text:wght@800&display=swap" rel="stylesheet">
+
+<link rel="stylesheet" href="css/tokens.css">
+<link rel="stylesheet" href="css/main.css">
+</head>
+<body data-nav="core-skills">
+
+<div id="site-topnav"></div>
+
+<div class="layout">
+  <aside class="sidebar">
+    <div class="sec-title">Core Skills</div>
+    <a class="sub-item" href="core-skills.html">Overview</a>
+
+    <div class="sidebar-group">
+      <div class="group-label">Professional Development</div>
+      <div class="sub-item-group">
+        <a class="sub-item" href="communication.html">Communication</a>
+        <div class="sub-sub-list">
+          <a class="sub-sub-item" href="selling-the-vision.html">Selling the Vision</a>
+        </div>
+      </div>
+      <a class="sub-item" href="#">AI Fundamentals</a>
+      <a class="sub-item" href="ai-beyond-fundamentals.html">AI Beyond Fundamentals</a>
+    </div>
+
+    <div class="sidebar-group">
+      <div class="group-label">Decision-Making</div>
+      <a class="sub-item" href="defining-tenets.html">Tenets</a>
+      <a class="sub-item active" href="yes-and.html">Yes, And</a>
+    </div>
+  </aside>
+
+  <main class="content">
+    <div class="page-hero">
+      <h1>Yes, And</h1>
+      <p class="lede">The improv rule for building on an idea instead of shutting it down — say yes to what's there, then add to it.</p>
+      <div class="tag-row" style="margin-top: 14px; margin-bottom: 0;">
+        <a class="try-it-quicklink" href="#try-it">
+          <svg width="14" height="14" viewBox="0 0 24 24" aria-hidden="true">
+            <path d="M12 2 L14.2 9 L21 11 L14.2 13 L12 20 L9.8 13 L3 11 L9.8 9 Z" fill="currentColor"/>
+          </svg>
+          Try It
+        </a>
+      </div>
+    </div>
+
+    <div class="section-block">
+      <p style="max-width: 640px;">A founding rule of improv theater: accept what a scene partner offers ("yes") and build on it ("and") rather than negating it ("no, but"). A scene dies the moment someone blocks an offer instead of building on it — the same is true of a brainstorm, a risky pitch, or a half-formed idea someone brings you in a 1:1. Referenced from Leadership Tenets' <a href="leadership-tenets.html">Be Optimistic</a>, which is really just this rule applied to a leader's first reaction.</p>
+
+      <div class="mvv-grid is-auto" style="margin-top: 16px;">
+        <div class="mvv-card" style="--mvv-color: var(--status-red)">
+          <h3>No, But</h3>
+          <p>Leads with the flaw. Technically honest, but it ends the idea's momentum before anyone's had a chance to see where it goes.</p>
+        </div>
+        <div class="mvv-card" style="--mvv-color: var(--status-green)">
+          <h3>Yes, And</h3>
+          <p>Leads with what's usable. Accepts the premise, adds something real to it, and only then — if it's still needed — raises the constraint.</p>
+        </div>
+      </div>
+
+      <h4 class="fw-subhead" style="margin-top: 22px;">What It's Not</h4>
+      <p style="max-width: 640px;">Not uncritical agreement, and not a ban on saying no. It's a rule for the <em>first</em> reaction, not a suspension of judgment forever — real constraints, risks, and hard no's still get raised. They just get raised second, after the idea has actually been built on for a moment, not as the reflex that kills it before it's understood.</p>
+
+      <div class="example-label" style="margin-top: 22px;">Example</div>
+      <div class="num-list is-cards" style="margin-top: 10px;">
+        <div class="num-list-item">
+          <span class="num-badge">1</span>
+          <p><strong>The offer</strong> — someone proposes cutting a feature's scope in half to hit a launch date everyone agreed was fixed.</p>
+        </div>
+        <div class="num-list-item">
+          <span class="num-badge">2</span>
+          <p><strong>No, but</strong> — "We already committed to the full scope with stakeholders." True, and the conversation is now over.</p>
+        </div>
+        <div class="num-list-item">
+          <span class="num-badge">3</span>
+          <p><strong>Yes, and</strong> — "Yes, and if we cut it to the core flow, what would we need to tell stakeholders to make that landable?" Same constraint, still on the table — but the idea got far enough to find out if it actually works.</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="insight-aside" style="margin-top: 18px; max-width: 640px;">
+      <svg width="26" height="26" viewBox="0 0 26 26" aria-hidden="true">
+        <circle cx="13" cy="13" r="10" fill="none" stroke="var(--border)" stroke-width="2"/>
+        <path d="M13 7 L13 14" stroke="var(--accent-strong)" stroke-width="2.4" stroke-linecap="round"/>
+        <circle cx="13" cy="18.5" r="1.6" fill="var(--accent-strong)"/>
+      </svg>
+      <div class="insight-aside-body">
+        <span class="insight-aside-label">Watch-out</span>
+        <p>"Yes, and" every idea and the real no's stop landing — people stop hearing them as genuine constraints and start hearing them as the one time you broke character. It's a rule for the first reaction, not a replacement for judgment.</p>
+      </div>
+    </div>
+
+    <div class="try-it-box" id="try-it">
+      <div class="try-it-header">
+        <svg width="24" height="24" viewBox="0 0 24 24" aria-hidden="true">
+          <path d="M12 2 L14.2 9 L21 11 L14.2 13 L12 20 L9.8 13 L3 11 L9.8 9 Z" fill="var(--accent)"/>
+        </svg>
+        <h2>Try It</h2>
+      </div>
+      <p>Paste this into ChatGPT, Claude, or whatever AI tool you use:</p>
+      <div class="try-it-prompt" id="try-it-prompt">I want to practice "yes, and." Give me five rough, half-formed ideas one at a time — a product idea, a process change, a proposal from a teammate, whatever mix you want. For each one, make me respond with a genuine "yes, and" that builds on it before I'm allowed to raise any constraint or objection. Push back if my "and" is actually a disguised "but."</div>
+      <button class="try-it-copy" type="button" data-copy-target="try-it-prompt">Copy prompt</button>
+    </div>
+  </main>
+</div>
+
+<div id="site-footer"></div>
+
+<script src="js/site-chrome.js" defer></script>
+<script src="js/theme-toggle.js" defer></script>
+<script src="js/try-it.js" defer></script>
+</body>
+</html>
