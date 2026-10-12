@@ -661,6 +661,31 @@
       </div>
       <div class="lib-component-source">.num-list (.is-cards) / .num-list-item / .num-badge (.is-dot) — okrs.html, program-increment-cadence.html, strategic-planning.html</div>
     </div>
+
+    <div class="lib-component">
+      <div class="lib-component-name">Ratio Bar</div>
+      <div class="lib-component-desc">A single stacked bar split into labeled, colored segments by relative proportion — for a named ratio like the 70-20-10 development model, not a progress/completion metric (that's .status-card-progress-track/-fill, a different component). Each segment's width is set inline per instance since the ratio is content, not styling; three color modifiers (.is-a/.is-b/.is-c) cover up to three segments.</div>
+      <div class="lib-component-demo">
+        <div style="max-width: 320px;">
+          <div class="ratio-bar">
+            <div class="ratio-bar-segment is-a" style="width: 70%;"></div>
+            <div class="ratio-bar-segment is-b" style="width: 20%;"></div>
+            <div class="ratio-bar-segment is-c" style="width: 10%;"></div>
+          </div>
+          <div class="ratio-bar-legend">
+            <div class="ratio-bar-legend-item">
+              <span class="ratio-bar-legend-dot" style="background: var(--accent-strong)"></span>
+              <p><strong>70%</strong> — a short label.</p>
+            </div>
+            <div class="ratio-bar-legend-item">
+              <span class="ratio-bar-legend-dot" style="background: var(--accent)"></span>
+              <p><strong>20%</strong> — a short label.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="lib-component-source">.ratio-bar / .ratio-bar-segment (.is-a/.is-b/.is-c) / .ratio-bar-legend — development-plans.html</div>
+    </div>
   </section>
 
   <section class="lib-section" id="icons">

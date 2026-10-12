@@ -3373,3 +3373,53 @@ body {
   font-size: 0.78rem;
   color: var(--text-caption);
 }
+
+/* ---------- Ratio bar — a single stacked bar split into labeled segments
+   by relative proportion (e.g. the 70-20-10 development model on
+   development-plans.html). Each segment's width is set inline per
+   instance since the ratio is content, not styling. ---------- */
+.ratio-bar {
+  display: flex;
+  height: 14px;
+  border-radius: 999px;
+  overflow: hidden;
+  border: 1px solid var(--border);
+  margin-top: 14px;
+}
+
+.ratio-bar-segment {
+  height: 100%;
+}
+
+.ratio-bar-segment.is-a { background: var(--accent-strong); }
+.ratio-bar-segment.is-b { background: var(--accent); }
+.ratio-bar-segment.is-c { background: var(--accent-gold); }
+
+.ratio-bar-legend {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px 22px;
+  margin-top: 12px;
+}
+
+.ratio-bar-legend-item {
+  display: flex;
+  align-items: flex-start;
+  gap: 8px;
+  max-width: 300px;
+}
+
+.ratio-bar-legend-dot {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  flex-shrink: 0;
+  margin-top: 5px;
+}
+
+.ratio-bar-legend-item p {
+  font-size: 0.86rem;
+  line-height: 1.5;
+  color: var(--text-body);
+  margin: 0;
+}
