@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="a">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="icon" type="image/svg+xml" href="favicon.svg">
+<title>People Management · Plan · Do · Reflect</title>
+
+<!-- Applied before CSS loads, so the saved theme choice doesn't flash to the default on reload -->
+<script>
+(function () {
+  try {
+    var savedTheme = localStorage.getItem('pdr-theme');
+    if (['a', 'b', 'c'].indexOf(savedTheme) > -1) {
+      document.documentElement.setAttribute('data-theme', savedTheme);
+    }
+  } catch (e) {}
+})();
+</script>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=Work+Sans:wght@400;500;600&family=Sora:wght@600;700;800&family=Plus+Jakarta+Sans:wght@500;600;700&family=Patrick+Hand&family=Golos+Text:wght@800&display=swap" rel="stylesheet">
+
+<link rel="stylesheet" href="css/tokens.css">
+<link rel="stylesheet" href="css/main.css">
+</head>
+<body data-nav="leadership">
+
+<div id="site-topnav"></div>
+
+<div class="layout">
+  <aside class="sidebar">
+    <div class="sec-title">Leadership</div>
+    <a class="sub-item" href="leadership.html">Overview</a>
+    <div class="sub-item-group">
+      <a class="sub-item" href="leading.html">Leading</a>
+      <div class="sub-sub-list">
+        <a class="sub-sub-item" href="knowing-yourself.html">Knowing Yourself</a>
+        <a class="sub-sub-item" href="leadership-tenets.html">Leadership Tenets</a>
+        <a class="sub-sub-item" href="leadership-styles.html">Leadership Styles</a>
+        <a class="sub-sub-item" href="managers-and-leaders.html">Managers &amp; Leaders</a>
+      </div>
+    </div>
+
+    <div class="sidebar-group">
+      <div class="group-label">Plan</div>
+      <div class="sub-item-group">
+        <a class="sub-item" href="org-design.html">Org Design</a>
+        <div class="sub-sub-list">
+          <a class="sub-sub-item" href="succession-planning.html">Succession Planning</a>
+        </div>
+      </div>
+      <a class="sub-item" href="goal-setting.html">Goal Setting</a>
+      <a class="sub-item" href="development-plans.html">Development Plans</a>
+      <a class="sub-item" href="performance-improvement-plan.html">Performance Improvement Plan</a>
+    </div>
+
+    <div class="sidebar-group">
+      <div class="group-label">Do</div>
+      <div class="sub-item-group">
+        <a class="sub-item" href="#">Managing</a>
+        <div class="sub-sub-list">
+          <a class="sub-sub-item" href="#">1:1s</a>
+        </div>
+      </div>
+      <a class="sub-item active" href="people-management.html">People Management</a>
+    </div>
+
+    <div class="sidebar-group">
+      <div class="group-label">Reflect</div>
+      <a class="sub-item" href="performance-reviews.html">Performance Reviews</a>
+    </div>
+
+  </aside>
+
+  <main class="content">
+    <div class="page-hero">
+      <h1>People Management</h1>
+      <p class="lede">Hiring, onboarding, and comp philosophy — the operational side of having people, not just a team.</p>
+      <div class="tag-row" style="margin-top: 14px; margin-bottom: 0;">
+        <a class="try-it-quicklink" href="#try-it">
+          <svg width="14" height="14" viewBox="0 0 24 24" aria-hidden="true">
+            <path d="M12 2 L14.2 9 L21 11 L14.2 13 L12 20 L9.8 13 L3 11 L9.8 9 Z" fill="currentColor"/>
+          </svg>
+          Try It
+        </a>
+      </div>
+    </div>
+
+    <div class="framework-list is-wide">
+      <div class="framework-item" id="hiring">
+        <div class="fw-num">1</div>
+        <div>
+          <h3>Hiring</h3>
+          <p style="max-width: 640px;">What actually falls on the hiring manager, separate from whatever recruiting owns.</p>
+          <div class="num-list is-cards">
+            <div class="num-list-item">
+              <span class="num-badge">1</span>
+              <p><strong>Define the real role</strong> — not a copy-paste of the last job description. What does this person need to be able to do in the first six months, not the eventual dream version of the role.</p>
+            </div>
+            <div class="num-list-item">
+              <span class="num-badge">2</span>
+              <p><strong>Design the loop</strong> — the same questions for every candidate, scored against the same rubric, by interviewers calibrated on what a passing answer looks like before the loop starts.</p>
+            </div>
+            <div class="num-list-item">
+              <span class="num-badge">3</span>
+              <p><strong>Make the call</strong> — one clear decision-maker, not a committee vote diluted into nobody actually owning it. Debrief while the signal is still fresh.</p>
+            </div>
+            <div class="num-list-item">
+              <span class="num-badge">4</span>
+              <p><strong>Close the loop</strong> — candid with the person you hire about what they're walking into, and respectful of the ones you pass on. Both outcomes still reflect on you.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="framework-item" id="the-first-90-days">
+        <div class="fw-num">2</div>
+        <div>
+          <h3>The First 90 Days</h3>
+          <p style="max-width: 640px;">Onboarding runs on its own short cadence, separate from Goal Setting's Year/Quarter/Month rhythm — until day 90, when it folds back into it.</p>
+          <div class="num-list is-cards">
+            <div class="num-list-item">
+              <span class="num-badge">Day 30</span>
+              <p>Learn the role and the team. No big swings yet — clear on what's expected, who's who, and how work actually moves here.</p>
+            </div>
+            <div class="num-list-item">
+              <span class="num-badge">Day 60</span>
+              <p>First real contribution lands. An early read on how they operate — a data point, not a verdict.</p>
+            </div>
+            <div class="num-list-item">
+              <span class="num-badge">Day 90</span>
+              <p>Full ramp. Running at the same bar as the rest of the team, which is where onboarding ends and <a href="goal-setting.html">Goal Setting</a>'s regular cadence picks up.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="framework-item" id="comp-philosophy">
+        <div class="fw-num">3</div>
+        <div>
+          <h3>Comp Philosophy</h3>
+          <p style="max-width: 640px;">What a leader needs to understand and be able to say out loud, without over-promising what isn't theirs to promise.</p>
+          <div class="num-list is-cards">
+            <div class="num-list-item">
+              <span class="num-badge">1</span>
+              <p><strong>Know the band before the conversation</strong> — you can't speak credibly about someone's pay if you don't already know where they sit in the range and where the ceiling actually is.</p>
+            </div>
+            <div class="num-list-item">
+              <span class="num-badge">2</span>
+              <p><strong>Separate pay-for-performance from a market correction</strong> — a raise for doing great work and a raise for being underpaid relative to the market are two different conversations. Conflating them makes neither one land clearly.</p>
+            </div>
+            <div class="num-list-item">
+              <span class="num-badge">3</span>
+              <p><strong>Say what you can't change</strong> — out loud. If budget or banding ties your hands, saying so plainly earns more trust than a vague non-answer that reads as evasive.</p>
+            </div>
+            <div class="num-list-item">
+              <span class="num-badge">4</span>
+              <p><strong>Advocate in the room they're not in</strong> — calibration and comp planning happen without the employee present. That's where a leader earns or loses credibility with their own team.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="insight-aside" style="margin-top: 14px; max-width: 640px;">
+      <svg width="26" height="26" viewBox="0 0 26 26" aria-hidden="true">
+        <circle cx="13" cy="13" r="10" fill="none" stroke="var(--border)" stroke-width="2"/>
+        <path d="M13 7 L13 14" stroke="var(--accent-strong)" stroke-width="2.4" stroke-linecap="round"/>
+        <circle cx="13" cy="18.5" r="1.6" fill="var(--accent-strong)"/>
+      </svg>
+      <div class="insight-aside-body">
+        <span class="insight-aside-label">Watch-out</span>
+        <p>The fastest way to erode trust across People Management is inconsistency — two people doing comparable work, hired or paid differently, with no explainable reason. If you can't explain a decision to the person it affects, that's a sign to fix the decision, not just the explanation.</p>
+      </div>
+    </div>
+
+    <div class="try-it-box" id="try-it">
+      <div class="try-it-header">
+        <svg width="24" height="24" viewBox="0 0 24 24" aria-hidden="true">
+          <path d="M12 2 L14.2 9 L21 11 L14.2 13 L12 20 L9.8 13 L3 11 L9.8 9 Z" fill="var(--accent)"/>
+        </svg>
+        <h2>Try It</h2>
+      </div>
+      <p>Paste this into ChatGPT, Claude, or whatever AI tool you use:</p>
+      <div class="try-it-prompt" id="try-it-prompt">Help me design a calibrated interview loop for a role I'm hiring. Ask me what this person needs to be able to do in their first six months, then help me turn that into a small set of structured questions, each with a clear rubric for what a passing answer looks like. Push back if a question is too open-ended to score consistently across candidates, or if the loop is testing something that doesn't actually matter for the first six months.</div>
+      <button class="try-it-copy" type="button" data-copy-target="try-it-prompt">Copy prompt</button>
+    </div>
+  </main>
+</div>
+
+<div id="site-footer"></div>
+
+<script src="js/site-chrome.js" defer></script>
+<script src="js/theme-toggle.js" defer></script>
+<script src="js/try-it.js" defer></script>
+</body>
+</html>
