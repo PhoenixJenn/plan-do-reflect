@@ -63,12 +63,70 @@ python-dotenv==1.0.1
           <p>Redirecting that output into <code class="inline">requirements.txt</code> and committing the file turns it into the pin list. From then on, <code class="inline">pip install -r requirements.txt</code> installs exactly those versions, so your setup, your collaborator's, and the one this checklist describes all run identical code.</p>
           <p><strong>Prefer uv or poetry?</strong> This course uses venv and pip because they ship with Python and need nothing extra installed. uv and poetry are popular alternatives that create the environment, install packages and record exact versions in a lockfile for you. If you already use one, it works for every lab: translate the install commands and skip the manual <code class="inline">pip freeze</code> step.</p>
           <p>A <strong>monorepo</strong> here just means one repository, one <code class="inline">pyproject.toml</code>, and one lockfile for every project this course builds &mdash; the chatbot, the extraction tool, the RAG app, the eval suite, the agent, and the RAG-vs-fine-tune comparison &mdash; each in its own folder, plus a <code class="inline">shared/</code> folder for code every project reuses. One environment to install instead of seven, and one place to fix a dependency problem instead of seven.</p>
+          <figure class="course-diagram">
+            <svg viewBox="0 0 760 300" role="img" aria-label="One repository with one virtual environment: a shared folder that every project folder imports, plus root files for keys and dependencies">
+              <defs><marker id="mono-a" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0 0L10 5L0 10z" fill="var(--text-caption)"/></marker></defs>
+              <rect x="8" y="8" width="744" height="284" rx="10" fill="var(--bg-sidebar)" stroke="var(--border)"/>
+              <text x="24" y="32" font-size="13" font-weight="700" text-anchor="start" fill="var(--text-heading)">ai-beyond-fundamentals/  (one repo, one venv, one lockfile)</text>
+              <rect x="30" y="50" width="190" height="150" rx="8" fill="var(--accent)" stroke="var(--accent-strong)" stroke-width="1.6"/>
+              <text x="125.0" y="122.0" font-size="13" font-weight="700" text-anchor="middle" fill="var(--text-heading)">shared/</text>
+              <text x="125.0" y="139.0" font-size="11.5" font-weight="400" text-anchor="middle" fill="var(--text-heading)">llm_client.py, calls.jsonl</text>
+              <rect x="290" y="56" width="130" height="54" rx="8" fill="var(--bg-content)" stroke="var(--border)" stroke-width="1"/>
+              <text x="355.0" y="87.5" font-size="13" font-weight="700" text-anchor="middle" fill="var(--text-heading)">chatbot/</text>
+              <rect x="440" y="56" width="130" height="54" rx="8" fill="var(--bg-content)" stroke="var(--border)" stroke-width="1"/>
+              <text x="505.0" y="87.5" font-size="13" font-weight="700" text-anchor="middle" fill="var(--text-heading)">extraction/</text>
+              <rect x="590" y="56" width="130" height="54" rx="8" fill="var(--bg-content)" stroke="var(--border)" stroke-width="1"/>
+              <text x="655.0" y="87.5" font-size="13" font-weight="700" text-anchor="middle" fill="var(--text-heading)">rag/</text>
+              <rect x="290" y="128" width="130" height="54" rx="8" fill="var(--bg-content)" stroke="var(--border)" stroke-width="1"/>
+              <text x="355.0" y="159.5" font-size="13" font-weight="700" text-anchor="middle" fill="var(--text-heading)">evals/</text>
+              <rect x="440" y="128" width="130" height="54" rx="8" fill="var(--bg-content)" stroke="var(--border)" stroke-width="1"/>
+              <text x="505.0" y="159.5" font-size="13" font-weight="700" text-anchor="middle" fill="var(--text-heading)">agent/</text>
+              <rect x="590" y="128" width="130" height="54" rx="8" fill="var(--bg-content)" stroke="var(--border)" stroke-width="1"/>
+              <text x="655.0" y="159.5" font-size="13" font-weight="700" text-anchor="middle" fill="var(--text-heading)">ragvsfinetune/</text>
+              <path d="M280 120 H220" fill="none" stroke="var(--text-caption)" stroke-width="1.5" marker-end="url(#mono-a)"/>
+              <text x="250" y="108" font-size="11.5" font-weight="400" text-anchor="middle" fill="var(--text-caption)" font-style="italic">import</text>
+              <rect x="30" y="222" width="690" height="52" rx="8" fill="var(--bg-content)" stroke="var(--border)" stroke-width="1" stroke-dasharray="5 4"/>
+              <text x="375.0" y="245.0" font-size="13" font-weight="700" text-anchor="middle" fill="var(--text-heading)">Root files</text>
+              <text x="375.0" y="262.0" font-size="11.5" font-weight="400" text-anchor="middle" fill="var(--text-caption)">.env (ignored by git) · .env.example · .gitignore · requirements.txt</text>
+            </svg>
+            <figcaption>One environment to install, one place to fix a dependency problem, one shared logger.</figcaption>
+          </figure>
         </div>
 
         <div class="lesson-concept">
           <h3>A shared client wrapper that logs every call</h3>
           <p>Every lab from here on calls a model. If each lab calls the provider SDK directly, cost and latency tracking has to be rebuilt seven times &mdash; or, more likely, never gets built at all. Instead, this module produces one function, <code class="inline">call(prompt, model)</code>, that every later lab imports from <code class="inline">shared/</code>. It hides which provider you're talking to and silently appends a row &mdash; model, tokens in, tokens out, milliseconds, dollars &mdash; to a shared log file on every call.</p>
           <p>That log file is what makes Module 1's cost meter, Module 4's budget alerts, and Module 4's regression tests possible without extra plumbing. You're building the instrument panel before you need to read it.</p>
+          <figure class="course-diagram">
+            <svg viewBox="0 0 760 320" role="img" aria-label="Every lab calls one wrapper, call(prompt, model), which routes to Anthropic, OpenAI, Gemini or a local Ollama model and appends a row to calls.jsonl">
+              <defs><marker id="callpath-a" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0 0L10 5L0 10z" fill="var(--text-caption)"/></marker></defs>
+              <rect x="20" y="112" width="150" height="64" rx="8" fill="var(--bg-content)" stroke="var(--border)" stroke-width="1"/>
+              <text x="95.0" y="141.0" font-size="13" font-weight="700" text-anchor="middle" fill="var(--text-heading)">Your lab code</text>
+              <text x="95.0" y="158.0" font-size="11.5" font-weight="400" text-anchor="middle" fill="var(--text-caption)">chatbot/ rag/ agent/</text>
+              <rect x="235" y="100" width="190" height="88" rx="8" fill="var(--accent)" stroke="var(--accent-strong)" stroke-width="1.6"/>
+              <text x="330.0" y="141.0" font-size="13" font-weight="700" text-anchor="middle" fill="var(--text-heading)">call(prompt, model)</text>
+              <text x="330.0" y="158.0" font-size="11.5" font-weight="400" text-anchor="middle" fill="var(--text-heading)">shared/llm_client.py</text>
+              <path d="M170 144 H235" fill="none" stroke="var(--text-caption)" stroke-width="1.5" marker-end="url(#callpath-a)"/>
+              <rect x="530" y="18" width="200" height="44" rx="8" fill="var(--bg-content)" stroke="var(--border)" stroke-width="1"/>
+              <text x="630.0" y="44.5" font-size="13" font-weight="700" text-anchor="middle" fill="var(--text-heading)">Anthropic</text>
+              <path d="M425 144 C480 144 480 40 530 40" fill="none" stroke="var(--text-caption)" stroke-width="1.5" marker-end="url(#callpath-a)" marker-start="url(#callpath-a)"/>
+              <rect x="530" y="78" width="200" height="44" rx="8" fill="var(--bg-content)" stroke="var(--border)" stroke-width="1"/>
+              <text x="630.0" y="104.5" font-size="13" font-weight="700" text-anchor="middle" fill="var(--text-heading)">OpenAI</text>
+              <path d="M425 144 C480 144 480 100 530 100" fill="none" stroke="var(--text-caption)" stroke-width="1.5" marker-end="url(#callpath-a)" marker-start="url(#callpath-a)"/>
+              <rect x="530" y="138" width="200" height="44" rx="8" fill="var(--bg-content)" stroke="var(--border)" stroke-width="1"/>
+              <text x="630.0" y="164.5" font-size="13" font-weight="700" text-anchor="middle" fill="var(--text-heading)">Gemini</text>
+              <path d="M425 144 C480 144 480 160 530 160" fill="none" stroke="var(--text-caption)" stroke-width="1.5" marker-end="url(#callpath-a)" marker-start="url(#callpath-a)"/>
+              <rect x="530" y="198" width="200" height="44" rx="8" fill="var(--bg-content)" stroke="var(--border)" stroke-width="1"/>
+              <text x="630.0" y="224.5" font-size="13" font-weight="700" text-anchor="middle" fill="var(--text-heading)">Ollama (local)</text>
+              <path d="M425 144 C480 144 480 220 530 220" fill="none" stroke="var(--text-caption)" stroke-width="1.5" marker-end="url(#callpath-a)" marker-start="url(#callpath-a)"/>
+              <rect x="235" y="240" width="190" height="64" rx="8" fill="var(--bg-content)" stroke="var(--border)" stroke-width="1"/>
+              <text x="330.0" y="269.0" font-size="13" font-weight="700" text-anchor="middle" fill="var(--text-heading)">One log row per call</text>
+              <text x="330.0" y="286.0" font-size="11.5" font-weight="400" text-anchor="middle" fill="var(--text-caption)">model, tokens in/out, ms, $</text>
+              <path d="M330 188 V240" fill="none" stroke="var(--text-caption)" stroke-width="1.5" marker-end="url(#callpath-a)"/>
+              <text x="442" y="276" font-size="11.5" font-weight="400" text-anchor="start" fill="var(--text-caption)" font-style="italic">shared/calls.jsonl</text>
+            </svg>
+            <figcaption>One function in front of every provider: the labs never import a provider SDK directly.</figcaption>
+          </figure>
         </div>
 
       </div>

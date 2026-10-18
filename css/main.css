@@ -3359,10 +3359,14 @@ body {
 
 .course-diagram {
   margin: 16px 0 8px;
+  /* A diagram drawn at 760px wide would shrink its text to illegible on a phone, so it keeps a
+     minimum width and scrolls sideways instead of scaling down further. */
+  overflow-x: auto;
 }
 
 .course-diagram svg {
   width: 100%;
+  min-width: 620px;
   height: auto;
   display: block;
   font-family: var(--font-body);

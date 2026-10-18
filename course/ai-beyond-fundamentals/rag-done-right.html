@@ -47,6 +47,82 @@
           <h3>Two halves, and the retrieval half decides everything</h3>
           <p>A RAG system (retrieval-augmented generation, the pattern named in Lewis et al.'s 2020 NeurIPS paper <em>Retrieval-Augmented Generation for Knowledge-Intensive NLP Tasks</em>) has an <strong>indexing</strong> half that runs once per document and a <strong>query</strong> half that runs on every question. The model only ever sees what retrieval hands it. If the right passage isn't in the top few results, no prompt can recover it, and the model will either say it can't find the answer or answer from the wrong passage.</p>
           <p>That's why this module measures retrieval on its own, before any model is involved. Every lab scores <strong>recall@k</strong>: for each labeled question, did the correct page show up in the top <em>k</em> retrieved chunks? It's a plain pass/fail count you can compute in milliseconds and re-run after every change, which is exactly what makes it possible to improve a pipeline on evidence instead of vibes.</p>
+          <figure class="course-diagram">
+            <svg viewBox="0 0 760 330" role="img" aria-label="RAG pipeline: documents are indexed once; every question takes the lower path">
+              <defs>
+                <marker id="rag-arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+                  <path d="M0 0L10 5L0 10z" fill="var(--text-caption)"/>
+                </marker>
+              </defs>
+              <!-- lanes -->
+              <rect x="8" y="8" width="744" height="112" rx="10" fill="var(--bg-sidebar)" stroke="var(--border)"/>
+              <text x="24" y="32" font-size="13" font-weight="700" fill="var(--text-heading)">Indexing · runs once per document</text>
+              <rect x="8" y="136" width="744" height="186" rx="10" fill="var(--bg-sidebar)" stroke="var(--border)"/>
+              <text x="24" y="160" font-size="13" font-weight="700" fill="var(--text-heading)">Query · runs on every question</text>
+              <!-- connectors -->
+              <g fill="none" stroke="var(--text-caption)" stroke-width="1.4">
+                <path d="M144 76H170" marker-end="url(#rag-arrow)"/>
+                <path d="M290 76H316" marker-end="url(#rag-arrow)"/>
+                <path d="M436 76H462" marker-end="url(#rag-arrow)"/>
+                <path d="M582 76H608" marker-end="url(#rag-arrow)"/>
+                <path d="M144 206H170" marker-start="url(#rag-arrow)" marker-end="url(#rag-arrow)"/>
+                <path d="M290 206H316" marker-end="url(#rag-arrow)"/>
+                <path d="M436 206H462" marker-end="url(#rag-arrow)"/>
+                <path d="M582 206H608" marker-end="url(#rag-arrow)"/>
+                <path d="M668 100V184" marker-end="url(#rag-arrow)"/>
+                <path d="M668 228V252" marker-end="url(#rag-arrow)"/>
+                <path d="M608 276H582" marker-end="url(#rag-arrow)"/>
+                <path d="M462 276H436" marker-end="url(#rag-arrow)"/>
+                <path d="M316 276H230V228" marker-end="url(#rag-arrow)"/>
+              </g>
+              <!-- indexing boxes -->
+              <g font-size="13" text-anchor="middle">
+                <rect x="24" y="52" width="120" height="48" rx="8" fill="var(--bg-content)" stroke="var(--border)"/>
+                <text x="84" y="72" font-weight="700" fill="var(--text-heading)">Documents</text>
+                <text x="84" y="90" font-size="11.5" fill="var(--text-caption)">PDF, scans, CSV</text>
+                <rect x="170" y="52" width="120" height="48" rx="8" fill="var(--bg-content)" stroke="var(--border)"/>
+                <text x="230" y="72" font-weight="700" fill="var(--text-heading)">Parse</text>
+                <text x="230" y="90" font-size="11.5" fill="var(--text-caption)">OCR, tables</text>
+                <rect x="316" y="52" width="120" height="48" rx="8" fill="var(--bg-content)" stroke="var(--border)"/>
+                <text x="376" y="72" font-weight="700" fill="var(--text-heading)">Chunk</text>
+                <text x="376" y="90" font-size="11.5" fill="var(--text-caption)">per doc type</text>
+                <rect x="462" y="52" width="120" height="48" rx="8" fill="var(--bg-content)" stroke="var(--border)"/>
+                <text x="522" y="72" font-weight="700" fill="var(--text-heading)">Embed</text>
+                <text x="522" y="90" font-size="11.5" fill="var(--text-caption)">embedding model</text>
+                <rect x="608" y="52" width="120" height="48" rx="8" fill="var(--accent)" stroke="var(--accent-strong)" stroke-width="1.6"/>
+                <text x="668" y="72" font-weight="700" fill="var(--text-heading)">Index</text>
+                <text x="668" y="90" font-size="11.5" fill="var(--text-heading)">vectors + BM25</text>
+                <!-- query row -->
+                <rect x="24" y="182" width="120" height="48" rx="8" fill="var(--bg-content)" stroke="var(--border)"/>
+                <text x="84" y="202" font-weight="700" fill="var(--text-heading)">App</text>
+                <text x="84" y="220" font-size="11.5" fill="var(--text-caption)">user question</text>
+                <rect x="170" y="182" width="120" height="48" rx="8" fill="var(--bg-content)" stroke="var(--border)"/>
+                <text x="230" y="202" font-weight="700" fill="var(--text-heading)">Backend API</text>
+                <text x="230" y="220" font-size="11.5" fill="var(--text-caption)">orchestrates</text>
+                <rect x="316" y="182" width="120" height="48" rx="8" fill="var(--bg-content)" stroke="var(--border)"/>
+                <text x="376" y="202" font-weight="700" fill="var(--text-heading)">Cache</text>
+                <text x="376" y="220" font-size="11.5" fill="var(--text-caption)">repeat questions</text>
+                <rect x="462" y="182" width="120" height="48" rx="8" fill="var(--bg-content)" stroke="var(--border)"/>
+                <text x="522" y="202" font-weight="700" fill="var(--text-heading)">Embed query</text>
+                <text x="522" y="220" font-size="11.5" fill="var(--text-caption)">same model</text>
+                <rect x="608" y="182" width="120" height="48" rx="8" fill="var(--bg-content)" stroke="var(--border)"/>
+                <text x="668" y="202" font-weight="700" fill="var(--text-heading)">Hybrid search</text>
+                <text x="668" y="220" font-size="11.5" fill="var(--text-caption)">vector + keyword</text>
+                <rect x="608" y="252" width="120" height="48" rx="8" fill="var(--bg-content)" stroke="var(--border)"/>
+                <text x="668" y="272" font-weight="700" fill="var(--text-heading)">Rerank</text>
+                <text x="668" y="290" font-size="11.5" fill="var(--text-caption)">top 20 to top 5</text>
+                <rect x="462" y="252" width="120" height="48" rx="8" fill="var(--bg-content)" stroke="var(--border)"/>
+                <text x="522" y="272" font-weight="700" fill="var(--text-heading)">Augment</text>
+                <text x="522" y="290" font-size="11.5" fill="var(--text-caption)">question + context</text>
+                <rect x="316" y="252" width="120" height="48" rx="8" fill="var(--accent)" stroke="var(--accent-strong)" stroke-width="1.6"/>
+                <text x="376" y="272" font-weight="700" fill="var(--text-heading)">LLM</text>
+                <text x="376" y="290" font-size="11.5" fill="var(--text-heading)">grounded, cited</text>
+              </g>
+              <text x="678" y="146" font-size="11.5" fill="var(--text-caption)">search</text>
+              <text x="238" y="250" font-size="11.5" fill="var(--text-caption)">answer</text>
+            </svg>
+            <figcaption>A cache hit returns straight from the backend without touching search or the model.</figcaption>
+          </figure>
         </div>
 
         <div class="lesson-concept">
@@ -59,6 +135,54 @@
           <h3>Chunking: the unit of retrieval</h3>
           <p>You can't embed a 200-page manual as one vector; the vector would be a blurry average of everything in it. So documents get cut into <strong>chunks</strong>, and each chunk is embedded and retrieved on its own. Cut too small and a chunk loses the surrounding meaning; cut too large and one vector has to represent several unrelated ideas, so none of them match a question well.</p>
           <p>Three choices matter. <strong>Size</strong> (characters or tokens per chunk). <strong>Overlap</strong>, repeating the tail of one chunk at the start of the next so a fact straddling a boundary survives in at least one piece. And <strong>boundaries</strong>: splitting on the document's own structure (headings, paragraphs, whole tables) instead of every N characters. The strategy that works best depends on the document type, which is why Lab 3 compares them instead of recommending one.</p>
+          <figure class="course-diagram">
+            <svg viewBox="0 0 760 372" role="img" aria-label="Three ways to cut one page into chunks: fixed size cuts through the table, overlap repeats the tail of each chunk, and structure-aware cuts keep the table whole and add a context prefix">
+              <defs><marker id="chunk-a" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0 0L10 5L0 10z" fill="var(--text-caption)"/></marker></defs>
+              <text x="20" y="22" font-size="13" font-weight="700" text-anchor="start" fill="var(--text-heading)">Fixed size, no overlap</text>
+              <rect x="20" y="34" width="80" height="34" fill="var(--bg-content)" stroke="var(--border)"/>
+              <text x="60.0" y="56" font-size="12" font-weight="400" text-anchor="middle" fill="var(--text-heading)">heading</text>
+              <rect x="100" y="34" width="250" height="34" fill="var(--bg-content)" stroke="var(--border)"/>
+              <text x="225.0" y="56" font-size="12" font-weight="400" text-anchor="middle" fill="var(--text-heading)">paragraph</text>
+              <rect x="350" y="34" width="220" height="34" fill="var(--accent)" stroke="var(--accent-strong)"/>
+              <text x="460.0" y="56" font-size="12" font-weight="600" text-anchor="middle" fill="var(--text-heading)">table</text>
+              <rect x="570" y="34" width="170" height="34" fill="var(--bg-content)" stroke="var(--border)"/>
+              <text x="655.0" y="56" font-size="12" font-weight="400" text-anchor="middle" fill="var(--text-heading)">paragraph</text>
+              <path d="M190 26 V80" fill="none" stroke="var(--status-red)" stroke-width="2.2"/>
+              <path d="M450 26 V80" fill="none" stroke="var(--status-red)" stroke-width="2.2"/>
+              <path d="M640 26 V80" fill="none" stroke="var(--status-red)" stroke-width="2.2"/>
+              <text x="450" y="100" font-size="11.5" font-weight="600" text-anchor="middle" fill="var(--status-red)">cuts the table in half</text>
+              <text x="20" y="134" font-size="13" font-weight="700" text-anchor="start" fill="var(--text-heading)">Fixed size, with overlap</text>
+              <rect x="20" y="146" width="80" height="34" fill="var(--bg-content)" stroke="var(--border)"/>
+              <text x="60.0" y="168" font-size="12" font-weight="400" text-anchor="middle" fill="var(--text-heading)">heading</text>
+              <rect x="100" y="146" width="250" height="34" fill="var(--bg-content)" stroke="var(--border)"/>
+              <text x="225.0" y="168" font-size="12" font-weight="400" text-anchor="middle" fill="var(--text-heading)">paragraph</text>
+              <rect x="350" y="146" width="220" height="34" fill="var(--accent)" stroke="var(--accent-strong)"/>
+              <text x="460.0" y="168" font-size="12" font-weight="600" text-anchor="middle" fill="var(--text-heading)">table</text>
+              <rect x="570" y="146" width="170" height="34" fill="var(--bg-content)" stroke="var(--border)"/>
+              <text x="655.0" y="168" font-size="12" font-weight="400" text-anchor="middle" fill="var(--text-heading)">paragraph</text>
+              <rect x="20" y="186" width="210" height="6" rx="3" fill="var(--accent)" stroke="var(--accent-strong)" fill-opacity=".7"/>
+              <rect x="190" y="195" width="300" height="6" rx="3" fill="var(--accent)" stroke="var(--accent-strong)" fill-opacity=".7"/>
+              <rect x="450" y="186" width="230" height="6" rx="3" fill="var(--accent)" stroke="var(--accent-strong)" fill-opacity=".7"/>
+              <rect x="640" y="195" width="100" height="6" rx="3" fill="var(--accent)" stroke="var(--accent-strong)" fill-opacity=".7"/>
+              <text x="20" y="222" font-size="11.5" font-weight="400" text-anchor="start" fill="var(--text-caption)" font-style="italic">a fact on a boundary survives in at least one chunk, at the price of more chunks</text>
+              <text x="20" y="252" font-size="13" font-weight="700" text-anchor="start" fill="var(--text-heading)">Structure-aware, with a context prefix</text>
+              <rect x="20" y="262" width="80" height="34" fill="var(--bg-content)" stroke="var(--border)"/>
+              <text x="60.0" y="284" font-size="12" font-weight="400" text-anchor="middle" fill="var(--text-heading)">heading</text>
+              <rect x="100" y="262" width="250" height="34" fill="var(--bg-content)" stroke="var(--border)"/>
+              <text x="225.0" y="284" font-size="12" font-weight="400" text-anchor="middle" fill="var(--text-heading)">paragraph</text>
+              <rect x="350" y="262" width="220" height="34" fill="var(--accent)" stroke="var(--accent-strong)"/>
+              <text x="460.0" y="284" font-size="12" font-weight="600" text-anchor="middle" fill="var(--text-heading)">table</text>
+              <rect x="570" y="262" width="170" height="34" fill="var(--bg-content)" stroke="var(--border)"/>
+              <text x="655.0" y="284" font-size="12" font-weight="400" text-anchor="middle" fill="var(--text-heading)">paragraph</text>
+              <rect x="22" y="258" width="326" height="42" rx="6" fill="none" stroke="var(--status-green)" stroke-width="2"/>
+              <rect x="352" y="258" width="216" height="42" rx="6" fill="none" stroke="var(--status-green)" stroke-width="2"/>
+              <rect x="572" y="258" width="166" height="42" rx="6" fill="none" stroke="var(--status-green)" stroke-width="2"/>
+              <rect x="352" y="312" width="216" height="24" rx="12" fill="var(--accent)" stroke="var(--accent-strong)"/>
+              <text x="460" y="328" font-size="11" font-weight="600" text-anchor="middle" fill="var(--text-heading)">From the Delta Sensor manual, p.2:</text>
+              <text x="20" y="352" font-size="11.5" font-weight="400" text-anchor="start" fill="var(--text-caption)" font-style="italic">chunks follow headings, paragraphs and whole tables</text>
+            </svg>
+            <figcaption>Where the cuts fall decides what each chunk can mean. The context prefix names whose table it is.</figcaption>
+          </figure>
         </div>
 
         <div class="lesson-concept">
@@ -76,6 +200,42 @@
           <h3>Hybrid search: meaning plus exact words</h3>
           <p>Embeddings match <em>meaning</em>, which is why "how long is the guarantee" can find a passage about the "warranty period". They are weaker on <em>exact strings</em>: part numbers, error codes, names, IDs. <strong>Keyword search</strong> with BM25 (the ranking function surveyed in Robertson and Zaragoza, <em>The Probabilistic Relevance Framework: BM25 and Beyond</em>, Foundations and Trends in Information Retrieval, 2009) is the opposite: blind to paraphrase, excellent on exact terms.</p>
           <p><strong>Hybrid search</strong> runs both and merges the two ranked lists. The merge that's become the default is <strong>reciprocal rank fusion</strong> (Cormack, Clarke and Büttcher, SIGIR 2009): each list gives every result a score of 1/(60 + rank), and you sum across lists. It only uses ranks, so you never have to reconcile BM25's score scale with cosine similarity's, and a chunk that both lists like rises to the top.</p>
+          <figure class="course-diagram">
+            <svg viewBox="0 0 760 312" role="img" aria-label="Reciprocal rank fusion: a vector ranking and a keyword ranking are merged by summing 1 over 60 plus rank for each chunk, so chunks both lists like rise to the top">
+              <defs><marker id="rrf-a" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0 0L10 5L0 10z" fill="var(--text-caption)"/></marker></defs>
+              <text x="20" y="28" font-size="13" font-weight="700" text-anchor="start" fill="var(--text-heading)">Vector search</text>
+              <rect x="20" y="36" width="170" height="30" rx="8" fill="var(--accent)" stroke="var(--accent-strong)" stroke-width="1.6"/>
+              <text x="105.0" y="55.5" font-size="13" font-weight="700" text-anchor="middle" fill="var(--text-heading)">1.  chunk A</text>
+              <rect x="20" y="74" width="170" height="30" rx="8" fill="var(--bg-content)" stroke="var(--border)" stroke-width="1"/>
+              <text x="105.0" y="93.5" font-size="13" font-weight="700" text-anchor="middle" fill="var(--text-heading)">2.  chunk C</text>
+              <rect x="20" y="112" width="170" height="30" rx="8" fill="var(--accent)" stroke="var(--accent-strong)" stroke-width="1.6"/>
+              <text x="105.0" y="131.5" font-size="13" font-weight="700" text-anchor="middle" fill="var(--text-heading)">3.  chunk B</text>
+              <text x="20" y="168" font-size="13" font-weight="700" text-anchor="start" fill="var(--text-heading)">Keyword (BM25)</text>
+              <rect x="20" y="176" width="170" height="30" rx="8" fill="var(--accent)" stroke="var(--accent-strong)" stroke-width="1.6"/>
+              <text x="105.0" y="195.5" font-size="13" font-weight="700" text-anchor="middle" fill="var(--text-heading)">1.  chunk B</text>
+              <rect x="20" y="214" width="170" height="30" rx="8" fill="var(--accent)" stroke="var(--accent-strong)" stroke-width="1.6"/>
+              <text x="105.0" y="233.5" font-size="13" font-weight="700" text-anchor="middle" fill="var(--text-heading)">2.  chunk A</text>
+              <rect x="20" y="252" width="170" height="30" rx="8" fill="var(--bg-content)" stroke="var(--border)" stroke-width="1"/>
+              <text x="105.0" y="271.5" font-size="13" font-weight="700" text-anchor="middle" fill="var(--text-heading)">3.  chunk D</text>
+              <rect x="290" y="108" width="190" height="92" rx="8" fill="var(--accent)" stroke="var(--accent-strong)" stroke-width="1.6"/>
+              <text x="385.0" y="151.0" font-size="13" font-weight="700" text-anchor="middle" fill="var(--text-heading)">Fuse</text>
+              <text x="385.0" y="168.0" font-size="11.5" font-weight="400" text-anchor="middle" fill="var(--text-heading)">score = sum of 1/(60 + rank)</text>
+              <path d="M190 70 C240 70 240 140 290 140" fill="none" stroke="var(--text-caption)" stroke-width="1.5" marker-end="url(#rrf-a)"/>
+              <path d="M190 210 C240 210 240 170 290 170" fill="none" stroke="var(--text-caption)" stroke-width="1.5" marker-end="url(#rrf-a)"/>
+              <text x="560" y="28" font-size="13" font-weight="700" text-anchor="start" fill="var(--text-heading)">Fused ranking</text>
+              <rect x="560" y="38" width="180" height="32" rx="8" fill="var(--accent)" stroke="var(--accent-strong)" stroke-width="1.6"/>
+              <text x="650.0" y="58.5" font-size="13" font-weight="700" text-anchor="middle" fill="var(--text-heading)">1.  chunk A   0.0325</text>
+              <rect x="560" y="78" width="180" height="32" rx="8" fill="var(--accent)" stroke="var(--accent-strong)" stroke-width="1.6"/>
+              <text x="650.0" y="98.5" font-size="13" font-weight="700" text-anchor="middle" fill="var(--text-heading)">2.  chunk B   0.0323</text>
+              <rect x="560" y="118" width="180" height="32" rx="8" fill="var(--bg-content)" stroke="var(--border)" stroke-width="1"/>
+              <text x="650.0" y="138.5" font-size="13" font-weight="700" text-anchor="middle" fill="var(--text-heading)">3.  chunk C   0.0161</text>
+              <rect x="560" y="158" width="180" height="32" rx="8" fill="var(--bg-content)" stroke="var(--border)" stroke-width="1"/>
+              <text x="650.0" y="178.5" font-size="13" font-weight="700" text-anchor="middle" fill="var(--text-heading)">4.  chunk D   0.0159</text>
+              <path d="M480 154 H560" fill="none" stroke="var(--text-caption)" stroke-width="1.5" marker-end="url(#rrf-a)"/>
+              <text x="380" y="296" font-size="11.5" font-weight="400" text-anchor="middle" fill="var(--text-caption)" font-style="italic">A and B appear in both lists, so they outrank C and D, which appear in only one</text>
+            </svg>
+            <figcaption>Only ranks are used, so BM25's score scale never has to be reconciled with cosine similarity's.</figcaption>
+          </figure>
         </div>
 
         <div class="lesson-concept">
@@ -86,6 +246,29 @@
         <div class="lesson-concept">
           <h3>Reranking: a second, slower, smarter look</h3>
           <p>Embedding search scores a chunk and a question separately and then compares the vectors, which is fast but coarse. A <strong>cross-encoder reranker</strong> reads the question and one chunk <em>together</em> and outputs a relevance score, which is far more precise and far too slow to run over every chunk. So the standard shape is two stages: cheap retrieval pulls a pool (top 20), the reranker re-orders just that pool, and you keep the top 5. You pay latency on every query, so Lab 6 measures both what you gain and what it costs.</p>
+          <figure class="course-diagram">
+            <svg viewBox="0 0 760 250" role="img" aria-label="A two-stage retrieval funnel: the index holds every chunk, hybrid search pulls a pool of twenty, a reranker reorders just those, and the top five go to the model">
+              <defs><marker id="funnel-a" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0 0L10 5L0 10z" fill="var(--text-caption)"/></marker></defs>
+              <rect x="20" y="70.0" width="150" height="130" rx="8" fill="var(--bg-content)" stroke="var(--border)" stroke-width="1"/>
+              <text x="95.0" y="132.0" font-size="13" font-weight="700" text-anchor="middle" fill="var(--text-heading)">Index</text>
+              <text x="95.0" y="149.0" font-size="11.5" font-weight="400" text-anchor="middle" fill="var(--text-caption)">every chunk</text>
+              <path d="M170 135 H210" fill="none" stroke="var(--text-caption)" stroke-width="1.5" marker-end="url(#funnel-a)"/>
+              <rect x="210" y="83.0" width="150" height="104" rx="8" fill="var(--bg-content)" stroke="var(--border)" stroke-width="1"/>
+              <text x="285.0" y="132.0" font-size="13" font-weight="700" text-anchor="middle" fill="var(--text-heading)">Hybrid search</text>
+              <text x="285.0" y="149.0" font-size="11.5" font-weight="400" text-anchor="middle" fill="var(--text-caption)">top 20 candidates</text>
+              <path d="M360 135 H400" fill="none" stroke="var(--text-caption)" stroke-width="1.5" marker-end="url(#funnel-a)"/>
+              <rect x="400" y="96.0" width="150" height="78" rx="8" fill="var(--bg-content)" stroke="var(--border)" stroke-width="1"/>
+              <text x="475.0" y="132.0" font-size="13" font-weight="700" text-anchor="middle" fill="var(--text-heading)">Rerank</text>
+              <text x="475.0" y="149.0" font-size="11.5" font-weight="400" text-anchor="middle" fill="var(--text-caption)">reads both together</text>
+              <path d="M550 135 H590" fill="none" stroke="var(--text-caption)" stroke-width="1.5" marker-end="url(#funnel-a)"/>
+              <rect x="590" y="107.0" width="150" height="56" rx="8" fill="var(--accent)" stroke="var(--accent-strong)" stroke-width="1.6"/>
+              <text x="665.0" y="132.0" font-size="13" font-weight="700" text-anchor="middle" fill="var(--text-heading)">Top 5</text>
+              <text x="665.0" y="149.0" font-size="11.5" font-weight="400" text-anchor="middle" fill="var(--text-heading)">to the model</text>
+              <text x="190" y="232" font-size="11.5" font-weight="400" text-anchor="middle" fill="var(--text-caption)" font-style="italic">cheap per chunk, so run it on everything</text>
+              <text x="560" y="232" font-size="11.5" font-weight="400" text-anchor="middle" fill="var(--text-caption)" font-style="italic">slower per chunk, so run it on 20</text>
+            </svg>
+            <figcaption>Cheap and coarse over everything first, slow and precise over a few second.</figcaption>
+          </figure>
         </div>
 
       </div>

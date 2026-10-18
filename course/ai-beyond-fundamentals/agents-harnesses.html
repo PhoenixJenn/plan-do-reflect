@@ -47,6 +47,50 @@
           <h3>An agent is a model in a loop</h3>
           <p>Strip away the vocabulary and an agent is a short program: ask the model what to do next; if it asks for a tool, run the tool and show it the result; repeat until it answers in plain text. That's the whole idea, and it's the loop you wrote by hand in Module 2, Lab 3. What changes at agent scale is everything <em>around</em> the loop: how long it can run, what it can touch, what happens when it fails. The research behind the pattern is Yao et al., <em>ReAct: Synergizing Reasoning and Acting in Language Models</em> (ICLR 2023), which showed that interleaving reasoning with actions beats either alone.</p>
           <p>Anthropic's <em>Building effective agents</em> draws a line worth keeping: a <strong>workflow</strong> follows steps you wrote in code, an <strong>agent</strong> lets the model choose its own steps. Workflows are more predictable and cheaper; agents handle open-ended problems you can't script. Start with the simplest thing that works and add autonomy only where a fixed script fails.</p>
+          <figure class="course-diagram">
+            <svg viewBox="0 0 760 372" role="img" aria-label="The agent loop: the model is called, any tool it asks for is run, the result is appended to the messages, and the loop repeats until the model answers in text">
+              <defs><marker id="loop-a" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0 0L10 5L0 10z" fill="var(--text-caption)"/></marker></defs>
+              <rect x="30" y="48" width="130" height="64" rx="8" fill="var(--bg-content)" stroke="var(--border)" stroke-width="1"/>
+              <text x="95.0" y="77.0" font-size="13" font-weight="700" text-anchor="middle" fill="var(--text-heading)">Your task</text>
+              <text x="95.0" y="94.0" font-size="11.5" font-weight="400" text-anchor="middle" fill="var(--text-caption)">the first message</text>
+              <rect x="290" y="60" width="180" height="70" rx="8" fill="var(--accent)" stroke="var(--accent-strong)" stroke-width="1.6"/>
+              <text x="380.0" y="92.0" font-size="13" font-weight="700" text-anchor="middle" fill="var(--text-heading)">Call the model</text>
+              <text x="380.0" y="109.0" font-size="11.5" font-weight="400" text-anchor="middle" fill="var(--text-heading)">think() sees all messages</text>
+              <rect x="560" y="45" width="170" height="60" rx="8" fill="var(--bg-content)" stroke="var(--status-green)" stroke-width="1.8"/>
+              <text x="645.0" y="72.0" font-size="13" font-weight="700" text-anchor="middle" fill="var(--text-heading)">Final answer</text>
+              <text x="645.0" y="89.0" font-size="11.5" font-weight="400" text-anchor="middle" fill="var(--text-caption)">plain text: done</text>
+              <rect x="560" y="190" width="170" height="64" rx="8" fill="var(--bg-content)" stroke="var(--border)" stroke-width="1"/>
+              <text x="645.0" y="219.0" font-size="13" font-weight="700" text-anchor="middle" fill="var(--text-heading)">Run the tool</text>
+              <text x="645.0" y="236.0" font-size="11.5" font-weight="400" text-anchor="middle" fill="var(--text-caption)">your code does the work</text>
+              <rect x="290" y="290" width="180" height="56" rx="8" fill="var(--bg-content)" stroke="var(--border)" stroke-width="1"/>
+              <text x="380.0" y="315.0" font-size="13" font-weight="700" text-anchor="middle" fill="var(--text-heading)">Append the result</text>
+              <text x="380.0" y="332.0" font-size="11.5" font-weight="400" text-anchor="middle" fill="var(--text-caption)">joins the messages</text>
+              <path d="M160 80 H290" fill="none" stroke="var(--text-caption)" stroke-width="1.5" marker-end="url(#loop-a)"/>
+              <path d="M470 75 H560" fill="none" stroke="var(--text-caption)" stroke-width="1.5" marker-end="url(#loop-a)"/>
+              <text x="515" y="67" font-size="11.5" font-weight="400" text-anchor="middle" fill="var(--text-caption)">no tool call</text>
+              <path d="M470 115 H645 V190" fill="none" stroke="var(--text-caption)" stroke-width="1.5" marker-end="url(#loop-a)"/>
+              <text x="560" y="136" font-size="11.5" font-weight="400" text-anchor="middle" fill="var(--text-caption)">asks for a tool</text>
+              <path d="M645 254 V318 H470" fill="none" stroke="var(--text-caption)" stroke-width="1.5" marker-end="url(#loop-a)"/>
+              <path d="M290 318 H220 V110 H290" fill="none" stroke="var(--text-caption)" stroke-width="1.5" marker-end="url(#loop-a)"/>
+              <text x="395" y="215" font-size="12" font-weight="400" text-anchor="middle" fill="var(--text-caption)" font-style="italic">repeat until the model answers in text</text>
+            </svg>
+            <figcaption>The whole agent is this loop. Everything else in the module (limits, state, approval, history) is built around it.</figcaption>
+          </figure>
+          <p>In pseudo-code the whole pattern is this, and Lab 1 turns it into about 60 lines of Python:</p>
+          <div class="code-block"><code>while step &lt; max_steps:
+    response = model(messages, tools)
+    messages.append(response)
+
+    if response asked for no tool:          <span class="code-comment"># stop_reason == "end_turn"</span>
+        return response.text
+
+    for call in response.tool_calls:        <span class="code-comment"># stop_reason == "tool_use"</span>
+        result = run_tool(call)
+        messages.append(result)
+
+raise StepLimit                             <span class="code-comment"># the cap was hit: alert a human</span></code></div>
+          <p>A handful of lines do the real work. Everything else in this module is error handling, limits, state and history. Lab 1 decides whether to loop by checking the response for tool-request blocks; the API also reports it as a <strong>stop reason</strong>. Anthropic's is <code class="inline">end_turn</code> (the model finished) or <code class="inline">tool_use</code> (it wants a tool); OpenAI names the same two cases <code class="inline">stop</code> and <code class="inline">tool_calls</code>. A third value, <code class="inline">max_tokens</code> (OpenAI: <code class="inline">length</code>), means the reply was cut off, which Module 2 showed can corrupt structured output. Treat it as an error to handle, never as an answer.</p>
+          <p>The most important habit: <strong>set the step cap first</strong>. A confused agent with no cap loops until it has spent your budget. Ten to twenty-five steps is a common starting range for tasks that need a handful of tool calls (Lab 1's two-tool question gets 8). The right number comes from watching real runs: set it just above the longest successful run you see, and treat hitting it as an alert, not a normal outcome. Module 5's harness adds the other four stops.</p>
         </div>
 
         <div class="lesson-concept">
@@ -65,18 +109,134 @@
           <h3>Coordinators and sub-agents</h3>
           <p>A <strong>coordinator</strong> splits a big question into independent parts, hands each to a <strong>sub-agent</strong> that starts with a fresh, empty context, and merges what comes back. The gain is <em>isolation</em>: each sub-agent works on one narrow thing without the others' text crowding its window, and they can run at once. Anthropic described this design, and its costs, in <em>How we built our multi-agent research system</em>: it works well for broad research that splits cleanly, and it uses many times more tokens than a single chat, so it isn't free.</p>
           <p>The merge is where these systems quietly go wrong. A coordinator that is allowed to "synthesize" will sometimes add facts nobody found. Lab 3 constrains the merge to the findings and keeps the citations attached; the project adds a check that every citation in the final report is one a tool actually returned.</p>
+          <figure class="course-diagram">
+            <svg viewBox="0 0 760 372" role="img" aria-label="A coordinator splits a question into three sub-questions, three sub-agents with fresh contexts answer in parallel, and a merge step keeps their citations">
+              <defs><marker id="subag-a" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0 0L10 5L0 10z" fill="var(--text-caption)"/></marker></defs>
+              <rect x="290" y="14" width="180" height="60" rx="8" fill="var(--accent)" stroke="var(--accent-strong)" stroke-width="1.6"/>
+              <text x="380.0" y="41.0" font-size="13" font-weight="700" text-anchor="middle" fill="var(--text-heading)">Coordinator</text>
+              <text x="380.0" y="58.0" font-size="11.5" font-weight="400" text-anchor="middle" fill="var(--text-heading)">plan(): split the question</text>
+              <rect x="560" y="18" width="176" height="52" rx="8" fill="var(--bg-content)" stroke="var(--border)" stroke-width="1" stroke-dasharray="5 4"/>
+              <text x="648.0" y="41.0" font-size="13" font-weight="700" text-anchor="middle" fill="var(--text-heading)">Fresh context</text>
+              <text x="648.0" y="58.0" font-size="11.5" font-weight="400" text-anchor="middle" fill="var(--text-caption)">starts with nothing</text>
+              <rect x="60" y="146" width="170" height="74" rx="8" fill="var(--bg-content)" stroke="var(--border)" stroke-width="1"/>
+              <text x="145.0" y="180.0" font-size="13" font-weight="700" text-anchor="middle" fill="var(--text-heading)">Sub-agent 1</text>
+              <text x="145.0" y="197.0" font-size="11.5" font-weight="400" text-anchor="middle" fill="var(--text-caption)">its own tool loop</text>
+              <path d="M380 74 V110 H145 V146" fill="none" stroke="var(--text-caption)" stroke-width="1.5" marker-end="url(#subag-a)"/>
+              <rect x="70" y="244" width="150" height="40" rx="8" fill="var(--bg-content)" stroke="var(--border)" stroke-width="1"/>
+              <text x="145.0" y="261.0" font-size="13" font-weight="700" text-anchor="middle" fill="var(--text-heading)">Findings</text>
+              <text x="145.0" y="278.0" font-size="11.5" font-weight="400" text-anchor="middle" fill="var(--text-caption)">cited [file p.N]</text>
+              <path d="M145 220 V244" fill="none" stroke="var(--text-caption)" stroke-width="1.5" marker-end="url(#subag-a)"/>
+              <rect x="295" y="146" width="170" height="74" rx="8" fill="var(--bg-content)" stroke="var(--border)" stroke-width="1"/>
+              <text x="380.0" y="180.0" font-size="13" font-weight="700" text-anchor="middle" fill="var(--text-heading)">Sub-agent 2</text>
+              <text x="380.0" y="197.0" font-size="11.5" font-weight="400" text-anchor="middle" fill="var(--text-caption)">its own tool loop</text>
+              <path d="M380 74 V110 H380 V146" fill="none" stroke="var(--text-caption)" stroke-width="1.5" marker-end="url(#subag-a)"/>
+              <rect x="305" y="244" width="150" height="40" rx="8" fill="var(--bg-content)" stroke="var(--border)" stroke-width="1"/>
+              <text x="380.0" y="261.0" font-size="13" font-weight="700" text-anchor="middle" fill="var(--text-heading)">Findings</text>
+              <text x="380.0" y="278.0" font-size="11.5" font-weight="400" text-anchor="middle" fill="var(--text-caption)">cited [file p.N]</text>
+              <path d="M380 220 V244" fill="none" stroke="var(--text-caption)" stroke-width="1.5" marker-end="url(#subag-a)"/>
+              <rect x="530" y="146" width="170" height="74" rx="8" fill="var(--bg-content)" stroke="var(--border)" stroke-width="1"/>
+              <text x="615.0" y="180.0" font-size="13" font-weight="700" text-anchor="middle" fill="var(--text-heading)">Sub-agent 3</text>
+              <text x="615.0" y="197.0" font-size="11.5" font-weight="400" text-anchor="middle" fill="var(--text-caption)">its own tool loop</text>
+              <path d="M380 74 V110 H615 V146" fill="none" stroke="var(--text-caption)" stroke-width="1.5" marker-end="url(#subag-a)"/>
+              <rect x="540" y="244" width="150" height="40" rx="8" fill="var(--bg-content)" stroke="var(--border)" stroke-width="1"/>
+              <text x="615.0" y="261.0" font-size="13" font-weight="700" text-anchor="middle" fill="var(--text-heading)">Findings</text>
+              <text x="615.0" y="278.0" font-size="11.5" font-weight="400" text-anchor="middle" fill="var(--text-caption)">cited [file p.N]</text>
+              <path d="M615 220 V244" fill="none" stroke="var(--text-caption)" stroke-width="1.5" marker-end="url(#subag-a)"/>
+              <text x="396" y="132" font-size="11.5" font-weight="400" text-anchor="start" fill="var(--text-caption)" font-style="italic">run at the same time</text>
+              <rect x="265" y="312" width="230" height="50" rx="8" fill="var(--accent)" stroke="var(--accent-strong)" stroke-width="1.6"/>
+              <text x="380.0" y="334.0" font-size="13" font-weight="700" text-anchor="middle" fill="var(--text-heading)">Merge</text>
+              <text x="380.0" y="351.0" font-size="11.5" font-weight="400" text-anchor="middle" fill="var(--text-heading)">findings only, citations kept</text>
+              <path d="M145 284 V298 H380 V312" fill="none" stroke="var(--text-caption)" stroke-width="1.5" marker-end="url(#subag-a)"/>
+              <path d="M380 284 V298 H380 V312" fill="none" stroke="var(--text-caption)" stroke-width="1.5" marker-end="url(#subag-a)"/>
+              <path d="M615 284 V298 H380 V312" fill="none" stroke="var(--text-caption)" stroke-width="1.5" marker-end="url(#subag-a)"/>
+            </svg>
+            <figcaption>Isolation is the gain: each sub-agent works on one narrow question, and none of them sees the others' text.</figcaption>
+          </figure>
         </div>
 
         <div class="lesson-concept">
           <h3>Durable state: assume it will crash</h3>
           <p>A run that takes minutes and many paid calls will eventually be interrupted by a crash, a deploy, a closed laptop. If the only record is the conversation in memory, you start over and pay again. The fix is a <strong>progress file</strong>: after every completed step, write the plan and the results to disk, and on startup load the file and skip what's done.</p>
           <p>Two details separate a progress file that works from one that corrupts. <strong>Write atomically</strong>: write to a temporary file, then rename it over the real one, because a crash mid-write then leaves either the old file or the new one, never half of one. And <strong>serialize concurrent writers</strong>: when three sub-agents finish at different moments and all save to the same file, they need a lock, or their temp files collide. We hit exactly that bug building this module's project.</p>
+          <figure class="course-diagram">
+            <svg viewBox="0 0 760 322" role="img" aria-label="A progress file lets a run resume: run one saves the plan and two sub-questions then is killed; run two loads the file, skips finished work, and runs only the missing sub-question">
+              <defs><marker id="resume-a" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0 0L10 5L0 10z" fill="var(--text-caption)"/></marker></defs>
+              <rect x="8" y="8" width="744" height="120" rx="10" fill="var(--bg-sidebar)" stroke="var(--border)"/>
+              <text x="24" y="32" font-size="13" font-weight="700" text-anchor="start" fill="var(--text-heading)">Run 1: killed after two sub-questions</text>
+              <rect x="30" y="52" width="150" height="56" rx="8" fill="var(--bg-content)" stroke="var(--border)" stroke-width="1"/>
+              <text x="105.0" y="77.0" font-size="13" font-weight="700" text-anchor="middle" fill="var(--text-heading)">Plan</text>
+              <text x="105.0" y="94.0" font-size="11.5" font-weight="400" text-anchor="middle" fill="var(--text-caption)">saved</text>
+              <path d="M180 80 H210" fill="none" stroke="var(--text-caption)" stroke-width="1.5" marker-end="url(#resume-a)"/>
+              <rect x="210" y="52" width="150" height="56" rx="8" fill="var(--bg-content)" stroke="var(--border)" stroke-width="1"/>
+              <text x="285.0" y="77.0" font-size="13" font-weight="700" text-anchor="middle" fill="var(--text-heading)">Sub-question 1</text>
+              <text x="285.0" y="94.0" font-size="11.5" font-weight="400" text-anchor="middle" fill="var(--text-caption)">saved</text>
+              <path d="M360 80 H390" fill="none" stroke="var(--text-caption)" stroke-width="1.5" marker-end="url(#resume-a)"/>
+              <rect x="390" y="52" width="150" height="56" rx="8" fill="var(--bg-content)" stroke="var(--border)" stroke-width="1"/>
+              <text x="465.0" y="77.0" font-size="13" font-weight="700" text-anchor="middle" fill="var(--text-heading)">Sub-question 2</text>
+              <text x="465.0" y="94.0" font-size="11.5" font-weight="400" text-anchor="middle" fill="var(--text-caption)">saved</text>
+              <path d="M540 80 H570" fill="none" stroke="var(--text-caption)" stroke-width="1.5" marker-end="url(#resume-a)"/>
+              <rect x="570" y="52" width="150" height="56" rx="8" fill="var(--bg-content)" stroke="var(--status-red)" stroke-width="1.8" stroke-dasharray="5 4"/>
+              <text x="645.0" y="77.0" font-size="13" font-weight="700" text-anchor="middle" fill="var(--text-heading)">Sub-question 3</text>
+              <text x="645.0" y="94.0" font-size="11.5" font-weight="400" text-anchor="middle" fill="var(--text-caption)">process killed</text>
+              <rect x="8" y="148" width="744" height="160" rx="10" fill="var(--bg-sidebar)" stroke="var(--border)"/>
+              <text x="24" y="172" font-size="13" font-weight="700" text-anchor="start" fill="var(--text-heading)">Run 2: same command, loads state.json</text>
+              <rect x="30" y="196" width="106" height="56" rx="8" fill="var(--bg-content)" stroke="var(--border)" stroke-width="1"/>
+              <text x="83.0" y="221.0" font-size="13" font-weight="700" text-anchor="middle" fill="var(--text-heading)">Load state</text>
+              <text x="83.0" y="238.0" font-size="11.5" font-weight="400" text-anchor="middle" fill="var(--text-caption)">2 of 3 done</text>
+              <path d="M136 224 H150" fill="none" stroke="var(--text-caption)" stroke-width="1.5" marker-end="url(#resume-a)"/>
+              <rect x="150" y="196" width="106" height="56" rx="8" fill="var(--bg-content)" stroke="var(--border)" stroke-width="1" stroke-dasharray="5 4"/>
+              <text x="203.0" y="221.0" font-size="13" font-weight="700" text-anchor="middle" fill="var(--text-heading)">Plan</text>
+              <text x="203.0" y="238.0" font-size="11.5" font-weight="400" text-anchor="middle" fill="var(--text-caption)">skipped</text>
+              <path d="M256 224 H270" fill="none" stroke="var(--text-caption)" stroke-width="1.5" marker-end="url(#resume-a)"/>
+              <rect x="270" y="196" width="106" height="56" rx="8" fill="var(--bg-content)" stroke="var(--border)" stroke-width="1" stroke-dasharray="5 4"/>
+              <text x="323.0" y="221.0" font-size="13" font-weight="700" text-anchor="middle" fill="var(--text-heading)">Sub 1</text>
+              <text x="323.0" y="238.0" font-size="11.5" font-weight="400" text-anchor="middle" fill="var(--text-caption)">skipped</text>
+              <path d="M376 224 H390" fill="none" stroke="var(--text-caption)" stroke-width="1.5" marker-end="url(#resume-a)"/>
+              <rect x="390" y="196" width="106" height="56" rx="8" fill="var(--bg-content)" stroke="var(--border)" stroke-width="1" stroke-dasharray="5 4"/>
+              <text x="443.0" y="221.0" font-size="13" font-weight="700" text-anchor="middle" fill="var(--text-heading)">Sub 2</text>
+              <text x="443.0" y="238.0" font-size="11.5" font-weight="400" text-anchor="middle" fill="var(--text-caption)">skipped</text>
+              <path d="M496 224 H510" fill="none" stroke="var(--text-caption)" stroke-width="1.5" marker-end="url(#resume-a)"/>
+              <rect x="510" y="196" width="106" height="56" rx="8" fill="var(--accent)" stroke="var(--accent-strong)" stroke-width="1.6"/>
+              <text x="563.0" y="221.0" font-size="13" font-weight="700" text-anchor="middle" fill="var(--text-heading)">Sub 3</text>
+              <text x="563.0" y="238.0" font-size="11.5" font-weight="400" text-anchor="middle" fill="var(--text-heading)">runs now</text>
+              <path d="M616 224 H630" fill="none" stroke="var(--text-caption)" stroke-width="1.5" marker-end="url(#resume-a)"/>
+              <rect x="630" y="196" width="106" height="56" rx="8" fill="var(--bg-content)" stroke="var(--status-green)" stroke-width="1.8"/>
+              <text x="683.0" y="221.0" font-size="13" font-weight="700" text-anchor="middle" fill="var(--text-heading)">Report</text>
+              <text x="683.0" y="238.0" font-size="11.5" font-weight="400" text-anchor="middle" fill="var(--text-caption)">written</text>
+              <text x="380" y="286" font-size="11.5" font-weight="400" text-anchor="middle" fill="var(--text-caption)" font-style="italic">temp file, then an atomic rename: a crash mid-write leaves the old file or the new one, never half of one</text>
+            </svg>
+            <figcaption>Every step is saved before the next one starts, so a crash costs one step instead of the whole run.</figcaption>
+          </figure>
         </div>
 
         <div class="lesson-concept">
           <h3>MCP: one way to expose tools to any client</h3>
           <p>The Model Context Protocol (introduced by Anthropic in November 2024 and now an open specification at modelcontextprotocol.io) standardizes how an application offers tools, data and prompts to an AI client. You write a <strong>server</strong> that declares tools with typed arguments; any compatible <strong>client</strong> can list them and call them, with no custom integration per pair. Locally a client launches the server as a child process and talks to it over standard input and output; remote servers use HTTP.</p>
           <p>It's a young protocol and the SDKs move. This lesson's code uses the Python SDK's 2.x API, where the server class is <code class="inline">MCPServer</code> imported from <code class="inline">mcp.server.mcpserver</code>. Many older tutorials show <code class="inline">FastMCP</code> from <code class="inline">mcp.server.fastmcp</code>, which the 2.x SDK renamed; if you hit an ImportError, check <code class="inline">pip show mcp</code> first.</p>
+          <figure class="course-diagram">
+            <svg viewBox="0 0 760 300" role="img" aria-label="MCP: a client launches a server as a child process and talks to it over standard input and output; it lists the server&#x27;s tools and then calls one">
+              <defs><marker id="mcp-a" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0 0L10 5L0 10z" fill="var(--text-caption)"/></marker></defs>
+              <rect x="8" y="20" width="300" height="230" rx="10" fill="var(--bg-sidebar)" stroke="var(--border)"/>
+              <text x="24" y="44" font-size="13" font-weight="700" text-anchor="start" fill="var(--text-heading)">Client</text>
+              <rect x="452" y="20" width="300" height="230" rx="10" fill="var(--bg-sidebar)" stroke="var(--border)"/>
+              <text x="468" y="44" font-size="13" font-weight="700" text-anchor="start" fill="var(--text-heading)">Server</text>
+              <rect x="38" y="90" width="240" height="110" rx="8" fill="var(--accent)" stroke="var(--accent-strong)" stroke-width="1.6"/>
+              <text x="158.0" y="142.0" font-size="13" font-weight="700" text-anchor="middle" fill="var(--text-heading)">An app or your agent</text>
+              <text x="158.0" y="159.0" font-size="11.5" font-weight="400" text-anchor="middle" fill="var(--text-heading)">launches the server</text>
+              <rect x="482" y="66" width="240" height="56" rx="8" fill="var(--bg-content)" stroke="var(--border)" stroke-width="1"/>
+              <text x="602.0" y="91.0" font-size="13" font-weight="700" text-anchor="middle" fill="var(--text-heading)">Tool listing</text>
+              <text x="602.0" y="108.0" font-size="11.5" font-weight="400" text-anchor="middle" fill="var(--text-caption)">names, descriptions, schemas</text>
+              <rect x="482" y="156" width="240" height="56" rx="8" fill="var(--bg-content)" stroke="var(--border)" stroke-width="1"/>
+              <text x="602.0" y="181.0" font-size="13" font-weight="700" text-anchor="middle" fill="var(--text-heading)">search_manuals</text>
+              <text x="602.0" y="198.0" font-size="11.5" font-weight="400" text-anchor="middle" fill="var(--text-caption)">docstring and type hints</text>
+              <path d="M278 110 H482" fill="none" stroke="var(--text-caption)" stroke-width="1.5" marker-end="url(#mcp-a)" marker-start="url(#mcp-a)"/>
+              <text x="380" y="101" font-size="12" font-weight="600" text-anchor="middle" fill="var(--text-heading)">list_tools</text>
+              <path d="M278 186 H482" fill="none" stroke="var(--text-caption)" stroke-width="1.5" marker-end="url(#mcp-a)" marker-start="url(#mcp-a)"/>
+              <text x="380" y="177" font-size="12" font-weight="600" text-anchor="middle" fill="var(--text-heading)">call_tool(query)</text>
+              <text x="380" y="276" font-size="11.5" font-weight="400" text-anchor="middle" fill="var(--text-caption)" font-style="italic">stdin / stdout between processes on your machine</text>
+            </svg>
+            <figcaption>Locally the two talk over stdin and stdout. A remote server is reached over HTTP instead, with the same messages.</figcaption>
+          </figure>
         </div>
 
         <div class="lesson-concept">
@@ -89,6 +249,49 @@
           <h3>Brain, hands, history, and the failures you can name</h3>
           <p>Module 5's overview describes the harness as everything around the model. This lesson splits it into three components you can see in the code: the <strong>brain</strong> (one function that asks the model what to do next; <code class="inline">brain.py</code>), the <strong>hands</strong> (the tools and their permission flags; <code class="inline">tools.py</code>), and the <strong>history</strong> (an append-only record of every step; <code class="inline">harness.History</code>). Keeping them separate is what lets you fake the brain in a test, deny a tool without touching the model, and replay a run from its log.</p>
           <p>The overview's table maps seven failure types to seven harness fixes. Lab 7 makes that table physical: seven reproducible failures in a sandbox, and a harness you repair until all seven stay fixed. It's the same move as a bug report with a failing test: name the failure class, change the system, and prove the change with a rerun.</p>
+          <figure class="course-diagram">
+            <svg viewBox="0 0 760 392" role="img" aria-label="The harness around the loop: brain, hands with an approval gate, five limits that stop the loop without asking the model, and an append-only history">
+              <defs><marker id="harness-a" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0 0L10 5L0 10z" fill="var(--text-caption)"/></marker></defs>
+              <rect x="8" y="8" width="744" height="376" rx="10" fill="var(--bg-sidebar)" stroke="var(--border)"/>
+              <text x="24" y="32" font-size="13" font-weight="700" text-anchor="start" fill="var(--text-heading)">Harness</text>
+              <rect x="30" y="70" width="140" height="80" rx="8" fill="var(--bg-content)" stroke="var(--border)" stroke-width="1"/>
+              <text x="100.0" y="107.0" font-size="13" font-weight="700" text-anchor="middle" fill="var(--text-heading)">Brain</text>
+              <text x="100.0" y="124.0" font-size="11.5" font-weight="400" text-anchor="middle" fill="var(--text-caption)">asks the model</text>
+              <rect x="205" y="60" width="150" height="100" rx="8" fill="var(--accent)" stroke="var(--accent-strong)" stroke-width="1.6"/>
+              <text x="280.0" y="107.0" font-size="13" font-weight="700" text-anchor="middle" fill="var(--text-heading)">The loop</text>
+              <text x="280.0" y="124.0" font-size="11.5" font-weight="400" text-anchor="middle" fill="var(--text-heading)">call, run, append</text>
+              <rect x="385" y="76" width="110" height="68" rx="8" fill="var(--bg-content)" stroke="var(--status-red)" stroke-width="1.8" stroke-dasharray="5 4"/>
+              <text x="440.0" y="107.0" font-size="13" font-weight="700" text-anchor="middle" fill="var(--text-heading)">Approval gate</text>
+              <text x="440.0" y="124.0" font-size="11.5" font-weight="400" text-anchor="middle" fill="var(--text-caption)">risky tools</text>
+              <rect x="525" y="70" width="195" height="80" rx="8" fill="var(--bg-content)" stroke="var(--border)" stroke-width="1"/>
+              <text x="622.5" y="107.0" font-size="13" font-weight="700" text-anchor="middle" fill="var(--text-heading)">Hands</text>
+              <text x="622.5" y="124.0" font-size="11.5" font-weight="400" text-anchor="middle" fill="var(--text-caption)">tools.py: do the work</text>
+              <path d="M170 110 H205" fill="none" stroke="var(--text-caption)" stroke-width="1.5" marker-end="url(#harness-a)" marker-start="url(#harness-a)"/>
+              <path d="M355 110 H385" fill="none" stroke="var(--text-caption)" stroke-width="1.5" marker-end="url(#harness-a)"/>
+              <path d="M495 110 H525" fill="none" stroke="var(--text-caption)" stroke-width="1.5" marker-end="url(#harness-a)"/>
+              <text x="30" y="188" font-size="12" font-weight="400" text-anchor="start" fill="var(--text-caption)" font-style="italic">Limits stop the loop without asking the model</text>
+              <rect x="30" y="200" width="130" height="52" rx="8" fill="var(--bg-content)" stroke="var(--border)" stroke-width="1"/>
+              <text x="95.0" y="223.0" font-size="13" font-weight="700" text-anchor="middle" fill="var(--text-heading)">Step cap</text>
+              <text x="95.0" y="240.0" font-size="11.5" font-weight="400" text-anchor="middle" fill="var(--text-caption)">max_steps</text>
+              <rect x="174" y="200" width="130" height="52" rx="8" fill="var(--bg-content)" stroke="var(--border)" stroke-width="1"/>
+              <text x="239.0" y="223.0" font-size="13" font-weight="700" text-anchor="middle" fill="var(--text-heading)">Dollar budget</text>
+              <text x="239.0" y="240.0" font-size="11.5" font-weight="400" text-anchor="middle" fill="var(--text-caption)">max_usd</text>
+              <rect x="318" y="200" width="130" height="52" rx="8" fill="var(--bg-content)" stroke="var(--border)" stroke-width="1"/>
+              <text x="383.0" y="223.0" font-size="13" font-weight="700" text-anchor="middle" fill="var(--text-heading)">Wall clock</text>
+              <text x="383.0" y="240.0" font-size="11.5" font-weight="400" text-anchor="middle" fill="var(--text-caption)">timeout_s</text>
+              <rect x="462" y="200" width="130" height="52" rx="8" fill="var(--bg-content)" stroke="var(--border)" stroke-width="1"/>
+              <text x="527.0" y="223.0" font-size="13" font-weight="700" text-anchor="middle" fill="var(--text-heading)">Tool timeout</text>
+              <text x="527.0" y="240.0" font-size="11.5" font-weight="400" text-anchor="middle" fill="var(--text-caption)">per tool call</text>
+              <rect x="606" y="200" width="130" height="52" rx="8" fill="var(--bg-content)" stroke="var(--border)" stroke-width="1"/>
+              <text x="671.0" y="223.0" font-size="13" font-weight="700" text-anchor="middle" fill="var(--text-heading)">Repeat check</text>
+              <text x="671.0" y="240.0" font-size="11.5" font-weight="400" text-anchor="middle" fill="var(--text-caption)">same call again</text>
+              <rect x="30" y="296" width="690" height="64" rx="8" fill="var(--accent)" stroke="var(--accent-strong)" stroke-width="1.6"/>
+              <text x="375.0" y="325.0" font-size="13" font-weight="700" text-anchor="middle" fill="var(--text-heading)">History</text>
+              <text x="375.0" y="342.0" font-size="11.5" font-weight="400" text-anchor="middle" fill="var(--text-heading)">history.jsonl: every model call, tool call, denial and stop, appended and never rewritten</text>
+              <path d="M375 252 V296" fill="none" stroke="var(--text-caption)" stroke-width="1.5" stroke-dasharray="4 3" marker-end="url(#harness-a)"/>
+            </svg>
+            <figcaption>The model proposes; the harness decides what runs, when to stop, and what gets recorded.</figcaption>
+          </figure>
         </div>
 
       </div>

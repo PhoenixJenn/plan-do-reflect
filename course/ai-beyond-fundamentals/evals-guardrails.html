@@ -65,6 +65,44 @@
           <h3>RAG metrics: which half is broken?</h3>
           <p>A wrong answer from a RAG app has two possible causes, and the fix for one does nothing for the other. The RAGAS paper (Es et al., <em>RAGAS: Automated Evaluation of Retrieval Augmented Generation</em>, 2023; EACL 2024 demonstrations) names four metrics that separate them. <strong>Context recall</strong>: did retrieval surface what was needed? <strong>Context precision</strong>: were the retrieved passages relevant, and ranked first? Those two grade the retrieval half. <strong>Faithfulness</strong>: is every claim in the answer supported by the retrieved context? <strong>Answer relevance</strong>: does the answer address the question that was asked? Those two grade the generation half.</p>
           <p>Read them as a diagnosis. Low recall means go back to Module 3 (parsing, chunking, search). Good recall but low faithfulness means the model had the right passage and still made things up, so look at the prompt and the model. Good faithfulness but low relevance means a well-grounded answer to the wrong question. Lab 3 builds all four by hand so you can see exactly what each one measures; the RAGAS library packages the same ideas.</p>
+          <figure class="course-diagram">
+            <svg viewBox="0 0 760 292" role="img" aria-label="The four RAG metrics mapped onto the pipeline: context recall and precision grade retrieval, faithfulness and answer relevance grade generation">
+              <defs><marker id="metrics-a" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0 0L10 5L0 10z" fill="var(--text-caption)"/></marker></defs>
+              <rect x="20" y="122" width="110" height="56" rx="8" fill="var(--bg-content)" stroke="var(--border)" stroke-width="1"/>
+              <text x="75.0" y="154.5" font-size="13" font-weight="700" text-anchor="middle" fill="var(--text-heading)">Question</text>
+              <rect x="170" y="122" width="120" height="56" rx="8" fill="var(--accent)" stroke="var(--accent-strong)" stroke-width="1.6"/>
+              <text x="230.0" y="154.5" font-size="13" font-weight="700" text-anchor="middle" fill="var(--text-heading)">Retrieval</text>
+              <rect x="330" y="122" width="120" height="56" rx="8" fill="var(--bg-content)" stroke="var(--border)" stroke-width="1"/>
+              <text x="390.0" y="154.5" font-size="13" font-weight="700" text-anchor="middle" fill="var(--text-heading)">Passages</text>
+              <rect x="490" y="122" width="120" height="56" rx="8" fill="var(--accent)" stroke="var(--accent-strong)" stroke-width="1.6"/>
+              <text x="550.0" y="154.5" font-size="13" font-weight="700" text-anchor="middle" fill="var(--text-heading)">Generation</text>
+              <rect x="650" y="122" width="100" height="56" rx="8" fill="var(--bg-content)" stroke="var(--border)" stroke-width="1"/>
+              <text x="700.0" y="154.5" font-size="13" font-weight="700" text-anchor="middle" fill="var(--text-heading)">Answer</text>
+              <path d="M130 150 H170" fill="none" stroke="var(--text-caption)" stroke-width="1.5" marker-end="url(#metrics-a)"/>
+              <path d="M290 150 H330" fill="none" stroke="var(--text-caption)" stroke-width="1.5" marker-end="url(#metrics-a)"/>
+              <path d="M450 150 H490" fill="none" stroke="var(--text-caption)" stroke-width="1.5" marker-end="url(#metrics-a)"/>
+              <path d="M610 150 H650" fill="none" stroke="var(--text-caption)" stroke-width="1.5" marker-end="url(#metrics-a)"/>
+              <text x="310" y="20" font-size="12" font-weight="700" text-anchor="middle" fill="var(--text-heading)">grades the retrieval half</text>
+              <rect x="160" y="32" width="140" height="50" rx="8" fill="var(--bg-content)" stroke="var(--border)" stroke-width="1"/>
+              <text x="230.0" y="54.0" font-size="13" font-weight="700" text-anchor="middle" fill="var(--text-heading)">Context recall</text>
+              <text x="230.0" y="71.0" font-size="11.5" font-weight="400" text-anchor="middle" fill="var(--text-caption)">fact retrieved?</text>
+              <rect x="320" y="32" width="140" height="50" rx="8" fill="var(--bg-content)" stroke="var(--border)" stroke-width="1"/>
+              <text x="390.0" y="54.0" font-size="13" font-weight="700" text-anchor="middle" fill="var(--text-heading)">Context precision</text>
+              <text x="390.0" y="71.0" font-size="11.5" font-weight="400" text-anchor="middle" fill="var(--text-caption)">relevant first?</text>
+              <path d="M230 82 L390 122" fill="none" stroke="var(--text-caption)" stroke-width="1.2" stroke-dasharray="4 3"/>
+              <path d="M390 82 V122" fill="none" stroke="var(--text-caption)" stroke-width="1.2" stroke-dasharray="4 3"/>
+              <text x="380" y="232" font-size="12" font-weight="700" text-anchor="middle" fill="var(--text-heading)">grades the generation half</text>
+              <rect x="455" y="232" width="140" height="50" rx="8" fill="var(--bg-content)" stroke="var(--border)" stroke-width="1"/>
+              <text x="525.0" y="254.0" font-size="13" font-weight="700" text-anchor="middle" fill="var(--text-heading)">Faithfulness</text>
+              <text x="525.0" y="271.0" font-size="11.5" font-weight="400" text-anchor="middle" fill="var(--text-caption)">claims supported?</text>
+              <rect x="605" y="232" width="140" height="50" rx="8" fill="var(--bg-content)" stroke="var(--border)" stroke-width="1"/>
+              <text x="675.0" y="254.0" font-size="13" font-weight="700" text-anchor="middle" fill="var(--text-heading)">Answer relevance</text>
+              <text x="675.0" y="271.0" font-size="11.5" font-weight="400" text-anchor="middle" fill="var(--text-caption)">on topic?</text>
+              <path d="M525 232 L550 178" fill="none" stroke="var(--text-caption)" stroke-width="1.2" stroke-dasharray="4 3"/>
+              <path d="M675 232 L700 178" fill="none" stroke="var(--text-caption)" stroke-width="1.2" stroke-dasharray="4 3"/>
+            </svg>
+            <figcaption>Low retrieval scores mean go back to Module 3. Good retrieval with low faithfulness means fix the prompt or the model.</figcaption>
+          </figure>
         </div>
 
         <div class="lesson-concept">
@@ -76,6 +114,40 @@
           <h3>Guardrails: checks around the model, not inside it</h3>
           <p>A <strong>guardrail</strong> is ordinary code that inspects what goes into the model or what comes out. On the way in: redact personal data before it reaches a model or a log file, and screen for prompt injection and off-topic requests. On the way out: enforce the shape (valid schema), and reject claims the sources don't back. Lab 5's output check is a good example of a guardrail that costs nothing and catches a lot: an answer must either decline or cite a passage that was actually retrieved.</p>
           <p>Be clear-eyed about the limits. <strong>Prompt injection</strong>, where text in the input (or in a retrieved document; see Greshake et al., <em>Not what you've asked for: Compromising Real-World LLM-Integrated Applications with Indirect Prompt Injection</em>, AISec 2023) is read as an instruction, has no complete fix today, and OWASP lists it first in its <em>Top 10 for LLM Applications</em>. A pattern list stops the famous phrasings and nothing else. The only sound posture is layers: input filters, a model that's been told its role, output checks, and least privilege (a model that can't send email can't be tricked into sending it). For personal data at production scale, a purpose-built library such as Microsoft's open-source Presidio does far more than the regexes here.</p>
+          <figure class="course-diagram">
+            <svg viewBox="0 0 760 292" role="img" aria-label="Layers around a RAG app: input checks and a budget cap before the model, an output check after it, tracing under every step, and a spend alert">
+              <defs><marker id="layers-a" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0 0L10 5L0 10z" fill="var(--text-caption)"/></marker></defs>
+              <rect x="20" y="80" width="108" height="64" rx="8" fill="var(--bg-content)" stroke="var(--border)" stroke-width="1"/>
+              <text x="74.0" y="116.5" font-size="13" font-weight="700" text-anchor="middle" fill="var(--text-heading)">Question</text>
+              <path d="M128 112 H142" fill="none" stroke="var(--text-caption)" stroke-width="1.5" marker-end="url(#layers-a)"/>
+              <rect x="142" y="80" width="108" height="64" rx="8" fill="var(--bg-content)" stroke="var(--border)" stroke-width="1"/>
+              <text x="196.0" y="109.0" font-size="13" font-weight="700" text-anchor="middle" fill="var(--text-heading)">Input checks</text>
+              <text x="196.0" y="126.0" font-size="11.5" font-weight="400" text-anchor="middle" fill="var(--text-caption)">PII, injection</text>
+              <path d="M250 112 H264" fill="none" stroke="var(--text-caption)" stroke-width="1.5" marker-end="url(#layers-a)"/>
+              <rect x="264" y="80" width="108" height="64" rx="8" fill="var(--bg-content)" stroke="var(--border)" stroke-width="1"/>
+              <text x="318.0" y="109.0" font-size="13" font-weight="700" text-anchor="middle" fill="var(--text-heading)">Budget cap</text>
+              <text x="318.0" y="126.0" font-size="11.5" font-weight="400" text-anchor="middle" fill="var(--text-caption)">before call</text>
+              <path d="M372 112 H386" fill="none" stroke="var(--text-caption)" stroke-width="1.5" marker-end="url(#layers-a)"/>
+              <rect x="386" y="80" width="108" height="64" rx="8" fill="var(--accent)" stroke="var(--accent-strong)" stroke-width="1.6"/>
+              <text x="440.0" y="109.0" font-size="13" font-weight="700" text-anchor="middle" fill="var(--text-heading)">App</text>
+              <text x="440.0" y="126.0" font-size="11.5" font-weight="400" text-anchor="middle" fill="var(--text-heading)">RAG + model</text>
+              <path d="M494 112 H508" fill="none" stroke="var(--text-caption)" stroke-width="1.5" marker-end="url(#layers-a)"/>
+              <rect x="508" y="80" width="108" height="64" rx="8" fill="var(--bg-content)" stroke="var(--border)" stroke-width="1"/>
+              <text x="562.0" y="109.0" font-size="13" font-weight="700" text-anchor="middle" fill="var(--text-heading)">Output check</text>
+              <text x="562.0" y="126.0" font-size="11.5" font-weight="400" text-anchor="middle" fill="var(--text-caption)">must cite</text>
+              <path d="M616 112 H630" fill="none" stroke="var(--text-caption)" stroke-width="1.5" marker-end="url(#layers-a)"/>
+              <rect x="630" y="80" width="108" height="64" rx="8" fill="var(--bg-content)" stroke="var(--border)" stroke-width="1"/>
+              <text x="684.0" y="116.5" font-size="13" font-weight="700" text-anchor="middle" fill="var(--text-heading)">Answer</text>
+              <text x="380" y="56" font-size="11.5" font-weight="400" text-anchor="middle" fill="var(--text-caption)" font-style="italic">blocked requests get a safe fallback, not a crash</text>
+              <rect x="20" y="190" width="480" height="56" rx="8" fill="var(--bg-content)" stroke="var(--border)" stroke-width="1" stroke-dasharray="5 4"/>
+              <text x="260.0" y="215.0" font-size="13" font-weight="700" text-anchor="middle" fill="var(--text-heading)">Tracing</text>
+              <text x="260.0" y="232.0" font-size="11.5" font-weight="400" text-anchor="middle" fill="var(--text-caption)">every step becomes a span, so a bad answer can be replayed</text>
+              <rect x="520" y="190" width="220" height="56" rx="8" fill="var(--bg-content)" stroke="var(--border)" stroke-width="1" stroke-dasharray="5 4"/>
+              <text x="630.0" y="215.0" font-size="13" font-weight="700" text-anchor="middle" fill="var(--text-heading)">Spend alert</text>
+              <text x="630.0" y="232.0" font-size="11.5" font-weight="400" text-anchor="middle" fill="var(--text-caption)">total tokens, once per day</text>
+            </svg>
+            <figcaption>Each layer is ordinary code that catches what the one before it missed. None of them is the defense by itself.</figcaption>
+          </figure>
         </div>
 
         <div class="lesson-concept">
@@ -86,6 +158,36 @@
         <div class="lesson-concept">
           <h3>Regression tests: make quality a build step</h3>
           <p>Everything above gets its real value when it runs automatically. A <strong>regression test</strong> here means: on every pull request, run the golden set, compare the scores to the last accepted baseline, and fail the build if any score fell by more than a margin. The margin exists because the set is small and models aren't perfectly repeatable; pick it from how much your scores wobble when nothing changed. The eval also has its own budget, since it calls a model on every PR, so cache what's deterministic (embeddings, OCR, model downloads), judge a fixed slice instead of everything, and fail loudly if a run goes over.</p>
+          <figure class="course-diagram">
+            <svg viewBox="0 0 760 268" role="img" aria-label="The CI eval gate: a pull request triggers the golden set, scores are compared to a baseline, and the build goes green or red with the results posted as a comment">
+              <defs><marker id="cigate-a" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0 0L10 5L0 10z" fill="var(--text-caption)"/></marker></defs>
+              <rect x="20" y="100" width="110" height="56" rx="8" fill="var(--bg-content)" stroke="var(--border)" stroke-width="1"/>
+              <text x="75.0" y="132.5" font-size="13" font-weight="700" text-anchor="middle" fill="var(--text-heading)">Pull request</text>
+              <rect x="160" y="100" width="150" height="56" rx="8" fill="var(--bg-content)" stroke="var(--border)" stroke-width="1"/>
+              <text x="235.0" y="125.0" font-size="13" font-weight="700" text-anchor="middle" fill="var(--text-heading)">Run golden set</text>
+              <text x="235.0" y="142.0" font-size="11.5" font-weight="400" text-anchor="middle" fill="var(--text-caption)">50 questions</text>
+              <rect x="340" y="100" width="110" height="56" rx="8" fill="var(--bg-content)" stroke="var(--border)" stroke-width="1"/>
+              <text x="395.0" y="125.0" font-size="13" font-weight="700" text-anchor="middle" fill="var(--text-heading)">Scores</text>
+              <text x="395.0" y="142.0" font-size="11.5" font-weight="400" text-anchor="middle" fill="var(--text-caption)">3 numbers</text>
+              <rect x="480" y="100" width="130" height="56" rx="8" fill="var(--accent)" stroke="var(--accent-strong)" stroke-width="1.6"/>
+              <text x="545.0" y="125.0" font-size="13" font-weight="700" text-anchor="middle" fill="var(--text-heading)">Compare</text>
+              <text x="545.0" y="142.0" font-size="11.5" font-weight="400" text-anchor="middle" fill="var(--text-heading)">to baseline.json</text>
+              <path d="M130 128 H160" fill="none" stroke="var(--text-caption)" stroke-width="1.5" marker-end="url(#cigate-a)"/>
+              <path d="M310 128 H340" fill="none" stroke="var(--text-caption)" stroke-width="1.5" marker-end="url(#cigate-a)"/>
+              <path d="M450 128 H480" fill="none" stroke="var(--text-caption)" stroke-width="1.5" marker-end="url(#cigate-a)"/>
+              <rect x="640" y="54" width="110" height="50" rx="8" fill="var(--bg-content)" stroke="var(--status-green)" stroke-width="1.8"/>
+              <text x="695.0" y="76.0" font-size="13" font-weight="700" text-anchor="middle" fill="var(--text-heading)">Green build</text>
+              <text x="695.0" y="93.0" font-size="11.5" font-weight="400" text-anchor="middle" fill="var(--text-caption)">within margin</text>
+              <rect x="640" y="152" width="110" height="50" rx="8" fill="var(--bg-content)" stroke="var(--status-red)" stroke-width="1.8"/>
+              <text x="695.0" y="174.0" font-size="13" font-weight="700" text-anchor="middle" fill="var(--text-heading)">Red build</text>
+              <text x="695.0" y="191.0" font-size="11.5" font-weight="400" text-anchor="middle" fill="var(--text-caption)">dropped past it</text>
+              <path d="M610 120 C625 120 625 79 640 79" fill="none" stroke="var(--text-caption)" stroke-width="1.5" marker-end="url(#cigate-a)"/>
+              <path d="M610 136 C625 136 625 177 640 177" fill="none" stroke="var(--text-caption)" stroke-width="1.5" marker-end="url(#cigate-a)"/>
+              <rect x="20" y="214" width="730" height="40" rx="8" fill="var(--bg-content)" stroke="var(--border)" stroke-width="1" stroke-dasharray="5 4"/>
+              <text x="385.0" y="238.5" font-size="13" font-weight="700" text-anchor="middle" fill="var(--text-heading)">Either way: results table posted on the PR, and the run stops at its own token budget</text>
+            </svg>
+            <figcaption>Quality becomes a build step: a prompt change that makes the app worse fails the build before it merges.</figcaption>
+          </figure>
         </div>
 
       </div>

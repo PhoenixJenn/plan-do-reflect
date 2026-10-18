@@ -53,6 +53,48 @@
           <h3>RAG versus fine-tuning: facts versus behavior</h3>
           <p>The two techniques change different things. <strong>RAG</strong> changes what the model is <em>shown</em> at question time: the facts live in an index you can edit, and every answer can cite where it came from. <strong>Fine-tuning</strong> changes the model's weights: it's good at teaching a consistent format, tone or task habit, and poor at being a database. Ovadia et al., <em>Fine-Tuning or Retrieval? Comparing Knowledge Injection in LLMs</em> (2023), compared the two as ways to add knowledge and found retrieval generally ahead of unsupervised fine-tuning, including for facts the model had never seen. The usual guidance follows: RAG for facts that change, fine-tuning for behavior, and sometimes both together.</p>
           <p>The project tests that guidance instead of repeating it, on a task where both approaches are plausible. One practical note: most fine-tuning today is parameter-efficient, adjusting a small number of added weights rather than all of them (the idea behind LoRA, Hu et al., 2021), which is why a hosted fine-tune of a small model costs dollars rather than thousands. It does not change the fact that every new fact means another training run.</p>
+          <figure class="course-diagram">
+            <svg viewBox="0 0 760 340" role="img" aria-label="What changes when a new fact arrives: with RAG you re-index and the model is untouched; with fine-tuning you write examples, retrain and redeploy a new model">
+              <defs><marker id="ragft-a" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0 0L10 5L0 10z" fill="var(--text-caption)"/></marker></defs>
+              <rect x="8" y="8" width="744" height="150" rx="10" fill="var(--bg-sidebar)" stroke="var(--border)"/>
+              <text x="24" y="32" font-size="13" font-weight="700" text-anchor="start" fill="var(--text-heading)">RAG: the facts live in an index you can edit</text>
+              <rect x="30" y="60" width="130" height="62" rx="8" fill="var(--bg-content)" stroke="var(--border)" stroke-width="1"/>
+              <text x="95.0" y="95.5" font-size="13" font-weight="700" text-anchor="middle" fill="var(--text-heading)">New manual</text>
+              <rect x="200" y="60" width="150" height="62" rx="8" fill="var(--accent)" stroke="var(--accent-strong)" stroke-width="1.6"/>
+              <text x="275.0" y="88.0" font-size="13" font-weight="700" text-anchor="middle" fill="var(--text-heading)">Re-index</text>
+              <text x="275.0" y="105.0" font-size="11.5" font-weight="400" text-anchor="middle" fill="var(--text-heading)">minutes</text>
+              <rect x="390" y="60" width="150" height="62" rx="8" fill="var(--bg-content)" stroke="var(--border)" stroke-width="1"/>
+              <text x="465.0" y="88.0" font-size="13" font-weight="700" text-anchor="middle" fill="var(--text-heading)">Retrieve</text>
+              <text x="465.0" y="105.0" font-size="11.5" font-weight="400" text-anchor="middle" fill="var(--text-caption)">at question time</text>
+              <rect x="580" y="60" width="150" height="62" rx="8" fill="var(--bg-content)" stroke="var(--border)" stroke-width="1"/>
+              <text x="655.0" y="88.0" font-size="13" font-weight="700" text-anchor="middle" fill="var(--text-heading)">Model unchanged</text>
+              <text x="655.0" y="105.0" font-size="11.5" font-weight="400" text-anchor="middle" fill="var(--text-caption)">same weights</text>
+              <path d="M160 91 H200" fill="none" stroke="var(--text-caption)" stroke-width="1.5" marker-end="url(#ragft-a)"/>
+              <path d="M350 91 H390" fill="none" stroke="var(--text-caption)" stroke-width="1.5" marker-end="url(#ragft-a)"/>
+              <path d="M540 91 H580" fill="none" stroke="var(--text-caption)" stroke-width="1.5" marker-end="url(#ragft-a)"/>
+              <rect x="8" y="176" width="744" height="156" rx="10" fill="var(--bg-sidebar)" stroke="var(--border)"/>
+              <text x="24" y="200" font-size="13" font-weight="700" text-anchor="start" fill="var(--text-heading)">Fine-tuning: the facts live in the weights</text>
+              <rect x="30" y="230" width="110" height="62" rx="8" fill="var(--bg-content)" stroke="var(--border)" stroke-width="1"/>
+              <text x="85.0" y="265.5" font-size="13" font-weight="700" text-anchor="middle" fill="var(--text-heading)">New manual</text>
+              <rect x="165" y="230" width="135" height="62" rx="8" fill="var(--bg-content)" stroke="var(--border)" stroke-width="1"/>
+              <text x="232.5" y="258.0" font-size="13" font-weight="700" text-anchor="middle" fill="var(--text-heading)">Write examples</text>
+              <text x="232.5" y="275.0" font-size="11.5" font-weight="400" text-anchor="middle" fill="var(--text-caption)">training data</text>
+              <rect x="330" y="230" width="110" height="62" rx="8" fill="var(--accent)" stroke="var(--accent-strong)" stroke-width="1.6"/>
+              <text x="385.0" y="258.0" font-size="13" font-weight="700" text-anchor="middle" fill="var(--text-heading)">Retrain</text>
+              <text x="385.0" y="275.0" font-size="11.5" font-weight="400" text-anchor="middle" fill="var(--text-heading)">time + cost</text>
+              <rect x="470" y="230" width="120" height="62" rx="8" fill="var(--bg-content)" stroke="var(--border)" stroke-width="1"/>
+              <text x="530.0" y="258.0" font-size="13" font-weight="700" text-anchor="middle" fill="var(--text-heading)">Redeploy</text>
+              <text x="530.0" y="275.0" font-size="11.5" font-weight="400" text-anchor="middle" fill="var(--text-caption)">new model id</text>
+              <rect x="620" y="230" width="120" height="62" rx="8" fill="var(--bg-content)" stroke="var(--border)" stroke-width="1"/>
+              <text x="680.0" y="258.0" font-size="13" font-weight="700" text-anchor="middle" fill="var(--text-heading)">New weights</text>
+              <text x="680.0" y="275.0" font-size="11.5" font-weight="400" text-anchor="middle" fill="var(--text-caption)">facts baked in</text>
+              <path d="M140 261 H165" fill="none" stroke="var(--text-caption)" stroke-width="1.5" marker-end="url(#ragft-a)"/>
+              <path d="M300 261 H330" fill="none" stroke="var(--text-caption)" stroke-width="1.5" marker-end="url(#ragft-a)"/>
+              <path d="M440 261 H470" fill="none" stroke="var(--text-caption)" stroke-width="1.5" marker-end="url(#ragft-a)"/>
+              <path d="M590 261 H620" fill="none" stroke="var(--text-caption)" stroke-width="1.5" marker-end="url(#ragft-a)"/>
+            </svg>
+            <figcaption>RAG edits the facts. Fine-tuning edits the model. Facts that change often belong in the index.</figcaption>
+          </figure>
         </div>
 
         <div class="lesson-concept">
@@ -65,12 +107,57 @@
           <h3>Routing: send the easy requests to the cheap model</h3>
           <p>Most traffic is easy, and a small model is often as good as a large one on easy requests at a fraction of the price and delay. A <strong>router</strong> labels each request and sends it to the model that fits. The research idea is cascading and routing between models of different cost: see Chen, Zaharia and Zou, <em>FrugalGPT</em> (2023), and Ong et al., <em>RouteLLM</em> (2024). The catch is that the router is itself a decision-maker that can be wrong, and a misrouted hard request costs you quality that the savings must outweigh.</p>
           <p>So routing is a trade you measure, not a free win: the savings from the requests it routes down, minus the cost of the router's own calls, against the quality lost on the ones it routes wrongly. Lab 1 builds the measurement. Lab 3 then asks whether the router needs a model at all.</p>
+          <figure class="course-diagram">
+            <svg viewBox="0 0 760 304" role="img" aria-label="A router labels each request easy or hard and sends easy ones to a small cheap model and hard ones to a large model">
+              <defs><marker id="router-a" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0 0L10 5L0 10z" fill="var(--text-caption)"/></marker></defs>
+              <rect x="20" y="124" width="110" height="60" rx="8" fill="var(--bg-content)" stroke="var(--border)" stroke-width="1"/>
+              <text x="75.0" y="158.5" font-size="13" font-weight="700" text-anchor="middle" fill="var(--text-heading)">Request</text>
+              <rect x="170" y="114" width="160" height="80" rx="8" fill="var(--accent)" stroke="var(--accent-strong)" stroke-width="1.6"/>
+              <text x="250.0" y="151.0" font-size="13" font-weight="700" text-anchor="middle" fill="var(--text-heading)">Router</text>
+              <text x="250.0" y="168.0" font-size="11.5" font-weight="400" text-anchor="middle" fill="var(--text-heading)">small model labels it</text>
+              <rect x="400" y="36" width="190" height="66" rx="8" fill="var(--bg-content)" stroke="var(--border)" stroke-width="1"/>
+              <text x="495.0" y="66.0" font-size="13" font-weight="700" text-anchor="middle" fill="var(--text-heading)">Small model</text>
+              <text x="495.0" y="83.0" font-size="11.5" font-weight="400" text-anchor="middle" fill="var(--text-caption)">cheap and fast</text>
+              <rect x="400" y="206" width="190" height="66" rx="8" fill="var(--bg-content)" stroke="var(--border)" stroke-width="1"/>
+              <text x="495.0" y="236.0" font-size="13" font-weight="700" text-anchor="middle" fill="var(--text-heading)">Large model</text>
+              <text x="495.0" y="253.0" font-size="11.5" font-weight="400" text-anchor="middle" fill="var(--text-caption)">strong and costly</text>
+              <rect x="640" y="124" width="100" height="60" rx="8" fill="var(--bg-content)" stroke="var(--status-green)" stroke-width="1.8"/>
+              <text x="690.0" y="158.5" font-size="13" font-weight="700" text-anchor="middle" fill="var(--text-heading)">Answer</text>
+              <path d="M130 154 H170" fill="none" stroke="var(--text-caption)" stroke-width="1.5" marker-end="url(#router-a)"/>
+              <path d="M330 140 C365 140 365 69 400 69" fill="none" stroke="var(--text-caption)" stroke-width="1.5" marker-end="url(#router-a)"/>
+              <text x="365" y="104" font-size="12" font-weight="700" text-anchor="middle" fill="var(--text-heading)">easy</text>
+              <path d="M330 168 C365 168 365 239 400 239" fill="none" stroke="var(--text-caption)" stroke-width="1.5" marker-end="url(#router-a)"/>
+              <text x="365" y="214" font-size="12" font-weight="700" text-anchor="middle" fill="var(--text-heading)">hard</text>
+              <path d="M590 69 C620 69 620 140 640 140" fill="none" stroke="var(--text-caption)" stroke-width="1.5" marker-end="url(#router-a)"/>
+              <path d="M590 239 C620 239 620 168 640 168" fill="none" stroke="var(--text-caption)" stroke-width="1.5" marker-end="url(#router-a)"/>
+              <text x="380" y="294" font-size="11.5" font-weight="400" text-anchor="middle" fill="var(--text-caption)" font-style="italic">worth it only if the savings beat the router's own cost plus the quality lost to misroutes</text>
+            </svg>
+            <figcaption>The router is itself a decision-maker with its own cost. A hard request sent down costs quality; an easy one sent up costs money.</figcaption>
+          </figure>
         </div>
 
         <div class="lesson-concept">
           <h3>Prompt injection is an architecture problem</h3>
           <p>Module 4 built filters for hostile input. This module's lab goes one level up: when your app retrieves documents or calls tools, <strong>the content they return is also input</strong>, and an attacker who can edit a document your app reads can write instructions into it. That's indirect prompt injection (Greshake et al., 2023), and OWASP lists prompt injection first in its <em>Top 10 for LLM Applications</em>. No filter fully solves it, so the architecture has to limit the damage.</p>
           <p>Three structural defenses beat any pattern list. <strong>Mark untrusted content</strong> and tell the model it is data, not instructions (cheap, helpful, not a guarantee). <strong>Remove capabilities</strong> the model doesn't need, because an injected instruction can only use tools you gave it. And watch for what Simon Willison calls the <em>lethal trifecta</em> (2025): an app that combines access to private data, exposure to untrusted content, and a way to send data out can be steered into leaking. Remove any one leg. Lab 2 also shows something you wouldn't guess from the theory: your document parser is part of your security posture.</p>
+          <figure class="course-diagram">
+            <svg viewBox="0 0 760 396" role="img" aria-label="The lethal trifecta: an app that combines private data, exposure to untrusted content, and a way to send data out can be steered into leaking; removing any one leg removes the risk">
+              <defs><marker id="trifecta-a" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0 0L10 5L0 10z" fill="var(--text-caption)"/></marker></defs>
+              <circle cx="300" cy="140" r="105" fill="var(--accent)" fill-opacity=".22" stroke="var(--accent)" stroke-width="2"/>
+              <circle cx="460" cy="140" r="105" fill="var(--status-blue)" fill-opacity=".22" stroke="var(--status-blue)" stroke-width="2"/>
+              <circle cx="380" cy="250" r="105" fill="var(--status-amber)" fill-opacity=".22" stroke="var(--status-amber)" stroke-width="2"/>
+              <text x="112" y="112" font-size="14" font-weight="700" text-anchor="middle" fill="var(--text-heading)">Private data</text>
+              <text x="112" y="132" font-size="11.5" font-weight="400" text-anchor="middle" fill="var(--text-caption)">emails, files,</text>
+              <text x="112" y="148" font-size="11.5" font-weight="400" text-anchor="middle" fill="var(--text-caption)">customer records</text>
+              <text x="648" y="112" font-size="14" font-weight="700" text-anchor="middle" fill="var(--text-heading)">Untrusted content</text>
+              <text x="648" y="132" font-size="11.5" font-weight="400" text-anchor="middle" fill="var(--text-caption)">web pages, retrieved</text>
+              <text x="648" y="148" font-size="11.5" font-weight="400" text-anchor="middle" fill="var(--text-caption)">documents, inbound mail</text>
+              <text x="380" y="372" font-size="12" font-weight="700" text-anchor="middle" fill="var(--text-heading)">A way to send data out: email, web requests, posting a comment</text>
+              <text x="380" y="190" font-size="14" font-weight="800" text-anchor="middle" fill="var(--status-red)">can leak</text>
+              <text x="380" y="208" font-size="12" font-weight="600" text-anchor="middle" fill="var(--status-red)">all three</text>
+            </svg>
+            <figcaption>Remove any one leg and the attack has either nothing to steal, nothing to carry the instruction, or no way out.</figcaption>
+          </figure>
         </div>
 
         <div class="lesson-concept">

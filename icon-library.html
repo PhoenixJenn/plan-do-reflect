@@ -560,6 +560,43 @@
     </div>
 
     <div class="lib-component">
+      <div class="lib-component-name">Course Diagram (SVG figure)</div>
+      <div class="lib-component-desc">A flow or architecture diagram drawn as inline SVG inside <code>figure.course-diagram</code>, with a one-sentence <code>figcaption</code> and an <code>aria-label</code> that describes the whole diagram. One visual language across every course page: lanes are <code>var(--bg-sidebar)</code> with a <code>var(--border)</code> outline; ordinary boxes are <code>var(--bg-content)</code>; the box that matters most is <code>var(--accent)</code> with an <code>--accent-strong</code> outline; a pass or finish state is outlined in <code>var(--status-green)</code>, a failure or risky gate in <code>var(--status-red)</code> (dashed when it is a gate rather than a result); arrows and notes are <code>var(--text-caption)</code>. No hex values, so a theme change recolors every diagram. Each box has a bold 13px title and an optional 11.5px subtitle. Give every SVG its own arrow-marker id (<code>&lt;prefix&gt;-a</code>), since two diagrams on one page would otherwise share a marker. The SVG keeps a 620px minimum width and the figure scrolls sideways on narrow screens, rather than shrinking its text. Generated from a small Python builder (boxes, lanes, arrows); the source for the course's diagrams is not in this repo, so edit the SVG in place.</div>
+      <div class="lib-component-demo">
+        <figure class="course-diagram">
+            <svg viewBox="0 0 760 372" role="img" aria-label="The agent loop: the model is called, any tool it asks for is run, the result is appended to the messages, and the loop repeats until the model answers in text">
+              <defs><marker id="libloop-a" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0 0L10 5L0 10z" fill="var(--text-caption)"/></marker></defs>
+              <rect x="30" y="48" width="130" height="64" rx="8" fill="var(--bg-content)" stroke="var(--border)" stroke-width="1"/>
+              <text x="95.0" y="77.0" font-size="13" font-weight="700" text-anchor="middle" fill="var(--text-heading)">Your task</text>
+              <text x="95.0" y="94.0" font-size="11.5" font-weight="400" text-anchor="middle" fill="var(--text-caption)">the first message</text>
+              <rect x="290" y="60" width="180" height="70" rx="8" fill="var(--accent)" stroke="var(--accent-strong)" stroke-width="1.6"/>
+              <text x="380.0" y="92.0" font-size="13" font-weight="700" text-anchor="middle" fill="var(--text-heading)">Call the model</text>
+              <text x="380.0" y="109.0" font-size="11.5" font-weight="400" text-anchor="middle" fill="var(--text-heading)">think() sees all messages</text>
+              <rect x="560" y="45" width="170" height="60" rx="8" fill="var(--bg-content)" stroke="var(--status-green)" stroke-width="1.8"/>
+              <text x="645.0" y="72.0" font-size="13" font-weight="700" text-anchor="middle" fill="var(--text-heading)">Final answer</text>
+              <text x="645.0" y="89.0" font-size="11.5" font-weight="400" text-anchor="middle" fill="var(--text-caption)">plain text: done</text>
+              <rect x="560" y="190" width="170" height="64" rx="8" fill="var(--bg-content)" stroke="var(--border)" stroke-width="1"/>
+              <text x="645.0" y="219.0" font-size="13" font-weight="700" text-anchor="middle" fill="var(--text-heading)">Run the tool</text>
+              <text x="645.0" y="236.0" font-size="11.5" font-weight="400" text-anchor="middle" fill="var(--text-caption)">your code does the work</text>
+              <rect x="290" y="290" width="180" height="56" rx="8" fill="var(--bg-content)" stroke="var(--border)" stroke-width="1"/>
+              <text x="380.0" y="315.0" font-size="13" font-weight="700" text-anchor="middle" fill="var(--text-heading)">Append the result</text>
+              <text x="380.0" y="332.0" font-size="11.5" font-weight="400" text-anchor="middle" fill="var(--text-caption)">joins the messages</text>
+              <path d="M160 80 H290" fill="none" stroke="var(--text-caption)" stroke-width="1.5" marker-end="url(#libloop-a)"/>
+              <path d="M470 75 H560" fill="none" stroke="var(--text-caption)" stroke-width="1.5" marker-end="url(#libloop-a)"/>
+              <text x="515" y="67" font-size="11.5" font-weight="400" text-anchor="middle" fill="var(--text-caption)">no tool call</text>
+              <path d="M470 115 H645 V190" fill="none" stroke="var(--text-caption)" stroke-width="1.5" marker-end="url(#libloop-a)"/>
+              <text x="560" y="136" font-size="11.5" font-weight="400" text-anchor="middle" fill="var(--text-caption)">asks for a tool</text>
+              <path d="M645 254 V318 H470" fill="none" stroke="var(--text-caption)" stroke-width="1.5" marker-end="url(#libloop-a)"/>
+              <path d="M290 318 H220 V110 H290" fill="none" stroke="var(--text-caption)" stroke-width="1.5" marker-end="url(#libloop-a)"/>
+              <text x="395" y="215" font-size="12" font-weight="400" text-anchor="middle" fill="var(--text-caption)" font-style="italic">repeat until the model answers in text</text>
+            </svg>
+            <figcaption>The whole agent is this loop. Everything else in the module (limits, state, approval, history) is built around it.</figcaption>
+          </figure>
+      </div>
+      <div class="lib-component-source">figure.course-diagram — course/ai-beyond-fundamentals/*.html (agent loop on agents-harnesses.html; RAG pipeline on rag-done-right.html)</div>
+    </div>
+
+    <div class="lib-component">
       <div class="lib-component-name">Matrix Diagram</div>
       <div class="lib-component-desc">A 2x2 grid with real row/column axis labels — built for the Eisenhower Matrix, but generic to any 2x2 framework. .m-primary/.m-secondary/.m-muted grade the four cells from most to least important by background weight rather than all four looking equal. Real text in a CSS grid, not an image, so it themes automatically with no per-theme variants needed. Narrower axis-label column under 720px.</div>
       <div class="lib-component-demo">

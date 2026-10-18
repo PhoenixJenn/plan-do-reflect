@@ -59,11 +59,65 @@
           <h3>Structured output: schemas, Pydantic, validation, and retry</h3>
           <p>Asking a model for JSON and getting back something your code can actually parse are two different problems. A <strong>Pydantic model</strong> defines the exact shape you expect; after the call, you parse the raw text and validate it against that shape, catching both malformed JSON and the right JSON shape with wrong types.</p>
           <p>The real failure mode worth planning for isn't sloppy formatting &mdash; current mid-tier models are quite disciplined about that. It's <strong>truncation</strong>: the model's JSON gets cut off mid-object because <code class="inline">max_tokens</code> wasn't enough for a longer or more complex response. That failure is deterministic at a fixed budget, so retrying with the identical budget just fails again &mdash; the retry has to <em>increase</em> the budget, not just try again. Lab 2 demonstrates this directly.</p>
+          <figure class="course-diagram">
+            <svg viewBox="0 0 760 292" role="img" aria-label="Structured output with retry: call the model, parse the JSON, validate it against a schema; if it was truncated or invalid, retry with a larger token budget">
+              <defs><marker id="retry-a" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0 0L10 5L0 10z" fill="var(--text-caption)"/></marker></defs>
+              <rect x="20" y="100" width="140" height="60" rx="8" fill="var(--bg-content)" stroke="var(--border)" stroke-width="1"/>
+              <text x="90.0" y="127.0" font-size="13" font-weight="700" text-anchor="middle" fill="var(--text-heading)">Call the model</text>
+              <text x="90.0" y="144.0" font-size="11.5" font-weight="400" text-anchor="middle" fill="var(--text-caption)">with max_tokens</text>
+              <rect x="200" y="100" width="130" height="60" rx="8" fill="var(--bg-content)" stroke="var(--border)" stroke-width="1"/>
+              <text x="265.0" y="134.5" font-size="13" font-weight="700" text-anchor="middle" fill="var(--text-heading)">Parse JSON</text>
+              <rect x="370" y="100" width="160" height="60" rx="8" fill="var(--accent)" stroke="var(--accent-strong)" stroke-width="1.6"/>
+              <text x="450.0" y="127.0" font-size="13" font-weight="700" text-anchor="middle" fill="var(--text-heading)">Validate</text>
+              <text x="450.0" y="144.0" font-size="11.5" font-weight="400" text-anchor="middle" fill="var(--text-heading)">Pydantic schema</text>
+              <rect x="590" y="30" width="150" height="56" rx="8" fill="var(--bg-content)" stroke="var(--status-green)" stroke-width="1.8"/>
+              <text x="665.0" y="55.0" font-size="13" font-weight="700" text-anchor="middle" fill="var(--text-heading)">Valid object</text>
+              <text x="665.0" y="72.0" font-size="11.5" font-weight="400" text-anchor="middle" fill="var(--text-caption)">use it</text>
+              <rect x="330" y="200" width="250" height="56" rx="8" fill="var(--bg-content)" stroke="var(--status-red)" stroke-width="1.8" stroke-dasharray="5 4"/>
+              <text x="455.0" y="225.0" font-size="13" font-weight="700" text-anchor="middle" fill="var(--text-heading)">Retry with a bigger budget</text>
+              <text x="455.0" y="242.0" font-size="11.5" font-weight="400" text-anchor="middle" fill="var(--text-caption)">double max_tokens, up to N tries</text>
+              <path d="M160 130 H200" fill="none" stroke="var(--text-caption)" stroke-width="1.5" marker-end="url(#retry-a)"/>
+              <path d="M330 130 H370" fill="none" stroke="var(--text-caption)" stroke-width="1.5" marker-end="url(#retry-a)"/>
+              <path d="M530 118 C560 118 560 58 590 58" fill="none" stroke="var(--text-caption)" stroke-width="1.5" marker-end="url(#retry-a)"/>
+              <text x="572" y="108" font-size="11.5" font-weight="600" text-anchor="start" fill="var(--status-green)">passes</text>
+              <path d="M450 160 V200" fill="none" stroke="var(--text-caption)" stroke-width="1.5" marker-end="url(#retry-a)"/>
+              <text x="458" y="184" font-size="11.5" font-weight="400" text-anchor="start" fill="var(--text-caption)">cut off or wrong type</text>
+              <path d="M330 228 H90 V160" fill="none" stroke="var(--text-caption)" stroke-width="1.5" marker-end="url(#retry-a)"/>
+            </svg>
+            <figcaption>A retry with the same budget fails the same way, so the retry has to change something: here, a bigger max_tokens.</figcaption>
+          </figure>
         </div>
 
         <div class="lesson-concept">
           <h3>Tool calling: request, result, follow-up</h3>
           <p>Tool calling is a three-step loop, not a single call. You send the model a list of tools (name, description, a JSON schema for its arguments); the model's response can ask to call one by name with specific arguments instead of answering directly; <em>you</em> run that tool in your own code and send the result back as a new message; the model then either answers using that result or asks for another tool call. A multi-step task (look up a rate, then do arithmetic with it) can chain several of these rounds before producing a final answer &mdash; Lab 3 logs every round so the loop is visible instead of hidden inside the SDK.</p>
+          <figure class="course-diagram">
+            <svg viewBox="0 0 760 340" role="img" aria-label="Tool calling is a round trip: you send the question and tool list, the model asks for a tool call, your code runs it and sends back the result, and the model answers">
+              <defs><marker id="roundtrip-a" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0 0L10 5L0 10z" fill="var(--text-caption)"/></marker></defs>
+              <rect x="55" y="8" width="150" height="34" rx="8" fill="var(--bg-content)" stroke="var(--border)" stroke-width="1"/>
+              <text x="130.0" y="29.5" font-size="13" font-weight="700" text-anchor="middle" fill="var(--text-heading)">Your code</text>
+              <path d="M130 42 V330" fill="none" stroke="var(--border)" stroke-width="1.2" stroke-dasharray="4 3"/>
+              <rect x="305" y="8" width="150" height="34" rx="8" fill="var(--accent)" stroke="var(--accent-strong)" stroke-width="1.6"/>
+              <text x="380.0" y="29.5" font-size="13" font-weight="700" text-anchor="middle" fill="var(--text-heading)">The model</text>
+              <path d="M380 42 V330" fill="none" stroke="var(--border)" stroke-width="1.2" stroke-dasharray="4 3"/>
+              <rect x="555" y="8" width="150" height="34" rx="8" fill="var(--bg-content)" stroke="var(--border)" stroke-width="1"/>
+              <text x="630.0" y="29.5" font-size="13" font-weight="700" text-anchor="middle" fill="var(--text-heading)">Your tool function</text>
+              <path d="M630 42 V330" fill="none" stroke="var(--border)" stroke-width="1.2" stroke-dasharray="4 3"/>
+              <path d="M130 84 H380" fill="none" stroke="var(--text-caption)" stroke-width="1.5" marker-end="url(#roundtrip-a)"/>
+              <text x="255.0" y="77" font-size="12" font-weight="400" text-anchor="middle" fill="var(--text-heading)">1. question + list of tools</text>
+              <path d="M380 124 H130" fill="none" stroke="var(--text-caption)" stroke-width="1.5" stroke-dasharray="4 3" marker-end="url(#roundtrip-a)"/>
+              <text x="255.0" y="117" font-size="12" font-weight="400" text-anchor="middle" fill="var(--text-heading)">2. "call exchange_rate(EUR, USD)"</text>
+              <path d="M130 164 H630" fill="none" stroke="var(--text-caption)" stroke-width="1.5" marker-end="url(#roundtrip-a)"/>
+              <text x="380.0" y="157" font-size="12" font-weight="400" text-anchor="middle" fill="var(--text-heading)">3. you run it</text>
+              <path d="M630 204 H130" fill="none" stroke="var(--text-caption)" stroke-width="1.5" stroke-dasharray="4 3" marker-end="url(#roundtrip-a)"/>
+              <text x="380.0" y="197" font-size="12" font-weight="400" text-anchor="middle" fill="var(--text-heading)">result: 1.09</text>
+              <path d="M130 244 H380" fill="none" stroke="var(--text-caption)" stroke-width="1.5" marker-end="url(#roundtrip-a)"/>
+              <text x="255.0" y="237" font-size="12" font-weight="400" text-anchor="middle" fill="var(--text-heading)">4. result sent back as a message</text>
+              <path d="M380 284 H130" fill="none" stroke="var(--text-caption)" stroke-width="1.5" stroke-dasharray="4 3" marker-end="url(#roundtrip-a)"/>
+              <text x="255.0" y="277" font-size="12" font-weight="400" text-anchor="middle" fill="var(--text-heading)">5. final answer in plain text</text>
+            </svg>
+            <figcaption>The model never runs anything. It asks, you run, you report back. Steps 2 to 5 can repeat; that repetition is the agent loop.</figcaption>
+          </figure>
         </div>
 
         <div class="lesson-concept">
@@ -75,6 +129,28 @@
         <div class="lesson-concept">
           <h3>Chain-of-Verification</h3>
           <p>A four-step pattern for catching a model's own mistakes before they reach the user: draft an initial answer, generate a short list of fact-check questions against that draft, answer those check questions independently (often more reliable than the original pass, since each question is narrower), then revise the draft using anything the checks turned up. It costs 3&ndash;4x the calls of a single pass, so it's worth reserving for answers where being wrong is expensive &mdash; not a default for every request.</p>
+          <figure class="course-diagram">
+            <svg viewBox="0 0 760 214" role="img" aria-label="Chain-of-Verification: draft an answer, write fact-check questions about the draft, answer each check on its own, then revise the draft">
+              <defs><marker id="cove-a" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0 0L10 5L0 10z" fill="var(--text-caption)"/></marker></defs>
+              <rect x="20" y="56" width="150" height="72" rx="8" fill="var(--bg-content)" stroke="var(--border)" stroke-width="1"/>
+              <text x="95.0" y="89.0" font-size="13" font-weight="700" text-anchor="middle" fill="var(--text-heading)">1. Draft</text>
+              <text x="95.0" y="106.0" font-size="11.5" font-weight="400" text-anchor="middle" fill="var(--text-caption)">first-pass answer</text>
+              <path d="M170 92 H210" fill="none" stroke="var(--text-caption)" stroke-width="1.5" marker-end="url(#cove-a)"/>
+              <rect x="210" y="56" width="150" height="72" rx="8" fill="var(--bg-content)" stroke="var(--border)" stroke-width="1"/>
+              <text x="285.0" y="89.0" font-size="13" font-weight="700" text-anchor="middle" fill="var(--text-heading)">2. Check questions</text>
+              <text x="285.0" y="106.0" font-size="11.5" font-weight="400" text-anchor="middle" fill="var(--text-caption)">what must be true?</text>
+              <path d="M360 92 H400" fill="none" stroke="var(--text-caption)" stroke-width="1.5" marker-end="url(#cove-a)"/>
+              <rect x="400" y="56" width="150" height="72" rx="8" fill="var(--bg-content)" stroke="var(--border)" stroke-width="1"/>
+              <text x="475.0" y="89.0" font-size="13" font-weight="700" text-anchor="middle" fill="var(--text-heading)">3. Answer each</text>
+              <text x="475.0" y="106.0" font-size="11.5" font-weight="400" text-anchor="middle" fill="var(--text-caption)">one at a time</text>
+              <path d="M550 92 H590" fill="none" stroke="var(--text-caption)" stroke-width="1.5" marker-end="url(#cove-a)"/>
+              <rect x="590" y="56" width="150" height="72" rx="8" fill="var(--accent)" stroke="var(--accent-strong)" stroke-width="1.6"/>
+              <text x="665.0" y="89.0" font-size="13" font-weight="700" text-anchor="middle" fill="var(--text-heading)">4. Revise</text>
+              <text x="665.0" y="106.0" font-size="11.5" font-weight="400" text-anchor="middle" fill="var(--text-heading)">fix what failed</text>
+              <text x="380" y="168" font-size="12" font-weight="400" text-anchor="middle" fill="var(--text-caption)" font-style="italic">each check is narrower than the original question, so it is often answered more reliably</text>
+            </svg>
+            <figcaption>Three to four times the calls of a single pass, so save it for answers where being wrong is expensive.</figcaption>
+          </figure>
         </div>
 
         <div class="lesson-concept">

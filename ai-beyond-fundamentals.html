@@ -527,6 +527,36 @@
             <li>Limits (max steps, budget, timeout) and human approval for risky actions</li>
           </ul>
 
+          <figure class="course-diagram">
+            <svg viewBox="0 0 760 372" role="img" aria-label="The agent loop: the model is called, any tool it asks for is run, the result is appended to the messages, and the loop repeats until the model answers in text">
+              <defs><marker id="ovloop-a" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0 0L10 5L0 10z" fill="var(--text-caption)"/></marker></defs>
+              <rect x="30" y="48" width="130" height="64" rx="8" fill="var(--bg-content)" stroke="var(--border)" stroke-width="1"/>
+              <text x="95.0" y="77.0" font-size="13" font-weight="700" text-anchor="middle" fill="var(--text-heading)">Your task</text>
+              <text x="95.0" y="94.0" font-size="11.5" font-weight="400" text-anchor="middle" fill="var(--text-caption)">the first message</text>
+              <rect x="290" y="60" width="180" height="70" rx="8" fill="var(--accent)" stroke="var(--accent-strong)" stroke-width="1.6"/>
+              <text x="380.0" y="92.0" font-size="13" font-weight="700" text-anchor="middle" fill="var(--text-heading)">Call the model</text>
+              <text x="380.0" y="109.0" font-size="11.5" font-weight="400" text-anchor="middle" fill="var(--text-heading)">think() sees all messages</text>
+              <rect x="560" y="45" width="170" height="60" rx="8" fill="var(--bg-content)" stroke="var(--status-green)" stroke-width="1.8"/>
+              <text x="645.0" y="72.0" font-size="13" font-weight="700" text-anchor="middle" fill="var(--text-heading)">Final answer</text>
+              <text x="645.0" y="89.0" font-size="11.5" font-weight="400" text-anchor="middle" fill="var(--text-caption)">plain text: done</text>
+              <rect x="560" y="190" width="170" height="64" rx="8" fill="var(--bg-content)" stroke="var(--border)" stroke-width="1"/>
+              <text x="645.0" y="219.0" font-size="13" font-weight="700" text-anchor="middle" fill="var(--text-heading)">Run the tool</text>
+              <text x="645.0" y="236.0" font-size="11.5" font-weight="400" text-anchor="middle" fill="var(--text-caption)">your code does the work</text>
+              <rect x="290" y="290" width="180" height="56" rx="8" fill="var(--bg-content)" stroke="var(--border)" stroke-width="1"/>
+              <text x="380.0" y="315.0" font-size="13" font-weight="700" text-anchor="middle" fill="var(--text-heading)">Append the result</text>
+              <text x="380.0" y="332.0" font-size="11.5" font-weight="400" text-anchor="middle" fill="var(--text-caption)">joins the messages</text>
+              <path d="M160 80 H290" fill="none" stroke="var(--text-caption)" stroke-width="1.5" marker-end="url(#ovloop-a)"/>
+              <path d="M470 75 H560" fill="none" stroke="var(--text-caption)" stroke-width="1.5" marker-end="url(#ovloop-a)"/>
+              <text x="515" y="67" font-size="11.5" font-weight="400" text-anchor="middle" fill="var(--text-caption)">no tool call</text>
+              <path d="M470 115 H645 V190" fill="none" stroke="var(--text-caption)" stroke-width="1.5" marker-end="url(#ovloop-a)"/>
+              <text x="560" y="136" font-size="11.5" font-weight="400" text-anchor="middle" fill="var(--text-caption)">asks for a tool</text>
+              <path d="M645 254 V318 H470" fill="none" stroke="var(--text-caption)" stroke-width="1.5" marker-end="url(#ovloop-a)"/>
+              <path d="M290 318 H220 V110 H290" fill="none" stroke="var(--text-caption)" stroke-width="1.5" marker-end="url(#ovloop-a)"/>
+              <text x="395" y="215" font-size="12" font-weight="400" text-anchor="middle" fill="var(--text-caption)" font-style="italic">repeat until the model answers in text</text>
+            </svg>
+            <figcaption>The whole agent is this loop. Everything else in the module (limits, state, approval, history) is built around it.</figcaption>
+          </figure>
+
           <h4 class="course-subhead" id="harness-engineering">Harness engineering: fix the system, not the prompt</h4>
           <p style="max-width: 640px;">The model is only the reasoning engine. It can suggest the next action, but it cannot create a reliable operating environment by itself. The harness decides what the model can see, what it can touch, what survives between sessions, what counts as evidence, and when the run must stop.</p>
           <div class="mvv-grid is-two" style="margin-top: 14px; max-width: 640px;">
