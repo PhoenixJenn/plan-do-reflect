@@ -1,0 +1,237 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="a">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="icon" type="image/svg+xml" href="favicon.svg">
+<title>AI Fundamentals · Plan · Do · Reflect</title>
+
+<!-- Applied before CSS loads, so the saved theme choice doesn't flash to the default on reload -->
+<script>
+(function () {
+  try {
+    var savedTheme = localStorage.getItem('pdr-theme');
+    if (['a', 'b', 'c'].indexOf(savedTheme) > -1) {
+      document.documentElement.setAttribute('data-theme', savedTheme);
+    }
+  } catch (e) {}
+})();
+</script>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=Work+Sans:wght@400;500;600&family=Sora:wght@600;700;800&family=Plus+Jakarta+Sans:wght@500;600;700&family=Patrick+Hand&family=Golos+Text:wght@800&display=swap" rel="stylesheet">
+
+<link rel="stylesheet" href="css/tokens.css">
+<link rel="stylesheet" href="css/main.css">
+</head>
+<body data-nav="core-skills">
+
+<div id="site-topnav"></div>
+
+<div class="layout">
+  <aside class="sidebar">
+    <div class="sec-title">Core Skills</div>
+    <a class="sub-item" href="core-skills.html">Overview</a>
+
+    <div class="sidebar-group">
+      <div class="group-label">Professional Development</div>
+      <a class="sub-item" href="communication.html">Communication</a>
+      <div class="sub-item-group">
+        <a class="sub-item active" href="ai-fundamentals.html">AI Fundamentals</a>
+        <div class="sub-sub-list">
+          <a class="sub-sub-item" href="#understand-it">Understand It</a>
+          <a class="sub-sub-item" href="#learn-to-use-it">Learn to Use It</a>
+          <a class="sub-sub-item" href="#apply-it">Apply It to Your Work</a>
+          <a class="sub-sub-item" href="#make-it-habitual">Make It Habitual</a>
+        </div>
+      </div>
+      <a class="sub-item" href="ai-beyond-fundamentals.html">AI Beyond Fundamentals</a>
+    </div>
+
+    <div class="sidebar-group">
+      <div class="group-label">Decision-Making</div>
+      <a class="sub-item" href="defining-tenets.html">Tenets</a>
+      <a class="sub-item" href="yes-and.html">Yes, And</a>
+    </div>
+  </aside>
+
+  <main class="content">
+    <div class="page-hero">
+      <h1>AI Fundamentals</h1>
+      <p class="lede">A learning path, not a single skill: understand it, learn to use it, apply it to your work, then make it habitual.</p>
+      <div class="tag-row" style="margin-top: 14px; margin-bottom: 0;">
+        <a class="try-it-quicklink" href="#try-it">
+          <svg width="14" height="14" viewBox="0 0 24 24" aria-hidden="true">
+            <path d="M12 2 L14.2 9 L21 11 L14.2 13 L12 20 L9.8 13 L3 11 L9.8 9 Z" fill="currentColor"/>
+          </svg>
+          Try It
+        </a>
+      </div>
+    </div>
+
+    <div class="section-block">
+      <p style="max-width: 640px;">This page is for using AI well, not building it. If you want the engineering side — RAG, evals, guardrails, agents and harnesses — that's <a href="ai-beyond-fundamentals.html">AI Beyond Fundamentals</a>. This page stays at the level of a working professional deciding what to reach for and when.</p>
+    </div>
+
+    <!-- ===================== UNDERSTAND IT ===================== -->
+    <div class="section-block" id="understand-it">
+      <h2>1 · Understand It</h2>
+      <p style="max-width: 640px;">An LLM (the "brain" behind ChatGPT, Claude, and Gemini) predicts the next most likely piece of text, trained on an enormous amount of writing. It isn't a database that looks up facts — it's closer to a very well-read pattern-matcher that's extremely good at completing and transforming text. That explains both what it's great at and where it quietly breaks.</p>
+
+      <div class="mvv-grid is-two" style="margin-top: 14px; max-width: 640px;">
+        <div class="mvv-card" style="--mvv-color: var(--accent)">
+          <h3 style="font-size: 0.9rem;">Genuinely strong at</h3>
+          <ul class="explainer-list is-bulleted">
+            <li>Drafting, rephrasing and summarizing</li>
+            <li>Brainstorming and finding angles you hadn't considered</li>
+            <li>Explaining something in the exact terms you already know</li>
+            <li>Finding patterns across text you hand it directly</li>
+          </ul>
+        </div>
+        <div class="mvv-card" style="--mvv-color: var(--accent-strong)">
+          <h3 style="font-size: 0.9rem;">Quietly unreliable at</h3>
+          <ul class="explainer-list is-bulleted">
+            <li>Stating facts with total confidence while being wrong ("hallucination")</li>
+            <li>Anything after its training cutoff, unless it's actually searching live</li>
+            <li>Checking its own work — it can't tell confident from correct</li>
+            <li>Math and precise counting, done in its head instead of with a tool</li>
+          </ul>
+        </div>
+      </div>
+
+      <h4 class="fw-subhead" style="margin-top: 20px;">Words worth knowing</h4>
+      <ul class="explainer-list is-bulleted" style="max-width: 640px;">
+        <li><strong>Model vs. tool</strong> — Claude, GPT, Gemini are the models (the brain); ChatGPT, Claude.ai, Gemini are the products built around them (the packaging). Same brand name is often used for both.</li>
+        <li><strong>Context window</strong> — how much text it can actually "see" at once. A long conversation or a huge document can push earlier content out of view without any warning.</li>
+        <li><strong>Prompt</strong> — what you give it: instructions, a question, a document, or all three.</li>
+        <li><strong>Hallucination</strong> — a fluent, confident, wrong answer. The tone gives you no signal; only checking does.</li>
+        <li><strong>Agent</strong> — not a bigger model, a model wired to take multiple actions toward a goal on its own instead of answering one question. More in <a href="#apply-it">Apply It to Your Work</a> below.</li>
+      </ul>
+    </div>
+
+    <!-- ===================== LEARN TO USE IT ===================== -->
+    <div class="section-block" id="learn-to-use-it">
+      <h2>2 · Learn to Use It</h2>
+      <p style="max-width: 640px;">The gap between someone who's "tried ChatGPT" and someone who actually relies on it is almost never the model — it's a handful of habits.</p>
+
+      <h4 class="fw-subhead" style="margin-top: 20px;">Prompting, in practice</h4>
+      <div class="num-list" style="max-width: 640px;">
+        <div class="num-list-item">
+          <span class="num-badge">1</span>
+          <p><strong>Say the goal, not just the task</strong> — "write a status update" gets a generic draft; "write a status update for my VP who skims, flagging the one risk that needs a decision" gets a usable one.</p>
+        </div>
+        <div class="num-list-item">
+          <span class="num-badge">2</span>
+          <p><strong>Hand it the context directly</strong> — paste the actual email thread, document, or data instead of describing it from memory. It can't see your inbox or your hard drive unless you give it access.</p>
+        </div>
+        <div class="num-list-item">
+          <span class="num-badge">3</span>
+          <p><strong>Specify the output shape</strong> — a bulleted list, a table, a specific word count. It will default to whatever's generic unless you say otherwise.</p>
+        </div>
+        <div class="num-list-item">
+          <span class="num-badge">4</span>
+          <p><strong>Treat the first answer as a draft</strong> — iterate ("shorter," "more direct," "push back on this part") instead of expecting a perfect first pass.</p>
+        </div>
+        <div class="num-list-item">
+          <span class="num-badge">5</span>
+          <p><strong>Ask it to ask you</strong> — when the task is fuzzy, tell it to ask clarifying questions before answering, rather than guessing at what you meant.</p>
+        </div>
+      </div>
+
+      <h4 class="fw-subhead" style="margin-top: 20px;">Features worth actually learning</h4>
+      <p style="max-width: 640px;">Most people use one chat box and nothing else. A few features do a lot of the remaining work: uploading a file instead of pasting text, persistent custom instructions or a "project" so you're not re-explaining context every conversation, voice mode for thinking out loud, and image generation or analysis when the task isn't text.</p>
+
+      <div class="insight-aside" style="margin-top: 18px; max-width: 640px;">
+        <svg width="26" height="26" viewBox="0 0 26 26" aria-hidden="true">
+          <circle cx="13" cy="13" r="10" fill="none" stroke="var(--border)" stroke-width="2"/>
+          <path d="M13 7 L13 14" stroke="var(--accent-strong)" stroke-width="2.4" stroke-linecap="round"/>
+          <circle cx="13" cy="18.5" r="1.6" fill="var(--accent-strong)"/>
+        </svg>
+        <div class="insight-aside-body">
+          <span class="insight-aside-label">Watch-out</span>
+          <p>Verify anything you'd be embarrassed to be wrong about — a number, a quote, a citation, a legal or medical claim — before you act on it or send it to someone else. Fluent isn't the same as checked.</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- ===================== APPLY IT TO YOUR WORK ===================== -->
+    <div class="section-block" id="apply-it" style="max-width: 980px;">
+      <h2>3 · Apply It to Your Work</h2>
+      <p style="max-width: 640px;">Once a single chat is a habit, the next step is usually wanting AI to do more without you babysitting every step — pull from your tools, take several actions, finish a multi-step task on its own. That's an <strong>agent</strong>, and there are four very different ways to get one, ranging from free and already in your hands to a real engineering project.</p>
+
+      <div class="compare-table-wrap" style="margin-top: 14px; max-width: 980px;">
+        <table class="compare-table">
+          <thead>
+            <tr><th>Category</th><th>Examples today</th><th>Best for</th><th>Tradeoff</th></tr>
+          </thead>
+          <tbody>
+            <tr><th scope="row">A vendor's built-in agent mode</th><td>ChatGPT's agent mode &amp; Projects, Claude's Agent Skills, Gemini's Gems</td><td>You want the tool you already pay for to do more</td><td>Simplest and cheapest — nothing to buy or set up — but limited to what that one vendor's tool can reach</td></tr>
+            <tr><th scope="row">No-code agent builder</th><td>n8n, Zapier Agents</td><td>Wiring together tools you already use (Slack, Sheets, email, calendars) without writing code</td><td>More flexible than a built-in agent mode, less powerful than a custom build; still real setup work</td></tr>
+            <tr><th scope="row">Off-the-shelf enterprise platform</th><td>Glean, Moveworks, Salesforce Agentforce, Microsoft Copilot Studio</td><td>Your problem is a known category — enterprise search, IT/HR tickets, CRM</td><td>Fastest way to a working rollout, but only as flexible as the vendor's templates, and locks you into that ecosystem</td></tr>
+            <tr><th scope="row">Build-your-own framework</th><td>LangChain/LangGraph, CrewAI, AutoGen (AG2), OpenAI Agents SDK, Claude Agent SDK</td><td>A workflow nobody sells, or one that has to live inside your own codebase</td><td>Most control and capability — also the most expensive, and needs an engineer</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <p style="margin-top: 10px; max-width: 640px;">Within that last row, the frameworks split by philosophy as much as by feature: LangGraph favors explicit, auditable control, which matters when a workflow has compliance or review requirements; CrewAI favors fast prototyping, with agents playing defined roles on a team; AutoGen (Microsoft's AG2) favors agents that debate and refine each other's work. All three still need an engineer to stand up and maintain.</p>
+
+      <h4 class="fw-subhead" style="margin-top: 20px;">How to decide</h4>
+      <div class="num-list" style="max-width: 640px;">
+        <div class="num-list-item">
+          <span class="num-badge">1</span>
+          <p>Start with the agent mode already inside the tool you pay for. It's free, and it's often enough.</p>
+        </div>
+        <div class="num-list-item">
+          <span class="num-badge">2</span>
+          <p>If your exact problem already has a vendor for it — enterprise search, CRM, IT tickets — buy that instead of building one.</p>
+        </div>
+        <div class="num-list-item">
+          <span class="num-badge">3</span>
+          <p>If you want to wire together tools you already use, without writing code, a no-code builder is the middle ground.</p>
+        </div>
+        <div class="num-list-item">
+          <span class="num-badge">4</span>
+          <p>Only build a custom framework when nothing off-the-shelf fits and you actually have engineering time to spend on it.</p>
+        </div>
+      </div>
+
+      <div class="insight-aside" style="margin-top: 18px; max-width: 640px;">
+        <svg width="26" height="26" viewBox="0 0 26 26" aria-hidden="true">
+          <circle cx="13" cy="13" r="10" fill="none" stroke="var(--border)" stroke-width="2"/>
+          <path d="M13 7 L13 14" stroke="var(--accent-strong)" stroke-width="2.4" stroke-linecap="round"/>
+          <circle cx="13" cy="18.5" r="1.6" fill="var(--accent-strong)"/>
+        </svg>
+        <div class="insight-aside-body">
+          <span class="insight-aside-label">Watch-out</span>
+          <p>Don't skip straight to "we need an agent platform." Most of those conversations resolve once someone actually tries what the tool they already pay for can do on its own.</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- ===================== MAKE IT HABITUAL ===================== -->
+    <div class="section-block" id="make-it-habitual">
+      <h2>4 · Make It Habitual</h2>
+      <p style="max-width: 640px;">This is the same loop as the rest of this site, pointed at your own AI use. <strong>Plan</strong> when you'll reach for it — fold it into a routine you already run, like weekly planning, meeting prep, or a first draft, instead of treating it as a novelty you open when you remember to. <strong>Do</strong> by actually using it on a real task, not a test question. <strong>Reflect</strong> on what it got right, what it got wrong, and update your own rule for when you trust it unchecked versus when you verify first.</p>
+      <p style="margin-top: 10px; max-width: 640px;">Watch for both failure modes: letting the novelty wear off into disuse, and swinging the other way into pasting its output forward without reading it. The habit worth building isn't "use AI more" — it's "know which of today's tasks it should touch, and check the ones that matter."</p>
+    </div>
+
+    <div class="try-it-box" id="try-it">
+      <div class="try-it-header">
+        <svg width="24" height="24" viewBox="0 0 24 24" aria-hidden="true">
+          <path d="M12 2 L14.2 9 L21 11 L14.2 13 L12 20 L9.8 13 L3 11 L9.8 9 Z" fill="var(--accent)"/>
+        </svg>
+        <h2>Try It</h2>
+      </div>
+      <p>Paste this into ChatGPT, Claude, or whatever AI tool you use:</p>
+      <div class="try-it-prompt" id="try-it-prompt">Help me figure out whether a repetitive task I'm doing should move from one-off chats to something more automated. Ask me: what tool do I already use day to day, do I have engineering help available, does my problem already match a known category like IT support, customer service, or CRM, and how many times a week I actually do this task. Then recommend exactly one of: the agent mode built into my existing tool, a no-code builder, an off-the-shelf platform, or a custom build — and tell me why, in plain terms.</div>
+      <button class="try-it-copy" type="button" data-copy-target="try-it-prompt">Copy prompt</button>
+    </div>
+  </main>
+</div>
+
+<div id="site-footer"></div>
+
+<script src="js/site-chrome.js" defer></script>
+<script src="js/theme-toggle.js" defer></script>
+<script src="js/try-it.js" defer></script>
+</body>
+</html>
