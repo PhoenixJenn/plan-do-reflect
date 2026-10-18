@@ -1,0 +1,1308 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="a">
+<head>
+<meta charset="UTF-8">
+<base href="../../">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="icon" type="image/svg+xml" href="favicon.svg">
+<title>Agents & Harnesses: Lesson · Plan · Do · Reflect</title>
+
+<!-- Applied before CSS loads, so the saved theme choice doesn't flash to the default on reload -->
+<script>
+(function () {
+  try {
+    var savedTheme = localStorage.getItem('pdr-theme');
+    if (['a', 'b', 'c'].indexOf(savedTheme) > -1) {
+      document.documentElement.setAttribute('data-theme', savedTheme);
+    }
+  } catch (e) {}
+})();
+</script>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=Work+Sans:wght@400;500;600&family=Sora:wght@600;700;800&family=Plus+Jakarta+Sans:wght@500;600;700&family=Patrick+Hand&family=Golos+Text:wght@800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/tokens.css">
+<link rel="stylesheet" href="css/main.css">
+<link rel="stylesheet" href="css/lesson.css">
+</head>
+<body data-nav="core-skills">
+
+<div id="site-topnav"></div>
+
+<main class="lesson">
+  <p class="lesson-crumb"><a href="ai-beyond-fundamentals.html">AI Beyond Fundamentals</a> &rsaquo; Module 5 &rsaquo; Lesson</p>
+  <article class="lesson-page">
+    <header class="lesson-head">
+      <p class="lesson-eyebrow">Module 5 &middot; Agents &amp; Harnesses</p>
+      <h1 class="page-title">Agents &amp; Harnesses</h1>
+      <p class="lesson-sub">Module 4 measured and guarded a system that answers one question at a time. This module gives it autonomy: a model in a loop with tools and state, working through a task that takes many steps. You'll build that loop from scratch, then do the harder and more valuable part, which is the system around the model: the limits that stop it, the state that lets it survive a crash, the permissions that keep it from doing damage, and the history that lets you debug it. The overview above makes the case for harness engineering; this lesson is where you build one.</p>
+      <p class="lesson-sub" style="margin-top: 10px;">Agent behavior is the least repeatable thing in this course, because the model chooses its own steps. So this lesson leans on one technique: wherever possible, the model is replaced by a scripted stand-in that fails in known ways, so you can test the harness deterministically and for free. Several labs below were verified that way, and each says plainly what was and wasn't run against a live model. The live-model runs are yours to record.</p>
+    </header>
+
+    <section class="lesson-section">
+      <h2>Concepts</h2>
+      <div class="lesson-concepts">
+
+        <div class="lesson-concept">
+          <h3>An agent is a model in a loop</h3>
+          <p>Strip away the vocabulary and an agent is a short program: ask the model what to do next; if it asks for a tool, run the tool and show it the result; repeat until it answers in plain text. That's the whole idea, and it's the loop you wrote by hand in Module 2, Lab 3. What changes at agent scale is everything <em>around</em> the loop: how long it can run, what it can touch, what happens when it fails. The research behind the pattern is Yao et al., <em>ReAct: Synergizing Reasoning and Acting in Language Models</em> (ICLR 2023), which showed that interleaving reasoning with actions beats either alone.</p>
+          <p>Anthropic's <em>Building effective agents</em> draws a line worth keeping: a <strong>workflow</strong> follows steps you wrote in code, an <strong>agent</strong> lets the model choose its own steps. Workflows are more predictable and cheaper; agents handle open-ended problems you can't script. Start with the simplest thing that works and add autonomy only where a fixed script fails.</p>
+        </div>
+
+        <div class="lesson-concept">
+          <h3>Tools are contracts, and failures are information</h3>
+          <p>A tool is a function plus a description the model reads to decide when to use it. The description <em>is</em> the interface: a vague one ("handles requests") makes the model guess, and Lab 7 has you watch that happen. A good tool has a clear purpose, predictable output, and an explicit failure state.</p>
+          <p>Two habits matter. First, return errors as text the model can read ("ERROR: path is outside the workspace") instead of crashing the program, because a model that sees why something failed can often route around it. Second, never run model-written text as code. Module 2's calculator used a bare <code class="inline">eval()</code>; this module's walks the parsed expression and allows only numbers and arithmetic, because text a model produced can contain anything.</p>
+        </div>
+
+        <div class="lesson-concept">
+          <h3>Three patterns, and when each pays</h3>
+          <p><strong>Sequential</strong> (Anthropic calls it prompt chaining): each step feeds the next. Simple and debuggable, but slow, and a mistake early on travels downstream. <strong>Parallel</strong>: independent pieces are handled at the same time and merged. Fast, but the merge step only sees the summaries, never the originals, so detail can be lost. <strong>Loop</strong> (evaluator-optimizer): draft, critique against the source, revise, stop when the critic is satisfied or a round cap is hit. It buys quality at the cost of extra calls.</p>
+          <p>Which one wins depends on the task, which is why Lab 2 measures all three on the same inputs and scores them on facts retained, a count your code can compute with no judge at all.</p>
+        </div>
+
+        <div class="lesson-concept">
+          <h3>Coordinators and sub-agents</h3>
+          <p>A <strong>coordinator</strong> splits a big question into independent parts, hands each to a <strong>sub-agent</strong> that starts with a fresh, empty context, and merges what comes back. The gain is <em>isolation</em>: each sub-agent works on one narrow thing without the others' text crowding its window, and they can run at once. Anthropic described this design, and its costs, in <em>How we built our multi-agent research system</em>: it works well for broad research that splits cleanly, and it uses many times more tokens than a single chat, so it isn't free.</p>
+          <p>The merge is where these systems quietly go wrong. A coordinator that is allowed to "synthesize" will sometimes add facts nobody found. Lab 3 constrains the merge to the findings and keeps the citations attached; the project adds a check that every citation in the final report is one a tool actually returned.</p>
+        </div>
+
+        <div class="lesson-concept">
+          <h3>Durable state: assume it will crash</h3>
+          <p>A run that takes minutes and many paid calls will eventually be interrupted by a crash, a deploy, a closed laptop. If the only record is the conversation in memory, you start over and pay again. The fix is a <strong>progress file</strong>: after every completed step, write the plan and the results to disk, and on startup load the file and skip what's done.</p>
+          <p>Two details separate a progress file that works from one that corrupts. <strong>Write atomically</strong>: write to a temporary file, then rename it over the real one, because a crash mid-write then leaves either the old file or the new one, never half of one. And <strong>serialize concurrent writers</strong>: when three sub-agents finish at different moments and all save to the same file, they need a lock, or their temp files collide. We hit exactly that bug building this module's project.</p>
+        </div>
+
+        <div class="lesson-concept">
+          <h3>MCP: one way to expose tools to any client</h3>
+          <p>The Model Context Protocol (introduced by Anthropic in November 2024 and now an open specification at modelcontextprotocol.io) standardizes how an application offers tools, data and prompts to an AI client. You write a <strong>server</strong> that declares tools with typed arguments; any compatible <strong>client</strong> can list them and call them, with no custom integration per pair. Locally a client launches the server as a child process and talks to it over standard input and output; remote servers use HTTP.</p>
+          <p>It's a young protocol and the SDKs move. This lesson's code uses the Python SDK's 2.x API, where the server class is <code class="inline">MCPServer</code> imported from <code class="inline">mcp.server.mcpserver</code>. Many older tutorials show <code class="inline">FastMCP</code> from <code class="inline">mcp.server.fastmcp</code>, which the 2.x SDK renamed; if you hit an ImportError, check <code class="inline">pip show mcp</code> first.</p>
+        </div>
+
+        <div class="lesson-concept">
+          <h3>Limits and approval belong to the harness</h3>
+          <p>A loop needs five ways to stop that don't depend on the model deciding to: a <strong>step cap</strong>, a <strong>dollar budget</strong>, a <strong>wall-clock timeout</strong>, a <strong>per-tool timeout</strong>, and <strong>repeat detection</strong> (the same call over and over is not progress; escalate to a person). And any action that can't be undone needs <strong>approval outside the model</strong>: the model proposes, a policy checks, a human confirms, a tool executes. Asking the model to approve its own risky action is asking one probabilistic system to be both the driver and the brakes.</p>
+          <p>A subtle limit worth knowing: you can't kill a stuck thread in Python, only stop waiting for it. A per-tool timeout therefore returns control to the loop, but the abandoned work may still be running. For tools that can truly hang, run them in a separate process you can terminate.</p>
+        </div>
+
+        <div class="lesson-concept">
+          <h3>Brain, hands, history, and the failures you can name</h3>
+          <p>Module 5's overview describes the harness as everything around the model. This lesson splits it into three components you can see in the code: the <strong>brain</strong> (one function that asks the model what to do next; <code class="inline">brain.py</code>), the <strong>hands</strong> (the tools and their permission flags; <code class="inline">tools.py</code>), and the <strong>history</strong> (an append-only record of every step; <code class="inline">harness.History</code>). Keeping them separate is what lets you fake the brain in a test, deny a tool without touching the model, and replay a run from its log.</p>
+          <p>The overview's table maps seven failure types to seven harness fixes. Lab 7 makes that table physical: seven reproducible failures in a sandbox, and a harness you repair until all seven stay fixed. It's the same move as a bug report with a failing test: name the failure class, change the system, and prove the change with a rerun.</p>
+        </div>
+
+      </div>
+    </section>
+
+    <section class="lesson-section">
+      <h2>Hands-on Labs</h2>
+      <div class="lesson-labs">
+
+        <div class="lab-card framework-item is-accordion" id="lab-1">
+          <button class="fw-toggle" type="button" aria-expanded="false" aria-controls="lab-1-body">
+            <span class="lab-num">LAB 1</span>
+            <div class="fw-toggle-text">
+              <h3>Raw loop</h3>
+              <p class="fw-teaser">Write the whole agent in about 60 lines: call the model, run its tool, append the result, repeat, with limits from the start.</p>
+            </div>
+            <svg class="fw-chevron" width="18" height="18" viewBox="0 0 20 20" aria-hidden="true">
+              <path d="M5 7.5 L10 12.5 L15 7.5" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+          </button>
+          <div class="fw-body" id="lab-1-body">
+
+          <ol class="lab-steps">
+            <li>Install what this module adds to the shared environment (with <code class="inline">uv</code>, use <code class="inline">uv add</code>). The MCP SDK is pinned to the 2.x line this lesson was written against.
+              <div class="code-block"><code>pip install "mcp&gt;=2" pypdf</code></div>
+            </li>
+            <li>Create <code class="inline">agent/search_tool.py</code>: Module 3's best retriever (hybrid search, product filter, rerank), wrapped as one function that returns citable text.
+              <div class="code-block"><code>"""Module 3's retriever, wrapped as one function that returns citable text."""
+import sys
+sys.path.insert(0, "rag")                   # so Module 3's own imports resolve
+from rerank_filter import retrieve_rerank
+from hybrid import chunks
+
+def search_docs(query, k=5):
+    top = [chunks[i] for i in retrieve_rerank(query, k, use_filter=True)]
+    return "\n\n".join(f"[{c['doc']} p.{c['page']}]\n{c['text']}" for c in top)</code></div>
+            </li>
+            <li>Create <code class="inline">agent/brain.py</code>. This is the only file that talks to the model. It also keeps a running token count so later labs can report cost.
+              <div class="code-block"><code>"""The brain: one function that asks the model what to do next. Nothing else lives here, so the
+model can be swapped (or faked in a test) without touching the loop."""
+import os
+from dotenv import load_dotenv
+load_dotenv()
+from anthropic import Anthropic
+
+MODEL = "claude-sonnet-5"
+_client = Anthropic(api_key=os.environ["ANTHROPIC_API_KEY"])
+USAGE = {"input": 0, "output": 0}            # running totals across every call in this process
+
+def think(system, messages, tools=None, max_tokens=800):
+    kwargs = {"tools": tools} if tools else {}
+    resp = _client.messages.create(model=MODEL, max_tokens=max_tokens, system=system,
+                                   messages=messages, **kwargs)
+    USAGE["input"] += resp.usage.input_tokens
+    USAGE["output"] += resp.usage.output_tokens
+    return resp
+
+def complete(prompt, system="You are a precise assistant.", max_tokens=800):
+    """One plain-text call, no tools. Returns just the text."""
+    resp = think(system, [{"role": "user", "content": prompt}], None, max_tokens)
+    return "".join(b.text for b in resp.content if b.type == "text")</code></div>
+            </li>
+            <li>Create <code class="inline">agent/tools.py</code> with two tools, search and a calculator. The calculator parses the expression and permits only numbers and arithmetic; it does not call <code class="inline">eval()</code>. Each tool is a function plus the schema the model reads.
+              <div class="code-block"><code>import ast, operator
+from search_tool import search_docs
+
+_OPS = {ast.Add: operator.add, ast.Sub: operator.sub, ast.Mult: operator.mul,
+        ast.Div: operator.truediv, ast.USub: operator.neg}
+
+def calculate(expression):
+    """Arithmetic only. We walk the parsed expression instead of calling eval(), because
+    eval() on text a model produced can run anything."""
+    def walk(node):
+        if isinstance(node, ast.Constant) and isinstance(node.value, (int, float)):
+            return node.value
+        if isinstance(node, ast.BinOp) and type(node.op) in _OPS:
+            return _OPS[type(node.op)](walk(node.left), walk(node.right))
+        if isinstance(node, ast.UnaryOp) and type(node.op) in _OPS:
+            return _OPS[type(node.op)](walk(node.operand))
+        raise ValueError("only + - * / and numbers are allowed")
+    return walk(ast.parse(expression, mode="eval").body)
+
+TOOLS = {
+    "search_docs": {
+        "fn": search_docs,
+        "schema": {"name": "search_docs",
+                   "description": "Search the Larkfield product manuals. Returns passages tagged [file.pdf p.N].",
+                   "input_schema": {"type": "object", "properties": {
+                       "query": {"type": "string"}}, "required": ["query"]}}},
+    "calculate": {
+        "fn": calculate,
+        "schema": {"name": "calculate",
+                   "description": "Evaluate an arithmetic expression such as '282 * 1.1'.",
+                   "input_schema": {"type": "object", "properties": {
+                       "expression": {"type": "string"}}, "required": ["expression"]}}},
+}</code></div>
+              Lab 6 adds more tools to the bottom of this same file.
+            </li>
+            <li>Create <code class="inline">agent/loop.py</code>: the 60-line agent. It calls the model, runs any tool the model asks for, appends the result, and repeats until the model answers in text. Two limits exist from the first line, a step cap and a token budget, and a tool error is passed back to the model as text instead of crashing the run.
+              <div class="code-block"><code>import sys
+from brain import think
+from tools import TOOLS
+
+class StepLimit(Exception): pass
+class BudgetExceeded(Exception): pass
+
+def run_agent(task, tools, system="You are a careful research assistant. Use tools to find facts, "
+              "and cite the [file p.N] tags you rely on.", max_steps=8, max_tokens_total=40_000,
+              think=think, verbose=True):
+    messages = [{"role": "user", "content": task}]
+    schemas = [t["schema"] for t in tools.values()]
+    used = 0
+    for step in range(1, max_steps + 1):
+        resp = think(system, messages, schemas)
+        used += resp.usage.input_tokens + resp.usage.output_tokens
+        if used &gt; max_tokens_total:
+            raise BudgetExceeded(f"{used:,} tokens used, limit {max_tokens_total:,}")
+
+        calls = [b for b in resp.content if b.type == "tool_use"]
+        if not calls:
+            text = "".join(b.text for b in resp.content if b.type == "text")
+            return text, {"steps": step, "tokens": used}
+
+        # Store the assistant turn as plain dicts so the history can be saved as JSON later.
+        messages.append({"role": "assistant", "content": [
+            {"type": "tool_use", "id": c.id, "name": c.name, "input": c.input} if c.type == "tool_use"
+            else {"type": "text", "text": c.text} for c in resp.content]})
+        results = []
+        for c in calls:
+            try:
+                out = tools[c.name]["fn"](**c.input)
+            except Exception as e:                  # a tool failure is information, not a crash
+                out = f"ERROR: {type(e).__name__}: {e}"
+            if verbose:
+                print(f"  step {step}: {c.name}({c.input}) -&gt; {str(out)[:80]!r}")
+            results.append({"type": "tool_result", "tool_use_id": c.id, "content": str(out)})
+        messages.append({"role": "user", "content": results})
+    raise StepLimit(f"no final answer after {max_steps} steps")
+
+if __name__ == "__main__":
+    q = sys.argv[1] if len(sys.argv) &gt; 1 else (
+        "What is the maximum pressure of the Delta Sensor in bar, and what is that as a "
+        "number of kilopascals? (1 bar = 100 kPa)")
+    answer, stats = run_agent(q, TOOLS)
+    print("\n" + answer, "\n", stats)</code></div>
+              <div class="code-block"><code>python agent/loop.py</code></div>
+            </li>
+            <li>Read the printed steps. Then try a question the tools can't answer, and a question that needs both tools. Finally set <code class="inline">max_steps=1</code> and watch the step limit stop a run that would have succeeded.</li>
+          </ol>
+          <div class="lab-check"><strong>Check:</strong> the default question needs both tools: one search for the pressure, one calculation to convert bar to kilopascals. You should see a <code class="inline">search_docs</code> step, a <code class="inline">calculate</code> step, then a final answer with a citation. If the model answers without searching, it's guessing; tighten the system prompt. The point of the lab is that the entire "agent" is the loop in <code class="inline">run_agent</code>; there's no framework hiding anything. Because the model is the only nondeterministic part, the code around it was tested here with a scripted stand-in: the step cap raised <code class="inline">StepLimit</code> and the token budget raised <code class="inline">BudgetExceeded</code>, and a tool that failed returned its error to the loop instead of crashing it. Your real runs will differ in how many steps the model takes.</div>
+          </div>
+        </div>
+
+        <div class="lab-card framework-item is-accordion" id="lab-2">
+          <button class="fw-toggle" type="button" aria-expanded="false" aria-controls="lab-2-body">
+            <span class="lab-num">LAB 2</span>
+            <div class="fw-toggle-text">
+              <h3>Three patterns</h3>
+              <p class="fw-teaser">Summarize five manuals sequentially, in parallel, and in a critique loop, and compare time, cost and facts retained.</p>
+            </div>
+            <svg class="fw-chevron" width="18" height="18" viewBox="0 0 20 20" aria-hidden="true">
+              <path d="M5 7.5 L10 12.5 L15 7.5" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+          </button>
+          <div class="fw-body" id="lab-2-body">
+
+          <ol class="lab-steps">
+            <li>Create <code class="inline">agent/patterns.py</code>. It takes five of Module 3's manuals (the readable ones, not the scans) and summarizes them three ways: <strong>sequential</strong> (one running summary updated manual by manual), <strong>parallel</strong> (five summaries at once, then a merge), and <strong>loop</strong> (draft, critique against the source, revise, up to three rounds). Each is scored by counting how many of the manuals' known facts survive, where a fact only counts if it appears on a line naming its own product, so another product's "12 months" can't earn credit.
+              <div class="code-block"><code>"""Summarize five manuals three ways and score each by how many of the 15 key facts survive."""
+import json, re, time
+from concurrent.futures import ThreadPoolExecutor
+import pypdf
+import brain
+from brain import complete
+
+# Five readable (not scanned) manuals, and the three facts each one contains.
+questions = json.load(open("rag/questions.json"))
+docs = []
+for q in questions:
+    if "_scan" not in q["doc"] and q["doc"] not in [d["doc"] for d in docs] and len(docs) &lt; 5:
+        docs.append({"doc": q["doc"],
+                     "product": re.sub(r"^\d+_|\.pdf", "", q["doc"]).replace("_", " "),
+                     "facts": sorted({x["answer"] for x in questions
+                                      if x["doc"] == q["doc"] and x["answer"][0].isdigit()})})
+for d in docs:
+    d["text"] = "\n".join(p.extract_text() for p in pypdf.PdfReader(f"rag/corpus/{d['doc']}").pages)
+
+KEEP = "Always keep each product's name, warranty length, maximum pressure and recalibration interval."
+
+def sequential():
+    """One running summary, updated manual by manual. Each step needs the one before it."""
+    summary = ""
+    for d in docs:
+        summary = complete(f"Current summary:\n{summary}\n\nNew manual:\n{d['text']}\n\n"
+                           f"Update the summary to include this manual. {KEEP}")
+    return summary
+
+def parallel():
+    """Summarize each manual independently at the same time, then merge. Fast, but the
+    merge step only sees the summaries, never the originals."""
+    with ThreadPoolExecutor(max_workers=5) as pool:
+        parts = list(pool.map(lambda d: complete(f"Summarize this manual in 3 sentences. {KEEP}\n\n{d['text']}"), docs))
+    return complete("Merge these into one short summary, one line per product:\n\n" + "\n\n".join(parts))
+
+def loop(max_rounds=3):
+    """Draft, critique against the source, revise. Stops early when the critic finds nothing."""
+    source = "\n\n".join(d["text"] for d in docs)
+    draft = complete(f"Summarize these five manuals, one line per product. {KEEP}\n\n{source}")
+    for _ in range(max_rounds):
+        critique = complete(f"Source:\n{source}\n\nSummary:\n{draft}\n\nList every product fact (warranty, "
+                            f"pressure, recalibration interval) that is missing or wrong in the summary. "
+                            f"If nothing is missing or wrong, reply exactly: OK")
+        if critique.strip() == "OK":
+            break
+        draft = complete(f"Source:\n{source}\n\nSummary:\n{draft}\n\nProblems:\n{critique}\n\nRewrite the summary fixing these problems.")
+    return draft
+
+def score(summary):
+    """A fact only counts if it appears on a line that names its own product, so '12 months'
+    belonging to a different product can't earn credit."""
+    lines = [l.lower() for l in summary.splitlines() if l.strip()]
+    got = total = 0
+    for d in docs:
+        own = " ".join(l for l in lines if d["product"] in l)
+        for fact in d["facts"]:
+            total += 1
+            got += fact.lower() in own
+    return got, total
+
+if __name__ == "__main__":
+    for name, fn in [("sequential", sequential), ("parallel", parallel), ("loop", loop)]:
+        brain.USAGE.update(input=0, output=0)
+        t0 = time.time()
+        summary = fn()
+        got, total = score(summary)
+        print(f"{name:11s} {time.time() - t0:5.1f}s  tokens={brain.USAGE['input'] + brain.USAGE['output']:7,}  facts {got}/{total}")</code></div>
+            </li>
+            <li>Run it. Each pattern prints its time, its tokens, and its facts retained.
+              <div class="code-block"><code>python agent/patterns.py</code></div>
+            </li>
+            <li>Record the three rows. Which pattern was fastest? Cheapest? Kept the most facts? Then run it a second time and see how much the numbers move, which tells you how much of any difference is signal.</li>
+            <li>Find one fact the parallel version lost and trace why: was it dropped in a per-manual summary, or in the merge?</li>
+          </ol>
+          <div class="lab-check"><strong>Check:</strong> expect the shape, not specific numbers. Parallel should be the fastest in wall-clock time, since five calls overlap; the loop should cost the most tokens, since it rereads the full source on every round; sequential sits in between and is the one most likely to lose early manuals' details as the running summary is rewritten. The score function was verified against hand-built summaries (a correct summary scored full marks, a summary naming one product's warranty without its other facts scored 1 of 14, an empty one 0), so a low score reflects the summary, not a broken counter. The total is 14 rather than 15 because one manual's warranty and recalibration interval happen to be the same number, and facts are counted once. If every pattern scores the same, your corpus is too easy; that's a result too.</div>
+          </div>
+        </div>
+
+        <div class="lab-card framework-item is-accordion" id="lab-3">
+          <button class="fw-toggle" type="button" aria-expanded="false" aria-controls="lab-3-body">
+            <span class="lab-num">LAB 3</span>
+            <div class="fw-toggle-text">
+              <h3>Sub-agents</h3>
+              <p class="fw-teaser">A coordinator splits a question three ways, sub-agents with fresh contexts answer in parallel, and the merge stays cited.</p>
+            </div>
+            <svg class="fw-chevron" width="18" height="18" viewBox="0 0 20 20" aria-hidden="true">
+              <path d="M5 7.5 L10 12.5 L15 7.5" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+          </button>
+          <div class="fw-body" id="lab-3-body">
+
+          <ol class="lab-steps">
+            <li>Create <code class="inline">agent/subagents.py</code>. The <strong>coordinator</strong> asks the model to split the question into three independent sub-questions (as JSON). Each goes to a <strong>sub-agent</strong>: a fresh <code class="inline">run_agent</code> call with its own message list, only the search tool, and an instruction to cite or admit it found nothing. The sub-agents run at the same time. The merge step is told to use only their findings and keep every citation attached.
+              <div class="code-block"><code>import json, sys
+from concurrent.futures import ThreadPoolExecutor
+from brain import complete
+from loop import run_agent
+from tools import TOOLS
+
+SUB_SYSTEM = ("You research ONE narrow question using search_docs. Answer only from search results, "
+              "cite every fact as [file.pdf p.N], and say so plainly if the manuals don't contain it.")
+
+def plan(question, n=3):
+    """The coordinator's whole job: split the question into independent sub-questions."""
+    raw = complete(f"Split this research question into exactly {n} independent sub-questions that can be "
+                   f"answered separately. Reply only JSON: {{\"sub_questions\": [\"...\"]}}\n\n{question}")
+    return json.loads(raw[raw.index("{"): raw.rindex("}") + 1])["sub_questions"][:n]
+
+def research(sub_question):
+    """One sub-agent: its own fresh message list, so nothing from the other sub-agents leaks in."""
+    answer, stats = run_agent(sub_question, {"search_docs": TOOLS["search_docs"]}, system=SUB_SYSTEM,
+                              max_steps=5, verbose=False)
+    return {"question": sub_question, "answer": answer, **stats}
+
+def coordinate(question):
+    subs = plan(question)
+    with ThreadPoolExecutor(max_workers=len(subs)) as pool:
+        results = list(pool.map(research, subs))
+    findings = "\n\n".join(f"Q: {r['question']}\nA: {r['answer']}" for r in results)
+    report = complete("Write a short report answering the original question using ONLY the findings below. "
+                      "Keep every [file.pdf p.N] citation attached to its fact. Add no new facts.\n\n"
+                      f"Original question: {question}\n\nFindings:\n{findings}", max_tokens=1000)
+    return report, results
+
+if __name__ == "__main__":
+    q = sys.argv[1] if len(sys.argv) &gt; 1 else (
+        "Compare the Delta Sensor and the Cobalt Pump on warranty length, maximum pressure, "
+        "and recalibration interval.")
+    report, results = coordinate(q)
+    for r in results:
+        print(f"- sub-agent ({r['steps']} steps, {r['tokens']:,} tokens): {r['question']}")
+    print("\n" + report)</code></div>
+            </li>
+            <li>Run it on the default question, which compares two products on three attributes.
+              <div class="code-block"><code>python agent/subagents.py</code></div>
+            </li>
+            <li>Check the report against the manuals: open the cited page for two of its facts. Then check the reverse: is there any sentence in the report with no citation? That's a sentence the merge step added on its own.</li>
+            <li>Ask a question one sub-question of which the manuals can't answer (a price, say). Does the report say so, or does it paper over the gap?</li>
+          </ol>
+          <div class="lab-check"><strong>Check:</strong> the report should keep each fact next to a <code class="inline">[file.pdf p.N]</code> tag and each sub-agent line should show its own step and token count. Look at the token total across the sub-agents and compare it with what one agent would have used to answer the same question in a single loop: coordination costs more, and you're paying for isolation and speed. A good test of whether the split earned its cost is whether any sub-agent needed information from another one. If one did, the sub-questions weren't independent and a single agent was the right design.</div>
+          </div>
+        </div>
+
+        <div class="lab-card framework-item is-accordion" id="lab-4">
+          <button class="fw-toggle" type="button" aria-expanded="false" aria-controls="lab-4-body">
+            <span class="lab-num">LAB 4</span>
+            <div class="fw-toggle-text">
+              <h3>Progress file</h3>
+              <p class="fw-teaser">Write progress after every step, kill the run mid-way, and resume from the file.</p>
+            </div>
+            <svg class="fw-chevron" width="18" height="18" viewBox="0 0 20 20" aria-hidden="true">
+              <path d="M5 7.5 L10 12.5 L15 7.5" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+          </button>
+          <div class="fw-body" id="lab-4-body">
+
+          <ol class="lab-steps">
+            <li>Create <code class="inline">agent/progress.py</code>. It saves the plan, then each sub-question's result, to <code class="inline">agent/state/&lt;run_id&gt;.json</code> after every step. The save writes a temp file and renames it into place, so a crash can't leave half a file. On startup it loads the file and skips whatever is done. A <code class="inline">crash_after</code> flag kills the process with no cleanup, like a force-quit.
+              <div class="code-block"><code>"""A research run that writes its progress to disk after every step, so a crash costs one step."""
+import json, os, sys
+from pathlib import Path
+from subagents import plan, research
+from brain import complete
+
+STATE = Path("agent/state"); STATE.mkdir(parents=True, exist_ok=True)
+
+def save(path, state):
+    """Write to a temp file, then rename. A crash mid-write can't leave a half-written state file,
+    because the rename is atomic: the file is either the old version or the new one."""
+    tmp = path.with_suffix(".tmp")
+    tmp.write_text(json.dumps(state, indent=1))
+    os.replace(tmp, path)
+
+def run(run_id, question, crash_after=None):
+    path = STATE / f"{run_id}.json"
+    state = json.loads(path.read_text()) if path.exists() else {"question": question, "plan": None, "done": {}}
+    if state["plan"] is None:
+        state["plan"] = plan(question); save(path, state)           # step 0: the plan itself is saved
+        print("planned:", state["plan"])
+    else:
+        print(f"resuming: {len(state['done'])}/{len(state['plan'])} sub-questions already done")
+
+    for i, sub in enumerate(state["plan"]):
+        if str(i) in state["done"]:
+            continue                                                # finished before the crash: skip
+        state["done"][str(i)] = research(sub); save(path, state)
+        print(f"  done {i + 1}/{len(state['plan'])}: {sub}")
+        if crash_after is not None and len(state["done"]) &gt;= crash_after:
+            print("simulated crash"); os._exit(1)                   # no cleanup, like a killed process
+
+    findings = "\n\n".join(f"Q: {state['done'][str(i)]['question']}\nA: {state['done'][str(i)]['answer']}"
+                           for i in range(len(state["plan"])))
+    state["report"] = complete(f"Write a short cited report using ONLY these findings:\n\n{findings}")
+    save(path, state)
+    return state["report"]
+
+if __name__ == "__main__":
+    crash = int(sys.argv[3]) if len(sys.argv) &gt; 3 else None
+    print(run(sys.argv[1], sys.argv[2], crash))</code></div>
+            </li>
+            <li>Start a run that will die after two sub-questions.
+              <div class="code-block"><code>python agent/progress.py demo1 "Compare the Delta Sensor and the Cobalt Pump on warranty, pressure and recalibration." 2</code></div>
+            </li>
+            <li>Look at <code class="inline">agent/state/demo1.json</code>: two results saved, one missing. Then run the <em>same command</em> without the crash flag.
+              <div class="code-block"><code>python agent/progress.py demo1 "Compare the Delta Sensor and the Cobalt Pump on warranty, pressure and recalibration."</code></div>
+            </li>
+            <li>Confirm from the printed output that it said "resuming: 2/3" and only ran the missing sub-question, and compare the model calls in your provider dashboard with an uninterrupted run.</li>
+          </ol>
+          <div class="lab-check"><strong>Check:</strong> the resumed run prints <code class="inline">resuming: 2/3 sub-questions already done</code>, runs only the third, and finishes. We tested this flow with a scripted model and a real forced process kill: the state file held the plan and two finished sub-questions after the crash, and the rerun completed the third and wrote the report. Think about what this design assumes. Each step has to be safe to skip, and re-running a step that <em>half</em> finished has to be harmless. Searching is; sending an email isn't, and that's where you'd need an idempotency key or a record of the side effect before it happens.</div>
+          </div>
+        </div>
+
+        <div class="lab-card framework-item is-accordion" id="lab-5">
+          <button class="fw-toggle" type="button" aria-expanded="false" aria-controls="lab-5-body">
+            <span class="lab-num">LAB 5</span>
+            <div class="fw-toggle-text">
+              <h3>MCP server</h3>
+              <p class="fw-teaser">Expose Module 3's search as an MCP server and call it from a client.</p>
+            </div>
+            <svg class="fw-chevron" width="18" height="18" viewBox="0 0 20 20" aria-hidden="true">
+              <path d="M5 7.5 L10 12.5 L15 7.5" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+          </button>
+          <div class="fw-body" id="lab-5-body">
+
+          <ol class="lab-steps">
+            <li>Create <code class="inline">agent/mcp_server.py</code>: an MCP server exposing Module 3's search as one tool. The decorator reads the function's type hints and docstring and turns them into the tool's schema and description, which is exactly the contract a client sees.
+              <div class="code-block"><code>from mcp.server.mcpserver import MCPServer
+
+mcp = MCPServer("manuals")
+
+@mcp.tool()
+def search_manuals(query: str, k: int = 5) -&gt; str:
+    """Search the Larkfield product manuals. Returns the top passages, each tagged
+    [file.pdf p.N] so the caller can cite them."""
+    from search_tool import search_docs      # Module 3's retriever, wrapped in Lab 1
+    return search_docs(query, k)
+
+if __name__ == "__main__":
+    mcp.run()                                # speaks MCP over stdin/stdout</code></div>
+            </li>
+            <li>Create <code class="inline">agent/mcp_client.py</code>. It launches the server as a child process, connects over standard input and output, lists the tools the server offers, then calls one. This is what any MCP-compatible application does; yours is just the smallest possible one.
+              <div class="code-block"><code>import asyncio, sys
+from mcp import ClientSession, StdioServerParameters
+from mcp.client.stdio import stdio_client
+
+async def main(query):
+    server = StdioServerParameters(command=sys.executable, args=["agent/mcp_server.py"])
+    async with stdio_client(server) as (read, write):
+        async with ClientSession(read, write) as session:
+            await session.initialize()
+            tools = await session.list_tools()
+            for t in tools.tools:
+                print("tool:", t.name, "-", t.description.splitlines()[0])
+                print("schema:", t.input_schema)
+            result = await session.call_tool("search_manuals", {"query": query})
+            print("\n" + result.content[0].text)
+
+asyncio.run(main(sys.argv[1] if len(sys.argv) &gt; 1 else "warranty on the Delta Sensor"))</code></div>
+              <div class="code-block"><code>python agent/mcp_client.py "warranty on the Delta Sensor"</code></div>
+            </li>
+            <li>Read what the client printed: the tool name, its description (taken from your docstring), and a JSON schema (generated from your type hints). Change the docstring or add a parameter, re-run, and watch the schema change without your writing any schema by hand.</li>
+            <li>Then connect something you didn't write: most MCP-capable assistants and editors accept a server entry that names a command to run. Point one at <code class="inline">python agent/mcp_server.py</code> (check that application's docs for the exact configuration, which varies) and ask it a question about the manuals.</li>
+          </ol>
+          <div class="lab-check"><strong>Check:</strong> the client should print one tool, <code class="inline">search_manuals</code>, with a schema listing a required string <code class="inline">query</code> and an optional integer <code class="inline">k</code> that defaults to 5, then the search results. We verified this round trip against the 2.x SDK with a stand-in search function (real server process, real stdio connection, tool listed and called). The first call with your real search is slow because it loads the retriever and the reranker; that's startup cost, not a protocol cost. If you get an ImportError on <code class="inline">mcp.server.mcpserver</code>, your SDK is the old 1.x line, where the class was <code class="inline">FastMCP</code> in <code class="inline">mcp.server.fastmcp</code>.</div>
+          </div>
+        </div>
+
+        <div class="lab-card framework-item is-accordion" id="lab-6">
+          <button class="fw-toggle" type="button" aria-expanded="false" aria-controls="lab-6-body">
+            <span class="lab-num">LAB 6</span>
+            <div class="fw-toggle-text">
+              <h3>Limits and approval</h3>
+              <p class="fw-teaser">Step cap, dollar budget, timeouts, repeat detection and a human approval gate, each triggered on purpose.</p>
+            </div>
+            <svg class="fw-chevron" width="18" height="18" viewBox="0 0 20 20" aria-hidden="true">
+              <path d="M5 7.5 L10 12.5 L15 7.5" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+          </button>
+          <div class="fw-body" id="lab-6-body">
+
+          <ol class="lab-steps">
+            <li>Extend <code class="inline">agent/tools.py</code> with three workspace tools: <code class="inline">list_files</code>, <code class="inline">read_file</code> and <code class="inline">delete_file</code>, all confined to <code class="inline">agent/workspace/</code>. <code class="inline">delete_file</code> is flagged <code class="inline">"risky": True</code>. Path handling resolves each path and refuses anything outside the folder.
+              <div class="code-block"><code># ---- workspace tools: the "hands" that can change things, confined to one folder ----
+from pathlib import Path
+WORKSPACE = Path("agent/workspace"); WORKSPACE.mkdir(parents=True, exist_ok=True)
+
+def _safe(name):
+    """Resolve the path and refuse anything that escapes the workspace (../../etc/passwd)."""
+    p = (WORKSPACE / name).resolve()
+    if WORKSPACE.resolve() not in p.parents:
+        raise ValueError("path is outside the workspace")
+    return p
+
+def list_files():
+    return "\n".join(sorted(p.name for p in WORKSPACE.iterdir())) or "(empty)"
+
+def read_file(name):
+    return _safe(name).read_text()
+
+def delete_file(name):
+    _safe(name).unlink()
+    return f"deleted {name}"
+
+TOOLS["list_files"] = {"fn": list_files, "risky": False, "schema": {
+    "name": "list_files", "description": "List the files in the workspace.",
+    "input_schema": {"type": "object", "properties": {}}}}
+TOOLS["read_file"] = {"fn": read_file, "risky": False, "schema": {
+    "name": "read_file", "description": "Read one workspace file by name.",
+    "input_schema": {"type": "object", "properties": {"name": {"type": "string"}}, "required": ["name"]}}}
+TOOLS["delete_file"] = {"fn": delete_file, "risky": True, "schema": {
+    "name": "delete_file", "description": "Permanently delete one workspace file by name.",
+    "input_schema": {"type": "object", "properties": {"name": {"type": "string"}}, "required": ["name"]}}}</code></div>
+            </li>
+            <li>Create <code class="inline">agent/harness.py</code>: the loop again, now with the pieces of a real harness. A <code class="inline">Limits</code> object (step cap, dollar budget, wall-clock timeout, per-tool timeout, repeat cap); an append-only <code class="inline">History</code> that writes one JSON line per event; an approval gate for risky tools that runs <em>outside</em> the model; and a clear <code class="inline">status</code> for every way a run can end. The dollar budget refuses to run until you fill in real prices, because a budget measured at zero dollars never triggers.
+              <div class="code-block"><code>"""The harness: brain + hands + history, with limits and an approval gate around the loop."""
+import json, time, uuid
+from concurrent.futures import ThreadPoolExecutor, TimeoutError as ToolTimeout
+from pathlib import Path
+from brain import think
+
+# Dollars per 1,000,000 tokens: (input, output). Fill in from your provider's pricing page.
+PRICE_PER_MTOK = {"claude-sonnet-5": (0.0, 0.0)}
+
+class Limits:
+    def __init__(self, max_steps=8, max_usd=None, timeout_s=120, tool_timeout_s=30, max_repeats=2,
+                 model="claude-sonnet-5"):
+        if max_usd is not None and PRICE_PER_MTOK[model] == (0.0, 0.0):
+            raise ValueError("max_usd is set but PRICE_PER_MTOK is still zero; fill in real prices first")
+        self.max_steps, self.max_usd, self.timeout_s = max_steps, max_usd, timeout_s
+        self.tool_timeout_s, self.max_repeats, self.model = tool_timeout_s, max_repeats, model
+
+    def cost(self, input_tokens, output_tokens):
+        pin, pout = PRICE_PER_MTOK[self.model]
+        return (input_tokens * pin + output_tokens * pout) / 1_000_000
+
+class History:
+    """Append-only: every event is one JSON line, and nothing is ever rewritten."""
+    def __init__(self, run_id=None, root="agent/runs"):
+        self.run_id = run_id or uuid.uuid4().hex[:8]
+        self.dir = Path(root) / self.run_id; self.dir.mkdir(parents=True, exist_ok=True)
+        self.path = self.dir / "history.jsonl"
+    def add(self, kind, **data):
+        with open(self.path, "a") as f:
+            f.write(json.dumps({"t": round(time.time(), 2), "kind": kind, **data}, default=str) + "\n")
+
+def deny_all(name, tool_input):
+    return False
+
+def ask_human(name, tool_input):
+    """Default approval: show the exact action and wait for a typed 'yes'."""
+    return input(f"Agent wants to run {name}({tool_input}). Type 'yes' to allow: ").strip().lower() == "yes"
+
+def run_agent(task, tools, system, limits=None, approve=ask_human, history=None, think=think):
+    limits = limits or Limits(); history = history or History()
+    messages = [{"role": "user", "content": task}]
+    schemas = [t["schema"] for t in tools.values()]
+    started, tokens_in, tokens_out, seen = time.time(), 0, 0, {}
+    history.add("start", task=task, limits=vars(limits))
+
+    def stop(status, **extra):
+        history.add("stop", status=status, **extra)
+        return {"status": status, "run_id": history.run_id, **extra}
+
+    for step in range(1, limits.max_steps + 1):
+        if time.time() - started &gt; limits.timeout_s:
+            return stop("timeout", step=step)
+        resp = think(system, messages, schemas)
+        tokens_in += resp.usage.input_tokens; tokens_out += resp.usage.output_tokens
+        spent = limits.cost(tokens_in, tokens_out)
+        history.add("model", step=step, input_tokens=resp.usage.input_tokens,
+                    output_tokens=resp.usage.output_tokens, spent_usd=round(spent, 6))
+        if limits.max_usd is not None and spent &gt; limits.max_usd:
+            return stop("budget", spent_usd=spent)
+
+        calls = [b for b in resp.content if b.type == "tool_use"]
+        if not calls:
+            answer = "".join(b.text for b in resp.content if b.type == "text")
+            return stop("done", answer=answer, steps=step, tokens=tokens_in + tokens_out)
+
+        messages.append({"role": "assistant", "content": [
+            {"type": "tool_use", "id": c.id, "name": c.name, "input": c.input} if c.type == "tool_use"
+            else {"type": "text", "text": c.text} for c in resp.content]})
+        results = []
+        for c in calls:
+            key = (c.name, json.dumps(c.input, sort_keys=True))
+            seen[key] = seen.get(key, 0) + 1
+            if seen[key] &gt; limits.max_repeats:           # same call again and again: not progress
+                return stop("repeated_call", tool=c.name, escalate="needs a human")
+            tool = tools.get(c.name)
+            if tool is None:
+                out = f"ERROR: no such tool {c.name!r}. Available: {sorted(tools)}"
+            elif tool.get("risky") and not approve(c.name, c.input):
+                out = "DENIED: a human did not approve this action. Do not retry it; propose an alternative."
+                history.add("denied", tool=c.name, input=c.input)
+            else:
+                pool = ThreadPoolExecutor(max_workers=1)
+                try:
+                    out = pool.submit(tool["fn"], **c.input).result(timeout=limits.tool_timeout_s)
+                except ToolTimeout:
+                    out = f"ERROR: tool timed out after {limits.tool_timeout_s}s"
+                except Exception as e:
+                    out = f"ERROR: {type(e).__name__}: {e}"
+                finally:
+                    pool.shutdown(wait=False)       # don't wait for a stuck tool; a thread can't be killed, only abandoned
+            history.add("tool", step=step, name=c.name, input=c.input, output=str(out)[:4000])
+            results.append({"type": "tool_result", "tool_use_id": c.id, "content": str(out)})
+        messages.append({"role": "user", "content": results})
+    return stop("step_limit", steps=limits.max_steps)</code></div>
+            </li>
+            <li>Create <code class="inline">agent/limits_demo.py</code>. It triggers every limit on purpose using a scripted fake model, so it costs nothing and needs no key. It uses made-up demo prices for the dollar budget; use your provider's real ones in your own code.
+              <div class="code-block"><code>"""Trigger every limit on purpose, with a scripted fake model, so no API key or spending is needed."""
+import time, types
+import harness
+from harness import Limits, History, run_agent, deny_all
+from tools import TOOLS
+
+def block(**k): return types.SimpleNamespace(**k)
+def reply(content, i=100, o=50): return types.SimpleNamespace(content=content, usage=types.SimpleNamespace(input_tokens=i, output_tokens=o))
+def call(name, inp, i="c1", **kw): return reply([block(type="tool_use", id=i, name=name, input=inp)], **kw)
+def forever(name, inp, **kw): return lambda system, messages, tools=None, max_tokens=800: call(name, inp, **kw)
+def varied(**kw):
+    """Different arguments every time, so the repeat detector stays quiet and the step cap is what stops it."""
+    n = iter(range(1000))
+    return lambda system, messages, tools=None, max_tokens=800: call("calculate", {"expression": f"1+{next(n)}"}, **kw)
+
+def show(label, result):
+    print(f"{label:22s} -&gt; {result['status']}")
+
+harness.PRICE_PER_MTOK["claude-sonnet-5"] = (3.0, 15.0)    # demo prices ONLY. Use your provider's real ones.
+
+show("max steps", run_agent("t", TOOLS, "s", Limits(max_steps=3), think=varied(), history=History("demo")))
+show("repeated call", run_agent("t", TOOLS, "s", Limits(max_repeats=2), think=forever("list_files", {}), history=History("demo")))
+show("dollar budget", run_agent("t", TOOLS, "s", Limits(max_usd=0.01), think=forever("list_files", {}, i=5000, o=500), history=History("demo")))
+
+slow = dict(TOOLS); slow["list_files"] = {**TOOLS["list_files"], "fn": lambda: time.sleep(3)}
+t0 = time.time()
+r = run_agent("t", slow, "s", Limits(tool_timeout_s=0.5, max_steps=1), think=forever("list_files", {}), history=History("demo_timeout"))
+show("tool timeout", r)
+print(f"   returned after {time.time() - t0:.1f}s (the stuck tool sleeps for 3s)")
+show("wall-clock timeout", run_agent("t", slow, "s", Limits(timeout_s=0.01, tool_timeout_s=1), think=forever("list_files", {}), history=History("demo")))
+
+(harness.Path("agent/workspace/precious.txt")).write_text("do not lose me")
+steps = iter([call("delete_file", {"name": "precious.txt"}), reply([block(type="text", text="ok, did not delete")])])
+r = run_agent("t", TOOLS, "s", approve=deny_all, think=lambda *a, **k: next(steps), history=History("demo"))
+show("approval denied", r)
+print("file still exists:", harness.Path("agent/workspace/precious.txt").exists())</code></div>
+              <div class="code-block"><code>python agent/limits_demo.py</code></div>
+            </li>
+            <li>Read <code class="inline">agent/runs/demo/history.jsonl</code> after the run. Every step, tool call and stop is there. In particular find the <code class="inline">denied</code> event from the approval test and confirm the file it tried to delete still exists.</li>
+          </ol>
+          <div class="lab-check"><strong>Check:</strong> the demo should print one line per limit: <code class="inline">max steps -&gt; step_limit</code>, <code class="inline">repeated call -&gt; repeated_call</code>, <code class="inline">dollar budget -&gt; budget</code>, <code class="inline">tool timeout -&gt; step_limit</code> (the loop got a timeout error back and then ran out of steps), <code class="inline">wall-clock timeout -&gt; timeout</code>, <code class="inline">approval denied -&gt; done</code>, then <code class="inline">file still exists: True</code>. The tool-timeout line also prints how long the call took: about half a second, not the three seconds the stuck tool sleeps, because the harness stops waiting rather than blocking on it. Writing this lab surfaced that exact bug in a first draft, where a <code class="inline">with</code> block around the worker made the loop wait for the stuck tool anyway. The varied-argument fake matters too: with identical arguments the repeat detector fires before the step cap, which is the repeat detector working.</div>
+          </div>
+        </div>
+
+        <div class="lab-card framework-item is-accordion" id="lab-7">
+          <button class="fw-toggle" type="button" aria-expanded="false" aria-controls="lab-7-body">
+            <span class="lab-num">LAB 7</span>
+            <div class="fw-toggle-text">
+              <h3>Failure clinic</h3>
+              <p class="fw-teaser">Repair a bare harness until seven reproducible failures stay fixed, using only its trace and history.</p>
+            </div>
+            <svg class="fw-chevron" width="18" height="18" viewBox="0 0 20 20" aria-hidden="true">
+              <path d="M5 7.5 L10 12.5 L15 7.5" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+          </button>
+          <div class="fw-body" id="lab-7-body">
+
+          <ol class="lab-steps">
+            <li>This lab has no model and no API cost. A <strong>scripted model</strong> misbehaves in seven specific, repeatable ways, one per row of the harness-failure table in this module's overview. It reacts only to what your harness puts in front of it: the system prompt, the tool descriptions, the messages. That is exactly the surface a harness controls, which is why you can fix every failure without touching the model. It is a stand-in, not a real model; its job is to make each failure reproduce every time. Create <code class="inline">agent/clinic/scripted_model.py</code> as given and don't edit it.
+              <div class="code-block"><code>"""A fake model that misbehaves in seven specific, repeatable ways. It is NOT a real model: it reacts
+only to what your harness puts in front of it (the system prompt, the tool descriptions, the messages),
+which is exactly the surface a harness controls. Don't edit this file; fix the harness instead."""
+import types, itertools
+
+SCENARIO = None
+_ids = itertools.count(1)
+
+def _text(t): return types.SimpleNamespace(content=[types.SimpleNamespace(type="text", text=t)], usage=types.SimpleNamespace(input_tokens=50, output_tokens=20))
+def _call(tool_name, **inp):
+    block = types.SimpleNamespace(type="tool_use", id=f"c{next(_ids)}", name=tool_name, input=inp)
+    return types.SimpleNamespace(content=[block], usage=types.SimpleNamespace(input_tokens=50, output_tokens=20))
+
+def _flat(messages):
+    out = []
+    for m in messages:
+        c = m["content"]
+        out.append(c if isinstance(c, str) else " ".join(str(b.get("content", b.get("text", ""))) for b in c))
+    return " ".join(out)
+
+def _last_result(messages):
+    last = messages[-1]["content"]
+    return last if isinstance(last, str) else str(last[0].get("content", ""))
+
+def _tool_results(messages):
+    return sum(1 for m in messages if isinstance(m["content"], list) and m["content"] and m["content"][0].get("type") == "tool_result")
+
+def model(system, messages, tools):
+    seen = _flat(messages)
+    n = _tool_results(messages)
+    descriptions = {t["name"]: t["description"].lower() for t in tools}
+
+    if SCENARIO == "missing_context":
+        if n == 0:
+            files = [l[2:].strip() for l in system.splitlines() if l.startswith("- ")]
+            return _call("read_file", name=files[0] if files else "notes.txt")   # no map -&gt; it guesses
+        r = _last_result(messages)
+        return _text("I could not find the numbers." if r.startswith("ERROR") else f"Result: {r}")
+
+    if SCENARIO == "wrong_tool":
+        if n == 0:
+            for name, d in descriptions.items():
+                if "arithmetic" in d:
+                    return _call(name, expression="17 * 23")
+            return _call(tools[0]["name"], query="17 * 23")                      # no clue -&gt; first tool
+        r = _last_result(messages)
+        return _text(f"17 * 23 = {r}" if r.strip().isdigit() else "I could not compute that.")
+
+    if SCENARIO == "bad_output":
+        if _last_result(messages).startswith("VALIDATION ERROR"):
+            return _text('{"total": 1200}')
+        return _text('{"total": "$1,200"}')
+
+    if SCENARIO == "repeated_loop":
+        return _call("read_file", name="missing.txt")
+
+    if SCENARIO == "unsafe_action":
+        if n == 0:
+            return _call("read_file", name="report.txt")
+        if n == 1:
+            return _call("delete_file", name="report.txt")                       # overeager cleanup
+        return _text("Done. I cleaned up the workspace.")
+
+    if SCENARIO == "lost_decision":
+        if n == 0:
+            return _call("calculate", expression="10 * 1.609")
+        remembered = "kilometres" in system.lower() or "kilometres" in seen.lower()
+        return _text("10 miles is 16.09 km." if remembered else "10 miles is about 6.2 miles.")
+
+    if SCENARIO == "unknown_failure":
+        if n == 0:
+            return _call("read_file", name="../escape.txt")
+        return _text("I could not read that file.")
+
+    raise RuntimeError(f"unknown scenario {SCENARIO!r}")</code></div>
+            </li>
+            <li>Create <code class="inline">agent/clinic/clinic_tools.py</code>. The tool <em>descriptions</em> are part of the harness, so you may edit them. Two of them are deliberately vague.
+              <div class="code-block"><code>"""The tools the clinic agent can use. The descriptions are part of the harness, so you may edit them."""
+from pathlib import Path
+
+def make_tools(workspace):
+    ws = Path(workspace)
+
+    def _safe(name):
+        p = (ws / name).resolve()
+        if ws.resolve() not in p.parents:
+            raise ValueError("path is outside the workspace")
+        return p
+
+    def read_file(name):   return _safe(name).read_text()
+    def delete_file(name): _safe(name).unlink(); return f"deleted {name}"
+    def search_docs(query): return "no results"
+    def calculate(expression): return str(eval(expression, {"__builtins__": {}}))   # clinic only; Module 5 used ast
+
+    def spec(tool_name, description, *fields):
+        return {"name": tool_name, "description": description, "input_schema": {
+            "type": "object", "properties": {f: {"type": "string"} for f in fields}, "required": list(fields)}}
+
+    return {
+        "search_docs": {"fn": search_docs, "risky": False, "schema": spec("search_docs", "Handles requests.", "query")},
+        "calculate":   {"fn": calculate,   "risky": False, "schema": spec("calculate", "Handles requests.", "expression")},
+        "read_file":   {"fn": read_file,   "risky": False, "schema": spec("read_file", "Read a file from the workspace.", "name")},
+        "delete_file": {"fn": delete_file, "risky": True,  "schema": spec("delete_file", "Delete a file from the workspace.", "name")},
+    }</code></div>
+            </li>
+            <li>Create <code class="inline">agent/clinic/harness.py</code>: a bare harness that runs and has seven weaknesses. Each one is marked FIX 1 through FIX 7. This is the file you will repair.
+              <div class="code-block"><code>"""The clinic's bare harness. It runs, and it has seven weaknesses. Each has a FIX marker."""
+import json
+from pathlib import Path
+import scripted_model
+
+MAX_CONTEXT_MESSAGES = 2        # a small "context window": only the newest messages reach the model
+
+def build_system(workspace):
+    return "You are a helpful assistant."                  # FIX 1 (missing context)
+
+def validate_output(text, task):
+    """Check a final answer before accepting it. Only tasks that ask for JSON have a format to check."""
+    return True, ""                                        # FIX 3 (bad output): return (False, reason) when the answer is wrong
+
+def run(task, tools, workspace, approve=lambda name, args: True, trace_path="agent/clinic/trace.jsonl"):
+    system = build_system(workspace)
+    messages = [{"role": "user", "content": task}]
+    schemas = [t["schema"] for t in tools.values()]
+    tool_calls = 0
+    for step in range(12):                                 # the only limit this harness has
+        view = messages[-MAX_CONTEXT_MESSAGES:]            # FIX 6 (lost decision): old messages fall off
+        resp = scripted_model.model(system, view, schemas)
+        calls = [b for b in resp.content if b.type == "tool_use"]
+        if not calls:
+            text = resp.content[0].text
+            ok, reason = validate_output(text, task)       # FIX 3 lives here and in validate_output
+            return {"status": "done", "answer": text, "tool_calls": tool_calls}
+        messages.append({"role": "assistant", "content": [
+            {"type": "tool_use", "id": c.id, "name": c.name, "input": c.input} for c in calls]})
+        results = []
+        for c in calls:
+            tool_calls += 1
+            # FIX 4 (repeated loop): nothing stops the same failing call from repeating
+            # FIX 5 (unsafe action): tools marked risky run without asking
+            try:
+                out = tools[c.name]["fn"](**c.input)
+            except Exception:
+                out = "ERROR"                              # FIX 7 (unknown failure): the cause is thrown away
+            results.append({"type": "tool_result", "tool_use_id": c.id, "content": str(out)})
+        messages.append({"role": "user", "content": results})
+    return {"status": "step_limit", "answer": None, "tool_calls": tool_calls}</code></div>
+            </li>
+            <li>Create the checker, then run it from the repo root. It runs all seven scenarios and prints PASS or FAIL for each, with the symptom.
+              <div class="code-block"><code>"""Runs all seven scenarios against clinic/harness.py. Run from the repo root: python agent/clinic/check.py"""
+import json, shutil, sys
+from pathlib import Path
+sys.path.insert(0, "agent/clinic")
+import scripted_model
+from clinic_tools import make_tools
+import harness
+
+WS = Path("agent/clinic/ws"); TRACE = Path("agent/clinic/trace.jsonl")
+
+def fresh_workspace():
+    shutil.rmtree(WS, ignore_errors=True); WS.mkdir(parents=True)
+    (WS / "q3_numbers.txt").write_text("Q3 total: 4200")
+    (WS / "report.txt").write_text("quarterly report - do not delete")
+
+def trace_text():
+    return TRACE.read_text() if TRACE.exists() else ""
+
+SCENARIOS = [
+    ("missing_context", "Report the Q3 total from the workspace.",
+     lambda r: r["answer"] and "Q3 total: 4200" in r["answer"], "agent could not find the file it needed"),
+    ("wrong_tool", "What is 17 * 23?",
+     lambda r: r["answer"] and "391" in r["answer"], "agent picked the wrong tool"),
+    ("bad_output", 'Return the invoice total as JSON like {"total": 1200}.',
+     lambda r: _valid_total(r["answer"]), "agent's output was not valid"),
+    ("repeated_loop", "Read missing.txt and summarize it.",
+     lambda r: r["status"] == "escalated" and r["tool_calls"] &lt;= 4, "agent kept repeating a failing call"),
+    ("unsafe_action", "Read report.txt and summarize it.",
+     lambda r: (WS / "report.txt").exists(), "agent deleted a file nobody approved deleting"),
+    ("lost_decision", "DECISION: the client wants kilometres, not miles.\nConvert 10 miles to the client's unit using the tool.",
+     lambda r: r["answer"] and "km" in r["answer"], "agent forgot an earlier decision"),
+    ("unknown_failure", "Read ../escape.txt and summarize it.",
+     lambda r: "ValueError" in trace_text(), "a tool failed and left no evidence of why"),
+]
+
+def _valid_total(text):
+    try:
+        return isinstance(json.loads(text)["total"], (int, float))
+    except Exception:
+        return False
+
+passed = 0
+for name, task, ok, symptom in SCENARIOS:
+    fresh_workspace(); TRACE.unlink(missing_ok=True)
+    scripted_model.SCENARIO = name
+    try:
+        result = harness.run(task, make_tools(WS), WS, approve=lambda n, a: False, trace_path=str(TRACE))
+        good = bool(ok(result))
+    except Exception as e:
+        good, symptom = False, f"harness crashed: {type(e).__name__}: {e}"
+    passed += good
+    print(f"{'PASS' if good else 'FAIL'}  {name:16s}" + ("" if good else f"  {symptom}"))
+print(f"\n{passed}/{len(SCENARIOS)} fixed")</code></div>
+              <div class="code-block"><code>python agent/clinic/check.py</code></div>
+            </li>
+            <li>Fix one failure at a time and re-run after each. For every one, write down which row of the overview's table it belongs to and what you changed in the <em>system</em>, not in a prompt. Hints, by row:
+              <ul class="explainer-list is-bulleted" style="margin-top: 6px;">
+                <li><strong>missing_context:</strong> the agent guessed a filename because nothing told it what exists. Give <code class="inline">build_system</code> a map of the workspace, one <code class="inline">- filename</code> line per file.</li>
+                <li><strong>wrong_tool:</strong> two tools are both described as "handles requests". Rewrite the descriptions so each says what it is for. The scripted model, like a real one, leans on the words it's given.</li>
+                <li><strong>bad_output:</strong> the model's JSON had a string where a number belongs. Fill in <code class="inline">validate_output</code> (only for tasks that ask for JSON), and when it fails, send the model the reason as a message beginning <code class="inline">VALIDATION ERROR:</code> and let it try again, a bounded number of times.</li>
+                <li><strong>repeated_loop:</strong> the same failing call, forever. Count identical calls; past a small cap, stop with status <code class="inline">"escalated"</code>.</li>
+                <li><strong>unsafe_action:</strong> <code class="inline">delete_file</code> is flagged risky and nothing checks the flag. Call <code class="inline">approve</code> before running a risky tool, and return a refusal message to the model if it says no.</li>
+                <li><strong>lost_decision:</strong> the harness only shows the model the newest messages, so a decision in the first one fell off. Pull <code class="inline">DECISION:</code> lines out of the task into state, and put them in the system prompt on every step.</li>
+                <li><strong>unknown_failure:</strong> the harness swallows the exception and records <code class="inline">"ERROR"</code>. Keep the exception type and message, and write every tool call and its outcome to the trace file.</li>
+              </ul>
+            </li>
+          </ol>
+          <div class="lab-check"><strong>Check:</strong> as shipped, the checker prints <code class="inline">0/7 fixed</code>: every scenario fails, each with its symptom. Your goal is <code class="inline">7/7 fixed</code>. We confirmed both ends: the bare harness fails all seven, and a reference set of fixes (a workspace map, clearer tool descriptions, a JSON validator with a bounded retry, a repeat cap that escalates, an approval gate, decisions carried into the system prompt, and error-preserving tracing) makes all seven pass. Notice that none of the fixes involve a cleverer prompt for the model. Each is a change to the surrounding system, and each stays fixed for every future run. The limits of the exercise matter too: a real model fails in ways no seven-item script covers, which is why the tracing fix (FIX 7) is the one that pays off the most in practice.</div>
+          </div>
+        </div>
+
+        <div class="lab-card framework-item is-accordion" id="lab-8">
+          <button class="fw-toggle" type="button" aria-expanded="false" aria-controls="lab-8-body">
+            <span class="lab-num">LAB 8</span>
+            <div class="fw-toggle-text">
+              <h3>Make a repo agent-legible</h3>
+              <p class="fw-teaser">Add a map file, a docs folder and a lint rule whose error explains the fix, then count your corrections before and after.</p>
+            </div>
+            <svg class="fw-chevron" width="18" height="18" viewBox="0 0 20 20" aria-hidden="true">
+              <path d="M5 7.5 L10 12.5 L15 7.5" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+          </button>
+          <div class="fw-body" id="lab-8-body">
+
+          <ol class="lab-steps">
+            <li>Pick a repository with real code in it. Your own RAG repo from Module 3 works. Before changing anything, give a coding agent a small feature request (for example "add a command-line flag to the RAG pipeline that prints the retrieved passages") and keep a tally of how many times you had to correct it. That's your baseline. Revert whatever it did.</li>
+            <li>Add a short <strong>map file</strong> at the repo root, about 40 lines. It should say what the repo is, how to run and test it, where things live, and the few rules that matter. Resist the urge to write a manual: a giant instructions file crowds out the task and goes stale. Different coding agents look for different filenames (<code class="inline">AGENTS.md</code> is a widely used convention; Claude Code reads <code class="inline">CLAUDE.md</code>); keep one as the source of truth and have the other point to it, checking your tool's documentation for the exact mechanism.
+              <div class="code-block"><code># AGENTS.md
+
+A retrieval-augmented QA system over generated product manuals, plus an eval suite and a research agent.
+
+## Run and check
+- Generate data:   python rag/generate_corpus.py 12
+- Ask a question:  python rag/pipeline.py
+- Evals:           python evals/ci_eval.py
+- Architecture:    python checks/check_architecture.py   (must pass before you finish)
+
+## Where things live
+- rag/      retrieval: parsing, chunking, hybrid search, rerank, the ask() pipeline
+- evals/    golden set, graders, judge, guardrails, CI eval
+- agent/    the agent loop, harness, sub-agents, MCP server
+- docs/     ARCHITECTURE.md, decisions/, PLAN.md. Read the relevant one before changing a boundary.
+
+## Rules
+- Dependencies point one way: agent/ and evals/ may import rag/, never the reverse.
+- Never commit .env or anything under rag/.embed_cache, rag/.ocr_cache, agent/runs.
+- A change to retrieval or prompts must not lower evals/ci_eval.py scores. Run it and report the table.
+
+## Decisions
+Why we chose what we chose is in docs/decisions/. If you reverse one, write a new entry.</code></div>
+            </li>
+            <li>Create the <code class="inline">docs/</code> folder with three short files: <code class="inline">ARCHITECTURE.md</code> (the folders above and the one-way dependency rule, with the reason), <code class="inline">decisions/0001-hybrid-search.md</code> (what you decided in Module 3 and why, three or four sentences), and <code class="inline">PLAN.md</code> (what you're working on now and what's next). The principle is that if a decision lives only in your head or a chat thread, the agent can't see it.</li>
+            <li>Turn the dependency rule into a <strong>mechanical check</strong>. This lint rule fails if anything in <code class="inline">rag/</code> imports from <code class="inline">agent/</code> or <code class="inline">evals/</code>, and its error message tells the reader how to fix it, because the reader is usually an agent that can act on the instructions.
+              <div class="code-block"><code>"""A lint rule for agents: rag/ must never import from agent/ or evals/. The error message says how to fix it,
+because the reader is usually an agent that can act on the instructions."""
+import ast, sys
+from pathlib import Path
+
+def top_level_names(folder):
+    return {p.stem for p in Path(folder).glob("*.py")}
+
+def violations(rag_dir="rag", other_dirs=("agent", "evals")):
+    forbidden = set()
+    for d in other_dirs:
+        forbidden |= top_level_names(d)
+    forbidden -= top_level_names(rag_dir)          # a name rag/ also defines is its own, not a violation
+    found = []
+    for path in Path(rag_dir).glob("*.py"):
+        for node in ast.walk(ast.parse(path.read_text())):
+            names = []
+            if isinstance(node, ast.Import):
+                names = [a.name.split(".")[0] for a in node.names]
+            elif isinstance(node, ast.ImportFrom) and node.module:
+                names = [node.module.split(".")[0]]
+            for n in names:
+                if n in forbidden:
+                    found.append(f"{path}:{node.lineno}: rag/ must not import '{n}' (it lives in agent/ or evals/). "
+                                 f"Dependencies point one way: agent/ and evals/ may import rag/, never the reverse. "
+                                 f"Fix: pass what rag/ needs in as a function argument, or move the shared code "
+                                 f"into shared/. See docs/ARCHITECTURE.md.")
+    return found
+
+if __name__ == "__main__":
+    problems = violations()
+    print("\n".join(problems) if problems else "architecture check passed")
+    sys.exit(1 if problems else 0)</code></div>
+              <div class="code-block"><code>python checks/check_architecture.py</code></div>
+            </li>
+            <li>Prove the rule bites: add <code class="inline">import harness</code> to the bottom of one <code class="inline">rag/</code> file, run the check, read the error, then remove the line. Finally repeat step 1's feature request with the map, docs and check in place, and compare your correction tally to the baseline.</li>
+          </ol>
+          <div class="lab-check"><strong>Check:</strong> on a clean repo the check prints <code class="inline">architecture check passed</code>. With a bad import added it exits non-zero and prints a message naming the file and line, the rule, and the two ways to fix it; we ran exactly that test against the module code. The before-and-after correction count is the real result, and it's yours to record: a single task is a tiny sample, so repeat it on two or three requests before concluding anything. The guidance in the overview's OpenAI case study is the reason for the shape here: a short map pointing into structured docs, rather than one giant file, and invariants enforced by checks rather than by hoping the agent remembers.</div>
+          </div>
+        </div>
+
+        <div class="lab-card framework-item is-accordion" id="lab-9">
+          <button class="fw-toggle" type="button" aria-expanded="false" aria-controls="lab-9-body">
+            <span class="lab-num">LAB 9</span>
+            <div class="fw-toggle-text">
+              <h3>Agent chief of staff</h3>
+              <p class="fw-teaser">A coordinator that reads a diary and every run's progress file, flags duplicates and conflicts, and escalates only when needed.</p>
+            </div>
+            <svg class="fw-chevron" width="18" height="18" viewBox="0 0 20 20" aria-hidden="true">
+              <path d="M5 7.5 L10 12.5 L15 7.5" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+          </button>
+          <div class="fw-body" id="lab-9-body">
+
+          <ol class="lab-steps">
+            <li>You need some input. Run Lab 4's progress script for two or three <em>different</em> runs, with at least two whose questions overlap (both ask about the Delta Sensor's warranty), leaving one unfinished with the crash flag. Then write a few lines of <code class="inline">agent/diary.md</code>: what you decided and noticed today, in plain sentences. A short daily diary captures context that never reaches a file an agent can search.</li>
+            <li>Create <code class="inline">agent/chief_of_staff.py</code>. Two kinds of checks run on every sub-agent's state file. <strong>Code checks</strong> (cheap and deterministic): duplicate sub-questions across runs, by word overlap, and runs unfinished and untouched for 30 minutes. <strong>A model check</strong>: do any two runs, or a run and the diary, contradict each other, and does fixing it need a person's judgment? It writes <code class="inline">agent/escalations.md</code> only when something needs attention, and deletes it when everything is clean, so an empty escalation file means "nothing to see".
+              <div class="code-block"><code>"""Read every sub-agent's progress file plus a daily diary. Flag duplicates, stalls and conflicts, and
+bother a human only when a judgment call is needed."""
+import json, re, time
+from pathlib import Path
+from itertools import combinations
+from brain import complete
+
+STALL_MINUTES = 30
+
+def words(s):
+    return set(re.findall(r"[a-z0-9]+", s.lower()))
+
+def duplicates(runs):
+    """Two runs working on (nearly) the same sub-question are doing the work twice."""
+    flags = []
+    for (a, ra), (b, rb) in combinations(runs.items(), 2):
+        for qa in ra["plan"] or []:
+            for qb in rb["plan"] or []:
+                wa, wb = words(qa), words(qb)
+                if wa and wb and len(wa &amp; wb) / len(wa | wb) &gt;= 0.8:
+                    flags.append(f"DUPLICATE: '{a}' and '{b}' both plan: {qa!r}")
+    return flags
+
+def stalled(paths, now=None):
+    now = now or time.time()
+    out = []
+    for p in paths:
+        s = json.loads(p.read_text())
+        unfinished = s["plan"] and len(s["done"]) &lt; len(s["plan"]) and "report" not in s
+        if unfinished and (now - p.stat().st_mtime) &gt; STALL_MINUTES * 60:
+            out.append(f"STALLED: '{p.stem}' unfinished and untouched for over {STALL_MINUTES} minutes")
+    return out
+
+def review(state_dir="agent/state", diary="agent/diary.md", out="agent/escalations.md", complete=complete):
+    paths = sorted(Path(state_dir).glob("*.json"))
+    runs = {p.stem: json.loads(p.read_text()) for p in paths}
+    flags = duplicates(runs) + stalled(paths)
+
+    summary = "\n\n".join(f"Run {name}: {r['question']}\n" + "\n".join(
+        f"- {r['done'][k]['question']} =&gt; {r['done'][k]['answer'][:300]}" for k in sorted(r["done"]))
+        for name, r in runs.items())
+    diary_text = Path(diary).read_text() if Path(diary).exists() else "(no diary)"
+    raw = complete("You review work done by several research agents. Find places where two runs reached "
+                   "CONTRADICTORY answers to the same question, or where the diary contradicts a run. Say "
+                   "needs_human=true only if resolving it requires a judgment call a person should make. "
+                   'Reply only JSON: {"conflicts": ["..."], "needs_human": true/false, "reason": "..."}\n\n'
+                   f"Diary:\n{diary_text}\n\nRuns:\n{summary}")
+    verdict = json.loads(raw[raw.index("{"): raw.rindex("}") + 1])
+
+    if flags or verdict["conflicts"] or verdict["needs_human"]:
+        lines = ["# Escalations", ""] + [f"- {f}" for f in flags] + [f"- CONFLICT: {c}" for c in verdict["conflicts"]]
+        if verdict["needs_human"]:
+            lines += ["", f"**Needs your call:** {verdict['reason']}"]
+        Path(out).write_text("\n".join(lines))
+        return lines
+    Path(out).unlink(missing_ok=True)
+    return []
+
+if __name__ == "__main__":
+    result = review()
+    print("\n".join(result) if result else "nothing to escalate")</code></div>
+              <div class="code-block"><code>python agent/chief_of_staff.py</code></div>
+            </li>
+            <li>Read <code class="inline">agent/escalations.md</code>. For each flag, decide whether you'd have wanted to be interrupted. Tune the threshold or the model's instructions until the flags are ones you'd act on.</li>
+            <li>Run it again after finishing every run. It should report nothing to escalate. A chief of staff that escalates everything is just another inbox.</li>
+          </ol>
+          <div class="lab-check"><strong>Check:</strong> the deterministic part we tested with hand-built state files: two runs planning "Warranty on the Delta Sensor" and "warranty on the delta sensor?" were flagged as a duplicate (word overlap ignores case and punctuation), an unfinished run untouched for an hour was flagged as stalled, and once every run was finished with distinct questions the escalation file was removed and the report was empty. The model-judged conflict check was not run against a live model, so its sensitivity is yours to measure: seed one deliberate contradiction (two runs, opposite answers) and confirm it's caught, and seed none and confirm it stays quiet.</div>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <section class="lesson-section" id="lesson-project">
+      <h2>Project</h2>
+
+      <div class="lab-card framework-item is-accordion" id="project-card">
+        <button class="fw-toggle" type="button" aria-expanded="false" aria-controls="project-card-body">
+          <span class="lab-num">PROJECT</span>
+          <div class="fw-toggle-text">
+            <h3>Research agent with sub-agents</h3>
+            <p class="fw-teaser">Plans, dispatches sub-agents, and returns a cited report, with limits, a progress file, a verified-citations check, and a receipt for every run.</p>
+          </div>
+          <svg class="fw-chevron" width="18" height="18" viewBox="0 0 20 20" aria-hidden="true">
+            <path d="M5 7.5 L10 12.5 L15 7.5" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+        </button>
+        <div class="fw-body" id="project-card-body">
+      <div class="course-project">
+        <span class="course-project-label">Project &middot; Research agent with sub-agents</span>
+        <p>The labs built the parts separately. This project assembles them into one agent you could hand to someone: the coordinator plans, sub-agents run under the harness's limits, progress is saved after every sub-agent, the report is checked against what the tools actually returned, and every run leaves a full history and a change receipt.</p>
+      </div>
+
+      <ol class="lab-steps" style="margin-top: 14px;">
+        <li>Create <code class="inline">agent/research.py</code>. Read it before running it; it uses the three components on purpose. The <strong>brain</strong> is <code class="inline">brain.py</code> (and can be swapped for a fake in a test), the <strong>hands</strong> are <code class="inline">tools.py</code>, the <strong>history</strong> is <code class="inline">harness.History</code>, one per sub-agent plus one for the coordinator. After the sub-agents finish and the report is written, a check confirms every <code class="inline">[file p.N]</code> citation in it is one a search tool actually returned in some sub-agent's history. If not, it gets one bounded rewrite, then reports honestly either way. The receipt records the context sources, tools used, check results, retries, tokens and a rollback point.
+          <div class="code-block"><code>"""Project: a research agent. Brain = brain.py, hands = tools.py, history = harness.History."""
+import json, os, re, subprocess, sys
+import threading
+from concurrent.futures import ThreadPoolExecutor
+from pathlib import Path
+import brain, harness
+from harness import Limits, History, run_agent
+from subagents import SUB_SYSTEM
+from tools import TOOLS
+
+CITE = re.compile(r"\[([^\]]+?\.pdf) p\.(\d+)\]")
+
+def save(path, state):
+    tmp = Path(str(path) + ".tmp"); tmp.write_text(json.dumps(state, indent=1)); os.replace(tmp, path)
+
+def tags_in_history(history_path):
+    """Every [file p.N] tag a tool actually returned: the only citations the report may use."""
+    found = set()
+    for line in open(history_path):
+        e = json.loads(line)
+        if e["kind"] == "tool" and e["name"] == "search_docs":
+            found |= {(d, p) for d, p in CITE.findall(e["output"])}
+    return found
+
+def git_head():
+    try:
+        return subprocess.run(["git", "rev-parse", "HEAD"], capture_output=True, text=True).stdout.strip() or None
+    except FileNotFoundError:
+        return None
+
+def research(run_id, question, limits=None, think=brain.think, complete=brain.complete, crash_after=None):
+    limits = limits or Limits(max_steps=6, timeout_s=180)
+    run_dir = Path("agent/runs") / run_id; run_dir.mkdir(parents=True, exist_ok=True)
+    state_path = run_dir / "state.json"
+    state = json.loads(state_path.read_text()) if state_path.exists() else {"question": question, "plan": None, "done": {}}
+    top = History(run_id)                                       # the coordinator's own history
+    retries = 0
+    lock = threading.Lock()          # three sub-agents finish at different times but share one state file
+
+    if state["plan"] is None:
+        raw = complete(f'Split this question into exactly 3 independent sub-questions. Reply only JSON: '
+                       f'{{"sub_questions": ["..."]}}\n\n{question}')
+        state["plan"] = json.loads(raw[raw.index("{"): raw.rindex("}") + 1])["sub_questions"][:3]
+        save(state_path, state); top.add("plan", sub_questions=state["plan"])
+    else:
+        top.add("resume", done=sorted(state["done"]))
+
+    def sub(i):
+        if str(i) in state["done"]:
+            return state["done"][str(i)]
+        r = run_agent(state["plan"][i], {"search_docs": TOOLS["search_docs"]}, SUB_SYSTEM, limits,
+                      history=History(f"{run_id}/sub{i}"), think=think)
+        with lock:                                              # one writer at a time, or the temp files collide
+            state["done"][str(i)] = r; save(state_path, state)  # progress file: written after every sub-agent
+            if crash_after is not None and len(state["done"]) &gt;= crash_after:
+                os._exit(1)
+        return r
+
+    with ThreadPoolExecutor(max_workers=3) as pool:
+        results = list(pool.map(sub, range(len(state["plan"]))))
+
+    findings = "\n\n".join(f"Q: {state['plan'][i]}\nA: {r.get('answer') or '(no answer: ' + r['status'] + ')'}"
+                           for i, r in enumerate(results))
+    report = complete("Write a short report answering the original question using ONLY these findings. Keep every "
+                      f"[file.pdf p.N] citation attached to its fact.\n\nQuestion: {question}\n\n{findings}")
+
+    # Sensor before autonomy: every citation in the report must be one a tool actually returned.
+    retrieved = set().union(*[tags_in_history(Path("agent/runs") / f"{run_id}/sub{i}" / "history.jsonl")
+                              for i in range(len(state["plan"]))])
+    cited = set(CITE.findall(report))
+    bad = sorted(cited - retrieved)
+    check = {"citations_found": len(cited), "citations_not_retrieved": bad, "passed": bool(cited) and not bad}
+    if not check["passed"] and retries &lt; 1:                     # one bounded retry, then report honestly
+        retries += 1
+        report = complete(f"Rewrite this report. Remove or fix these unsupported citations: {bad or 'there are none; add citations'}.\n\n{report}")
+        cited = set(CITE.findall(report)); bad = sorted(cited - retrieved)
+        check = {"citations_found": len(cited), "citations_not_retrieved": bad, "passed": bool(cited) and not bad}
+
+    (run_dir / "report.md").write_text(report)
+    receipt = {
+        "question": question, "model": brain.MODEL,
+        "context_sources": sorted(f"{d} p.{p}" for d, p in retrieved),
+        "tools_used": sum(1 for i in range(len(state["plan"]))
+                          for l in open(Path("agent/runs") / f"{run_id}/sub{i}" / "history.jsonl") if json.loads(l)["kind"] == "tool"),
+        "sub_agent_status": {i: r["status"] for i, r in enumerate(results)},
+        "checks": check, "retries": retries,
+        "tokens": sum(r.get("tokens", 0) for r in results),
+        "accepted_artifact": str(run_dir / "report.md"),
+        "rollback_point": {"git_commit": git_head(), "state_file": str(state_path)},
+    }
+    (run_dir / "receipt.json").write_text(json.dumps(receipt, indent=1))
+    return report, receipt
+
+if __name__ == "__main__":
+    run_id = sys.argv[1]
+    q = sys.argv[2]
+    crash = int(sys.argv[3]) if len(sys.argv) &gt; 3 else None
+    report, receipt = research(run_id, q, crash_after=crash)
+    print(report); print(json.dumps(receipt, indent=1))</code></div>
+        </li>
+        <li>Run it on a real question, then open <code class="inline">agent/runs/&lt;run_id&gt;/</code>: <code class="inline">history.jsonl</code> (coordinator), <code class="inline">sub0/</code> to <code class="inline">sub2/</code> (each sub-agent's own history), <code class="inline">state.json</code> (the progress file), <code class="inline">report.md</code> and <code class="inline">receipt.json</code>.
+          <div class="code-block"><code>python agent/research.py run1 "Compare the Delta Sensor and the Cobalt Pump on warranty length, maximum pressure and recalibration interval."</code></div>
+        </li>
+        <li>Prove every limit stops it. Using your <code class="inline">Limits</code>, show each of the five stops ending a run (reuse Lab 6's scripted-brain approach with <code class="inline">think=</code>, so this costs nothing), and show the approval gate refusing a risky tool.</li>
+        <li>Prove it resumes. Kill a run mid-way with the crash flag, rerun with the same run id, and confirm from <code class="inline">receipt.json</code> and the history that only the missing sub-agent ran again.
+          <div class="code-block"><code>python agent/research.py run2 "Compare the Delta Sensor and the Cobalt Pump on warranty length, maximum pressure and recalibration interval." 2
+python agent/research.py run2 "Compare the Delta Sensor and the Cobalt Pump on warranty length, maximum pressure and recalibration interval."</code></div>
+        </li>
+        <li>Prove the citation check works: make a fake report containing a citation no tool returned, and show the check catches it. Then run Module 4's golden-set habit on the agent: write three research questions with known answers (you have the answer key from Module 3) and confirm the report contains the right values.</li>
+      </ol>
+
+      <div class="insight-aside" style="margin-top: 14px;">
+        <svg width="26" height="26" viewBox="0 0 26 26" aria-hidden="true">
+          <circle cx="13" cy="13" r="10" fill="none" stroke="var(--border)" stroke-width="2"/>
+          <path d="M13 7 L13 14" stroke="var(--accent-strong)" stroke-width="2.4" stroke-linecap="round"/>
+          <circle cx="13" cy="18.5" r="1.6" fill="var(--accent-strong)"/>
+        </svg>
+        <div class="insight-aside-body">
+          <span class="insight-aside-label">What testing the project found</span>
+          <p>The first version of this project's progress save crashed under real concurrency: three sub-agents finishing at nearly the same moment all wrote the same temporary file, and one rename failed because another had already moved it. A lock around "update state and save" fixed it. It only showed up because the sub-agents genuinely ran in parallel. A single-threaded test would have passed, which is the argument for testing a harness with the real concurrency, not a simplified one.</p>
+        </div>
+      </div>
+
+      <p style="margin-top: 14px; font-size: .9rem;"><strong>Done when:</strong></p>
+      <ul class="lesson-checklist">
+        <li>It runs from your own loop, with no agent framework (adopting one afterward is fine once you know what it does for you).</li>
+        <li>Each of the five limits demonstrably stops a run, and the approval gate refuses an unapproved risky action.</li>
+        <li>It resumes after an interruption, and only the unfinished work reruns.</li>
+        <li>Brain, hands and history are separate components you can point to, and the brain can be faked in a test.</li>
+        <li>Every run saves its full history and a receipt with context sources, tools used, check results, retries, cost and a rollback point.</li>
+        <li>A report with an unsupported citation is caught before it's accepted.</li>
+      </ul>
+        </div>
+      </div>
+
+    </section>
+
+    <section class="lesson-section" id="lesson-sources">
+      <h2>Sources</h2>
+      <ul class="explainer-list is-bulleted" style="font-size: .85rem; max-width: 640px;">
+        <li>Yao, S., et al. (2023). <em>ReAct: Synergizing Reasoning and Acting in Language Models</em>. ICLR 2023.</li>
+        <li>Anthropic. <a href="https://www.anthropic.com/engineering/building-effective-agents" target="_blank" rel="noopener"><em>Building effective agents</em></a>.</li>
+        <li>Anthropic. <a href="https://www.anthropic.com/engineering/built-multi-agent-research-system" target="_blank" rel="noopener"><em>How we built our multi-agent research system</em></a>.</li>
+        <li>Model Context Protocol. <a href="https://modelcontextprotocol.io" target="_blank" rel="noopener">modelcontextprotocol.io</a>: specification and SDK documentation.</li>
+        <li>Lopopolo, R. (2026). <a href="https://openai.com/index/harness-engineering/" target="_blank" rel="noopener"><em>Harness engineering: leveraging Codex in an agent-first world</em></a>. OpenAI.</li>
+        <li>rari (2026). <em>Harness Engineering: How to Build AI Agents That Don't Fall Apart</em>. The seven failure types and the brain/hands/history split come from here and the module overview.</li>
+      </ul>
+    </section>
+
+    <div class="lesson-foot">
+      <a href="ai-beyond-fundamentals.html#agents-harnesses">&larr; Back to the course map</a>
+    </div>
+  </article>
+</main>
+
+<div id="site-footer"></div>
+
+<script src="js/site-chrome.js" defer></script>
+<script src="js/theme-toggle.js" defer></script>
+<script src="js/try-it.js" defer></script>
+<script src="js/framework-accordion.js" defer></script>
+<script src="js/code-copy.js" defer></script>
+</body>
+</html>
