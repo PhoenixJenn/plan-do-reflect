@@ -1,0 +1,1010 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="a">
+<head>
+<meta charset="UTF-8">
+<base href="../../">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="icon" type="image/svg+xml" href="favicon.svg">
+<title>Ship It: Lesson · Plan · Do · Reflect</title>
+
+<!-- Applied before CSS loads, so the saved theme choice doesn't flash to the default on reload -->
+<script>
+(function () {
+  try {
+    var savedTheme = localStorage.getItem('pdr-theme');
+    if (['a', 'b', 'c'].indexOf(savedTheme) > -1) {
+      document.documentElement.setAttribute('data-theme', savedTheme);
+    }
+  } catch (e) {}
+})();
+</script>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=Work+Sans:wght@400;500;600&family=Sora:wght@600;700;800&family=Plus+Jakarta+Sans:wght@500;600;700&family=Patrick+Hand&family=Golos+Text:wght@800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/tokens.css">
+<link rel="stylesheet" href="css/main.css">
+<link rel="stylesheet" href="css/lesson.css">
+</head>
+<body data-nav="core-skills">
+
+<div id="site-topnav"></div>
+
+<main class="lesson">
+  <p class="lesson-crumb"><a href="ai-beyond-fundamentals.html">AI Beyond Fundamentals</a> &rsaquo; Module 7 &rsaquo; Lesson</p>
+  <article class="lesson-page">
+    <header class="lesson-head">
+      <p class="lesson-eyebrow">Module 7 &middot; Ship It</p>
+      <h1 class="page-title">Ship It</h1>
+      <p class="lesson-sub">Everything so far ran for you, on your machine, on data you generated. This module puts one real thing in front of real people: a problem someone actually has, built with the pieces from Modules 1 to 6, deployed, measured where it runs, and written up honestly, including what broke. The through-line is that every claim you make about the project should be one a tool made and a check can verify.</p>
+      <p class="lesson-sub" style="margin-top: 10px;">This is the most open-ended module, so the lesson gives you structure and checks rather than a fixed task. The code here (a small web service, its tests, a secrets scanner, a production-metrics report, README and demo-script checkers, and a stranger test) was run and tested; none of it was deployed to a real host, so your cold-start, memory, latency and cost numbers are yours to measure. Each lab says exactly what was and wasn't verified.</p>
+    </header>
+
+    <section class="lesson-section">
+      <h2>Concepts</h2>
+      <div class="lesson-concepts">
+
+        <div class="lesson-concept">
+          <h3>Shipping is part of the skill</h3>
+          <p>A project that only runs on your laptop proves you can follow a tutorial. A project a stranger can open, run, and check proves a harder set of things: that you can scope a problem, make it reproducible, keep secrets secret, measure what it does in the real world, and be honest about where it fails. Those are the skills the earlier modules built toward, and this module is where they become visible to anyone but you.</p>
+          <p>The module's requirements say it plainly: a <em>real</em> problem, your own loop before a framework, both a RAG app and an agent deployed, a README whose numbers are measured, a 60-second demo, and a write-up of what broke. Each of those has a mechanical check in this lesson, because "I think the README is accurate" is exactly the kind of claim this course has trained you to distrust.</p>
+        </div>
+
+        <div class="lesson-concept">
+          <h3>A real problem, and what "real" means</h3>
+          <p>A tutorial problem is one nobody has. A <strong>real problem</strong> has a named person who has it now and would notice if it went away. The test is to ask that person about the <em>last time</em> it happened (what they did, how long it took, what it cost them) rather than whether they'd like your idea. Rob Fitzpatrick's <em>The Mom Test</em> (2013) is built around exactly this: people will politely endorse any idea, but they can't fake a specific recent memory.</p>
+          <p>Write the pitch before any code, with six fields: the user, the problem, why an LLM helps, how it could be done <em>without</em> an LLM, a success number, and what you are not building. The no-LLM field is Module 6 applied: if you can't explain why a lookup table or a rule isn't enough, you may not need the model. The not-building field is what keeps a six-week project from becoming a six-month one.</p>
+        </div>
+
+        <div class="lesson-concept">
+          <h3>README first: the spec you can't skip</h3>
+          <p>Writing the README before the code forces the decisions that bite later: who this is for, what the architecture is, what success looks like, and how a stranger will run it. A README written last records whatever you happened to build; one written first is the spec, and the code is checked against it.</p>
+          <p>The most important rule is about the <strong>numbers</strong>. A results table typed by hand drifts from reality the first time you change a prompt. So this lesson's pattern is that tools write the numbers: the eval suite writes its scores to a file, the production log produces latency and cost, a script fills the README table with each value's source file and date, and a check in CI fails if the table is stale, edited by hand, or contains a metric nobody measured. The rule "every number is measured, not estimated" becomes something a build can enforce.</p>
+        </div>
+
+        <div class="lesson-concept">
+          <h3>What "deployed" requires</h3>
+          <p>Hosting a script is the easy part. A service other people can hit needs a handful of properties, each of which prevents a specific bad day. <strong>Configuration from the environment</strong>: keys and limits are read from environment variables, never from files in the repo (the twelve-factor app's rule on config, from Adam Wiggins's 2011 <em>The Twelve-Factor App</em>), and a missing key stops the process at boot so you find out at deploy time, not at 2 a.m. <strong>A health check and a readiness check</strong>: the host asks "is the process alive?" and your app can answer "yes, but still loading the index", so traffic arrives only when you can serve it. <strong>Rate limiting</strong>, because an open endpoint that calls a paid model is an invitation to a surprise bill. <strong>Input limits</strong> on size and shape. And <strong>clean failures</strong>: a model outage returns a short error, never a stack trace.</p>
+          <p>Lab 3 builds all of these into one small service in front of your RAG app and your agent, with tests. Two honest caveats ride along. An in-memory rate limiter is per process, so a service with several instances needs a shared store. And the agent endpoint here runs the whole job before it answers, which is fine for a demo and wrong for real traffic, where you start a background job and let the client poll.</p>
+        </div>
+
+        <div class="lesson-concept">
+          <h3>Measure it where it runs</h3>
+          <p>Numbers measured on your laptop describe your laptop. In production you need three: <strong>latency</strong> (report the median and the 95th percentile, because users feel the slow tail), <strong>cost per request</strong> (from the token counts the API already returns, and with cache hits counted separately, since a hit costs nothing), and the <strong>error rate</strong>. The service in Lab 3 writes one structured log line per request, with the token counts and a hash of the question instead of the question itself, and a small script turns those lines into the numbers.</p>
+          <p>Two traps. <strong>Cold starts</strong>: some hosting tiers stop idle services, so the first request after a pause waits for the process to start and your index to load. Measure cold and warm separately and say which your README quotes. And <strong>memory</strong>: the reranker from Module 3 is a neural model, and hosts limit memory by plan. Check what your service uses idle and under load before you pick a plan; if it won't fit, replace the reranker or call a hosted one, and re-run your evals to see what that costs in quality.</p>
+        </div>
+
+        <div class="lesson-concept">
+          <h3>Before it is public</h3>
+          <p>Four checks, all cheap now and expensive later. <strong>Secrets</strong>: scan every tracked file for key-shaped strings before every push. A key that reaches a public repo should be treated as leaked, even if you delete the commit, because history and mirrors keep it; rotate it. <strong>Logs</strong>: don't log user text you don't need, and redact what you do (Module 4's redaction applies here). <strong>Exposure</strong>: the deployed agent should have only read-only tools, since a public endpoint can't pop up an approval prompt the way your terminal did in Module 5; anything that acts needs an explicit approval flow or must be left out. <strong>Licenses</strong>: check every dependency before you publish. Module 2 flagged that <code class="inline">pymupdf4llm</code> is licensed AGPL-3.0 (or commercially from Artifex), and AGPL has a network clause, so putting it behind a public service generally means publishing your source under AGPL or buying a commercial license. That's not legal advice, only a reason to look before you launch.</p>
+        </div>
+
+        <div class="lesson-concept">
+          <h3>The blameless postmortem</h3>
+          <p>Things will break in the first week. The professional response is a written, <strong>blameless</strong> postmortem, the practice described in the <em>Postmortem Culture</em> chapter of Google's <em>Site Reliability Engineering</em> (O'Reilly, 2016): describe what happened and how the system allowed it, never who did it. Blame teaches people to hide failures; a blameless review teaches the system to catch them.</p>
+          <p>The structure is short: a timeline, a root cause, what you changed, how you know it's fixed, and follow-ups. The root cause uses the same seven classes as Module 5's harness table (missing context, wrong tool, bad output, repeated loop, unsafe action, lost decision, unknown), and the fix is held to the same standard: a change to the <em>system</em>, plus a case added to the golden set so the failure cannot quietly return. "We rewrote the prompt" isn't a fix; it is a patch.</p>
+        </div>
+
+        <div class="lesson-concept">
+          <h3>Telling the story</h3>
+          <p>A 60-second demo has to earn its seconds: the problem in 8, the real app doing a real task in 30, how it's built in 12, the numbers in 8, and where to try it in 2. Write the script first and time it, because people read aloud at about 150 words a minute and a draft that feels short almost never is. Show the app working on the problem, not slides about it.</p>
+          <p>For interviews, the same material compresses into four sentences: the problem and who had it, one decision you defended with numbers, one failure you diagnosed and fixed, and what you would do next. If you can say those four things with real numbers, the project has done its job. Each of them comes from work you already did in Modules 3 to 6.</p>
+        </div>
+
+      </div>
+    </section>
+
+    <section class="lesson-section">
+      <h2>Hands-on Labs</h2>
+      <div class="lesson-labs">
+
+        <div class="lab-card framework-item is-accordion" id="lab-1">
+          <button class="fw-toggle" type="button" aria-expanded="false" aria-controls="lab-1-body">
+            <span class="lab-num">LAB 1</span>
+            <div class="fw-toggle-text">
+              <h3>Problem pitch</h3>
+              <p class="fw-teaser">Name the person, the problem, the no-LLM alternative and a success number, and get feedback before building.</p>
+            </div>
+            <svg class="fw-chevron" width="18" height="18" viewBox="0 0 20 20" aria-hidden="true">
+              <path d="M5 7.5 L10 12.5 L15 7.5" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+          </button>
+          <div class="fw-body" id="lab-1-body">
+
+          <ol class="lab-steps">
+            <li>Find a person before you pick a project. Someone you can actually talk to has a recurring, annoying, text-heavy task: a sibling who reads contracts, a colleague who answers the same questions, a club that fields the same emails. Ask them about the <em>last time</em> it happened: what they did, how long it took, what went wrong, what they've already tried. Don't describe your idea yet.</li>
+            <li>Write <code class="inline">pitch.md</code> with these six fields. Be specific enough that the checker below can tell.
+              <div class="code-block"><code>**User:** Dana, a support lead on a team of six who answers warranty questions from PDF manuals all day.
+
+**Problem:** Finding one number takes about four minutes, and twice last month she quoted an outdated manual.
+
+**Why an LLM:** Questions arrive in free-form wording ("how long am I covered?") that keyword search misses.
+
+**Without an LLM:** A lookup table keyed by product would answer the ten most common questions.
+
+**Success looks like:** At least 90% of 50 real questions answered correctly with a citation, in under 3 seconds.
+
+**Not building:** Logins, editing manuals, or answering anything outside the manuals.</code></div>
+            </li>
+            <li>Run the checker. It fails a pitch with a missing or thin field, a success line with no number in it, or a user described as "everyone".
+              <div class="code-block"><code>"""A problem pitch has to name a person, a problem, a reason for an LLM, a non-LLM alternative, a measurable
+success number, and what you will NOT build. Usage: python checks/check_pitch.py pitch.md"""
+import re, sys
+from pathlib import Path
+
+FIELDS = ["User", "Problem", "Why an LLM", "Without an LLM", "Success looks like", "Not building"]
+text = Path(sys.argv[1]).read_text()
+problems = []
+for f in FIELDS:
+    m = re.search(rf"^\*\*{re.escape(f)}:?\*\*:?\s*(.+?)(?=^\*\*|\Z)", text, re.S | re.M)
+    if not m or len(m.group(1).strip()) &lt; 15:
+        problems.append(f"missing or too short: **{f}**")
+        continue
+    body = m.group(1)
+    if f == "Success looks like" and not re.search(r"\d", body):
+        problems.append("**Success looks like** needs a number (a score, a time, a count), not an adjective")
+    if f == "User" and re.search(r"\b(everyone|anyone|users|people)\b", body, re.I) and len(body.split()) &lt; 12:
+        problems.append("**User** is too vague: name a specific person or role you can actually ask")
+print("\n".join(problems) if problems else "pitch looks specific enough to get feedback on")
+sys.exit(1 if problems else 0)</code></div>
+              <div class="code-block"><code>python checks/check_pitch.py pitch.md</code></div>
+            </li>
+            <li>Get feedback <em>before</em> building. Send the pitch to the person from step 1 and one skeptic, and ask two questions only: "Would this have helped last time?" and "What would make you not trust the answers?" Write down what changes in the pitch.</li>
+            <li>Take the no-LLM field seriously. If a table, a rule or a search box would do 80% of it, build that first and measure it; the LLM has to earn the rest.</li>
+          </ol>
+          <div class="lab-check"><strong>Check:</strong> we ran the checker on a complete pitch (it passed) and on a stub with a vague user and an adjective for a success measure (it failed, naming each gap). It checks that the pitch is <em>specific</em>, not that it's a good idea; that part is what the feedback in step 4 is for. If everyone you ask says "sure, sounds nice" and nobody can name the last time it happened, that's the signal to find a different problem.</div>
+          </div>
+        </div>
+
+        <div class="lab-card framework-item is-accordion" id="lab-2">
+          <button class="fw-toggle" type="button" aria-expanded="false" aria-controls="lab-2-body">
+            <span class="lab-num">LAB 2</span>
+            <div class="fw-toggle-text">
+              <h3>README first</h3>
+              <p class="fw-teaser">Write the README as the spec, with a results table that tools fill in and a check that fails on stale or estimated numbers.</p>
+            </div>
+            <svg class="fw-chevron" width="18" height="18" viewBox="0 0 20 20" aria-hidden="true">
+              <path d="M5 7.5 L10 12.5 L15 7.5" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+          </button>
+          <div class="fw-body" id="lab-2-body">
+
+          <ol class="lab-steps">
+            <li>Write the README before any new code, using this template. Fill in every section except the numbers, and leave the two metrics markers exactly as they are: a script will write between them.
+              <div class="code-block"><code># Project name
+
+One sentence a stranger understands.
+
+## What it does
+Two or three sentences. What goes in, what comes out.
+
+## Who it is for
+The specific person from your pitch, and the problem you solved for them.
+
+## Architecture
+A diagram or a short list: where a request goes, and which model does what. Name the decision you are proudest of.
+
+## Quick start
+Clone the repo, create and activate a virtual environment, then:
+```bash
+pip install -r requirements.txt
+cp .env.example .env        # then add your keys
+python rag/generate_corpus.py 12
+python rag/pipeline.py
+```
+
+## Results
+How the numbers below were measured, in one sentence.
+
+&lt;!-- metrics:start --&gt;
+&lt;!-- metrics:end --&gt;
+
+## Limits and known failures
+- A real failure you found and have not fixed.
+- Something it is not built to do.
+
+## Live demo
+https://your-app.example.com</code></div>
+            </li>
+            <li>Create <code class="inline">checks/make_metrics.py</code>. It reads the files your tools produce (the CI eval's <code class="inline">evals/scores.json</code> from Module 4 and the production metrics from Lab 3), and writes a table between the markers with each value, the file it came from, and the file's date. A metric whose file doesn't exist yet shows as <code class="inline">NOT MEASURED YET</code>.
+              <div class="code-block"><code>"""Write the README's results table from the files your tools produced. Nobody types these numbers.
+Usage: python checks/make_metrics.py [README.md]   (rewrites the block between the metrics markers)"""
+import datetime, json, sys
+from pathlib import Path
+
+START, END = "&lt;!-- metrics:start --&gt;", "&lt;!-- metrics:end --&gt;"
+
+def get(path, *keys):
+    p = Path(path)
+    if not p.exists():
+        return None, None
+    v = json.loads(p.read_text())
+    for k in keys:
+        v = v.get(k) if isinstance(v, dict) else None
+    return v, datetime.date.fromtimestamp(p.stat().st_mtime).isoformat()
+
+ROWS = [  # label, file, keys, format
+    ("Answerable questions correct", "evals/scores.json", ["answerable_pass"], "{:.0%}"),
+    ("Unanswerable questions declined", "evals/scores.json", ["unanswerable_pass"], "{:.0%}"),
+    ("Faithfulness (judged slice)", "evals/scores.json", ["faithfulness"], "{:.2f}"),
+    ("Median latency, /ask", "service/prod_metrics.json", ["ask", "p50_ms"], "{:,.0f} ms"),
+    ("95th percentile latency, /ask", "service/prod_metrics.json", ["ask", "p95_ms"], "{:,.0f} ms"),
+    ("Cost per uncached request, /ask", "service/prod_metrics.json", ["ask", "cost_per_miss_usd"], "${:.4f}"),
+    ("Cache hit rate, /ask", "service/prod_metrics.json", ["ask", "cache_hit_rate"], "{:.0%}"),
+    ("Server errors (5xx)", "service/prod_metrics.json", ["error_rate_5xx"], "{:.1%}"),
+]
+
+def table():
+    lines = ["| Metric | Value | Measured by | On |", "|---|---|---|---|"]
+    for label, path, keys, fmt in ROWS:
+        v, when = get(path, *keys)
+        lines.append(f"| {label} | {fmt.format(v) if v is not None else 'NOT MEASURED YET'} | `{path}` | {when or '-'} |")
+    return "\n".join(lines)
+
+def block():
+    return f"{START}\n{table()}\n{END}"
+
+if __name__ == "__main__":
+    path = Path(sys.argv[1] if len(sys.argv) &gt; 1 else "README.md")
+    text = path.read_text()
+    if START not in text or END not in text:
+        sys.exit(f"{path} has no {START} ... {END} markers")
+    head, rest = text.split(START, 1)
+    path.write_text(head + block() + rest.split(END, 1)[1])
+    print(table())</code></div>
+            </li>
+            <li>Create <code class="inline">checks/check_readme.py</code>. It fails if a section is missing, the metrics table differs from what the script would write now (stale, or edited by hand), any metric is unmeasured, the Results prose uses an estimate word ("about", "roughly", "~", "TBD"), the Quick start is missing or longer than about ten commands, the live demo has no link, or the limits section is thin.
+              <div class="code-block"><code>"""Fail the build when the README is incomplete, estimated, or out of date.
+Usage: python checks/check_readme.py [README.md]"""
+import re, sys
+from pathlib import Path
+sys.path.insert(0, "checks")
+from make_metrics import block, START, END
+
+REQUIRED = ["What it does", "Who it is for", "Architecture", "Quick start", "Results", "Limits and known failures", "Live demo"]
+ESTIMATE_WORDS = re.compile(r"\b(tbd|todo|approximately|roughly|about|around|estimated)\b|~\s*\d", re.I)
+
+def sections(text):
+    out, cur = {}, None
+    for line in text.splitlines():
+        m = re.match(r"##\s+(.*)", line)
+        if m:
+            cur = m.group(1).strip(); out[cur] = []
+        elif cur:
+            out[cur].append(line)
+    return {k: "\n".join(v) for k, v in out.items()}
+
+def check(path):
+    text = Path(path).read_text()
+    s, problems = sections(text), []
+    for name in REQUIRED:
+        if not s.get(name, "").strip():
+            problems.append(f"missing or empty section: ## {name}")
+    if START not in text or END not in text:
+        problems.append("Results has no metrics markers")
+    else:
+        current = text[text.index(START): text.index(END) + len(END)]
+        if current != block():
+            problems.append("the metrics table is out of date or was edited by hand: run python checks/make_metrics.py")
+        if "NOT MEASURED YET" in current:
+            problems.append("some metrics are NOT MEASURED YET: measure them before you ship")
+        prose = text.replace(current, "")
+        results_prose = sections(prose).get("Results", "")
+        if ESTIMATE_WORDS.search(results_prose):
+            problems.append("Results contains an estimate word (about, roughly, ~, TBD): replace it with a measured number or delete the claim")
+    qs = s.get("Quick start", "")
+    cmds = [l for blk in re.findall(r"```(?:bash|sh|shell)?\n(.*?)```", qs, re.S) for l in blk.splitlines() if l.strip() and not l.strip().startswith("#")]
+    if not cmds:
+        problems.append("Quick start has no fenced code block of commands")
+    elif len(cmds) &gt; 10:
+        problems.append(f"Quick start is {len(cmds)} commands long: a stranger should need about ten at most")
+    if not re.search(r"https://\S+", s.get("Live demo", "")):
+        problems.append("Live demo needs an https:// link")
+    if len(s.get("Limits and known failures", "").strip()) &lt; 40:
+        problems.append("Limits and known failures is too thin: list at least one real failure you found")
+    return problems
+
+if __name__ == "__main__":
+    problems = check(sys.argv[1] if len(sys.argv) &gt; 1 else "README.md")
+    print("\n".join(problems) if problems else "README looks complete and every number is measured")
+    sys.exit(1 if problems else 0)</code></div>
+              <div class="code-block"><code>python checks/make_metrics.py
+python checks/check_readme.py</code></div>
+            </li>
+            <li>Break it on purpose. Edit one number in the table by hand and re-run the check. Add the word "roughly" to the Results text. Delete a metrics file. Each should fail with a message that tells you what to do.</li>
+            <li>Make it automatic. Add these two lines as steps in Module 4's workflow, after the eval, so the README is checked on every pull request:
+              <div class="code-block"><code>- run: python checks/check_readme.py
+- run: python checks/check_secrets.py</code></div>
+            </li>
+          </ol>
+          <div class="lab-check"><strong>Check:</strong> we tested every state with a sample README and metric files. An empty block fails as out of date. After generating, it fails with <code class="inline">NOT MEASURED YET</code> until all eight metrics exist (the cost row stays unmeasured until you fill in prices in Lab 3, which is the point). With every metric present it passes. Adding "roughly" fails, editing a number by hand fails, and removing a source file fails. Two limits worth knowing: the check can't tell whether the numbers are <em>good</em>, only that they're measured and current; and it only governs the table, so prose claims elsewhere ("fast", "accurate") are still on you.</div>
+          </div>
+        </div>
+
+        <div class="lab-card framework-item is-accordion" id="lab-3">
+          <button class="fw-toggle" type="button" aria-expanded="false" aria-controls="lab-3-body">
+            <span class="lab-num">LAB 3</span>
+            <div class="fw-toggle-text">
+              <h3>Deploy</h3>
+              <p class="fw-teaser">A small service with health checks, rate limiting and request logs in front of your RAG app and your agent, tested, scanned for secrets, and measured live.</p>
+            </div>
+            <svg class="fw-chevron" width="18" height="18" viewBox="0 0 20 20" aria-hidden="true">
+              <path d="M5 7.5 L10 12.5 L15 7.5" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+          </button>
+          <div class="fw-body" id="lab-3-body">
+
+          <ol class="lab-steps">
+            <li>Add the dependencies and create the service. It wraps whatever <code class="inline">ask()</code> your RAG project exposes (here, Module 3's) and your agent's <code class="inline">research()</code> (Module 5's). It reads its keys and limits from the environment and refuses to start without them; answers <code class="inline">/health</code> immediately and <code class="inline">/ready</code> only once the index has loaded; rate limits each client; validates input size; turns model failures into a clean 502; and writes one JSON log line per request with token counts and a hash of the question, never the question itself.
+              <div class="code-block"><code>pip install fastapi uvicorn httpx pytest</code></div>
+              <div class="code-block"><code>"""One small web service in front of two of your projects: /ask (the RAG app) and /research (the agent).
+Run locally:  uvicorn service.app:app --reload        On a host:  uvicorn service.app:app --host 0.0.0.0 --port $PORT"""
+import hashlib, json, logging, os, sys, threading, time, uuid
+from contextlib import asynccontextmanager
+from collections import defaultdict, deque
+from fastapi import FastAPI, HTTPException, Request
+from fastapi.responses import JSONResponse
+from pydantic import BaseModel, Field
+
+# 1. Configuration comes from the environment, and a missing key stops the process at boot, not at 2 a.m.
+REQUIRED = ["OPENAI_API_KEY", "ANTHROPIC_API_KEY"]
+missing = [k for k in REQUIRED if not os.environ.get(k)]
+if missing:
+    raise RuntimeError(f"missing environment variables: {', '.join(missing)}")
+RATE_LIMIT_PER_MIN = int(os.environ.get("RATE_LIMIT_PER_MIN", "10"))
+TRUST_PROXY = os.environ.get("TRUST_PROXY") == "1"        # only true behind a proxy you control
+MAX_QUESTION_CHARS = 500
+
+logging.basicConfig(stream=sys.stdout, level=logging.INFO, format="%(message)s")
+log = logging.getLogger("service")
+
+def load_projects():
+    """Build the RAG index and import the agent in the background, so the process answers /health at once."""
+    sys.path.insert(0, "rag"); sys.path.insert(0, "agent")
+    import pipeline, research
+    app.state.ask = pipeline.ask
+    app.state.research = research.research
+    app.state.ready = True
+
+@asynccontextmanager
+async def lifespan(app):
+    if os.environ.get("SKIP_LOAD") != "1":               # tests set this and inject stand-ins
+        threading.Thread(target=load_projects, daemon=True).start()
+    yield
+
+app = FastAPI(title="AI Beyond Fundamentals service", lifespan=lifespan)
+app.state.ready = False
+app.state.ask = None
+app.state.research = None
+
+# 2. A sliding-window rate limiter per client. In memory, so it is per process: with several instances use a shared store.
+_hits = defaultdict(deque)
+_lock = threading.Lock()
+
+def client_id(request: Request):
+    forwarded = request.headers.get("x-forwarded-for", "")
+    return forwarded.split(",")[0].strip() if TRUST_PROXY and forwarded else request.client.host
+
+def allowed(cid, now=None):
+    now = now or time.time()
+    with _lock:
+        q = _hits[cid]
+        while q and now - q[0] &gt; 60:
+            q.popleft()
+        if len(q) &gt;= RATE_LIMIT_PER_MIN:
+            return False
+        q.append(now)
+        return True
+
+# 3. One structured log line per request: enough to compute latency, cost and errors, with no question text in it.
+@app.middleware("http")
+async def observe(request: Request, call_next):
+    started = time.perf_counter()
+    request.state.usage = {}
+    if request.url.path not in ("/health", "/ready") and not allowed(client_id(request)):
+        response = JSONResponse({"error": "rate limit exceeded, try again in a minute"}, status_code=429, headers={"Retry-After": "60"})
+    else:
+        response = await call_next(request)
+    ms = (time.perf_counter() - started) * 1000
+    log.info(json.dumps({"ts": round(time.time(), 2), "path": request.url.path, "status": response.status_code,
+                         "ms": round(ms, 1), **request.state.usage}))
+    return response
+
+class Question(BaseModel):
+    question: str = Field(min_length=3, max_length=MAX_QUESTION_CHARS)
+
+@app.get("/health")
+def health():
+    """Liveness: the process is up. Hosts poll this to decide whether to restart you."""
+    return {"status": "ok"}
+
+@app.get("/ready")
+def ready():
+    """Readiness: the index is loaded and the app can answer. Return 503 until it can."""
+    if not app.state.ready:
+        raise HTTPException(503, "warming up")
+    return {"status": "ready"}
+
+@app.post("/ask")
+def ask(body: Question, request: Request):
+    if not app.state.ready:
+        raise HTTPException(503, "warming up")
+    try:
+        r = app.state.ask(body.question)
+    except Exception:
+        log.exception("ask failed")
+        raise HTTPException(502, "the model call failed; try again")      # never leak a stack trace to a client
+    request.state.usage = {"kind": "ask", "q_len": len(body.question), "q_hash": hashlib.sha256(body.question.encode()).hexdigest()[:10],
+                           "cached": r["cached"], "input_tokens": r["input_tokens"], "output_tokens": r["output_tokens"]}
+    return {"answer": r["answer"], "sources": r["sources"], "cached": r["cached"], "latency_ms": round(r["latency_ms"])}
+
+@app.post("/research")
+def research_endpoint(body: Question, request: Request):
+    """Runs the whole agent before answering, which can take a long while. Fine for a demo; for real traffic
+    start a background job and let the client poll for the result."""
+    if not app.state.ready:
+        raise HTTPException(503, "warming up")
+    run_id = uuid.uuid4().hex[:8]
+    try:
+        report, receipt = app.state.research(run_id, body.question)
+    except Exception:
+        log.exception("research failed")
+        raise HTTPException(502, "the agent run failed; try again")
+    request.state.usage = {"kind": "research", "q_len": len(body.question), "input_tokens": receipt.get("tokens", 0), "output_tokens": 0}
+    return {"run_id": run_id, "report": report, "citations_ok": receipt["checks"]["passed"]}</code></div>
+            </li>
+            <li>Test it before you host it. These tests inject stand-ins for the model, so they cost nothing: health is always up, readiness is a 503 until loaded, input limits reject bad requests, the rate limiter returns 429 after the cap but never blocks health checks, a model failure is a clean 502 with no stack trace, and a missing key stops the process at boot.
+              <div class="code-block"><code>import os
+os.environ.update(OPENAI_API_KEY="x", ANTHROPIC_API_KEY="x", SKIP_LOAD="1", RATE_LIMIT_PER_MIN="5")
+import pytest
+from fastapi.testclient import TestClient
+from service import app as appmod
+
+def fake_ask(q):
+    return {"answer": f"stub answer to {q} [a.pdf p.1]", "sources": [{"doc": "a.pdf", "page": 1}], "cached": False,
+            "latency_ms": 12.0, "input_tokens": 300, "output_tokens": 20}
+
+@pytest.fixture
+def client():
+    appmod._hits.clear()
+    appmod.app.state.ready = True
+    appmod.app.state.ask = fake_ask
+    appmod.app.state.research = lambda run_id, q: ("report", {"checks": {"passed": True}, "tokens": 900})
+    return TestClient(appmod.app)
+
+def test_health_is_always_ok(client):
+    appmod.app.state.ready = False
+    assert client.get("/health").json() == {"status": "ok"}
+
+def test_ready_is_503_until_loaded(client):
+    appmod.app.state.ready = False
+    assert client.get("/ready").status_code == 503
+    appmod.app.state.ready = True
+    assert client.get("/ready").status_code == 200
+
+def test_ask_returns_answer_and_sources(client):
+    r = client.post("/ask", json={"question": "warranty on the Delta Sensor?"})
+    assert r.status_code == 200 and r.json()["sources"][0]["doc"] == "a.pdf"
+
+def test_rejects_empty_and_oversized_questions(client):
+    assert client.post("/ask", json={"question": "hi"}).status_code == 422
+    assert client.post("/ask", json={"question": "x" * 501}).status_code == 422
+
+def test_rate_limit_returns_429_after_the_cap(client):
+    codes = [client.post("/ask", json={"question": "what is the warranty?"}).status_code for _ in range(7)]
+    assert codes[:5] == [200] * 5 and codes[5:] == [429, 429]
+
+def test_health_is_not_rate_limited(client):
+    assert all(client.get("/health").status_code == 200 for _ in range(20))
+
+def test_model_failure_is_a_clean_502_without_a_stack_trace(client):
+    appmod.app.state.ask = lambda q: (_ for _ in ()).throw(RuntimeError("secret internal detail"))
+    r = client.post("/ask", json={"question": "what is the warranty?"})
+    assert r.status_code == 502 and "secret" not in r.text
+
+def test_research_endpoint(client):
+    r = client.post("/research", json={"question": "compare two products"})
+    assert r.status_code == 200 and r.json()["citations_ok"] is True
+
+def test_missing_keys_stop_the_process_at_boot():
+    import importlib, subprocess, sys
+    out = subprocess.run([sys.executable, "-c", "import service.app"], capture_output=True, text=True, env={"PATH": os.environ["PATH"], "PYTHONPATH": "."})
+    assert "missing environment variables" in out.stderr</code></div>
+              <div class="code-block"><code>python -m pytest service/test_app.py -q</code></div>
+            </li>
+            <li>Fill in your model's prices, so cost per request can be computed from the logged token counts.
+              <div class="code-block"><code>"""Dollars per 1,000,000 tokens (input, output) for the model your app calls. Fill in from the provider's pricing page."""
+PRICES = (0.0, 0.0)
+
+def cost_usd(input_tokens, output_tokens):
+    return (input_tokens * PRICES[0] + output_tokens * PRICES[1]) / 1_000_000</code></div>
+            </li>
+            <li>Scan for secrets before the first push, and put the scan in CI (Lab 2). It checks tracked files for key-shaped strings and for files that must never be committed, such as <code class="inline">.env</code>.
+              <div class="code-block"><code>"""Refuse to ship a secret. Scans tracked files (or every file, outside a git repo) for key-shaped strings and for
+files that should never be committed. Run before every push; add it to CI."""
+import re, subprocess, sys
+from pathlib import Path
+
+PATTERNS = {
+    "OpenAI-style key":    re.compile(r"sk-(?:proj-)?[A-Za-z0-9_-]{20,}"),
+    "Anthropic-style key": re.compile(r"sk-ant-[A-Za-z0-9_-]{20,}"),
+    "Google API key":      re.compile(r"AIza[0-9A-Za-z_-]{30,}"),
+    "GitHub token":        re.compile(r"gh[pousr]_[A-Za-z0-9]{30,}"),
+    "AWS access key id":   re.compile(r"AKIA[0-9A-Z]{16}"),
+    "private key block":   re.compile(r"-----BEGIN (?:RSA |EC |OPENSSH )?PRIVATE KEY-----"),
+    "key assigned in code": re.compile(r"""(?i)(?:api[_-]?key|secret|token|password)\s*[:=]\s*["'][A-Za-z0-9_\-]{16,}["']"""),
+}
+FORBIDDEN_NAMES = {".env", "id_rsa", "id_ed25519"}
+
+def tracked_files(root="."):
+    try:
+        out = subprocess.run(["git", "ls-files"], capture_output=True, text=True, cwd=root, check=True).stdout.split("\n")
+        return [Path(root) / f for f in out if f]
+    except Exception:
+        return [p for p in Path(root).rglob("*") if p.is_file() and ".git" not in p.parts and ".venv" not in p.parts]
+
+def scan(root="."):
+    problems = []
+    for path in tracked_files(root):
+        if path.name in FORBIDDEN_NAMES:
+            problems.append(f"{path}: this file should never be committed")
+            continue
+        try:
+            text = path.read_text(errors="ignore")
+        except Exception:
+            continue
+        for label, pat in PATTERNS.items():
+            for m in pat.finditer(text):
+                line = text.count("\n", 0, m.start()) + 1
+                problems.append(f"{path}:{line}: looks like a {label}: {m.group()[:8]}...")
+    return problems
+
+if __name__ == "__main__":
+    problems = scan(sys.argv[1] if len(sys.argv) &gt; 1 else ".")
+    print("\n".join(problems) if problems else "no secrets found")
+    if problems:
+        print("\nIf this is real: rotate the key now (a pushed key is a leaked key, even if you delete the commit), "
+              "then remove it from the file and read it from the environment.")
+    sys.exit(1 if problems else 0)</code></div>
+              <div class="code-block"><code>python checks/check_secrets.py</code></div>
+            </li>
+            <li>Deploy. Render, Fly.io, Railway or another host will build the repo from <code class="inline">requirements.txt</code> and run one start command. Set these in the host's <em>environment variables</em> screen, not in a file: <code class="inline">OPENAI_API_KEY</code>, <code class="inline">ANTHROPIC_API_KEY</code>, and optionally <code class="inline">RATE_LIMIT_PER_MIN</code>. If the host puts a proxy in front of your service, also set <code class="inline">TRUST_PROXY=1</code> so the limiter sees real client addresses, but only then, since the header can be forged otherwise. Point the host's health check at <code class="inline">/health</code>. The build must also create the corpus your RAG app indexes. Exact setting names change, so follow your host's current documentation.
+              <div class="code-block"><code># build command
+pip install -r requirements.txt &amp;&amp; python rag/generate_corpus.py 12
+
+# start command
+uvicorn service.app:app --host 0.0.0.0 --port $PORT</code></div>
+            </li>
+            <li>Smoke-test the live URL. It waits for readiness (that wait is your cold start, including loading the index), times warm requests, then fires a burst to prove the rate limiter works.
+              <div class="code-block"><code>"""Smoke test a running service. Usage: python service/smoke.py https://your-app.example.com
+Measures cold-start time, warm latency, and proves the rate limiter works."""
+import statistics, sys, time
+import httpx
+
+base = sys.argv[1].rstrip("/")
+QUESTION = "How long is the warranty on the Larkfield Delta Sensor?"
+c = httpx.Client(timeout=60)
+
+print("health  :", c.get(f"{base}/health").json())
+
+t0 = time.time()
+while True:                                          # the first request on a sleeping free-tier host can take a minute
+    r = c.get(f"{base}/ready")
+    if r.status_code == 200:
+        break
+    if time.time() - t0 &gt; 180:
+        sys.exit("never became ready within 3 minutes")
+    time.sleep(2)
+print(f"ready   : after {time.time() - t0:.1f}s (cold start, including loading the index)")
+
+lat = []
+for _ in range(4):                                   # stay under the rate limit while measuring warm latency
+    t = time.perf_counter()
+    r = c.post(f"{base}/ask", json={"question": QUESTION})
+    lat.append((time.perf_counter() - t) * 1000)
+    assert r.status_code == 200, r.text
+print(f"warm    : median {statistics.median(lat):.0f} ms over {len(lat)} requests, answer: {r.json()['answer'][:70]!r}")
+
+codes = [c.post(f"{base}/ask", json={"question": QUESTION}).status_code for _ in range(25)]
+print("burst   :", "rate limiter returned 429 after", codes.index(429) + 1, "more requests" if 429 in codes else "NEVER FIRED")
+print("bad body:", c.post(f"{base}/ask", json={"question": "x"}).status_code, "(expect 422, or 429 if you are still rate limited)")
+sys.exit(0 if 429 in codes else 1)</code></div>
+              <div class="code-block"><code>python service/smoke.py https://your-app.example.com</code></div>
+            </li>
+            <li>Generate honest traffic: send your golden-set questions through the live URL, staying under the rate limit. Then export the host's logs to a file and turn them into the numbers for your README.
+              <div class="code-block"><code>"""Turn the service's request log into the numbers a README needs: latency percentiles, cost, errors.
+Usage: python service/prod_report.py requests.log     (pipe your host's log export into a file first)"""
+import json, statistics, sys
+from pathlib import Path
+sys.path.insert(0, "service")
+from costs import PRICES, cost_usd
+
+rows = []
+for line in open(sys.argv[1]):
+    try:
+        e = json.loads(line)
+    except ValueError:
+        continue                                   # hosts mix their own lines into the log; skip them
+    if "path" in e and e["path"] not in ("/health", "/ready"):
+        rows.append(e)
+
+def pct(xs, p):
+    xs = sorted(xs)
+    return xs[min(len(xs) - 1, int(round(p / 100 * (len(xs) - 1))))]
+
+summary = {}
+for kind in ("ask", "research"):
+    rs = [r for r in rows if r.get("kind") == kind and r["status"] == 200]
+    if not rs:
+        continue
+    ms = [r["ms"] for r in rs]
+    hits = sum(bool(r.get("cached")) for r in rs)
+    miss = [r for r in rs if not r.get("cached")]
+    cost = [cost_usd(r["input_tokens"], r["output_tokens"]) for r in miss]
+    print(f"/{kind}: {len(rs)} ok requests, p50 {pct(ms, 50):.0f} ms, p95 {pct(ms, 95):.0f} ms, "
+          f"cache hits {hits}/{len(rs)}")
+    summary[kind] = {"requests": len(rs), "p50_ms": round(pct(ms, 50)), "p95_ms": round(pct(ms, 95)), "cache_hit_rate": round(hits / len(rs), 3)}
+    if PRICES == (0.0, 0.0):
+        print("   cost: fill in service/costs.py")
+    else:
+        summary[kind]["cost_per_miss_usd"] = round(statistics.mean(cost), 6)
+        print(f"   mean cost per cache-miss request: ${statistics.mean(cost):.5f}")
+errors = [r for r in rows if r["status"] &gt;= 500]
+limited = [r for r in rows if r["status"] == 429]
+summary["error_rate_5xx"] = round(len(errors) / len(rows), 4)
+Path("service/prod_metrics.json").write_text(json.dumps(summary, indent=1))
+print(f"errors (5xx): {len(errors)}/{len(rows)}   rate limited (429): {len(limited)}/{len(rows)}")</code></div>
+              <div class="code-block"><code>python service/prod_report.py requests.log
+python checks/make_metrics.py</code></div>
+            </li>
+          </ol>
+          <figure class="course-diagram">
+            <svg viewBox="0 0 760 352" role="img" aria-label="A deployed service: a client request passes the rate limiter, reaches the ask or research endpoint, which calls the model APIs; keys come from environment variables and every request writes one log line that becomes README numbers">
+              <defs><marker id="m7deploy-a" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0 0L10 5L0 10z" fill="var(--text-caption)"/></marker></defs>
+              <rect x="20" y="130" width="110" height="60" rx="8" fill="var(--bg-content)" stroke="var(--border)" stroke-width="1"/>
+              <text x="75.0" y="157.0" font-size="13" font-weight="700" text-anchor="middle" fill="var(--text-heading)">Client</text>
+              <text x="75.0" y="174.0" font-size="11.5" font-weight="400" text-anchor="middle" fill="var(--text-caption)">browser or curl</text>
+              <rect x="165" y="14" width="420" height="262" rx="10" fill="var(--bg-sidebar)" stroke="var(--border)"/>
+              <text x="181" y="38" font-size="13" font-weight="700" text-anchor="start" fill="var(--text-heading)">Your service (one process on the host)</text>
+              <rect x="185" y="130" width="120" height="60" rx="8" fill="var(--bg-content)" stroke="var(--status-red)" stroke-width="1.8" stroke-dasharray="5 4"/>
+              <text x="245.0" y="157.0" font-size="13" font-weight="700" text-anchor="middle" fill="var(--text-heading)">Rate limit</text>
+              <text x="245.0" y="174.0" font-size="11.5" font-weight="400" text-anchor="middle" fill="var(--text-caption)">429 past the cap</text>
+              <rect x="335" y="52" width="230" height="50" rx="8" fill="var(--bg-content)" stroke="var(--border)" stroke-width="1"/>
+              <text x="450.0" y="74.0" font-size="13" font-weight="700" text-anchor="middle" fill="var(--text-heading)">/health and /ready</text>
+              <text x="450.0" y="91.0" font-size="11.5" font-weight="400" text-anchor="middle" fill="var(--text-caption)">alive, and index loaded</text>
+              <rect x="335" y="120" width="230" height="44" rx="8" fill="var(--accent)" stroke="var(--accent-strong)" stroke-width="1.6"/>
+              <text x="450.0" y="139.0" font-size="13" font-weight="700" text-anchor="middle" fill="var(--text-heading)">/ask</text>
+              <text x="450.0" y="156.0" font-size="11.5" font-weight="400" text-anchor="middle" fill="var(--text-heading)">RAG pipeline</text>
+              <rect x="335" y="178" width="230" height="44" rx="8" fill="var(--accent)" stroke="var(--accent-strong)" stroke-width="1.6"/>
+              <text x="450.0" y="197.0" font-size="13" font-weight="700" text-anchor="middle" fill="var(--text-heading)">/research</text>
+              <text x="450.0" y="214.0" font-size="11.5" font-weight="400" text-anchor="middle" fill="var(--text-heading)">agent with sub-agents</text>
+              <rect x="185" y="214" width="150" height="44" rx="8" fill="var(--bg-content)" stroke="var(--border)" stroke-width="1"/>
+              <text x="260.0" y="233.0" font-size="13" font-weight="700" text-anchor="middle" fill="var(--text-heading)">Request log</text>
+              <text x="260.0" y="250.0" font-size="11.5" font-weight="400" text-anchor="middle" fill="var(--text-caption)">one JSON line each</text>
+              <rect x="620" y="120" width="120" height="60" rx="8" fill="var(--bg-content)" stroke="var(--border)" stroke-width="1"/>
+              <text x="680.0" y="147.0" font-size="13" font-weight="700" text-anchor="middle" fill="var(--text-heading)">Model APIs</text>
+              <text x="680.0" y="164.0" font-size="11.5" font-weight="400" text-anchor="middle" fill="var(--text-caption)">OpenAI, Anthropic</text>
+              <rect x="620" y="20" width="120" height="60" rx="8" fill="var(--bg-content)" stroke="var(--border)" stroke-width="1" stroke-dasharray="5 4"/>
+              <text x="680.0" y="47.0" font-size="13" font-weight="700" text-anchor="middle" fill="var(--text-heading)">Env vars</text>
+              <text x="680.0" y="64.0" font-size="11.5" font-weight="400" text-anchor="middle" fill="var(--text-caption)">API keys, limits</text>
+              <path d="M130 160 H185" fill="none" stroke="var(--text-caption)" stroke-width="1.5" marker-end="url(#m7deploy-a)"/>
+              <path d="M305 150 C320 150 320 142 335 142" fill="none" stroke="var(--text-caption)" stroke-width="1.5" marker-end="url(#m7deploy-a)"/>
+              <path d="M305 170 C320 170 320 200 335 200" fill="none" stroke="var(--text-caption)" stroke-width="1.5" marker-end="url(#m7deploy-a)"/>
+              <path d="M565 142 C592 142 592 150 620 150" fill="none" stroke="var(--text-caption)" stroke-width="1.5" marker-end="url(#m7deploy-a)" marker-start="url(#m7deploy-a)"/>
+              <path d="M565 200 C592 200 592 160 620 160" fill="none" stroke="var(--text-caption)" stroke-width="1.5" marker-end="url(#m7deploy-a)" marker-start="url(#m7deploy-a)"/>
+              <path d="M680 80 V120" fill="none" stroke="var(--text-caption)" stroke-width="1.5" stroke-dasharray="4 3" marker-end="url(#m7deploy-a)"/>
+              <rect x="185" y="290" width="560" height="48" rx="8" fill="var(--accent)" stroke="var(--accent-strong)" stroke-width="1.6"/>
+              <text x="465.0" y="311.0" font-size="13" font-weight="700" text-anchor="middle" fill="var(--text-heading)">Log &gt; prod_report.py &gt; prod_metrics.json &gt; README table</text>
+              <text x="465.0" y="328.0" font-size="11.5" font-weight="400" text-anchor="middle" fill="var(--text-heading)">latency percentiles, cost per request, error rate: measured, not estimated</text>
+              <path d="M260 258 V290" fill="none" stroke="var(--text-caption)" stroke-width="1.5" stroke-dasharray="4 3" marker-end="url(#m7deploy-a)"/>
+            </svg>
+            <figcaption>The host starts one process, polls /health, and sends traffic only after /ready. Keys live in the host's environment, never in the repo.</figcaption>
+          </figure>
+          <div class="lab-check"><strong>Check:</strong> the service's behavior was verified with the nine tests above, plus a live run of the smoke test against a local instance: health answered, readiness reported ready, four warm requests returned answers, and the burst triggered the rate limiter. (The 503-until-loaded behavior is covered by a test, not by that live run, which started after loading had finished.) The report script was run against a synthetic log (it skipped the host's non-JSON lines, left health checks out of the latency numbers, and refused to print a cost until prices were filled in). One piece was not exercised: the background loader that imports your real RAG pipeline and agent needs your keys and the full Module 3 and 5 code, so run the service locally first (<code class="inline">uvicorn service.app:app</code>) and confirm <code class="inline">/ready</code> turns 200 before you deploy anything. We also could not deploy to a real host, so your cold-start time, your memory use and your real latency are yours to measure, and you should expect cold start to be much longer than a warm request on hosts that stop idle services. If the build fails or the instance runs out of memory, the reranker model is the first suspect.</div>
+          </div>
+        </div>
+
+        <div class="lab-card framework-item is-accordion" id="lab-4">
+          <button class="fw-toggle" type="button" aria-expanded="false" aria-controls="lab-4-body">
+            <span class="lab-num">LAB 4</span>
+            <div class="fw-toggle-text">
+              <h3>Demo and postmortem</h3>
+              <p class="fw-teaser">A timed 60-second script, a recorded demo, and a blameless review of what broke.</p>
+            </div>
+            <svg class="fw-chevron" width="18" height="18" viewBox="0 0 20 20" aria-hidden="true">
+              <path d="M5 7.5 L10 12.5 L15 7.5" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+          </button>
+          <div class="fw-body" id="lab-4-body">
+
+          <ol class="lab-steps">
+            <li>Write the demo script first, in the 60-second shape: problem 8 seconds, demo 30, how it's built 12, numbers 8, where to try it 2. Anything in square brackets is a screen cue and isn't spoken.
+              <div class="code-block"><code># Demo script
+## Problem (8s)
+Support staff dig through forty PDF manuals to find one warranty number. [on screen: a messy folder of PDFs]
+## Demo (30s)
+I ask for the Delta Sensor warranty. A few seconds later I get the answer, with a link that opens the exact page. Now a question the manuals cannot answer, and it says so instead of guessing. [on screen: the real app, one take]
+## How it is built (12s)
+Hybrid search, a reranker, and one model call, with citations checked in code before any answer goes out. [on screen: the architecture diagram]
+## Numbers (8s)
+Ninety-two percent right on fifty questions, about two seconds typical, under a cent a question. [on screen: the results table]
+## Try it (2s)
+The link is below.</code></div>
+            </li>
+            <li>Time it. The script counts spoken words per beat against a speaking rate of 150 words a minute and tells you how many words to cut. A script that fits on paper usually doesn't fit on the clock.
+              <div class="code-block"><code>"""Time a spoken demo script before you record it. People read aloud at about 150 words a minute (2.5 a second).
+Each '## Beat (Ns)' heading gives that beat's time budget. Usage: python checks/script_timer.py demo_script.md"""
+import re, sys
+from pathlib import Path
+
+WORDS_PER_SECOND = 2.5
+beats, total_budget, total_est = [], 0, 0.0
+current = None
+for line in Path(sys.argv[1]).read_text().splitlines():
+    m = re.match(r"##\s+(.*?)\s*\((\d+)\s*s\)\s*$", line)
+    if m:
+        current = {"name": m.group(1), "budget": int(m.group(2)), "words": 0}
+        beats.append(current)
+    elif current and line.strip() and not line.startswith("#"):
+        current["words"] += len(re.findall(r"\b[\w'-]+\b", re.sub(r"\[.*?\]", "", line)))   # [on screen: ...] cues aren't spoken
+
+if not beats:
+    sys.exit("no '## Name (Ns)' headings found")
+ok = True
+for b in beats:
+    est = b["words"] / WORDS_PER_SECOND
+    flag = "" if est &lt;= b["budget"] else "   TOO LONG: cut " + str(int(b["words"] - b["budget"] * WORDS_PER_SECOND + 0.99)) + " words"
+    ok &amp;= est &lt;= b["budget"]
+    total_budget += b["budget"]; total_est += est
+    print(f"{b['name']:16s} {est:5.1f}s of {b['budget']:2d}s  ({b['words']} words){flag}")
+print(f"{'total':16s} {total_est:5.1f}s of {total_budget}s")
+sys.exit(0 if ok and total_est &lt;= 60 else 1)</code></div>
+              <div class="code-block"><code>python checks/script_timer.py demo_script.md</code></div>
+            </li>
+            <li>Record the real app, one take per beat, doing a real task: don't narrate slides. Use any screen recorder you like. Show one question it answers well and one it correctly declines.</li>
+            <li>Pick three things that broke while you built or deployed it, and write the postmortem for the most expensive one. Use the template below, keep it blameless (describe the system), and finish with a change to the <em>system</em> and a case added to the golden set.
+              <div class="code-block"><code># Postmortem: what broke, in plain words
+Date: YYYY-MM-DD   Duration: how long it was broken   Impact: who noticed, and what it cost
+
+## Timeline
+- 14:02  The first sign, and where you saw it (a log line, a user message)
+- 14:20  What you tried, and what you learned
+- 15:05  What fixed it
+
+## Root cause
+Which class of failure? (missing context, wrong tool, bad output, repeated loop, unsafe action, lost decision, unknown) Then one paragraph on the specific cause. Describe the system, not a person.
+
+## What we changed in the system
+- A guide, a test, a tool description, a validator, a permission or a trace. Not "we rewrote the prompt".
+
+## How we know it is fixed
+- The failing case, now in the golden set (id and question), passing.
+
+## What went well, and what was luck
+- One of each.
+
+## Follow-ups
+- Each with an owner (a role) and a date.</code></div>
+            </li>
+            <li>Write your four-sentence interview summary from the same material.
+              <div class="code-block"><code>**The problem:** one sentence, naming the person who had it.
+**A decision I defended with numbers:** "I chose X over Y because on 50 questions X scored A against B, at C a request."
+**A failure I diagnosed and fixed:** "It broke when ..., because ..., so I changed ..., and this test would catch it next time."
+**What I would do next:** one thing, and why it is next.</code></div>
+            </li>
+          </ol>
+          <figure class="course-diagram">
+            <svg viewBox="0 0 760 190" role="img" aria-label="A 60-second demo script as a timeline: problem 8 seconds, live demo 30, how it is built 12, the numbers 8, where to try it 2">
+              <defs><marker id="m7video-a" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0 0L10 5L0 10z" fill="var(--text-caption)"/></marker></defs>
+              <rect x="20" y="50" width="94.0" height="64" rx="6" fill="var(--bg-content)" stroke="var(--border)"/>
+              <text x="67.0" y="78" font-size="13" font-weight="700" text-anchor="middle" fill="var(--text-heading)">Problem</text>
+              <text x="67.0" y="96" font-size="11.5" font-weight="400" text-anchor="middle" fill="var(--text-caption)">8s</text>
+              <rect x="116.0" y="50" width="358.0" height="64" rx="6" fill="var(--accent)" stroke="var(--accent-strong)"/>
+              <text x="295.0" y="78" font-size="13" font-weight="700" text-anchor="middle" fill="var(--text-heading)">Demo</text>
+              <text x="295.0" y="96" font-size="11.5" font-weight="400" text-anchor="middle" fill="var(--text-heading)">30s</text>
+              <rect x="476.0" y="50" width="142.0" height="64" rx="6" fill="var(--bg-content)" stroke="var(--border)"/>
+              <text x="547.0" y="78" font-size="13" font-weight="700" text-anchor="middle" fill="var(--text-heading)">How it is built</text>
+              <text x="547.0" y="96" font-size="11.5" font-weight="400" text-anchor="middle" fill="var(--text-caption)">12s</text>
+              <rect x="620.0" y="50" width="94.0" height="64" rx="6" fill="var(--bg-content)" stroke="var(--border)"/>
+              <text x="667.0" y="78" font-size="13" font-weight="700" text-anchor="middle" fill="var(--text-heading)">Numbers</text>
+              <text x="667.0" y="96" font-size="11.5" font-weight="400" text-anchor="middle" fill="var(--text-caption)">8s</text>
+              <rect x="716.0" y="50" width="22.0" height="64" rx="6" fill="var(--bg-content)" stroke="var(--border)"/>
+              <text x="727.0" y="78" font-size="11.5" font-weight="700" text-anchor="middle" fill="var(--text-heading)">2s</text>
+              <text x="727.0" y="138" font-size="11.5" font-weight="600" text-anchor="middle" fill="var(--text-heading)">Try it</text>
+              <path d="M20 164 H740" fill="none" stroke="var(--text-caption)" stroke-width="1.5" marker-end="url(#m7video-a)"/>
+              <text x="20" y="182" font-size="11.5" font-weight="400" text-anchor="start" fill="var(--text-caption)">0s</text>
+              <text x="740" y="182" font-size="11.5" font-weight="400" text-anchor="end" fill="var(--text-caption)">60s</text>
+            </svg>
+            <figcaption>Roughly 150 words a minute: a 60-second video holds about 150 spoken words, so write it, then time it with a script before you record.</figcaption>
+          </figure>
+          <figure class="course-diagram">
+            <svg viewBox="0 0 760 250" role="img" aria-label="From failure to system change: something breaks, you name its class, change the system instead of the prompt, rerun to prove it is fixed, and add the case to the golden set">
+              <defs><marker id="m7pm-a" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0 0L10 5L0 10z" fill="var(--text-caption)"/></marker></defs>
+              <rect x="20" y="90" width="128" height="70" rx="8" fill="var(--bg-content)" stroke="var(--border)" stroke-width="1"/>
+              <text x="84.0" y="129.5" font-size="13" font-weight="700" text-anchor="middle" fill="var(--text-heading)">Something breaks</text>
+              <rect x="168" y="90" width="128" height="70" rx="8" fill="var(--bg-content)" stroke="var(--border)" stroke-width="1"/>
+              <text x="232.0" y="129.5" font-size="13" font-weight="700" text-anchor="middle" fill="var(--text-heading)">Name the class</text>
+              <rect x="316" y="90" width="128" height="70" rx="8" fill="var(--accent)" stroke="var(--accent-strong)" stroke-width="1.6"/>
+              <text x="380.0" y="129.5" font-size="13" font-weight="700" text-anchor="middle" fill="var(--text-heading)">Fix the system</text>
+              <rect x="464" y="90" width="128" height="70" rx="8" fill="var(--bg-content)" stroke="var(--border)" stroke-width="1"/>
+              <text x="528.0" y="129.5" font-size="13" font-weight="700" text-anchor="middle" fill="var(--text-heading)">Prove the fix</text>
+              <rect x="612" y="90" width="128" height="70" rx="8" fill="var(--bg-content)" stroke="var(--border)" stroke-width="1"/>
+              <text x="676.0" y="129.5" font-size="13" font-weight="700" text-anchor="middle" fill="var(--text-heading)">Add a test case</text>
+              <path d="M148 125 H168" fill="none" stroke="var(--text-caption)" stroke-width="1.5" marker-end="url(#m7pm-a)"/>
+              <path d="M296 125 H316" fill="none" stroke="var(--text-caption)" stroke-width="1.5" marker-end="url(#m7pm-a)"/>
+              <path d="M444 125 H464" fill="none" stroke="var(--text-caption)" stroke-width="1.5" marker-end="url(#m7pm-a)"/>
+              <path d="M592 125 H612" fill="none" stroke="var(--text-caption)" stroke-width="1.5" marker-end="url(#m7pm-a)"/>
+              <text x="85" y="182" font-size="11.5" font-weight="400" text-anchor="middle" fill="var(--text-caption)">found in logs</text>
+              <text x="85" y="197" font-size="11.5" font-weight="400" text-anchor="middle" fill="var(--text-caption)">or by a user</text>
+              <text x="233" y="182" font-size="11.5" font-weight="400" text-anchor="middle" fill="var(--text-caption)">which row of the</text>
+              <text x="233" y="197" font-size="11.5" font-weight="400" text-anchor="middle" fill="var(--text-caption)">failure table?</text>
+              <text x="381" y="182" font-size="11.5" font-weight="400" text-anchor="middle" fill="var(--text-caption)">a guide, test,</text>
+              <text x="381" y="197" font-size="11.5" font-weight="400" text-anchor="middle" fill="var(--text-caption)">tool or policy</text>
+              <text x="529" y="182" font-size="11.5" font-weight="400" text-anchor="middle" fill="var(--text-caption)">the failing case</text>
+              <text x="529" y="197" font-size="11.5" font-weight="400" text-anchor="middle" fill="var(--text-caption)">now passes</text>
+              <text x="677" y="182" font-size="11.5" font-weight="400" text-anchor="middle" fill="var(--text-caption)">so it cannot</text>
+              <text x="677" y="197" font-size="11.5" font-weight="400" text-anchor="middle" fill="var(--text-caption)">return silently</text>
+              <path d="M668 90 V50 H84 V90" fill="none" stroke="var(--text-caption)" stroke-width="1.5" stroke-dasharray="4 3" marker-end="url(#m7pm-a)"/>
+              <text x="380" y="42" font-size="11.5" font-weight="400" text-anchor="middle" fill="var(--text-caption)" font-style="italic">the next failure starts here</text>
+            </svg>
+            <figcaption>A blameless postmortem ends with a change to the system, and a test that would have caught it.</figcaption>
+          </figure>
+          <div class="lab-check"><strong>Check:</strong> we tested the timer: a sample script landed well under 60 seconds, and padding the last beat made it report that beat as too long and say how many words to cut. It estimates from word count only, so read the script aloud once with a stopwatch before trusting it; slow speakers and long pauses are yours to account for. There's no checker for the postmortem because the judgment it needs (is this really a system change, or a patch?) is the point. Test your own: for each "what we changed" line, ask whether a different engineer inheriting the repo next year would be protected by it.</div>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <section class="lesson-section" id="lesson-project">
+      <h2>Project</h2>
+
+      <div class="lab-card framework-item is-accordion" id="project-card">
+        <button class="fw-toggle" type="button" aria-expanded="false" aria-controls="project-card-body">
+          <span class="lab-num">PROJECT</span>
+          <div class="fw-toggle-text">
+            <h3>Every project on GitHub</h3>
+            <p class="fw-teaser">Each project runnable by a stranger in under ten minutes, with live links and every number measured.</p>
+          </div>
+          <svg class="fw-chevron" width="18" height="18" viewBox="0 0 20 20" aria-hidden="true">
+            <path d="M5 7.5 L10 12.5 L15 7.5" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+        </button>
+        <div class="fw-body" id="project-card-body">
+      <div class="course-project">
+        <span class="course-project-label">Project &middot; Every project on GitHub</span>
+        <p>Ship every project from this course, not only the best one. Each gets a README a stranger can follow, numbers its tools measured, and a check that keeps it honest.</p>
+      </div>
+
+      <ol class="lab-steps" style="margin-top: 14px;">
+        <li>Give every project folder (and the repo root) its own README from Lab 2's template, with a Quick start of about ten commands at most. Where a project has no eval or live numbers, delete those rows from its table instead of leaving them unmeasured; a missing claim is better than an invented one.</li>
+        <li>Run the stranger test on each project. This script clones the repo into an empty folder, creates a fresh virtual environment, runs your Quick start commands exactly as written with none of your API keys or settings available, and times the whole thing. It fails if any command fails or if the total passes ten minutes.
+          <div class="code-block"><code>"""The stranger test: clone the repo into an empty folder, make a new virtual environment, run the README's
+Quick start commands exactly as written, and time it. Usage: python checks/fresh_clone_test.py &lt;repo path or URL&gt;"""
+import os, re, subprocess, sys, tempfile, time
+from pathlib import Path
+
+LIMIT_SECONDS = 600
+repo = sys.argv[1]
+work = Path(tempfile.mkdtemp(prefix="fresh_clone_"))
+t_all = time.time()
+
+subprocess.run(["git", "clone", "--quiet", repo, str(work / "repo")], check=True)
+checkout = work / "repo"
+subprocess.run([sys.executable, "-m", "venv", str(work / "venv")], check=True)
+bindir = work / "venv" / ("Scripts" if os.name == "nt" else "bin")
+env = {**os.environ, "PATH": f"{bindir}{os.pathsep}{os.environ['PATH']}", "VIRTUAL_ENV": str(work / "venv")}
+env.pop("PYTHONPATH", None)                                   # nothing from your own machine may leak in
+for k in [k for k in env if k.endswith("_API_KEY")]:
+    env.pop(k)                                                # and none of YOUR keys: a stranger has none
+
+readme = (checkout / "README.md").read_text()
+quick = re.search(r"##\s+Quick start\s*\n(.*?)(?=\n##\s|\Z)", readme, re.S)
+if not quick:
+    sys.exit("README has no '## Quick start' section")
+commands = [l.strip() for blk in re.findall(r"```(?:bash|sh|shell)?\n(.*?)```", quick.group(1), re.S)
+            for l in blk.splitlines() if l.strip() and not l.strip().startswith("#")]
+
+failed = None
+for cmd in commands:
+    t = time.time()
+    r = subprocess.run(cmd, shell=True, cwd=checkout, env=env, capture_output=True, text=True)
+    print(f"{'ok  ' if r.returncode == 0 else 'FAIL'} {time.time() - t:6.1f}s  {cmd}")
+    if r.returncode != 0:
+        failed = (cmd, (r.stderr or r.stdout)[-400:])
+        break
+
+total = time.time() - t_all
+print(f"\ntotal: {total:.0f}s (limit {LIMIT_SECONDS}s)   folder: {work}")
+if failed:
+    print(f"\nA stranger would be stuck here:\n  {failed[0]}\n{failed[1]}")
+sys.exit(1 if failed or total &gt; LIMIT_SECONDS else 0)</code></div>
+          <div class="code-block"><code>python checks/fresh_clone_test.py https://github.com/you/your-repo</code></div>
+          A Quick start that needs a key will fail here on purpose. Make that step explicit instead: copy <code class="inline">.env.example</code> to <code class="inline">.env</code> and tell the reader which keys to add, and have the project fail with a clear message when they are missing.
+        </li>
+        <li>Put every check in CI: the Module 4 eval, <code class="inline">check_readme.py</code> and <code class="inline">check_secrets.py</code>, so a pull request that breaks the README, leaks a key or lowers the scores goes red.</li>
+        <li>Choose a license on purpose, after checking your dependencies' licenses (see the AGPL note in the concepts). Add it to the repo.</li>
+        <li>Add the live links (your deployed service, the demo video, the write-up) to the README, then open every one from a browser that isn't signed in to anything.</li>
+        <li>Last, watch someone else do it. Ask a friend or colleague who hasn't seen the project to follow the README on their own machine while you stay quiet and take notes. Every question they ask is a README bug.</li>
+      </ol>
+
+      <div class="insight-aside" style="margin-top: 14px;">
+        <svg width="26" height="26" viewBox="0 0 26 26" aria-hidden="true">
+          <circle cx="13" cy="13" r="10" fill="none" stroke="var(--border)" stroke-width="2"/>
+          <path d="M13 7 L13 14" stroke="var(--accent-strong)" stroke-width="2.4" stroke-linecap="round"/>
+          <circle cx="13" cy="18.5" r="1.6" fill="var(--accent-strong)"/>
+        </svg>
+        <div class="insight-aside-body">
+          <span class="insight-aside-label">What we tested, and what only you can</span>
+          <p>The tooling in this lesson was run and tested: the web service (nine tests plus a live smoke run), the secrets scanner, the production-metrics report, the README checker in all its failing and passing states, the demo-script timer, the pitch checker, and the stranger test against a small sample repository, including a deliberately broken Quick start. The README tooling and the stranger test were not run against your project, and nothing here was deployed to a real host, so cold-start time, memory use, real latency and cost per request are yours to measure. Those are the numbers your README will carry.</p>
+        </div>
+      </div>
+
+          <figure class="course-diagram">
+            <svg viewBox="0 0 760 270" role="img" aria-label="Numbers reach the README by machine: eval scores and production metrics are written by tools, a script fills the results table, and a CI check fails if the table is stale or hand-edited">
+              <defs><marker id="m7readme-a" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0 0L10 5L0 10z" fill="var(--text-caption)"/></marker></defs>
+              <rect x="20" y="40" width="190" height="56" rx="8" fill="var(--bg-content)" stroke="var(--border)" stroke-width="1"/>
+              <text x="115.0" y="65.0" font-size="13" font-weight="700" text-anchor="middle" fill="var(--text-heading)">evals/scores.json</text>
+              <text x="115.0" y="82.0" font-size="11.5" font-weight="400" text-anchor="middle" fill="var(--text-caption)">written by the CI eval</text>
+              <rect x="20" y="124" width="190" height="56" rx="8" fill="var(--bg-content)" stroke="var(--border)" stroke-width="1"/>
+              <text x="115.0" y="149.0" font-size="13" font-weight="700" text-anchor="middle" fill="var(--text-heading)">prod_metrics.json</text>
+              <text x="115.0" y="166.0" font-size="11.5" font-weight="400" text-anchor="middle" fill="var(--text-caption)">written by prod_report.py</text>
+              <rect x="280" y="80" width="170" height="70" rx="8" fill="var(--accent)" stroke="var(--accent-strong)" stroke-width="1.6"/>
+              <text x="365.0" y="112.0" font-size="13" font-weight="700" text-anchor="middle" fill="var(--text-heading)">make_metrics.py</text>
+              <text x="365.0" y="129.0" font-size="11.5" font-weight="400" text-anchor="middle" fill="var(--text-heading)">reads both files</text>
+              <rect x="520" y="40" width="220" height="70" rx="8" fill="var(--bg-content)" stroke="var(--border)" stroke-width="1"/>
+              <text x="630.0" y="72.0" font-size="13" font-weight="700" text-anchor="middle" fill="var(--text-heading)">README results table</text>
+              <text x="630.0" y="89.0" font-size="11.5" font-weight="400" text-anchor="middle" fill="var(--text-caption)">value, source file, date</text>
+              <rect x="520" y="134" width="220" height="58" rx="8" fill="var(--bg-content)" stroke="var(--border)" stroke-width="1" stroke-dasharray="5 4"/>
+              <text x="630.0" y="160.0" font-size="13" font-weight="700" text-anchor="middle" fill="var(--text-heading)">check_readme.py</text>
+              <text x="630.0" y="177.0" font-size="11.5" font-weight="400" text-anchor="middle" fill="var(--text-caption)">runs in CI on every PR</text>
+              <path d="M210 68 C245 68 245 105 280 105" fill="none" stroke="var(--text-caption)" stroke-width="1.5" marker-end="url(#m7readme-a)"/>
+              <path d="M210 152 C245 152 245 125 280 125" fill="none" stroke="var(--text-caption)" stroke-width="1.5" marker-end="url(#m7readme-a)"/>
+              <path d="M450 115 C485 115 485 75 520 75" fill="none" stroke="var(--text-caption)" stroke-width="1.5" marker-end="url(#m7readme-a)"/>
+              <path d="M630 134 V110" fill="none" stroke="var(--text-caption)" stroke-width="1.5" marker-end="url(#m7readme-a)" marker-start="url(#m7readme-a)"/>
+              <rect x="20" y="216" width="330" height="40" rx="8" fill="var(--bg-content)" stroke="var(--status-red)" stroke-width="1.8"/>
+              <text x="185.0" y="233.0" font-size="13" font-weight="700" text-anchor="middle" fill="var(--text-heading)">Edited a number by hand?</text>
+              <text x="185.0" y="250.0" font-size="11.5" font-weight="400" text-anchor="middle" fill="var(--text-caption)">check fails: table is out of date</text>
+              <rect x="410" y="216" width="330" height="40" rx="8" fill="var(--bg-content)" stroke="var(--status-red)" stroke-width="1.8"/>
+              <text x="575.0" y="233.0" font-size="13" font-weight="700" text-anchor="middle" fill="var(--text-heading)">A metric was never measured?</text>
+              <text x="575.0" y="250.0" font-size="11.5" font-weight="400" text-anchor="middle" fill="var(--text-caption)">check fails: NOT MEASURED YET</text>
+            </svg>
+            <figcaption>Nobody types a number into the results table. The check makes that a rule instead of a habit.</figcaption>
+          </figure>
+      <p style="margin-top: 14px; font-size: .9rem;"><strong>Done when:</strong></p>
+      <ul class="lesson-checklist">
+        <li>A stranger can run each project from its README in under 10 minutes, and the stranger test passes.</li>
+        <li>The live links work from a signed-out browser.</li>
+        <li>Every number in every README is written by a tool from a file in the repo, with its date, and the README check passes in CI.</li>
+        <li>No secrets are tracked, the history has none, and any key that ever leaked has been rotated.</li>
+        <li>A blameless postmortem and a 60-second demo exist, and you can tell the four-sentence story without notes.</li>
+      </ul>
+        </div>
+      </div>
+
+    </section>
+
+    <section class="lesson-section" id="lesson-sources">
+      <h2>Sources</h2>
+      <ul class="explainer-list is-bulleted" style="font-size: .85rem; max-width: 640px;">
+        <li>Fitzpatrick, R. (2013). <em>The Mom Test: How to Talk to Customers and Learn If Your Business Is a Good Idea When Everyone Is Lying to You</em>.</li>
+        <li>Wiggins, A. (2011). <em>The Twelve-Factor App</em>. 12factor.net.</li>
+        <li>Beyer, B., Jones, C., Petoff, J., &amp; Murphy, N. R. (Eds.) (2016). <em>Site Reliability Engineering: How Google Runs Production Systems</em>. O'Reilly. See the chapter <em>Postmortem Culture: Learning from Failure</em>.</li>
+        <li>Module 2 (<code class="inline">pymupdf4llm</code> licensing), Module 4 (redaction, guardrails, CI evals), Module 5 (the seven failure classes) and Module 6 (the no-LLM option) of this course.</li>
+      </ul>
+    </section>
+
+    <div class="lesson-foot">
+      <a href="ai-beyond-fundamentals.html#ship-it">&larr; Back to the course map</a>
+    </div>
+  </article>
+</main>
+
+<div id="site-footer"></div>
+
+<script src="js/site-chrome.js" defer></script>
+<script src="js/theme-toggle.js" defer></script>
+<script src="js/try-it.js" defer></script>
+<script src="js/framework-accordion.js" defer></script>
+<script src="js/code-copy.js" defer></script>
+</body>
+</html>
