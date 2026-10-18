@@ -61,6 +61,7 @@ google-genai==0.3.0
 python-dotenv==1.0.1
 <span class="code-comment">...</span></code></div>
           <p>Redirecting that output into <code class="inline">requirements.txt</code> and committing the file turns it into the pin list. From then on, <code class="inline">pip install -r requirements.txt</code> installs exactly those versions, so your setup, your collaborator's, and the one this checklist describes all run identical code.</p>
+          <p><strong>Prefer uv or poetry?</strong> This course uses venv and pip because they ship with Python and need nothing extra installed. uv and poetry are popular alternatives that create the environment, install packages and record exact versions in a lockfile for you. If you already use one, it works for every lab: translate the install commands and skip the manual <code class="inline">pip freeze</code> step.</p>
           <p>A <strong>monorepo</strong> here just means one repository, one <code class="inline">pyproject.toml</code>, and one lockfile for every project this course builds &mdash; the chatbot, the extraction tool, the RAG app, the eval suite, the agent, and the RAG-vs-fine-tune comparison &mdash; each in its own folder, plus a <code class="inline">shared/</code> folder for code every project reuses. One environment to install instead of seven, and one place to fix a dependency problem instead of seven.</p>
         </div>
 

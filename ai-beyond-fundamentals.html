@@ -79,6 +79,18 @@
       <p>AI Fundamentals teaches you to use AI. This course teaches you to build with it. The gap between a demo that works once and a system people rely on is almost never the model. It is retrieval that finds the right passage, evals that catch regressions, guardrails that stop bad actions, and a harness that keeps an agent on track. Those are engineering skills, and they can be learned by building.</p>
     </div>
 
+    <div class="section-block">
+      <h2>What You'll Be Able to Do</h2>
+      <ul class="explainer-list is-bulleted" style="max-width: 640px;">
+        <li>Choose a model, prompt it reliably, and explain its cost and latency per call</li>
+        <li>Build a production-grade RAG pipeline over messy documents and measure retrieval quality</li>
+        <li>Write an eval suite that runs in CI and blocks regressions</li>
+        <li>Build an agent with tools, limits and human approval, starting from a raw API loop</li>
+        <li>Defend architecture choices: RAG vs fine-tuning, workflow vs agent, big vs small model</li>
+        <li>Ship two deployed apps with a README that shows eval, cost and latency numbers</li>
+      </ul>
+    </div>
+
     <blockquote class="pull-quote">
       <p>"Humans steer. Agents execute."</p>
       <cite>OpenAI, <em>Harness engineering</em></cite>
@@ -88,6 +100,20 @@
       <h2>How the Course Works</h2>
       <p>Every module follows the same loop as the rest of this site. <strong>Plan</strong> with a short concept lesson. <strong>Do</strong> three to six guided labs, each with starter code and a checkpoint test. <strong>Reflect</strong> by shipping a module project and writing down what broke and how you fixed it.</p>
       <p style="margin-top: 10px;">All labs use one shared document collection (public company filings, meeting minutes, or product manuals all work), so you build one system that grows each module instead of seven throwaway demos. You need Python, Git, and comfort calling a REST API. No machine learning background is assumed.</p>
+      <div class="compare-table-wrap" style="margin-top: 14px; max-width: 640px;">
+        <table class="compare-table">
+          <thead>
+            <tr><th>Every module has</th><th>What it is</th><th>Time</th></tr>
+          </thead>
+          <tbody>
+            <tr><th scope="row">Concept lesson</th><td>15 to 25 minutes of reading or video, with one diagram</td><td>1 hr</td></tr>
+            <tr><th scope="row">Guided labs</th><td>Short exercises with starter code and a checkpoint test</td><td>3 to 4 hrs</td></tr>
+            <tr><th scope="row">Module project</th><td>One build, judged against a clear "done when"</td><td>2 to 3 hrs</td></tr>
+            <tr><th scope="row">Checkpoint questions</th><td>8 to 10 questions on trade-offs, not trivia</td><td>15 min</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <p style="margin-top: 12px; max-width: 640px;"><strong>Stack used throughout:</strong> Python 3.12 with venv and pip for environments (uv or poetry work fine if you already use them), FastAPI for the backend, the Anthropic, OpenAI and Gemini SDKs, Ollama for local models, Pydantic, pytest, and GitHub Actions. Frameworks come in only after you have written the raw version yourself, so you know what they are doing for you.</p>
     </div>
 
     <div class="section-block" style="max-width: 720px;">
@@ -106,6 +132,7 @@
             <tr><th scope="row">5 · Agents &amp; Harnesses</th><td>11 to 12</td><td>Advanced</td><td>Research agent with sub-agents</td></tr>
             <tr><th scope="row">6 · Architecture Decisions</th><td>13</td><td>Advanced</td><td>RAG vs fine-tune, same task</td></tr>
             <tr><th scope="row">7 · Ship It</th><td>14</td><td>Capstone</td><td>All projects on GitHub, one deployed original</td></tr>
+            <tr><th scope="row"><a href="#bonus-flight-rewards">B · Bonus</a></th><td>Alongside 2 to 7</td><td>Optional</td><td>Flight rewards agent, one skill per week</td></tr>
           </tbody>
         </table>
       </div>
@@ -140,7 +167,7 @@
           <h4 class="course-subhead">What you'll learn</h4>
           <ul class="explainer-list is-bulleted">
             <li>Keeping API keys in environment files, never in code</li>
-            <li>Python environments with <code>venv</code> and <code>pip</code>, in a monorepo layout</li>
+            <li>Python environments with <code>venv</code> and <code>pip</code>, in a monorepo layout (<code>uv</code> or <code>poetry</code> are fine alternatives)</li>
             <li>A shared client wrapper that logs tokens, cost and latency for every call</li>
           </ul>
           <h4 class="course-subhead">Hands-on labs</h4>
@@ -187,6 +214,7 @@
             <li>Cost per call, and why output tokens usually dominate</li>
             <li>The KV cache inside the model, and prompt caching as providers expose it</li>
             <li>Semantic caching: return a stored answer when a new question means the same thing</li>
+            <li>Running open models locally with Ollama</li>
             <li>Picking a model by trading off quality, speed and cost</li>
           </ul>
           <h4 class="course-subhead">Hands-on labs</h4>
@@ -200,7 +228,18 @@
           <div class="course-project">
             <span class="course-project-label">Project · Chatbot with a live cost meter</span>
             <p>A streaming chat app that shows tokens, dollars and latency per message and a running total, with a model picker that includes one local model.</p>
-            <p><strong>Done when:</strong> cost matches the provider's pricing within 5%, and the README compares three models on the same 10 questions.</p>
+            <p><strong>Done when:</strong> responses stream correctly, cost matches the provider's pricing within 5%, the semantic cache hit rate is shown, and the README compares three models on the same 10 questions.</p>
+          </div>
+          <div class="insight-aside">
+            <svg width="26" height="26" viewBox="0 0 26 26" aria-hidden="true">
+              <circle cx="13" cy="13" r="10" fill="none" stroke="var(--border)" stroke-width="2"/>
+              <path d="M13 7 L13 14" stroke="var(--accent-strong)" stroke-width="2.4" stroke-linecap="round"/>
+              <circle cx="13" cy="18.5" r="1.6" fill="var(--accent-strong)"/>
+            </svg>
+            <div class="insight-aside-body">
+              <span class="insight-aside-label">Watch-out</span>
+              <p>Model names and prices change often. Keep them in one config file and check the provider's pricing page rather than trusting a number you saw in a lesson.</p>
+            </div>
           </div>
           <a class="try-it-quicklink" href="course/ai-beyond-fundamentals/llm-fundamentals.html" style="margin-top: 14px;">
             <svg width="14" height="14" viewBox="0 0 24 24" aria-hidden="true">
@@ -256,7 +295,7 @@
             </svg>
             <div class="insight-aside-body">
               <span class="insight-aside-label">Watch-out</span>
-              <p>Advice on reasoning prompts differs by model family. Teach learners to test it on their own task rather than memorize a rule.</p>
+              <p>Advice on reasoning prompts differs by model family. Test it on your own task rather than memorizing a rule.</p>
             </div>
           </div>
           <a class="try-it-quicklink" href="course/ai-beyond-fundamentals/prompting-reliability.html" style="margin-top: 14px;">
@@ -367,7 +406,8 @@
             <li>Layout parsing that keeps tables, headers and reading order intact</li>
             <li>Chunking strategy per document type, including chunk size and overlap</li>
             <li>Vector indexes: HNSW (fast and accurate, memory-heavy), IVF (clustered, cheaper at scale), PQ (compressed, smaller and less exact)</li>
-            <li>Hybrid search: keyword scores (BM25) plus vector scores, merged</li>
+            <li>Embedding models and vector databases</li>
+            <li>Hybrid search: keyword scores (BM25) plus vector scores, merged with reciprocal rank fusion</li>
             <li>Splitting multi-part questions and filtering by metadata such as date or source</li>
             <li>Reranking, then measuring retrieval with recall@k against labeled questions</li>
           </ul>
@@ -445,7 +485,7 @@
             </svg>
             <div class="insight-aside-body">
               <span class="insight-aside-label">Watch-out</span>
-              <p>LLM judges drift and tend to favor longer answers. Teach calibration before automation.</p>
+              <p>LLM judges drift and tend to favor longer answers. Calibrate the judge against your own labels before you automate it.</p>
             </div>
           </div>
           <a class="back-to-top" href="#evals-guardrails"><svg width="9" height="9" viewBox="0 0 12 12" aria-hidden="true"><path d="M6 10 L6 2 M2.5 5.5 L6 2 L9.5 5.5" stroke="var(--accent-strong)" stroke-width="1.8" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg>Top</a>
@@ -476,7 +516,53 @@
           </ul>
 
           <h4 class="course-subhead" id="harness-engineering">Harness engineering: fix the system, not the prompt</h4>
-          <p>When an agent fails, the instinct is to rewrite the prompt, switch models, or add context. The failures usually come back. The better move is to name the failure and change the harness.</p>
+          <p style="max-width: 640px;">The model is only the reasoning engine. It can suggest the next action, but it cannot create a reliable operating environment by itself. The harness decides what the model can see, what it can touch, what survives between sessions, what counts as evidence, and when the run must stop.</p>
+          <div class="mvv-grid is-two" style="margin-top: 14px; max-width: 640px;">
+            <div class="mvv-card" style="--mvv-color: var(--accent)">
+              <svg class="mvv-card-icon" width="22" height="22" viewBox="0 0 24 24" aria-hidden="true">
+                <circle cx="12" cy="12" r="8" fill="var(--accent)"/>
+                <path d="M8 12 C9 9 15 9 16 12" stroke="var(--accent-strong)" stroke-width="1.6" fill="none" stroke-linecap="round"/>
+              </svg>
+              <h3 style="font-size: 0.9rem;">Model</h3>
+              <p>Reasons and proposes actions.</p>
+            </div>
+            <div class="mvv-card" style="--mvv-color: var(--accent-strong)">
+              <svg class="mvv-card-icon" width="22" height="22" viewBox="0 0 24 24" aria-hidden="true">
+                <rect x="3" y="3" width="18" height="18" rx="3" fill="none" stroke="var(--accent-strong)" stroke-width="2"/>
+                <circle cx="12" cy="12" r="3.5" fill="var(--accent)"/>
+              </svg>
+              <h3 style="font-size: 0.9rem;">Harness</h3>
+              <ul class="explainer-list is-bulleted">
+                <li>Selects context</li>
+                <li>Exposes tools</li>
+                <li>Stores state</li>
+                <li>Enforces permissions</li>
+                <li>Checks results</li>
+                <li>Records traces</li>
+                <li>Recovers from failure</li>
+              </ul>
+            </div>
+          </div>
+          <p style="margin-top: 14px; max-width: 640px;">The prompt is one component inside this system, and the model is another. The product is what happens when every surrounding component works together.</p>
+          <blockquote class="pull-quote" style="max-width: 640px;">
+            <p>"Prompt engineering improves the instruction. Harness engineering improves the conditions under which the instruction is executed."</p>
+            <cite>rari, <em>Harness Engineering</em></cite>
+          </blockquote>
+          <p style="max-width: 640px;">Put a model in a chat box and it answers questions. Put the same model in a repository with terminal access, tests, browser tools, project memory and a review loop, and it can ship software. The weights did not change. The harness did.</p>
+
+          <h4 class="course-subhead" id="harness-seven-jobs">The seven jobs of a production harness</h4>
+          <ol class="explainer-list is-numbered" style="max-width: 640px;">
+            <li><strong>Turn the request into a contract.</strong> Before acting, write down the goal, inputs, expected output, constraints, and what "done" means. Without it, the agent can finish a different job and still declare success.</li>
+            <li><strong>Give the agent a map.</strong> A small root guide that points to architecture, testing, product and security notes. A map preserves context, while a giant manual consumes it.</li>
+            <li><strong>Expose the right tools in the right environment.</strong> Every tool needs a clear purpose, predictable output, an explicit failure state, and a permission boundary. Reading files can be allowed by default; deploying or deleting data requires approval.</li>
+            <li><strong>Externalize memory into durable state.</strong> The conversation is not the system of record. Store decisions, artifacts, failures and open risks in a file, so the next session inherits the work, not a lossy retelling of the chat.</li>
+            <li><strong>Add sensors before adding autonomy.</strong> Tests, linters, screenshots, logs and schema checks turn vague quality into evidence. The model creates an artifact, the environment produces evidence about it, and the harness decides whether that is enough to continue.</li>
+            <li><strong>Enforce permissions outside the model.</strong> The model suggests, a policy checks, a tool executes. Don't ask one probabilistic system to invent the plan, approve the risk and carry out the side effect.</li>
+            <li><strong>Record traces and recover locally.</strong> Every run leaves a readable trail: the request, context selected, tool calls, state changes, checks, retries, cost and a rollback point. Without traces, failure is a mystery. With them, it is input for the next improvement.</li>
+          </ol>
+
+          <h4 class="course-subhead">Failure should upgrade the system</h4>
+          <p>When an agent fails, the instinct is to rewrite the prompt, switch models, or add context. The failures usually come back. The better move is to name the class of failure and change the harness. The immediate patch fixes one run. The harness change improves every run after it.</p>
           <div class="compare-table-wrap" style="margin-top: 12px;">
             <table class="compare-table">
               <thead>
@@ -521,6 +607,54 @@
             </div>
           </div>
 
+          <h4 class="course-subhead" id="instructions-infrastructure">Instructions should become infrastructure</h4>
+          <p style="max-width: 640px;">Rules kept only in prose get read, then eventually ignored. Encode each important rule twice: once as guidance the agent can understand, and once as a mechanical check it cannot bypass.</p>
+          <div class="example-box" style="max-width: 560px;">
+            <div class="example-label">Example</div>
+            <p><strong>Guide:</strong> "UI code may not query the database directly."</p>
+            <p><strong>Check:</strong> the linter fails when UI code imports the database layer.</p>
+          </div>
+          <p style="margin-top: 12px; max-width: 640px;">The guide explains the reason, and the check enforces the boundary. A past failure becomes a permanent fix. The next agent doesn't need to remember the incident, because the harness remembers it.</p>
+
+          <h4 class="course-subhead">The loop belongs to the harness</h4>
+          <p style="max-width: 640px;">"Keep trying until it works" is not a control system. A useful loop has evidence, a retry cap, a budget and an escalation path: build, verify, record the gap, and try again up to three times before asking a human. The model decides how to repair the gap. The harness decides whether another attempt is allowed.</p>
+
+          <h4 class="course-subhead">Give every run a change receipt</h4>
+          <p style="max-width: 640px;">Keep more than the final output. Save a compact receipt of how it was produced: context sources, model route, tools used, test results, human corrections, retries, cost, the accepted artifact and a rollback point. Receipts make model upgrades comparable, regressions attributable and audits possible.</p>
+
+          <h4 class="course-subhead">Start with the smallest harness that closes the loop</h4>
+          <div class="compare-table-wrap" style="margin-top: 8px; max-width: 640px;">
+            <table class="compare-table">
+              <thead>
+                <tr><th>Level</th><th>What it adds</th></tr>
+              </thead>
+              <tbody>
+                <tr><th scope="row">0</th><td>Prompt and model</td></tr>
+                <tr><th scope="row">1</th><td>A project guide and tools</td></tr>
+                <tr><th scope="row">2</th><td>Structured state, tests and a bounded loop</td></tr>
+                <tr><th scope="row">3</th><td>Permissions, traces, recovery and human approval gates</td></tr>
+              </tbody>
+            </table>
+          </div>
+          <p style="margin-top: 10px; max-width: 640px;">Move up a level only when the task earns it. A short, low-risk task may need one prompt and one review. A six-hour run that edits files, reaches the network and opens a pull request needs a real harness.</p>
+
+          <h4 class="course-subhead" id="harness-checklist">Before you trust an agent with real work</h4>
+          <ul class="explainer-list is-bulleted" style="max-width: 640px;">
+            <li>Is success defined before the run begins?</li>
+            <li>Can the agent find the right project knowledge without loading everything?</li>
+            <li>Does every tool have a clear contract and failure state?</li>
+            <li>Is execution isolated from production systems?</li>
+            <li>Are important decisions stored outside the conversation?</li>
+            <li>Does every risky step have evidence behind it?</li>
+            <li>Are irreversible actions protected by approval?</li>
+            <li>Does every loop have a retry cap and a budget?</li>
+            <li>Can the run resume after an interruption?</li>
+            <li>Can you explain every tool call and state change?</li>
+            <li>Does each failure update a guide, test, tool or policy?</li>
+            <li>Can the final result be rolled back?</li>
+          </ul>
+          <p class="course-note">If several answers are no, a stronger model won't make the system reliable. It will only make the failure more expensive. Checklist and levels adapted from rari, <em>Harness Engineering</em>.</p>
+
           <h4 class="course-subhead" id="agent-first-case-study">Case study: an agent-first codebase</h4>
           <p>OpenAI describes a team that shipped an internal product over five months with no hand-written code: about a million lines and roughly 1,500 merged pull requests, starting with three engineers directing Codex. The engineers' job shifted to designing the environment, stating intent, and building feedback loops.</p>
           <ul class="explainer-list is-bulleted" style="margin-top: 10px;">
@@ -534,7 +668,7 @@
           <p class="course-note">The authors caution that these results depend on heavy investment in that specific repository and shouldn't be assumed to generalize.</p>
 
           <h4 class="course-subhead" id="agent-workforce">From managing agents to enabling them</h4>
-          <p>In a conversation with Greg Isenberg, Allie K. Miller describes running 34 agents led by an AI chief of staff with a layer of directors beneath it. Her framing is that the job shifts from managing agents to enabling them, and that she has moved "from managing to like waiting for escalations." Four ideas from that conversation translate directly into course material:</p>
+          <p>In a conversation with Greg Isenberg, Allie K. Miller describes running 34 agents led by an AI chief of staff with a layer of directors beneath it. Her framing is that the job shifts from managing agents to enabling them, and that she has moved "from managing to like waiting for escalations." Four ideas from that conversation are worth building on:</p>
           <div class="doodle-note" style="margin-top: 12px;">
             <div class="doodle-row">
               <svg width="30" height="30" viewBox="0 0 26 26" aria-hidden="true">
@@ -553,7 +687,7 @@
                 <path d="M13 2 C13.6 6 14 8.4 18 9 C14 9.6 13.6 12 13 16 C12.4 12 12 9.6 8 9 C12 8.4 12.4 6 13 2 Z" fill="var(--accent-strong)"/>
                 <path d="M20 15 C20.3 16.7 20.5 17.7 22 18 C20.5 18.3 20.3 19.3 20 21 C19.7 19.3 19.5 18.3 18 18 C19.5 17.7 19.7 16.7 20 15 Z" fill="var(--accent)"/>
               </svg>
-              <p><strong>"Do smart things."</strong> Her strongest prompt is three words. The lesson for learners: a short, open instruction only works when the agent already has deep context and clear limits, which is exactly what the harness supplies.</p>
+              <p><strong>"Do smart things."</strong> Her strongest prompt is three words. The lesson: a short, open instruction only works when the agent already has deep context and clear limits, which is exactly what the harness supplies.</p>
             </div>
             <div class="doodle-row">
               <svg width="30" height="30" viewBox="0 0 26 26" aria-hidden="true">
@@ -588,7 +722,18 @@
           <div class="course-project">
             <span class="course-project-label">Project · Research agent with sub-agents</span>
             <p>Given a question, it plans, dispatches sub-agents, and returns a cited report, with limits, a progress file, and a trace of every step.</p>
-            <p><strong>Done when:</strong> it runs from your own loop (a framework is optional afterward), every limit demonstrably stops it, it resumes after interruption, brain, hands and history are separate components, and the full history is saved with each run.</p>
+            <p><strong>Done when:</strong> it runs from your own loop (a framework is optional afterward), every limit demonstrably stops it, it resumes after interruption, brain, hands and history are separate components, and every run saves its full history plus a change receipt (context sources, tools used, test results, retries, cost and a rollback point).</p>
+          </div>
+          <div class="insight-aside">
+            <svg width="26" height="26" viewBox="0 0 26 26" aria-hidden="true">
+              <circle cx="13" cy="13" r="10" fill="none" stroke="var(--border)" stroke-width="2"/>
+              <path d="M13 7 L13 14" stroke="var(--accent-strong)" stroke-width="2.4" stroke-linecap="round"/>
+              <circle cx="13" cy="18.5" r="1.6" fill="var(--accent-strong)"/>
+            </svg>
+            <div class="insight-aside-body">
+              <span class="insight-aside-label">Watch-out</span>
+              <p>Agents fail in long, costly loops. Set the budget limit in the first lab, not the last.</p>
+            </div>
           </div>
           <a class="back-to-top" href="#agents-harnesses"><svg width="9" height="9" viewBox="0 0 12 12" aria-hidden="true"><path d="M6 10 L6 2 M2.5 5.5 L6 2 L9.5 5.5" stroke="var(--accent-strong)" stroke-width="1.8" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg>Top</a>
         </div>
@@ -635,6 +780,17 @@
             <p>Build one task both ways: RAG, and a fine-tuned small open model (or a hosted fine-tuning service). Run both through your Module 4 evals.</p>
             <p><strong>Done when:</strong> both use the same eval set, a table compares quality, cost, latency and effort to update, and the recommendation follows from the numbers.</p>
           </div>
+          <div class="insight-aside">
+            <svg width="26" height="26" viewBox="0 0 26 26" aria-hidden="true">
+              <circle cx="13" cy="13" r="10" fill="none" stroke="var(--border)" stroke-width="2"/>
+              <path d="M13 7 L13 14" stroke="var(--accent-strong)" stroke-width="2.4" stroke-linecap="round"/>
+              <circle cx="13" cy="18.5" r="1.6" fill="var(--accent-strong)"/>
+            </svg>
+            <div class="insight-aside-body">
+              <span class="insight-aside-label">Watch-out</span>
+              <p>Fine-tuning needs a GPU or a paid API. A notebook with a free GPU tier or a provider's hosted fine-tuning service keeps the project within reach.</p>
+            </div>
+          </div>
           <a class="back-to-top" href="#architecture-decisions"><svg width="9" height="9" viewBox="0 0 12 12" aria-hidden="true"><path d="M6 10 L6 2 M2.5 5.5 L6 2 L9.5 5.5" stroke="var(--accent-strong)" stroke-width="1.8" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg>Top</a>
         </div>
       </div>
@@ -665,7 +821,7 @@
           <ol class="explainer-list is-numbered">
             <li><strong>Problem pitch.</strong> One paragraph: the user, the problem, why an LLM helps, and how you'll measure success. Get feedback before building.</li>
             <li><strong>README first.</strong> Fill in the architecture, eval, cost and latency sections before writing code.</li>
-            <li><strong>Deploy.</strong> Secrets in environment variables, a health check, and rate limiting.</li>
+            <li><strong>Deploy.</strong> Render, Fly.io, Railway or a cloud of your choice, with secrets in environment variables, a health check, and rate limiting.</li>
             <li><strong>Demo and postmortem.</strong> Record the video and write a blameless what-broke review.</li>
           </ol>
           <div class="course-project">
@@ -673,6 +829,75 @@
             <p><strong>Done when:</strong> a stranger can run each project from its README in under 10 minutes, the live links work, and every number is measured, not estimated.</p>
           </div>
           <a class="back-to-top" href="#ship-it"><svg width="9" height="9" viewBox="0 0 12 12" aria-hidden="true"><path d="M6 10 L6 2 M2.5 5.5 L6 2 L9.5 5.5" stroke="var(--accent-strong)" stroke-width="1.8" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg>Top</a>
+        </div>
+      </div>
+
+      <!-- ===================== BONUS ===================== -->
+      <div class="framework-item is-accordion course-module" id="bonus-flight-rewards">
+        <button class="fw-toggle" type="button" aria-expanded="false" aria-controls="bonus-flight-rewards-body">
+          <div class="fw-num">B</div>
+          <div class="fw-toggle-text">
+            <h3>Bonus Project: Flight Rewards Agent</h3>
+            <p class="fw-teaser">Optional. One consumer app that grows one course skill per week, so you finish with a single deep agent you can demo and explain in an interview.</p>
+          </div>
+          <svg class="fw-chevron" width="18" height="18" viewBox="0 0 20 20" aria-hidden="true">
+            <path d="M5 7.5 L10 12.5 L15 7.5" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+        </button>
+        <div class="fw-body" id="bonus-flight-rewards-body">
+          <p style="max-width: 640px;">An agent that finds the best way to book a trip on points. Points programs are confusing, transfer partners and award charts change, and people regularly overspend points or miss better options. The project touches every layer of the course, and its multi-agent step is honest: searching several loyalty programs at once is real parallel work. About 6 hours a week for six weeks; each bonus week unlocks after its matching module.</p>
+          <div class="compare-table-wrap" style="margin-top: 12px;">
+            <table class="compare-table">
+              <thead>
+                <tr><th>Week</th><th>After</th><th>Skill added</th><th>You ship</th></tr>
+              </thead>
+              <tbody>
+                <tr><th scope="row">B1</th><td>Module 2</td><td>Tools and the agent loop</td><td>Answers "cheapest way to Tokyo in March on points"</td></tr>
+                <tr><th scope="row">B2</th><td>Module 3</td><td>RAG over program rules</td><td>Cited, dated answers on transfer ratios and routing rules</td></tr>
+                <tr><th scope="row">B3</th><td>Module 4</td><td>Evals</td><td>A 40-query golden set running in CI</td></tr>
+                <tr><th scope="row">B4</th><td>Module 5</td><td>Multi-agent graph</td><td>Planner, parallel searchers and a value checker</td></tr>
+                <tr><th scope="row">B5</th><td>Module 6</td><td>Production</td><td>Deployed, with cost, latency, routing and guardrails</td></tr>
+                <tr><th scope="row">B6</th><td>Module 7</td><td>Ship and tell</td><td>Demo video, README and postmortem</td></tr>
+              </tbody>
+            </table>
+          </div>
+
+          <h4 class="course-subhead">Hands-on labs</h4>
+          <ol class="explainer-list is-numbered">
+            <li><strong>B1 · Give it tools.</strong> Four tools: search award space, list transfer options, compute cents per point, and explain an itinerary. Back availability with a snapshot dataset. Write the loop yourself, log every round trip, and set max steps and a dollar budget on day one.</li>
+            <li><strong>B2 · Ground it in program rules.</strong> Save public award charts, transfer partners, fees and stopover rules as files with the date captured. Record a recall@5 baseline on 25 rule questions, then add keyword search for airport codes, fare classes and program names. Every answer cites its source and says "as of" that date.</li>
+            <li><strong>B3 · Prove it works.</strong> Collect 40 real trip questions from friends and family, including 8 where the right answer is "pay cash." Check the math with code, grade explanations with a calibrated LLM judge, and run the set on every pull request. A deliberately broken prompt should fail the build.</li>
+            <li><strong>B4 · Split it into a graph.</strong> Prototype three subagents in Claude Code (planner, program searcher, value checker), each with only the tools it needs. Fan out one searcher per loyalty program. Use a hook so the value checker always runs before an answer goes out. Then compare single agent vs graph on the golden set and keep the graph only if the numbers justify the extra tokens.</li>
+            <li><strong>B5 · Make it production-shaped.</strong> Deploy behind your front end. Route simple lookups to a small model and trip planning to a large one. The agent never books and never handles loyalty account passwords. Plant an instruction in a rules page and show the defense holding. Track cost and p50/p95 latency per query.</li>
+            <li><strong>B6 · Ship and tell the story.</strong> A 60-second demo, a README with the architecture and eval table, a blameless postmortem on three things that broke, and an interview summary: the problem, one decision defended with numbers, and one failure you diagnosed and fixed.</li>
+          </ol>
+
+          <div class="course-project">
+            <span class="course-project-label">Project · Flight Rewards Agent</span>
+            <p><strong>Done when:</strong> it was built from the raw loop first, the graph is justified by measurements, the golden set runs in CI with judge agreement reported, every rule answer is cited and dated, cost and latency numbers are real, and a stranger can run it from the README in under 10 minutes.</p>
+          </div>
+
+          <h4 class="course-subhead" id="decode-the-hype">Decode the hype</h4>
+          <p style="max-width: 640px;">When a new term starts trending, map it to a row. If you can't, bookmark it and check back in a month.</p>
+          <div class="compare-table-wrap" style="margin-top: 8px;">
+            <table class="compare-table">
+              <thead>
+                <tr><th>Trending term</th><th>What it actually is</th><th>Where it lives here</th></tr>
+              </thead>
+              <tbody>
+                <tr><th scope="row">Graph engineering</th><td>Orchestrator-workers: subagents as nodes, routing as edges, results as shared state</td><td>Module 5, Bonus B4</td></tr>
+                <tr><th scope="row">Loop engineering</th><td>An agent loop with a verifier that decides "done"</td><td>Modules 4 and 5</td></tr>
+                <tr><th scope="row">Prompt engineering</th><td>The instruction</td><td>Module 2</td></tr>
+                <tr><th scope="row">Harness engineering</th><td>The operating system around the model: tools, limits, state, permissions and traces</td><td>Module 5</td></tr>
+                <tr><th scope="row">Context engineering</th><td>The model's working view: deciding what goes into the context window</td><td>Modules 2 and 3</td></tr>
+                <tr><th scope="row">MCP and skills</th><td>Ways to package tools and instructions for agents</td><td>Module 5</td></tr>
+                <tr><th scope="row">World models (JEPA and similar)</th><td>Research on models that learn how the world works</td><td>Awareness only</td></tr>
+                <tr><th scope="row">Agentforce, Glean, Moveworks</th><td>Enterprise platforms built on RAG plus agents</td><td>Evaluate them with Module 4 thinking</td></tr>
+              </tbody>
+            </table>
+          </div>
+          <p class="course-note">Fan-out multiplies tokens: Anthropic reported its multi-agent research system used roughly 15 times the tokens of a chat turn. Set the budget before B4, not after.</p>
+          <a class="back-to-top" href="#bonus-flight-rewards"><svg width="9" height="9" viewBox="0 0 12 12" aria-hidden="true"><path d="M6 10 L6 2 M2.5 5.5 L6 2 L9.5 5.5" stroke="var(--accent-strong)" stroke-width="1.8" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg>Top</a>
         </div>
       </div>
 
@@ -694,8 +919,11 @@
       <h2>Sources &amp; Further Reading</h2>
       <ul class="explainer-list is-bulleted">
         <li>Ryan Lopopolo, <a href="https://openai.com/index/harness-engineering/" target="_blank" rel="noopener"><em>Harness engineering: leveraging Codex in an agent-first world</em></a>, OpenAI, February 11, 2026</li>
-        <li>rari (@0xwhrrari), <a href="https://x.com/0xwhrrari/status/2093685107534000560" target="_blank" rel="noopener"><em>Harness Engineering: How to Build AI Agents That Don't Fall Apart</em></a>, X</li>
+        <li>rari (@0xwhrrari), <a href="https://x.com/0xwhrrari/status/2093685107534000560" target="_blank" rel="noopener"><em>Harness Engineering: How to Build AI Agents That Don't Fall Apart</em></a>, X, August 29, 2026</li>
         <li>Greg Isenberg with Allie K. Miller, <a href="https://www.youtube.com/watch?v=EzQAgnjTq2k" target="_blank" rel="noopener"><em>I Run 34 AI Agents with a 3-Word Prompt</em></a>, The Startup Ideas Podcast, August 2026</li>
+        <li>Anthropic, <a href="https://www.anthropic.com/engineering/building-effective-agents" target="_blank" rel="noopener"><em>Building effective agents</em></a></li>
+        <li>Anthropic, <a href="https://www.anthropic.com/engineering/built-multi-agent-research-system" target="_blank" rel="noopener"><em>How we built our multi-agent research system</em></a></li>
+        <li>AI Builder Club, <a href="https://www.aibuilderclub.com/blog/graph-engineering-with-claude-code" target="_blank" rel="noopener"><em>Graph Engineering with Claude Code</em></a>, July 2026</li>
         <li>Related book summaries on this site: <a href="summaries/co-intelligence.html"><em>Co-Intelligence</em></a>, <a href="summaries/the-ai-driven-leader.html"><em>The AI-Driven Leader</em></a>, <a href="summaries/vibe-coding.html"><em>Vibe Coding</em></a>, <a href="summaries/adopting-ai.html"><em>Adopting AI</em></a></li>
       </ul>
       <p class="course-note">Module structure adapted from a widely shared "Software Engineer to AI Engineer, 2026" roadmap. Lab designs, examples and write-ups are original.</p>
