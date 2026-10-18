@@ -1,0 +1,772 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="a">
+<head>
+<meta charset="UTF-8">
+<base href="../../">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="icon" type="image/svg+xml" href="favicon.svg">
+<title>RAG Done Right: Lesson · Plan · Do · Reflect</title>
+
+<!-- Applied before CSS loads, so the saved theme choice doesn't flash to the default on reload -->
+<script>
+(function () {
+  try {
+    var savedTheme = localStorage.getItem('pdr-theme');
+    if (['a', 'b', 'c'].indexOf(savedTheme) > -1) {
+      document.documentElement.setAttribute('data-theme', savedTheme);
+    }
+  } catch (e) {}
+})();
+</script>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=Work+Sans:wght@400;500;600&family=Sora:wght@600;700;800&family=Plus+Jakarta+Sans:wght@500;600;700&family=Patrick+Hand&family=Golos+Text:wght@800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/tokens.css">
+<link rel="stylesheet" href="css/main.css">
+<link rel="stylesheet" href="css/lesson.css">
+</head>
+<body data-nav="core-skills">
+
+<div id="site-topnav"></div>
+
+<main class="lesson">
+  <p class="lesson-crumb"><a href="ai-beyond-fundamentals.html">AI Beyond Fundamentals</a> &rsaquo; Module 3 &rsaquo; Lesson</p>
+  <article class="lesson-page">
+    <header class="lesson-head">
+      <p class="lesson-eyebrow">Module 3 &middot; RAG Done Right</p>
+      <h1 class="page-title">RAG Done Right</h1>
+      <p class="lesson-sub">Module 2 was about whether you can trust what the model says. This module is about whether the model was ever shown the right material. Retrieval is where most RAG systems quietly fail, and it's the one part you can measure without calling a model at all, so that's what you'll do: start from the simplest possible pipeline, score it, and improve it one change at a time, keeping only what the score justifies.</p>
+      <p class="lesson-sub" style="margin-top: 10px;">The labs share one answer key. A script generates fake product manuals as real PDFs, with tables, near-duplicate pages and a few image-only scans, and labels the exact page that answers each question. Because you know the right answer, every lab can report a number instead of an impression. Your numbers will differ from any quoted here, because they depend on the corpus the generator produces and the embedding model, so the checks tell you what to look for and ask you to record your own.</p>
+    </header>
+
+    <section class="lesson-section">
+      <h2>Concepts</h2>
+      <div class="lesson-concepts">
+
+        <div class="lesson-concept">
+          <h3>Two halves, and the retrieval half decides everything</h3>
+          <p>A RAG system (retrieval-augmented generation, the pattern named in Lewis et al.'s 2020 NeurIPS paper <em>Retrieval-Augmented Generation for Knowledge-Intensive NLP Tasks</em>) has an <strong>indexing</strong> half that runs once per document and a <strong>query</strong> half that runs on every question. The model only ever sees what retrieval hands it. If the right passage isn't in the top few results, no prompt can recover it, and the model will either say it can't find the answer or answer from the wrong passage.</p>
+          <p>That's why this module measures retrieval on its own, before any model is involved. Every lab scores <strong>recall@k</strong>: for each labeled question, did the correct page show up in the top <em>k</em> retrieved chunks? It's a plain pass/fail count you can compute in milliseconds and re-run after every change, which is exactly what makes it possible to improve a pipeline on evidence instead of vibes.</p>
+        </div>
+
+        <div class="lesson-concept">
+          <h3>Parsing: most failures start before the embedding</h3>
+          <p>A PDF isn't text. It's drawing instructions that happen to place glyphs on a page. A basic extractor like <code class="inline">pypdf</code> reads those glyphs back in drawing order, which is fine for a paragraph and ruinous for a table: every cell lands on its own line and the row structure disappears. A layout-aware parser (<code class="inline">pymupdf4llm</code> here; Docling, LlamaParse and Microsoft's <code class="inline">markitdown</code> are the same idea) detects the table and emits a real Markdown table. Lab 2 shows you the difference on your own screen.</p>
+          <p>A <strong>scanned</strong> PDF is worse: it's a stack of page images with no text layer at all, so a text extractor returns an empty string and the document is silently invisible to search. Scans need OCR (optical character recognition). Classic OCR engines like Tesseract work; so does sending a picture of the page to a vision-capable model and asking for a Markdown transcription, which also handles tables. Either way, check for empty pages explicitly. A pipeline that quietly indexes nothing looks exactly like one that works.</p>
+        </div>
+
+        <div class="lesson-concept">
+          <h3>Chunking: the unit of retrieval</h3>
+          <p>You can't embed a 200-page manual as one vector; the vector would be a blurry average of everything in it. So documents get cut into <strong>chunks</strong>, and each chunk is embedded and retrieved on its own. Cut too small and a chunk loses the surrounding meaning; cut too large and one vector has to represent several unrelated ideas, so none of them match a question well.</p>
+          <p>Three choices matter. <strong>Size</strong> (characters or tokens per chunk). <strong>Overlap</strong>, repeating the tail of one chunk at the start of the next so a fact straddling a boundary survives in at least one piece. And <strong>boundaries</strong>: splitting on the document's own structure (headings, paragraphs, whole tables) instead of every N characters. The strategy that works best depends on the document type, which is why Lab 3 compares them instead of recommending one.</p>
+        </div>
+
+        <div class="lesson-concept">
+          <h3>Context: a chunk has to say where it came from</h3>
+          <p>Take a specs table that lists pressure, cable length and part number but never names the product. Once it's cut out of its page, a human couldn't tell whose specs they are, and neither can an embedding model. The fix is cheap: prepend a short context line (document title, section, page) to every chunk before embedding it. Anthropic described a more elaborate variant of the same idea, having a model write each chunk's context, in its September 2024 post <em>Introducing Contextual Retrieval</em>. Lab 3 uses the simple, free version, built from the file name, and measures what it buys.</p>
+        </div>
+
+        <div class="lesson-concept">
+          <h3>Vector indexes: HNSW, IVF and PQ</h3>
+          <p>Finding the nearest vectors by comparing a question against every stored chunk is exact and simple, and it's fine up to tens of thousands of chunks. Beyond that you want an <strong>approximate nearest neighbor</strong> index, which trades a little accuracy for a lot of speed. Three names come up constantly:</p>
+          <p><strong>HNSW</strong> (Malkov and Yashunin, <em>Efficient and robust approximate nearest neighbor search using Hierarchical Navigable Small World graphs</em>, IEEE TPAMI, 2018) links each vector to its neighbors in layered graphs and searches by hopping along links. It's fast and accurate and keeps the full vectors in memory plus the links. <strong>IVF</strong> (inverted file) clusters the vectors up front and, at query time, only scans the few clusters nearest the question; the <code class="inline">nprobe</code> setting is how many it checks. <strong>PQ</strong> (product quantization; Jégou, Douze and Schmid, IEEE TPAMI, 2011) compresses each vector into a short code, shrinking memory by an order of magnitude while making distances approximate. IVF and PQ are usually combined as IVF-PQ. Lab 4 builds both and measures the trade, using Meta's open-source Faiss library (Johnson, Douze and Jégou, <em>Billion-scale similarity search with GPUs</em>, IEEE Transactions on Big Data, 2019).</p>
+        </div>
+
+        <div class="lesson-concept">
+          <h3>Hybrid search: meaning plus exact words</h3>
+          <p>Embeddings match <em>meaning</em>, which is why "how long is the guarantee" can find a passage about the "warranty period". They are weaker on <em>exact strings</em>: part numbers, error codes, names, IDs. <strong>Keyword search</strong> with BM25 (the ranking function surveyed in Robertson and Zaragoza, <em>The Probabilistic Relevance Framework: BM25 and Beyond</em>, Foundations and Trends in Information Retrieval, 2009) is the opposite: blind to paraphrase, excellent on exact terms.</p>
+          <p><strong>Hybrid search</strong> runs both and merges the two ranked lists. The merge that's become the default is <strong>reciprocal rank fusion</strong> (Cormack, Clarke and Büttcher, SIGIR 2009): each list gives every result a score of 1/(60 + rank), and you sum across lists. It only uses ranks, so you never have to reconcile BM25's score scale with cosine similarity's, and a chunk that both lists like rises to the top.</p>
+        </div>
+
+        <div class="lesson-concept">
+          <h3>Question handling: split it, then filter it</h3>
+          <p>Real questions are often two questions glued together ("compare the warranty on the Aster Probe and the Delta Sensor"). A single search for the whole sentence tends to find neither. The standard move is to have a model split a multi-part question into sub-questions, retrieve for each, and merge. Separately, many questions carry a <strong>metadata filter</strong> in plain sight: a product, a date range, a document type. Restricting the search to chunks whose metadata matches removes whole classes of near-identical distractors before ranking even starts. Lab 6 does the filter half with a simple rule; in production a model extracts the filter values from the question.</p>
+        </div>
+
+        <div class="lesson-concept">
+          <h3>Reranking: a second, slower, smarter look</h3>
+          <p>Embedding search scores a chunk and a question separately and then compares the vectors, which is fast but coarse. A <strong>cross-encoder reranker</strong> reads the question and one chunk <em>together</em> and outputs a relevance score, which is far more precise and far too slow to run over every chunk. So the standard shape is two stages: cheap retrieval pulls a pool (top 20), the reranker re-orders just that pool, and you keep the top 5. You pay latency on every query, so Lab 6 measures both what you gain and what it costs.</p>
+        </div>
+
+      </div>
+    </section>
+
+    <section class="lesson-section">
+      <h2>Hands-on Labs</h2>
+      <div class="lesson-labs">
+
+        <div class="lab-card framework-item is-accordion" id="lab-1">
+          <button class="fw-toggle" type="button" aria-expanded="false" aria-controls="lab-1-body">
+            <span class="lab-num">LAB 1</span>
+            <div class="fw-toggle-text">
+              <h3>Naive baseline</h3>
+              <p class="fw-teaser">Build the simplest RAG, label 39 questions with their source page, and record recall@5. Everything after this must beat it.</p>
+            </div>
+            <svg class="fw-chevron" width="18" height="18" viewBox="0 0 20 20" aria-hidden="true">
+              <path d="M5 7.5 L10 12.5 L15 7.5" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+          </button>
+          <div class="fw-body" id="lab-1-body">
+
+          <ol class="lab-steps">
+            <li>Install this module's dependencies. They go in the same shared environment as the earlier modules (with <code class="inline">uv</code>, use <code class="inline">uv add</code> instead of <code class="inline">pip install</code>).
+              <div class="code-block"><code>pip install pypdf pymupdf4llm pypdfium2 reportlab numpy rank-bm25 faiss-cpu sentence-transformers</code></div>
+            </li>
+            <li>Generate a corpus you can grade. This script writes fake product manuals as real PDFs (each has a warranty paragraph, a specs <em>table</em>, and a maintenance page), plus <code class="inline">rag/questions.json</code>: labeled questions, each with the exact document and page that answers it. Because we placed every fact ourselves, the answer key is correct by construction. Every manual reuses the same filler sentences on purpose, so lots of pages look alike, like a real set of sibling documents. Every 20th manual is saved as an image-only scan with no text layer.
+              <div class="code-block"><code>"""Make a corpus of fake product manuals plus a labeled question set.
+Every fact sits on a known page, so the answer key is exact by construction."""
+import json, random, sys
+from pathlib import Path
+import pypdfium2 as pdfium
+from reportlab.lib import colors
+from reportlab.lib.pagesizes import letter
+from reportlab.lib.styles import getSampleStyleSheet
+from reportlab.platypus import SimpleDocTemplate, Paragraph, Spacer, Table, TableStyle, PageBreak
+
+N_DOCS = int(sys.argv[1]) if len(sys.argv) &gt; 1 else 12
+OUT = Path("rag/corpus"); OUT.mkdir(parents=True, exist_ok=True)
+random.seed(7)
+
+ADJ = ["Aster", "Birch", "Cobalt", "Delta", "Ember", "Fjord", "Garnet", "Harbor", "Ivory", "Juniper"]
+NOUN = ["Gauge", "Probe", "Meter", "Sensor", "Valve", "Pump", "Relay", "Logger", "Scale", "Analyzer"]
+FILLER = [
+    "Read all safety notices before installing or operating this unit.",
+    "Use only genuine Larkfield accessories; third-party parts void the warranty.",
+    "Store the unit in a dry location between {lo} and {hi} degrees Celsius.",
+    "Clean the housing with a damp cloth. Never immerse the unit in liquid.",
+    "Firmware updates are published quarterly on the Larkfield support portal.",
+    "Contact an authorized service center for any repair not covered in this manual.",
+    "Dispose of the unit according to local electronic waste regulations.",
+    "Keep this manual with the unit for the life of the product.",
+]
+
+def filler(n):
+    return [random.choice(FILLER).format(lo=random.randint(-20, -5), hi=random.randint(40, 70)) for _ in range(n)]
+
+names = [f"{a} {n}" for a in ADJ for n in NOUN]
+random.shuffle(names)
+questions = []
+
+for i in range(N_DOCS):
+    name = names[i]
+    code = f"LK-{random.randint(1000, 9999)}-{random.choice('ABCDEFGH')}"
+    warranty = random.choice([12, 18, 24, 36, 48])
+    pressure = random.randint(40, 400)
+    cable = random.randint(2, 30)
+    interval = random.choice([3, 6, 9, 12, 24])
+    doc_id = f"{i:03d}_{name.lower().replace(' ', '_')}"
+    ss = getSampleStyleSheet()
+    story = [Paragraph(f"Larkfield {name} User Manual", ss["Title"]),
+             Paragraph(f"Part number {code}", ss["Heading3"])]
+    story += [Paragraph(s, ss["BodyText"]) for s in filler(16)]
+    story += [Paragraph(f"The Larkfield {name} is covered by a limited warranty of {warranty} months from the date of purchase.", ss["BodyText"]), PageBreak()]
+    story += [Paragraph("Technical specifications", ss["Heading2"])]
+    t = Table([["Parameter", "Value", "Unit"], ["Maximum pressure", str(pressure), "bar"],
+               ["Cable length", str(cable), "m"], ["Part number", code, ""]])
+    t.setStyle(TableStyle([("GRID", (0, 0), (-1, -1), 0.5, colors.grey), ("BACKGROUND", (0, 0), (-1, 0), colors.lightgrey)]))
+    story += [t, Spacer(1, 12)] + [Paragraph(s, ss["BodyText"]) for s in filler(18)] + [PageBreak()]
+    story += [Paragraph("Maintenance", ss["Heading2"])] + [Paragraph(s, ss["BodyText"]) for s in filler(12)]
+    story += [Paragraph(f"Recalibrate the {name} every {interval} months to keep readings within tolerance.", ss["BodyText"])]
+    story += [Paragraph(s, ss["BodyText"]) for s in filler(12)]
+    pdf_path = OUT / f"{doc_id}.pdf"
+    SimpleDocTemplate(str(pdf_path), pagesize=letter).build(story)
+
+    questions += [
+        {"q": f"How long is the warranty on the Larkfield {name}?", "doc": pdf_path.name, "pages": [1]},
+        {"q": f"What is the maximum pressure of the {name}?", "doc": pdf_path.name, "pages": [2]},
+        {"q": f"How often should I recalibrate the {name}?", "doc": pdf_path.name, "pages": [3]},
+    ]
+    if i % 4 == 0:  # an exact-identifier question: a part number in a table cell
+        questions.append({"q": f"Which product is part number {code}?", "doc": pdf_path.name, "pages": [1, 2]})  # printed on both pages
+    if i % 20 == 3:  # make a scanned copy: page images only, no text layer
+        src = pdfium.PdfDocument(str(pdf_path))
+        imgs = [src[p].render(scale=1.5).to_pil().convert("L") for p in range(len(src))]
+        imgs[0].save(OUT / f"{doc_id}_scan.pdf", save_all=True, append_images=imgs[1:])
+        pdf_path.unlink()
+        for q in questions:
+            if q["doc"] == pdf_path.name:
+                q["doc"] = f"{doc_id}_scan.pdf"
+
+Path("rag/questions.json").write_text(json.dumps(questions, indent=1))
+print(f"{N_DOCS} docs, {len(questions)} labeled questions")</code></div>
+            </li>
+            <li>Run it. The default is 12 manuals; the project at the end uses 100.
+              <div class="code-block"><code>python rag/generate_corpus.py 12</code></div>
+            </li>
+            <li>Create <code class="inline">rag/common.py</code>, the helpers every later lab imports: a page loader, an embedder that caches every vector on disk (so re-running a lab doesn't re-bill you), cosine search, and the <code class="inline">recall_at_k</code> scorer.
+              <div class="code-block"><code>import hashlib, json, os
+from pathlib import Path
+import numpy as np
+import pypdf
+from dotenv import load_dotenv
+load_dotenv()
+
+CACHE = Path("rag/.embed_cache"); CACHE.mkdir(exist_ok=True)
+
+def load_pages(corpus="rag/corpus"):
+    """Naive parser: one (doc, page_number, text) per PDF page."""
+    pages = []
+    for pdf in sorted(Path(corpus).glob("*.pdf")):
+        for n, page in enumerate(pypdf.PdfReader(pdf).pages, start=1):
+            pages.append({"doc": pdf.name, "page": n, "text": page.extract_text() or ""})
+    return pages
+
+def embed(texts, model="text-embedding-3-small"):
+    """Embed a list of strings, caching each one on disk so re-runs cost nothing."""
+    from openai import OpenAI
+    client = OpenAI(api_key=os.environ["OPENAI_API_KEY"])
+    out, todo = {}, []
+    for t in texts:
+        f = CACHE / (hashlib.sha256((model + t).encode()).hexdigest() + ".json")
+        if f.exists():
+            out[t] = json.loads(f.read_text())
+        else:
+            todo.append((t, f))
+    for i in range(0, len(todo), 100):
+        batch = todo[i:i + 100]
+        resp = client.embeddings.create(model=model, input=[t for t, _ in batch])
+        for (t, f), d in zip(batch, resp.data):
+            f.write_text(json.dumps(d.embedding)); out[t] = d.embedding
+    return np.array([out[t] for t in texts], dtype="float32")
+
+def top_k_vector(q_vec, chunk_vecs, k):
+    """Cosine similarity via normalized dot product; returns chunk indexes, best first."""
+    a = chunk_vecs / np.linalg.norm(chunk_vecs, axis=1, keepdims=True)
+    b = q_vec / np.linalg.norm(q_vec)
+    return list(np.argsort(-(a @ b))[:k])
+
+def recall_at_k(questions, retrieve, chunks, k=5):
+    """retrieve(question, k) -&gt; list of chunk indexes. A hit means any of the top k
+    chunks comes from the labeled doc AND one of its labeled pages."""
+    hits, misses = 0, []
+    for q in questions:
+        got = [(chunks[i]["doc"], chunks[i]["page"]) for i in retrieve(q["q"], k)]
+        if any((q["doc"], pg) in got for pg in q["pages"]):
+            hits += 1
+        else:
+            misses.append(q["q"])
+    return hits / len(questions), misses</code></div>
+            </li>
+            <li>Create <code class="inline">rag/naive_rag.py</code>: the simplest thing that could work. Plain <code class="inline">pypdf</code> text, fixed 500-character chunks, one embedding per chunk, top-5 by cosine similarity. It scores recall first, then answers one question with citations so you can see the whole loop.
+              <div class="code-block"><code>import json
+from common import load_pages, embed, top_k_vector, recall_at_k
+from openai import OpenAI
+import os
+
+def chunk_fixed(pages, size=500):
+    chunks = []
+    for p in pages:
+        for start in range(0, len(p["text"]), size):
+            piece = p["text"][start:start + size].strip()
+            if piece:
+                chunks.append({"doc": p["doc"], "page": p["page"], "text": piece})
+    return chunks
+
+pages = load_pages()
+chunks = chunk_fixed(pages)
+chunk_vecs = embed([c["text"] for c in chunks])
+questions = json.load(open("rag/questions.json"))
+
+def retrieve(question, k):
+    return top_k_vector(embed([question])[0], chunk_vecs, k)
+
+def answer(question, k=5):
+    ctx = [chunks[i] for i in retrieve(question, k)]
+    context = "\n\n".join(f"[{c['doc']} p.{c['page']}]\n{c['text']}" for c in ctx)
+    client = OpenAI(api_key=os.environ["OPENAI_API_KEY"])
+    resp = client.chat.completions.create(
+        model="gpt-4.1-mini", max_tokens=200,
+        messages=[{"role": "system", "content": "Answer using only the context. Cite the [doc p.N] "
+                   "tag for each fact. If the context does not contain the answer, say so."},
+                  {"role": "user", "content": f"Context:\n{context}\n\nQuestion: {question}"}])
+    return resp.choices[0].message.content
+
+if __name__ == "__main__":
+    score, misses = recall_at_k(questions, retrieve, chunks, k=5)
+    print(f"{len(chunks)} chunks | recall@5 = {score:.0%} ({len(questions)} questions)")
+    for m in misses[:8]:
+        print("  missed:", m)
+    print("\n", answer(questions[0]["q"]))</code></div>
+            </li>
+            <li>Run it and <strong>write down the recall@5 number and the missed questions</strong>. This is your baseline; every later lab has to beat it.
+              <div class="code-block"><code>python rag/naive_rag.py</code></div>
+            </li>
+          </ol>
+          <div class="lab-check"><strong>Check:</strong> the script prints a chunk count, a recall@5 percentage, and up to eight missed questions, then a short cited answer. Read the misses before moving on. You should see them cluster in two places: questions about the specs-table page (the table is flattened and the page never names the product) and questions about the scanned manual (empty text, nothing to retrieve). Those two patterns are exactly what Labs 2 and 3 fix. Your exact percentage will depend on the corpus the generator produced and the embedding model, so record yours instead of comparing to ours.</div>
+          </div>
+        </div>
+
+        <div class="lab-card framework-item is-accordion" id="lab-2">
+          <button class="fw-toggle" type="button" aria-expanded="false" aria-controls="lab-2-body">
+            <span class="lab-num">LAB 2</span>
+            <div class="fw-toggle-text">
+              <h3>Parsing bake-off</h3>
+              <p class="fw-teaser">Compare a basic extractor with a layout-aware parser on tables, then OCR a scanned manual.</p>
+            </div>
+            <svg class="fw-chevron" width="18" height="18" viewBox="0 0 20 20" aria-hidden="true">
+              <path d="M5 7.5 L10 12.5 L15 7.5" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+          </button>
+          <div class="fw-body" id="lab-2-body">
+
+          <ol class="lab-steps">
+            <li>Compare the two parsers side by side on a spec page. Pass any non-scanned PDF from <code class="inline">rag/corpus/</code>.
+              <div class="code-block"><code>import sys
+import pypdf, pymupdf4llm
+
+path = sys.argv[1]  # e.g. rag/corpus/000_delta_sensor.pdf
+print("=== pypdf, page 2 ===")
+print(pypdf.PdfReader(path).pages[1].extract_text()[:300])
+print("\n=== pymupdf4llm, page 2 ===")
+print(pymupdf4llm.to_markdown(path, pages=[1], use_ocr=False)[:300])</code></div>
+              <div class="code-block"><code>python rag/parse_compare.py rag/corpus/000_delta_sensor.pdf</code></div>
+            </li>
+            <li>Read both outputs. The <code class="inline">pypdf</code> version puts every cell on its own line, so "Maximum pressure", "282" and "bar" are three separate lines with nothing marking them as one row. The <code class="inline">pymupdf4llm</code> version gives you a Markdown table where the row survives.</li>
+            <li>Now the scan. Confirm a scanned manual really has no text for a basic extractor, then see what the layout-aware path does with it.
+              <div class="code-block"><code>python -c "import pypdf,glob; f=glob.glob('rag/corpus/*_scan.pdf')[0]; print(f, repr(pypdf.PdfReader(f).pages[0].extract_text()))"</code></div>
+              That prints an empty string. Your naive pipeline from Lab 1 indexed this document as nothing.
+            </li>
+            <li>Create <code class="inline">rag/parsing.py</code>. It uses <code class="inline">pymupdf4llm</code> for every page and, for any page that comes back empty, renders the page to an image and asks a vision model to transcribe it to Markdown. Transcriptions are cached, so each scanned page is paid for once. (If you'd rather use a local OCR engine like Tesseract, swap it in at the same spot; the contract is "page in, Markdown out".)
+              <div class="code-block"><code>import base64, hashlib, os
+from pathlib import Path
+import pymupdf4llm
+import pypdfium2 as pdfium
+from dotenv import load_dotenv
+load_dotenv()
+
+OCR_CACHE = Path("rag/.ocr_cache"); OCR_CACHE.mkdir(exist_ok=True)
+
+def ocr_page(pdf_path, page_index):
+    """Scanned page -&gt; Markdown, by sending a picture of the page to a vision model.
+    Cached on disk so each page is transcribed (and paid for) once."""
+    f = OCR_CACHE / f"{Path(pdf_path).stem}_p{page_index + 1}.md"
+    if f.exists():
+        return f.read_text()
+    from openai import OpenAI
+    png = pdfium.PdfDocument(str(pdf_path))[page_index].render(scale=2).to_pil()
+    png.save(f.with_suffix(".png"))
+    b64 = base64.b64encode(f.with_suffix(".png").read_bytes()).decode()
+    resp = OpenAI(api_key=os.environ["OPENAI_API_KEY"]).chat.completions.create(
+        model="gpt-4.1-mini", max_tokens=1500,
+        messages=[{"role": "user", "content": [
+            {"type": "text", "text": "Transcribe this page to Markdown. Keep headings, and keep tables as "
+             "Markdown tables. Output only the transcription."},
+            {"type": "image_url", "image_url": {"url": f"data:image/png;base64,{b64}"}}]}])
+    f.write_text(resp.choices[0].message.content)
+    return f.read_text()
+
+def load_pages_md(corpus="rag/corpus"):
+    """Layout-aware parse: one Markdown string per page. Tables stay tables;
+    pages with no text layer (scans) fall back to OCR."""
+    pages = []
+    for pdf in sorted(Path(corpus).glob("*.pdf")):
+        parsed = pymupdf4llm.to_markdown(str(pdf), page_chunks=True, use_ocr=False)
+        for n, md in enumerate(parsed, start=1):
+            text = md["text"]
+            if not text.strip():
+                text = ocr_page(pdf, n - 1)
+            pages.append({"doc": pdf.name, "page": n, "text": text})
+    return pages</code></div>
+            </li>
+            <li>First save a copy of the Lab 1 version (<code class="inline">cp rag/naive_rag.py rag/naive_rag_v1.py</code>), since the project needs that baseline later. Then change <code class="inline">rag/naive_rag.py</code> to build its chunks from <code class="inline">load_pages_md()</code> instead of <code class="inline">load_pages()</code> (keep the fixed 500-character chunker) and re-run it. The only thing that changed is the parser.</li>
+          </ol>
+          <div class="lab-check"><strong>Check:</strong> recall@5 should rise, and the questions that stop missing should be the table (pressure) questions and the scanned manual's questions. If the scanned manual's questions still miss, open <code class="inline">rag/.ocr_cache/</code> and read the transcription: a wrong or empty transcription there is an OCR problem, not a retrieval problem, and it's worth knowing which one you have. Note how much of the improvement came from parsing alone, with no change to embeddings or search. Also remember the licensing note from Module 2: <code class="inline">pymupdf4llm</code> is AGPL-3.0 or a paid commercial license.</div>
+          </div>
+        </div>
+
+        <div class="lab-card framework-item is-accordion" id="lab-3">
+          <button class="fw-toggle" type="button" aria-expanded="false" aria-controls="lab-3-body">
+            <span class="lab-num">LAB 3</span>
+            <div class="fw-toggle-text">
+              <h3>Chunking experiment</h3>
+              <p class="fw-teaser">Fixed, overlapping, structure-aware and context-prefixed chunks, scored on the same questions.</p>
+            </div>
+            <svg class="fw-chevron" width="18" height="18" viewBox="0 0 20 20" aria-hidden="true">
+              <path d="M5 7.5 L10 12.5 L15 7.5" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+          </button>
+          <div class="fw-body" id="lab-3-body">
+
+          <ol class="lab-steps">
+            <li>Create <code class="inline">rag/chunking.py</code> with three chunkers and the context-prefix helper: fixed-size with an optional overlap; a structure-aware chunker that splits on blank lines (so a Markdown table stays whole) and packs neighbors up to a size cap; and <code class="inline">add_context</code>, which prepends "From the Larkfield &lt;product&gt; manual, page N:" to every chunk.
+              <div class="code-block"><code>import re
+
+def chunk_fixed(pages, size=500, overlap=0):
+    out, step = [], size - overlap
+    for p in pages:
+        for start in range(0, len(p["text"]), step):
+            piece = p["text"][start:start + size].strip()
+            if piece:
+                out.append({"doc": p["doc"], "page": p["page"], "text": piece})
+    return out
+
+def chunk_structure(pages, max_chars=800):
+    """Split on blank lines (paragraphs, headings, whole tables), then pack neighbors
+    together until max_chars. A table never gets cut in half unless it alone exceeds the cap."""
+    out = []
+    for p in pages:
+        blocks = [b.strip() for b in re.split(r"\n\s*\n", p["text"]) if b.strip()]
+        buf = ""
+        for b in blocks:
+            if buf and len(buf) + len(b) &gt; max_chars:
+                out.append({"doc": p["doc"], "page": p["page"], "text": buf}); buf = ""
+            buf = f"{buf}\n\n{b}" if buf else b
+        if buf:
+            out.append({"doc": p["doc"], "page": p["page"], "text": buf})
+    return out
+
+def add_context(chunks):
+    """Prefix every chunk with where it came from. A specs table that never mentions
+    the product name becomes findable once the prefix says whose specs they are."""
+    out = []
+    for c in chunks:
+        product = re.sub(r"^\d+_|_scan|\.pdf", "", c["doc"]).replace("_", " ").title()
+        out.append({**c, "text": f"From the Larkfield {product} manual, page {c['page']}:\n{c['text']}"})
+    return out</code></div>
+            </li>
+            <li>Create <code class="inline">rag/chunk_experiment.py</code>. It scores four strategies on the same questions and the same parse, so the chunking is the only thing that changes.
+              <div class="code-block"><code>import json
+from common import embed, top_k_vector, recall_at_k
+from parsing import load_pages_md
+from chunking import chunk_fixed, chunk_structure, add_context
+
+pages = load_pages_md()
+questions = json.load(open("rag/questions.json"))
+strategies = {
+    "fixed 500, no overlap": chunk_fixed(pages, 500, 0),
+    "fixed 500, overlap 100": chunk_fixed(pages, 500, 100),
+    "structure-aware, cap 800": chunk_structure(pages, 800),
+    "structure + context prefix": add_context(chunk_structure(pages, 800)),
+}
+for name, chunks in strategies.items():
+    vecs = embed([c["text"] for c in chunks])
+    retrieve = lambda q, k: top_k_vector(embed([q])[0], vecs, k)
+    score, _ = recall_at_k(questions, retrieve, chunks, k=5)
+    avg = sum(len(c["text"]) for c in chunks) / len(chunks)
+    print(f"{name:28s} chunks={len(chunks):4d} avg_chars={avg:5.0f} recall@5={score:.0%}")</code></div>
+            </li>
+            <li>Run it. The first run embeds four different chunk sets; the disk cache means re-runs are free.
+              <div class="code-block"><code>python rag/chunk_experiment.py</code></div>
+            </li>
+            <li>For each strategy, pick two questions it still misses and read the retrieved chunks next to the correct page. Ask what the chunk was <em>missing</em>: context, a table row cut in half, or a boundary that split a sentence.</li>
+          </ol>
+          <div class="lab-check"><strong>Check:</strong> expect two things, and verify both in your printout rather than trusting this paragraph. First, overlap should help the fixed-size chunker a little by rescuing facts that straddle a boundary, at the price of more chunks to embed and store. Second, the context prefix should be the biggest single jump, because it fixes the specs page that never names its product, something no amount of cleverer splitting can fix. With only 39 questions, treat a gap of one or two questions as noise. The lesson is which <em>kind</em> of failure each strategy removes.</div>
+          </div>
+        </div>
+
+        <div class="lab-card framework-item is-accordion" id="lab-4">
+          <button class="fw-toggle" type="button" aria-expanded="false" aria-controls="lab-4-body">
+            <span class="lab-num">LAB 4</span>
+            <div class="fw-toggle-text">
+              <h3>Index types</h3>
+              <p class="fw-teaser">Build HNSW and IVF-PQ over 100,000 vectors and measure build time, memory, speed and recall.</p>
+            </div>
+            <svg class="fw-chevron" width="18" height="18" viewBox="0 0 20 20" aria-hidden="true">
+              <path d="M5 7.5 L10 12.5 L15 7.5" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+          </button>
+          <div class="fw-body" id="lab-4-body">
+
+          <ol class="lab-steps">
+            <li>Create <code class="inline">rag/index_types.py</code>. It builds 100,000 synthetic vectors (clustered, because real embeddings clump by topic and uniform random vectors would make every index look worse than it will on documents), computes the exact nearest neighbors as the answer key, then builds HNSW and IVF-PQ indexes and measures build time, search speed and recall against that key.
+              <div class="code-block"><code>import time, numpy as np, faiss
+
+D, N, NQ, K = 128, 100_000, 200, 10
+rng = np.random.default_rng(0)
+# Clustered data, not uniform noise: real embeddings clump by topic, and uniform
+# random vectors make every index look worse than it will on real documents.
+centers = rng.normal(size=(200, D)).astype("float32")
+data = (centers[rng.integers(0, 200, N)] + 0.35 * rng.normal(size=(N, D))).astype("float32")
+queries = (centers[rng.integers(0, 200, NQ)] + 0.35 * rng.normal(size=(NQ, D))).astype("float32")
+faiss.normalize_L2(data); faiss.normalize_L2(queries)
+
+def bench(name, index, train=False, setup=None):
+    t0 = time.time()
+    if train:
+        index.train(data)
+    index.add(data)
+    build = time.time() - t0
+    if setup:
+        setup(index)
+    t0 = time.time()
+    _, ids = index.search(queries, K)
+    qps = NQ / (time.time() - t0)
+    recall = np.mean([len(set(ids[i]) &amp; set(truth[i])) / K for i in range(NQ)])
+    print(f"{name:10s} build={build:5.1f}s  qps={qps:8.0f}  recall@{K}={recall:.2f}")
+
+flat = faiss.IndexFlatIP(D); flat.add(data)          # exact search = the answer key
+_, truth = flat.search(queries, K)
+print(f"raw vectors: {N * D * 4 / 1e6:.0f} MB")
+bench("flat", faiss.IndexFlatIP(D))
+bench("HNSW", faiss.IndexHNSWFlat(D, 32, faiss.METRIC_INNER_PRODUCT),
+      setup=lambda ix: setattr(ix.hnsw, "efSearch", 64))
+ivfpq = faiss.IndexIVFPQ(faiss.IndexFlatIP(D), D, 256, 32, 8, faiss.METRIC_INNER_PRODUCT)
+bench("IVF-PQ", ivfpq, train=True, setup=lambda ix: setattr(ix, "nprobe", 32))
+print(f"IVF-PQ stores about {N * 32 / 1e6:.1f} MB of codes (32 bytes per vector) vs {N * D * 4 / 1e6:.0f} MB raw")</code></div>
+            </li>
+            <li>Run it.
+              <div class="code-block"><code>python rag/index_types.py</code></div>
+            </li>
+            <li>Now turn the knobs, one at a time, and re-run: raise HNSW's <code class="inline">efSearch</code> from 64 to 256; raise IVF-PQ's <code class="inline">nprobe</code> from 32 to 128; change PQ's code size from 32 to 64 bytes per vector. For each, write down what moved: recall, speed, or memory.</li>
+          </ol>
+          <div class="lab-check"><strong>Check:</strong> in our own run with the script exactly as written: raw vectors took 51 MB; HNSW reached recall@10 of about <code class="inline">0.97</code>; IVF-PQ stored the same vectors in about 3 MB but recalled only about <code class="inline">0.30</code>. Speeds depend entirely on your machine, so compare them to each other rather than to ours. The point of the lab is the shape of the trade: HNSW buys accuracy and speed with memory; PQ buys memory with accuracy, which you win back with a higher <code class="inline">nprobe</code>, bigger codes, or by re-scoring PQ's shortlist against the full vectors. At this module's corpus size (a few hundred chunks), none of this is needed, and an exact search is the right answer. You're building the instinct for when the corpus is a million chunks.</div>
+          </div>
+        </div>
+
+        <div class="lab-card framework-item is-accordion" id="lab-5">
+          <button class="fw-toggle" type="button" aria-expanded="false" aria-controls="lab-5-body">
+            <span class="lab-num">LAB 5</span>
+            <div class="fw-toggle-text">
+              <h3>Hybrid search</h3>
+              <p class="fw-teaser">Add BM25, fuse the lists with reciprocal rank fusion, and find the questions it rescues.</p>
+            </div>
+            <svg class="fw-chevron" width="18" height="18" viewBox="0 0 20 20" aria-hidden="true">
+              <path d="M5 7.5 L10 12.5 L15 7.5" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+          </button>
+          <div class="fw-body" id="lab-5-body">
+
+          <ol class="lab-steps">
+            <li>Create <code class="inline">rag/hybrid.py</code>. It builds a BM25 index next to the vector index over the same chunks (structure-aware, with context prefix, from Lab 3), defines <code class="inline">rrf</code> to merge two ranked lists, and prints recall for vector-only, keyword-only and hybrid, followed by the specific questions hybrid rescued.
+              <div class="code-block"><code>import json, re
+from rank_bm25 import BM25Okapi
+from common import embed, top_k_vector, recall_at_k
+from parsing import load_pages_md
+from chunking import chunk_structure, add_context
+
+def tokenize(text):
+    return re.findall(r"\w+", text.lower())
+
+pages = load_pages_md()
+chunks = add_context(chunk_structure(pages, 800))
+vecs = embed([c["text"] for c in chunks])
+bm25 = BM25Okapi([tokenize(c["text"]) for c in chunks])
+questions = json.load(open("rag/questions.json"))
+
+def vector_search(q, k):
+    return list(top_k_vector(embed([q])[0], vecs, k))
+
+def keyword_search(q, k):
+    scores = bm25.get_scores(tokenize(q))
+    return sorted(range(len(chunks)), key=lambda i: -scores[i])[:k]
+
+def rrf(rankings, k=60):
+    """Reciprocal rank fusion: each list votes 1/(k+rank) for every chunk it returns."""
+    fused = {}
+    for ranking in rankings:
+        for rank, i in enumerate(ranking, start=1):
+            fused[i] = fused.get(i, 0) + 1 / (k + rank)
+    return sorted(fused, key=fused.get, reverse=True)
+
+def hybrid_search(q, k, pool=20):
+    return rrf([vector_search(q, pool), keyword_search(q, pool)])[:k]
+
+if __name__ == "__main__":
+    for name, fn in [("vector", vector_search), ("keyword", keyword_search), ("hybrid", hybrid_search)]:
+        score, misses = recall_at_k(questions, fn, chunks, k=5)
+        print(f"{name:8s} recall@5 = {score:.0%}")
+    # Which questions does fusion rescue? Compare per-question hits.
+    def hit(fn, q):
+        got = [(chunks[i]["doc"], chunks[i]["page"]) for i in fn(q["q"], 5)]
+        return any((q["doc"], pg) in got for pg in q["pages"])
+    print("\nFixed by hybrid (vector missed, hybrid found):")
+    for q in questions:
+        if not hit(vector_search, q) and hit(hybrid_search, q):
+            print("  ", q["q"])</code></div>
+            </li>
+            <li>Run it.
+              <div class="code-block"><code>python rag/hybrid.py</code></div>
+            </li>
+            <li>Look at the "Fixed by hybrid" list. Is it the exact-identifier questions ("Which product is part number LK-...?")? If it's something else, work out why keyword search rescued it. Then check the reverse: are there questions vector search found that keyword search missed? Those are the paraphrases hybrid exists to protect.</li>
+            <li>Try the one fusion knob. Change the <code class="inline">k=60</code> constant in <code class="inline">rrf</code> to 10 and then 200 and watch whether anything moves. (It's a smoothing constant from the original paper; on a small corpus it rarely matters, and knowing that saves you from tuning it.)</li>
+          </ol>
+          <div class="lab-check"><strong>Check:</strong> hybrid should be at least as good as the better of the two single methods on the questions that matter to you, and the part-number question is the textbook case: the embedding model has no reason to treat "LK-2126-B" as meaningful, but BM25 matches the string exactly. This corpus is synthetic and keyword-friendly (every question names the product), so keyword-only may score very well here; don't conclude hybrid is pointless. On real documents with vaguer questions, neither single method wins everywhere, which is the argument for running both.</div>
+          </div>
+        </div>
+
+        <div class="lab-card framework-item is-accordion" id="lab-6">
+          <button class="fw-toggle" type="button" aria-expanded="false" aria-controls="lab-6-body">
+            <span class="lab-num">LAB 6</span>
+            <div class="fw-toggle-text">
+              <h3>Rerank and filter</h3>
+              <p class="fw-teaser">Retrieve 20, rerank to 5, add a metadata filter, and record both the recall gain and the latency cost.</p>
+            </div>
+            <svg class="fw-chevron" width="18" height="18" viewBox="0 0 20 20" aria-hidden="true">
+              <path d="M5 7.5 L10 12.5 L15 7.5" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+          </button>
+          <div class="fw-body" id="lab-6-body">
+
+          <ol class="lab-steps">
+            <li>Create <code class="inline">rag/rerank_filter.py</code>. It takes the hybrid pool (top 20), optionally filters it to the product named in the question, then reorders it with a small open cross-encoder, <code class="inline">cross-encoder/ms-marco-MiniLM-L-6-v2</code>, and keeps the top 5. The product filter here is a deliberately simple rule (match the product's name in the question). In production you'd have a model extract it.
+              <div class="code-block"><code>import json, re, time
+from sentence_transformers import CrossEncoder
+from common import recall_at_k
+from hybrid import chunks, questions, hybrid_search
+
+reranker = CrossEncoder("cross-encoder/ms-marco-MiniLM-L-6-v2")
+
+def product_slug(question):
+    """Stand-in for 'extract the product from the question'. Matches a doc whose
+    name (e.g. 'delta_sensor') appears in the question text."""
+    q = re.sub(r"[^a-z ]", "", question.lower())
+    for doc in {c["doc"] for c in chunks}:
+        name = re.sub(r"^\d+_|_scan|\.pdf", "", doc).replace("_", " ")
+        if name in q:
+            return doc
+    return None
+
+def retrieve_rerank(q, k, pool=20, use_filter=False):
+    candidates = hybrid_search(q, pool)
+    if use_filter and (doc := product_slug(q)):
+        candidates = [i for i in candidates if chunks[i]["doc"] == doc] or candidates
+    scores = reranker.predict([(q, chunks[i]["text"]) for i in candidates])
+    return [i for _, i in sorted(zip(scores, candidates), reverse=True)][:k]
+
+if __name__ == "__main__":
+    for label, fn in [("hybrid only", hybrid_search),
+                      ("hybrid + rerank", retrieve_rerank),
+                      ("hybrid + rerank + filter", lambda q, k: retrieve_rerank(q, k, use_filter=True))]:
+        t0 = time.time()
+        score, _ = recall_at_k(questions, fn, chunks, k=5)
+        ms = (time.time() - t0) / len(questions) * 1000
+        print(f"{label:26s} recall@5={score:.0%}  {ms:.0f} ms/question")</code></div>
+            </li>
+            <li>Run it. The first run downloads the reranker model (tens of megabytes) and loads PyTorch, so expect a pause.
+              <div class="code-block"><code>python rag/rerank_filter.py</code></div>
+            </li>
+            <li>Record both columns for each row: recall@5 <em>and</em> milliseconds per question. The reranker adds latency to every query, and whether the recall gain is worth that is a product decision, not a technical one.</li>
+            <li>Break the filter on purpose: ask a question that names no product ("What is the warranty period?"). Confirm the code falls back to the unfiltered pool instead of returning nothing. A filter that can silently empty your results is a bug waiting for a user.</li>
+          </ol>
+          <div class="lab-check"><strong>Check:</strong> expect rerank to help most when the right chunk was in the top 20 but not the top 5, and expect the filter to help most when many sibling documents are near-duplicates, which is true of this corpus by design. Neither can rescue a chunk that wasn't in the pool at all, so if a question still misses after both, go back and look at parsing and chunking. Rerank latency depends on your hardware; on a CPU it's typically the slowest step in the whole pipeline.</div>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <section class="lesson-section" id="lesson-project">
+      <h2>Project</h2>
+
+      <div class="lab-card framework-item is-accordion" id="project-card">
+        <button class="fw-toggle" type="button" aria-expanded="false" aria-controls="project-card-body">
+          <span class="lab-num">PROJECT</span>
+          <div class="fw-toggle-text">
+            <h3>Chat with 100 messy PDFs</h3>
+            <p class="fw-teaser">A cited, cached question-answering pipeline over 100 manuals (five of them scans), with a results table showing recall after each upgrade.</p>
+          </div>
+          <svg class="fw-chevron" width="18" height="18" viewBox="0 0 20 20" aria-hidden="true">
+            <path d="M5 7.5 L10 12.5 L15 7.5" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+        </button>
+        <div class="fw-body" id="project-card-body">
+      <div class="course-project">
+        <span class="course-project-label">Project &middot; Chat with 100 messy PDFs</span>
+        <p>The labs ran on 12 manuals. This project scales the winning pipeline to 100, wraps it in a function a chat app can call, answers with citations that point at a specific page of the source PDF, caches repeat questions, and writes down what each upgrade was worth.</p>
+      </div>
+
+      <ol class="lab-steps" style="margin-top: 14px;">
+        <li>Generate the bigger corpus and re-run your saved Lab 1 baseline (<code class="inline">naive_rag_v1.py</code>) on it first. The number you get here is the "before" in your results table.
+          <div class="code-block"><code>python rag/generate_corpus.py 100
+python rag/naive_rag_v1.py</code></div>
+          Parsing the five scans costs a few vision-model calls per page, once; they are cached after that.
+        </li>
+        <li>Create <code class="inline">rag/pipeline.py</code>, the one function the app calls. It checks a semantic cache first (the same idea as Module 1, Lab 5: embed the question, return the stored answer if the nearest earlier question clears your threshold), otherwise runs hybrid retrieval, product filter and rerank, then asks the model for an answer that cites <code class="inline">[doc p.N]</code> tags. It reports latency and token counts for every call.
+          <div class="code-block"><code>import os, time
+import numpy as np
+from openai import OpenAI
+from common import embed
+from hybrid import chunks
+from rerank_filter import retrieve_rerank
+
+client = OpenAI(api_key=os.environ["OPENAI_API_KEY"])
+CACHE_THRESHOLD = 0.95   # Re-tune this on YOUR questions. Two questions that differ only
+                         # in the product name score very high, and must NOT share an answer.
+_cache = []              # list of (question_vector, result_dict)
+
+def _cache_lookup(q_vec):
+    for vec, result in _cache:
+        sim = float(vec @ q_vec / (np.linalg.norm(vec) * np.linalg.norm(q_vec)))
+        if sim &gt;= CACHE_THRESHOLD:
+            return result
+    return None
+
+def ask(question):
+    t0 = time.perf_counter()
+    q_vec = embed([question])[0]
+    hit = _cache_lookup(q_vec)
+    if hit:
+        return {**hit, "cached": True, "latency_ms": (time.perf_counter() - t0) * 1000,
+                "input_tokens": 0, "output_tokens": 0}
+
+    top = [chunks[i] for i in retrieve_rerank(question, 5, use_filter=True)]
+    context = "\n\n".join(f"[{c['doc']} p.{c['page']}]\n{c['text']}" for c in top)
+    resp = client.chat.completions.create(
+        model="gpt-4.1-mini", max_tokens=300,
+        messages=[{"role": "system", "content": "Answer using only the context. After each fact, cite its "
+                   "source tag exactly as written, like [doc.pdf p.2]. If the context does not contain "
+                   "the answer, say so and do not guess."},
+                  {"role": "user", "content": f"Context:\n{context}\n\nQuestion: {question}"}])
+    result = {"answer": resp.choices[0].message.content,
+              "sources": [{"doc": c["doc"], "page": c["page"]} for c in top]}
+    _cache.append((q_vec, result))
+    return {**result, "cached": False, "latency_ms": (time.perf_counter() - t0) * 1000,
+            "input_tokens": resp.usage.prompt_tokens, "output_tokens": resp.usage.completion_tokens}
+
+if __name__ == "__main__":
+    for q in ["How long is the warranty on the Larkfield Delta Sensor?",
+              "How long is the warranty on the Larkfield Delta Sensor?",   # repeat -&gt; cache hit
+              "How long is the warranty on the Larkfield Cobalt Pump?"]:  # similar but different -&gt; miss
+        r = ask(q)
+        print(f"cached={r['cached']!s:5}  {r['latency_ms']:6.0f} ms  in={r['input_tokens']} out={r['output_tokens']}  {q}")
+        print("   ", r["answer"][:120].replace("\n", " "))</code></div>
+          Use the cache threshold you found safe in Module 1, not a number copied from here. The cache must hold the <em>sources</em> alongside the answer, so a cache hit still shows citations.
+        </li>
+        <li>Build your "before and after" table. Re-run the recall measurement after each upgrade in this order, and add a row each time: naive baseline, layout parser plus OCR, structure-aware chunks, context prefix, hybrid search, rerank, filter. Save it as <code class="inline">rag/results.md</code>. The goal isn't a high final number; it's knowing which single change was worth the most, and which ones barely mattered.</li>
+        <li>Put a thin app on top. Any web framework works. The one requirement that makes citations real: serve the PDFs, and make each citation a link of the form <code class="inline">/corpus/&lt;doc&gt;#page=&lt;N&gt;</code>, which browsers' built-in PDF viewers jump straight to.</li>
+      </ol>
+
+      <span class="agent-prompt-label">Want help with the web layer? Hand your agent this:</span>
+      <div class="try-it-prompt" id="rag-app-prompt">I have rag/pipeline.py with a function ask(question) that returns a dict with "answer" (text containing [doc p.N] citation tags), "sources" (a list of {doc, page}), "cached" (bool), "latency_ms", and token counts. Wrap it in a small FastAPI app: a POST /ask endpoint, a static single-page chat UI with a text box, and a route that serves the PDFs in rag/corpus/. In the UI, turn every [doc p.N] tag in an answer into a link to /corpus/&lt;doc&gt;#page=&lt;N&gt; that opens in a new tab, show a small "cached" badge on cache hits, and show the latency under each answer. Keep dependencies minimal and tell me exactly how to run it locally. Do not add authentication or a database.</div>
+      <button class="try-it-copy" type="button" data-copy-target="rag-app-prompt">Copy prompt</button>
+
+      <p style="margin-top: 14px; font-size: .9rem;"><strong>Done when:</strong></p>
+      <ul class="lesson-checklist">
+        <li>Clicking a citation opens the correct PDF at the correct page, for at least ten questions you spot-check by hand, including one from a scanned manual.</li>
+        <li>Recall@5 on the 100-manual corpus beats your naive baseline, and <code class="inline">rag/results.md</code> names the single upgrade that gained the most.</li>
+        <li>A repeated question is answered from the cache (visibly faster, no model call), and a same-topic-but-different question is <em>not</em>.</li>
+        <li>Cost and latency per question are reported for both a cache miss and a cache hit.</li>
+      </ul>
+        </div>
+      </div>
+
+    </section>
+
+    <section class="lesson-section" id="lesson-sources">
+      <h2>Sources</h2>
+      <ul class="explainer-list is-bulleted" style="font-size: .85rem; max-width: 640px;">
+        <li>Lewis, P., et al. (2020). <em>Retrieval-Augmented Generation for Knowledge-Intensive NLP Tasks</em>. NeurIPS 2020.</li>
+        <li>Robertson, S., &amp; Zaragoza, H. (2009). <em>The Probabilistic Relevance Framework: BM25 and Beyond</em>. Foundations and Trends in Information Retrieval, 3(4).</li>
+        <li>Cormack, G. V., Clarke, C. L. A., &amp; B&uuml;ttcher, S. (2009). <em>Reciprocal Rank Fusion Outperforms Condorcet and Individual Rank Learning Methods</em>. SIGIR 2009.</li>
+        <li>Malkov, Y. A., &amp; Yashunin, D. A. (2018). <em>Efficient and Robust Approximate Nearest Neighbor Search Using Hierarchical Navigable Small World Graphs</em>. IEEE TPAMI, 42(4).</li>
+        <li>J&eacute;gou, H., Douze, M., &amp; Schmid, C. (2011). <em>Product Quantization for Nearest Neighbor Search</em>. IEEE TPAMI, 33(1).</li>
+        <li>Johnson, J., Douze, M., &amp; J&eacute;gou, H. (2019). <em>Billion-scale Similarity Search with GPUs</em>. IEEE Transactions on Big Data, 7(3).</li>
+        <li>Anthropic (2024). <em>Introducing Contextual Retrieval</em>. anthropic.com/news/contextual-retrieval.</li>
+      </ul>
+    </section>
+
+    <div class="lesson-foot">
+      <a href="ai-beyond-fundamentals.html#rag-done-right">&larr; Back to the course map</a>
+    </div>
+  </article>
+</main>
+
+<div id="site-footer"></div>
+
+<script src="js/site-chrome.js" defer></script>
+<script src="js/theme-toggle.js" defer></script>
+<script src="js/try-it.js" defer></script>
+<script src="js/framework-accordion.js" defer></script>
+<script src="js/code-copy.js" defer></script>
+</body>
+</html>
