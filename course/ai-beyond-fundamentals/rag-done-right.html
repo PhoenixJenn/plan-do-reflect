@@ -112,7 +112,7 @@
             <li>Install this module's dependencies. They go in the same shared environment as the earlier modules (with <code class="inline">uv</code>, use <code class="inline">uv add</code> instead of <code class="inline">pip install</code>).
               <div class="code-block"><code>pip install pypdf pymupdf4llm pypdfium2 reportlab numpy rank-bm25 faiss-cpu sentence-transformers</code></div>
             </li>
-            <li>Generate a corpus you can grade. This script writes fake product manuals as real PDFs (each has a warranty paragraph, a specs <em>table</em>, and a maintenance page), plus <code class="inline">rag/questions.json</code>: labeled questions, each with the exact document and page that answers it. Because we placed every fact ourselves, the answer key is correct by construction. Every manual reuses the same filler sentences on purpose, so lots of pages look alike, like a real set of sibling documents. Every 20th manual is saved as an image-only scan with no text layer.
+            <li>Generate a corpus you can grade. This script writes fake product manuals as real PDFs (each has a warranty paragraph, a specs <em>table</em>, and a maintenance page), plus <code class="inline">rag/questions.json</code>: labeled questions, each with the exact document and page that answers it and the expected answer. Because we placed every fact ourselves, the answer key is correct by construction. Every manual reuses the same filler sentences on purpose, so lots of pages look alike, like a real set of sibling documents. Every 20th manual is saved as an image-only scan with no text layer.
               <div class="code-block"><code>"""Make a corpus of fake product manuals plus a labeled question set.
 Every fact sits on a known page, so the answer key is exact by construction."""
 import json, random, sys
@@ -172,12 +172,12 @@ for i in range(N_DOCS):
     SimpleDocTemplate(str(pdf_path), pagesize=letter).build(story)
 
     questions += [
-        {"q": f"How long is the warranty on the Larkfield {name}?", "doc": pdf_path.name, "pages": [1]},
-        {"q": f"What is the maximum pressure of the {name}?", "doc": pdf_path.name, "pages": [2]},
-        {"q": f"How often should I recalibrate the {name}?", "doc": pdf_path.name, "pages": [3]},
+        {"q": f"How long is the warranty on the Larkfield {name}?", "doc": pdf_path.name, "pages": [1], "answer": f"{warranty} months"},
+        {"q": f"What is the maximum pressure of the {name}?", "doc": pdf_path.name, "pages": [2], "answer": f"{pressure} bar"},
+        {"q": f"How often should I recalibrate the {name}?", "doc": pdf_path.name, "pages": [3], "answer": f"{interval} months"},
     ]
     if i % 4 == 0:  # an exact-identifier question: a part number in a table cell
-        questions.append({"q": f"Which product is part number {code}?", "doc": pdf_path.name, "pages": [1, 2]})  # printed on both pages
+        questions.append({"q": f"Which product is part number {code}?", "doc": pdf_path.name, "pages": [1, 2], "answer": name})  # printed on both pages
     if i % 20 == 3:  # make a scanned copy: page images only, no text layer
         src = pdfium.PdfDocument(str(pdf_path))
         imgs = [src[p].render(scale=1.5).to_pil().convert("L") for p in range(len(src))]
@@ -708,7 +708,8 @@ def ask(question):
                    "the answer, say so and do not guess."},
                   {"role": "user", "content": f"Context:\n{context}\n\nQuestion: {question}"}])
     result = {"answer": resp.choices[0].message.content,
-              "sources": [{"doc": c["doc"], "page": c["page"]} for c in top]}
+              "sources": [{"doc": c["doc"], "page": c["page"]} for c in top],
+              "contexts": [c["text"] for c in top]}
     _cache.append((q_vec, result))
     return {**result, "cached": False, "latency_ms": (time.perf_counter() - t0) * 1000,
             "input_tokens": resp.usage.prompt_tokens, "output_tokens": resp.usage.completion_tokens}
@@ -727,7 +728,7 @@ if __name__ == "__main__":
       </ol>
 
       <span class="agent-prompt-label">Want help with the web layer? Hand your agent this:</span>
-      <div class="try-it-prompt" id="rag-app-prompt">I have rag/pipeline.py with a function ask(question) that returns a dict with "answer" (text containing [doc p.N] citation tags), "sources" (a list of {doc, page}), "cached" (bool), "latency_ms", and token counts. Wrap it in a small FastAPI app: a POST /ask endpoint, a static single-page chat UI with a text box, and a route that serves the PDFs in rag/corpus/. In the UI, turn every [doc p.N] tag in an answer into a link to /corpus/&lt;doc&gt;#page=&lt;N&gt; that opens in a new tab, show a small "cached" badge on cache hits, and show the latency under each answer. Keep dependencies minimal and tell me exactly how to run it locally. Do not add authentication or a database.</div>
+      <div class="try-it-prompt" id="rag-app-prompt">I have rag/pipeline.py with a function ask(question) that returns a dict with "answer" (text containing [doc p.N] citation tags), "sources" (a list of {doc, page}), "contexts" (the retrieved chunk texts), "cached" (bool), "latency_ms", and token counts. Wrap it in a small FastAPI app: a POST /ask endpoint, a static single-page chat UI with a text box, and a route that serves the PDFs in rag/corpus/. In the UI, turn every [doc p.N] tag in an answer into a link to /corpus/&lt;doc&gt;#page=&lt;N&gt; that opens in a new tab, show a small "cached" badge on cache hits, and show the latency under each answer. Keep dependencies minimal and tell me exactly how to run it locally. Do not add authentication or a database.</div>
       <button class="try-it-copy" type="button" data-copy-target="rag-app-prompt">Copy prompt</button>
 
       <p style="margin-top: 14px; font-size: .9rem;"><strong>Done when:</strong></p>
