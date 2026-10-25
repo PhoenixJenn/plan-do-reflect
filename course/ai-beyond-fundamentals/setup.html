@@ -462,24 +462,23 @@ def log_call(provider, model, input_tokens, output_tokens, elapsed_ms, cost_usd)
     with LOG_PATH.open("a") as f:
         f.write(json.dumps(row) + "\n")</code></div>
             </li>
-            <li>Open <code class="inline">chatbot/three_providers.py</code> again. Because <code class="inline">log_call</code> lives in <code class="inline">shared/</code>, a sibling folder, add these two lines near the top of the file so Python can find it:
+            <li>Open <code class="inline">chatbot/three_providers.py</code> again. Because <code class="inline">log_call</code> lives in <code class="inline">shared/</code>, a sibling folder, add these two lines near the top of the file (below your other imports) so Python can find it:
               <div class="code-block"><code><span class="code-comment"># top of chatbot/three_providers.py, added in Lab 4</span>
 import sys, pathlib, time
 sys.path.insert(0, str(pathlib.Path(__file__).resolve().parent.parent / "shared"))
 from llm_log import log_call</code></div>
-              Then wrap each of the four functions the same way: start a timer, call the SDK, normalize that provider's usage object into plain ints using the field names from your Lab 2 comment, and call <code class="inline">log_call(...)</code> with a flat <code class="inline">cost_usd=0</code> for now (the project below replaces that with a real number). Keep the existing text print &mdash; logging is in addition to seeing the answer, not instead of it. Here's <code class="inline">call_anthropic</code> before and after &mdash; apply the same change to <code class="inline">call_openai</code>, <code class="inline">call_gemini</code> and <code class="inline">call_ollama</code>, each with its own field names:
+              Then change each of the four functions the same way: start a timer, call the SDK, normalize that provider's usage object into plain ints using the field names from your Lab 2 comment, and call <code class="inline">log_call(...)</code> with a flat <code class="inline">cost_usd=0</code> for now (the project below replaces that with a real number). Keep the existing <code class="inline">return</code> &mdash; logging is in addition to saving the answer to the JSON file, not instead of it. Here's <code class="inline">call_anthropic</code> before and after &mdash; apply the same change to <code class="inline">call_openai</code>, <code class="inline">call_gemini</code> and <code class="inline">call_ollama</code>, each with its own field names:
               <div class="code-block"><code><span class="code-comment"># before (Lab 2)</span>
 def call_anthropic():
     from anthropic import Anthropic
     client = Anthropic(api_key=os.environ["ANTHROPIC_API_KEY"])
     resp = client.messages.create(
-        model="claude-sonnet-5",
+        model="claude-haiku-5-5",
         max_tokens=200,
         messages=[{"role": "user", "content": PROMPT}],
     )
     text = next(b.text for b in resp.content if b.type == "text")
-    print("Claude  :", text)
-    print("  usage :", resp.usage)
+    return {"text": text, "usage": resp.usage.model_dump(mode="json", exclude_none=True)}
 
 <span class="code-comment"># after (Lab 4)</span>
 def call_anthropic():
@@ -487,31 +486,30 @@ def call_anthropic():
     client = Anthropic(api_key=os.environ["ANTHROPIC_API_KEY"])
     start = time.time()
     resp = client.messages.create(
-        model="claude-sonnet-5",
+        model="claude-haiku-5-5",
         max_tokens=200,
         messages=[{"role": "user", "content": PROMPT}],
     )
     elapsed_ms = (time.time() - start) * 1000
     text = next(b.text for b in resp.content if b.type == "text")
-    log_call("anthropic", "claude-sonnet-5", resp.usage.input_tokens, resp.usage.output_tokens, elapsed_ms, cost_usd=0)
-    print("Claude  :", text)
-    print("  usage :", resp.usage)</code></div>
-              <code class="inline">call_ollama</code> needs one extra guard. Ollama's OpenAI-compatible endpoint sometimes returns <code class="inline">resp.usage</code> as <code class="inline">None</code> instead of a real usage object (unlike OpenAI itself, which always fills it in) &mdash; and reading <code class="inline">resp.usage.prompt_tokens</code> straight off a <code class="inline">None</code> crashes with <code class="inline">AttributeError: 'NoneType' object has no attribute 'prompt_tokens'</code>. The fix is to check <code class="inline">resp.usage</code> before reading a field off it, and fall back to <code class="inline">0</code> when it's missing. <code class="inline">X if condition else Y</code> is Python's inline if/else &mdash; it does that check in one line instead of a separate <code class="inline">if</code> block:
+    log_call("anthropic", "claude-haiku-5-5", resp.usage.input_tokens, resp.usage.output_tokens, elapsed_ms, cost_usd=0)
+    return {"text": text, "usage": resp.usage.model_dump(mode="json", exclude_none=True)}</code></div>
+              <code class="inline">call_ollama</code> needs one extra guard. Ollama's OpenAI-compatible endpoint can return <code class="inline">resp.usage</code> as <code class="inline">None</code> instead of a real usage object (unlike OpenAI itself, which always fills it in) &mdash; and reading <code class="inline">resp.usage.prompt_tokens</code> straight off a <code class="inline">None</code> crashes with <code class="inline">AttributeError: 'NoneType' object has no attribute 'prompt_tokens'</code>. Your Lab 3 code already guards the <code class="inline">model_dump</code> call for this reason; the logging needs the same guard. Check <code class="inline">resp.usage</code> before reading a field off it, and fall back to <code class="inline">0</code> when it's missing. <code class="inline">X if condition else Y</code> is Python's inline if/else &mdash; it does that check in one line instead of a separate <code class="inline">if</code> block:
               <div class="code-block"><code><span class="code-comment"># call_ollama, with the Lab 4 timer/logging added</span>
 def call_ollama():
     from openai import OpenAI
     local = OpenAI(base_url="http://localhost:11434/v1", api_key="ollama")
     start = time.time()
     resp = local.chat.completions.create(
-        model="llama3.2",
+        model="qwen3-vl:4b-instruct",  <span class="code-comment"># the model you pulled in Lab 3</span>
         messages=[{"role": "user", "content": PROMPT}],
     )
     elapsed_ms = (time.time() - start) * 1000
     input_tokens = resp.usage.prompt_tokens if resp.usage else 0
     output_tokens = resp.usage.completion_tokens if resp.usage else 0
-    log_call("ollama", "llama3.2", input_tokens, output_tokens, elapsed_ms, cost_usd=0)
-    print("Ollama  :", resp.choices[0].message.content)
-    print("  usage :", resp.usage)</code></div>
+    log_call("ollama", "qwen3-vl:4b-instruct", input_tokens, output_tokens, elapsed_ms, cost_usd=0)
+    usage = resp.usage.model_dump(mode="json", exclude_none=True) if resp.usage else None
+    return {"text": resp.choices[0].message.content, "usage": usage}</code></div>
             </li>
             <li>Create <code class="inline">shared/test_logger.py</code> the same way, and paste in a checkpoint test.
               <div class="code-block"><code><span class="code-comment"># shared/test_logger.py</span>
