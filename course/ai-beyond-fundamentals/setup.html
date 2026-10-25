@@ -552,25 +552,25 @@ pytest shared/test_logger.py</code></div>
         <p>Combine the four labs into one file, <code class="inline">shared/llm_client.py</code>: a single <code class="inline">call(prompt, model)</code> function that looks up the provider for a given model name in a config file, dispatches to the right SDK, times the call, computes real cost, and logs it through <code class="inline">log_call</code> from Lab 4. The five steps below build it piece by piece.</p>
       </div>
       <ol class="lab-steps" style="margin-top: 14px;">
-        <li>Create <code class="inline">shared/models.yaml</code> (<code class="inline">code shared/models.yaml</code>, <code class="inline">nano shared/models.yaml</code>, or <code class="inline">touch shared/models.yaml</code> / <code class="inline">New-Item shared\models.yaml</code> then open it) and paste in one entry per model. Prices are illustrative &mdash; check each provider's current pricing page before trusting them.
+        <li>Create <code class="inline">shared/models.yaml</code> (<code class="inline">code shared/models.yaml</code>, <code class="inline">nano shared/models.yaml</code>, or <code class="inline">touch shared/models.yaml</code> / <code class="inline">New-Item shared\models.yaml</code> then open it) and paste in one entry per model. These prices are what the providers' pricing pages listed in October 2026 &mdash; prices change, so check each page (<a href="https://platform.claude.com/docs/en/about-claude/pricing" target="_blank" rel="noopener">Anthropic</a>, <a href="https://developers.openai.com/api/docs/pricing" target="_blank" rel="noopener">OpenAI</a>, <a href="https://ai.google.dev/gemini-api/docs/pricing" target="_blank" rel="noopener">Gemini</a>) before trusting them.
           <div class="code-block"><code><span class="code-comment"># shared/models.yaml</span>
-claude-sonnet-5:
+claude-haiku-5-5:
   provider: anthropic
-  price_in: 3.00    <span class="code-comment"># $ per 1M input tokens</span>
-  price_out: 15.00  <span class="code-comment"># $ per 1M output tokens</span>
-gpt-4.1-mini:
+  price_in: 0.10    <span class="code-comment"># $ per 1M input tokens (prompts up to 100k tokens)</span>
+  price_out: 0.50   <span class="code-comment"># $ per 1M output tokens</span>
+gpt-5.4-mini:
   provider: openai
-  price_in: 0.40
-  price_out: 1.60
-gemini-flash-latest:
+  price_in: 0.75
+  price_out: 4.50
+gemini-flash-lite-latest:
   provider: gemini
-  price_in: 0.30
-  price_out: 2.50
-llama3.2:
+  price_in: 0.30    <span class="code-comment"># the page lists Gemini 3.5 Flash-Lite at these rates; the alias target is not stated</span>
+  price_out: 2.50   <span class="code-comment"># Gemini's output price includes thinking tokens</span>
+qwen3-vl:4b-instruct:
   provider: ollama
-  price_in: 0
+  price_in: 0       <span class="code-comment"># runs on your machine: no per-token charge</span>
   price_out: 0</code></div>
-          Use whatever model name you actually pulled in Lab 3 and have been calling since &mdash; if you swapped away from <code class="inline">llama3.2</code> there, use that same name here and in every file below, not the name printed in this lesson.
+          Use whatever model name you actually pulled in Lab 3 and have been calling since &mdash; if you pulled something other than <code class="inline">qwen3-vl:4b-instruct</code> there, use that same name here and in every file below, not the name printed in this lesson.
         </li>
         <li>Create <code class="inline">shared/llm_client.py</code> the same way, and paste in the client itself.
           <div class="code-block"><code><span class="code-comment"># shared/llm_client.py</span>
@@ -632,7 +632,11 @@ def _dispatch(provider, model, prompt):
 
     if provider == "gemini":
         from google import genai
-        client = genai.Client(api_key=os.environ["GEMINI_API_KEY"])
+        from google.genai import types
+        client = genai.Client(
+            api_key=os.environ["GEMINI_API_KEY"],
+            http_options=types.HttpOptions(timeout=20000),  <span class="code-comment"># milliseconds, as in Lab 2</span>
+        )
         resp = client.models.generate_content(model=model, contents=prompt)
         return resp.text, {
             "input_tokens": resp.usage_metadata.prompt_token_count,
@@ -665,15 +669,17 @@ RATE_LIMIT_ERRORS = (AnthropicRateLimitError, OpenAIRateLimitError, GeminiClient
 # precise. Good enough to make the retry loop fire for this exercise.</span></code></div>
           The agent prompt below can do this step for you if you'd rather not hunt through each SDK's docs for the exact class names.
         </li>
-        <li>Test it end to end. Write a one-off script that calls <code class="inline">call(prompt, model)</code> once for each of the four models. <code class="inline">call()</code> <em>returns</em> the reply instead of printing it &mdash; that's the point, so other code can use the answer instead of just displaying it &mdash; so this script's own <code class="inline">print(...)</code> is the only place any of these four answers actually reaches your terminal. If you want to see what a provider is really responding with, this is where you look; nothing upstream in <code class="inline">_dispatch</code> prints anything.
-          <div class="code-block"><code><span class="code-comment"># shared/try_client.py — delete once it passes</span>
+        <li>Test it end to end. Write a small test script, <code class="inline">shared/try_client.py</code>, that calls <code class="inline">call(prompt, model)</code> once for each of the four models. <code class="inline">call()</code> <em>returns</em> the reply instead of printing it &mdash; that's the point, so other code can use the answer instead of just displaying it &mdash; so this script's own <code class="inline">print(...)</code> is the only place any of these four answers actually reaches your terminal. If you want to see what a provider is really responding with, this is where you look; nothing upstream in <code class="inline">_dispatch</code> prints anything.
+          <div class="code-block"><code><span class="code-comment"># shared/try_client.py — a quick smoke test: one call to each model</span>
+from dotenv import load_dotenv
+load_dotenv()
 from llm_client import call
 
-for model in ["claude-sonnet-5", "gpt-4.1-mini", "gemini-flash-latest", "llama3.2"]:
-    print(model, "->", call("Say hello in five words.", model))</code></div>
+for model in ["claude-haiku-5-5", "gpt-5.4-mini", "gemini-flash-lite-latest", "qwen3-vl:4b-instruct"]:
+    print(model, "->", call("Give me five different greetings, one per line.", model))</code></div>
           <div class="code-block"><code>python shared/try_client.py
 cat shared/calls.jsonl</code></div>
-          Read the four printed replies first &mdash; five actual words back from each model, not an error string or an empty reply &mdash; then confirm <code class="inline">calls.jsonl</code> has four new rows with a real, non-zero <code class="inline">cost_usd</code> for every model except <code class="inline">llama3.2</code>, which should show <code class="inline">0</code>.
+          Read the four printed replies first &mdash; five greetings back from each model, not an error string or an empty reply &mdash; then confirm <code class="inline">calls.jsonl</code> has four new rows with a real, non-zero <code class="inline">cost_usd</code> for every model except <code class="inline">llama3.2</code>, which should show <code class="inline">0</code>.
         </li>
       </ol>
 
