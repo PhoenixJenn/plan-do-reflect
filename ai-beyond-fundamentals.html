@@ -459,29 +459,77 @@
           </svg>
         </button>
         <div class="fw-body" id="evals-guardrails-body">
+          <h4 class="course-subhead" id="decision-models">Decision models: a cheap, calibrated judge</h4>
+          <p style="max-width: 640px;">A decision model answers one narrow question by choosing from answers you define in advance (yes or no, one of N choices, or a score) and returns a probability instead of prose. For calls shaped like that, a decision model runs far faster and cheaper than a general chat model (reported figures put it around 150ms versus 1.6 seconds for a general-purpose model on the same kind of call). The category sits alongside hosted options such as OpenAI's Decisions API and Perplexity's Decider, plus open-weight alternatives, and it shows up three times in this course: here as a safety gate, later in this module as a grader, and in Module 6 as a router. <strong>The core rule in every case: the decision model judges meaning, but authority lives in your code.</strong> Your harness sets the thresholds and enforces the outcome; the model is never the one deciding what happens next.</p>
+          <div class="compare-table-wrap" style="margin-top: 10px; max-width: 640px;">
+            <table class="compare-table">
+              <thead>
+                <tr><th>Gate outcome</th><th>What the harness does</th></tr>
+              </thead>
+              <tbody>
+                <tr><th scope="row">Allow</th><td>Score is comfortably above threshold; the tool runs</td></tr>
+                <tr><th scope="row">Ask</th><td>Score is in the uncertain middle; a human approves before it runs</td></tr>
+                <tr><th scope="row">Block</th><td>Score is below threshold, or the call itself errors; fail closed, the tool does not run</td></tr>
+              </tbody>
+            </table>
+          </div>
+          <div class="insight-aside" style="margin-top: 12px;">
+            <svg width="26" height="26" viewBox="0 0 26 26" aria-hidden="true">
+              <circle cx="13" cy="13" r="10" fill="none" stroke="var(--border)" stroke-width="2"/>
+              <path d="M13 7 L13 14" stroke="var(--accent-strong)" stroke-width="2.4" stroke-linecap="round"/>
+              <circle cx="13" cy="18.5" r="1.6" fill="var(--accent-strong)"/>
+            </svg>
+            <div class="insight-aside-body">
+              <span class="insight-aside-label">Watch-out</span>
+              <p>A decision model is still a model: "80% confident" only means something if it's right about 80% of the time. The Calibration report lab below tests that before you trust any threshold.</p>
+            </div>
+          </div>
+
           <h4 class="course-subhead">What you'll learn</h4>
           <ul class="explainer-list is-bulleted">
             <li>Golden sets: real user questions with expected answers, kept fresh</li>
             <li>Grading methods: exact match, code checks, an LLM judge with a rubric, human spot checks</li>
-            <li>Calibrating the judge against your own labels before trusting it</li>
+            <li>Calibrating the judge against your own labels before trusting it, and checking that calibration with a reliability diagram and a Brier score</li>
             <li>RAG metrics (RAGAS): faithfulness, answer relevance, context precision, context recall</li>
             <li>Tracing every call, retrieval and tool step (Langfuse, LangSmith)</li>
+            <li>The lethal trifecta: private data access, exposure to untrusted content, and a way to send data out. Remove at least one leg for any given task</li>
+            <li>Least privilege: scoped tools, allowlisted domains, read-only by default, with secrets injected by the harness at execution time and never placed in the model's context</li>
             <li>Input guardrails (personal data, prompt injection, off-topic) and output guardrails (schema, unsupported claims)</li>
+            <li><a href="#decision-models">Decision models</a> as a pre-execution gate: score whether a tool call is safe before it runs, and fail closed on a refusal or an API error</li>
+            <li>Human approval gates for irreversible or external actions, and treating the agent itself as a potential insider threat with audit logs and anomaly alerts</li>
             <li>Token budgets, cost alerts, and regression tests on every change</li>
           </ul>
+
+          <h4 class="course-subhead">Direct vs. indirect injection</h4>
+          <p style="max-width: 640px;">A direct injection is a user trying to override your instructions in the chat box. An indirect injection is malicious text hiding inside a web page, email, or document the agent reads on your behalf. It's the bigger real-world risk, because the agent never asked for it. Removing one leg of the lethal trifecta stops both:</p>
+          <div class="compare-table-wrap" style="margin-top: 8px; max-width: 640px;">
+            <table class="compare-table">
+              <thead>
+                <tr><th>Trifecta leg</th><th>How this module removes it</th></tr>
+              </thead>
+              <tbody>
+                <tr><th scope="row">Private data access</th><td>Scope tools and retrieval to only what the task needs</td></tr>
+                <tr><th scope="row">Exposure to untrusted content</th><td>Tag retrieved and tool text as data, never as instructions</td></tr>
+                <tr><th scope="row">Ability to send data out</th><td>Gate any write or network action behind human approval</td></tr>
+              </tbody>
+            </table>
+          </div>
+
           <h4 class="course-subhead">Hands-on labs</h4>
           <ol class="explainer-list is-numbered">
             <li><strong>Golden set.</strong> Turn the Module 3 questions into a 50-item set, including 10 the documents can't answer.</li>
             <li><strong>LLM as judge.</strong> Hand-grade 20 answers on a 1 to 5 faithfulness rubric, run the judge on the same 20, and report agreement.</li>
             <li><strong>RAGAS.</strong> Score the Module 3 app on all four metrics and find the weakest.</li>
             <li><strong>Tracing.</strong> Instrument the app and find the slowest step across 10 requests.</li>
-            <li><strong>Guardrails.</strong> Redact personal data on input and require every claim to cite a passage on output. Try 10 attack prompts and count what gets through.</li>
+            <li><strong>Guardrails.</strong> Redact personal data on input and require every claim to cite a passage on output. Plant a poisoned passage in the Module 3 corpus that tries to make the app exfiltrate notes, then try 10 attack prompts and count what gets through.</li>
+            <li><strong>Decision gate.</strong> Put a <a href="#decision-models">decision model</a> in front of every tool call with allow/ask/block thresholds. Run the same 10 attack prompts from the Guardrails lab through the gate alone, with no other defense, and report how many it catches on its own.</li>
+            <li><strong>Calibration report.</strong> Hand-label 20 attack and 20 benign tool calls. Score them with your decision gate, plot a reliability diagram, compute a Brier score, and pick your allow/ask/block thresholds from that data rather than a guess.</li>
             <li><strong>Budget alert.</strong> Add a daily token cap per user and an alert when spend crosses a threshold.</li>
           </ol>
           <div class="course-project">
             <span class="course-project-label">Project · Eval suite that runs in CI</span>
             <p>A GitHub Actions workflow that runs the golden set on every pull request, posts scores as a comment, and fails the build if quality drops past a set margin.</p>
-            <p><strong>Done when:</strong> a deliberately broken prompt fails the build, judge agreement is reported, and each eval run stays under a stated budget.</p>
+            <p><strong>Done when:</strong> a deliberately broken prompt fails the build, judge agreement is reported, each eval run stays under a stated budget, and a calibration report backs the thresholds chosen for the decision gate, with its catch rate reported alongside the eval scores.</p>
           </div>
           <div class="insight-aside">
             <svg width="26" height="26" viewBox="0 0 26 26" aria-hidden="true">
@@ -520,10 +568,14 @@
           <h4 class="course-subhead">What you'll learn</h4>
           <ul class="explainer-list is-bulleted">
             <li>The harness: model + tools + loop + state</li>
+            <li>Context engineering: the context window as a budget. Compaction once you cross a threshold, with full tool outputs kept on disk and passed by reference instead of in full</li>
             <li>Patterns: sequential steps, parallel fan-out, and a loop that critiques and retries</li>
             <li>A coordinator that hands work to sub-agents and merges the results</li>
             <li>Long-running agents that write progress files so work survives a crash</li>
-            <li>MCP servers that expose your own tools to any compatible client</li>
+            <li>Sandboxing tool execution: an isolated container, no network, bounded CPU and memory, a timeout</li>
+            <li>Idempotent tools, retries with backoff, and replay: rebuilding state by re-reading the session log instead of re-running everything</li>
+            <li>In-band memory (notes written while working) versus out-of-band "dreaming": a separate job that reviews logs later and proposes memory edits for your approval</li>
+            <li>MCP servers that expose your own tools to any compatible client, and the emerging agent-to-agent and agent-commerce protocols standardizing checkout, identity and payments between agents</li>
             <li>Limits (max steps, budget, timeout) and human approval for risky actions</li>
           </ul>
 
@@ -596,7 +648,7 @@
           <ol class="explainer-list is-numbered" style="max-width: 640px;">
             <li><strong>Turn the request into a contract.</strong> Before acting, write down the goal, inputs, expected output, constraints, and what "done" means. Without it, the agent can finish a different job and still declare success.</li>
             <li><strong>Give the agent a map.</strong> A small root guide that points to architecture, testing, product and security notes. A map preserves context, while a giant manual consumes it.</li>
-            <li><strong>Expose the right tools in the right environment.</strong> Every tool needs a clear purpose, predictable output, an explicit failure state, and a permission boundary. Reading files can be allowed by default; deploying or deleting data requires approval.</li>
+            <li><strong>Expose the right tools in the right environment.</strong> Every tool needs a clear purpose, predictable output, an explicit failure state, and a permission boundary. Reading files can be allowed by default; deploying or deleting data requires approval. Anything that executes code runs inside an isolated sandbox (no network, bounded CPU and memory, a timeout) so a runaway call can't reach anything it shouldn't.</li>
             <li><strong>Externalize memory into durable state.</strong> The conversation is not the system of record. Store decisions, artifacts, failures and open risks in a file, so the next session inherits the work, not a lossy retelling of the chat.</li>
             <li><strong>Add sensors before adding autonomy.</strong> Tests, linters, screenshots, logs and schema checks turn vague quality into evidence. The model creates an artifact, the environment produces evidence about it, and the harness decides whether that is enough to continue.</li>
             <li><strong>Enforce permissions outside the model.</strong> The model suggests, a policy checks, a tool executes. Don't ask one probabilistic system to invent the plan, approve the risk and carry out the side effect.</li>
@@ -645,7 +697,7 @@
                 <line x1="9" y1="13" x2="17" y2="13" stroke="var(--accent-strong)" stroke-width="1.6" stroke-linecap="round"/>
                 <line x1="9" y1="17" x2="14" y2="17" stroke="var(--accent-strong)" stroke-width="1.6" stroke-linecap="round"/>
               </svg>
-              <p><strong>History.</strong> An append-only record of what happened. Keep the whole run, not only the final answer. It is what makes debugging and evals possible.</p>
+              <p><strong>History.</strong> An append-only record of what happened. Keep the whole run, not only the final answer. Because the log lives outside both the model and the sandbox, the harness can crash and restart without losing work: idempotent tools make it safe to replay a step twice, and a resume command rebuilds state by re-reading the log instead of re-running everything. It is what makes debugging and evals possible.</p>
             </div>
           </div>
 
@@ -663,6 +715,33 @@
 
           <h4 class="course-subhead">Give every run a change receipt</h4>
           <p style="max-width: 640px;">Keep more than the final output. Save a compact receipt of how it was produced: context sources, model route, tools used, test results, human corrections, retries, cost, the accepted artifact and a rollback point. Receipts make model upgrades comparable, regressions attributable and audits possible.</p>
+
+          <h4 class="course-subhead" id="memory-and-dreaming">Memory and dreaming: improving between runs</h4>
+          <p style="max-width: 640px;">A receipt explains one run. Memory is what carries forward into the next one. There are two ways to write it: <strong>in-band</strong>, where the agent jots notes while it works, and <strong>out-of-band</strong>, a separate job that reviews logs later and proposes edits on its own schedule. The out-of-band kind is what gets called "dreaming": consolidation that happens after the work, not during it.</p>
+          <div class="compare-table-wrap" style="margin-top: 10px; max-width: 640px;">
+            <table class="compare-table">
+              <thead>
+                <tr><th>Store</th><th>Don't store</th></tr>
+              </thead>
+              <tbody>
+                <tr><td>Recurring mistakes and how they were fixed</td><td>One-off facts that won't recur</td></tr>
+                <tr><td>Stated preferences that held up over time</td><td>Anything unverified or only guessed at</td></tr>
+                <tr><td>Workflows that worked, written as steps</td><td>A single run's context-specific details</td></tr>
+              </tbody>
+            </table>
+          </div>
+          <p style="margin-top: 10px; max-width: 640px;">Keep memory in small topic files rather than one growing document. A few high-signal files beat a giant one nobody fully reads, including the agent. The real risk is that consolidation can turn a single bad call into permanent policy, silently, since nothing forced a second opinion on it. Version memory in git and gate every change behind human review before it's committed, the same way you'd review a pull request.</p>
+          <div class="insight-aside" style="margin-top: 12px;">
+            <svg width="26" height="26" viewBox="0 0 26 26" aria-hidden="true">
+              <circle cx="13" cy="13" r="10" fill="none" stroke="var(--border)" stroke-width="2"/>
+              <path d="M13 7 L13 14" stroke="var(--accent-strong)" stroke-width="2.4" stroke-linecap="round"/>
+              <circle cx="13" cy="18.5" r="1.6" fill="var(--accent-strong)"/>
+            </svg>
+            <div class="insight-aside-body">
+              <span class="insight-aside-label">Watch-out</span>
+              <p>A memory edit you didn't review is a policy change you didn't review. Treat the nightly diff the way you'd treat any other pull request: read it before it merges.</p>
+            </div>
+          </div>
 
           <h4 class="course-subhead">Start with the smallest harness that closes the loop</h4>
           <div class="compare-table-wrap" style="margin-top: 8px; max-width: 640px;">
@@ -760,6 +839,10 @@
             <li><strong>Failure clinic.</strong> Debug a broken agent with seven seeded failures, one per row of the harness table, using only its traces and history log. Fix each and rerun to prove it's gone.</li>
             <li><strong>Make a repo agent-legible.</strong> Add a short map file and a docs folder (architecture, decisions, active plan) to your RAG repo, plus one lint rule whose error explains the fix. Give a coding agent the same feature request before and after, and count your corrections.</li>
             <li><strong>Agent chief of staff.</strong> Build a coordinator that reads a daily diary file and each sub-agent's progress file, flags duplicate or conflicting work, and escalates to you only when a judgment call is needed.</li>
+            <li><strong>Sandboxed tool.</strong> Add a <code>run_python</code> tool that executes inside a Docker container with the network disabled, a 30 second timeout, and CPU and memory limits. Confirm a deliberate attempt to reach the internet from inside it fails.</li>
+            <li><strong>Durable log and replay.</strong> Write every event (user message, model response, tool call, tool result) to an append-only SQLite or JSONL log before anything else happens. Add a resume command that rebuilds the conversation from the log, kill the process mid-task, and resume without repeating completed tool calls.</li>
+            <li><strong>Idempotent tools.</strong> Give one side-effecting tool an idempotency key, call it twice with the same key, and confirm the side effect happens once. Wrap a flaky tool call in retries with exponential backoff.</li>
+            <li><strong>Memory and dreaming.</strong> Write a nightly job that reads a day's session logs, proposes <a href="#memory-and-dreaming">memory</a> edits as a diff, and waits for your approval before committing them to a git-tracked memory folder the agent loads on startup. Run a 10 to 20 task eval set before and after a week of approved edits and compare the results.</li>
           </ol>
           <div class="course-project">
             <span class="course-project-label">Project · Research agent with sub-agents</span>
@@ -818,7 +901,7 @@
           </div>
           <h4 class="course-subhead">Hands-on labs</h4>
           <ol class="explainer-list is-numbered">
-            <li><strong>Router.</strong> A small model labels requests easy or hard and sends hard ones to a large model. Compare cost and quality to always using the large one.</li>
+            <li><strong>Router.</strong> Compare three ways to route requests between a small and large model: fixed rules, an LLM call that labels the request easy or hard, and a <a href="#decision-models">decision model</a> that returns a probability. Score all three on cost, latency and accuracy against always using the large model.</li>
             <li><strong>Injection red team.</strong> Plant hidden instructions in a document in your RAG collection and try to make the app leak its instructions or misuse a tool. Add defenses and retest.</li>
             <li><strong>Replace the LLM.</strong> Find one model step from an earlier project that a rule could handle. Measure both.</li>
             <li><strong>Design doc.</strong> Write a one-page decision record with latency, cost and quality targets.</li>
@@ -868,19 +951,55 @@
             <li>Raw API and your own loop first; a framework only if the README explains what it replaced</li>
             <li>A RAG app and an agent app, both deployed</li>
             <li>A README with the architecture, eval scores, cost per request and latency numbers</li>
+            <li>An autonomy setting and a human-readable activity log on at least one deployed app</li>
             <li>A 60-second demo video</li>
             <li>A short write-up of what broke and how you fixed it</li>
           </ul>
+
+          <h4 class="course-subhead" id="product-judgment">Product judgment: autonomy, trust and recoverability</h4>
+          <p style="max-width: 640px;">Everything else in this course is a skill you can practice until it's reliable. This is judgment, and it's the biggest differentiator as a leader, not only as an engineer. Every feature needs an explicit stance on how much the system is allowed to do on its own before a human has to weigh in.</p>
+          <div class="compare-table-wrap" style="margin-top: 10px; max-width: 640px;">
+            <table class="compare-table">
+              <thead>
+                <tr><th>Autonomy level</th><th>What the system does</th></tr>
+              </thead>
+              <tbody>
+                <tr><th scope="row">Suggest</th><td>Proposes an action; a human decides</td></tr>
+                <tr><th scope="row">Act with confirmation</th><td>Executes once a human approves that specific action</td></tr>
+                <tr><th scope="row">Act and report</th><td>Executes on its own, then surfaces what happened</td></tr>
+              </tbody>
+            </table>
+          </div>
+          <p style="margin-top: 10px; max-width: 640px;">Match the level to the risk and reversibility of the action, not to how confident the system sounds. The <a href="#decision-models">decision models</a> from Module 4 and Module 6 can drive that match directly: a calibrated probability is a reasonable input to "ask or act," while an uncalibrated one is just a confident-sounding guess.</p>
+          <ul class="explainer-list is-bulleted" style="max-width: 640px; margin-top: 8px;">
+            <li><strong>Trust calibration.</strong> Show work and sources, state uncertainty plainly, and avoid both over-trust and under-trust.</li>
+            <li><strong>Recoverability.</strong> Confirm before irreversible actions, offer undo, and keep an activity log a user can actually read.</li>
+            <li><strong>Failure UX.</strong> A graceful handoff to a human or a manual path when the system can't finish.</li>
+            <li><strong>Feedback loops.</strong> Thumbs up and down, corrections, and failures should flow back into your eval set, not disappear.</li>
+          </ul>
+          <div class="insight-aside" style="margin-top: 12px;">
+            <svg width="26" height="26" viewBox="0 0 26 26" aria-hidden="true">
+              <circle cx="13" cy="13" r="10" fill="none" stroke="var(--border)" stroke-width="2"/>
+              <path d="M13 7 L13 14" stroke="var(--accent-strong)" stroke-width="2.4" stroke-linecap="round"/>
+              <circle cx="13" cy="18.5" r="1.6" fill="var(--accent-strong)"/>
+            </svg>
+            <div class="insight-aside-body">
+              <span class="insight-aside-label">Watch-out</span>
+              <p>A system that acts and reports on something irreversible, with no undo, has granted itself authority nobody actually gave it. Default to a lower autonomy level until the activity log proves it's earned a higher one.</p>
+            </div>
+          </div>
+
           <h4 class="course-subhead">Hands-on labs</h4>
           <ol class="explainer-list is-numbered">
             <li><strong>Problem pitch.</strong> One paragraph: the user, the problem, why an LLM helps, and how you'll measure success. Get feedback before building.</li>
             <li><strong>README first.</strong> Fill in the architecture, eval, cost and latency sections before writing code.</li>
             <li><strong>Deploy.</strong> Render, Fly.io, Railway or a cloud of your choice, with secrets in environment variables, a health check, and rate limiting.</li>
+            <li><strong>Autonomy and activity log.</strong> Add an autonomy setting (suggest / confirm / act-and-report) and a human-readable activity log to one deployed app. Run a short usability test with two or three people and write down where they trusted the system when they shouldn't have, or didn't trust it when they should have.</li>
             <li><strong>Demo and postmortem.</strong> Record the video and write a blameless what-broke review.</li>
           </ol>
           <div class="course-project">
             <span class="course-project-label">Project · Every project on GitHub</span>
-            <p><strong>Done when:</strong> a stranger can run each project from its README in under 10 minutes, the live links work, and every number is measured, not estimated.</p>
+            <p><strong>Done when:</strong> a stranger can run each project from its README in under 10 minutes, the live links work, every number is measured not estimated, and a one-page product spec covers autonomy, trust and recoverability for at least one app, doubling as a portfolio case study.</p>
           </div>
           <a class="try-it-quicklink" href="course/ai-beyond-fundamentals/ship-it.html" style="margin-top: 14px;">
             <svg width="14" height="14" viewBox="0 0 24 24" aria-hidden="true">
@@ -905,7 +1024,7 @@
           </svg>
         </button>
         <div class="fw-body" id="bonus-flight-rewards-body">
-          <p style="max-width: 640px;">An agent that finds the best way to book a trip on points. Points programs are confusing, transfer partners and award charts change, and people regularly overspend points or miss better options. The project touches every layer of the course, and its multi-agent step is honest: searching several loyalty programs at once is real parallel work. About 6 hours a week for six weeks; each bonus week unlocks after its matching module.</p>
+          <p style="max-width: 640px;">An agent that finds the best way to book a trip on points. Points programs are confusing, transfer partners and award charts change, and people regularly overspend points or miss better options. The project touches every layer of the course, and its multi-agent step is honest: searching several loyalty programs at once is real parallel work. About 6 hours a week for seven weeks; each bonus week unlocks after its matching module.</p>
           <div class="compare-table-wrap" style="margin-top: 12px;">
             <table class="compare-table">
               <thead>
@@ -917,7 +1036,8 @@
                 <tr><th scope="row">B3</th><td>Module 4</td><td>Evals</td><td>A 40-query golden set running in CI</td></tr>
                 <tr><th scope="row">B4</th><td>Module 5</td><td>Multi-agent graph</td><td>Planner, parallel searchers and a value checker</td></tr>
                 <tr><th scope="row">B5</th><td>Module 6</td><td>Production</td><td>Deployed, with cost, latency, routing and guardrails</td></tr>
-                <tr><th scope="row">B6</th><td>Module 7</td><td>Ship and tell</td><td>Demo video, README and postmortem</td></tr>
+                <tr><th scope="row">B6</th><td>Module 6</td><td>Voice front end</td><td>Spoken, interruptible trip planning</td></tr>
+                <tr><th scope="row">B7</th><td>Module 7</td><td>Ship and tell</td><td>Demo video, README and postmortem</td></tr>
               </tbody>
             </table>
           </div>
@@ -928,13 +1048,14 @@
             <li><strong>B2 · Ground it in program rules.</strong> Save public award charts, transfer partners, fees and stopover rules as files with the date captured. Record a recall@5 baseline on 25 rule questions, then add keyword search for airport codes, fare classes and program names. Every answer cites its source and says "as of" that date.</li>
             <li><strong>B3 · Prove it works.</strong> Collect 40 real trip questions from friends and family, including 8 where the right answer is "pay cash." Check the math with code, grade explanations with a calibrated LLM judge, and run the set on every pull request. A deliberately broken prompt should fail the build.</li>
             <li><strong>B4 · Split it into a graph.</strong> Prototype three subagents in Claude Code (planner, program searcher, value checker), each with only the tools it needs. Fan out one searcher per loyalty program. Use a hook so the value checker always runs before an answer goes out. Then compare single agent vs graph on the golden set and keep the graph only if the numbers justify the extra tokens.</li>
-            <li><strong>B5 · Make it production-shaped.</strong> Deploy behind your front end. Route simple lookups to a small model and trip planning to a large one. The agent never books and never handles loyalty account passwords. Plant an instruction in a rules page and show the defense holding. Track cost and p50/p95 latency per query.</li>
-            <li><strong>B6 · Ship and tell the story.</strong> A 60-second demo, a README with the architecture and eval table, a blameless postmortem on three things that broke, and an interview summary: the problem, one decision defended with numbers, and one failure you diagnosed and fixed.</li>
+            <li><strong>B5 · Make it production-shaped.</strong> Deploy behind your front end. Route simple lookups to a small model and trip planning to a large one. The agent never books and never handles loyalty account passwords. Plant an instruction in a rules page and show the defense holding. Track cost and p50/p95 latency per query. <strong>Stretch:</strong> swap your hand-rolled checkpointing from Module 5 for <a href="https://docs.dbos.dev/architecture" target="_blank" rel="noopener">DBOS</a>, a Postgres-backed durable workflow library, and confirm a killed process still resumes from its last completed step.</li>
+            <li><strong>B6 · Give it a voice.</strong> Build a voice front end, either a pipeline (speech-to-text, your agent, text-to-speech) or a realtime speech-to-speech API. Support interruption, speak progress while a search runs, and use a <a href="#decision-models">decision model</a> for two sub-second judgments inside each turn: has the user finished speaking, and does this turn need a tool call. Let a user upload a screenshot of a booking page and have the same decision model classify it (award search, confirmation, error page) before extraction.</li>
+            <li><strong>B7 · Ship and tell the story.</strong> A 60-second demo, a README with the architecture and eval table, a blameless postmortem on three things that broke, and an interview summary: the problem, one decision defended with numbers, and one failure you diagnosed and fixed.</li>
           </ol>
 
           <div class="course-project">
             <span class="course-project-label">Project · Flight Rewards Agent</span>
-            <p><strong>Done when:</strong> it was built from the raw loop first, the graph is justified by measurements, the golden set runs in CI with judge agreement reported, every rule answer is cited and dated, cost and latency numbers are real, and a stranger can run it from the README in under 10 minutes.</p>
+            <p><strong>Done when:</strong> it was built from the raw loop first, the graph is justified by measurements, the golden set runs in CI with judge agreement reported, every rule answer is cited and dated, cost and latency numbers are real, the voice front end holds a natural three-turn conversation that ends in a useful result, and a stranger can run it from the README in under 10 minutes.</p>
           </div>
 
           <h4 class="course-subhead" id="decode-the-hype">Decode the hype</h4>
@@ -951,6 +1072,7 @@
                 <tr><th scope="row">Harness engineering</th><td>The operating system around the model: tools, limits, state, permissions and traces</td><td>Module 5</td></tr>
                 <tr><th scope="row">Context engineering</th><td>The model's working view: deciding what goes into the context window</td><td>Modules 2 and 3</td></tr>
                 <tr><th scope="row">MCP and skills</th><td>Ways to package tools and instructions for agents</td><td>Module 5</td></tr>
+                <tr><th scope="row">Decision models</th><td>A narrow classifier that returns a calibrated probability instead of prose, for gating, grading or routing</td><td>Module 4, Module 6, Bonus B3&ndash;B6</td></tr>
                 <tr><th scope="row">World models (JEPA and similar)</th><td>Research on models that learn how the world works</td><td>Awareness only</td></tr>
                 <tr><th scope="row">Agentforce, Glean, Moveworks</th><td>Enterprise platforms built on RAG plus agents</td><td>Evaluate them with Module 4 thinking</td></tr>
               </tbody>
@@ -984,6 +1106,15 @@
         <li>Anthropic, <a href="https://www.anthropic.com/engineering/building-effective-agents" target="_blank" rel="noopener"><em>Building effective agents</em></a></li>
         <li>Anthropic, <a href="https://www.anthropic.com/engineering/built-multi-agent-research-system" target="_blank" rel="noopener"><em>How we built our multi-agent research system</em></a></li>
         <li>AI Builder Club, <a href="https://www.aibuilderclub.com/blog/graph-engineering-with-claude-code" target="_blank" rel="noopener"><em>Graph Engineering with Claude Code</em></a>, July 2026</li>
+        <li>Anthropic, <a href="https://www.anthropic.com/engineering/managed-agents" target="_blank" rel="noopener"><em>Scaling Managed Agents: Decoupling the brain from the hands</em></a></li>
+        <li>SD Times, <a href="https://sdtimes.com/ai/new-in-claude-managed-agents-dreaming-outcomes-and-multiagent-orchestration/" target="_blank" rel="noopener"><em>New in Claude Managed Agents: dreaming, outcomes, and multiagent orchestration</em></a></li>
+        <li>The New Stack, <a href="https://thenewstack.io/anthropic-agent-memory-dreaming/" target="_blank" rel="noopener"><em>Anthropic's take on agent memory and "dreaming"</em></a> (a critical counterpoint, worth reading alongside the launch coverage above)</li>
+        <li>DBOS, <a href="https://docs.dbos.dev/architecture" target="_blank" rel="noopener">Architecture docs</a>: durable workflows, checkpoints and queues on Postgres, the production-grade version of the durable log and replay lab in Module 5</li>
+        <li>The New Stack, <a href="https://thenewstack.io/openai-decision-api-luna/" target="_blank" rel="noopener"><em>OpenAI's Decision API</em></a></li>
+        <li>Firecrawl, <a href="https://www.firecrawl.dev/blog/openai-decisions-api-vs-jev" target="_blank" rel="noopener"><em>OpenAI Decisions API vs. Jev</em></a></li>
+        <li>LangChain, <a href="https://docs.langchain.com/oss/python/integrations/decision_models/openai" target="_blank" rel="noopener">Decision models integration docs</a></li>
+        <li>OWASP Top 10 for LLM Applications, and Simon Willison's writing on prompt injection and the lethal trifecta</li>
+        <li>Google PAIR, <em>People + AI Guidebook</em>, and Microsoft's <em>Guidelines for Human-AI Interaction</em></li>
         <li>Related book summaries on this site: <a href="summaries/co-intelligence.html"><em>Co-Intelligence</em></a>, <a href="summaries/the-ai-driven-leader.html"><em>The AI-Driven Leader</em></a>, <a href="summaries/vibe-coding.html"><em>Vibe Coding</em></a>, <a href="summaries/adopting-ai.html"><em>Adopting AI</em></a></li>
       </ul>
       <p class="course-note">Module structure adapted from a widely shared "Software Engineer to AI Engineer, 2026" roadmap. Lab designs, examples and write-ups are original.</p>

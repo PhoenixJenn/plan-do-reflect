@@ -94,9 +94,16 @@ raise StepLimit                             <span class="code-comment"># the cap
         </div>
 
         <div class="lesson-concept">
+          <h3>Context is a budget, not a scratchpad</h3>
+          <p>Every message, tool result and system prompt lives in the same context window, and that window has a hard limit. Treat it as a budget you spend deliberately, not a place things accumulate. The costliest items are usually tool results: a search that returns three full documents when the model only needed one paragraph spends those tokens again on every later turn, because the whole history gets resent on every call.</p>
+          <p>Two habits keep the budget under control. Keep tool results short, and store anything bulky (a full document, a long table) on disk, passing the model a path or an id instead of the content, so it can read the file back only if it actually needs more than the summary. And once the conversation crosses a threshold (a common choice is around 70% of the window), <strong>compact</strong>: summarize the older turns into one message that preserves the decisions and findings, and keep only the most recent few turns verbatim. Lab 11's durable log follows the same discipline: it saves every tool result in full on disk, but a resumed run only needs the ids and a short summary back in context, not the raw payloads.</p>
+        </div>
+
+        <div class="lesson-concept">
           <h3>Tools are contracts, and failures are information</h3>
           <p>A tool is a function plus a description the model reads to decide when to use it. The description <em>is</em> the interface: a vague one ("handles requests") makes the model guess, and Lab 7 has you watch that happen. A good tool has a clear purpose, predictable output, and an explicit failure state.</p>
           <p>Two habits matter. First, return errors as text the model can read ("ERROR: path is outside the workspace") instead of crashing the program, because a model that sees why something failed can often route around it. Second, never run model-written text as code. Module 2's calculator used a bare <code class="inline">eval()</code>; this module's walks the parsed expression and allows only numbers and arithmetic, because text a model produced can contain anything.</p>
+          <p>Anything that executes model-written code more generally should also run inside an isolated sandbox: no network access, a bounded amount of CPU and memory, and a timeout that can't be talked out of. Lab 10 wraps exactly that around a Python-execution tool. The two defenses target different risks: walking the parsed expression stops arbitrary code from running at all for the calculator specifically; the sandbox assumes code could still slip through some other, more general tool, and limits what it can reach if it does.</p>
         </div>
 
         <div class="lesson-concept">
@@ -210,6 +217,12 @@ raise StepLimit                             <span class="code-comment"># the cap
         </div>
 
         <div class="lesson-concept">
+          <h3>Memory and dreaming: what carries forward</h3>
+          <p>Everything above makes one run reliable. Memory is what makes the <em>next</em> run better, and there are two ways to write it. <strong>In-band</strong> memory is the agent jotting a note to itself mid-task, the same mechanism as Lab 4's progress file. <strong>Out-of-band</strong> memory, nicknamed "dreaming," is a separate job that runs later: it reads a batch of session logs, decides what's worth keeping, and proposes the change as a diff rather than writing it directly.</p>
+          <p>The proposing-a-diff part is not optional. Consolidation can just as easily turn one bad call into permanent policy as it can turn a real mistake into a lasting fix, and nothing about the mechanism tells the difference on its own. Lab 13 keeps a human in that loop: the nightly job writes its proposed edits to a file for you to accept or reject, and only accepted edits reach the memory folder the agent actually loads. Store recurring mistakes and workflows that held up over more than one run; skip one-off facts and anything the job itself isn't sure about. Keep the memory folder as a handful of small, named files rather than one that grows forever, for the same reason Module 4's golden set stays curated: a smaller, higher-signal thing is easier to trust than a comprehensive one nobody actually rereads.</p>
+        </div>
+
+        <div class="lesson-concept">
           <h3>MCP: one way to expose tools to any client</h3>
           <p>The Model Context Protocol (introduced by Anthropic in November 2024 and now an open specification at modelcontextprotocol.io) standardizes how an application offers tools, data and prompts to an AI client. You write a <strong>server</strong> that declares tools with typed arguments; any compatible <strong>client</strong> can list them and call them, with no custom integration per pair. Locally a client launches the server as a child process and talks to it over standard input and output; remote servers use HTTP.</p>
           <p>It's a young protocol and the SDKs move. This lesson's code uses the Python SDK's 2.x API, where the server class is <code class="inline">MCPServer</code> imported from <code class="inline">mcp.server.mcpserver</code>. Many older tutorials show <code class="inline">FastMCP</code> from <code class="inline">mcp.server.fastmcp</code>, which the 2.x SDK renamed; if you hit an ImportError, check <code class="inline">pip show mcp</code> first.</p>
@@ -237,6 +250,7 @@ raise StepLimit                             <span class="code-comment"># the cap
             </svg>
             <figcaption>Locally the two talk over stdin and stdout. A remote server is reached over HTTP instead, with the same messages.</figcaption>
           </figure>
+          <p>MCP standardizes tools and data. A newer, narrower problem sits next to it: once agents from different organizations need to transact with each other, who authenticates whom, and how does payment happen with no human approving every purchase? Emerging agent-to-agent and agent-commerce protocols, including work from Meta, Stripe and Shopify's Agent Protocol, are trying to standardize checkout, identity and payments the same way MCP standardized tool calls. None of it is settled yet; watch how it converges rather than committing to one.</p>
         </div>
 
         <div class="lesson-concept">
@@ -247,7 +261,7 @@ raise StepLimit                             <span class="code-comment"># the cap
 
         <div class="lesson-concept">
           <h3>Brain, hands, history, and the failures you can name</h3>
-          <p>Module 5's overview describes the harness as everything around the model. This lesson splits it into three components you can see in the code: the <strong>brain</strong> (one function that asks the model what to do next; <code class="inline">brain.py</code>), the <strong>hands</strong> (the tools and their permission flags; <code class="inline">tools.py</code>), and the <strong>history</strong> (an append-only record of every step; <code class="inline">harness.History</code>). Keeping them separate is what lets you fake the brain in a test, deny a tool without touching the model, and replay a run from its log.</p>
+          <p>Module 5's overview describes the harness as everything around the model. This lesson splits it into three components you can see in the code: the <strong>brain</strong> (one function that asks the model what to do next; <code class="inline">brain.py</code>), the <strong>hands</strong> (the tools and their permission flags; <code class="inline">tools.py</code>), and the <strong>history</strong> (an append-only record of every step; <code class="inline">harness.History</code>). Keeping them separate is what lets you fake the brain in a test, deny a tool without touching the model, and replay a run from its log. Lab 11 takes that log further than Lab 4's snapshot: instead of saving which sub-questions are done, it saves every individual event, so a fresh process can rebuild the exact conversation by replaying the log rather than trusting a summary of it. Lab 12 then makes it safe to replay a step twice, by making the tools themselves idempotent.</p>
           <p>The overview's table maps seven failure types to seven harness fixes. Lab 7 makes that table physical: seven reproducible failures in a sandbox, and a harness you repair until all seven stay fixed. It's the same move as a bug report with a failing test: name the failure class, change the system, and prove the change with a rerun.</p>
           <figure class="course-diagram">
             <svg viewBox="0 0 760 392" role="img" aria-label="The harness around the loop: brain, hands with an approval gate, five limits that stop the loop without asking the model, and an append-only history">
@@ -1320,6 +1334,325 @@ if __name__ == "__main__":
           </div>
         </div>
 
+        <div class="lab-card framework-item is-accordion" id="lab-10">
+          <button class="fw-toggle" type="button" aria-expanded="false" aria-controls="lab-10-body">
+            <span class="lab-num">LAB 10</span>
+            <div class="fw-toggle-text">
+              <h3>Sandboxed tool</h3>
+              <p class="fw-teaser">Add a run_python tool that executes inside a Docker container with no network and a hard timeout, and confirm a deliberate exfiltration attempt fails.</p>
+            </div>
+            <svg class="fw-chevron" width="18" height="18" viewBox="0 0 20 20" aria-hidden="true">
+              <path d="M5 7.5 L10 12.5 L15 7.5" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+          </button>
+          <div class="fw-body" id="lab-10-body">
+
+          <ol class="lab-steps">
+            <li>Create <code class="inline">agent/sandbox_tool.py</code>. Each call runs in a fresh, disposable container: <code class="inline">--network none</code> removes the network entirely rather than trusting the code not to use it, and the timeout is enforced from outside the container by <code class="inline">subprocess</code>, not from inside it, so code that ignores its own time budget still gets cut off.
+              <div class="code-block"><code>"""A run_python tool that executes inside an isolated Docker container: no network, bounded
+CPU and memory, and a timeout enforced from outside the container, not from inside it."""
+import subprocess
+
+IMAGE = "python:3.12-slim"
+
+def run_python(code, timeout_s=10):
+    """Runs `code` inside a fresh container and returns combined stdout and stderr."""
+    cmd = ["docker", "run", "--rm", "--network", "none", "--memory", "256m", "--cpus", "0.5",
+           IMAGE, "python", "-c", code]
+    try:
+        result = subprocess.run(cmd, capture_output=True, text=True, timeout=timeout_s)
+        return (result.stdout + result.stderr)[-4000:]
+    except subprocess.TimeoutExpired:
+        return f"ERROR: timed out after {timeout_s}s"</code></div>
+            </li>
+            <li>Register it in <code class="inline">agent/tools.py</code>'s <code class="inline">TOOLS</code> dict, next to <code class="inline">search_docs</code> and <code class="inline">calculate</code>, so Lab 1's loop can call it.
+              <div class="code-block"><code>from sandbox_tool import run_python
+
+TOOLS["run_python"] = {
+    "fn": run_python,
+    "schema": {"name": "run_python",
+               "description": "Run short Python code and return its output. No network access.",
+               "input_schema": {"type": "object", "properties": {
+                   "code": {"type": "string"}}, "required": ["code"]}}}</code></div>
+            </li>
+            <li>Call it directly first, with no model involved, to confirm the container runs at all.
+              <div class="code-block"><code>python -c "import sys; sys.path.insert(0, 'agent'); from sandbox_tool import run_python; print(run_python('print(sum(range(100)))'))"</code></div>
+            </li>
+            <li>Now try the thing the sandbox exists to stop: a deliberate attempt to reach the internet from inside the container.
+              <div class="code-block"><code>python -c "import sys; sys.path.insert(0, 'agent'); from sandbox_tool import run_python; print(run_python('import urllib.request; print(urllib.request.urlopen(\"http://example.com\", timeout=3).status)'))"</code></div>
+            </li>
+            <li>Confirm the timeout independently of the network: run <code class="inline">run_python("while True: pass", timeout_s=3)</code> and time how long the call actually takes to return.</li>
+          </ol>
+          <div class="lab-check"><strong>Check:</strong> the sum prints normally. The network attempt fails inside the container (a connection error from <code class="inline">urllib</code>, not a hang), because <code class="inline">--network none</code> removes the interface rather than relying on a firewall rule the code might route around. The infinite loop returns the timeout error at almost exactly the <code class="inline">timeout_s</code> you passed, not later, confirming the limit is enforced by the harness watching the container from outside, not by anything the code inside agreed to. If Docker isn't available in your environment, the same reasoning applies to any sandboxed-execution service; the behavior to verify is the same three things: normal code works, network is unreachable, and time is bounded no matter what the code does.</div>
+          </div>
+        </div>
+
+        <div class="lab-card framework-item is-accordion" id="lab-11">
+          <button class="fw-toggle" type="button" aria-expanded="false" aria-controls="lab-11-body">
+            <span class="lab-num">LAB 11</span>
+            <div class="fw-toggle-text">
+              <h3>Durable log and replay</h3>
+              <p class="fw-teaser">Write every event to an append-only log before acting on it, kill the process mid-task, and resume by replaying the log instead of re-running completed tool calls.</p>
+            </div>
+            <svg class="fw-chevron" width="18" height="18" viewBox="0 0 20 20" aria-hidden="true">
+              <path d="M5 7.5 L10 12.5 L15 7.5" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+          </button>
+          <div class="fw-body" id="lab-11-body">
+
+          <ol class="lab-steps">
+            <li>Create <code class="inline">agent/event_log.py</code>. Where Lab 4's progress file saves a snapshot of "what's done," this saves every individual event, so a fresh process can rebuild the exact message history by reading the log, rather than trusting a summary of it.
+              <div class="code-block"><code>"""An append-only event log: every message and tool result is written to disk BEFORE the loop
+does anything else with it. A fresh process rebuilds the conversation by replaying this log,
+rather than by trusting a snapshot of 'what's done' the way Lab 4's progress file does."""
+import json, time
+from pathlib import Path
+
+def log_path(run_id):
+    return Path(f"agent/events/{run_id}.jsonl")
+
+def append_event(run_id, kind, payload):
+    p = log_path(run_id); p.parent.mkdir(parents=True, exist_ok=True)
+    with open(p, "a") as f:
+        f.write(json.dumps({"ts": time.time(), "kind": kind, **payload}) + "\n")
+
+def replay(run_id):
+    """Rebuilds the message list and the set of tool_use ids that already have a result.
+    Nothing here re-runs a tool; it only replays what already happened."""
+    p = log_path(run_id)
+    if not p.exists():
+        return [], set()
+    messages, done_ids = [], set()
+    for line in p.read_text().splitlines():
+        event = json.loads(line)
+        if event["kind"] == "message":
+            messages.append(event["message"])
+        elif event["kind"] == "tool_result":
+            done_ids.add(event["tool_use_id"])
+    return messages, done_ids</code></div>
+            </li>
+            <li>Create <code class="inline">agent/durable_loop.py</code>: Lab 1's loop, with every message and tool result appended to the log before the loop moves on, and a <code class="inline">crash_after_tool</code> flag that kills the process mid-run for testing.
+              <div class="code-block"><code>"""Lab 1's loop, with every event appended to a durable log before anything else happens. Kill
+the process mid-task and rerun with the same run_id: it replays the log and skips completed
+tool calls instead of re-running them."""
+import os, sys
+from brain import think
+from tools import TOOLS
+from event_log import append_event, replay
+
+def run_durable(run_id, task, tools, max_steps=8,
+                 system="You are a careful research assistant. Use tools to find facts, "
+                        "and cite the [file p.N] tags you rely on.", crash_after_tool=None):
+    messages, done_ids = replay(run_id)
+    if not messages:
+        messages = [{"role": "user", "content": task}]
+        append_event(run_id, "message", {"message": messages[0]})
+    else:
+        print(f"resuming {run_id}: {len(done_ids)} tool call(s) already completed")
+
+    schemas = [t["schema"] for t in tools.values()]
+    calls_run = 0
+    for step in range(1, max_steps + 1):
+        resp = think(system, messages, schemas)
+        assistant_msg = {"role": "assistant", "content": [
+            {"type": "tool_use", "id": c.id, "name": c.name, "input": c.input} if c.type == "tool_use"
+            else {"type": "text", "text": c.text} for c in resp.content]}
+        messages.append(assistant_msg)
+        append_event(run_id, "message", {"message": assistant_msg})
+
+        calls = [b for b in resp.content if b.type == "tool_use"]
+        if not calls:
+            return "".join(b.text for b in resp.content if b.type == "text")
+
+        results = []
+        for c in calls:
+            if c.id in done_ids:                       # already ran before the crash: skip it
+                print(f"  step {step}: {c.name} already done, skipping")
+                continue
+            try:
+                out = tools[c.name]["fn"](**c.input)
+            except Exception as e:
+                out = f"ERROR: {type(e).__name__}: {e}"
+            result = {"type": "tool_result", "tool_use_id": c.id, "content": str(out)}
+            results.append(result)
+            append_event(run_id, "tool_result", {"tool_use_id": c.id, "content": str(out)})
+            calls_run += 1
+            if crash_after_tool is not None and calls_run &gt;= crash_after_tool:
+                print("simulated crash"); os._exit(1)    # no cleanup, like a killed process
+        if results:
+            user_msg = {"role": "user", "content": results}
+            messages.append(user_msg)
+            append_event(run_id, "message", {"message": user_msg})
+    raise RuntimeError(f"no final answer after {max_steps} steps")
+
+if __name__ == "__main__":
+    crash = int(sys.argv[3]) if len(sys.argv) &gt; 3 else None
+    print(run_durable(sys.argv[1], sys.argv[2], TOOLS, crash_after_tool=crash))</code></div>
+              <div class="code-block"><code>python agent/durable_loop.py demo2 "What is the maximum pressure of the Delta Sensor in bar, and what is that in kilopascals?" 1</code></div>
+            </li>
+            <li>Open <code class="inline">agent/events/demo2.jsonl</code>. It should hold the user message, the assistant turn with its tool call, and exactly one <code class="inline">tool_result</code> line, with no final answer, since the process was killed after the first tool call. Then run the same command with no crash flag.
+              <div class="code-block"><code>python agent/durable_loop.py demo2 "What is the maximum pressure of the Delta Sensor in bar, and what is that in kilopascals?"</code></div>
+            </li>
+            <li>Confirm the printed output says "resuming demo2: 1 tool call(s) already completed," and that the step which already ran is skipped, not repeated, before the run reaches a final answer.</li>
+          </ol>
+          <div class="lab-check"><strong>Check:</strong> compare this to Lab 4 directly. Lab 4 resumes by trusting a snapshot (two sub-questions marked done); this lab resumes by replaying the actual events that happened, which is a stronger guarantee when a step's effect is hard to summarize cleanly as "done" or "not done." The cost is a bigger log: Lab 4 writes one state file per run, this writes one line per event. Both are legitimate choices; which one a real system uses depends on how expensive replaying the full log gets as a run grows long, which is exactly the context-budget tradeoff from this module's Concepts section.</div>
+          </div>
+
+          <div class="insight-aside" style="margin-top: 14px;">
+            <svg width="26" height="26" viewBox="0 0 26 26" aria-hidden="true">
+              <circle cx="13" cy="13" r="10" fill="none" stroke="var(--border)" stroke-width="2"/>
+              <path d="M13 7 L13 14" stroke="var(--accent-strong)" stroke-width="2.4" stroke-linecap="round"/>
+              <circle cx="13" cy="18.5" r="1.6" fill="var(--accent-strong)"/>
+            </svg>
+            <div class="insight-aside-body">
+              <span class="insight-aside-label">Stretch</span>
+              <p>You just hand-rolled checkpointing and replay. <a href="https://docs.dbos.dev/architecture" target="_blank" rel="noopener">DBOS</a> is what a production system reaches for instead: a library, not a separate service, that durably checkpoints every workflow input and step output to a Postgres system database, then detects interrupted workflows on restart and resumes from the last completed step. It requires the same two properties you just built around by hand: workflows must be deterministic, and steps must be idempotent (Lab 12 builds that part next). Swap <code class="inline">event_log.py</code>'s JSONL file for a DBOS-decorated version of <code class="inline">run_durable</code> and confirm the same crash-and-resume behavior holds, now backed by Postgres instead of a file on disk.</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="lab-card framework-item is-accordion" id="lab-12">
+          <button class="fw-toggle" type="button" aria-expanded="false" aria-controls="lab-12-body">
+            <span class="lab-num">LAB 12</span>
+            <div class="fw-toggle-text">
+              <h3>Idempotent tools</h3>
+              <p class="fw-teaser">Give a side-effecting tool an idempotency key so a retried call is a no-op, and wrap a flaky call in retries with exponential backoff.</p>
+            </div>
+            <svg class="fw-chevron" width="18" height="18" viewBox="0 0 20 20" aria-hidden="true">
+              <path d="M5 7.5 L10 12.5 L15 7.5" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+          </button>
+          <div class="fw-body" id="lab-12-body">
+
+          <ol class="lab-steps">
+            <li>Create <code class="inline">agent/idempotent_tools.py</code>. <code class="inline">file_finding</code> is side-effecting (it appends a line to a shared report), so it takes a caller-supplied idempotency key and records which keys it has already applied, before doing the work again.
+              <div class="code-block"><code>"""A side-effecting tool made safe to call twice: callers pass an idempotency key, and the tool
+records which keys it has already applied so a retried call is a no-op, not a duplicate."""
+import json
+from pathlib import Path
+
+LEDGER = Path("agent/state/applied_keys.json")
+
+def _applied():
+    return json.loads(LEDGER.read_text()) if LEDGER.exists() else {}
+
+def file_finding(key, finding, report="agent/report.jsonl"):
+    applied = _applied()
+    if key in applied:
+        return f"already filed under key {key}, skipped"
+    with open(report, "a") as f:
+        f.write(json.dumps({"key": key, "finding": finding}) + "\n")
+    applied[key] = True
+    LEDGER.write_text(json.dumps(applied))
+    return f"filed under key {key}"</code></div>
+            </li>
+            <li>Call it twice with the same key and confirm the report gains exactly one line.
+              <div class="code-block"><code>python -c "
+import sys; sys.path.insert(0, 'agent')
+from idempotent_tools import file_finding
+print(file_finding('f1', 'Delta Sensor max pressure: 12 bar'))
+print(file_finding('f1', 'Delta Sensor max pressure: 12 bar'))
+"</code></div>
+            </li>
+            <li>Add retries with exponential backoff around a call that fails intermittently, the way a real network call does.
+              <div class="code-block"><code>"""Retries with exponential backoff around a tool that fails some fraction of the time."""
+import random, time
+
+def flaky_lookup(query, fail_rate=0.6):
+    if random.random() &lt; fail_rate:
+        raise ConnectionError("simulated network blip")
+    return f"result for {query!r}"
+
+def with_backoff(fn, *args, max_attempts=5, base_delay=0.2, **kwargs):
+    for attempt in range(1, max_attempts + 1):
+        try:
+            return fn(*args, **kwargs)
+        except Exception as e:
+            if attempt == max_attempts:
+                raise
+            delay = base_delay * (2 ** (attempt - 1))
+            print(f"  attempt {attempt} failed ({e}), retrying in {delay:.1f}s")
+            time.sleep(delay)</code></div>
+              <div class="code-block"><code>python -c "import sys; sys.path.insert(0, 'agent'); from idempotent_tools import with_backoff, flaky_lookup; print(with_backoff(flaky_lookup, 'warranty terms'))"</code></div>
+            </li>
+            <li>Lower <code class="inline">max_attempts</code> to 2 and raise <code class="inline">fail_rate</code> to 0.95, rerun a few times, and watch it eventually raise instead of retrying forever. A retry loop with no cap is just a slower version of the "no step limit" mistake from Lab 1.</li>
+          </ol>
+          <div class="lab-check"><strong>Check:</strong> the second <code class="inline">file_finding</code> call prints "already filed... skipped," and <code class="inline">agent/report.jsonl</code> has exactly one line for key <code class="inline">f1</code>. <code class="inline">with_backoff</code> should usually succeed within 5 attempts at a 60% failure rate (roughly a 99% chance of at least one success), and reliably exhaust its attempts and raise once you push the failure rate to 95% with only 2 attempts. The detail worth internalizing: the idempotency key has to come from somewhere stable across retries, like the <code class="inline">tool_use</code> id from Lab 11's event log, not be generated fresh inside the tool, or every retry would just be a new key and the protection would do nothing.</div>
+          </div>
+        </div>
+
+        <div class="lab-card framework-item is-accordion" id="lab-13">
+          <button class="fw-toggle" type="button" aria-expanded="false" aria-controls="lab-13-body">
+            <span class="lab-num">LAB 13</span>
+            <div class="fw-toggle-text">
+              <h3>Memory and dreaming</h3>
+              <p class="fw-teaser">Have a nightly job propose memory edits from the day's logs as a diff, and only let accepted edits reach the file the agent loads on startup.</p>
+            </div>
+            <svg class="fw-chevron" width="18" height="18" viewBox="0 0 20 20" aria-hidden="true">
+              <path d="M5 7.5 L10 12.5 L15 7.5" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+          </button>
+          <div class="fw-body" id="lab-13-body">
+
+          <ol class="lab-steps">
+            <li>Create <code class="inline">agent/dreaming.py</code>. <code class="inline">propose()</code> reads today's event logs from Lab 11 and writes a candidate memory file plus a readable diff; neither one is loaded by the agent yet. Only <code class="inline">accept()</code> moves a proposal into the folder the agent actually reads on startup.
+              <div class="code-block"><code>"""A nightly consolidation job: read today's event logs, propose a memory file as a diff
+against the current one, and wait for a human to accept it before anything reaches the
+memory folder the agent loads on startup."""
+import difflib, sys
+from pathlib import Path
+from brain import complete
+
+MEMORY_DIR = Path("agent/memory"); MEMORY_DIR.mkdir(parents=True, exist_ok=True)
+PROPOSED_DIR = Path("agent/memory_proposed"); PROPOSED_DIR.mkdir(parents=True, exist_ok=True)
+
+def read_todays_events(events_dir="agent/events"):
+    lines = []
+    for p in Path(events_dir).glob("*.jsonl"):
+        lines.extend(p.read_text().splitlines())
+    return "\n".join(lines[-400:])   # a day's logs can be long; this job is cheap, not free
+
+def propose(topic="research_tactics"):
+    current_path = MEMORY_DIR / f"{topic}.md"
+    current = current_path.read_text() if current_path.exists() else ""
+    prompt = ("Here is the current memory file below, followed by today's raw agent event log. "
+              "Propose an UPDATED version of the memory file. Only add a recurring mistake, a "
+              "validated preference, or a workflow that worked more than once. Never add a "
+              "one-off fact, and never remove something you can't see a reason to remove.\n\n"
+              f"Current memory ({topic}.md):\n{current}\n\n"
+              f"Today's events:\n{read_todays_events()}\n\n"
+              "Reply with only the full updated file contents, no commentary.")
+    proposed = complete(prompt, max_tokens=1200)
+    (PROPOSED_DIR / f"{topic}.md").write_text(proposed)
+    diff = "\n".join(difflib.unified_diff(current.splitlines(), proposed.splitlines(),
+                                          fromfile=f"{topic}.md (current)", tofile=f"{topic}.md (proposed)",
+                                          lineterm=""))
+    print(diff or "(no changes proposed)")
+    return diff
+
+def accept(topic="research_tactics"):
+    """Call only after you've read the diff yourself."""
+    proposed_path = PROPOSED_DIR / f"{topic}.md"
+    (MEMORY_DIR / f"{topic}.md").write_text(proposed_path.read_text())
+    print(f"accepted: agent/memory/{topic}.md updated. Now run: git add agent/memory &amp;&amp; git commit")
+
+if __name__ == "__main__":
+    {"propose": propose, "accept": accept}[sys.argv[1]](sys.argv[2] if len(sys.argv) &gt; 2 else "research_tactics")</code></div>
+            </li>
+            <li>Run several of this module's earlier labs for real (Lab 1, Lab 3, Lab 9) so <code class="inline">agent/events/</code> and <code class="inline">agent/diary.md</code> hold a real day's worth of activity, not an empty log.</li>
+            <li>Propose, and read the diff before doing anything else with it.
+              <div class="code-block"><code>python agent/dreaming.py propose</code></div>
+            </li>
+            <li>If the diff adds a real, recurring pattern, accept it. If it adds a one-off fact or something you can't verify, reject it by editing the prompt or the current memory file and running <code class="inline">propose</code> again; never edit <code class="inline">agent/memory_proposed/</code> by hand to make a bad proposal look acceptable, since that defeats the point of reviewing it.
+              <div class="code-block"><code>python agent/dreaming.py accept
+git add agent/memory &amp;&amp; git commit -m "accept memory update: research_tactics"</code></div>
+            </li>
+            <li>Wire the result in: have <code class="inline">brain.py</code>'s system prompt read and append every file under <code class="inline">agent/memory/</code> at startup. Over the following week, run the same 10 to 20 task set you'd use for an eval, before and after each approved edit, and record whether the same mistakes stop recurring.</li>
+          </ol>
+          <div class="lab-check"><strong>Check:</strong> a healthy proposal reads like a rule you'd have written yourself after noticing the pattern twice, not a transcript of one run. If a diff tries to add something that only happened once, that's the job doing exactly what it's supposed to do (surfacing a candidate) and you doing the part it can't: deciding it isn't ready yet. Treat <code class="inline">agent/memory_proposed/</code> as read-only output and <code class="inline">agent/memory/</code> as the only thing the agent ever actually loads; if those two folders start drifting into one, the human-review gate has quietly stopped doing anything.</div>
+          </div>
+        </div>
+
       </div>
     </section>
 
@@ -1476,6 +1809,8 @@ python agent/research.py run2 "Compare the Delta Sensor and the Cobalt Pump on w
         <li>Brain, hands and history are separate components you can point to, and the brain can be faked in a test.</li>
         <li>Every run saves its full history and a receipt with context sources, tools used, check results, retries, cost and a rollback point.</li>
         <li>A report with an unsupported citation is caught before it's accepted.</li>
+        <li>Code execution runs inside a sandbox with no network access, and a killed run resumes from its durable event log without repeating completed tool calls.</li>
+        <li>At least one approved memory edit, reviewed as a diff before acceptance, is loaded into the system prompt on a later run.</li>
       </ul>
         </div>
       </div>
@@ -1491,6 +1826,10 @@ python agent/research.py run2 "Compare the Delta Sensor and the Cobalt Pump on w
         <li>Model Context Protocol. <a href="https://modelcontextprotocol.io" target="_blank" rel="noopener">modelcontextprotocol.io</a>: specification and SDK documentation.</li>
         <li>Lopopolo, R. (2026). <a href="https://openai.com/index/harness-engineering/" target="_blank" rel="noopener"><em>Harness engineering: leveraging Codex in an agent-first world</em></a>. OpenAI.</li>
         <li>rari (2026). <em>Harness Engineering: How to Build AI Agents That Don't Fall Apart</em>. The seven failure types and the brain/hands/history split come from here and the module overview.</li>
+        <li>Anthropic. <a href="https://www.anthropic.com/engineering/managed-agents" target="_blank" rel="noopener"><em>Scaling Managed Agents: Decoupling the brain from the hands</em></a>.</li>
+        <li>SD Times. <a href="https://sdtimes.com/ai/new-in-claude-managed-agents-dreaming-outcomes-and-multiagent-orchestration/" target="_blank" rel="noopener"><em>New in Claude Managed Agents: dreaming, outcomes, and multiagent orchestration</em></a>.</li>
+        <li>The New Stack. <a href="https://thenewstack.io/anthropic-agent-memory-dreaming/" target="_blank" rel="noopener"><em>Anthropic's take on agent memory and "dreaming"</em></a>, a critical counterpoint worth reading alongside the launch coverage above.</li>
+        <li>DBOS. <a href="https://docs.dbos.dev/architecture" target="_blank" rel="noopener">Architecture docs</a>: durable workflows, checkpoints and queues on Postgres.</li>
       </ul>
     </section>
 

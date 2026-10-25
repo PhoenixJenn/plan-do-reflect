@@ -106,7 +106,7 @@
         <div class="lesson-concept">
           <h3>Routing: send the easy requests to the cheap model</h3>
           <p>Most traffic is easy, and a small model is often as good as a large one on easy requests at a fraction of the price and delay. A <strong>router</strong> labels each request and sends it to the model that fits. The research idea is cascading and routing between models of different cost: see Chen, Zaharia and Zou, <em>FrugalGPT</em> (2023), and Ong et al., <em>RouteLLM</em> (2024). The catch is that the router is itself a decision-maker that can be wrong, and a misrouted hard request costs you quality that the savings must outweigh.</p>
-          <p>So routing is a trade you measure, not a free win: the savings from the requests it routes down, minus the cost of the router's own calls, against the quality lost on the ones it routes wrongly. Lab 1 builds the measurement. Lab 3 then asks whether the router needs a model at all.</p>
+          <p>So routing is a trade you measure, not a free win: the savings from the requests it routes down, minus the cost of the router's own calls, against the quality lost on the ones it routes wrongly. Lab 1 builds the measurement. Lab 3 then asks whether the router needs a model at all, and compares that word-label router against a <a href="ai-beyond-fundamentals.html#decision-models">decision model</a>, a model call shaped to return a probability instead of a label, which is the difference between a verdict and a dial you can tune.</p>
           <figure class="course-diagram">
             <svg viewBox="0 0 760 304" role="img" aria-label="A router labels each request easy or hard and sends easy ones to a small cheap model and hard ones to a large model">
               <defs><marker id="router-a" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0 0L10 5L0 10z" fill="var(--text-caption)"/></marker></defs>
@@ -471,7 +471,7 @@ python arch/redteam.py</code></div>
             <span class="lab-num">LAB 3</span>
             <div class="fw-toggle-text">
               <h3>Replace the LLM</h3>
-              <p class="fw-teaser">Test whether a plain rule can do the router's job, and write the cases that would prove it can't.</p>
+              <p class="fw-teaser">Compare a plain rule, a word-label router and a decision model that returns a probability, and write the cases that would prove the rule can't keep up.</p>
             </div>
             <svg class="fw-chevron" width="18" height="18" viewBox="0 0 20 20" aria-hidden="true">
               <path d="M5 7.5 L10 12.5 L15 7.5" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
@@ -480,11 +480,12 @@ python arch/redteam.py</code></div>
           <div class="fw-body" id="lab-3-body">
 
           <ol class="lab-steps">
-            <li>Find the step in an earlier project where a rule might do the model's job. This lab uses the router from Lab 1, since it's a model call whose entire output is a one-word label. Create <code class="inline">arch/compare_routers.py</code>: a rule-based router (two product names, or a comparison word such as "which has", "higher" or "difference", means hard) scored against the known labels, next to the model-based router.
-              <div class="code-block"><code>"""Can a rule do the router's job? Score both against the known difficulty labels."""
+            <li>Find the step in an earlier project where a rule might do the model's job. This lab uses the router from Lab 1, since it's a model call whose entire output is a one-word label, and adds a third option: a <a href="ai-beyond-fundamentals.html#decision-models">decision model</a>, the same kind of call shaped to return a probability instead of a word. Create <code class="inline">arch/compare_routers.py</code>: a rule-based router (two product names, or a comparison word such as "which has", "higher" or "difference", means hard), the word-label router from Lab 1, and a probability-based router, all scored against the known labels.
+              <div class="code-block"><code>"""Can a rule do the router's job? Score a rule, a word-label router and a probability-based
+decision model against the known difficulty labels."""
 import json, re, sys, time
 sys.path.insert(0, "rag")
-from router import PRODUCTS, llm_route
+from router import PRODUCTS, call, SMALL, llm_route
 
 COMPARE_WORDS = re.compile(r"\b(compare|which has|which is|higher|lower|longer|shorter|difference|both|versus|vs)\b", re.I)
 
@@ -492,6 +493,18 @@ def rule_route(question):
     """Hard if it names two products or uses a comparison word. No model, no cost, same answer every time."""
     named = [n for n in PRODUCTS if n in question.lower()]
     return "hard" if len(named) &gt;= 2 or COMPARE_WORDS.search(question) else "easy"
+
+def decision_route(question, threshold=0.5):
+    """Ask the SMALL model for a probability instead of a word: how likely is this request to
+    need cross-product comparison or arithmetic, rather than a single fact lookup? The threshold
+    lives here, in code, not in the model's wording, which is what makes it a decision model
+    rather than just a differently-worded label."""
+    text, i, o, secs = call(SMALL, "Score how likely it is that this request needs cross-product "
+                            "comparison or arithmetic, rather than a single fact lookup.\n\n"
+                            f"Request: {question}\n\nReply with only a number between 0.0 and 1.0.", max_tokens=5)
+    match = re.search(r"[01](\.\d+)?", text)
+    p = float(match.group()) if match else 1.0   # fail closed toward the more capable model
+    return ("hard" if p &gt;= threshold else "easy"), p
 
 def score(route_fn, items):
     wrong, t0 = [], time.perf_counter()
@@ -503,21 +516,29 @@ def score(route_fn, items):
 if __name__ == "__main__":
     items = [json.loads(l) for l in open("arch/mixed_set.jsonl")]
     ok, wrong, secs = score(rule_route, items)
-    print(f"rule router : {ok}/{len(items)} correct, {secs * 1000:.3f} ms/request, $0")
+    print(f"rule router      : {ok}/{len(items)} correct, {secs * 1000:.3f} ms/request, $0")
     for it in wrong[:5]:
         print("   misrouted:", it["difficulty"], "-", it["question"])
     ok, wrong, secs = score(lambda q: llm_route(q)[0], items)
-    print(f"LLM router  : {ok}/{len(items)} correct, {secs * 1000:.0f} ms/request")
+    print(f"LLM router       : {ok}/{len(items)} correct, {secs * 1000:.0f} ms/request")
     for it in wrong[:5]:
         print("   misrouted:", it["difficulty"], "-", it["question"])
-    print("\nNow write 10 requests of your own that a rule like this would misroute, and test both.")</code></div>
+    ok, wrong, secs = score(lambda q: decision_route(q)[0], items)
+    print(f"decision model   : {ok}/{len(items)} correct, {secs * 1000:.0f} ms/request")
+    for it in wrong[:5]:
+        print("   misrouted:", it["difficulty"], "-", it["question"])
+    print("\nSame model call as the LLM router, scored at three thresholds, to see what the probability buys you:")
+    for threshold in (0.3, 0.5, 0.7):
+        ok, wrong, _ = score(lambda q: decision_route(q, threshold)[0], items)
+        print(f"  threshold {threshold}: {ok}/{len(items)} correct")
+    print("\nNow write 10 requests of your own that a rule like this would misroute, and test all three.")</code></div>
               <div class="code-block"><code>python arch/compare_routers.py</code></div>
             </li>
-            <li>Read both lines: correct out of 60, time per request, dollars. Look at what each router got wrong, not only how often.</li>
-            <li>Now the step that makes the comparison honest. Write 10 requests of your own that a rule like this would misroute (an easy-looking question that needs arithmetic, a hard-looking one that's really a lookup, a request in different words) and score both routers on them.</li>
+            <li>Read all three lines: correct out of 60, time per request, and for the rule router, dollars. Look at what each router got wrong, not only how often. Then read the threshold sweep: a word-label router gives you one verdict; a decision model gives you a probability you can move without a new prompt, which is the whole reason to prefer it for anything where you expect to retune later.</li>
+            <li>Now the step that makes the comparison honest. Write 10 requests of your own that a rule like this would misroute (an easy-looking question that needs arithmetic, a hard-looking one that's really a lookup, a request in different words) and score all three routers on them.</li>
             <li>Decide with evidence: if the rule is good enough, what traffic would make it stop being good enough, and how would you notice? Write that into the decision record in Lab 4.</li>
           </ol>
-          <div class="lab-check"><strong>Check:</strong> the rule router's result is deterministic, so we ran it: it labeled all 60 requests correctly, in a few microseconds each, at no cost. Treat that as a warning, not a win. The hard requests in this set come from two templates, and the rule was written by someone who knew the templates; a perfect score on your own synthetic questions says the rule fits your questions. The model router's accuracy is yours to measure. Step 3 is the real test: if the rule fails on your 10 hand-written cases and the model router handles them, that is the evidence for keeping the model. If both handle them, you've found a call you can delete.</div>
+          <div class="lab-check"><strong>Check:</strong> the rule router's result is deterministic, so we ran it: it labeled all 60 requests correctly, in a few microseconds each, at no cost. Treat that as a warning, not a win. The hard requests in this set come from two templates, and the rule was written by someone who knew the templates; a perfect score on your own synthetic questions says the rule fits your questions. The LLM router's and decision model's accuracy are yours to measure, and they should land close to each other, since both call the same size model on the same question; what differs is that the decision model's threshold sweep shows you a trade-off curve the word-label router can't, without a single extra model call. Step 3 is the real test: if the rule fails on your 10 hand-written cases and the model-based routers handle them, that is the evidence for keeping a model in the loop. If all three handle them, you've found a call you can delete.</div>
           </div>
         </div>
 
@@ -908,6 +929,8 @@ print("\n".join(lines))</code></div>
         <li>OWASP. <em>Top 10 for Large Language Model Applications</em>. owasp.org.</li>
         <li>Willison, S. (2025). <em>The lethal trifecta for AI agents</em>. simonwillison.net.</li>
         <li>Anthropic. <a href="https://www.anthropic.com/engineering/building-effective-agents" target="_blank" rel="noopener"><em>Building effective agents</em></a>.</li>
+        <li>The New Stack. <a href="https://thenewstack.io/openai-decision-api-luna/" target="_blank" rel="noopener"><em>OpenAI's Decision API</em></a>.</li>
+        <li>Firecrawl. <a href="https://www.firecrawl.dev/blog/openai-decisions-api-vs-jev" target="_blank" rel="noopener"><em>OpenAI Decisions API vs. Jev</em></a>.</li>
       </ul>
     </section>
 
