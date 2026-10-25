@@ -26,10 +26,20 @@
     document.body.removeChild(ta);
   }
 
+  // Text to copy: the block's code minus any .code-nocopy spans (shell
+  // comments that would error if pasted into zsh), trailing spaces trimmed.
+  function copyText(codeEl) {
+    var clone = codeEl.cloneNode(true);
+    clone.querySelectorAll('.code-nocopy').forEach(function (el) { el.remove(); });
+    return clone.textContent.replace(/[ \t]+$/gm, '').trim();
+  }
+
   document.addEventListener('DOMContentLoaded', function () {
     document.querySelectorAll('.code-block').forEach(function (block) {
       var codeEl = block.querySelector('code');
       if (!codeEl) return;
+
+      if (!copyText(codeEl)) return;
 
       var btn = document.createElement('button');
       btn.type = 'button';
@@ -39,7 +49,7 @@
       block.appendChild(btn);
 
       btn.addEventListener('click', function () {
-        var text = (codeEl.innerText || codeEl.textContent).trim();
+        var text = copyText(codeEl);
         if (navigator.clipboard && navigator.clipboard.writeText) {
           navigator.clipboard.writeText(text).then(function () {
             showCopied(btn);

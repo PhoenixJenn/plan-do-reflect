@@ -40,8 +40,12 @@
 .lab-check strong { color: var(--text-heading); }
 
 .code-block { position: relative; background: var(--code-bg); border-radius: 8px; padding: 12px 40px 12px 14px; overflow-x: auto; margin: 2px 0; }
+.code-block + .code-block { margin-top: 8px; }
 .code-block code { font-family: var(--font-mono); font-size: .8rem; line-height: 1.55; color: var(--code-text); white-space: pre; }
 .code-comment { color: var(--code-text-dim); }
+/* Platform label above a shell block ("macOS / Linux"). Lives outside <code>
+   so the copy button never includes it: a pasted "# ..." line errors in zsh. */
+.code-label { display: block; margin-bottom: 4px; font-family: var(--font-mono); font-size: .7rem; letter-spacing: .04em; text-transform: uppercase; color: var(--code-text-dim); }
 
 /* Injected by js/code-copy.js into every .code-block — not written in markup
    per block, so adding a new code block anywhere never needs its own button. */

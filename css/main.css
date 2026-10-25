@@ -1505,6 +1505,52 @@ body {
   margin: 0;
 }
 
+/* Collapsible variant of .insight-aside (native <details>): the icon and
+   label sit in the clickable <summary>; the body stays hidden until opened. */
+.insight-aside-collapsible {
+  display: block;
+}
+
+.insight-aside-collapsible > summary {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  cursor: pointer;
+  list-style: none;
+}
+
+.insight-aside-collapsible > summary::-webkit-details-marker {
+  display: none;
+}
+
+.insight-aside-collapsible > summary::after {
+  content: "+";
+  margin-left: auto;
+  font-size: 1.2rem;
+  color: var(--accent-strong);
+}
+
+.insight-aside-collapsible[open] > summary::after {
+  content: "\2212";
+}
+
+.insight-aside-collapsible > summary .insight-aside-label {
+  margin-bottom: 0;
+}
+
+.insight-aside-collapsible .insight-aside-body {
+  margin-top: 10px;
+  padding-left: 38px;
+}
+
+.insight-aside-collapsible ul {
+  margin: 6px 0 8px;
+  padding-left: 18px;
+  font-size: 0.88rem;
+  line-height: 1.55;
+  color: var(--text-body);
+}
+
 /* ---------- Example switch — toggles which worked example's content is
    visible inside a page (currently product-management.html: iPod,
    RouteWise). Every example's content lives in the DOM at all times,

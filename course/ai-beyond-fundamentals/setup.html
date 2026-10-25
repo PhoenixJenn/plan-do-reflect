@@ -53,12 +53,12 @@
           <h3>Python environments with venv and pip, in a monorepo layout</h3>
           <p><strong>venv</strong> is Python's built-in tool for creating an isolated environment so this project's packages don't collide with anything else installed on your machine. <strong>pip</strong> installs into it.</p>
           <p>If you write <code class="inline">anthropic</code> in a requirements file with no version attached, <code class="inline">pip install</code> grabs whatever the newest release happens to be on the day it runs &mdash; today that might work, three months from now a new major version could change the SDK's method names and break every lab that imports it, with no code change on your end to explain why. "Pinning" means locking each package to the exact version number you tested with, so installing never silently changes what you're running.</p>
-          <p>Neither <code class="inline">venv</code> nor <code class="inline">pip</code> tracks those exact versions for you automatically (this is what uv or poetry would do instead). You do it by hand with <code class="inline">pip freeze</code>, which inspects everything currently installed in the active environment and prints each package with an exact <code class="inline">==</code> version:</p>
+          <p>Neither <code class="inline">venv</code> nor <code class="inline">pip</code> tracks those exact versions for you automatically (this is what <a href="https://docs.astral.sh/uv/" target="_blank" rel="noopener">uv</a> or <a href="https://python-poetry.org/docs/" target="_blank" rel="noopener">poetry</a> would do instead). You do it by hand with <code class="inline">pip freeze</code>, which inspects everything currently installed in the active environment and prints each package with an exact <code class="inline">==</code> version:</p>
           <div class="code-block"><code>$ pip freeze
-anthropic==0.69.0
-openai==1.54.3
-google-genai==0.3.0
-python-dotenv==1.0.1
+anthropic==2.3.0
+openai==3.37.0
+google-genai==2.33.0
+python-dotenv==1.2.4
 <span class="code-comment">...</span></code></div>
           <p>Redirecting that output into <code class="inline">requirements.txt</code> and committing the file turns it into the pin list. From then on, <code class="inline">pip install -r requirements.txt</code> installs exactly those versions, so your setup, your collaborator's, and the one this checklist describes all run identical code.</p>
           <p><strong>Prefer uv or poetry?</strong> This course uses venv and pip because they ship with Python and need nothing extra installed. uv and poetry are popular alternatives that create the environment, install packages and record exact versions in a lockfile for you. If you already use one, it works for every lab: translate the install commands and skip the manual <code class="inline">pip freeze</code> step.</p>
@@ -151,39 +151,82 @@ python-dotenv==1.0.1
           <ol class="lab-steps">
             <li>Create the repo and one virtual environment at the root &mdash; every project folder below shares it, so you activate it once per terminal session, not once per folder.
               <div class="code-block"><code>mkdir ai-beyond-fundamentals
-cd ai-beyond-fundamentals
-
-<span class="code-comment"># macOS / Linux</span>
-python3 -m venv .venv
-source .venv/bin/activate
-
-<span class="code-comment"># Windows (PowerShell)</span>
-python -m venv .venv
+cd ai-beyond-fundamentals</code></div>
+              <div class="code-block"><span class="code-label">macOS / Linux</span><code>python3 -m venv .venv
+source .venv/bin/activate</code></div>
+              <div class="code-block"><span class="code-label">Windows (PowerShell)</span><code>python -m venv .venv
 .venv\Scripts\Activate.ps1</code></div>
+              <details class="insight-aside insight-aside-collapsible">
+                <summary>
+                  <svg width="26" height="26" viewBox="0 0 26 26" aria-hidden="true">
+                    <circle cx="13" cy="13" r="10" fill="none" stroke="var(--border)" stroke-width="2"/>
+                    <path d="M13 7 L13 14" stroke="var(--accent-strong)" stroke-width="2.4" stroke-linecap="round"/>
+                    <circle cx="13" cy="18.5" r="1.6" fill="var(--accent-strong)"/>
+                  </svg>
+                  <span class="insight-aside-label">What does <code class="inline">python3 -m venv .venv</code> do?</span>
+                </summary>
+                <div class="insight-aside-body">
+                  <p>It creates an isolated Python environment inside a folder named <code class="inline">.venv</code>. Breaking the command down:</p>
+                  <ul>
+                    <li><code class="inline">python3</code> runs your system's Python interpreter.</li>
+                    <li><code class="inline">-m venv</code> tells Python to run a standard-library module as a program. The module is <code class="inline">venv</code>, which ships with Python, so there is nothing to install.</li>
+                    <li><code class="inline">.venv</code> is the folder where the new environment goes. The leading dot hides it in Finder and in a plain <code class="inline">ls</code>; that is just convention.</li>
+                  </ul>
+                  <p>What ends up inside <code class="inline">.venv/</code>:</p>
+                  <ul>
+                    <li><code class="inline">bin/python</code>, a private link to the interpreter. This is what runs once you activate.</li>
+                    <li><code class="inline">bin/pip</code>, an installer that puts packages in <code class="inline">.venv/lib/.../site-packages</code> instead of your system Python.</li>
+                    <li><code class="inline">bin/activate</code>, the script <code class="inline">source .venv/bin/activate</code> runs. It puts <code class="inline">.venv/bin</code> first on your <code class="inline">PATH</code>, so typing <code class="inline">python</code> or <code class="inline">pip</code> now means the private ones.</li>
+                  </ul>
+                  <p>Why bother: packages installed here never touch your system Python or other projects, other projects can't break this one by upgrading a shared package, and the pinned versions in <code class="inline">requirements.txt</code> stay exactly what you tested with.</p>
+                  <p><strong>Creating the venv does not activate it.</strong> Run <code class="inline">source .venv/bin/activate</code> in every new terminal. You'll see <code class="inline">(.venv)</code> at the start of your prompt when it's on. Check with <code class="inline">which python</code>: the path should end in <code class="inline">.venv/bin/python</code>, not <code class="inline">/usr/bin/python3</code>. <code class="inline">.venv</code> is listed in <code class="inline">.gitignore</code> because it is large and machine-specific; anyone else rebuilds it from <code class="inline">requirements.txt</code>.</p>
+                </div>
+              </details>
             </li>
             <li>Build the project skeleton. Deliberately no <code class="inline">shared/__init__.py</code> here &mdash; every file inside <code class="inline">shared/</code> imports its siblings with bare names like <code class="inline">from llm_log import log_call</code>, which only resolves if <code class="inline">shared/</code> itself sits directly on <code class="inline">sys.path</code>. Adding <code class="inline">__init__.py</code> turns <code class="inline">shared</code> into a real package, which changes how <code class="inline">pytest</code> resolves its imports in Lab 4 and breaks exactly that.
-              <div class="code-block"><code><span class="code-comment"># macOS / Linux</span>
-mkdir -p shared chatbot extraction rag evals agent ragvsfinetune
-
-<span class="code-comment"># Windows (PowerShell)</span>
-mkdir shared, chatbot, extraction, rag, evals, agent, ragvsfinetune</code></div>
+              <div class="code-block"><span class="code-label">macOS / Linux</span><code>mkdir -p shared chatbot extraction rag evals agent ragvsfinetune</code></div>
+              <div class="code-block"><span class="code-label">Windows (PowerShell)</span><code>mkdir shared, chatbot, extraction, rag, evals, agent, ragvsfinetune</code></div>
+              <details class="insight-aside insight-aside-collapsible">
+                <summary>
+                  <svg width="26" height="26" viewBox="0 0 26 26" aria-hidden="true">
+                    <circle cx="13" cy="13" r="10" fill="none" stroke="var(--border)" stroke-width="2"/>
+                    <path d="M13 7 L13 14" stroke="var(--accent-strong)" stroke-width="2.4" stroke-linecap="round"/>
+                    <circle cx="13" cy="18.5" r="1.6" fill="var(--accent-strong)"/>
+                  </svg>
+                  <span class="insight-aside-label">Why does macOS use <code class="inline">mkdir -p</code> but PowerShell doesn't?</span>
+                </summary>
+                <div class="insight-aside-body">
+                  <p>They are two different programs that happen to share a name.</p>
+                  <p><strong>macOS / Linux: <code class="inline">mkdir -p</code></strong></p>
+                  <ul>
+                    <li><code class="inline">mkdir</code> is a small program from the Unix toolset, and it takes flags.</li>
+                    <li>By default it makes one folder at a time, and it errors if the parent is missing or the folder already exists.</li>
+                    <li><code class="inline">-p</code> (&ldquo;parents&rdquo;) changes that in two ways: it creates any missing parent folders, and it does not error if the folder already exists.</li>
+                    <li><code class="inline">-p</code> is also what makes listing several folders in one command work, as this step does.</li>
+                  </ul>
+                  <p><strong>Windows PowerShell: <code class="inline">mkdir shared, chatbot, ...</code></strong></p>
+                  <ul>
+                    <li>In PowerShell, <code class="inline">mkdir</code> is a built-in function that wraps <code class="inline">New-Item -ItemType Directory</code>.</li>
+                    <li>That command already creates missing parents and already tolerates existing folders, so there is nothing for a <code class="inline">-p</code> flag to turn on.</li>
+                    <li>PowerShell takes multiple names as a comma-separated list, because it passes them as a list of values rather than as separate words.</li>
+                  </ul>
+                  <p>One more difference: PowerShell commands usually take full-word parameters like <code class="inline">-Path</code> or <code class="inline">-Force</code>, not single-letter Unix flags. Typing <code class="inline">mkdir -p</code> in PowerShell would likely fail or be read as an abbreviated parameter name.</p>
+                </div>
+              </details>
             </li>
             <li>Install the packages every later module needs, then freeze the exact versions so the repo pins what you tested with.
               <div class="code-block"><code>pip install anthropic openai google-genai python-dotenv pyyaml pytest
 pip freeze &gt; requirements.txt</code></div>
             </li>
             <li>Now three separate files, all at the repo root (<code class="inline">ai-beyond-fundamentals/</code>, next to <code class="inline">.venv</code>). Start with <code class="inline">.gitignore</code>, so the next two are already covered by it the moment they exist.
-              <div class="code-block"><code><span class="code-comment"># macOS / Linux</span>
-cat &gt; .gitignore &lt;&lt;'EOF'
+              <div class="code-block"><span class="code-label">macOS / Linux</span><code>cat &gt; .gitignore &lt;&lt;'EOF'
 .env
 .venv
 __pycache__/
 *.log
 *.jsonl
-EOF
-
-<span class="code-comment"># Windows (PowerShell)</span>
-@'
+EOF</code></div>
+              <div class="code-block"><span class="code-label">Windows (PowerShell)</span><code>@'
 .env
 .venv
 __pycache__/
@@ -192,15 +235,12 @@ __pycache__/
 '@ | Set-Content .gitignore</code></div>
             </li>
             <li><code class="inline">.env.example</code> &mdash; the committed template, values left blank, so a collaborator knows which keys to set without ever seeing yours.
-              <div class="code-block"><code><span class="code-comment"># macOS / Linux</span>
-cat &gt; .env.example &lt;&lt;'EOF'
+              <div class="code-block"><span class="code-label">macOS / Linux</span><code>cat &gt; .env.example &lt;&lt;'EOF'
 ANTHROPIC_API_KEY=
 OPENAI_API_KEY=
 GEMINI_API_KEY=
-EOF
-
-<span class="code-comment"># Windows (PowerShell)</span>
-@'
+EOF</code></div>
+              <div class="code-block"><span class="code-label">Windows (PowerShell)</span><code>@'
 ANTHROPIC_API_KEY=
 OPENAI_API_KEY=
 GEMINI_API_KEY=
@@ -215,15 +255,12 @@ GEMINI_API_KEY=
               <p style="margin-top: 8px;">Each key is shown to you once. Copy it somewhere safe immediately &mdash; if you lose it, the dashboard can only let you revoke it and create a new one, not show it to you again.</p>
             </li>
             <li><code class="inline">.env</code> &mdash; your real keys. Copy the template, then open the copy directly from the terminal &mdash; a filename starting with a dot is hidden by default in Finder and File Explorer, so double-clicking to find it in a file browser often won't work.
-              <div class="code-block"><code><span class="code-comment"># macOS / Linux</span>
-cp .env.example .env
-code .env       <span class="code-comment"># VS Code
+              <div class="code-block"><span class="code-label">macOS / Linux</span><code>cp .env.example .env
+code .env       <span class="code-comment code-nocopy"># VS Code
 # or: nano .env    (terminal editor, Ctrl+O to save, Ctrl+X to exit)
-# or: open .env    (macOS — opens in whatever app handles plain text)</span>
-
-<span class="code-comment"># Windows (PowerShell)</span>
-Copy-Item .env.example .env
-code .env       <span class="code-comment"># VS Code
+# or: open .env    (macOS — opens in whatever app handles plain text)</span></code></div>
+              <div class="code-block"><span class="code-label">Windows (PowerShell)</span><code>Copy-Item .env.example .env
+code .env       <span class="code-comment code-nocopy"># VS Code
 # or: notepad .env</span></code></div>
               Paste each key in after its <code class="inline">=</code>, one per line, no quotes and no spaces around the <code class="inline">=</code>, so it reads:
               <div class="code-block"><code>ANTHROPIC_API_KEY=sk-ant-api03-...
@@ -276,7 +313,8 @@ for m in client.models.list():
 
           <ol class="lab-steps">
             <li>Create a new file at <code class="inline">chatbot/three_providers.py</code> (from the repo root: <code class="inline">code chatbot/three_providers.py</code> for VS Code, <code class="inline">nano chatbot/three_providers.py</code> for a terminal editor, or <code class="inline">touch chatbot/three_providers.py</code> on macOS/Linux / <code class="inline">New-Item chatbot\three_providers.py</code> on Windows then open it in your editor &mdash; <code class="inline">code</code> and <code class="inline">nano</code> both create the file themselves, no <code class="inline">touch</code> needed first). Paste in one function per provider. Each prints the model's actual reply &mdash; not just its usage &mdash; so a wrong or empty answer is visible immediately instead of hiding behind a token count that looks fine on its own.
-              <div class="code-block"><code>import os
+              <div class="code-block"><code>import json
+import os
 from dotenv import load_dotenv
 load_dotenv()
 
@@ -286,50 +324,66 @@ def call_anthropic():
     from anthropic import Anthropic
     client = Anthropic(api_key=os.environ["ANTHROPIC_API_KEY"])
     resp = client.messages.create(
-        model="claude-sonnet-5",
+        model="claude-haiku-5-5",
         max_tokens=200,
         messages=[{"role": "user", "content": PROMPT}],
     )
     <span class="code-comment"># a "thinking" response can put a ThinkingBlock before the text block,
     # so pick the block that actually is text rather than assuming index 0</span>
     text = next(b.text for b in resp.content if b.type == "text")
-    print("Claude  :", text)
-    print("  usage :", resp.usage)
+    return {"text": text, "usage": resp.usage.model_dump(mode="json", exclude_none=True)}
 
 def call_openai():
     from openai import OpenAI
     client = OpenAI(api_key=os.environ["OPENAI_API_KEY"])
     resp = client.chat.completions.create(
-        model="gpt-4.1-mini",
+        model="gpt-5.4-mini",
         messages=[{"role": "user", "content": PROMPT}],
     )
-    print("OpenAI  :", resp.choices[0].message.content)
-    print("  usage :", resp.usage)
+    return {
+        "text": resp.choices[0].message.content,
+        "usage": resp.usage.model_dump(mode="json", exclude_none=True),
+    }
 
 def call_gemini():
     from google import genai
-    client = genai.Client(api_key=os.environ["GEMINI_API_KEY"])
-    resp = client.models.generate_content(model="gemini-flash-latest", contents=PROMPT)
-    print("Gemini  :", resp.text)
-    print("  usage :", resp.usage_metadata)
+    from google.genai import types
+    client = genai.Client(
+        api_key=os.environ["GEMINI_API_KEY"],
+        <span class="code-comment"># milliseconds; without a timeout the SDK keeps retrying an overloaded model</span>
+        http_options=types.HttpOptions(timeout=20000),
+    )
+    resp = client.models.generate_content(model="gemini-flash-lite-latest", contents=PROMPT)
+    return {
+        "text": resp.text,
+        "usage": resp.usage_metadata.model_dump(mode="json", exclude_none=True),
+    }
 
 if __name__ == "__main__":
-    call_anthropic()
-    call_openai()
-    call_gemini()</code></div>
+    results = {}
+    for name, call in [("anthropic", call_anthropic), ("openai", call_openai), ("gemini", call_gemini)]:
+        try:
+            results[name] = call()
+        except Exception as e:
+            <span class="code-comment"># one provider failing (a 503, say) shouldn't lose the other two answers</span>
+            results[name] = {"error": f"{type(e).__name__}: {e}"}
+    output = json.dumps(results, indent=2)
+    print(output)
+    with open("lab2-output.json", "w") as f:
+        f.write(output + "\n")</code></div>
             </li>
-            <li>Run it and read all three answers, then the three usage objects beneath them.
+            <li>Run it. The script prints the results as JSON and also saves them to <code class="inline">lab2-output.json</code>, so you can open the file in your editor (VS Code folds and colors JSON) or compare runs. Read all three answers, then the three <code class="inline">usage</code> objects. If a provider fails, its entry shows an <code class="inline">error</code> instead of the answer, and the other two still come through.
               <div class="code-block"><code>python chatbot/three_providers.py</code></div>
-              If <code class="inline">gemini-flash-latest</code> fails with a <code class="inline">503</code> ("high demand"), that's the model being temporarily overloaded, not your code &mdash; wait a few seconds and rerun.
+              If Gemini returns a <code class="inline">503</code> ("high demand") or a <code class="inline">504</code> (deadline exceeded), or the run seems stuck, that's the model being overloaded, not your code. The timeout turns a stuck call into an <code class="inline">error</code> entry in the JSON; rerun after a few seconds. We use <code class="inline">gemini-flash-lite-latest</code> because the larger flash models were overloaded when we wrote this lab and the lite model answered in under a second. Swap the name if a model is busy.
             </li>
-            <li>Each SDK names its fields differently. At the bottom of <code class="inline">chatbot/three_providers.py</code>, add a comment recording all three shapes exactly as printed &mdash; you'll be back in this file for Lab 4, writing the code that normalizes them into one shape.
-              <div class="code-block"><code><span class="code-comment"># usage field names, from the printed output above:
+            <li>Each SDK names its fields differently. At the bottom of <code class="inline">chatbot/three_providers.py</code>, add a comment recording all three shapes exactly as they appear in the JSON &mdash; you'll be back in this file for Lab 4, writing the code that normalizes them into one shape.
+              <div class="code-block"><code><span class="code-comment"># usage field names, from lab2-output.json:
 #   anthropic: input_tokens / output_tokens
 #   openai:    prompt_tokens / completion_tokens
 #   gemini:    prompt_token_count / candidates_token_count</span></code></div>
             </li>
           </ol>
-          <div class="lab-check"><strong>Check:</strong> all three answers actually explain what a token is (not an error message or an empty string), and each usage object shows a non-zero input token count. A <code class="inline">401</code> means the key name in <code class="inline">.env</code> doesn't match what the code reads; a <code class="inline">429</code> means you're rate-limited &mdash; wait a minute and retry.</div>
+          <div class="lab-check"><strong>Check:</strong> all three answers actually explain what a token is (not an error message or an empty string), and each usage object shows a non-zero input token count. A <code class="inline">401</code> means the key name in <code class="inline">.env</code> doesn't match what the code reads, or the key is stale: <code class="inline">load_dotenv()</code> does not override a key already exported in your shell, so a terminal window opened before you rotated a key keeps using the old one. Open a fresh terminal window (or run <code class="inline">source ~/.zshrc</code>) and retry; a <code class="inline">429</code> means you're rate-limited &mdash; wait a minute and retry.</div>
           </div>
         </div>
 
@@ -347,16 +401,11 @@ if __name__ == "__main__":
           <div class="fw-body" id="lab-3-body">
           <ol class="lab-steps">
             <li>Install Ollama.
-              <div class="code-block"><code><span class="code-comment"># macOS, via Homebrew</span>
-brew install ollama
-ollama serve   <span class="code-comment"># leave running in its own terminal</span>
-
-<span class="code-comment"># Linux</span>
-curl -fsSL https://ollama.com/install.sh | sh
-ollama serve   <span class="code-comment"># leave running in its own terminal</span>
-
-<span class="code-comment"># Windows
-# Download the installer from ollama.com/download and run it —
+              <div class="code-block"><span class="code-label">macOS, via Homebrew</span><code>brew install ollama
+ollama serve   <span class="code-comment code-nocopy"># leave running in its own terminal</span></code></div>
+              <div class="code-block"><span class="code-label">Linux</span><code>curl -fsSL https://ollama.com/install.sh | sh
+ollama serve   <span class="code-comment code-nocopy"># leave running in its own terminal</span></code></div>
+              <div class="code-block"><span class="code-label">Windows</span><code><span class="code-comment code-nocopy"># Download the installer from ollama.com/download and run it —
 # it installs Ollama and starts it running in the background automatically.</span></code></div>
             </li>
             <li>Pull a small model and sanity-check it from the command line. <code class="inline">llama3.2</code> downloads about 2 GB (it defaults to the 3B variant); check you have that much free disk space first, or pull the smaller <code class="inline">llama3.2:1b</code> tag instead (about 1.3 GB) if you're tight on room. This can be run from any directory &mdash; Ollama stores pulled models once in your home directory (<code class="inline">~/.ollama</code> on macOS/Linux, <code class="inline">%USERPROFILE%\.ollama</code> on Windows), not inside the project repo, so it doesn't matter where your terminal's <code class="inline">cwd</code> is for this step.
