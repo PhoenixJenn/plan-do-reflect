@@ -3427,3 +3427,55 @@ body {
   color: var(--text-body);
   margin: 0;
 }
+
+/* ---------- Platform hover cards (ai-fundamentals comparison table) ----------
+   Card is position: fixed and placed by js/platform-tips.js, because
+   .compare-table-wrap's overflow-x: auto would clip an absolute tooltip. */
+.platform-tip {
+  display: table;
+  margin-bottom: 4px;
+  border-bottom: 1px dotted var(--text-caption);
+  cursor: help;
+}
+
+.platform-item {
+  display: table;
+  margin-bottom: 4px;
+}
+
+.platform-tip:focus-visible {
+  outline: 2px solid var(--accent-strong);
+  outline-offset: 2px;
+}
+
+.platform-tip-card {
+  display: none;
+  position: fixed;
+  z-index: 50;
+  width: 280px;
+  max-width: calc(100vw - 24px);
+  padding: 10px 12px;
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  background: var(--bg-content);
+  color: var(--text-body);
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.12);
+  font-size: 0.8rem;
+  line-height: 1.5;
+  pointer-events: none;
+}
+
+.platform-tip-card strong {
+  color: var(--text-heading);
+}
+
+.platform-tip-card.is-open {
+  display: block;
+}
+
+.platform-tip-hint {
+  display: block;
+  margin-top: 6px;
+  font-size: 0.75rem;
+  color: var(--text-caption);
+}
