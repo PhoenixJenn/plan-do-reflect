@@ -315,6 +315,7 @@ for m in client.models.list():
             <li>Create a new file at <code class="inline">chatbot/three_providers.py</code> (from the repo root: <code class="inline">code chatbot/three_providers.py</code> for VS Code, <code class="inline">nano chatbot/three_providers.py</code> for a terminal editor, or <code class="inline">touch chatbot/three_providers.py</code> on macOS/Linux / <code class="inline">New-Item chatbot\three_providers.py</code> on Windows then open it in your editor &mdash; <code class="inline">code</code> and <code class="inline">nano</code> both create the file themselves, no <code class="inline">touch</code> needed first). Paste in one function per provider. Each prints the model's actual reply &mdash; not just its usage &mdash; so a wrong or empty answer is visible immediately instead of hiding behind a token count that looks fine on its own.
               <div class="code-block"><code>import json
 import os
+from datetime import datetime
 from dotenv import load_dotenv
 load_dotenv()
 
@@ -369,15 +370,17 @@ if __name__ == "__main__":
             results[name] = {"error": f"{type(e).__name__}: {e}"}
     output = json.dumps(results, indent=2)
     print(output)
-    with open("lab2-output.json", "w") as f:
-        f.write(output + "\n")</code></div>
+    filename = f"lab2-output-{datetime.now():%Y%m%d-%H%M%S}.json"  <span class="code-comment"># a new file every run</span>
+    with open(filename, "w") as f:
+        f.write(output + "\n")
+    print("saved to", filename)</code></div>
             </li>
-            <li>Run it. The script prints the results as JSON and also saves them to <code class="inline">lab2-output.json</code>, so you can open the file in your editor (VS Code folds and colors JSON) or compare runs. Read all three answers, then the three <code class="inline">usage</code> objects. If a provider fails, its entry shows an <code class="inline">error</code> instead of the answer, and the other two still come through.
+            <li>Run it. The script prints the results as JSON and also saves them to a new timestamped file such as <code class="inline">lab2-output-20261025-125400.json</code> (every run keeps its own file, so earlier results are never overwritten), so you can open a file in your editor (VS Code folds and colors JSON) or compare runs. Read all three answers, then the three <code class="inline">usage</code> objects. If a provider fails, its entry shows an <code class="inline">error</code> instead of the answer, and the other two still come through.
               <div class="code-block"><code>python chatbot/three_providers.py</code></div>
               If Gemini returns a <code class="inline">503</code> ("high demand") or a <code class="inline">504</code> (deadline exceeded), or the run seems stuck, that's the model being overloaded, not your code. The timeout turns a stuck call into an <code class="inline">error</code> entry in the JSON; rerun after a few seconds. We use <code class="inline">gemini-flash-lite-latest</code> because the larger flash models were overloaded when we wrote this lab and the lite model answered in under a second. Swap the name if a model is busy.
             </li>
             <li>Each SDK names its fields differently. At the bottom of <code class="inline">chatbot/three_providers.py</code>, add a comment recording all three shapes exactly as they appear in the JSON &mdash; you'll be back in this file for Lab 4, writing the code that normalizes them into one shape.
-              <div class="code-block"><code><span class="code-comment"># usage field names, from lab2-output.json:
+              <div class="code-block"><code><span class="code-comment"># usage field names, from the lab2-output-*.json file:
 #   anthropic: input_tokens / output_tokens
 #   openai:    prompt_tokens / completion_tokens
 #   gemini:    prompt_token_count / candidates_token_count</span></code></div>
@@ -412,16 +415,16 @@ ollama serve   <span class="code-comment code-nocopy"># leave running in its own
               <div class="code-block"><code>ollama pull llama3.2
 ollama run llama3.2 "Explain what a token is, in three sentences."</code></div>
             </li>
-            <li>Back in <code class="inline">chatbot/three_providers.py</code>, add a fourth function, <code class="inline">call_ollama()</code>, alongside the three from Lab 2 &mdash; same SDK as <code class="inline">call_openai</code>, pointed at a different <code class="inline">base_url</code> so it talks to your local Ollama server instead of OpenAI's. Call it from the <code class="inline">__main__</code> block along with the other three.
+            <li>Back in <code class="inline">chatbot/three_providers.py</code>, add a fourth function, <code class="inline">call_ollama()</code>, alongside the three from Lab 2 &mdash; same SDK as <code class="inline">call_openai</code>, pointed at a different <code class="inline">base_url</code> so it talks to your local Ollama server instead of OpenAI's. Add <code class="inline">("ollama", call_ollama)</code> to the list in the <code class="inline">__main__</code> loop so it lands in the output file with the other three. It returns <code class="inline">usage</code> as <code class="inline">None</code> if your local server sends none, instead of crashing.
               <div class="code-block"><code>def call_ollama():
     from openai import OpenAI
     local = OpenAI(base_url="http://localhost:11434/v1", api_key="ollama")  <span class="code-comment"># key is unused but required by the SDK</span>
     resp = local.chat.completions.create(
-        model="llama3.2",
+        model="llama3.2",  <span class="code-comment"># or whichever model `ollama list` shows on your machine</span>
         messages=[{"role": "user", "content": PROMPT}],
     )
-    print("Ollama  :", resp.choices[0].message.content)
-    print("  usage :", resp.usage)</code></div>
+    usage = resp.usage.model_dump(mode="json", exclude_none=True) if resp.usage else None
+    return {"text": resp.choices[0].message.content, "usage": usage}</code></div>
             </li>
           </ol>
           <div class="lab-check"><strong>Check:</strong> the local call returns a real answer with no network call to a provider &mdash; turn off Wi-Fi and rerun it to prove it. Note whether <code class="inline">resp.usage</code> comes back populated; some local setups return <code class="inline">None</code>, which the logger in Lab 4 needs to handle without crashing.</div>
