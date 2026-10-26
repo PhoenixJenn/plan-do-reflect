@@ -20,6 +20,9 @@
 .lesson-concept h3 { font-family: var(--font-heading); font-size: 1.02rem; color: var(--text-heading); margin-bottom: 6px; }
 .lesson-concept p { font-size: .9rem; line-height: 1.6; }
 .lesson-concept p + p { margin-top: 8px; }
+.lesson-concept ul, .lesson-concept ol { font-size: .9rem; line-height: 1.6; margin: 8px 0 0; padding-left: 22px; }
+.lesson-concept li + li { margin-top: 6px; }
+.lesson-concept ul + p, .lesson-concept ol + p, .lesson-concept p + ul, .lesson-concept p + ol { margin-top: 8px; }
 
 .lesson-labs { display: flex; flex-direction: column; gap: 24px; }
 

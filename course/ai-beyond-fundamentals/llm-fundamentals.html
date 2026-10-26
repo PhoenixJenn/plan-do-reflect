@@ -240,6 +240,19 @@ source .venv/bin/activate</code></div>
         </div>
 
         <div class="lesson-concept">
+          <h3>Embeddings and similarity &mdash; how a computer compares meaning</h3>
+          <p>A chat model reads text and writes text. An <strong>embedding model</strong> does something different: it reads text and returns a long list of numbers, called a <strong>vector</strong>, that stands for what the text means. Texts with similar meaning get vectors that point in similar directions, even if they share almost no words. "Which city is the capital of France?" and "What is the capital of France?" end up close together; "How do I bake a chocolate cake?" ends up far away. The model <code class="inline">text-embedding-3-small</code> that Lab 6 uses returns 1,536 numbers for every piece of text you give it.</p>
+          <p>To compare two vectors you use <strong>cosine similarity</strong>: the cosine of the angle between them. Identical direction scores 1, and unrelated texts score near 0. In Lab 6 your scores run from 0.109 (a chocolate cake against a question about France) to 0.972 (two ways of asking about spider legs). The score is a measure of closeness, not a probability. A score of 0.8 does not mean "80% likely to be the same question", which is why the threshold needs testing, not guessing.</p>
+          <p>Three things about embedding models that are easy to miss:</p>
+          <ul>
+            <li><strong>They are separate models from the chat models.</strong> They have their own endpoint and name, they return numbers instead of text, and they bill only for input tokens because there is nothing generated. Providers offer their own: see the <a href="https://developers.openai.com/api/docs/guides/embeddings" target="_blank" rel="noopener">OpenAI</a>, <a href="https://ai.google.dev/gemini-api/docs/embeddings" target="_blank" rel="noopener">Gemini</a> and <a href="https://docs.ollama.com/capabilities/embeddings" target="_blank" rel="noopener">Ollama</a> embeddings guides.</li>
+            <li><strong>Vectors from different embedding models can't be compared.</strong> Each model has its own space with its own number of dimensions. If you switch models, you have to re-embed everything you stored.</li>
+            <li><strong>Thresholds don't carry over.</strong> The same pair of sentences scores differently under a different model, so a cut-off you tuned for one model has to be re-tuned for the next. Lab 6 finds one for <code class="inline">text-embedding-3-small</code> only.</li>
+          </ul>
+          <p>You will use the same idea again in Module 3: retrieval-augmented generation embeds your documents once, embeds each question, and fetches the nearest chunks by cosine similarity.</p>
+        </div>
+
+        <div class="lesson-concept">
           <h3>Picking a model: quality, speed, cost &mdash; pick two</h3>
           <p>There's no universally "best" model, only a triangle you're trading off inside: bigger and smarter models cost more and respond slower; smaller "lite" or "mini" variants are cheaper and faster but weaker on hard tasks. The practical move (and the subject of Module 6's router lab) is routing easy requests to a cheap model and reserving the expensive one for requests that actually need it.</p>
           <p>That tradeoff isn't hypothetical here: both Module 0 and this module use <code class="inline">gemini-flash-lite-latest</code> rather than <code class="inline">gemini-flash-latest</code>, specifically because the lite variant answered reliably and fast under real testing (under a second for a short reply), while the larger flash models were overloaded and timed out with <code class="inline">503</code> and <code class="inline">504</code> errors. Cheaper and faster isn't always a downgrade &mdash; sometimes it's just the better fit for what you're doing.</p>
