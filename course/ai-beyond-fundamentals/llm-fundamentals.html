@@ -36,8 +36,36 @@
       <p class="lesson-eyebrow">Module 1 &middot; LLM Fundamentals</p>
       <h1 class="page-title">LLM Fundamentals</h1>
       <p class="lesson-sub">Module 0 gave you <code class="inline">shared/llm_client.py</code> &mdash; one function that calls any provider and logs what it cost. This module is about understanding what's actually happening inside that call well enough to <strong>predict</strong> the cost and the latency before you make it, not just read them off afterward: what a token is, what temperature and streaming actually change, and the two completely different kinds of caching that cut cost without you noticing.</p>
-      <p class="lesson-sub" style="margin-top: 10px;">Same assumptions as Module 0: everything runs from the <code class="inline">ai-beyond-fundamentals/</code> repo root with the venv activated. The model names below (<code class="inline">claude-sonnet-5</code>, <code class="inline">gpt-4.1-mini</code>, <code class="inline">gemini-flash-lite-latest</code>) are the same "check before you paste" caveat from Module 0 &mdash; they will go stale, so verify before trusting them.</p>
+      <p class="lesson-sub" style="margin-top: 10px;">Same assumptions as Module 0: everything runs from the <code class="inline">ai-beyond-fundamentals/</code> repo root with the venv activated. The model names below (<code class="inline">claude-haiku-5-5</code>, <code class="inline">gpt-5.4-mini</code>, <code class="inline">gemini-flash-lite-latest</code>) are the same "check before you paste" caveat from Module 0 &mdash; they will go stale, so verify before trusting them.</p>
     </header>
+
+    <div class="insight-aside" style="margin: 22px 0;">
+      <svg width="26" height="26" viewBox="0 0 26 26" aria-hidden="true">
+        <circle cx="13" cy="13" r="10" fill="none" stroke="var(--border)" stroke-width="2"/>
+        <path d="M13 7 L13 14" stroke="var(--accent-strong)" stroke-width="2.4" stroke-linecap="round"/>
+        <circle cx="13" cy="18.5" r="1.6" fill="var(--accent-strong)"/>
+      </svg>
+      <div class="insight-aside-body">
+        <span class="insight-aside-label">Starting a new session? Reactivate your venv first</span>
+        <p>A virtual environment only stays active in the terminal window where you activated it. Close the window, reboot, or open a new one, and you are back on your system Python, which doesn't have the course's packages. Each time you sit down to work, do this before running any code below.</p>
+        <p><strong>1. Go to the repo root and activate the venv.</strong></p>
+        <div class="code-block"><span class="code-label">macOS / Linux</span><code>cd ~/path/to/ai-beyond-fundamentals
+source .venv/bin/activate</code></div>
+        <div class="code-block"><span class="code-label">Windows (PowerShell)</span><code>cd path\to\ai-beyond-fundamentals
+.venv\Scripts\Activate.ps1</code></div>
+        <p>Your prompt should now start with <code class="inline">(.venv)</code>. If PowerShell refuses to run the script, allow it for this window only with <code class="inline">Set-ExecutionPolicy -Scope Process RemoteSigned</code> and try again.</p>
+        <p><strong>2. Confirm you are using the venv's Python.</strong></p>
+        <div class="code-block"><span class="code-label">macOS / Linux</span><code>which python</code></div>
+        <div class="code-block"><span class="code-label">Windows (PowerShell)</span><code>Get-Command python</code></div>
+        <p>The path should end in <code class="inline">.venv/bin/python</code> (or <code class="inline">.venv\Scripts\python.exe</code> on Windows). Anything else means the venv isn't active, and you will see <code class="inline">ModuleNotFoundError</code> when you run the code.</p>
+        <p><strong>3. Check the things that change between sessions.</strong></p>
+        <ul>
+          <li>If you created or rotated an API key since your last session, use a <em>new</em> terminal window. <code class="inline">load_dotenv()</code> does not override keys already set in a window's environment, so an old window keeps the old key and you get a <code class="inline">401</code>.</li>
+          <li>If you are using the local model, check Ollama is running with <code class="inline">ollama list</code>. A connection error means start the Ollama app, or run <code class="inline">ollama serve</code> in its own terminal.</li>
+          <li>VS Code users: if the Python interpreter is set to the <code class="inline">.venv</code> (Command Palette, "Python: Select Interpreter"), new integrated terminals activate it for you. You can still confirm with step 2.</li>
+        </ul>
+      </div>
+    </div>
 
     <section class="lesson-section">
       <h2>Concepts</h2>
@@ -46,7 +74,19 @@
         <div class="lesson-concept">
           <h3>Messages, roles, and system prompts &mdash; and why the shapes differ</h3>
           <p>Every provider's chat API takes a list of turns, each tagged with a <strong>role</strong>: <code class="inline">user</code> for what you send, <code class="inline">assistant</code> for what the model said, and a <strong>system prompt</strong> that sets standing behavior ("answer only from the provided text," "respond in JSON") before the conversation starts.</p>
-          <p>Where that system prompt goes is the one thing that genuinely differs per provider, and it's exactly what <code class="inline">_dispatch</code> in Module 0's <code class="inline">llm_client.py</code> is hiding from you: Anthropic takes <code class="inline">system</code> as its own top-level parameter, separate from <code class="inline">messages</code>. OpenAI (and Ollama, through the same OpenAI-compatible SDK) treats it as just another message with <code class="inline">role: "system"</code>. Gemini uses neither &mdash; its own role for the model's own turns is <code class="inline">"model"</code>, not <code class="inline">"assistant"</code>, which trips people up the first time they build multi-turn history by hand.</p>
+          <p>Where that system prompt goes is the one thing that genuinely differs per provider, and it's exactly the kind of difference a shared client has to hide. (Module 0's <code class="inline">call()</code> sends no system prompt yet, only the user's message; the chat client you build in this module's project adds one.) Anthropic takes <code class="inline">system</code> as its own top-level parameter, separate from <code class="inline">messages</code>. OpenAI (and Ollama, through the same OpenAI-compatible SDK) treats it as just another message with <code class="inline">role: "system"</code>. Gemini takes a top-level <code class="inline">systemInstruction</code> (like Anthropic's <code class="inline">system</code>, not a message), and its own role for the model's turns is <code class="inline">"model"</code>, not <code class="inline">"assistant"</code>, which trips people up the first time they build multi-turn history by hand.</p>
+          <p>The table below puts the shapes side by side. Each link goes to that provider's own API reference, where you can see the complete request payload with every optional field.</p>
+          <div class="compare-table-wrap">
+            <table class="compare-table">
+              <thead><tr><th>Provider</th><th>System prompt goes in</th><th>Role names</th><th>Full payload example</th></tr></thead>
+              <tbody>
+                <tr><th scope="row">Claude (Anthropic)</th><td>Top-level <code class="inline">system</code> parameter</td><td><code class="inline">user</code>, <code class="inline">assistant</code></td><td><a href="https://platform.claude.com/docs/en/api/http/messages/create" target="_blank" rel="noopener">Create a Message</a> &middot; <a href="https://platform.claude.com/docs/en/api/overview" target="_blank" rel="noopener">API overview</a></td></tr>
+                <tr><th scope="row">OpenAI</th><td>A message with <code class="inline">role: "system"</code> (newer models also accept <code class="inline">"developer"</code>)</td><td><code class="inline">system</code>, <code class="inline">user</code>, <code class="inline">assistant</code></td><td><a href="https://developers.openai.com/api/reference/resources/chat/subresources/completions/methods/create" target="_blank" rel="noopener">Chat Completions: create</a> &middot; <a href="https://developers.openai.com/api/reference/overview" target="_blank" rel="noopener">API overview</a></td></tr>
+                <tr><th scope="row">Gemini (Google)</th><td>Top-level <code class="inline">systemInstruction</code> field; turns go in <code class="inline">contents</code> as <code class="inline">parts</code></td><td><code class="inline">user</code>, <code class="inline">model</code></td><td><a href="https://ai.google.dev/api/generate-content" target="_blank" rel="noopener">models.generateContent</a> &middot; <a href="https://ai.google.dev/api" target="_blank" rel="noopener">API overview</a></td></tr>
+                <tr><th scope="row">Ollama (local)</th><td>Same as OpenAI when you use its OpenAI-compatible endpoint</td><td><code class="inline">system</code>, <code class="inline">user</code>, <code class="inline">assistant</code></td><td><a href="https://docs.ollama.com/api/openai-compatibility" target="_blank" rel="noopener">OpenAI compatibility</a> &middot; <a href="https://docs.ollama.com/api/chat" target="_blank" rel="noopener">Native chat API</a></td></tr>
+              </tbody>
+            </table>
+          </div>
         </div>
 
         <div class="lesson-concept">
@@ -189,7 +229,7 @@
         <div class="lesson-concept">
           <h3>Picking a model: quality, speed, cost &mdash; pick two</h3>
           <p>There's no universally "best" model, only a triangle you're trading off inside: bigger and smarter models cost more and respond slower; smaller "lite" or "mini" variants are cheaper and faster but weaker on hard tasks. The practical move (and the subject of Module 6's router lab) is routing easy requests to a cheap model and reserving the expensive one for requests that actually need it.</p>
-          <p>That tradeoff isn't hypothetical here: this module's labs use <code class="inline">gemini-flash-lite-latest</code> rather than Module 0's <code class="inline">gemini-flash-latest</code>, specifically because the lite variant streamed reliably and about twice as fast under real testing, while the full flash model was intermittently overloaded. Cheaper and faster isn't always a downgrade &mdash; sometimes it's just the better fit for what you're doing.</p>
+          <p>That tradeoff isn't hypothetical here: both Module 0 and this module use <code class="inline">gemini-flash-lite-latest</code> rather than <code class="inline">gemini-flash-latest</code>, specifically because the lite variant answered reliably and fast under real testing (under a second for a short reply), while the larger flash models were overloaded and timed out with <code class="inline">503</code> and <code class="inline">504</code> errors. Cheaper and faster isn't always a downgrade &mdash; sometimes it's just the better fit for what you're doing.</p>
         </div>
 
       </div>
@@ -237,13 +277,13 @@ def anthropic_tokens(text):
     from anthropic import Anthropic
     client = Anthropic(api_key=os.environ["ANTHROPIC_API_KEY"])
     resp = client.messages.count_tokens(
-        model="claude-sonnet-5", messages=[{"role": "user", "content": text}],
+        model="claude-haiku-5-5", messages=[{"role": "user", "content": text}],
     )
     return resp.input_tokens
 
 def openai_tokens(text):
     import tiktoken
-    enc = tiktoken.encoding_for_model("gpt-4.1-mini")
+    enc = tiktoken.encoding_for_model("gpt-5.4-mini")
     return len(enc.encode(text))
 
 def gemini_tokens(text):
@@ -261,13 +301,124 @@ if __name__ == "__main__":
               <div class="code-block"><code>python chatbot/token_intuition.py</code></div>
             </li>
           </ol>
-          <div class="lab-check"><strong>Check:</strong> emoji and Japanese should cost noticeably more tokens per character than English &mdash; both get split into several token pieces per visible character under most tokenizers, while common English words are often a single token. Anthropic's count typically comes in a bit higher than the other two for the same text; that's conversation-structure overhead from counting a full message, not a different tokenizer being "wrong." In our own run: English came out <code class="inline">anthropic=24 openai=10 gemini=11</code>, Japanese came out <code class="inline">anthropic=26 openai=13 gemini=11</code> &mdash; expect your numbers to be close, not identical, since tokenizers change between model versions.</div>
+          <div class="lab-check"><strong>Check:</strong> emoji and Japanese should cost noticeably more tokens per character than English &mdash; both get split into several token pieces per visible character under most tokenizers, while common English words are often a single token. Anthropic's count typically comes in a bit higher than the other two for the same text; that's conversation-structure overhead from counting a full message, not a different tokenizer being "wrong." In our own run: English came out <code class="inline">anthropic=26 openai=10 gemini=11</code>, Japanese came out <code class="inline">anthropic=28 openai=13 gemini=11</code> &mdash; expect your numbers to be close, not identical, since tokenizers change between model versions.</div>
           </div>
         </div>
 
         <div class="lab-card framework-item is-accordion" id="lab-2">
           <button class="fw-toggle" type="button" aria-expanded="false" aria-controls="lab-2-body">
             <span class="lab-num">LAB 2</span>
+            <div class="fw-toggle-text">
+              <h3>Context builds up</h3>
+              <p class="fw-teaser">Run the same four-turn conversation two ways, wordy and compact, and watch the input tokens and cost grow turn by turn.</p>
+            </div>
+            <svg class="fw-chevron" width="18" height="18" viewBox="0 0 20 20" aria-hidden="true">
+              <path d="M5 7.5 L10 12.5 L15 7.5" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+          </button>
+          <div class="fw-body" id="lab-2-body">
+          <p style="margin-bottom: 12px;">A chat API has no memory. Every turn, your code sends the <em>entire</em> conversation again: the system prompt, every earlier question, and every earlier answer. This lab makes that visible and shows why clear, compact prompts are a cost and quality skill, not just a style preference.</p>
+          <ol class="lab-steps">
+            <li>Create <code class="inline">chatbot/context_growth.py</code> (<code class="inline">code chatbot/context_growth.py</code>, or <code class="inline">nano</code>) and paste in the script. It asks the same four gardening questions twice. The <strong>verbose</strong> run uses a long system prompt and rambling questions. The <strong>compact</strong> run asks for the same things in a few words, with a short system prompt that asks for short answers. Each turn appends to <code class="inline">messages</code> and resends everything, then prints that turn's token usage. Every call is logged through <code class="inline">log_call</code>, so it also lands in <code class="inline">shared/calls.jsonl</code>.
+              <div class="code-block"><code>import os, sys, time, pathlib
+from dotenv import load_dotenv
+load_dotenv()
+from anthropic import Anthropic
+
+sys.path.insert(0, str(pathlib.Path(__file__).resolve().parent.parent / "shared"))
+from llm_log import log_call
+
+client = Anthropic(api_key=os.environ["ANTHROPIC_API_KEY"])
+MODEL = "claude-haiku-5-5"
+PRICE_IN, PRICE_OUT = 0.10, 0.50  <span class="code-comment"># $ per 1M tokens, from Module 0's models.yaml</span>
+
+<span class="code-comment"># The same four questions, asked two ways. The compact version says the same
+# thing in far fewer words, with a short system prompt that asks for short answers.</span>
+COMPACT = {
+    "system": "You are a gardening assistant. Answer in at most two sentences.",
+    "turns": [
+        "I have a sunny 4x8 ft bed. What should I plant in spring?",
+        "Which of those is easiest for a beginner?",
+        "How far apart should I space it?",
+        "And how often do I water it?",
+    ],
+}
+VERBOSE = {
+    "system": (
+        "You are a friendly, thorough, and highly knowledgeable gardening assistant. "
+        "Always greet the user warmly, explain your reasoning step by step, mention any "
+        "relevant caveats, regional differences, seasonal considerations, and common "
+        "mistakes, offer alternative approaches where possible, and finish by inviting "
+        "follow-up questions. Be comprehensive rather than brief."
+    ),
+    "turns": [
+        "Hi there! So I've been thinking about getting into gardening for a while now, and "
+        "I finally have a bit of free time. I have a raised bed in my backyard, it's about "
+        "4 feet by 8 feet, and it gets a lot of sun, I think maybe six or seven hours on "
+        "a good day. Anyway, I was wondering, what are some things I could plant this spring?",
+        "Thanks, that's really helpful! There's a lot there. Of all of the ones you just "
+        "mentioned, which one do you think would be the easiest for someone who has honestly "
+        "never grown anything before in their life? I'd hate to fail on the first try.",
+        "Great, I think I'll go with that one. Now, I'm not totally sure about the spacing, "
+        "so could you tell me how far apart I should put the plants so they have enough room?",
+        "Okay, that makes sense. One last thing, I'm a little worried about overwatering or "
+        "underwatering, so how often should I actually be watering it, roughly speaking?",
+    ],
+}
+
+def run(label, scenario):
+    messages = []
+    total_in = total_out = 0
+    total_cost = 0.0
+    print(f"--- {label} ---")
+    for turn, user_text in enumerate(scenario["turns"], 1):
+        messages.append({"role": "user", "content": user_text})
+        start = time.time()
+        resp = client.messages.create(
+            model=MODEL, max_tokens=400,
+            system=scenario["system"], messages=messages,
+        )
+        elapsed_ms = (time.time() - start) * 1000
+        reply = next(b.text for b in resp.content if b.type == "text")
+        messages.append({"role": "assistant", "content": reply})
+        i, o = resp.usage.input_tokens, resp.usage.output_tokens
+        cost = i / 1_000_000 * PRICE_IN + o / 1_000_000 * PRICE_OUT
+        log_call("anthropic", f"{MODEL}-{label}", i, o, elapsed_ms, cost)
+        total_in, total_out, total_cost = total_in + i, total_out + o, total_cost + cost
+        print(f"  turn {turn}: input={i:5}  output={o:4}  cost=${cost:.6f}")
+    print(f"  TOTAL : input={total_in:5}  output={total_out:4}  cost=${total_cost:.6f}\n")
+    return total_in, total_out, total_cost
+
+if __name__ == "__main__":
+    v = run("verbose", VERBOSE)
+    c = run("compact", COMPACT)
+    print(f"verbose / compact: input {v[0] / c[0]:.1f}x, output {v[1] / c[1]:.1f}x, cost {v[2] / c[2]:.1f}x")
+</code></div>
+            </li>
+            <li>Run it and read the two tables.
+              <div class="code-block"><code>python chatbot/context_growth.py</code></div>
+            </li>
+            <li>Before you read our numbers, answer three questions from your own output: (a) In the compact run, the user's turn 4 question is only a few words. Why is the turn 4 <code class="inline">input</code> count still several times larger than turn 1's? (b) Where did the verbose run's turn 2 jump come from? (c) Which costs more, the system prompt or the conversation history, by turn 4?</li>
+          </ol>
+          <div class="lab-check"><strong>Check:</strong> <code class="inline">input</code> should rise on every turn in both runs, even though your own new question is short each time. That growth is the history: your previous questions <em>and the model's previous answers</em> are sent again, and billed again. In our own run (Claude Haiku 5.5): the compact run's input went 55, 173, 280, 377 across the four turns; the verbose run's went 240, 719, 778, 917. Turn 2 of the verbose run jumped by about 480 tokens because the model's 400-token answer to turn 1 was added to the history. The verbose run used about 3&times; the input tokens, 3.4&times; the output tokens and 3.3&times; the cost of the compact run, for the same four questions. Two further things to notice: the system prompt is resent and billed on every single turn, and the verbose answers hit the <code class="inline">max_tokens=400</code> ceiling every time, so they were cut off mid-sentence. Your exact numbers will differ, and models don't obey "at most two sentences" perfectly (one of our compact answers ran to 210 tokens), but the shape holds: <strong>cost per turn rises as the conversation grows, so total cost grows faster than the number of turns.</strong>
+          </div>
+          <div class="insight-aside" style="margin-top: 14px;">
+            <svg width="26" height="26" viewBox="0 0 26 26" aria-hidden="true">
+              <circle cx="13" cy="13" r="10" fill="none" stroke="var(--border)" stroke-width="2"/>
+              <path d="M13 7 L13 14" stroke="var(--accent-strong)" stroke-width="2.4" stroke-linecap="round"/>
+              <circle cx="13" cy="18.5" r="1.6" fill="var(--accent-strong)"/>
+            </svg>
+            <div class="insight-aside-body">
+              <span class="insight-aside-label">Why clear and compact matters</span>
+              <p>Wordy prompts cost you three times: they are billed when you send them, they are billed again on every later turn, and they invite long answers that are also billed again on every later turn. Long conversations also push toward the context window limit, where the call fails. The fixes are the skills this course keeps coming back to: say what you want in fewer words, ask for short answers when short is enough, and start a fresh conversation (or summarize the old one) instead of dragging a long history along.</p>
+            </div>
+          </div>
+          </div>
+        </div>
+
+        <div class="lab-card framework-item is-accordion" id="lab-3">
+          <button class="fw-toggle" type="button" aria-expanded="false" aria-controls="lab-3-body">
+            <span class="lab-num">LAB 3</span>
             <div class="fw-toggle-text">
               <h3>Temperature sweep</h3>
               <p class="fw-teaser">Run one prompt 10 times at three temperatures and count how many distinct answers you get.</p>
@@ -276,7 +427,7 @@ if __name__ == "__main__":
               <path d="M5 7.5 L10 12.5 L15 7.5" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
             </svg>
           </button>
-          <div class="fw-body" id="lab-2-body">
+          <div class="fw-body" id="lab-3-body">
           <ol class="lab-steps">
             <li>Create <code class="inline">chatbot/temperature_sweep.py</code> and paste in a function that calls the same prompt <code class="inline">n</code> times at a given temperature and collects the answers.
               <div class="code-block"><code>import os
@@ -291,10 +442,10 @@ def sweep(temperature, n=10):
     answers = []
     for _ in range(n):
         resp = client.chat.completions.create(
-            model="gpt-4.1-mini", max_tokens=15, temperature=temperature,
+            model="gpt-5.4-mini", max_completion_tokens=15, temperature=temperature,
             messages=[{"role": "user", "content": PROMPT}],
         )
-        answers.append(resp.choices[0].message.content.strip())
+        answers.append(resp.choices[0].message.content.strip().lower())  <span class="code-comment"># lower() so "Elephant" and "elephant" count as one answer</span>
     return answers
 
 if __name__ == "__main__":
@@ -306,14 +457,14 @@ if __name__ == "__main__":
               <div class="code-block"><code>python chatbot/temperature_sweep.py</code></div>
             </li>
           </ol>
-          <div class="lab-check"><strong>Check:</strong> distinct-answer count should rise with temperature, not stay flat. In our own run: <code class="inline">temp=0</code> &rarr; 1 distinct (10/10 "Elephant"); <code class="inline">temp=1</code> &rarr; 2 distinct (mostly "Elephant", two "Dolphin"); <code class="inline">temp=1.8</code> &rarr; 4 distinct ("Elephant", "Dolphin", "Tiger", "Monkey"). Don't expect <code class="inline">temp=0</code> to be perfectly identical every single run forever; providers don't guarantee strict determinism even at 0.</div>
-          <p style="margin-top: 10px; font-size: .88rem; line-height: 1.6;">Notice "Elephant" and "Dolphin" still dominate even at <code class="inline">temp=1.8</code> &mdash; that's not noise, it's the real signal. The model's underlying probability distribution for "name an animal" isn't flat across every species; a handful of prototypical answers that show up constantly in training data (elephant, dolphin, lion, tiger) carry most of the probability mass, with thousands of other real animals each holding a tiny sliver of the rest. Temperature rescales that distribution so lower-probability tokens can win sometimes &mdash; which is why you see 4 distinct answers instead of 1 &mdash; but it doesn't flatten the distribution to uniform. If the two biggest peaks still hold most of the mass after rescaling, they'll still win most draws. "Higher temperature" means "more exposure to how peaked the real distribution already is," not "more randomness" in any general sense.</p>
+          <div class="lab-check"><strong>Check:</strong> distinct-answer count should rise with temperature, not stay flat. In our own run: <code class="inline">temp=0</code> &rarr; 1 distinct (10/10 "elephant"); <code class="inline">temp=1</code> &rarr; 3 distinct (seven "elephant", two "dolphin", one "octopus"); <code class="inline">temp=1.8</code> &rarr; 5 distinct ("elephant", "dolphin", "otter", "aardvark", "octopus"). Newer OpenAI models reject <code class="inline">max_tokens</code> and want <code class="inline">max_completion_tokens</code> instead, which is why the call above uses that name. Don't expect <code class="inline">temp=0</code> to be perfectly identical every single run forever; providers don't guarantee strict determinism even at 0.</div>
+          <p style="margin-top: 10px; font-size: .88rem; line-height: 1.6;">Notice "elephant" and "dolphin" still lead even at <code class="inline">temp=1.8</code> &mdash; that's not noise, it's the real signal. The model's underlying probability distribution for "name an animal" isn't flat across every species; a handful of prototypical answers that show up constantly in training data (elephant, dolphin, lion, tiger) carry most of the probability mass, with thousands of other real animals each holding a tiny sliver of the rest. Temperature rescales that distribution so lower-probability tokens can win sometimes &mdash; which is why you see 4 distinct answers instead of 1 &mdash; but it doesn't flatten the distribution to uniform. If the two biggest peaks still hold most of the mass after rescaling, they'll still win most draws. "Higher temperature" means "more exposure to how peaked the real distribution already is," not "more randomness" in any general sense.</p>
           </div>
         </div>
 
-        <div class="lab-card framework-item is-accordion" id="lab-3">
-          <button class="fw-toggle" type="button" aria-expanded="false" aria-controls="lab-3-body">
-            <span class="lab-num">LAB 3</span>
+        <div class="lab-card framework-item is-accordion" id="lab-4">
+          <button class="fw-toggle" type="button" aria-expanded="false" aria-controls="lab-4-body">
+            <span class="lab-num">LAB 4</span>
             <div class="fw-toggle-text">
               <h3>Streaming vs. blocking</h3>
               <p class="fw-teaser">Time the same long answer both ways and compare time-to-first-token against total latency.</p>
@@ -322,7 +473,7 @@ if __name__ == "__main__":
               <path d="M5 7.5 L10 12.5 L15 7.5" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
             </svg>
           </button>
-          <div class="fw-body" id="lab-3-body">
+          <div class="fw-body" id="lab-4-body">
           <ol class="lab-steps">
             <li>Create <code class="inline">chatbot/streaming_vs_blocking.py</code> and paste in both versions of the same call.
               <div class="code-block"><code>import os, time
@@ -336,7 +487,7 @@ PROMPT = "Write a 300-word story about a lighthouse keeper."
 def call_blocking():
     start = time.time()
     client.messages.create(
-        model="claude-sonnet-5", max_tokens=500,
+        model="claude-haiku-5-5", max_tokens=500,
         messages=[{"role": "user", "content": PROMPT}],
     )
     return time.time() - start
@@ -345,7 +496,7 @@ def call_streaming():
     start = time.time()
     ttft = None
     with client.messages.stream(
-        model="claude-sonnet-5", max_tokens=500,
+        model="claude-haiku-5-5", max_tokens=500,
         messages=[{"role": "user", "content": PROMPT}],
     ) as stream:
         for _ in stream.text_stream:
@@ -357,6 +508,9 @@ if __name__ == "__main__":
     for i in range(3):
         blocking_total = call_blocking()
         ttft, streaming_total = call_streaming()
+        if ttft is None:
+            print(f"run {i+1}: no text streamed back, rerun")  <span class="code-comment"># rare, but it happens</span>
+            continue
         print(f"run {i+1}: blocking={blocking_total:.2f}s  |  "
               f"streaming ttft={ttft:.2f}s total={streaming_total:.2f}s")</code></div>
             </li>
@@ -364,13 +518,13 @@ if __name__ == "__main__":
               <div class="code-block"><code>python chatbot/streaming_vs_blocking.py</code></div>
             </li>
           </ol>
-          <div class="lab-check"><strong>Check:</strong> <code class="inline">ttft</code> should be noticeably smaller than <code class="inline">blocking</code>'s total time, while <code class="inline">streaming total</code> should land close to <code class="inline">blocking</code>'s time &mdash; streaming doesn't make the model faster, it just shows you the result sooner. In our own run, across three repeats: blocking averaged ~7.9s total; streaming's first token consistently arrived in well under a second (0.67&ndash;0.77s). Same total work, over 10&times; difference in how long it feels.</div>
+          <div class="lab-check"><strong>Check:</strong> <code class="inline">ttft</code> should be noticeably smaller than <code class="inline">blocking</code>'s total time, while <code class="inline">streaming total</code> should land close to <code class="inline">blocking</code>'s time &mdash; streaming doesn't make the model faster, it just shows you the result sooner. In our own run, across three repeats: blocking averaged ~4.2s total; streaming's first token consistently arrived in about half a second (0.54&ndash;0.60s). Same total work, roughly 7&times; difference in how long it feels. On rare runs the streaming call returned no text at all even though the reply was generated, which is why the script above skips a run with no first token instead of crashing on it.</div>
           </div>
         </div>
 
-        <div class="lab-card framework-item is-accordion" id="lab-4">
-          <button class="fw-toggle" type="button" aria-expanded="false" aria-controls="lab-4-body">
-            <span class="lab-num">LAB 4</span>
+        <div class="lab-card framework-item is-accordion" id="lab-5">
+          <button class="fw-toggle" type="button" aria-expanded="false" aria-controls="lab-5-body">
+            <span class="lab-num">LAB 5</span>
             <div class="fw-toggle-text">
               <h3>Prompt caching</h3>
               <p class="fw-teaser">Ask five questions about one long document, with and without caching, and compare cost and latency from your own log.</p>
@@ -379,9 +533,9 @@ if __name__ == "__main__":
               <path d="M5 7.5 L10 12.5 L15 7.5" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
             </svg>
           </button>
-          <div class="fw-body" id="lab-4-body">
+          <div class="fw-body" id="lab-5-body">
           <ol class="lab-steps">
-            <li>Grab a real document &mdash; any article, README, or chapter, at least a few hundred words across multiple paragraphs &mdash; and save it as <code class="inline">chatbot/long_doc.txt</code>. Caching only kicks in above roughly 1,024 tokens on Claude's smaller models, so a single short paragraph won't show anything; a ~700-word piece of ordinary prose already clears that comfortably (English runs roughly 2 tokens per word).</li>
+            <li>Grab a real document &mdash; any article, README, or chapter, at least a few hundred words across multiple paragraphs &mdash; and save it as <code class="inline">chatbot/long_doc.txt</code>. Caching only kicks in above a minimum prompt length (512 tokens for Claude Haiku 5.5 and Sonnet 5.5, per Anthropic's <a href="https://platform.claude.com/docs/en/build-with-claude/prompt-caching" target="_blank" rel="noopener">prompt caching docs</a>; shorter prompts are processed without caching and no error comes back), so a single short paragraph won't show anything; a ~700-word piece of ordinary prose clears that comfortably (English runs roughly 2 tokens per word).</li>
             <li>Create <code class="inline">chatbot/prompt_caching.py</code>. It asks the same five questions about the document twice &mdash; once with <code class="inline">cache_control</code> set, once without &mdash; and logs every call through Module 0's <code class="inline">log_call</code> so the comparison lives in <code class="inline">shared/calls.jsonl</code>, not just stdout.
               <div class="code-block"><code>import os, sys, time, pathlib
 from dotenv import load_dotenv
@@ -406,16 +560,16 @@ def ask(cached):
     if cached:
         system[0]["cache_control"] = {"type": "ephemeral"}
 
-    label = "claude-sonnet-5-cached" if cached else "claude-sonnet-5-uncached"
+    label = "claude-haiku-5-5-cached" if cached else "claude-haiku-5-5-uncached"
     for q in QUESTIONS:
         start = time.time()
         resp = client.messages.create(
-            model="claude-sonnet-5", max_tokens=100,
+            model="claude-haiku-5-5", max_tokens=100,
             system=system, messages=[{"role": "user", "content": q}],
         )
         elapsed_ms = (time.time() - start) * 1000
-        cost = (resp.usage.input_tokens / 1_000_000 * 3.00
-                + resp.usage.output_tokens / 1_000_000 * 15.00)
+        cost = (resp.usage.input_tokens / 1_000_000 * 0.10
+                + resp.usage.output_tokens / 1_000_000 * 0.50)
         log_call("anthropic", label, resp.usage.input_tokens, resp.usage.output_tokens, elapsed_ms, cost)
         print(f"  cache_read={resp.usage.cache_read_input_tokens:5}  "
               f"cache_write={resp.usage.cache_creation_input_tokens:5}  {elapsed_ms:.0f}ms")
@@ -431,19 +585,19 @@ if __name__ == "__main__":
 python -c "
 import json
 rows = [json.loads(l) for l in open('shared/calls.jsonl')]
-for label in ['claude-sonnet-5-uncached', 'claude-sonnet-5-cached']:
+for label in ['claude-haiku-5-5-uncached', 'claude-haiku-5-5-cached']:
     batch = [r for r in rows if r['model'] == label]
     print(label, 'total cost:', sum(r['cost_usd'] for r in batch))
 "</code></div>
             </li>
           </ol>
-          <div class="lab-check"><strong>Check:</strong> the uncached run should show <code class="inline">cache_read=0</code> on every question &mdash; no caching ever happens without <code class="inline">cache_control</code>, no matter how many times you repeat the document. The cached run should show <code class="inline">cache_write</code> on question 1 only, then <code class="inline">cache_read</code> equal to roughly the document's token count on questions 2&ndash;5. In our own run against a 716-word document: question 1 wrote 1,462 tokens to cache; every question after it read all 1,462 back instead of reprocessing them. The token savings are unambiguous &mdash; don't expect the same clarity from <code class="inline">elapsed_ms</code> at this document size, though: in our run the cached and uncached latencies actually overlapped (roughly 1,300&ndash;2,000ms either way), because ordinary network and generation variance was bigger than the time saved on reprocessing ~1,500 tokens. Prompt caching's latency win shows up clearly on much longer documents; at modest sizes, trust the token counts and the cost over the stopwatch &mdash; in our run the comparison script printed <code class="inline">uncached total cost: 0.029634</code> vs. <code class="inline">cached total cost: 0.007704</code>, nearly 4&times; cheaper for the identical five questions.</div>
+          <div class="lab-check"><strong>Check:</strong> the uncached run should show <code class="inline">cache_read=0</code> on every question &mdash; no caching ever happens without <code class="inline">cache_control</code>, no matter how many times you repeat the document. The cached run should show <code class="inline">cache_write</code> on question 1 only, then <code class="inline">cache_read</code> equal to roughly the document's token count on questions 2&ndash;5. In our own run against a 706-word document: question 1 wrote 1,316 tokens to cache; every question after it read all 1,316 back instead of reprocessing them. The token savings are unambiguous &mdash; don't expect the same clarity from <code class="inline">elapsed_ms</code> at this document size, though: in our run the cached and uncached latencies actually overlapped (roughly 1,000&ndash;1,900ms either way), because ordinary network and generation variance was bigger than the time saved on reprocessing ~1,300 tokens. Prompt caching's latency win shows up clearly on much longer documents; at modest sizes, trust the token counts and the cost over the stopwatch &mdash; in our run the comparison script printed <code class="inline">uncached total cost: 0.0009073</code> vs. <code class="inline">cached total cost: 0.0002513</code>, about 3.6&times; cheaper for the identical five questions.</div>
           </div>
         </div>
 
-        <div class="lab-card framework-item is-accordion" id="lab-5">
-          <button class="fw-toggle" type="button" aria-expanded="false" aria-controls="lab-5-body">
-            <span class="lab-num">LAB 5</span>
+        <div class="lab-card framework-item is-accordion" id="lab-6">
+          <button class="fw-toggle" type="button" aria-expanded="false" aria-controls="lab-6-body">
+            <span class="lab-num">LAB 6</span>
             <div class="fw-toggle-text">
               <h3>Semantic cache</h3>
               <p class="fw-teaser">Test 20 paraphrased questions and find the similarity threshold where wrong answers start slipping through.</p>
@@ -452,7 +606,7 @@ for label in ['claude-sonnet-5-uncached', 'claude-sonnet-5-cached']:
               <path d="M5 7.5 L10 12.5 L15 7.5" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
             </svg>
           </button>
-          <div class="fw-body" id="lab-5-body">
+          <div class="fw-body" id="lab-6-body">
           <ol class="lab-steps">
             <li>Create <code class="inline">chatbot/semantic_cache.py</code>. It embeds a small seed set of question/answer pairs, then for any new question finds the closest seed by cosine similarity (plain Python &mdash; no numpy needed for three vectors) and returns its answer if the similarity clears a threshold.
               <div class="code-block"><code>import os, math
@@ -523,7 +677,7 @@ if __name__ == "__main__":
               <div class="code-block"><code>python chatbot/semantic_cache.py</code></div>
             </li>
           </ol>
-          <div class="lab-check"><strong>Check:</strong> in our own run, <code class="inline">threshold=0.95</code> was too strict (1/9 hits &mdash; real paraphrases missed); <code class="inline">threshold=0.85</code> landed cleanly (3/9 hits, all genuine paraphrases, zero wrong matches); dropping to <code class="inline">threshold=0.75</code> picked up two more hits that were the real failure mode &mdash; "How many eyes does a spider have?" scored 0.790 against the legs question and would have served the wrong answer. That's the exact thing this lab is designed to surface: somewhere between 0.75 and 0.85, wrong answers start slipping through. Confirm it against your own printout rather than trusting this number &mdash; it depends on the exact wording of your seed and test questions.</div>
+          <div class="lab-check"><strong>Check:</strong> in our own run, <code class="inline">threshold=0.95</code> was too strict (1/9 hits &mdash; real paraphrases missed); <code class="inline">threshold=0.85</code> landed cleanly (3/9 hits, all genuine paraphrases, zero wrong matches); dropping to <code class="inline">threshold=0.75</code> picked up three more hits: one genuine paraphrase ("What's France's capital city?", 0.814, which 0.85 missed) and two that were the real failure mode &mdash; "How many eyes does a spider have?" scored 0.790 against the legs question, and "What's the freezing point of water in Celsius?" scored 0.785 against the boiling-point question, so both would have served the wrong answer. That's the exact thing this lab is designed to surface: somewhere between 0.75 and 0.85, wrong answers start slipping through. Confirm it against your own printout rather than trusting this number &mdash; it depends on the exact wording of your seed and test questions.</div>
           </div>
         </div>
 
@@ -553,12 +707,12 @@ if __name__ == "__main__":
       <ol class="lab-steps">
         <li>Extend <code class="inline">shared/llm_client.py</code> with a streaming, multi-turn sibling to <code class="inline">call()</code>. It takes a full <code class="inline">[{"role", "content"}, ...]</code> history instead of one prompt string, and an <code class="inline">on_chunk</code> callback it calls once per piece of text as it streams &mdash; so a caller can print each piece the moment it arrives instead of waiting for the full reply.
           <div class="code-block"><code><span class="code-comment"># shared/llm_client.py -- add below the existing call()/_dispatch()</span>
-def stream_chat(messages, model, on_chunk=None, max_attempts=5):
+def stream_chat(messages, model, on_chunk=None, system=None, max_attempts=5):
     cfg = CONFIG[model]
     start = time.time()
     for attempt in range(max_attempts):
         try:
-            text, usage = _dispatch_stream(cfg["provider"], model, messages, on_chunk)
+            text, usage = _dispatch_stream(cfg["provider"], model, messages, on_chunk, system)
             break
         except RATE_LIMIT_ERRORS:
             if attempt == max_attempts - 1:
@@ -571,12 +725,13 @@ def stream_chat(messages, model, on_chunk=None, max_attempts=5):
     return text, cost, elapsed_ms</code></div>
         </li>
         <li>Fill in <code class="inline">_dispatch_stream</code>, one branch per provider &mdash; the same four branches as <code class="inline">_dispatch</code>, but each accumulates the streamed text and calls <code class="inline">on_chunk</code> as it goes instead of returning the whole reply at once. Gemini needs its own role remapped (<code class="inline">"assistant"</code> &rarr; <code class="inline">"model"</code>) since it doesn't use OpenAI/Anthropic's role names.
-          <div class="code-block"><code>def _dispatch_stream(provider, model, messages, on_chunk):
+          <div class="code-block"><code>def _dispatch_stream(provider, model, messages, on_chunk, system=None):
     if provider == "anthropic":
         from anthropic import Anthropic
         client = Anthropic(api_key=os.environ["ANTHROPIC_API_KEY"])
+        extra = {"system": system} if system else {}  <span class="code-comment"># Anthropic takes system as its own parameter</span>
         text = ""
-        with client.messages.stream(model=model, max_tokens=500, messages=messages) as stream:
+        with client.messages.stream(model=model, max_tokens=500, messages=messages, **extra) as stream:
             for chunk in stream.text_stream:
                 text += chunk
                 if on_chunk:
@@ -593,8 +748,10 @@ def stream_chat(messages, model, on_chunk=None, max_attempts=5):
             client = OpenAI(base_url="http://localhost:11434/v1", api_key="ollama")
         else:
             client = OpenAI(api_key=os.environ["OPENAI_API_KEY"])
+        <span class="code-comment"># OpenAI and Ollama want the system prompt as the first message</span>
+        full = ([{"role": "system", "content": system}] if system else []) + messages
         resp = client.chat.completions.create(
-            model=model, messages=messages,
+            model=model, messages=full,
             stream=True, stream_options={"include_usage": True},
         )
         text = ""
@@ -612,15 +769,21 @@ def stream_chat(messages, model, on_chunk=None, max_attempts=5):
 
     if provider == "gemini":
         from google import genai
-        client = genai.Client(api_key=os.environ["GEMINI_API_KEY"])
+        from google.genai import types
+        client = genai.Client(
+            api_key=os.environ["GEMINI_API_KEY"],
+            http_options=types.HttpOptions(timeout=20000),
+        )
         <span class="code-comment"># Gemini uses "model" instead of "assistant" for its own turns</span>
         contents = [
             {"role": "model" if m["role"] == "assistant" else m["role"], "parts": [{"text": m["content"]}]}
             for m in messages
         ]
+        <span class="code-comment"># Gemini takes the system prompt in the request config</span>
+        config = types.GenerateContentConfig(system_instruction=system) if system else None
         text = ""
         last_chunk = None
-        for chunk in client.models.generate_content_stream(model=model, contents=contents):
+        for chunk in client.models.generate_content_stream(model=model, contents=contents, config=config):
             if chunk.text:
                 text += chunk.text
                 if on_chunk:
@@ -640,6 +803,7 @@ sys.path.insert(0, str(pathlib.Path(__file__).resolve().parent.parent / "shared"
 from llm_client import stream_chat, CONFIG
 
 MODELS = list(CONFIG.keys())
+SYSTEM_PROMPT = "You are a helpful assistant. Keep answers short."  <span class="code-comment"># resent on every turn, so keep it lean</span>
 
 def pick_model():
     print("Models:")
@@ -668,7 +832,8 @@ def main():
 
         print(f"{model}: ", end="", flush=True)
         text, cost, elapsed_ms = stream_chat(
-            messages, model, on_chunk=lambda c: print(c, end="", flush=True)
+            messages, model, on_chunk=lambda c: print(c, end="", flush=True),
+            system=SYSTEM_PROMPT,
         )
         print()
         messages.append({"role": "assistant", "content": text})
@@ -811,7 +976,7 @@ if __name__ == "__main__":
       <div class="try-it-prompt" id="webapp-prompt">Here is my chat_web.py (paste the file). The /chat route should stream a reply from stream_chat(messages, model, on_chunk=...) back to the browser as it's generated, not all at once at the end. stream_chat's on_chunk callback is called synchronously from inside a loop I don't control, so I can't turn it into a generator directly. Show me how to bridge it using a background thread that pushes chunks onto a queue.Queue, with the Flask response generator draining that queue with q.get() until it sees a "done" or "error" sentinel. Keep the DONE_MARKER/ERROR_MARKER text-based scheme I'm already using, don't switch to Server-Sent Events.</div>
       <button class="try-it-copy" type="button" data-copy-target="webapp-prompt">Copy prompt</button>
 
-      <div class="lab-check" style="margin-top: 14px;"><strong>Check:</strong> test the backend directly before trusting the page &mdash; <code class="inline">curl -N -X POST http://localhost:5050/chat -H "Content-Type: application/json" -d '{"messages":[{"role":"user","content":"hi"}],"model":"gpt-4.1-mini"}'</code> should print text followed immediately by a <code class="inline">DONE</code> marker and a JSON cost footer, with no delay between the text ending and the marker appearing. If the whole reply arrives in one burst instead of gradually, the queue isn't actually streaming &mdash; check that <code class="inline">on_chunk</code> is wired into the worker thread, not called after <code class="inline">stream_chat</code> returns.</div>
+      <div class="lab-check" style="margin-top: 14px;"><strong>Check:</strong> test the backend directly before trusting the page &mdash; <code class="inline">curl -N -X POST http://localhost:5050/chat -H "Content-Type: application/json" -d '{"messages":[{"role":"user","content":"hi"}],"model":"gpt-5.4-mini"}'</code> should print text followed immediately by a <code class="inline">DONE</code> marker and a JSON cost footer, with no delay between the text ending and the marker appearing. If the whole reply arrives in one burst instead of gradually, the queue isn't actually streaming &mdash; check that <code class="inline">on_chunk</code> is wired into the worker thread, not called after <code class="inline">stream_chat</code> returns.</div>
 
       <p style="margin-top: 14px; font-size: .9rem;"><strong>Done when:</strong></p>
       <ul class="lesson-checklist">

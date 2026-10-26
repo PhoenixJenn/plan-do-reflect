@@ -854,7 +854,7 @@ if __name__ == "__main__":
 python rag/naive_rag_v1.py</code></div>
           Parsing the five scans costs a few vision-model calls per page, once; they are cached after that.
         </li>
-        <li>Create <code class="inline">rag/pipeline.py</code>, the one function the app calls. It checks a semantic cache first (the same idea as Module 1, Lab 5: embed the question, return the stored answer if the nearest earlier question clears your threshold), otherwise runs hybrid retrieval, product filter and rerank, then asks the model for an answer that cites <code class="inline">[doc p.N]</code> tags. It reports latency and token counts for every call.
+        <li>Create <code class="inline">rag/pipeline.py</code>, the one function the app calls. It checks a semantic cache first (the same idea as Module 1, Lab 6: embed the question, return the stored answer if the nearest earlier question clears your threshold), otherwise runs hybrid retrieval, product filter and rerank, then asks the model for an answer that cites <code class="inline">[doc p.N]</code> tags. It reports latency and token counts for every call.
           <div class="code-block"><code>import os, time
 import numpy as np
 from openai import OpenAI
