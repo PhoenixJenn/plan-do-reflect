@@ -341,6 +341,7 @@ def call_anthropic():
     resp = client.messages.create(
         model="claude-haiku-5-5",
         max_tokens=200,
+        thinking={"type": "disabled"},  <span class="code-comment"># otherwise Haiku can spend the whole token budget thinking and return no text</span>
         messages=[{"role": "user", "content": PROMPT}],
     )
     <span class="code-comment"># a "thinking" response can put a ThinkingBlock before the text block,
@@ -489,6 +490,7 @@ def call_anthropic():
     resp = client.messages.create(
         model="claude-haiku-5-5",
         max_tokens=200,
+        thinking={"type": "disabled"},  <span class="code-comment"># otherwise Haiku can spend the whole token budget thinking and return no text</span>
         messages=[{"role": "user", "content": PROMPT}],
     )
     text = next(b.text for b in resp.content if b.type == "text")
@@ -502,6 +504,7 @@ def call_anthropic():
     resp = client.messages.create(
         model="claude-haiku-5-5",
         max_tokens=200,
+        thinking={"type": "disabled"},  <span class="code-comment"># otherwise Haiku can spend the whole token budget thinking and return no text</span>
         messages=[{"role": "user", "content": PROMPT}],
     )
     elapsed_ms = (time.time() - start) * 1000
@@ -624,6 +627,7 @@ def _dispatch(provider, model, prompt):
         client = Anthropic(api_key=os.environ["ANTHROPIC_API_KEY"])
         resp = client.messages.create(
             model=model, max_tokens=200,
+            thinking={"type": "disabled"},
             messages=[{"role": "user", "content": prompt}],
         )
         <span class="code-comment"># same ThinkingBlock gotcha as Lab 2 &mdash; don't assume index 0 is the text block</span>

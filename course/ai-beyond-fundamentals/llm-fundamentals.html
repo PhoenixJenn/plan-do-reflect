@@ -134,6 +134,19 @@ source .venv/bin/activate</code></div>
         <div class="lesson-concept">
           <h3>Sampling settings: temperature, top-p, max tokens, stop sequences</h3>
           <p><strong>Temperature</strong> controls how much the model is allowed to deviate from its single most-likely next token &mdash; near 0 it's close to deterministic, higher values let lower-probability tokens win sometimes. <strong>top-p</strong> is a second, related knob (nucleus sampling: only consider tokens whose combined probability covers the top <em>p</em>) &mdash; most people pick one of the two to tune and leave the other at its default rather than fighting both at once.</p>
+          <p><strong>What range is allowed depends on the provider, and on the model.</strong> We tested the models this course uses:</p>
+          <div class="compare-table-wrap">
+            <table class="compare-table">
+              <thead><tr><th>Provider and model</th><th>Temperature</th></tr></thead>
+              <tbody>
+                <tr><th scope="row">OpenAI <code class="inline">gpt-5.4-mini</code></th><td>0 to 2. A value above 2 returns a 400 error.</td></tr>
+                <tr><th scope="row">Gemini <code class="inline">gemini-flash-lite-latest</code></th><td>0 to 2. A value above 2 returns a 400 error.</td></tr>
+                <tr><th scope="row">Ollama (local model)</th><td>Accepted every value we tried, up to 5, with no error. Don't read that as meaningful: very high values just produce noise.</td></tr>
+                <tr><th scope="row">Anthropic <code class="inline">claude-haiku-5-5</code></th><td>Not accepted at all. The API returns a 400 (<code class="inline">temperature: Extra inputs are not permitted</code>), and so do <code class="inline">top_p</code> and <code class="inline">top_k</code>. Earlier Claude models accepted 0 to 1, so check the docs for the model you use.</td></tr>
+              </tbody>
+            </table>
+          </div>
+          <p>That is why Lab 3 sweeps temperature on OpenAI and not on Claude. It is also a reason to read a model's API reference before copying settings from an older tutorial.</p>
           <p><strong>max_tokens</strong> is a hard ceiling on the reply's length, not a target &mdash; the model can stop earlier on its own, but never later. It doesn't affect input cost at all, only caps how much output you could be charged for. <strong>Stop sequences</strong> end generation early the instant a given string appears, useful for formats where you know the reply should end at a specific marker.</p>
         </div>
 
@@ -319,7 +332,7 @@ if __name__ == "__main__":
           <div class="fw-body" id="lab-2-body">
           <p style="margin-bottom: 12px;">A chat API has no memory. Every turn, your code sends the <em>entire</em> conversation again: the system prompt, every earlier question, and every earlier answer. This lab makes that visible and shows why clear, compact prompts are a cost and quality skill, not just a style preference.</p>
           <ol class="lab-steps">
-            <li>Create <code class="inline">chatbot/context_growth.py</code> (<code class="inline">code chatbot/context_growth.py</code>, or <code class="inline">nano</code>) and paste in the script. It asks the same four gardening questions twice. The <strong>verbose</strong> run uses a long system prompt and rambling questions. The <strong>compact</strong> run asks for the same things in a few words, with a short system prompt that asks for short answers. Each turn appends to <code class="inline">messages</code> and resends everything, then prints that turn's token usage. Every call is logged through <code class="inline">log_call</code>, so it also lands in <code class="inline">shared/calls.jsonl</code>.
+            <li>Create <code class="inline">chatbot/context_growth.py</code> (<code class="inline">code chatbot/context_growth.py</code>, or <code class="inline">nano</code>) and paste in the script. It asks the same four gardening questions twice. The <strong>verbose</strong> run uses a long system prompt and rambling questions. The <strong>compact</strong> run asks for the same things in a few words, with a short system prompt that asks for short answers. Each turn appends to <code class="inline">messages</code> and resends everything, then prints that turn's token usage. Every call is logged through <code class="inline">log_call</code>, so it also lands in <code class="inline">shared/calls.jsonl</code>. Note <code class="inline">thinking={"type": "disabled"}</code> on the call: Claude Haiku 5.5 can "think" before it answers, and thinking tokens count against <code class="inline">max_tokens</code>. With the wordy system prompt it will often spend the entire 400 tokens thinking and return no text at all, so <code class="inline">next(...)</code> raises <code class="inline">StopIteration</code>. Turning thinking off also keeps the token counts about the conversation and not hidden reasoning.
               <div class="code-block"><code>import os, sys, time, pathlib
 from dotenv import load_dotenv
 load_dotenv()
@@ -377,6 +390,7 @@ def run(label, scenario):
         resp = client.messages.create(
             model=MODEL, max_tokens=400,
             system=scenario["system"], messages=messages,
+            thinking={"type": "disabled"},  <span class="code-comment"># otherwise Haiku can spend the whole token budget thinking and return no text</span>
         )
         elapsed_ms = (time.time() - start) * 1000
         reply = next(b.text for b in resp.content if b.type == "text")
@@ -400,7 +414,7 @@ if __name__ == "__main__":
             </li>
             <li>Before you read our numbers, answer three questions from your own output: (a) In the compact run, the user's turn 4 question is only a few words. Why is the turn 4 <code class="inline">input</code> count still several times larger than turn 1's? (b) Where did the verbose run's turn 2 jump come from? (c) Which costs more, the system prompt or the conversation history, by turn 4?</li>
           </ol>
-          <div class="lab-check"><strong>Check:</strong> <code class="inline">input</code> should rise on every turn in both runs, even though your own new question is short each time. That growth is the history: your previous questions <em>and the model's previous answers</em> are sent again, and billed again. In our own run (Claude Haiku 5.5): the compact run's input went 55, 173, 280, 377 across the four turns; the verbose run's went 240, 719, 778, 917. Turn 2 of the verbose run jumped by about 480 tokens because the model's 400-token answer to turn 1 was added to the history. The verbose run used about 3&times; the input tokens, 3.4&times; the output tokens and 3.3&times; the cost of the compact run, for the same four questions. Two further things to notice: the system prompt is resent and billed on every single turn, and the verbose answers hit the <code class="inline">max_tokens=400</code> ceiling every time, so they were cut off mid-sentence. Your exact numbers will differ, and models don't obey "at most two sentences" perfectly (one of our compact answers ran to 210 tokens), but the shape holds: <strong>cost per turn rises as the conversation grows, so total cost grows faster than the number of turns.</strong>
+          <div class="lab-check"><strong>Check:</strong> <code class="inline">input</code> should rise on every turn in both runs, even though your own new question is short each time. That growth is the history: your previous questions <em>and the model's previous answers</em> are sent again, and billed again. In our own run (Claude Haiku 5.5): the compact run's input went 54, 179, 269, 360 across the four turns; the verbose run's went 239, 720, 1,179, 1,637. Each verbose turn added about 460 tokens, because the model's 400-token answer and your next question were both added to the history. The verbose run used about 4.4&times; the input tokens, 4.7&times; the output tokens and 4.6&times; the cost of the compact run, for the same four questions. Two further things to notice: the system prompt is resent and billed on every single turn, and the verbose answers hit the <code class="inline">max_tokens=400</code> ceiling every time, so they were cut off mid-sentence. Your exact numbers will differ, and models don't obey "at most two sentences" perfectly, but the shape holds: <strong>cost per turn rises as the conversation grows, so total cost grows faster than the number of turns.</strong>
           </div>
           <div class="insight-aside" style="margin-top: 14px;">
             <svg width="26" height="26" viewBox="0 0 26 26" aria-hidden="true">
@@ -457,7 +471,7 @@ if __name__ == "__main__":
               <div class="code-block"><code>python chatbot/temperature_sweep.py</code></div>
             </li>
           </ol>
-          <div class="lab-check"><strong>Check:</strong> distinct-answer count should rise with temperature, not stay flat. In our own run: <code class="inline">temp=0</code> &rarr; 1 distinct (10/10 "elephant"); <code class="inline">temp=1</code> &rarr; 3 distinct (seven "elephant", two "dolphin", one "octopus"); <code class="inline">temp=1.8</code> &rarr; 5 distinct ("elephant", "dolphin", "otter", "aardvark", "octopus"). Newer OpenAI models reject <code class="inline">max_tokens</code> and want <code class="inline">max_completion_tokens</code> instead, which is why the call above uses that name. Don't expect <code class="inline">temp=0</code> to be perfectly identical every single run forever; providers don't guarantee strict determinism even at 0.</div>
+          <div class="lab-check"><strong>Check:</strong> distinct-answer count should rise with temperature, not stay flat. In our own run: <code class="inline">temp=0</code> &rarr; 1 distinct (10/10 "elephant"); <code class="inline">temp=1</code> &rarr; 3 distinct (seven "elephant", two "dolphin", one "octopus"); <code class="inline">temp=1.8</code> &rarr; 5 distinct ("elephant", "dolphin", "otter", "aardvark", "octopus"). Newer OpenAI models reject <code class="inline">max_tokens</code> and want <code class="inline">max_completion_tokens</code> instead, which is why the call above uses that name. Don't expect <code class="inline">temp=0</code> to be perfectly identical every single run forever; providers don't guarantee strict determinism even at 0. Sampling is random, so your counts will differ from ours, especially at <code class="inline">temp=1</code>, where ten samples can easily come back as 1, 2 or 3 distinct answers. The trend across the three temperatures is what matters; raise <code class="inline">n</code> to 30 if you want a clearer picture.</div>
           <p style="margin-top: 10px; font-size: .88rem; line-height: 1.6;">Notice "elephant" and "dolphin" still lead even at <code class="inline">temp=1.8</code> &mdash; that's not noise, it's the real signal. The model's underlying probability distribution for "name an animal" isn't flat across every species; a handful of prototypical answers that show up constantly in training data (elephant, dolphin, lion, tiger) carry most of the probability mass, with thousands of other real animals each holding a tiny sliver of the rest. Temperature rescales that distribution so lower-probability tokens can win sometimes &mdash; which is why you see 4 distinct answers instead of 1 &mdash; but it doesn't flatten the distribution to uniform. If the two biggest peaks still hold most of the mass after rescaling, they'll still win most draws. "Higher temperature" means "more exposure to how peaked the real distribution already is," not "more randomness" in any general sense.</p>
           </div>
         </div>
@@ -484,41 +498,52 @@ from anthropic import Anthropic
 client = Anthropic(api_key=os.environ["ANTHROPIC_API_KEY"])
 PROMPT = "Write a 300-word story about a lighthouse keeper."
 
-def call_blocking():
+def call_blocking(show=False):
     start = time.time()
     client.messages.create(
         model="claude-haiku-5-5", max_tokens=500,
+        thinking={"type": "disabled"},
         messages=[{"role": "user", "content": PROMPT}],
     )
-    return time.time() - start
+    elapsed = time.time() - start
+    if show:
+        print(next(b.text for b in resp.content if b.type == "text"))
+    return elapsed
 
-def call_streaming():
+def call_streaming(show=False):
     start = time.time()
     ttft = None
     with client.messages.stream(
         model="claude-haiku-5-5", max_tokens=500,
+        thinking={"type": "disabled"},
         messages=[{"role": "user", "content": PROMPT}],
     ) as stream:
-        for _ in stream.text_stream:
+        for chunk in stream.text_stream:
             if ttft is None:
                 ttft = time.time() - start
+            if show:
+                print(chunk, end="", flush=True)
+    if show:
+        print()
     return ttft, time.time() - start
 
 if __name__ == "__main__":
     for i in range(3):
         blocking_total = call_blocking()
         ttft, streaming_total = call_streaming()
-        if ttft is None:
-            print(f"run {i+1}: no text streamed back, rerun")  <span class="code-comment"># rare, but it happens</span>
-            continue
         print(f"run {i+1}: blocking={blocking_total:.2f}s  |  "
-              f"streaming ttft={ttft:.2f}s total={streaming_total:.2f}s")</code></div>
+              f"streaming ttft={ttft:.2f}s total={streaming_total:.2f}s")
+
+    print("\n--- Now watch it. Blocking first: nothing appears until the reply is finished. ---")
+    call_blocking(show=True)
+    print("\n--- Streaming: words appear as they are generated. ---")
+    call_streaming(show=True)</code></div>
             </li>
-            <li>Run it three times and look at the gap between <code class="inline">blocking</code> and <code class="inline">ttft</code> &mdash; that gap is exactly how much sooner a streaming UI would show the user something.
+            <li>Run it. The three timed runs come first, then the script calls the model once more for you to watch: the blocking version prints nothing for several seconds and then drops the whole story at once, while the streaming version starts writing within about a second. Then look at the gap between <code class="inline">blocking</code> and <code class="inline">ttft</code> in the numbers &mdash; that gap is exactly how much sooner a streaming UI would show the user something.
               <div class="code-block"><code>python chatbot/streaming_vs_blocking.py</code></div>
             </li>
           </ol>
-          <div class="lab-check"><strong>Check:</strong> <code class="inline">ttft</code> should be noticeably smaller than <code class="inline">blocking</code>'s total time, while <code class="inline">streaming total</code> should land close to <code class="inline">blocking</code>'s time &mdash; streaming doesn't make the model faster, it just shows you the result sooner. In our own run, across three repeats: blocking averaged ~4.2s total; streaming's first token consistently arrived in about half a second (0.54&ndash;0.60s). Same total work, roughly 7&times; difference in how long it feels. On rare runs the streaming call returned no text at all even though the reply was generated, which is why the script above skips a run with no first token instead of crashing on it.</div>
+          <div class="lab-check"><strong>Check:</strong> <code class="inline">ttft</code> should be noticeably smaller than <code class="inline">blocking</code>'s total time, while <code class="inline">streaming total</code> should land close to <code class="inline">blocking</code>'s time &mdash; streaming doesn't make the model faster, it just shows you the result sooner. In our own run, across three repeats: blocking averaged ~4.6s total; streaming's first token arrived in 0.6&ndash;1.7s (usually under a second). Same total work, but the reader sees words about 4 to 7&times; sooner. Both calls pass <code class="inline">thinking={"type": "disabled"}</code>: with thinking on, Haiku can spend part of its budget on hidden reasoning first, so "first token" would mean the first <em>thinking</em> token, or no text at all.</div>
           </div>
         </div>
 
@@ -565,6 +590,7 @@ def ask(cached):
         start = time.time()
         resp = client.messages.create(
             model="claude-haiku-5-5", max_tokens=100,
+            thinking={"type": "disabled"},
             system=system, messages=[{"role": "user", "content": q}],
         )
         elapsed_ms = (time.time() - start) * 1000
@@ -591,7 +617,7 @@ for label in ['claude-haiku-5-5-uncached', 'claude-haiku-5-5-cached']:
 "</code></div>
             </li>
           </ol>
-          <div class="lab-check"><strong>Check:</strong> the uncached run should show <code class="inline">cache_read=0</code> on every question &mdash; no caching ever happens without <code class="inline">cache_control</code>, no matter how many times you repeat the document. The cached run should show <code class="inline">cache_write</code> on question 1 only, then <code class="inline">cache_read</code> equal to roughly the document's token count on questions 2&ndash;5. In our own run against a 706-word document: question 1 wrote 1,316 tokens to cache; every question after it read all 1,316 back instead of reprocessing them. The token savings are unambiguous &mdash; don't expect the same clarity from <code class="inline">elapsed_ms</code> at this document size, though: in our run the cached and uncached latencies actually overlapped (roughly 1,000&ndash;1,900ms either way), because ordinary network and generation variance was bigger than the time saved on reprocessing ~1,300 tokens. Prompt caching's latency win shows up clearly on much longer documents; at modest sizes, trust the token counts and the cost over the stopwatch &mdash; in our run the comparison script printed <code class="inline">uncached total cost: 0.0009073</code> vs. <code class="inline">cached total cost: 0.0002513</code>, about 3.6&times; cheaper for the identical five questions.</div>
+          <div class="lab-check"><strong>Check:</strong> the uncached run should show <code class="inline">cache_read=0</code> on every question &mdash; no caching ever happens without <code class="inline">cache_control</code>, no matter how many times you repeat the document. The cached run should show <code class="inline">cache_write</code> on question 1 only, then <code class="inline">cache_read</code> equal to roughly the document's token count on questions 2&ndash;5. In our own run against a 706-word document: question 1 wrote 1,315 tokens to cache; every question after it read all 1,315 back instead of reprocessing them. The token savings are unambiguous &mdash; don't expect the same clarity from <code class="inline">elapsed_ms</code> at this document size, though: in our run the cached and uncached latencies actually overlapped (roughly 900&ndash;1,600ms either way, apart from the first cached call, which also pays to write the cache), because ordinary network and generation variance was bigger than the time saved on reprocessing ~1,300 tokens. Prompt caching's latency win shows up clearly on much longer documents; at modest sizes, trust the token counts and the cost over the stopwatch &mdash; in our run the comparison script printed <code class="inline">uncached total cost: 0.0008833</code> vs. <code class="inline">cached total cost: 0.0002408</code>, about 3.7&times; cheaper for the identical five questions.</div>
           </div>
         </div>
 
@@ -731,7 +757,7 @@ def stream_chat(messages, model, on_chunk=None, system=None, max_attempts=5):
         client = Anthropic(api_key=os.environ["ANTHROPIC_API_KEY"])
         extra = {"system": system} if system else {}  <span class="code-comment"># Anthropic takes system as its own parameter</span>
         text = ""
-        with client.messages.stream(model=model, max_tokens=500, messages=messages, **extra) as stream:
+        with client.messages.stream(model=model, max_tokens=500, messages=messages, thinking={"type": "disabled"}, **extra) as stream:
             for chunk in stream.text_stream:
                 text += chunk
                 if on_chunk:
