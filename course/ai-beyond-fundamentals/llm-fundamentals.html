@@ -763,7 +763,7 @@ def stream_chat(messages, model, on_chunk=None, system=None, max_attempts=5):
     log_call(cfg["provider"], model, usage["input_tokens"], usage["output_tokens"], elapsed_ms, cost)
     return text, cost, elapsed_ms</code></div>
         </li>
-        <li>Fill in <code class="inline">_dispatch_stream</code>, one branch per provider &mdash; the same four branches as <code class="inline">_dispatch</code>, but each accumulates the streamed text and calls <code class="inline">on_chunk</code> as it goes instead of returning the whole reply at once. Gemini needs its own role remapped (<code class="inline">"assistant"</code> &rarr; <code class="inline">"model"</code>) since it doesn't use OpenAI/Anthropic's role names.
+        <li>Add <code class="inline">_dispatch_stream</code> to the file. <code class="inline">stream_chat</code> above calls it but it doesn't exist yet, so this is the missing half. They split the work the same way <code class="inline">call()</code> and <code class="inline">_dispatch()</code> do in Module 0: <code class="inline">stream_chat</code> handles the parts every provider shares (retries, timing, cost, logging), and <code class="inline">_dispatch_stream</code> holds the provider-specific code that actually streams the reply. Paste the code below directly under <code class="inline">stream_chat</code>; it has one branch per provider, the same four as <code class="inline">_dispatch</code>. Each branch does three things: it opens a streaming request, adds each piece of text to a running <code class="inline">text</code> string while handing the piece to <code class="inline">on_chunk</code> (that is what lets a terminal print words as they arrive), and returns the finished text with the token counts. Gemini needs its own role remapped (<code class="inline">"assistant"</code> &rarr; <code class="inline">"model"</code>) since it doesn't use OpenAI/Anthropic's role names.
           <div class="code-block"><code>def _dispatch_stream(provider, model, messages, on_chunk, system=None):
     if provider == "anthropic":
         from anthropic import Anthropic
@@ -1001,9 +1001,10 @@ document.getElementById('input').addEventListener('keydown', e =&gt; { if (e.key
 
 @app.route("/")
 def index():
-    return Response(INDEX_HTML, mimetype="text/html")
-
-if __name__ == "__main__":
+    return Response(INDEX_HTML, mimetype="text/html")</code></div>
+        </li>
+        <li>Add the launcher as the <strong>very last lines of the file</strong>, below every route. <code class="inline">app.run()</code> starts the server and doesn't return, so any route written below it is never registered. If you put it earlier, the page loads but the dropdown stays empty (the page asks for <code class="inline">/models</code> and gets a 404) and <code class="inline">/chat</code> fails too.
+          <div class="code-block"><code>if __name__ == "__main__":
     app.run(port=5050, debug=True)</code></div>
         </li>
         <li>Run it and open the page.
