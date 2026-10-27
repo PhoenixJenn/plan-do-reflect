@@ -124,8 +124,8 @@
             <tr><th>Module</th><th>Est. hours</th><th>Level</th><th>You ship</th></tr>
           </thead>
           <tbody>
-            <tr><th scope="row">0 · Setup</th><td>2.3 to 4.6</td><td>Beginner</td><td>Course repo and a logging LLM client</td></tr>
-            <tr><th scope="row">1 · LLM Fundamentals</th><td>12 to 16</td><td>Beginner</td><td>Chatbot with a live cost meter</td></tr>
+            <tr><th scope="row">0 · Setup</th><td>2 to 4</td><td>Beginner</td><td>Course repo and a logging LLM client</td></tr>
+            <tr><th scope="row">1 · LLM Fundamentals</th><td>1 to 2</td><td>Beginner</td><td>Chatbot with a live cost meter</td></tr>
             <tr><th scope="row">2 · Prompting &amp; Reliability</th><td>12 to 16</td><td>Beginner</td><td>Invoice PDF to clean JSON</td></tr>
             <tr><th scope="row">3 · RAG Done Right</th><td>18 to 24</td><td>Intermediate</td><td>Chat with 100 messy PDFs</td></tr>
             <tr><th scope="row">4 · Evals &amp; Guardrails</th><td>12 to 16</td><td>Intermediate</td><td>Eval suite that runs in CI</td></tr>
@@ -220,15 +220,15 @@
           </ul>
           <h4 class="course-subhead">Hands-on labs</h4>
           <ol class="explainer-list is-numbered">
-            <li><strong>Token intuition.</strong> Guess the token count for English, code, JSON, emoji and Japanese, then check. Discuss why some cost more.</li>
-            <li><strong>Context builds up.</strong> Run the same four-turn conversation wordy and compact, and watch input tokens and cost grow every turn.</li>
-            <li><strong>Temperature sweep.</strong> Run one prompt 10 times at three temperatures and count how many distinct answers you get.</li>
-            <li><strong>Streaming vs blocking.</strong> Time the same long answer both ways and chart the difference.</li>
-            <li><strong>Prompt caching.</strong> Ask five questions about one long document, with and without caching. Compare cost and latency from your log.</li>
-            <li><strong>Semantic cache.</strong> Test 20 paraphrased questions and find the similarity threshold where wrong answers start slipping through.</li>
+            <li><strong>Token intuition</strong> (about 15 to 30 min). Guess the token count for English, code, JSON, emoji and Japanese, then check. Discuss why some cost more.</li>
+            <li><strong>Context builds up</strong> (about 22 to 44 min). Run the same four-turn conversation wordy and compact, and watch input tokens and cost grow every turn.</li>
+            <li><strong>Temperature sweep</strong> (about 3 to 6 min). Run one prompt 10 times at three temperatures and count how many distinct answers you get.</li>
+            <li><strong>Streaming vs blocking</strong> (about 2 to 4 min). Time the same long answer both ways and chart the difference.</li>
+            <li><strong>Prompt caching</strong> (about 4 to 8 min). Ask five questions about one long document, with and without caching. Compare cost and latency from your log.</li>
+            <li><strong>Semantic cache</strong> (about 6 to 12 min). Test 20 paraphrased questions and find the similarity threshold where wrong answers start slipping through.</li>
           </ol>
           <div class="course-project">
-            <span class="course-project-label">Project · Chatbot with a live cost meter</span>
+            <span class="course-project-label">Project · Chatbot with a live cost meter (about 12 to 24 min)</span>
             <p>A streaming chat app that shows tokens, dollars and latency per message and a running total, with a model picker that includes one local model.</p>
             <p><strong>Done when:</strong> responses stream correctly, cost matches the provider's pricing within 5%, the semantic cache hit rate is shown, and the README compares three models on the same 10 questions.</p>
           </div>

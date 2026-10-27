@@ -37,6 +37,23 @@
       <h1 class="page-title">LLM Fundamentals</h1>
       <p class="lesson-sub">Module 0 gave you <code class="inline">shared/llm_client.py</code> &mdash; one function that calls any provider and logs what it cost. This module is about understanding what's actually happening inside that call well enough to <strong>predict</strong> the cost and the latency before you make it, not just read them off afterward: what a token is, what temperature and streaming actually change, and the two completely different kinds of caching that cut cost without you noticing.</p>
       <p class="lesson-sub" style="margin-top: 10px;">Same assumptions as Module 0: everything runs from the <code class="inline">ai-beyond-fundamentals/</code> repo root with the venv activated. The model names below (<code class="inline">claude-haiku-5-5</code>, <code class="inline">gpt-5.4-mini</code>, <code class="inline">gemini-flash-lite-latest</code>) are the same "check before you paste" caveat from Module 0 &mdash; they will go stale, so verify before trusting them.</p>
+        <div class="compare-table-wrap" style="max-width: 560px; margin-top: 18px;">
+      <table class="compare-table">
+        <thead><tr><th>Step</th><th>Approx. time</th></tr></thead>
+        <tbody>
+          <tr><th scope="row">Lab 1 &middot; Token intuition</th><td>about 15 to 30 min</td></tr>
+          <tr><th scope="row">Lab 2 &middot; Context builds up</th><td>about 22 to 44 min</td></tr>
+          <tr><th scope="row">Lab 3 &middot; Temperature sweep</th><td>about 3 to 6 min</td></tr>
+          <tr><th scope="row">Lab 4 &middot; Streaming vs. blocking</th><td>about 2 to 4 min</td></tr>
+          <tr><th scope="row">Lab 5 &middot; Prompt caching</th><td>about 4 to 8 min</td></tr>
+          <tr><th scope="row">Lab 6 &middot; Semantic cache</th><td>about 6 to 12 min</td></tr>
+          <tr><th scope="row">Project Part 1 &middot; Terminal chat</th><td>about 4 to 8 min</td></tr>
+          <tr><th scope="row">Project Part 2 &middot; Web chat (Advanced)</th><td>about 8 to 16 min</td></tr>
+          <tr><th scope="row">Module total</th><td><strong>about 1 to 2 hours</strong></td></tr>
+        </tbody>
+      </table>
+    </div>
+    <p class="lesson-sub" style="margin-top: 10px; font-size: .85rem;">The low end is a timed first run through the module with Module 0 already done. The high end doubles it for a first-time learner who reads the code as they go. Reading the concepts above is not counted, and neither is time spent on a bug you hit.</p>
     </header>
 
     <div class="insight-aside" style="margin: 22px 0;">
