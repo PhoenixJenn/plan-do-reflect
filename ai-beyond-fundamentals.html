@@ -46,8 +46,9 @@
           <a class="sub-sub-item" href="#rag-done-right">3 · RAG Done Right</a>
           <a class="sub-sub-item" href="#evals-guardrails">4 · Evals &amp; Guardrails</a>
           <a class="sub-sub-item" href="#agents-harnesses">5 · Agents &amp; Harnesses</a>
-          <a class="sub-sub-item" href="#architecture-decisions">6 · Architecture Decisions</a>
-          <a class="sub-sub-item" href="#ship-it">7 · Ship It</a>
+          <a class="sub-sub-item" href="#tool-calling-at-scale">6 · Tool Calling at Scale</a>
+          <a class="sub-sub-item" href="#architecture-decisions">7 · Architecture Decisions</a>
+          <a class="sub-sub-item" href="#ship-it">8 · Ship It</a>
           <a class="sub-sub-item" href="#sources">Sources</a>
         </div>
       </div>
@@ -99,7 +100,7 @@
     <div class="section-block">
       <h2>How the Course Works</h2>
       <p>Every module follows the same loop as the rest of this site. <strong>Plan</strong> with a short concept lesson. <strong>Do</strong> three to six guided labs, each with starter code and a checkpoint test. <strong>Reflect</strong> by shipping a module project and writing down what broke and how you fixed it.</p>
-      <p style="margin-top: 10px;">All labs use one shared document collection (public company filings, meeting minutes, or product manuals all work), so you build one system that grows each module instead of seven throwaway demos. You need Python, Git, and comfort calling a REST API. No machine learning background is assumed.</p>
+      <p style="margin-top: 10px;">All labs use one shared document collection (public company filings, meeting minutes, or product manuals all work), so you build one system that grows each module instead of eight throwaway demos. You need Python, Git, and comfort calling a REST API. No machine learning background is assumed.</p>
       <div class="compare-table-wrap" style="margin-top: 14px; max-width: 640px;">
         <table class="compare-table">
           <thead>
@@ -130,9 +131,10 @@
             <tr><th scope="row">3 · RAG Done Right</th><td>18 to 24</td><td>Intermediate</td><td>Chat with 100 messy PDFs</td></tr>
             <tr><th scope="row">4 · Evals &amp; Guardrails</th><td>12 to 16</td><td>Intermediate</td><td>Eval suite that runs in CI</td></tr>
             <tr><th scope="row">5 · Agents &amp; Harnesses</th><td>12 to 16</td><td>Advanced</td><td>Research agent with sub-agents</td></tr>
-            <tr><th scope="row">6 · Architecture Decisions</th><td>6 to 8</td><td>Advanced</td><td>RAG vs fine-tune, same task</td></tr>
-            <tr><th scope="row">7 · Ship It</th><td>6 to 8</td><td>Capstone</td><td>All projects on GitHub, one deployed original</td></tr>
-            <tr><th scope="row"><a href="#bonus-flight-rewards">B · Bonus</a></th><td>About 40, alongside 2 to 7</td><td>Optional</td><td>Flight rewards agent, one skill per part</td></tr>
+            <tr><th scope="row">6 · Tool Calling at Scale</th><td>4 to 6</td><td>Advanced</td><td>One task run two ways and measured, plus your own example</td></tr>
+            <tr><th scope="row">7 · Architecture Decisions</th><td>6 to 8</td><td>Advanced</td><td>RAG vs fine-tune, same task</td></tr>
+            <tr><th scope="row">8 · Ship It</th><td>6 to 8</td><td>Capstone</td><td>All projects on GitHub, one deployed original</td></tr>
+            <tr><th scope="row"><a href="#bonus-flight-rewards">B · Bonus</a></th><td>About 40, alongside 2 to 8</td><td>Optional</td><td>Flight rewards agent, one skill per part</td></tr>
           </tbody>
         </table>
       </div>
@@ -462,7 +464,7 @@
         </button>
         <div class="fw-body" id="evals-guardrails-body">
           <h4 class="course-subhead" id="decision-models">Decision models: a cheap, calibrated judge</h4>
-          <p style="max-width: 640px;">A decision model answers one narrow question by choosing from answers you define in advance (yes or no, one of N choices, or a score) and returns a probability instead of prose. For calls shaped like that, a decision model runs far faster and cheaper than a general chat model (reported figures put it around 150ms versus 1.6 seconds for a general-purpose model on the same kind of call). The category sits alongside hosted options such as OpenAI's Decisions API and Perplexity's Decider, plus open-weight alternatives, and it shows up three times in this course: here as a safety gate, later in this module as a grader, and in Module 6 as a router. <strong>The core rule in every case: the decision model judges meaning, but authority lives in your code.</strong> Your harness sets the thresholds and enforces the outcome; the model is never the one deciding what happens next.</p>
+          <p style="max-width: 640px;">A decision model answers one narrow question by choosing from answers you define in advance (yes or no, one of N choices, or a score) and returns a probability instead of prose. For calls shaped like that, a decision model runs far faster and cheaper than a general chat model (reported figures put it around 150ms versus 1.6 seconds for a general-purpose model on the same kind of call). The category sits alongside hosted options such as OpenAI's Decisions API and Perplexity's Decider, plus open-weight alternatives, and it shows up three times in this course: here as a safety gate, later in this module as a grader, and in Module 7 as a router. <strong>The core rule in every case: the decision model judges meaning, but authority lives in your code.</strong> Your harness sets the thresholds and enforces the outcome; the model is never the one deciding what happens next.</p>
           <div class="compare-table-wrap" style="margin-top: 10px; max-width: 640px;">
             <table class="compare-table">
               <thead>
@@ -873,9 +875,64 @@
       </div>
 
       <!-- ===================== MODULE 6 ===================== -->
+      <div class="framework-item is-accordion course-module" id="tool-calling-at-scale">
+        <button class="fw-toggle" type="button" aria-expanded="false" aria-controls="tool-calling-at-scale-body">
+          <div class="fw-num">6</div>
+          <div class="fw-toggle-text">
+            <h3>Tool Calling at Scale</h3>
+            <p class="fw-teaser">Every tool result is read again on every later turn. Run one real task two ways, measure both, and learn when to let the model write the loop.</p>
+          </div>
+          <svg class="fw-chevron" width="18" height="18" viewBox="0 0 20 20" aria-hidden="true">
+            <path d="M5 7.5 L10 12.5 L15 7.5" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+        </button>
+        <div class="fw-body" id="tool-calling-at-scale-body">
+          <h4 class="course-subhead">What you'll learn</h4>
+          <ul class="explainer-list is-bulleted">
+            <li>Why a tool result is paid for on every later turn, and why to count tokens read instead of calls</li>
+            <li>Letting the model write one script that calls your tools as Python functions, with only a summary coming back</li>
+            <li>A sandbox that has the network on: what protects you when "no network" is not an option</li>
+            <li>Measuring both modes on the same task, and when the loop is still the right choice</li>
+            <li>Tools that fail loudly, using a real API that changed while this lesson was being written</li>
+          </ul>
+          <h4 class="course-subhead">Hands-on labs</h4>
+          <ol class="explainer-list is-numbered">
+            <li><strong>Six tools as plain functions.</strong> Wrap the Metropolitan Museum of Art's open collection API with a disk cache, readable errors and schemas generated from type hints.</li>
+            <li><strong>Loop mode.</strong> Give a model the tools and a task with checkable requirements, and log the tokens it reads on every turn.</li>
+            <li><strong>The sandbox with the network on.</strong> Build the locked-down container and probe what it allows and blocks.</li>
+            <li><strong>Code mode.</strong> Let the model write one script, run it in the sandbox, and compare three runs of each mode.</li>
+            <li><strong>Read a failure.</strong> Hit a retired endpoint on purpose and see why loud errors beat quiet ones.</li>
+          </ol>
+          <div class="course-project">
+            <span class="course-project-label">Project · Bring your own example</span>
+            <p>Use a model to find a new task with the same shape (free API, a fan-out of calls, a requirement a script can check), build its tools on the same core, and measure both modes.</p>
+            <p><strong>Done when:</strong> your tools reuse the core unchanged, you tested the API before building on it, both modes ran three times on the same task, and a script, not the model, decides pass or fail.</p>
+          </div>
+          <div class="insight-aside">
+            <svg width="26" height="26" viewBox="0 0 26 26" aria-hidden="true">
+              <circle cx="13" cy="13" r="10" fill="none" stroke="var(--border)" stroke-width="2"/>
+              <path d="M13 7 L13 14" stroke="var(--accent-strong)" stroke-width="2.4" stroke-linecap="round"/>
+              <circle cx="13" cy="18.5" r="1.6" fill="var(--accent-strong)"/>
+            </svg>
+            <div class="insight-aside-body">
+              <span class="insight-aside-label">Watch-out</span>
+              <p>Needs Docker from Module 5, and makes real model calls. A few runs cost little, but check your provider's usage page after the first one.</p>
+            </div>
+          </div>
+          <a class="try-it-quicklink" href="course/ai-beyond-fundamentals/tool-calling-at-scale.html" style="margin-top: 14px;">
+            <svg width="14" height="14" viewBox="0 0 24 24" aria-hidden="true">
+              <path d="M12 2 L14.2 9 L21 11 L14.2 13 L12 20 L9.8 13 L3 11 L9.8 9 Z" fill="currentColor"/>
+            </svg>
+            Open the full lesson
+          </a>
+          <a class="back-to-top" href="#tool-calling-at-scale"><svg width="9" height="9" viewBox="0 0 12 12" aria-hidden="true"><path d="M6 10 L6 2 M2.5 5.5 L6 2 L9.5 5.5" stroke="var(--accent-strong)" stroke-width="1.8" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg>Top</a>
+        </div>
+      </div>
+
+      <!-- ===================== MODULE 7 ===================== -->
       <div class="framework-item is-accordion course-module" id="architecture-decisions">
         <button class="fw-toggle" type="button" aria-expanded="false" aria-controls="architecture-decisions-body">
-          <div class="fw-num">6</div>
+          <div class="fw-num">7</div>
           <div class="fw-toggle-text">
             <h3>Architecture Decisions</h3>
             <p class="fw-teaser">Write a one-page design decision for an AI feature and defend it with measurements.</p>
@@ -934,10 +991,10 @@
         </div>
       </div>
 
-      <!-- ===================== MODULE 7 ===================== -->
+      <!-- ===================== MODULE 8 ===================== -->
       <div class="framework-item is-accordion course-module" id="ship-it">
         <button class="fw-toggle" type="button" aria-expanded="false" aria-controls="ship-it-body">
-          <div class="fw-num">7</div>
+          <div class="fw-num">8</div>
           <div class="fw-toggle-text">
             <h3>Ship It</h3>
             <p class="fw-teaser">One real problem, built from scratch, deployed, and written up honestly.</p>
@@ -972,7 +1029,7 @@
               </tbody>
             </table>
           </div>
-          <p style="margin-top: 10px; max-width: 640px;">Match the level to the risk and reversibility of the action, not to how confident the system sounds. The <a href="#decision-models">decision models</a> from Module 4 and Module 6 can drive that match directly: a calibrated probability is a reasonable input to "ask or act," while an uncalibrated one is just a confident-sounding guess.</p>
+          <p style="margin-top: 10px; max-width: 640px;">Match the level to the risk and reversibility of the action, not to how confident the system sounds. The <a href="#decision-models">decision models</a> from Module 4 and Module 7 can drive that match directly: a calibrated probability is a reasonable input to "ask or act," while an uncalibrated one is just a confident-sounding guess.</p>
           <ul class="explainer-list is-bulleted" style="max-width: 640px; margin-top: 8px;">
             <li><strong>Trust calibration.</strong> Show work and sources, state uncertainty plainly, and avoid both over-trust and under-trust.</li>
             <li><strong>Recoverability.</strong> Confirm before irreversible actions, offer undo, and keep an activity log a user can actually read.</li>
@@ -1037,9 +1094,9 @@
                 <tr><th scope="row">B2</th><td>Module 3</td><td>RAG over program rules</td><td>Cited, dated answers on transfer ratios and routing rules</td></tr>
                 <tr><th scope="row">B3</th><td>Module 4</td><td>Evals</td><td>A 40-query golden set running in CI</td></tr>
                 <tr><th scope="row">B4</th><td>Module 5</td><td>Multi-agent graph</td><td>Planner, parallel searchers and a value checker</td></tr>
-                <tr><th scope="row">B5</th><td>Module 6</td><td>Production</td><td>Deployed, with cost, latency, routing and guardrails</td></tr>
-                <tr><th scope="row">B6</th><td>Module 6</td><td>Voice front end</td><td>Spoken, interruptible trip planning</td></tr>
-                <tr><th scope="row">B7</th><td>Module 7</td><td>Ship and tell</td><td>Demo video, README and postmortem</td></tr>
+                <tr><th scope="row">B5</th><td>Module 7</td><td>Production</td><td>Deployed, with cost, latency, routing and guardrails</td></tr>
+                <tr><th scope="row">B6</th><td>Module 7</td><td>Voice front end</td><td>Spoken, interruptible trip planning</td></tr>
+                <tr><th scope="row">B7</th><td>Module 8</td><td>Ship and tell</td><td>Demo video, README and postmortem</td></tr>
               </tbody>
             </table>
           </div>
@@ -1074,7 +1131,7 @@
                 <tr><th scope="row">Harness engineering</th><td>The operating system around the model: tools, limits, state, permissions and traces</td><td>Module 5</td></tr>
                 <tr><th scope="row">Context engineering</th><td>The model's working view: deciding what goes into the context window</td><td>Modules 2 and 3</td></tr>
                 <tr><th scope="row">MCP and skills</th><td>Ways to package tools and instructions for agents</td><td>Module 5</td></tr>
-                <tr><th scope="row">Decision models</th><td>A narrow classifier that returns a calibrated probability instead of prose, for gating, grading or routing</td><td>Module 4, Module 6, Bonus B3&ndash;B6</td></tr>
+                <tr><th scope="row">Decision models</th><td>A narrow classifier that returns a calibrated probability instead of prose, for gating, grading or routing</td><td>Module 4, Module 7, Bonus B3&ndash;B6</td></tr>
                 <tr><th scope="row">World models (JEPA and similar)</th><td>Research on models that learn how the world works</td><td>Awareness only</td></tr>
                 <tr><th scope="row">Agentforce, Glean, Moveworks</th><td>Enterprise platforms built on RAG plus agents</td><td>Evaluate them with Module 4 thinking</td></tr>
               </tbody>

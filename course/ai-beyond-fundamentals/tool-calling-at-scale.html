@@ -1,0 +1,1030 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="a">
+<head>
+<meta charset="UTF-8">
+<base href="../../">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="icon" type="image/svg+xml" href="favicon.svg">
+<title>Tool Calling at Scale: Lesson · Plan · Do · Reflect</title>
+
+<!-- Applied before CSS loads, so the saved theme choice doesn't flash to the default on reload -->
+<script>
+(function () {
+  try {
+    var savedTheme = localStorage.getItem('pdr-theme');
+    if (['a', 'b', 'c'].indexOf(savedTheme) > -1) {
+      document.documentElement.setAttribute('data-theme', savedTheme);
+    }
+  } catch (e) {}
+})();
+</script>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=Work+Sans:wght@400;500;600&family=Sora:wght@600;700;800&family=Plus+Jakarta+Sans:wght@500;600;700&family=Patrick+Hand&family=Golos+Text:wght@800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/tokens.css">
+<link rel="stylesheet" href="css/main.css">
+<link rel="stylesheet" href="css/lesson.css">
+</head>
+<body data-nav="core-skills">
+
+<div id="site-topnav"></div>
+
+<main class="lesson">
+  <p class="lesson-crumb"><a href="ai-beyond-fundamentals.html">AI Beyond Fundamentals</a> &rsaquo; Module 6 &rsaquo; Lesson</p>
+  <article class="lesson-page">
+    <header class="lesson-head">
+      <p class="lesson-eyebrow">Module 6 &middot; Tool Calling at Scale</p>
+      <h1 class="page-title">Tool Calling at Scale</h1>
+      <p class="lesson-sub">Module 5 gave your agent hands. This lesson asks what the hands cost. Every tool result stays in the conversation and is read again on every later turn, so a task with dozens of calls can read hundreds of thousands of tokens to do very little thinking. You will run one real task two ways, measure both, and learn when to let the model write the loop instead of running it.</p>
+      <p class="lesson-sub" style="margin-top: 10px;">The task is real: curate a twelve-piece exhibit from the Metropolitan Museum of Art's open collection, with downloaded images, a contact sheet and a gallery page. Same six tools, same task, same model, two ways of calling them. It builds on tool calling from Module 2 and the loop, limits and sandbox from Module 5, and it needs Docker.</p>
+    </header>
+
+    <section class="lesson-section">
+      <h2>Concepts</h2>
+      <div class="lesson-concepts">
+
+        <div class="lesson-concept">
+          <h3>Every tool result is read again on every later turn</h3>
+          <p>A model remembers nothing between calls. Each turn you send the whole conversation again: the instructions, the tool list, every earlier call and every earlier result. So a tool result is not paid for once. It is paid for on every turn after it arrives. A museum record is about 2.2 KB of JSON, roughly 550 tokens. Fetch 30 of them on turn 3 and all 30 are read again on turn 4, turn 5 and every turn after that, whether or not the model still needs them.</p>
+          <figure class="course-diagram">
+<svg viewBox="0 0 760 296" role="img" aria-label="Bar chart of input tokens per model turn. The loop run climbs from about 1,300 to 42,000 tokens per turn over ten turns. The code run stays under 6,000 over three turns.">
+<path d="M36 90.2 H724" fill="none" stroke="var(--border)" stroke-width="1" stroke-dasharray="4 4"/>
+<text x="30" y="94.2" font-size="10.5" text-anchor="end" fill="var(--text-caption)">40k</text>
+<path d="M36 252 H724" fill="none" stroke="var(--text-caption)" stroke-width="1.2"/>
+<rect x="44" y="246.9" width="32" height="5.1" rx="3" fill="var(--accent)" stroke="var(--accent-strong)" stroke-width="1"/>
+<text x="60.0" y="241.9" font-size="10" font-weight="600" text-anchor="middle" fill="var(--text-heading)">1.3k</text>
+<text x="60.0" y="267" font-size="10.5" font-weight="400" text-anchor="middle" fill="var(--text-caption)">1</text>
+<rect x="86" y="242.4" width="32" height="9.6" rx="3" fill="var(--accent)" stroke="var(--accent-strong)" stroke-width="1"/>
+<text x="102.0" y="237.4" font-size="10" font-weight="600" text-anchor="middle" fill="var(--text-heading)">2.4k</text>
+<text x="102.0" y="267" font-size="10.5" font-weight="400" text-anchor="middle" fill="var(--text-caption)">2</text>
+<rect x="128" y="189.3" width="32" height="62.7" rx="3" fill="var(--accent)" stroke="var(--accent-strong)" stroke-width="1"/>
+<text x="144.0" y="184.3" font-size="10" font-weight="600" text-anchor="middle" fill="var(--text-heading)">15.5k</text>
+<text x="144.0" y="267" font-size="10.5" font-weight="400" text-anchor="middle" fill="var(--text-caption)">3</text>
+<rect x="170" y="183.3" width="32" height="68.7" rx="3" fill="var(--accent)" stroke="var(--accent-strong)" stroke-width="1"/>
+<text x="186.0" y="178.3" font-size="10" font-weight="600" text-anchor="middle" fill="var(--text-heading)">17.0k</text>
+<text x="186.0" y="267" font-size="10.5" font-weight="400" text-anchor="middle" fill="var(--text-caption)">4</text>
+<rect x="212" y="133.9" width="32" height="118.1" rx="3" fill="var(--accent)" stroke="var(--accent-strong)" stroke-width="1"/>
+<text x="228.0" y="128.9" font-size="10" font-weight="600" text-anchor="middle" fill="var(--text-heading)">29.2k</text>
+<text x="228.0" y="267" font-size="10.5" font-weight="400" text-anchor="middle" fill="var(--text-caption)">5</text>
+<rect x="254" y="104.1" width="32" height="147.9" rx="3" fill="var(--accent)" stroke="var(--accent-strong)" stroke-width="1"/>
+<text x="270.0" y="99.1" font-size="10" font-weight="600" text-anchor="middle" fill="var(--text-heading)">36.6k</text>
+<text x="270.0" y="267" font-size="10.5" font-weight="400" text-anchor="middle" fill="var(--text-caption)">6</text>
+<rect x="296" y="93.7" width="32" height="158.3" rx="3" fill="var(--accent)" stroke="var(--accent-strong)" stroke-width="1"/>
+<text x="312.0" y="88.7" font-size="10" font-weight="600" text-anchor="middle" fill="var(--text-heading)">39.1k</text>
+<text x="312.0" y="267" font-size="10.5" font-weight="400" text-anchor="middle" fill="var(--text-caption)">7</text>
+<rect x="338" y="84.4" width="32" height="167.6" rx="3" fill="var(--accent)" stroke="var(--accent-strong)" stroke-width="1"/>
+<text x="354.0" y="79.4" font-size="10" font-weight="600" text-anchor="middle" fill="var(--text-heading)">41.4k</text>
+<text x="354.0" y="267" font-size="10.5" font-weight="400" text-anchor="middle" fill="var(--text-caption)">8</text>
+<rect x="380" y="83.5" width="32" height="168.5" rx="3" fill="var(--accent)" stroke="var(--accent-strong)" stroke-width="1"/>
+<text x="396.0" y="78.5" font-size="10" font-weight="600" text-anchor="middle" fill="var(--text-heading)">41.7k</text>
+<text x="396.0" y="267" font-size="10.5" font-weight="400" text-anchor="middle" fill="var(--text-caption)">9</text>
+<rect x="422" y="81.1" width="32" height="170.9" rx="3" fill="var(--accent)" stroke="var(--accent-strong)" stroke-width="1"/>
+<text x="438.0" y="76.1" font-size="10" font-weight="600" text-anchor="middle" fill="var(--text-heading)">42.3k</text>
+<text x="438.0" y="267" font-size="10.5" font-weight="400" text-anchor="middle" fill="var(--text-caption)">10</text>
+<rect x="540" y="247.1" width="44" height="4.9" rx="3" fill="var(--bg-content)" stroke="var(--status-green)" stroke-width="1"/>
+<text x="562.0" y="242.1" font-size="10" font-weight="600" text-anchor="middle" fill="var(--text-heading)">1.2k</text>
+<text x="562.0" y="267" font-size="10.5" font-weight="400" text-anchor="middle" fill="var(--text-caption)">1</text>
+<rect x="604" y="232.7" width="44" height="19.3" rx="3" fill="var(--bg-content)" stroke="var(--status-green)" stroke-width="1"/>
+<text x="626.0" y="227.7" font-size="10" font-weight="600" text-anchor="middle" fill="var(--text-heading)">4.8k</text>
+<text x="626.0" y="267" font-size="10.5" font-weight="400" text-anchor="middle" fill="var(--text-caption)">2</text>
+<rect x="668" y="228.2" width="44" height="23.8" rx="3" fill="var(--bg-content)" stroke="var(--status-green)" stroke-width="1"/>
+<text x="690.0" y="223.2" font-size="10" font-weight="600" text-anchor="middle" fill="var(--text-heading)">5.9k</text>
+<text x="690.0" y="267" font-size="10.5" font-weight="400" text-anchor="middle" fill="var(--text-caption)">3</text>
+<text x="232" y="32" font-size="13" font-weight="700" text-anchor="middle" fill="var(--text-heading)">Loop: one call at a time</text>
+<text x="232" y="49" font-size="11.5" text-anchor="middle" fill="var(--text-caption)">266,378 tokens read in total</text>
+<text x="618" y="32" font-size="13" font-weight="700" text-anchor="middle" fill="var(--text-heading)">Code: one script</text>
+<text x="618" y="49" font-size="11.5" text-anchor="middle" fill="var(--text-caption)">11,859 tokens read in total</text>
+<text x="232" y="284" font-size="11.5" font-style="italic" text-anchor="middle" fill="var(--text-caption)">model turn</text>
+<text x="618" y="284" font-size="11.5" font-style="italic" text-anchor="middle" fill="var(--text-caption)">model turn</text>
+</svg>
+<figcaption>Input tokens the model read on each turn, one run of each mode: same task, same six tools, same model. The loop run climbs because every result stays in the conversation. The code run never passes 6,000, because the records stayed inside the sandbox.</figcaption>
+</figure>
+          <p>The tool list is not the problem here. Six small tools cost about 1,200 tokens in either mode. With dozens of tools or long descriptions it becomes a second cost on every turn, and Anthropic's engineering team describes agents connected to thousands of tools reading hundreds of thousands of tokens before they see the request. The cost in this lesson comes from the other source: results piling up.</p>
+        </div>
+
+        <div class="lesson-concept">
+          <h3>Count tokens read, not calls</h3>
+          <p>It is tempting to count round trips, and many explanations of this problem do. But models batch independent calls. In our three loop runs the model made 52, 58 and 57 tool calls in 10, 10 and 9 turns, often a dozen at once. Calls overstate turns. What grows the bill is how much has piled up by each turn, so the honest measure is the sum of <code class="inline">usage.input_tokens</code> across the run, which is what Lab 2 logs.</p>
+          <p>Calls that depend on each other cannot be batched: search, then look at the results, then choose, then download the choices. Those chains are where turns genuinely accumulate. One more caveat: these runs switch prompt caching off so you can see what the model reads. With caching on, a repeated prefix is billed at a lower rate and returns faster, which narrows the cost gap. It does not shrink what the model has to hold in its context.</p>
+        </div>
+
+        <div class="lesson-concept">
+          <h3>Let the model write the loop</h3>
+          <p>In code mode the tools become ordinary Python functions, and the model writes one script that calls them: search, loop over the ids, fetch each record, filter, download, build the page. A sandbox runs the script and only what the script prints goes back to the model. The records never enter its context.</p>
+          <p>Anthropic's engineering team describes this approach for MCP servers and reports a Drive-to-Salesforce example dropping from about 150,000 tokens to 2,000, a 98.7% saving. That is their own worked example, not a benchmark. Ours is a different task with its own numbers: a median of 267,531 input tokens in loop mode against 11,859 in code mode, about 23 times fewer.</p>
+          <p>Tokens are not the only difference. <strong>Exactness:</strong> the requirement "twelve different kinds of object" is one line of code, <code class="inline">len(set(kinds)) == 12</code>. In all three loop runs the model fell short (9, 10 and 11 distinct kinds) after fetching 30 to 36 records and judging them close enough. One run said so itself. All three code runs passed. <strong>Exposure:</strong> bulky text from outside, here museum descriptions, stays in the sandbox instead of sitting in front of the model, and the model sees only what the script chooses to print.</p>
+          <div class="compare-table-wrap" style="margin-top: 4px;">
+            <table class="compare-table">
+              <thead>
+                <tr><th></th><th>Loop: one call at a time</th><th>Code: one script</th></tr>
+              </thead>
+              <tbody>
+                <tr><th scope="row">Input tokens, median</th><td>267,531</td><td>11,859</td></tr>
+                <tr><th scope="row">Input tokens, range</th><td>266,378 to 299,839</td><td>8,798 to 36,124</td></tr>
+                <tr><th scope="row">Model turns</th><td>9 to 10</td><td>3 to 7</td></tr>
+                <tr><th scope="row">Tool calls or scripts run</th><td>52 to 58 calls</td><td>2 to 6 scripts</td></tr>
+                <tr><th scope="row">Met every requirement</th><td>0 of 3 runs</td><td>3 of 3 runs</td></tr>
+                <tr><th scope="row">Wall-clock time</th><td>33 to 35 s</td><td>18 to 55 s</td></tr>
+              </tbody>
+            </table>
+          </div>
+          <p style="max-width: 640px; font-size: .85rem;">Three runs per mode, one task, one model (Claude Haiku 5.5), prompt caching off. Treat the shape as the finding, not the exact numbers: yours will differ, and Lab 4 has you measure your own.</p>
+        </div>
+
+        <div class="lesson-concept">
+          <h3>A sandbox with the network on</h3>
+          <p>Module 5's sandboxed tool ran with no network at all, so even a hostile script could not send anything out. These tools have to call a public API, so this container needs the network, and you cannot have both. The protection changes shape. Instead of "it cannot reach out", the rule becomes "there is nothing in it worth sending":</p>
+          <ul class="explainer-list is-bulleted" style="max-width: 640px;">
+            <li><strong>No secrets inside.</strong> No API keys, no home folder. The only environment variable passed in is the data folder's path.</li>
+            <li><strong>One writable folder.</strong> The tools are mounted read-only; results land in a single data folder.</li>
+            <li><strong>Limits enforced from outside.</strong> The timeout kills the whole container from the host, so the script cannot disable it. Memory, CPU and process counts are capped.</li>
+            <li><strong>Least privilege.</strong> A non-root user, a read-only filesystem, and every Linux capability dropped.</li>
+          </ul>
+          <p>What this does not stop: the script can still send whatever it can see to any server. That is acceptable only because it can see public data and nothing else. If your tools carry credentials or private data, use the stricter pattern: keep the container offline and send each call out through a small bridge on the host that allows only named tools. Anthropic's post lists sandboxing, resource limits and monitoring as the real cost of this approach, and they are.</p>
+        </div>
+
+        <div class="lesson-concept">
+          <h3>When not to, and what goes wrong</h3>
+          <ul class="explainer-list is-bulleted" style="max-width: 640px;">
+            <li><strong>One or two calls.</strong> A loop is simpler, and there is nothing to save.</li>
+            <li><strong>Judgment between calls, or approval.</strong> If a person or a policy has to sign off before the next step, that belongs in the harness loop from Module 5, not inside a script that runs to the end.</li>
+            <li><strong>Debugging gets harder.</strong> Our slowest code run took six scripts and 36,124 tokens because the first attempts failed. That was still far below any loop run, but four times the best code run. Code mode was not always faster on the clock either: 18 to 55 seconds against about 34 for the loop, once container start-up and retries count.</li>
+            <li><strong>APIs change under you.</strong> While building this lesson, the Met retired its old search endpoint on 1 October 2026. The old URL answered HTTP 410 with a message naming the replacement. Because the tool wrapper hands that message back as text, the failure was readable and the fix took a minute. A tool that swallowed the error and returned an empty list would have produced an empty exhibit and no explanation. Lab 5 has you cause this on purpose.</li>
+          </ul>
+        </div>
+
+      </div>
+    </section>
+
+    <section class="lesson-section">
+      <h2>Hands-on Labs</h2>
+      <div class="lesson-labs">
+
+        <div class="lab-card framework-item is-accordion" id="lab-1">
+          <button class="fw-toggle" type="button" aria-expanded="false" aria-controls="lab-1-body">
+            <span class="lab-num">LAB 1</span>
+            <div class="fw-toggle-text">
+              <h3>Six tools as plain functions</h3>
+              <p class="fw-teaser">Wrap a real museum API as six Python functions with a disk cache, readable errors, and schemas generated from type hints.</p>
+            </div>
+            <svg class="fw-chevron" width="18" height="18" viewBox="0 0 20 20" aria-hidden="true">
+              <path d="M5 7.5 L10 12.5 L15 7.5" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+          </button>
+          <div class="fw-body" id="lab-1-body">
+
+          <ol class="lab-steps">
+            <li>Create a folder for this lesson inside your lab repo and work from inside it. This lesson adds two libraries; the model SDK and <code class="inline">requests</code> are already in your environment.
+              <div class="code-block"><code>mkdir toolscale &amp;&amp; cd toolscale
+pip install pillow requests</code></div>
+            </li>
+            <li>Create <code class="inline">core.py</code>. It knows nothing about museums, so a different example later reuses it unchanged. It gives you a disk cache (so every run sees identical data), a <code class="inline">ToolError</code> the model can read, a <code class="inline">@tool</code> decorator that builds each tool's schema from its type hints and docstring, and a <code class="inline">call_tool</code> that turns every failure into text.
+              <div class="code-block"><code>"""Shared plumbing for the tool-calling-at-scale lab.
+
+Nothing in here knows about museums. A new example (Pokemon, recipes, ...) is a new
+tools file that imports from this one and decorates its functions with @tool.
+"""
+import hashlib
+import inspect
+import json
+import os
+import time
+import typing
+from pathlib import Path
+
+import requests
+
+ROOT = Path(__file__).parent
+# In the container the code is mounted read-only, so data lives somewhere writable.
+DATA_DIR = Path(os.environ.get("TOOLSCALE_DATA", ROOT))
+CACHE_DIR = DATA_DIR / "cache"
+OUT_DIR = DATA_DIR / "out"
+USER_AGENT = "ai-beyond-fundamentals-lab/1.0 (course exercise)"
+MIN_GAP_SECONDS = 0.15  # be polite to free public APIs
+
+CACHE_DIR.mkdir(exist_ok=True)
+OUT_DIR.mkdir(exist_ok=True)
+
+_last_request = 0.0
+stats = {"network_calls": 0, "cache_hits": 0}
+
+
+class ToolError(Exception):
+    """A failure the model should be able to read and act on."""
+
+
+# ---------------------------------------------------------------- HTTP + cache
+
+def _cache_path(key: str, suffix: str) -&gt; Path:
+    return CACHE_DIR / (hashlib.sha256(key.encode()).hexdigest()[:24] + suffix)
+
+
+def fetch(url: str, params: dict | None = None, *, binary: bool = False):
+    """GET a URL with a disk cache, so every run (loop or code) sees identical data.
+
+    Failures raise ToolError carrying the API's own message, never a bare status code.
+    """
+    global _last_request
+    key = url + "?" + json.dumps(params or {}, sort_keys=True)
+    path = _cache_path(key, ".bin" if binary else ".json")
+    if path.exists():
+        stats["cache_hits"] += 1
+        data = path.read_bytes()
+        return data if binary else json.loads(data)
+
+    wait = MIN_GAP_SECONDS - (time.time() - _last_request)
+    if wait &gt; 0:
+        time.sleep(wait)
+    try:
+        resp = requests.get(url, params=params, timeout=20, headers={"User-Agent": USER_AGENT})
+    except requests.RequestException as exc:
+        raise ToolError(f"network error calling {url}: {exc}") from exc
+    finally:
+        _last_request = time.time()
+    stats["network_calls"] += 1
+
+    if resp.status_code != 200:
+        detail = resp.text[:400]
+        try:
+            detail = resp.json().get("message", detail)
+        except ValueError:
+            pass
+        raise ToolError(f"{url} returned HTTP {resp.status_code}: {detail}")
+
+    path.write_bytes(resp.content)
+    return resp.content if binary else resp.json()
+
+
+def safe_output_path(filename: str, ext: str) -&gt; Path:
+    """Model-chosen filenames are untrusted input: keep only the base name, force the extension."""
+    stem = Path(filename).stem or "output"
+    stem = "".join(c for c in stem if c.isalnum() or c in "-_") or "output"
+    return OUT_DIR / f"{stem}{ext}"
+
+
+# ------------------------------------------------------- tool registry + schema
+
+TOOLS: dict[str, typing.Callable] = {}
+
+_JSON_TYPES = {int: "integer", float: "number", str: "string", bool: "boolean"}
+
+
+def tool(fn: typing.Callable) -&gt; typing.Callable:
+    """Register a plain function as a tool. Its type hints and docstring ARE the contract."""
+    TOOLS[fn.__name__] = fn
+    return fn
+
+
+def _json_type(hint) -&gt; dict:
+    origin = typing.get_origin(hint)
+    if origin is list:
+        (inner,) = typing.get_args(hint)
+        return {"type": "array", "items": _json_type(inner)}
+    if hint in _JSON_TYPES:
+        return {"type": _JSON_TYPES[hint]}
+    raise TypeError(f"unsupported tool argument type: {hint!r}")
+
+
+def schema_for(fn: typing.Callable) -&gt; dict:
+    """Build an Anthropic-format tool definition from a function's hints and docstring."""
+    sig = inspect.signature(fn)
+    hints = typing.get_type_hints(fn)
+    props, required = {}, []
+    for name, param in sig.parameters.items():
+        props[name] = _json_type(hints[name])
+        if param.default is inspect.Parameter.empty:
+            required.append(name)
+    return {
+        "name": fn.__name__,
+        "description": inspect.getdoc(fn) or "",
+        "input_schema": {"type": "object", "properties": props, "required": required},
+    }
+
+
+def all_schemas() -&gt; list[dict]:
+    return [schema_for(fn) for fn in TOOLS.values()]
+
+
+def call_tool(name: str, args: dict) -&gt; str:
+    """Run a registered tool and return a string the model can read.
+
+    Errors come back as text instead of raising, so the model sees them and can recover.
+    """
+    if name not in TOOLS:
+        return f"ERROR: unknown tool {name!r}. Available: {', '.join(TOOLS)}"
+    try:
+        result = TOOLS[name](**args)
+    except ToolError as exc:
+        return f"ERROR: {exc}"
+    except TypeError as exc:
+        return f"ERROR: bad arguments for {name}: {exc}"
+    except Exception as exc:  # a tool bug must not kill the loop; the model can read it and adapt
+        return f"ERROR: {name} failed unexpectedly: {type(exc).__name__}: {exc}"
+    return result if isinstance(result, str) else json.dumps(result, ensure_ascii=False)</code></div>
+            </li>
+            <li>Three details are worth a slow read. <code class="inline">fetch</code> identifies itself with an honest User-Agent and waits briefly between requests; free public APIs are a shared resource. <code class="inline">safe_output_path</code> exists because a filename the model chooses is untrusted input: an earlier version of this code let a model-supplied name with no extension crash the whole run. And the last <code class="inline">except</code> in <code class="inline">call_tool</code> returns unexpected errors as text so the model can adapt instead of the loop dying.</li>
+            <li>Create <code class="inline">met_tools.py</code>: six tools over the Metropolitan Museum of Art's open collection. The search endpoint is the paginated <code class="inline">v1.1</code>, and <code class="inline">limit</code> tops out at 500 per page. The docstrings are the contract the model reads, so write them for the model.
+              <div class="code-block"><code>"""Museum exhibit curator tools, backed by the Met's open-access Collection API.
+
+Six tools, used identically by the loop runner and the code runner.
+"""
+import html
+import io
+
+from PIL import Image, ImageDraw
+
+from core import OUT_DIR, ToolError, fetch, safe_output_path, tool
+
+BASE = "https://collectionapi.metmuseum.org/public/collection"
+
+
+@tool
+def list_departments() -&gt; list:
+    """List the museum's departments as {departmentId, displayName}. Use a departmentId to narrow a search."""
+    return fetch(f"{BASE}/v1/departments")["departments"]
+
+
+@tool
+def search_collection(query: str, offset: int = 0, limit: int = 100, department_id: int = 0) -&gt; dict:
+    """Search the collection for public-domain objects that have images.
+
+    Returns {total, object_ids, next_offset}. Results are paged: limit is at most 500,
+    and next_offset is null once you have reached the end. department_id 0 means all.
+    """
+    params = {
+        "q": query, "hasImages": "true", "isPublicDomain": "true",
+        "offset": offset, "limit": min(limit, 500),
+    }
+    if department_id:
+        params["departmentId"] = department_id
+    data = fetch(f"{BASE}/v1.1/search", params)
+    ids = data.get("objectIDs") or []
+    nxt = offset + len(ids)
+    return {"total": data.get("total", 0), "object_ids": ids,
+            "next_offset": nxt if nxt &lt; data.get("total", 0) and ids else None}
+
+
+@tool
+def get_object(object_id: int) -&gt; dict:
+    """Get the full record for one object: title, artist, date, medium, department, image URLs and more."""
+    return fetch(f"{BASE}/v1/objects/{object_id}")
+
+
+@tool
+def download_image(object_id: int) -&gt; str:
+    """Download the small web image for an object and return its local file path."""
+    obj = get_object(object_id)
+    url = obj.get("primaryImageSmall")
+    if not url:
+        raise ToolError(f"object {object_id} has no image")
+    path = OUT_DIR / f"{object_id}.jpg"
+    path.write_bytes(fetch(url, binary=True))
+    return str(path)
+
+
+@tool
+def make_contact_sheet(object_ids: list[int], filename: str = "contact_sheet.png") -&gt; str:
+    """Tile the downloaded images for these objects into one labelled PNG and return its path.
+
+    Each object must have been fetched with download_image first.
+    """
+    cell, label_h, cols = 240, 22, 4
+    paths = []
+    for oid in object_ids:
+        p = OUT_DIR / f"{oid}.jpg"
+        if not p.exists():
+            raise ToolError(f"image for object {oid} not downloaded yet; call download_image first")
+        paths.append((oid, p))
+    rows = -(-len(paths) // cols)
+    sheet = Image.new("RGB", (cols * cell, rows * (cell + label_h)), "white")
+    draw = ImageDraw.Draw(sheet)
+    for i, (oid, p) in enumerate(paths):
+        img = Image.open(p).convert("RGB")
+        img.thumbnail((cell, cell))
+        x, y = (i % cols) * cell, (i // cols) * (cell + label_h)
+        sheet.paste(img, (x + (cell - img.width) // 2, y))
+        draw.text((x + 4, y + cell + 4), f"#{oid}", fill="black")
+    out = safe_output_path(filename, ".png")
+    sheet.save(out)
+    return str(out)
+
+
+@tool
+def build_gallery(title: str, object_ids: list[int], filename: str = "exhibit.html") -&gt; str:
+    """Write a self-contained HTML gallery page for these objects (image, title, artist, date) and return its path.
+
+    Each object must have been fetched with download_image first.
+    """
+    cards = []
+    for oid in object_ids:
+        if not (OUT_DIR / f"{oid}.jpg").exists():
+            raise ToolError(f"image for object {oid} not downloaded yet; call download_image first")
+        obj = get_object(oid)
+        cards.append(
+            f'&lt;figure&gt;&lt;img src="{oid}.jpg" alt="{html.escape(obj["title"])}"&gt;'
+            f'&lt;figcaption&gt;&lt;strong&gt;{html.escape(obj["title"])}&lt;/strong&gt;&lt;br&gt;'
+            f'{html.escape(obj.get("artistDisplayName") or "Unknown artist")}, '
+            f'{html.escape(obj.get("objectDate") or "undated")}&lt;br&gt;'
+            f'&lt;a href="{html.escape(obj["objectURL"])}"&gt;View at the Met&lt;/a&gt;&lt;/figcaption&gt;&lt;/figure&gt;'
+        )
+    page = (
+        "&lt;!DOCTYPE html&gt;&lt;html lang='en'&gt;&lt;meta charset='utf-8'&gt;"
+        f"&lt;title&gt;{html.escape(title)}&lt;/title&gt;"
+        "&lt;style&gt;body{font:16px system-ui;max-width:1100px;margin:2rem auto;padding:0 1rem}"
+        ".g{display:grid;grid-template-columns:repeat(auto-fill,minmax(240px,1fr));gap:1.5rem}"
+        "img{width:100%;height:240px;object-fit:contain;background:#f4f4f4}"
+        "figcaption{font-size:14px;margin-top:.4rem}&lt;/style&gt;"
+        f"&lt;h1&gt;{html.escape(title)}&lt;/h1&gt;&lt;p&gt;Images and data: The Metropolitan Museum of Art, public domain.&lt;/p&gt;"
+        f"&lt;div class='g'&gt;{''.join(cards)}&lt;/div&gt;"
+    )
+    out = safe_output_path(filename, ".html")
+    out.write_text(page, encoding="utf-8")
+    return str(out)</code></div>
+            </li>
+            <li>Create <code class="inline">smoke.py</code>: it checks the error paths, then does the whole exhibit as one plain script. Read this one closely, because in Lab 4 the model will write something like it.
+              <div class="code-block"><code>import json
+
+import core
+import met_tools as m  # noqa: F401  (registers the tools)
+
+print("tools:", list(core.TOOLS))
+print(json.dumps(core.schema_for(m.search_collection), indent=1)[:700], "\n")
+
+# Error paths come back as readable text
+print(core.call_tool("get_object", {"object_id": 99999999}))
+print(core.call_tool("get_object", {"nope": 1}))
+print(core.call_tool("not_a_tool", {}), "\n")
+
+# The whole workflow as ONE script: this is what code mode would write.
+ids, offset = [], 0
+while offset is not None and len(ids) &lt; 300:
+    page = m.search_collection("cat", offset=offset, limit=100)
+    ids += page["object_ids"]
+    offset = page["next_offset"]
+print("search -&gt;", len(ids), "ids of", page["total"])
+
+objs = [m.get_object(i) for i in ids[:60]]
+chars = sum(len(json.dumps(o)) for o in objs)
+print(f"fetched {len(objs)} objects, {chars:,} chars, ~{chars // 4:,} tokens if the model read them all")
+
+picks = [o for o in objs if o["primaryImageSmall"] and o["isPublicDomain"]]
+picks.sort(key=lambda o: (o["department"], o["objectDate"]))
+picks = picks[:12]
+for o in picks:
+    m.download_image(o["objectID"])
+ids12 = [o["objectID"] for o in picks]
+print("sheet  -&gt;", m.make_contact_sheet(ids12))
+print("page   -&gt;", m.build_gallery("Cats in the Met", ids12))
+print("stats  -&gt;", core.stats)</code></div>
+            </li>
+            <li>Run it.
+              <div class="code-block"><code>python smoke.py</code></div>
+            </li>
+          </ol>
+          <div class="lab-check"><strong>Check:</strong> the error lines are readable sentences (for example <code class="inline">ObjectID not found</code>), the script prints about 30,000 estimated tokens for 60 records, and <code class="inline">out/contact_sheet.png</code> shows 12 labelled images. The first run takes about 30 seconds because it calls the network; run it again and it finishes in a second or two because everything comes from <code class="inline">cache/</code>.</div>
+
+          </div>
+        </div>
+
+        <div class="lab-card framework-item is-accordion" id="lab-2">
+          <button class="fw-toggle" type="button" aria-expanded="false" aria-controls="lab-2-body">
+            <span class="lab-num">LAB 2</span>
+            <div class="fw-toggle-text">
+              <h3>Loop mode: one call at a time</h3>
+              <p class="fw-teaser">Give a model the six tools and a task with checkable requirements, then log what it reads on every turn.</p>
+            </div>
+            <svg class="fw-chevron" width="18" height="18" viewBox="0 0 20 20" aria-hidden="true">
+              <path d="M5 7.5 L10 12.5 L15 7.5" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+          </button>
+          <div class="fw-body" id="lab-2-body">
+
+          <ol class="lab-steps">
+            <li>Create <code class="inline">tasks.py</code>: the one task both modes are given, and the one check both are judged by. The check reads the files the run produced, not the model's own summary.
+              <div class="code-block"><code>"""The one task both runners are given, and the one check both are judged by."""
+import re
+import shutil
+
+from core import OUT_DIR, fetch
+
+EXHIBIT_TASK = """Curate a 12-piece mini exhibit called "Cats in the Met".
+
+Requirements:
+- Every piece must be public domain and have an image.
+- Pieces must come from at least 4 different museum departments.
+- No two pieces may be the same kind of object (for example, not 12 bronze statuettes).
+- Download the image for each of the 12 pieces.
+- Make a contact sheet of the 12 pieces (filename "contact_sheet") and build the gallery page (filename "exhibit"), titled "Cats in the Met".
+When you are done, reply with one line per piece: object id, title, department."""
+
+
+def reset_outputs() -&gt; None:
+    """Clear generated files so each run starts from the same empty state (the data cache stays)."""
+    shutil.rmtree(OUT_DIR, ignore_errors=True)
+    OUT_DIR.mkdir()
+
+
+def verify() -&gt; dict:
+    """Check the exhibit against the requirements, by reading the files the run produced."""
+    page = OUT_DIR / "exhibit.html"
+    sheet = OUT_DIR / "contact_sheet.png"
+    result = {"gallery_exists": page.exists(), "sheet_exists": sheet.exists()}
+    if not page.exists():
+        return {**result, "ok": False}
+    ids = [int(i) for i in re.findall(r'src="(\d+)\.jpg"', page.read_text())]
+    base = "https://collectionapi.metmuseum.org/public/collection/v1/objects"
+    objs = [fetch(f"{base}/{i}") for i in ids]
+    result.update(
+        pieces=len(ids),
+        distinct_pieces=len(set(ids)),
+        all_public_domain=all(o["isPublicDomain"] for o in objs),
+        all_have_images=all(o["primaryImageSmall"] for o in objs),
+        departments=len({o["department"] for o in objs}),
+        distinct_object_names=len({o["objectName"] for o in objs}),
+    )
+    result["ok"] = (
+        result["pieces"] == 12 and result["distinct_pieces"] == 12
+        and result["all_public_domain"] and result["all_have_images"]
+        and result["departments"] &gt;= 4 and result["distinct_object_names"] == 12
+        and result["sheet_exists"]
+    )
+    return result</code></div>
+            </li>
+            <li>Create <code class="inline">loop_mode.py</code>. It is the Module 5 loop, with two deliberate choices: prompt caching is off so you can see what the model reads, and every turn's input tokens are recorded. Tool calls in the same response all run before the next turn, which is how one turn can hold a dozen calls.
+              <div class="code-block"><code>"""Loop mode: the model calls one tool per step and re-reads everything every turn.
+
+    python loop_mode.py [--model claude-haiku-5-5] [--max-turns 60]
+
+No prompt caching on purpose: we want to count what the model reads each turn.
+"""
+import argparse
+import json
+import time
+
+import anthropic
+
+import core
+import met_tools  # noqa: F401  (registers the tools)
+from tasks import EXHIBIT_TASK, reset_outputs, verify
+
+SYSTEM = "You are a museum curator's assistant. Use the tools to do the task. Be efficient."
+
+
+def run(task: str, model: str, max_turns: int) -&gt; dict:
+    client = anthropic.Anthropic()
+    tools = core.all_schemas()
+    messages = [{"role": "user", "content": task}]
+    turns, calls, total_in, total_out = [], 0, 0, 0
+    started = time.time()
+    final_text, stop = "", "max_turns"
+
+    for n in range(1, max_turns + 1):
+        resp = client.messages.create(
+            model=model, max_tokens=4096, system=SYSTEM, tools=tools, messages=messages,
+            thinking={"type": "disabled"},
+        )
+        total_in += resp.usage.input_tokens
+        total_out += resp.usage.output_tokens
+        uses = [b for b in resp.content if b.type == "tool_use"]
+        turns.append({"turn": n, "input_tokens": resp.usage.input_tokens,
+                      "output_tokens": resp.usage.output_tokens,
+                      "tools": [u.name for u in uses]})
+        messages.append({"role": "assistant", "content": resp.content})
+        if not uses:
+            final_text = "".join(b.text for b in resp.content if b.type == "text")
+            stop = resp.stop_reason
+            break
+        results = []
+        for u in uses:
+            calls += 1
+            results.append({"type": "tool_result", "tool_use_id": u.id,
+                            "content": core.call_tool(u.name, u.input)})
+        messages.append({"role": "user", "content": results})
+
+    return {
+        "mode": "loop", "model": model, "stop": stop, "model_turns": len(turns),
+        "tool_calls": calls, "input_tokens": total_in, "output_tokens": total_out,
+        "tokens_read": total_in, "seconds": round(time.time() - started, 1),
+        "per_turn": turns, "final_text": final_text,
+    }
+
+
+if __name__ == "__main__":
+    ap = argparse.ArgumentParser()
+    ap.add_argument("--model", default="claude-haiku-5-5")
+    ap.add_argument("--max-turns", type=int, default=60)
+    ap.add_argument("--tag", default="loop")
+    args = ap.parse_args()
+
+    reset_outputs()
+    out = run(EXHIBIT_TASK, args.model, args.max_turns)
+    out["verify"] = verify()
+    results = core.ROOT / "results"
+    results.mkdir(exist_ok=True)
+    (results / f"result_{args.tag}.json").write_text(json.dumps(out, indent=2))
+    summary = {k: v for k, v in out.items() if k not in ("per_turn", "final_text")}
+    print(json.dumps(summary, indent=2))
+    print("\nFINAL:\n" + out["final_text"])</code></div>
+            </li>
+            <li>Run it. This makes real API calls and spends real money. At this size it is small, but look at your provider's usage page after the first run.
+              <div class="code-block"><code>python loop_mode.py --tag loop_run1</code></div>
+            </li>
+          </ol>
+          <div class="lab-check"><strong>Check:</strong> expect roughly nine or ten model turns, 50 or more tool calls, and input tokens in the low hundreds of thousands. Compare calls to turns: that gap is the model batching. The check will probably report <code class="inline">ok: false</code> because fewer than twelve distinct kinds of object made it into the exhibit. If your run passes, that is fine; run it twice more before drawing a conclusion.</div>
+
+          </div>
+        </div>
+
+        <div class="lab-card framework-item is-accordion" id="lab-3">
+          <button class="fw-toggle" type="button" aria-expanded="false" aria-controls="lab-3-body">
+            <span class="lab-num">LAB 3</span>
+            <div class="fw-toggle-text">
+              <h3>The sandbox with the network on</h3>
+              <p class="fw-teaser">Build the locked-down container, then probe it to see what it allows and what it blocks.</p>
+            </div>
+            <svg class="fw-chevron" width="18" height="18" viewBox="0 0 20 20" aria-hidden="true">
+              <path d="M5 7.5 L10 12.5 L15 7.5" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+          </button>
+          <div class="fw-body" id="lab-3-body">
+
+          <ol class="lab-steps">
+            <li>Create <code class="inline">Dockerfile</code>. It installs two libraries and creates a non-root user. There are no secrets in it.
+              <div class="code-block"><code># Network-ON sandbox for model-written code that calls free public APIs.
+# Contains no secrets. Compare with Lab 10's sandbox, which runs with --network none.
+FROM python:3.12-slim
+RUN pip install --no-cache-dir requests==2.32.3 pillow==10.4.0 \
+ &amp;&amp; useradd --uid 1000 --create-home runner
+USER runner
+WORKDIR /app</code></div>
+            </li>
+            <li>Create <code class="inline">sandbox.py</code>. The script arrives on stdin and is never written to disk. Read the <code class="inline">docker run</code> flags one at a time; each one removes something the script does not need. The timeout is enforced here, outside the container.
+              <div class="code-block"><code>"""Run a model-written Python script in a locked-down container that HAS network access.
+
+Lab 10's sandbox uses --network none because it runs code that should never reach out.
+Here the tools must call a public API, so the network stays on and the protection comes
+from what the box does NOT contain: no secrets, no home directory, no write access outside
+one data folder, and hard limits enforced from outside the container.
+"""
+import subprocess
+import uuid
+
+import core
+
+IMAGE = "toolscale-sandbox"
+TIMEOUT_SECONDS = 120
+MAX_OUTPUT_CHARS = 6000
+
+
+def build_image() -&gt; None:
+    subprocess.run(["docker", "build", "-t", IMAGE, str(core.ROOT)], check=True)
+
+
+def run_script(code: str) -&gt; str:
+    """Execute `code` (sent on stdin, never written to disk) and return its combined output."""
+    name = f"toollab-{uuid.uuid4().hex[:8]}"
+    cmd = [
+        "docker", "run", "--rm", "-i", "--name", name,
+        "--read-only", "--tmpfs", "/tmp:size=64m",       # nothing writable except /tmp and /data
+        "--cap-drop", "ALL", "--security-opt", "no-new-privileges",
+        "--pids-limit", "128", "--memory", "512m", "--cpus", "1",
+        "-v", f"{core.ROOT}:/app:ro",                     # the tools, read-only
+        "-v", f"{core.DATA_DIR}/cache:/data/cache",       # shared API cache
+        "-v", f"{core.DATA_DIR}/out:/data/out",           # where results land
+        "-e", "TOOLSCALE_DATA=/data",                       # the ONLY environment variable passed in
+        IMAGE, "python", "-I", "-c", "import sys; sys.path.insert(0, '/app'); exec(sys.stdin.read())",
+    ]
+    try:
+        proc = subprocess.run(cmd, input=code, capture_output=True, text=True, timeout=TIMEOUT_SECONDS)
+    except subprocess.TimeoutExpired:
+        # The timeout is enforced out here: code inside the box cannot disable it.
+        subprocess.run(["docker", "rm", "-f", name], capture_output=True)
+        return f"ERROR: script exceeded {TIMEOUT_SECONDS}s and was killed."
+    out = (proc.stdout + proc.stderr).strip() or "(no output)"
+    if proc.returncode != 0:
+        out = f"EXIT CODE {proc.returncode}\n{out}"
+    return out[-MAX_OUTPUT_CHARS:]</code></div>
+            </li>
+            <li>Create <code class="inline">probe.py</code>: eight scripts that each try one thing. Build the image and run them.
+              <div class="code-block"><code>"""Eight probes that show what the network-on sandbox does and does not allow."""
+import sandbox
+
+PROBES = {
+    "network works (public API)": "import urllib.request;print(urllib.request.urlopen('https://collectionapi.metmuseum.org/public/collection/v1/departments', timeout=10).status)",
+    "tools import and make a real call": "from met_tools import *\nprint(get_object(45734)['title'])",
+    "write to /app (should FAIL)": "open('/app/x', 'w').write('hi')",
+    "write to /data/out (should work)": "open('/data/out/probe.txt', 'w').write('ok');print('wrote')",
+    "see your home folder (should FAIL)": "import os;print(os.listdir('/Users'))",
+    "environment variables": "import os;print(sorted(os.environ))",
+    "who am I": "import os;print('uid', os.getuid())",
+    "infinite loop (should be killed)": "while True: pass",
+}
+
+sandbox.TIMEOUT_SECONDS = 8  # keep the last probe short
+for name, code in PROBES.items():
+    print(f"\n## {name}\n" + sandbox.run_script(code).splitlines()[-1][:200])</code></div>
+            </li>
+            <li>
+              <div class="code-block"><code>python -c "import sandbox; sandbox.build_image()"
+python probe.py</code></div>
+            </li>
+          </ol>
+          <div class="lab-check"><strong>Check:</strong> the network probe prints 200 and the tools import and make a real call. Writing to <code class="inline">/app</code> fails with a read-only error, writing to <code class="inline">/data/out</code> works, <code class="inline">/Users</code> does not exist, and you are user 1000. The environment lists image defaults plus one variable, and none of your API keys. The infinite loop is killed after 8 seconds. If you use Colima on a Mac, start it with the lab folder mounted writable, for example <code class="inline">colima start --mount /path/to/your/lab:w</code>; Docker Desktop shares your user folder by default. This was verified on macOS with Colima. Docker on Linux should behave the same, but bind-mount file ownership can differ.</div>
+
+          </div>
+        </div>
+
+        <div class="lab-card framework-item is-accordion" id="lab-4">
+          <button class="fw-toggle" type="button" aria-expanded="false" aria-controls="lab-4-body">
+            <span class="lab-num">LAB 4</span>
+            <div class="fw-toggle-text">
+              <h3>Code mode: one script</h3>
+              <p class="fw-teaser">Let the model write the script, run it in the sandbox, and measure the same task three times.</p>
+            </div>
+            <svg class="fw-chevron" width="18" height="18" viewBox="0 0 20 20" aria-hidden="true">
+              <path d="M5 7.5 L10 12.5 L15 7.5" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+          </button>
+          <div class="fw-body" id="lab-4-body">
+
+          <ol class="lab-steps">
+            <li>Create <code class="inline">code_mode.py</code>. The system prompt is generated from the same docstrings the loop version sent as JSON schemas, so both modes see identical contracts. The model gets one tool, <code class="inline">run_python</code>, and a script that raises an error comes back to it as text so it can fix and rerun.
+              <div class="code-block"><code>"""Code mode: the model writes one script that calls the same tools as Python functions.
+
+    python code_mode.py [--model claude-haiku-5-5] [--max-turns 8]
+
+The intermediate data (hundreds of object records) stays inside the sandbox. Only what the
+script prints comes back to the model.
+"""
+import argparse
+import inspect
+import json
+import time
+
+import anthropic
+
+import core
+import met_tools  # noqa: F401  (registers the tools)
+import sandbox
+from tasks import EXHIBIT_TASK, reset_outputs, verify
+
+
+def api_docs() -&gt; str:
+    """The same contract the loop version sent as JSON schemas, written as a Python API."""
+    parts = []
+    for fn in core.TOOLS.values():
+        parts.append(f"def {fn.__name__}{inspect.signature(fn)}:\n    \"\"\"{inspect.getdoc(fn)}\"\"\"")
+    return "\n\n".join(parts)
+
+
+SYSTEM = f"""You are a museum curator's assistant. You complete tasks by writing ONE Python script and running it with the run_python tool.
+
+Import the tools like this:  from met_tools import *   (everything below is then available)
+
+{api_docs()}
+
+Rules:
+- The script runs in a sandbox. Tool functions return plain Python data (dicts and lists).
+- Do the whole task in a single script: loop, filter and check requirements in code. Do not print raw records; print only short summaries and the final answer.
+- If a tool raises an error, the traceback comes back to you. Fix the script and run it again.
+- ToolError means a tool refused the request; read its message.
+"""
+
+RUN_PYTHON = {
+    "name": "run_python",
+    "description": "Run a Python script in the sandbox and return everything it printed.",
+    "input_schema": {"type": "object",
+                     "properties": {"code": {"type": "string", "description": "The full script."}},
+                     "required": ["code"]},
+}
+
+
+def run(task: str, model: str, max_turns: int) -&gt; dict:
+    client = anthropic.Anthropic()
+    messages = [{"role": "user", "content": task}]
+    turns, scripts, total_in, total_out = [], 0, 0, 0
+    started = time.time()
+    final_text, stop = "", "max_turns"
+
+    for n in range(1, max_turns + 1):
+        resp = client.messages.create(
+            model=model, max_tokens=8000, system=SYSTEM, tools=[RUN_PYTHON], messages=messages,
+            thinking={"type": "disabled"},
+        )
+        total_in += resp.usage.input_tokens
+        total_out += resp.usage.output_tokens
+        uses = [b for b in resp.content if b.type == "tool_use"]
+        turns.append({"turn": n, "input_tokens": resp.usage.input_tokens,
+                      "output_tokens": resp.usage.output_tokens, "scripts": len(uses)})
+        messages.append({"role": "assistant", "content": resp.content})
+        if not uses:
+            final_text = "".join(b.text for b in resp.content if b.type == "text")
+            stop = resp.stop_reason
+            break
+        results = []
+        for u in uses:
+            scripts += 1
+            results.append({"type": "tool_result", "tool_use_id": u.id,
+                            "content": sandbox.run_script(u.input["code"])})
+        messages.append({"role": "user", "content": results})
+
+    return {
+        "mode": "code", "model": model, "stop": stop, "model_turns": len(turns),
+        "scripts_run": scripts, "input_tokens": total_in, "output_tokens": total_out,
+        "tokens_read": total_in, "seconds": round(time.time() - started, 1),
+        "per_turn": turns, "final_text": final_text,
+    }
+
+
+if __name__ == "__main__":
+    ap = argparse.ArgumentParser()
+    ap.add_argument("--model", default="claude-haiku-5-5")
+    ap.add_argument("--max-turns", type=int, default=8)
+    ap.add_argument("--tag", default="code")
+    ap.add_argument("--build", action="store_true", help="build the sandbox image first")
+    args = ap.parse_args()
+
+    if args.build:
+        sandbox.build_image()
+    reset_outputs()
+    out = run(EXHIBIT_TASK, args.model, args.max_turns)
+    out["verify"] = verify()
+    results = core.ROOT / "results"
+    results.mkdir(exist_ok=True)
+    (results / f"result_{args.tag}.json").write_text(json.dumps(out, indent=2))
+    print(json.dumps({k: v for k, v in out.items() if k not in ("per_turn", "final_text")}, indent=2))
+    print("\nFINAL:\n" + out["final_text"])</code></div>
+            </li>
+            <li>Run it three times. Then run the loop three times if you have not already, so you have three of each.
+              <div class="code-block"><code>python code_mode.py --tag code_run1
+python code_mode.py --tag code_run2
+python code_mode.py --tag code_run3</code></div>
+            </li>
+            <li>Create <code class="inline">report.py</code> and run it. It compares every saved run, including the input tokens on each turn.
+              <div class="code-block"><code>"""Print a comparison of every saved run: python report.py"""
+import json
+import statistics
+from pathlib import Path
+
+runs = []
+for path in sorted(Path(__file__).parent.glob("results/result_*.json")):
+    r = json.loads(path.read_text())
+    r["name"] = path.stem.removeprefix("result_")
+    runs.append(r)
+
+print(f"{'run':12}{'mode':6}{'turns':&gt;6}{'calls':&gt;7}{'input tokens':&gt;14}{'passed':&gt;8}")
+for r in runs:
+    calls = r.get("tool_calls", r.get("scripts_run"))
+    print(f"{r['name']:12}{r['mode']:6}{r['model_turns']:&gt;6}{calls:&gt;7}{r['input_tokens']:&gt;14,}{str(r['verify']['ok']):&gt;8}")
+
+print()
+for mode in ("loop", "code"):
+    tokens = [r["input_tokens"] for r in runs if r["mode"] == mode]
+    if tokens:
+        print(f"{mode}: median {int(statistics.median(tokens)):,} input tokens "
+              f"(range {min(tokens):,} to {max(tokens):,}, {len(tokens)} runs)")
+
+print("\ninput tokens on each turn (the model re-reads everything so far):")
+for r in runs:
+    print(f"{r['name']:12}" + " ".join(f"{t['input_tokens']:&gt;7,}" for t in r["per_turn"]))</code></div>
+            </li>
+            <li>
+              <div class="code-block"><code>python report.py</code></div>
+            </li>
+          </ol>
+          <div class="lab-check"><strong>Check:</strong> the code runs read far fewer input tokens than the loop runs, and the per-turn lines show why: the loop's numbers climb turn after turn, while the code run stays low. Expect the code runs to differ from each other, and for at least one to need more than one script. Expect the check to pass for code mode. If a code run is slower on the clock than a loop run, that is real: container start-up and retries count.</div>
+
+          </div>
+        </div>
+
+        <div class="lab-card framework-item is-accordion" id="lab-5">
+          <button class="fw-toggle" type="button" aria-expanded="false" aria-controls="lab-5-body">
+            <span class="lab-num">LAB 5</span>
+            <div class="fw-toggle-text">
+              <h3>Read a failure</h3>
+              <p class="fw-teaser">Break the search tool on purpose and see why a tool that fails loudly beats one that fails quietly.</p>
+            </div>
+            <svg class="fw-chevron" width="18" height="18" viewBox="0 0 20 20" aria-hidden="true">
+              <path d="M5 7.5 L10 12.5 L15 7.5" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+          </button>
+          <div class="fw-body" id="lab-5-body">
+
+          <ol class="lab-steps">
+            <li>Call the old, retired search URL through your own <code class="inline">fetch</code> and read what comes back.
+              <div class="code-block"><code>python -c "import core, met_tools as m
+try:
+    core.fetch(m.BASE + '/v1/search', {'q': 'cat'})
+except core.ToolError as e:
+    print(e)"</code></div>
+            </li>
+            <li>Now imagine <code class="inline">fetch</code> had caught that error and returned an empty dict, and <code class="inline">search_collection</code> had carried on. Write down, in two or three sentences, what the loop version would have done next, and what the code version would have printed. Which of the two would have told you something was wrong?</li>
+          </ol>
+          <div class="lab-check"><strong>Check:</strong> at the time of writing the API answers HTTP 410 and says the endpoint was retired on 2026-10-01 and names <code class="inline">/v1.1/search</code> as the replacement. If the Met has changed this again, you will see whatever it says now, which is the point: the error text is the only documentation you get at that moment.</div>
+
+          </div>
+        </div>
+
+      </div>
+      <div class="insight-aside" style="margin-top: 18px;">
+        <svg width="26" height="26" viewBox="0 0 26 26" aria-hidden="true">
+          <circle cx="13" cy="13" r="10" fill="none" stroke="var(--border)" stroke-width="2"/>
+          <path d="M13 7 L13 14" stroke="var(--accent-strong)" stroke-width="2.4" stroke-linecap="round"/>
+          <circle cx="13" cy="18.5" r="1.6" fill="var(--accent-strong)"/>
+        </svg>
+        <div class="insight-aside-body">
+          <span class="insight-aside-label">Watch-out</span>
+          <p>These labs make real model calls and real requests to a public museum's servers. The cache folder means reruns are free and gentle, so delete <code class="inline">cache/</code> only when you want fresh data. Keep the honest User-Agent in <code class="inline">core.py</code>: if an API ever blocks you, do not disguise your client to get around it. Read the error, slow down, or pick another API.</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="lesson-section" id="lesson-project">
+      <h2>Project</h2>
+
+      <div class="lab-card framework-item is-accordion" id="project-card">
+        <button class="fw-toggle" type="button" aria-expanded="false" aria-controls="project-card-body">
+          <span class="lab-num">PROJECT</span>
+          <div class="fw-toggle-text">
+            <h3>Bring your own example</h3>
+            <p class="fw-teaser">Use a model to find a new task with the same shape, build its tools on the same core, and measure both modes.</p>
+          </div>
+          <svg class="fw-chevron" width="18" height="18" viewBox="0 0 20 20" aria-hidden="true">
+            <path d="M5 7.5 L10 12.5 L15 7.5" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+        </button>
+        <div class="fw-body" id="project-card-body">
+      <div class="course-project">
+        <span class="course-project-label">Project &middot; Bring your own example</span>
+        <p>The museum curator is one example of a shape: a free API, a fan-out of calls, big records you mostly do not need, a requirement a script can check exactly, and something fun to open at the end. A Pokemon team builder is another. This project has you find a third and prove the lesson holds on it.</p>
+      </div>
+
+      <ol class="lab-steps" style="margin-top: 14px;">
+        <li>Paste this prompt into any capable model. It asks for five ideas, recommends one, and tells you how to test each API before you build anything.
+          <div class="code-block"><code>I'm building a hands-on lesson that compares two ways of letting an AI model call tools: one tool call per step, versus the model writing one script that calls the tools as Python functions. I need a new example task to teach it with.
+
+A good example has ALL of these:
+1. It uses a free public web API that needs no account or API key. Name the exact base URL and the 2 to 4 endpoints involved.
+2. It needs at least 10 tool calls to finish, including a fan-out: one search returns many ids, and each id needs its own detail call.
+3. Each detail call returns a large JSON record (a couple of KB or more), most of which the task does not need.
+4. It has a checkable requirement that a script can verify exactly, such as "no two items of the same type", "total cost under a budget", or "at least 4 different categories". State the check in one line of code.
+5. It ends in something a person would enjoy opening: an image grid, a web page, a printable card, a playlist.
+6. It is safe: read-only calls, nothing that posts, buys or messages anyone.
+7. All 5 ideas must differ from each other and from the two reference examples in subject and in API. Give exactly one API per idea, with plain GET requests: no "alternatively", no POST, no key.
+
+Two reference examples of the right shape:
+- A museum exhibit curator: search a museum's open collection, fetch each object, keep only public-domain pieces from at least 4 departments with no two of the same kind, then build a gallery page.
+- A Pokemon team builder: fetch many creature records, then pick six whose type weaknesses do not overlap.
+
+Give me 5 NEW ideas in a table with these columns: name, the API and endpoints, the task in one sentence, the checkable requirement, the final artifact, and why the data is large. Then recommend one.
+
+For the one you recommend, also give me:
+- the 5 to 7 tool functions as Python signatures with one-line docstrings,
+- the full task prompt I would give the model, with the checkable requirements spelled out,
+- the verify() rules.
+
+Be honest about what you cannot know: you cannot check whether an API is still online or still free today. For each API, give me a one-line curl command I can run to test it before I build anything, and tell me what a healthy response looks like.</code></div>
+        </li>
+        <li>Run the <code class="inline">curl</code> test it gives you for the API you pick. Free APIs disappear, move behind a key, or change shape, and the model cannot check which today. If the test fails, pick another idea; that is a normal outcome and a cheap one.</li>
+        <li>Write <code class="inline">your_tools.py</code> beside <code class="inline">met_tools.py</code>. It imports <code class="inline">fetch</code>, <code class="inline">tool</code> and <code class="inline">ToolError</code> from <code class="inline">core.py</code> and changes nothing in it. Write the docstrings for the model.</li>
+        <li>Write your own task prompt and <code class="inline">verify()</code> in a copy of <code class="inline">tasks.py</code>, from the requirements the model proposed. Make at least one requirement the loop is likely to get slightly wrong, such as a count of distinct values.</li>
+        <li>Run loop mode three times and code mode three times. Save the results and run <code class="inline">report.py</code>.</li>
+        <li>Write five lines: your medians for both modes, whether each passed the check, one thing that surprised you, and when you would choose each mode for a real product.</li>
+      </ol>
+
+      <p style="margin-top: 14px; font-size: .9rem;"><strong>Done when:</strong></p>
+      <ul class="lesson-checklist">
+        <li>Your tools reuse <code class="inline">core.py</code> without edits to it.</li>
+        <li>You tested the API with <code class="inline">curl</code> before building on it.</li>
+        <li>Both modes were run three times on the same task, and the check decides pass or fail, not the model's own summary.</li>
+        <li>Your five lines say what you measured and where it might not generalize, in your own words.</li>
+      </ul>
+        </div>
+      </div>
+    </section>
+
+
+    <section class="lesson-section" id="lesson-sources">
+      <h2>Sources</h2>
+      <ul class="explainer-list is-bulleted" style="font-size: .85rem; max-width: 640px;">
+        <li>Anthropic Engineering (2025). <a href="https://www.anthropic.com/engineering/code-execution-with-mcp" target="_blank" rel="noopener"><em>Code execution with MCP</em></a>. Published 4 November 2025. The 150,000 to 2,000 token example, progressive disclosure of tools, filtering in code, and the sandboxing costs. It also notes that Cloudflare describes a similar approach as "Code Mode".</li>
+        <li>The Metropolitan Museum of Art. <a href="https://metmuseum.github.io/" target="_blank" rel="noopener">Collection API documentation</a>. Images and data used here are the museum's public-domain open-access records.</li>
+        <li>All token counts, turn counts and pass results in this lesson come from six runs made while writing it (three per mode, Claude Haiku 5.5, prompt caching off, one task). They are measurements of this task, not benchmarks.</li>
+      </ul>
+    </section>
+
+    <div class="lesson-foot">
+      <a href="ai-beyond-fundamentals.html#tool-calling-at-scale">&larr; Back to the course map</a>
+    </div>
+  </article>
+</main>
+
+<div id="site-footer"></div>
+
+<script src="js/site-chrome.js" defer></script>
+<script src="js/theme-toggle.js" defer></script>
+<script src="js/try-it.js" defer></script>
+<script src="js/framework-accordion.js" defer></script>
+<script src="js/code-copy.js" defer></script>
+</body>
+</html>

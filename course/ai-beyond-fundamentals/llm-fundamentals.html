@@ -271,7 +271,7 @@ source .venv/bin/activate</code></div>
 
         <div class="lesson-concept">
           <h3>Picking a model: quality, speed, cost &mdash; pick two</h3>
-          <p>There's no universally "best" model, only a triangle you're trading off inside: bigger and smarter models cost more and respond slower; smaller "lite" or "mini" variants are cheaper and faster but weaker on hard tasks. The practical move (and the subject of Module 6's router lab) is routing easy requests to a cheap model and reserving the expensive one for requests that actually need it.</p>
+          <p>There's no universally "best" model, only a triangle you're trading off inside: bigger and smarter models cost more and respond slower; smaller "lite" or "mini" variants are cheaper and faster but weaker on hard tasks. The practical move (and the subject of Module 7's router lab) is routing easy requests to a cheap model and reserving the expensive one for requests that actually need it.</p>
           <p>That tradeoff isn't hypothetical here: both Module 0 and this module use <code class="inline">gemini-flash-lite-latest</code> rather than <code class="inline">gemini-flash-latest</code>, specifically because the lite variant answered reliably and fast under real testing (under a second for a short reply), while the larger flash models were overloaded and timed out with <code class="inline">503</code> and <code class="inline">504</code> errors. Cheaper and faster isn't always a downgrade &mdash; sometimes it's just the better fit for what you're doing.</p>
         </div>
 
